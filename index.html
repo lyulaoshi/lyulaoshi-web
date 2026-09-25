@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Lyu Laoshi Chinese Box · 吕老师汉语盒 — bài giảng tiếng Trung tương tác của ThS. Lã Thị Thuỳ Phương: học phần, phát âm, chữ Hán, từ vựng, luyện đọc.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E %3Cpath d=%22M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z%22 fill=%22%23E0545F%22/%3E %3Crect x=%2278%22 y=%2238%22 width=%2244%22 height=%2230%22 rx=%228%22 fill=%22%23FFFFFF%22/%3E %3Crect x=%2234%22 y=%22122%22 width=%22132%22 height=%2264%22 rx=%2214%22 fill=%22%233B87D6%22/%3E %3Cpath d=%22M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z%22 fill=%22%232C6DB3%22/%3E %3Crect x=%22112%22 y=%22110%22 width=%2218%22 height=%2220%22 rx=%222%22 fill=%22%23D9B98C%22/%3E %3Crect x=%2260%22 y=%22142%22 width=%2280%22 height=%2230%22 rx=%228%22 fill=%22%23FFFFFF%22/%3E %3C/svg%3E">
+<title>吕老师汉语盒 Chinese Box</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<style>
+:root{
+  --ground:#F7F5FB; --ground2:#EFEBF7; --ink:#2B2E45; --muted:#6B6E86; --faint:#A3A5B8; --line:#E3DFEE;
+  --card:#FFFFFF; --kraft:#D9B98C; --kraft-d:#B8925F; --tape:rgba(217,185,140,.72);
+  --coral:#E0545F; --coral-s:#FDE6E7; --sky:#3B87D6; --sky-s:#E3EFFB; --mint:#2E9E73; --mint-s:#DDF3EA;
+  --lav:#7C6BD6; --lav-s:#ECE8FB; --peach:#E7823A; --peach-s:#FDEBDD; --butter:#C99A14; --butter-s:#FBF1CF;
+  --shadow:0 1px 0 rgba(43,46,69,.04),0 10px 28px rgba(43,46,69,.08);
+  --hz:"ZCOOL KuaiLe","STKaiti","KaiTi","Kaiti SC","PingFang SC",sans-serif;
+  --kai:"STKaiti","KaiTi","Kaiti SC","LXGW WenKai","PingFang SC",serif;
+  --vi:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
+  --kraft:#C9A677;--kraft-d:#A7824F;--tape:rgba(201,166,119,.55);
+  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;
+  --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{
+  color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
+  --kraft:#C9A677;--kraft-d:#A7824F;--tape:rgba(201,166,119,.55);
+  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;
+  --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--vi);font-size:16px;line-height:1.6;padding-inline:16px;
+  background-image:radial-gradient(circle at 12% 8%,var(--coral-s) 0,transparent 32%),radial-gradient(circle at 92% 18%,var(--sky-s) 0,transparent 30%)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto}
+h1,h2,h3{text-wrap:balance;margin:0}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:8px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;margin-inline:-16px;padding:10px 16px;background:color-mix(in srgb,var(--ground) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .t{display:grid;line-height:1.1}
+.brand .t b{font-weight:800;font-size:15px;letter-spacing:.01em}
+.brand .t span{font-family:var(--hz);font-size:15px;color:var(--coral)}
+nav.menu{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+nav.menu a{text-decoration:none;font-weight:600;font-size:14px;padding:7px 12px;border-radius:999px;color:var(--muted)}
+nav.menu a:hover{background:var(--ground2);color:var(--ink)}
+nav.menu a.cta{background:var(--coral);color:#fff}
+.themebtn{border:0;background:var(--ground2);color:var(--ink);width:36px;height:36px;border-radius:999px;font-size:16px;cursor:pointer}
+nav.menu{align-items:center;flex-wrap:nowrap}
+nav.menu a.cta{white-space:nowrap}
+.themebtn{flex:none}
+@media (max-width:560px){.top .wrap{gap:10px}.brand .t b{font-size:12.5px}.brand .t span{font-size:13px}nav.menu a.cta{padding:6px 11px;font-size:13px}.themebtn{width:32px;height:32px;font-size:14px}.logo{width:36px;height:36px}}
+@media (max-width:360px){.brand .t b{display:none}}
+@media (max-width:760px){nav.menu a:not(.cta){display:none}}
+
+/* logo */
+.logo{width:42px;height:42px;flex:none}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:32px;align-items:center;padding-block:48px 36px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--kraft-d)}
+.eyebrow::before{content:"";width:26px;height:10px;background:var(--tape);border-radius:2px;transform:rotate(-4deg)}
+.hero h1{font-size:clamp(38px,5.4vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.02em;margin-top:14px}
+.hero h1 .zh{display:block;font-family:var(--hz);font-weight:400;letter-spacing:.02em;font-size:.92em;margin-top:8px}
+.hero h1 .zh i{font-style:normal;color:var(--coral)} .hero h1 .zh u{text-decoration:none;color:var(--sky)}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:34em;margin:18px 0 0}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 15px var(--vi);padding:12px 20px;border-radius:14px;text-decoration:none;border:0;cursor:pointer}
+.btn.pri{background:var(--ink);color:var(--ground)} .btn.sec{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+.stats{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px;font-size:13px;color:var(--muted)}
+.stats b{display:block;font-size:26px;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+
+/* hero art: 吕 = hai hộp */
+.art{position:relative;justify-self:center;width:min(420px,100%);aspect-ratio:1/1.02}
+.art svg{width:100%;height:100%;overflow:visible}
+.pop{position:absolute;font-family:var(--hz);font-size:clamp(18px,2.4vw,28px);padding:4px 12px;border-radius:12px;background:var(--card);box-shadow:var(--shadow);white-space:nowrap}
+.pop.a{left:8%;top:6%;color:var(--coral);transform:rotate(-8deg)} .pop.b{right:4%;top:2%;color:var(--sky);transform:rotate(7deg)}
+.pop.c{left:0;top:30%;color:var(--mint);font-family:var(--vi);font-weight:700;font-size:18px;transform:rotate(-4deg)} .pop.d{right:-2%;top:26%;color:var(--lav);font-family:var(--vi);font-weight:700;font-size:18px;transform:rotate(5deg)}
+@media (prefers-reduced-motion:no-preference){
+  .pop{animation:float 5s ease-in-out infinite}.pop.b{animation-delay:.8s}.pop.c{animation-delay:1.6s}.pop.d{animation-delay:2.4s}
+  .art svg{animation:bob 5s ease-in-out infinite}
+}
+@keyframes float{50%{translate:0 -8px}}
+@keyframes bob{50%{translate:0 -6px}}
+
+/* section heads */
+.sh{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:40px 0 18px}
+.sh h2{font-size:clamp(26px,3vw,36px);font-weight:800;letter-spacing:-.01em}
+.sh h2 small{font-family:var(--hz);font-weight:400;color:var(--coral);font-size:.8em;margin-left:8px}
+.sh p{margin:0;color:var(--muted);max-width:40em}
+
+/* shelf of boxes */
+.shelf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 22px;padding:26px 0 10px}
+@media (max-width:960px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.shelf{grid-template-columns:1fr;gap:26px}}
+.box{--c:var(--coral);--cs:var(--coral-s);position:relative;display:block;text-decoration:none;color:var(--ink);padding-top:22px;outline:none}
+.box .lid{position:absolute;left:-6px;right:-6px;top:0;height:30px;border-radius:12px 12px 6px 6px;background:var(--c);box-shadow:0 4px 0 rgba(0,0,0,.08);transition:transform .35s cubic-bezier(.3,1.4,.5,1);transform-origin:18% 100%;z-index:3}
+.box .lid::after{content:"";position:absolute;left:50%;top:-2px;width:54px;height:34px;margin-left:-27px;background:var(--tape);border-radius:2px}
+.box .peek{position:absolute;left:0;right:0;top:20px;display:flex;justify-content:center;gap:8px;z-index:2;pointer-events:none}
+.box .peek span{font-family:var(--hz);font-size:22px;background:var(--card);color:var(--c);border-radius:10px;padding:2px 10px;box-shadow:var(--shadow);opacity:0;transform:translateY(16px);transition:.35s cubic-bezier(.3,1.4,.5,1)}
+.box .peek span:nth-child(2){transition-delay:.05s}.box .peek span:nth-child(3){transition-delay:.1s}
+.box .face{position:relative;z-index:1;background:var(--card);border-radius:8px 8px 22px 22px;padding:26px 22px 20px;box-shadow:var(--shadow);border-top:6px solid var(--c);min-height:100%;display:grid;gap:10px;align-content:start}
+.box .face::before{content:"";position:absolute;inset:6px 6px auto auto;width:0;height:0}
+.box .zh{font-family:var(--hz);font-size:34px;line-height:1;color:var(--c)}
+.box .zh small{font-family:var(--vi);font-size:12px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;font-weight:700;margin-left:6px;vertical-align:middle}
+.box h3{font-size:19px;font-weight:800}
+.box p{margin:0;color:var(--muted);font-size:14.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--cs);color:var(--c)}
+.label{position:absolute;right:16px;bottom:16px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:6px}
+.label.open{background:var(--c);color:#fff}
+.label.soon{background:var(--ground2);color:var(--muted);border:1.5px dashed var(--faint)}
+.box .face{padding-bottom:48px}
+.box:hover .lid,.box:focus-visible .lid,.box.is-open .lid{transform:translateY(-16px) rotate(-8deg)}
+.box:hover .peek span,.box:focus-visible .peek span,.box.is-open .peek span{opacity:1;transform:translateY(-26px)}
+.box:focus-visible .face{outline:3px solid var(--c);outline-offset:3px}
+.box.c-sky{--c:var(--sky);--cs:var(--sky-s)} .box.c-mint{--c:var(--mint);--cs:var(--mint-s)} .box.c-lav{--c:var(--lav);--cs:var(--lav-s)}
+.box.c-peach{--c:var(--peach);--cs:var(--peach-s)} .box.c-butter{--c:var(--butter);--cs:var(--butter-s)} .box.c-kraft{--c:var(--kraft-d);--cs:color-mix(in srgb,var(--kraft) 22%,var(--card))}
+@media (prefers-reduced-motion:reduce){.box .lid,.box .peek span{transition:none}}
+
+/* course crate */
+.crate{background:var(--card);border-radius:28px;box-shadow:var(--shadow);padding:24px;border:2px solid color-mix(in srgb,var(--kraft) 40%,transparent);position:relative}
+.crate::before,.crate::after{content:"";position:absolute;top:-10px;width:80px;height:22px;background:var(--tape);border-radius:2px}
+.crate::before{left:40px;transform:rotate(-3deg)} .crate::after{right:40px;transform:rotate(3deg)}
+.courses{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+@media (max-width:1000px){.courses{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.courses{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:400px){.courses{grid-template-columns:1fr}}
+.course{--c:var(--coral);--cs:var(--coral-s);display:grid;gap:6px;align-content:start;padding:16px;border-radius:18px;background:var(--cs);text-decoration:none;color:var(--ink);border:1.5px solid transparent;transition:transform .2s,border-color .2s}
+.course:hover{transform:translateY(-3px);border-color:var(--c)}
+.course .tag{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.course .n{font-family:var(--kai);font-size:22px;line-height:1.2}
+.course .v{font-weight:700;font-size:14.5px}
+.course .meta{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted);margin-top:6px}
+.dots{display:flex;gap:4px}
+.dots i{width:12px;height:12px;border-radius:3px;background:color-mix(in srgb,var(--c) 22%,transparent)}
+.dots i.on{background:var(--c)}
+.course.c-sky{--c:var(--sky);--cs:var(--sky-s)} .course.c-mint{--c:var(--mint);--cs:var(--mint-s)} .course.c-lav{--c:var(--lav);--cs:var(--lav-s)} .course.c-peach{--c:var(--peach);--cs:var(--peach-s)}
+
+/* new lessons */
+.news{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:720px){.news{grid-template-columns:1fr}}
+.nl{display:flex;gap:14px;align-items:center;padding:14px;border-radius:18px;background:var(--card);box-shadow:var(--shadow);text-decoration:none}
+.nl .ic{flex:none;width:58px;height:58px;border-radius:14px;display:grid;place-items:center;font-family:var(--hz);font-size:26px;background:var(--coral-s);color:var(--coral)}
+.nl.sky .ic{background:var(--sky-s);color:var(--sky)}
+.nl b{display:block;font-size:15.5px}
+.nl span{font-size:13.5px;color:var(--muted)}
+.nl .go{margin-left:auto;font-weight:700;color:var(--coral);white-space:nowrap}
+
+/* teacher strip */
+.teacher{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center;margin:44px 0 24px;padding:22px;border-radius:24px;background:var(--ground2)}
+@media (max-width:720px){.teacher{grid-template-columns:1fr;text-align:left}}
+.seal{width:76px;height:76px;border-radius:12px;background:var(--coral);color:#fff;display:grid;place-items:center;font-family:var(--kai);font-size:44px;box-shadow:inset 0 0 0 4px var(--coral),inset 0 0 0 6px rgba(255,255,255,.85);transform:rotate(-4deg)}
+.teacher h3{font-size:20px;font-weight:800}
+.teacher p{margin:4px 0 0;color:var(--muted)}
+.note{font-size:12.5px;color:var(--faint);margin-top:6px}
+footer{padding-block:18px 36px;color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:860px){.hero{grid-template-columns:1fr;padding-block:28px 10px}.art{width:min(320px,86%)}}
+body{margin:0}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="lvbox" viewBox="0 0 200 200">
+  <path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/>
+  <rect x="78" y="38" width="44" height="30" rx="8" fill="#FFFFFF"/>
+  <rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/>
+  <path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/>
+  <rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/>
+  <rect x="60" y="142" width="80" height="30" rx="8" fill="#FFFFFF"/>
+</symbol></defs></svg>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top" aria-label="Lyu Laoshi Chinese Box – trang chủ">
+    <svg class="logo" aria-hidden="true"><use href="#lvbox"/></svg>
+    <span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span>
+  </a>
+  <nav class="menu" aria-label="Menu chính">
+    <a href="#ke-hop">Kệ hộp</a><a href="#hoc-phan">Học phần</a><a href="#bai-moi">Bài mới</a><a class="cta" href="#giao-vien">Về cô Lyu</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☀︎</button>
+  </nav>
+</div></header>
+
+<main class="wrap" id="top">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Hộp học tiếng Trung của cô Lyu</span>
+      <h1>Mở một chiếc hộp,<br>học thêm một chữ.<span class="zh"><i>吕老师</i><u>汉语盒</u></span></h1>
+      <p class="lead">Bài giảng các học phần, phát âm, chữ Hán, từ vựng và luyện đọc — mỗi thứ nằm gọn trong một chiếc hộp. Chọn hộp, mở ra, học ngay trên điện thoại hay máy chiếu.</p>
+      <div class="acts"><a class="btn pri" href="#ke-hop">Mở kệ hộp ↓</a><a class="btn sec" href="tttc/bai-2/">Học tiếp TTTC Bài 2</a></div>
+      <div class="stats"><div><b>5</b>học phần</div><div><b>9</b>bài giảng đã mở</div><div><b>52</b>từ mới có bút thuận</div><div><b>9</b>chiếc hộp</div></div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <svg viewBox="0 0 400 410"><ellipse cx="200" cy="392" rx="140" ry="12" fill="currentColor" opacity=".08"/><use href="#lvbox" x="50" y="40" width="300" height="300"/></svg>
+      <span class="pop a">你好</span><span class="pop b">汉字</span><span class="pop c">nǐ hǎo</span><span class="pop d">ā á ǎ à</span>
+    </div>
+  </section>
+
+  <div class="sh" id="ke-hop"><h2>Kệ hộp <small>盒子架</small></h2><p>Rê chuột hoặc chạm vào hộp để mở nắp. Hộp dán nhãn <b>Sắp mở</b> đang được cô chuẩn bị.</p></div>
+  <section class="shelf" aria-label="Các hộp học tập">
+    <a class="box" href="#hoc-phan"><div class="lid"></div><div class="peek"><span>写</span><span>读</span><span>说</span></div>
+      <div class="face"><div class="zh">课本盒<small>Học phần</small></div><h3>Bài giảng theo giáo trình</h3><p>TTTC · 乐读 · 汉语阅读教程 · 博雅汉语 · 301 câu.</p><div class="chips"><span class="chip">Bút thuận</span><span class="chip">Audio</span><span class="chip">Bài tập có đáp án</span></div><span class="label open">Đang mở</span></div></a>
+    <a class="box c-sky" href="ngu-am/"><div class="lid"></div><div class="peek"><span>ā</span><span>á</span><span>ǎ</span></div>
+      <div class="face"><div class="zh">拼音盒<small>Phát âm</small></div><h3>Ngữ âm tiếng Trung · 4 phần</h3><p>Thanh mẫu, vận mẫu, thanh điệu, biến điệu 一 · 不 — có audio và video khẩu hình.</p><div class="chips"><span class="chip">zh / z</span><span class="chip">ü / u</span><span class="chip">-n / -ng</span></div><span class="label open">Đang mở</span></div></a>
+    <a class="box c-mint" href="#ke-hop"><div class="lid"></div><div class="peek"><span>亻</span><span>氵</span><span>讠</span></div>
+      <div class="face"><div class="zh">汉字盒<small>Chữ Hán</small></div><h3>Tra chữ, xem nét, nhớ bộ</h3><p>Bút thuận động, bộ thủ, chiết tự, mẹo nhớ và phần Nhập môn chữ Hán.</p><div class="chips"><span class="chip">Bộ thủ</span><span class="chip">Chiết tự</span><span class="chip">Tập viết</span></div><span class="label soon">Sắp mở</span></div></a>
+    <a class="box c-lav" href="#ke-hop"><div class="lid"></div><div class="peek"><span>手机</span><span>书</span></div>
+      <div class="face"><div class="zh">词汇盒<small>Từ vựng</small></div><h3>Flashcard mỗi ngày</h3><p>Thẻ từ theo bài học, theo cấp HSK 3.0 và theo chủ đề — có âm thanh, tự kiểm tra.</p><div class="chips"><span class="chip">HSK 1–9</span><span class="chip">Theo bài</span><span class="chip">Nghe – viết</span></div><span class="label soon">Sắp mở</span></div></a>
+    <a class="box c-peach" href="#ke-hop"><div class="lid"></div><div class="peek"><span>读</span><span>文</span></div>
+      <div class="face"><div class="zh">阅读盒<small>Luyện đọc</small></div><h3>Bài đọc chia theo cấp</h3><p>Bật tắt pinyin và nghĩa từng câu, có audio và câu hỏi đọc hiểu.</p><div class="chips"><span class="chip">Sơ cấp</span><span class="chip">Trung cấp</span></div><span class="label soon">Sắp mở</span></div></a>
+    <a class="box c-butter" href="#ke-hop"><div class="lid"></div><div class="peek"><span>听</span><span>说</span></div>
+      <div class="face"><div class="zh">听说盒<small>Nghe – nói</small></div><h3>Nghe, nhại, nói theo vai</h3><p>Hội thoại ngắn, shadowing, luyện nghe – viết tổng hợp.</p><div class="chips"><span class="chip">Shadowing</span><span class="chip">Đóng vai</span></div><span class="label soon">Sắp mở</span></div></a>
+    <a class="box c-sky" href="#ke-hop"><div class="lid"></div><div class="peek"><span>的</span><span>也</span><span>都</span></div>
+      <div class="face"><div class="zh">语法盒<small>Ngữ pháp</small></div><h3>Mỗi điểm ngữ pháp một thẻ</h3><p>Công thức, ví dụ đúng ✓ sai ✗ của người Việt, bài luyện nhỏ có đáp án.</p><div class="chips"><span class="chip">的</span><span class="chip">谁</span><span class="chip">也 · 都</span></div><span class="label soon">Sắp mở</span></div></a>
+    <a class="box c-kraft" href="#ke-hop"><div class="lid"></div><div class="peek"><span>资料</span></div>
+      <div class="face"><div class="zh">资料盒<small>Tài liệu</small></div><h3>Tài liệu cô tự soạn</h3><p>Phiếu bài tập, bảng tổng hợp, link từ điển và kênh học hay.</p><div class="chips"><span class="chip">Phiếu bài tập</span><span class="chip">Link hữu ích</span></div><span class="label soon">Sắp mở</span></div></a>
+    <a class="box" href="#giao-vien"><div class="lid"></div><div class="peek"><span>吕</span><span>老师</span></div>
+      <div class="face"><div class="zh">老师盒<small>Giáo viên</small></div><h3>Về cô Lyu &amp; lớp đang mở</h3><p>Giới thiệu, lịch khai giảng và cách đăng ký học.</p><div class="chips"><span class="chip">Lớp đang mở</span><span class="chip">Đăng ký</span></div><span class="label open">Đang mở</span></div></a>
+  </section>
+
+  <div class="sh" id="hoc-phan"><h2>课本盒 · Học phần <small>课程</small></h2><p>Mỗi ô vuông nhỏ là một bài. Ô tô màu là bài đã mở.</p></div>
+  <section class="crate">
+    <div class="courses">
+      <a class="course" href="tttc/"><span class="tag">Viết</span><span class="n">预科汉语强化教程</span><span class="v">Tiếng Trung tăng cường</span><div class="meta"><div class="dots" aria-label="2 bài đã mở"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><span>2 bài</span></div></a>
+      <a class="course c-sky" href="ledu/"><span class="tag">Đọc</span><span class="n">乐读 1</span><span class="v">Giáo trình Ledu</span><div class="meta"><div class="dots" aria-label="3 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span>3 bài</span></div></a>
+      <a class="course c-mint" href="#hoc-phan"><span class="tag">Đọc 2</span><span class="n">汉语阅读教程</span><span class="v">Hán ngữ đọc hiểu</span><div class="meta"><div class="dots"><i></i><i></i><i></i><i></i><i class="on"></i></div><span>Bài 16</span></div></a>
+      <a class="course c-lav" href="#hoc-phan"><span class="tag">Tổng hợp</span><span class="n">博雅汉语</span><span class="v">Giáo trình Boya</span><div class="meta"><div class="dots"><i></i><i></i><i></i><i></i><i></i></div><span>Sắp mở</span></div></a>
+      <a class="course c-peach" href="#hoc-phan"><span class="tag">Hội thoại</span><span class="n">汉语会话301句</span><span class="v">301 câu đàm thoại</span><div class="meta"><div class="dots"><i></i><i></i><i></i><i></i><i></i></div><span>Sắp mở</span></div></a>
+    </div>
+  </section>
+
+  <div class="sh" id="bai-moi"><h2>Bài mới mở hộp <small>新课</small></h2></div>
+  <section class="news">
+    <a class="nl" href="ledu/bai-3/"><span class="ic">象</span><span><b>乐读 1 · Bài 3 · 象形字</b><span>Đọc hiểu · chữ tượng hình</span></span><span class="go">Học →</span></a>
+    <a class="nl sky" href="ngu-am/"><span class="ic">拼音</span><span><b>Ngữ âm tiếng Trung · Phần 1–4</b><span>Thanh mẫu, vận mẫu, thanh điệu, biến điệu</span></span><span class="go">Học →</span></a>
+    <a class="nl sky" href="tttc/bai-2/"><span class="ic">手机</span><span><b>TTTC Bài 2 · 这是你的手机吗</b><span>26 từ mới · 的, 谁, 也, 都 · nghe – viết</span></span><span class="go">Học →</span></a>
+    <a class="nl" href="tttc/bai-1/"><span class="ic">你好</span><span><b>TTTC Bài 1 · 你好</b><span>Chào hỏi, hỏi tên, quốc tịch · 26 từ mới</span></span><span class="go">Học →</span></a>
+  </section>
+
+  <section class="teacher" id="giao-vien">
+    <div class="seal" aria-hidden="true">吕</div>
+    <div><h3>ThS. Lã Thị Thuỳ Phương · 吕老师</h3><p>Giảng viên tiếng Trung tại TP. Hồ Chí Minh. Soạn bài giảng tương tác cho sinh viên luyện tập mọi lúc, trên mọi thiết bị.</p></div>
+    </section>
+</main>
+<footer class="wrap"><span>© Lyu Laoshi Chinese Box · 吕老师汉语盒</span><span>lyulaoshi.com</span></footer>
+
+<script>
+// Giao diện sáng / tối: mặc định theo máy, nút ☀︎/☾ để đổi
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾';};
+ try{const t=localStorage.getItem('cb-theme');if(t)r.dataset.theme=t;}catch(e){}
+ paint();b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint();});})();
+
+// Chạm (điện thoại): lần chạm đầu mở nắp, lần sau mới đi vào hộp
+document.querySelectorAll('.box').forEach(b=>{
+  b.addEventListener('click',e=>{
+    if(matchMedia('(hover:none)').matches && !b.classList.contains('is-open')){
+      e.preventDefault();document.querySelectorAll('.box.is-open').forEach(x=>x.classList.remove('is-open'));b.classList.add('is-open');
+    }
+  });
+});
+</script>
+</body>
+</html>

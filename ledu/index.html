@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>乐读 1 — Đọc hiểu tiếng Trung</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Noto+Sans:wght@500;700;800&family=Noto+Serif+SC:wght@700;900&display=swap');
+  :root{
+    --red:#E63946; --yellow:#FFB800; --teal:#2EC4B6; --purple:#8338EC; --blue:#3A86FF;
+    --cream:#FFF9F0; --ink:#22223B; --muted:#6b6f8c;
+    --font-cn-head:"Noto Serif SC",serif;
+    --font-vi:"Baloo 2","Noto Sans",sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    font-family:var(--font-vi),var(--font-cn-head),sans-serif; color:var(--ink);
+    max-width:980px; margin:0 auto; padding:2rem 1.6rem 3rem; background:var(--cream);
+    position:relative; overflow-x:hidden;
+  }
+  body::before, body::after{ content:""; position:fixed; border-radius:50%; filter:blur(60px); opacity:.35; z-index:-1; }
+  body::before{ width:340px; height:340px; background:var(--yellow); top:-100px; left:-120px; }
+  body::after{ width:300px; height:300px; background:var(--teal); bottom:-100px; right:-100px; }
+
+  header{text-align:center; margin-bottom:1.8rem;}
+  h1{color:var(--red); font-size:2.6rem; margin-bottom:.2rem; font-weight:800;}
+  .sub{color:var(--muted); margin:.2rem 0; font-size:1.15rem; font-weight:600;}
+  .badge{display:inline-block; padding:8px 22px; border-radius:9999px; font-size:1.05rem; font-weight:700;
+    margin-top:.6rem; box-shadow:2px 2px 0 var(--ink); color:#fff; background:#8B1E2B;}
+
+  .hero{position:relative; border-radius:28px; overflow:hidden; border:3px solid var(--ink);
+    box-shadow:6px 6px 0 var(--ink); margin:1.6rem 0; background:linear-gradient(180deg,#BFE3FF,#FFF3D6 70%,#C8F0C0 70%);
+    padding:1.2rem 1.6rem 1.6rem; text-align:center; min-height:130px;}
+  .hero .book{font-size:4.6rem; display:inline-block; animation:sway 3s ease-in-out infinite;}
+  .hero-decor{position:absolute; font-size:1.8rem; opacity:.9;}
+  .hero-decor.sun{top:10px; right:8%; font-size:2.2rem; animation:spin 12s linear infinite;}
+  .hero-decor.cloud1{top:14px; left:6%; animation:drift 8s ease-in-out infinite;}
+  .hero-decor.cloud2{top:26px; right:24%; font-size:1.3rem; animation:drift 10s ease-in-out infinite reverse;}
+  @keyframes sway{ 0%,100%{transform:rotate(-3deg);} 50%{transform:rotate(3deg);} }
+  @keyframes spin{ from{transform:rotate(0);} to{transform:rotate(360deg);} }
+  @keyframes drift{ 0%,100%{transform:translateX(0);} 50%{transform:translateX(14px);} }
+
+  h2{color:var(--ink); font-size:1.35rem; margin:2rem 0 .8rem; display:flex; align-items:center; gap:10px;}
+  h2 .num{ display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:11px;
+    background:var(--yellow); color:var(--ink); font-weight:800; box-shadow:3px 3px 0 var(--ink); transform:rotate(-6deg); flex-shrink:0; font-size:.95rem;}
+
+  .lesson-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:18px; margin:1rem 0;}
+  .lesson-card{display:block; text-decoration:none; color:var(--ink); border-radius:22px; padding:1.3rem 1.2rem;
+    border:3px solid var(--ink); box-shadow:5px 5px 0 var(--ink); background:#fff; transition:.15s ease; position:relative;}
+  .lesson-card:nth-child(6n+1){background:#FFE8E8;} .lesson-card:nth-child(6n+2){background:#FFF3D6;}
+  .lesson-card:nth-child(6n+3){background:#E3FBF8;} .lesson-card:nth-child(6n+4){background:#EDE3FF;}
+  .lesson-card:nth-child(6n+5){background:#E1F0FF;} .lesson-card:nth-child(6n+6){background:#FFE8E8;}
+  .lesson-card:hover{transform:translateY(-4px); box-shadow:7px 7px 0 var(--ink);}
+  .lesson-num{display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px;
+    background:var(--red); color:#fff; font-weight:800; font-size:1.15rem; box-shadow:2px 2px 0 var(--ink); margin-bottom:.6rem;}
+  .lesson-title{font-weight:800; font-size:1.15rem; margin-bottom:.25rem;}
+  .lesson-cn{font-family:var(--font-cn-head); color:var(--muted); font-size:.95rem; margin-bottom:.5rem;}
+  .lesson-go{font-weight:700; color:var(--purple); font-size:.92rem;}
+
+  .lesson-card.coming{background:repeating-linear-gradient(135deg,#F1F1F6,#F1F1F6 10px,#E8E8F0 10px,#E8E8F0 20px);
+    color:var(--muted); cursor:default; box-shadow:5px 5px 0 #C9C9D6; border-color:#C9C9D6;}
+  .lesson-card.coming:hover{transform:none; box-shadow:5px 5px 0 #C9C9D6;}
+  .lesson-card.coming .lesson-num{background:#C9C9D6;}
+  .lesson-card.coming .lesson-go{color:var(--muted);}
+
+  .hint{color:var(--muted); font-size:.98rem; font-family:"Noto Sans",sans-serif; text-align:center; margin-top:2.2rem;}
+  footer{margin-top:2.5rem; color:var(--muted); font-size:.85rem; text-align:center;}
+
+  @media (max-width:640px){
+    h1{ font-size:1.8rem; }
+    .hero .book{ font-size:3.2rem; }
+    .lesson-grid{ grid-template-columns:1fr 1fr; gap:12px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>乐读 1 <span style="font-size:1.6rem;">📖</span></h1>
+  <p class="sub">ĐỌC HIỂU TIẾNG TRUNG — Mục lục bài giảng</p>
+  <span class="badge">👩‍🏫 Giảng viên: ThS. Lã Thị Thuỳ Phương</span>
+</header>
+
+<div class="hero">
+  <div class="hero-decor sun">☀️</div>
+  <div class="hero-decor cloud1">☁️</div>
+  <div class="hero-decor cloud2">☁️</div>
+  <div class="book">📚</div>
+  <p class="hint" style="margin-top:.4rem;">Chọn bài học bên dưới để bắt đầu!</p>
+</div>
+
+<h2><span class="num">一</span>Danh sách bài học</h2>
+<div class="lesson-grid">
+
+  <a class='lesson-card' href='bai-1/'>
+    <div class="lesson-num">1</div>
+    <div class="lesson-title">Bài 1</div>
+    <div class="lesson-cn">第一课 · 横竖撇捺点提</div>
+    <div class="lesson-go">Vào học →</div>
+  </a>
+
+  <a class='lesson-card' href='bai-2/'>
+    <div class="lesson-num">2</div>
+    <div class="lesson-title">Bài 2</div>
+    <div class="lesson-cn">第二课 · 一二三，三二一</div>
+    <div class="lesson-go">Vào học →</div>
+  </a>
+
+  <a class='lesson-card' href='bai-3/'>
+    <div class="lesson-num">3</div>
+    <div class="lesson-title">Bài 3</div>
+    <div class="lesson-cn">第三课 · 象形字</div>
+    <div class="lesson-go">Vào học →</div>
+  </a>
+
+  <!-- Thẻ "sắp có" — khi có bài mới, đổi div.lesson-card.coming thành
+       <a class="lesson-card" href="bai-4.html">...</a> và copy thêm 1 thẻ .coming mới bên dưới -->
+  <div class="lesson-card coming">
+    <div class="lesson-num">4</div>
+    <div class="lesson-title">Bài 4</div>
+    <div class="lesson-cn">Sắp cập nhật</div>
+    <div class="lesson-go">Đang soạn…</div>
+  </div>
+
+</div>
+
+<p class="hint">📌 Trang này sẽ được cập nhật thêm bài mới theo tiến độ — quay lại đây bất cứ lúc nào để xem bài học mới nhất.</p>
+
+<footer>乐读 1 · Đọc hiểu tiếng Trung — biên soạn bởi ThS. Lã Thị Thùy Phương</footer>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngữ âm tiếng Trung — ThS. Lã Thị Thùy Phương</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coral:#FF8FA3; --coral-deep:#FF6B85; --lavender:#B2A4FF; --mint:#7FE0C7;
+    --butter:#FFD972; --sky:#8FD3FF; --bg:#FFF8F5; --card:#FFFFFF; --ink:#4A4458; --muted:#9089A3; --line:#F1E4F5;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:'Nunito',sans-serif; background:var(--bg); color:var(--ink);
+    min-height:100vh; display:flex; flex-direction:column; align-items:center;
+  }
+  header{
+    width:100%; background:linear-gradient(135deg, var(--coral), var(--lavender));
+    padding:56px 20px 44px; text-align:center; color:#fff;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,.18) 0 40px, transparent 41px),
+      radial-gradient(circle at 80% 60%, rgba(255,255,255,.14) 0 60px, transparent 61px),
+      linear-gradient(135deg, var(--coral), var(--lavender));
+  }
+  header .pill{
+    display:inline-block; background:rgba(255,255,255,.22); border-radius:999px; padding:8px 24px;
+    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:22px; margin-bottom:18px;
+  }
+  header h1{
+    font-family:'Baloo 2',sans-serif; font-size:44px; font-weight:800; margin:0 0 12px;
+    text-shadow:0 2px 10px rgba(0,0,0,.08);
+  }
+  header p{font-size:18px; margin:0 auto; max-width:640px; opacity:.95; line-height:1.6;}
+  header .teacher{margin-top:22px; font-size:17px; font-weight:700; display:inline-flex; align-items:center; gap:8px;}
+  main{width:100%; max-width:1100px; padding:40px 20px 60px;}
+  .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
+  @media (max-width:720px){.grid{grid-template-columns:1fr;}}
+  .cardLink{text-decoration:none; color:inherit;}
+  .card{
+    background:var(--card); border-radius:24px; padding:26px 28px; height:100%;
+    border:2px solid var(--line); transition:.18s; display:flex; flex-direction:column; gap:12px;
+    box-shadow:0 4px 14px rgba(74,68,88,.05);
+  }
+  .card:hover{transform:translateY(-4px); box-shadow:0 12px 28px rgba(74,68,88,.14); border-color:var(--coral);}
+  .cardTop{display:flex; align-items:center; gap:14px;}
+  .badge{
+    font-family:'Baloo 2',sans-serif; font-weight:800; font-size:22px; color:#fff;
+    width:52px; height:52px; border-radius:16px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;
+  }
+  .b1{background:var(--coral-deep);} .b2{background:var(--sky);} .b3{background:var(--lavender);} .b4{background:#3BB89A;}
+  .card h2{font-family:'Baloo 2',sans-serif; font-size:24px; margin:0; font-weight:700;}
+  .card .zh{color:var(--muted); font-size:15px; font-weight:600;}
+  .card .desc{font-size:15.5px; line-height:1.6; color:var(--ink); margin:0;}
+  .card .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto;}
+  .tag{background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:5px 14px; font-size:13px; font-weight:700; color:var(--coral-deep);}
+  .goBtn{
+    margin-top:6px; align-self:flex-start; background:var(--coral); color:#fff; font-weight:800;
+    padding:10px 22px; border-radius:999px; font-size:15px; display:inline-flex; align-items:center; gap:6px;
+  }
+  footer{color:var(--muted); font-size:14px; padding:0 20px 40px; text-align:center;}
+</style>
+</head>
+<body>
+  <header>
+    <span class="pill">语音</span>
+    <h1>Ngữ âm tiếng Trung</h1>
+    <p>Bộ 4 bài giảng ngữ âm tương tác — thanh mẫu, vận mẫu, thanh điệu và bài tập luyện tập có audio/video minh hoạ.</p>
+    <div class="teacher">👩‍🏫 Giảng viên: ThS. Lã Thị Thùy Phương</div>
+  </header>
+  <main>
+    <div class="grid">
+      <a class='cardLink' href='phan-1/'>
+        <div class="card">
+          <div class="cardTop">
+            <div class="badge b1">1</div>
+            <div>
+              <h2>Ngữ âm tiếng Trung (1)</h2>
+              <div class="zh">预备课（一）</div>
+            </div>
+          </div>
+          <p class="desc">Kiến thức nền tảng: thanh mẫu b, p, m, f, d, t, n, l; vận mẫu đơn/kép a, o, e, i, u, ü, ai, ei, ao, ou; 4 thanh điệu và thanh nhẹ.</p>
+          <div class="tags"><span class="tag">Thanh mẫu b p m f d t n l</span><span class="tag">Vận mẫu cơ bản</span><span class="tag">4 thanh điệu</span></div>
+          <span class="goBtn">Vào học →</span>
+        </div>
+      </a>
+      <a class='cardLink' href='phan-2/'>
+        <div class="card">
+          <div class="cardTop">
+            <div class="badge b2">2</div>
+            <div>
+              <h2>Ngữ âm tiếng Trung (2)</h2>
+              <div class="zh">预备课（二）</div>
+            </div>
+          </div>
+          <p class="desc">Thanh mẫu gốc lưỡi g, k, h; vận mẫu mũi an, ang, en, eng, ong; biến điệu thanh 3, biến điệu "一" và "不".</p>
+          <div class="tags"><span class="tag">Thanh mẫu g k h</span><span class="tag">Vận mẫu mũi</span><span class="tag">Biến điệu</span></div>
+          <span class="goBtn">Vào học →</span>
+        </div>
+      </a>
+      <a class='cardLink' href='phan-3/'>
+        <div class="card">
+          <div class="cardTop">
+            <div class="badge b3">3</div>
+            <div>
+              <h2>Ngữ âm tiếng Trung (3)</h2>
+              <div class="zh">预备课（三）</div>
+            </div>
+          </div>
+          <p class="desc">Thanh mẫu mặt lưỡi j, q, x; vận mẫu ia, ie, iao, iou, ian, iang, in, ing, iong; üe, üan, ün và quy tắc dấu cách âm.</p>
+          <div class="tags"><span class="tag">Thanh mẫu j q x</span><span class="tag">Vận mẫu nhóm i/ü</span><span class="tag">Dấu cách âm</span></div>
+          <span class="goBtn">Vào học →</span>
+        </div>
+      </a>
+      <a class='cardLink' href='phan-4/'>
+        <div class="card">
+          <div class="cardTop">
+            <div class="badge b4">4</div>
+            <div>
+              <h2>Ngữ âm tiếng Trung (4)</h2>
+              <div class="zh">预备课（四）</div>
+            </div>
+          </div>
+          <p class="desc">Thanh mẫu đầu lưỡi/uốn lưỡi z, c, s, zh, ch, sh, r; vận mẫu ua, uo, uai, uei, uan, uen, uang; er và er hoá.</p>
+          <div class="tags"><span class="tag">Thanh mẫu z c s zh ch sh r</span><span class="tag">Vận mẫu nhóm u</span><span class="tag">er hoá</span></div>
+          <span class="goBtn">Vào học →</span>
+        </div>
+      </a>
+    </div>
+  </main>
+  <footer>© Tài liệu được biên soạn bởi ThS. Lã Thị Thuỳ Phương</footer>
+</body>
+</html>
