@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Viết chữ 写汉字 – Trò chơi 吕老师汉语盒</title>
+<meta name="description" content="Trò chơi Viết chữ: nhìn pinyin, tự viết chữ Hán theo đúng thứ tự nét trên màn hình. Có chế độ viết mù. Luyện theo cấp HSK 1–6.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../game.css?v=2">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+[hidden]{display:none!important}
+.screen{padding:26px 0}
+.eyebrow{font-family:var(--hz);color:var(--sky);font-size:22px}
+h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4px}
+.lead{color:var(--muted);max-width:40em;margin:10px 0 0}
+.panel{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:20px;margin-top:20px;display:grid;gap:14px}
+.panel h2{font-size:16px;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--ground);color:var(--ink);font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;text-align:left}
+.chip[aria-pressed="true"]{border-color:var(--sky);background:var(--sky-s);color:var(--sky)}
+.chip small{font-weight:400;color:var(--muted);margin-left:4px}
+.how{margin:0;padding-left:20px;color:var(--muted);font-size:14.5px}
+.how b{color:var(--ink)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center}
+.setup .acts{justify-content:flex-start}
+.muted{color:var(--muted);font-size:14px}
+/* chơi */
+#play{padding:16px 0}
+.hud{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-weight:700;font-size:15px}
+.hud b{font-size:20px;font-variant-numeric:tabular-nums}
+.hud .sp{margin-left:auto}
+.hud button{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer}
+.stage{margin-top:12px;background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:16px;display:grid;justify-items:center;gap:10px}
+.ctx{font-family:var(--kai);font-size:clamp(30px,7vw,42px);line-height:1.2;text-align:center}
+.ctx .gap{color:var(--sky)}
+.ctx .py{display:block;font-family:var(--vi);font-size:19px;font-weight:700;color:var(--sky)}
+.pad{position:relative;width:min(300px,78vw);aspect-ratio:1;border-radius:18px;background:var(--ground);touch-action:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px),
+  linear-gradient(45deg,transparent calc(50% - .5px),var(--line) 50%,transparent calc(50% + .5px)),linear-gradient(-45deg,transparent calc(50% - .5px),var(--line) 50%,transparent calc(50% + .5px));
+  background-size:100% 50%,50% 100%,100% 100%,100% 100%;background-position:0 100%,100% 0,0 0,0 0;background-repeat:no-repeat;box-shadow:inset 0 0 0 2px var(--line)}
+.pad svg{position:absolute;inset:0;width:100%;height:100%}
+.pad .load{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-size:14px}
+.info{font-size:14.5px;color:var(--muted);text-align:center;min-height:22px}
+.info b{color:var(--ink)}
+.info .ok{color:var(--mint);font-weight:800}.info .bad{color:var(--coral);font-weight:800}
+.tools button{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;padding:9px 14px;border-radius:12px;cursor:pointer}
+.mini{display:inline-flex;gap:2px;font-size:18px}
+/* kết thúc */
+.big{font-size:56px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.rank{font-weight:800;font-size:20px;color:var(--peach)}
+.rank .zh{font-family:var(--hz);font-weight:400;font-size:24px;margin-right:8px}
+.review{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.review li{background:var(--ground);border-radius:12px;padding:8px 12px;display:grid}
+.review .zh{font-family:var(--kai);font-size:30px;line-height:1.2}
+.review .py{color:var(--sky);font-weight:700;font-size:14px}
+.review .n{font-size:13px;color:var(--muted)}
+@media (max-width:560px){.big{font-size:44px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/><rect x="78" y="38" width="44" height="30" rx="8" fill="#fff"/><rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/><path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/><rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/><rect x="60" y="142" width="80" height="30" rx="8" fill="#fff"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="screen setup" id="setup">
+    <div class="eyebrow">写汉字</div>
+    <h1>Viết chữ</h1>
+    <p class="lead">Nhìn từ bị khuyết chữ và pinyin, tự viết chữ còn thiếu lên ô chữ điền cách, <b>đúng thứ tự từng nét</b>. Viết sai nét là cô biết ngay!</p>
+    <div class="panel">
+      <h2>1. Chọn cấp HSK <span class="muted">(chọn được nhiều cấp)</span></h2>
+      <div class="chips" id="lvChips"></div>
+      <h2>2. Chế độ</h2>
+      <div class="chips" id="modeChips">
+        <button class="chip" type="button" data-mode="trace" aria-pressed="true">✏️ Tô theo nét mờ<small>có chữ mờ để tô, hợp người mới</small></button>
+        <button class="chip" type="button" data-mode="blind" aria-pressed="false">🙈 Viết mù<small>không có chữ mẫu, sai 3 lần mới gợi ý</small></button>
+      </div>
+      <ul class="how">
+        <li>Mỗi ván <b>10 chữ</b>. Dùng ngón tay (điện thoại) hoặc chuột (máy tính) viết từng nét vào ô.</li>
+        <li>Viết đúng nét thì nét được giữ lại, viết sai thì nét biến mất, viết lại nét đó.</li>
+        <li>Không sai nét nào được 3 sao, sai ít được 2 sao. Bấm <b>Xem cách viết</b> để xem mẫu thứ tự nét (chữ đó chỉ được 1 sao).</li>
+        <li>Cần có mạng để tải nét chữ.</li>
+      </ul>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="bestSetup"></span></div>
+    </div>
+  </section>
+
+  <section id="play" hidden>
+    <div class="hud">
+      <span>Chữ <b id="qNo">1</b>/<span id="qOf">10</span></span>
+      <span>Sao <b id="starSum">0</b></span>
+      <span class="sp"></span>
+      <button type="button" id="quitBtn">✕ Dừng</button>
+    </div>
+    <div class="stage">
+      <div class="ctx" id="ctx" lang="zh"></div>
+      <div class="pad" id="pad"></div>
+      <div class="info" id="info" aria-live="polite"></div>
+      <div class="acts tools"><button type="button" id="spkBtn">🔊 Nghe</button><button type="button" id="hintBtn">👀 Xem cách viết</button><button type="button" id="skipBtn">Bỏ qua →</button></div>
+    </div>
+  </section>
+
+  <section class="screen" id="over" hidden>
+    <div class="eyebrow">完成！</div>
+    <h1 id="overTitle">Viết xong rồi!</h1>
+    <div class="panel">
+      <div class="acts" style="justify-content:flex-start"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
+      <div><h2>Các chữ vừa viết</h2><ul class="review" id="review"></ul></div>
+      <div class="acts" style="justify-content:flex-start"><button class="btn hot" id="againBtn" type="button">Ván mới ↻</button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">Từ vựng theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · Nét chữ: Hanzi Writer / Make Me a Hanzi · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js"></script>
+<script src="../hsk-words.js"></script>
+<script src="../tts.js?v=1"></script>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
+
+(function(){
+const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'];
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+// mỗi chữ: cấp thấp nhất xuất hiện + một từ làm ngữ cảnh (ưu tiên từ 2 chữ cùng cấp)
+const CH={};LEVELS.forEach(l=>HSK[l].forEach(([w,p])=>[...w].forEach(c=>{
+  if(!/[一-鿿]/.test(c))return;
+  if(!CH[c])CH[c]={c,lv:l,ctx:[w,p]};else if(CH[c].lv===l&&CH[c].ctx[0].length!==2&&w.length===2)CH[c].ctx=[w,p]})));
+const ALL=Object.values(CH),byLv=l=>ALL.filter(x=>x.lv===l);
+let picked=new Set(store.get('vc-levels')||['1']),mode='trace';
+const lvChips=$('lvChips');
+LEVELS.forEach(l=>{const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.lv=l;
+  b.innerHTML='HSK '+l+'<small>'+byLv(l).length+' chữ</small>';b.setAttribute('aria-pressed',picked.has(l));
+  b.onclick=()=>{if(picked.has(l)){if(picked.size>1)picked.delete(l)}else picked.add(l);
+    lvChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',picked.has(c.dataset.lv)));showBest()};
+  lvChips.appendChild(b)});
+$('modeChips').querySelectorAll('.chip').forEach(c=>c.onclick=()=>{mode=c.dataset.mode;
+  $('modeChips').querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));showBest()});
+const bestKey=()=>'vc-best-'+mode+'-'+[...picked].sort().join('');
+function showBest(){const b=store.get(bestKey());$('bestSetup').textContent=b?'Kỷ lục: '+b+'/30 sao':''}
+showBest();
+
+const N=10;let deck,qi,cur,writer,results,mistakes,hinted,alive,done;
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function start(){
+  deck=shuffle(ALL.filter(x=>picked.has(x.lv)));qi=0;results=[];alive=true;
+  $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);next();
+}
+function ctxHTML(x){const [w,p]=x.ctx;return [...w].map(ch=>ch===x.c?'<span class="gap">？</span>':ch).join('')+'<span class="py">'+p+'</span>'}
+function next(){
+  if(!alive)return;
+  if(results.length>=N||qi>=deck.length)return end();
+  cur=deck[qi++];mistakes=0;hinted=false;done=false;
+  $('qNo').textContent=results.length+1;$('qOf').textContent=N;
+  $('ctx').innerHTML=ctxHTML(cur);$('info').innerHTML='Viết chữ còn thiếu vào ô bên dưới';
+  $('skipBtn').textContent='Bỏ qua →';$('hintBtn').disabled=false;
+  const pad=$('pad');pad.innerHTML='<div class="load">Đang tải nét chữ…</div>';
+  const size=pad.clientWidth;
+  writer=HanziWriter.create(pad,cur.c,{width:size,height:size,padding:size*.06,showCharacter:false,showOutline:mode==='trace',
+    strokeColor:css('--ink')||'#2B2E45',outlineColor:css('--line')||'#E3DFEE',drawingColor:css('--sky')||'#3B87D6',highlightColor:css('--peach')||'#E7823A',
+    drawingWidth:Math.max(18,size*.07),showHintAfterMisses:mode==='blind'?3:2,highlightOnComplete:true,
+    onLoadCharDataSuccess:()=>{const l=pad.querySelector('.load');l&&l.remove();quiz()},
+    onLoadCharDataError:()=>{qi<deck.length?next():end()}});
+  TTS.say(cur.ctx[0]);
+}
+function quiz(){
+  writer.quiz({
+    onMistake:d=>{mistakes++;$('info').innerHTML='<span class="bad">Sai nét '+(d.strokeNum+1)+'</span> · viết lại nét này'},
+    onCorrectStroke:d=>{$('info').innerHTML='Nét '+(d.strokeNum+1)+'/'+(d.strokeNum+1+d.strokesRemaining)+' <span class="ok">✓</span>'},
+    onComplete:()=>finish(false)
+  });
+}
+function starsFor(){if(hinted)return 1;return mistakes===0?3:mistakes<=2?2:1}
+function finish(skipped){
+  if(done)return;done=true;
+  const st=skipped?0:starsFor();results.push({x:cur,st,m:mistakes});
+  $('starSum').textContent=results.reduce((s,r)=>s+r.st,0);
+  $('info').innerHTML=skipped?'Đã bỏ qua chữ này':'<span class="ok">'+['Đẹp quá!','Chuẩn nét!','好！','写得好！'][Math.random()*4|0]+'</span> '+'⭐'.repeat(st)+(mistakes?' · sai '+mistakes+' nét':' · không sai nét nào');
+  writer.showCharacter();TTS.say(cur.c.length?cur.ctx[0]:cur.c);
+  $('hintBtn').disabled=true;$('skipBtn').textContent='Chữ tiếp →';
+}
+$('skipBtn').onclick=()=>{if(!done){try{writer.cancelQuiz()}catch(e){};finish(true)}else next()};
+$('hintBtn').onclick=()=>{if(done||!writer)return;hinted=true;try{writer.cancelQuiz()}catch(e){}
+  $('info').innerHTML='Xem thứ tự nét, rồi tự viết lại nhé (chữ này tối đa 1 sao)';
+  writer.animateCharacter({onComplete:()=>{writer.hideCharacter();setTimeout(quiz,300)}})};
+$('spkBtn').onclick=()=>TTS.say(cur.ctx[0]);
+if(!TTS.ready())setTimeout(()=>{if(!TTS.ready())$('spkBtn').hidden=true},1500);
+$('quitBtn').onclick=()=>{if(alive)end()};
+function end(){
+  alive=false;try{writer&&writer.cancelQuiz()}catch(e){}
+  $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
+  const total=results.reduce((s,r)=>s+r.st,0),k=bestKey(),best=store.get(k)||0,rec=results.length>=N&&total>best;if(rec)store.set(k,total);
+  store.set('vc-levels',[...picked]);
+  $('finalScore').textContent=total+' ⭐';
+  const pct=results.length?total/(results.length*3):0;
+  const rk=pct>=.95?['笔走龙蛇','Chữ đẹp như thư pháp!']:pct>=.75?['写得好！','Viết giỏi lắm!']:pct>=.5?['加油！','Cố lên!']:['多练习','Luyện thêm nhé!'];
+  $('rank').innerHTML='<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1];
+  $('finalInfo').textContent=results.length+' chữ · '+(mode==='blind'?'Viết mù':'Tô nét mờ')+(rec?' · Kỷ lục mới!':best?' · Kỷ lục: '+best+'/30 sao':'')+' · HSK '+[...picked].sort().join(', ');
+  $('review').innerHTML=results.map(r=>'<li><span class="zh" lang="zh">'+r.x.c+' '+TTS.btn(r.x.ctx[0])+'</span><span class="py">'+r.x.ctx[0]+' · '+r.x.ctx[1]+'</span><span class="n">'+(r.st?'⭐'.repeat(r.st):'bỏ qua')+(r.m?' · sai '+r.m+' nét':'')+'</span></li>').join('');
+  $('overTitle').textContent=results.length>=N?'Viết xong rồi!':'Kết thúc!';showBest();
+}
+$('startBtn').onclick=()=>{if(!window.HanziWriter){alert('Chưa tải được bộ nét chữ. Em kiểm tra mạng rồi tải lại trang nhé.');return}store.set('vc-levels',[...picked]);start()};
+$('againBtn').onclick=start;
+$('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
+})();
+</script>
+</body>
+</html>

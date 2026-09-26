@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
+<title>Mưa chữ 汉字雨 – Trò chơi 吕老师汉语盒</title>
+<meta name="description" content="Trò chơi Mưa chữ: chữ Hán rơi xuống, gõ pinyin để bắn rơi. Luyện từ vựng HSK cấp 1–6.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../game.css?v=2">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+.screen{padding:26px 0}
+[hidden]{display:none!important}
+.eyebrow{font-family:var(--hz);color:var(--sky);font-size:22px}
+h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4px}
+.lead{color:var(--muted);max-width:40em;margin:10px 0 0}
+.panel{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:20px;margin-top:20px;display:grid;gap:14px}
+.panel h2{font-size:16px;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--ground);color:var(--ink);font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{border-color:var(--sky);background:var(--sky-s);color:var(--sky)}
+.chip small{font-weight:400;color:var(--muted);margin-left:4px}
+.how{margin:0;padding-left:20px;color:var(--muted);font-size:14.5px}
+.how b{color:var(--ink)}
+.warn{font-size:13.5px;color:var(--muted);background:var(--butter-s);border-radius:14px;padding:10px 14px;margin:0}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.best{color:var(--muted);font-size:14px}
+/* chơi */
+body.playing .top,body.playing footer{display:none}
+body.playing .wrap{max-width:900px}
+#play{padding:10px 0 0}
+.hud{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-weight:700;font-size:15px}
+.hud .sc b{font-size:22px;font-variant-numeric:tabular-nums}
+.hud .combo{color:var(--peach)}
+.hud .hearts{letter-spacing:2px;color:var(--coral);font-size:20px}
+.hud .spacer{margin-left:auto}
+.hud button{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer}
+.field{position:relative;overflow:hidden;margin-top:10px;height:420px;border-radius:22px;background:linear-gradient(180deg,var(--sky-s),var(--card) 70%);box-shadow:var(--shadow);touch-action:manipulation}
+.field::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--coral);opacity:.55}
+.drop{position:absolute;top:0;transform:translateX(-50%);display:grid;justify-items:center;cursor:pointer;user-select:none;will-change:transform}
+.drop .hz{font-family:var(--kai);font-size:clamp(30px,5vw,40px);line-height:1.1;background:var(--card);color:var(--ink);padding:4px 12px;border-radius:14px;box-shadow:var(--shadow);white-space:nowrap}
+.drop .py{font-size:13px;font-weight:700;color:var(--sky);background:var(--card);border-radius:8px;padding:0 6px;margin-top:3px;opacity:0}
+.drop.hint .py{opacity:1}
+.drop.near .hz{box-shadow:0 0 0 3px var(--coral)}
+.drop.boom{animation:boom .35s ease-out forwards}
+@keyframes boom{to{opacity:0;scale:1.6;filter:blur(2px)}}
+.pop{position:absolute;font-weight:800;color:var(--mint);pointer-events:none;animation:up .8s ease-out forwards}
+@keyframes up{to{transform:translateY(-40px);opacity:0}}
+.field.hurt{animation:hurt .35s}
+@keyframes hurt{0%,100%{box-shadow:var(--shadow)}50%{box-shadow:0 0 0 4px var(--coral)}}
+.typer{display:flex;gap:8px;margin-top:10px}
+.typer input{flex:1;min-width:0;font:inherit;font-size:20px;font-weight:700;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px 14px;letter-spacing:.02em}
+.typer input:focus{border-color:var(--sky);outline:none}
+.typer input.bad{animation:shake .3s;border-color:var(--coral)}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.tip{font-size:13px;color:var(--muted);margin:6px 2px 0}
+.paused{position:absolute;inset:0;display:grid;place-items:center;background:color-mix(in srgb,var(--ground) 70%,transparent);font-weight:800;font-size:20px;z-index:5}
+/* kết thúc */
+.big{font-size:56px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.rank{font-family:var(--vi);font-weight:800;font-size:20px;color:var(--peach)}
+.rank .zh{font-family:var(--hz);font-weight:400;font-size:24px;margin-right:8px}
+.missed{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.missed li{background:var(--ground);border-radius:12px;padding:8px 10px;display:grid}
+.missed .hz{font-family:var(--kai);font-size:24px;line-height:1.2}
+.missed .py{color:var(--sky);font-weight:700;font-size:14px}
+@media (max-width:560px){.drop .hz{font-size:28px;padding:3px 9px}.big{font-size:44px}}
+@media (prefers-reduced-motion:reduce){.drop.boom,.pop{animation-duration:.01s}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/><rect x="78" y="38" width="44" height="30" rx="8" fill="#fff"/><rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/><path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/><rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/><rect x="60" y="142" width="80" height="30" rx="8" fill="#fff"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+</div></header>
+
+<main class="wrap">
+  <!-- 1. Chọn cấp -->
+  <section class="screen" id="setup">
+    <div class="eyebrow">汉字雨</div>
+    <h1>Mưa chữ</h1>
+    <p class="lead">Chữ Hán rơi từ trên trời xuống. Gõ đúng pinyin để bắn rơi trước khi chữ chạm đất. Để lọt 3 chữ là thua!</p>
+    <div class="panel">
+      <h2>1. Chọn cấp HSK <span class="best">(chọn được nhiều cấp)</span></h2>
+      <div class="chips" id="lvChips"></div>
+      <h2>2. Tốc độ</h2>
+      <div class="chips" id="spChips">
+        <button class="chip" type="button" data-sp="0.75" aria-pressed="false">🐢 Chậm</button>
+        <button class="chip" type="button" data-sp="1" aria-pressed="true">🐇 Vừa</button>
+        <button class="chip" type="button" data-sp="1.4" aria-pressed="false">🚀 Nhanh</button>
+      </div>
+      <ul class="how">
+        <li>Gõ pinyin <b>không cần dấu</b>: 你好 → <b>nihao</b>. Chữ ü gõ <b>v</b> hoặc <b>u</b> (女 → nv / nu).</li>
+        <li>Không nhớ? <b>Chạm vào chữ</b> để xem pinyin, nhưng chữ đó chỉ được nửa điểm.</li>
+        <li>Bắn liên tiếp không trượt để lên <b>combo</b>, điểm càng nhân lên.</li>
+      </ul>
+      <p class="warn">Máy đang bật bộ gõ tiếng Việt (Telex, VNI) thì em chuyển sang bàn phím tiếng Anh trước khi chơi nhé, nếu không pinyin sẽ bị biến thành chữ có dấu.</p>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="best" id="bestSetup"></span></div>
+    </div>
+  </section>
+
+  <!-- 2. Đang chơi -->
+  <section id="play" hidden>
+    <div class="hud">
+      <span class="sc">Điểm <b id="score">0</b></span>
+      <span class="combo" id="combo"></span>
+      <span class="hearts" id="hearts" aria-label="Số mạng">♥♥♥</span>
+      <span class="spacer"></span>
+      <button type="button" id="pauseBtn">⏸ Dừng</button>
+      <button type="button" id="quitBtn">✕</button>
+    </div>
+    <div class="field" id="field"></div>
+    <form class="typer" id="typer" autocomplete="off">
+      <input id="ans" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ pinyin rồi Enter…" aria-label="Gõ pinyin">
+      <button class="btn pri" type="submit">Bắn</button>
+    </form>
+    <p class="tip">Gõ đúng là chữ tự nổ, không cần bấm Bắn. Chạm vào chữ để xem pinyin.</p>
+  </section>
+
+  <!-- 3. Kết thúc -->
+  <section class="screen" id="over" hidden>
+    <div class="eyebrow">游戏结束</div>
+    <h1 id="overTitle">Hết mạng rồi!</h1>
+    <div class="panel">
+      <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="best" id="finalInfo"></span></span></div>
+      <div id="missBox"><h2>Những chữ em để lọt, ôn lại nhé</h2><ul class="missed" id="missed"></ul></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại ↻</button><button class="btn sec" id="setupBtn" type="button">Đổi cấp</button></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">Từ vựng theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../hsk-words.js"></script>
+<script src="../tts.js?v=1"></script>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
+
+(function(){
+const $=id=>document.getElementById(id);
+const LEVELS=['1','2','3','4','5','6'];
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+// bỏ dấu thanh, ü→u, chấp nhận v và số thanh (ni3hao3)
+const norm=s=>s.toLowerCase().replace(/v/g,'u').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z]/g,'');
+
+// chọn cấp & tốc độ
+let picked=new Set(store.get('mc-levels')||['1']),speed=1;
+const lvChips=$('lvChips');
+LEVELS.forEach(l=>{const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.lv=l;
+  b.innerHTML='HSK '+l+'<small>'+HSK[l].length+' từ</small>';b.setAttribute('aria-pressed',picked.has(l));
+  b.onclick=()=>{if(picked.has(l)){if(picked.size>1)picked.delete(l)}else picked.add(l);
+    lvChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',picked.has(c.dataset.lv)));showBest()};
+  lvChips.appendChild(b)});
+$('spChips').querySelectorAll('.chip').forEach(c=>c.onclick=()=>{speed=+c.dataset.sp;
+  $('spChips').querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c))});
+const bestKey=()=>'mc-best-'+[...picked].sort().join('');
+function showBest(){const b=store.get(bestKey());$('bestSetup').textContent=b?'Kỷ lục của em ở cấp này: '+b+' điểm':''}
+showBest();
+
+// trạng thái ván chơi
+const field=$('field'),ans=$('ans');
+let pool,drops,score,combo,lives,missed,t0,last,spawnIn,wave,raf,paused,hitCount,alive;
+
+function fit(){ // vừa màn hình, kể cả khi bàn phím điện thoại mở
+  const vh=(window.visualViewport?visualViewport.height:innerHeight);
+  const top=field.getBoundingClientRect().top-(window.visualViewport?visualViewport.offsetTop:0);
+  field.style.height=Math.max(220,Math.min(560,vh-top-110))+'px';
+}
+function pickWord(){
+  for(let i=0;i<30;i++){const w=pool[Math.random()*pool.length|0];
+    if(w[0].length<=4&&!drops.some(d=>d.key===w.k))return w}
+  return pool[Math.random()*pool.length|0];
+}
+function spawn(){
+  const w=pickWord(),el=document.createElement('div');
+  el.className='drop';el.innerHTML='<span class="hz" lang="zh">'+w[0]+'</span><span class="py">'+w[1]+'</span>';
+  const x=12+Math.random()*76;el.style.left=x+'%';field.appendChild(el);
+  const d={el,w,key:w.k,y:-60,x,hint:false};
+  el.addEventListener('pointerdown',e=>{e.preventDefault();if(!d.hint){d.hint=true;el.classList.add('hint')}ans.focus()});
+  drops.push(d);
+}
+function start(){
+  pool=[];[...picked].forEach(l=>HSK[l].forEach(w=>pool.push(Object.assign([w[0],w[1]],{k:norm(w[1])}))));
+  drops=[];score=0;combo=0;lives=3;missed=[];wave=0;hitCount=0;spawnIn=0;paused=false;alive=true;
+  field.innerHTML='';hud();
+  document.body.classList.add('playing');$('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;
+  scrollTo(0,0);fit();ans.value='';ans.focus();last=performance.now();raf=requestAnimationFrame(loop);
+}
+function hud(){$('score').textContent=score;$('combo').textContent=combo>1?'combo ×'+combo:'';
+  $('hearts').textContent='♥'.repeat(lives)+'♡'.repeat(3-lives)}
+function loop(now){
+  if(!alive)return;
+  const dt=Math.min(.05,(now-last)/1000);last=now;
+  if(!paused){
+    const H=field.clientHeight,v=(38+wave*4)*speed*(H/420);
+    spawnIn-=dt;
+    if(spawnIn<=0){spawn();spawnIn=Math.max(.9,2.6-wave*.12)/speed}
+    for(const d of [...drops]){
+      d.y+=v*dt;d.el.style.transform='translate(-50%,'+d.y+'px)';
+      d.el.classList.toggle('near',d.y>H*.72);
+      if(d.y>H-d.el.offsetHeight){miss(d)}
+    }
+  }
+  raf=requestAnimationFrame(loop);
+}
+function remove(d){drops=drops.filter(x=>x!==d)}
+function miss(d){
+  remove(d);d.el.remove();lives--;combo=0;
+  if(!missed.some(m=>m[0]===d.w[0]))missed.push(d.w);
+  field.classList.remove('hurt');void field.offsetWidth;field.classList.add('hurt');hud();
+  if(lives<=0)end();
+}
+function hit(d){
+  remove(d);combo++;hitCount++;
+  const pts=Math.round(10*d.w[0].length*(1+Math.min(combo,10)*.1)*(d.hint?.5:1));
+  score+=pts;if(hitCount%8===0)wave++;
+  const p=document.createElement('span');p.className='pop';p.textContent='+'+pts;
+  p.style.left=d.el.style.left;p.style.top=(d.y)+'px';field.appendChild(p);setTimeout(()=>p.remove(),800);
+  d.el.classList.add('boom');setTimeout(()=>d.el.remove(),350);hud();
+}
+function tryHit(auto){
+  const k=norm(ans.value);if(!k)return false;
+  const m=drops.filter(d=>d.key===k).sort((a,b)=>b.y-a.y)[0];
+  // đang gõ dở một từ dài hơn (hai → haishi) thì chưa tự bắn, chờ gõ tiếp hoặc Enter
+  if(m&&auto&&drops.some(d=>d.key!==k&&d.key.startsWith(k)))return false;
+  if(m){hit(m);ans.value='';return true}return false;
+}
+ans.addEventListener('input',()=>tryHit(true));
+$('typer').addEventListener('submit',e=>{e.preventDefault();
+  if(!tryHit()&&ans.value.trim()){combo=0;hud();ans.classList.remove('bad');void ans.offsetWidth;ans.classList.add('bad');ans.select()}});
+function setPause(p){paused=p;$('pauseBtn').textContent=p?'▶ Chơi tiếp':'⏸ Dừng';
+  let o=field.querySelector('.paused');
+  if(p&&!o){o=document.createElement('div');o.className='paused';o.textContent='Tạm dừng · 暂停';field.appendChild(o)}
+  if(!p){o&&o.remove();last=performance.now();ans.focus()}}
+$('pauseBtn').onclick=()=>setPause(!paused);
+$('quitBtn').onclick=()=>{if(alive)end()};
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&alive)setPause(true)});
+function end(){
+  alive=false;cancelAnimationFrame(raf);document.body.classList.remove('playing');
+  $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
+  const k=bestKey(),best=store.get(k)||0,rec=score>best;if(rec)store.set(k,score);
+  store.set('mc-levels',[...picked]);
+  $('overTitle').textContent=lives>0?'Kết thúc ván chơi':'Hết mạng rồi!';$('finalScore').textContent=score;
+  const rk=score>=1500?['汉字大师','Bậc thầy chữ Hán']:score>=800?['厉害！','Giỏi lắm!']:score>=300?['加油！','Cố lên!']:['热身','Khởi động thôi!'];
+  $('rank').innerHTML='<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1];
+  $('finalInfo').textContent=(rec&&score>0?'Kỷ lục mới! ':'Kỷ lục: '+Math.max(best,score)+' điểm · ')+'Bắn trúng '+hitCount+' chữ · HSK '+[...picked].sort().join(', ');
+  $('missed').innerHTML=missed.map(w=>'<li><span class="hz" lang="zh">'+w[0]+' '+TTS.btn(w[0])+'</span><span class="py">'+w[1]+'</span></li>').join('');
+  $('missBox').hidden=!missed.length;showBest();
+}
+$('startBtn').onclick=()=>{store.set('mc-levels',[...picked]);start()};
+$('againBtn').onclick=start;
+$('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
+if(window.visualViewport)visualViewport.addEventListener('resize',()=>{if(alive)fit()});
+addEventListener('resize',()=>{if(alive)fit()});
+})();
+</script>
+</body>
+</html>

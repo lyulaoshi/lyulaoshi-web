@@ -172,7 +172,7 @@ nav.menu a.cta{white-space:nowrap}
 .fun h4{font-size:15.5px;font-weight:800}
 .fun h4 span{display:block;font-family:var(--hz);font-weight:400;font-size:19px;color:var(--coral);margin-bottom:2px}
 .fun>div:nth-child(even) h4 span{color:var(--sky)}
-.fun p{font-size:14.5px}
+.fun p{font-size:14.5px} .fun p a{color:var(--sky);font-weight:700}
 .mailbox{display:grid;gap:14px;padding:22px;border-radius:24px;background:var(--card);box-shadow:var(--shadow);margin-bottom:24px}
 .mailbox label{display:grid;gap:6px;font-weight:700;font-size:15px}
 .mailbox input,.mailbox textarea{font:inherit;font-weight:400;color:var(--ink);background:var(--ground);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;width:100%;box-sizing:border-box;resize:vertical}
@@ -251,8 +251,8 @@ body{margin:0}
       <div class="face"><div class="zh">课本盒<small>Giáo trình</small></div><h3>Bài giảng theo giáo trình</h3><p>TTTC · 乐读 · 汉语阅读教程 · 博雅汉语 · 301 câu.</p><div class="chips"><span class="chip">Bút thuận</span><span class="chip">Audio</span><span class="chip">Bài tập có đáp án</span></div><span class="label open">Đang mở</span></div></a>
     <a class="box c-sky" href="ngu-am/"><div class="lid"></div><div class="peek"><span>ā</span><span>á</span><span>ǎ</span></div>
       <div class="face"><div class="zh">拼音盒<small>Phát âm</small></div><h3>Ngữ âm tiếng Trung · 4 phần</h3><p>Thanh mẫu, vận mẫu, thanh điệu, biến điệu 一 · 不 — có audio và video khẩu hình.</p><div class="chips"><span class="chip">zh / z</span><span class="chip">ü / u</span><span class="chip">-n / -ng</span></div><span class="label open">Đang mở</span></div></a>
-    <a class="box c-mint" href="#ke-hop"><div class="lid"></div><div class="peek"><span>亻</span><span>氵</span><span>讠</span></div>
-      <div class="face"><div class="zh">汉字盒<small>Chữ Hán</small></div><h3>Tra chữ, xem nét, nhớ bộ</h3><p>Bút thuận động, bộ thủ, chiết tự, mẹo nhớ và phần Nhập môn chữ Hán.</p><div class="chips"><span class="chip">Bộ thủ</span><span class="chip">Chiết tự</span><span class="chip">Tập viết</span></div><span class="label soon">Sắp mở</span></div></a>
+    <a class="box c-peach" href="tro-choi/"><div class="lid"></div><div class="peek"><span>玩</span><span>赢</span></div>
+      <div class="face"><div class="zh">游戏盒<small>Trò chơi</small></div><h3>Vừa chơi vừa nhớ từ</h3><p>Mưa chữ, bẫy chữ giống nhau, săn thanh điệu… theo cấp HSK khung mới, chơi một mình hay thi cả lớp.</p><div class="chips"><span class="chip">HSK 1–6</span><span class="chip">Mưa chữ</span><span class="chip">Thi đấu</span></div><span class="label open">Đang mở</span></div></a>
     <a class="box c-lav" href="#ke-hop"><div class="lid"></div><div class="peek"><span>手机</span><span>书</span></div>
       <div class="face"><div class="zh">词汇盒<small>Từ vựng</small></div><h3>Flashcard mỗi ngày</h3><p>Thẻ từ theo bài học, theo cấp HSK 3.0 và theo chủ đề — có âm thanh, tự kiểm tra.</p><div class="chips"><span class="chip">HSK 1–9</span><span class="chip">Theo bài</span><span class="chip">Nghe – viết</span></div><span class="label soon">Sắp mở</span></div></a>
     <a class="box c-peach" href="#ke-hop"><div class="lid"></div><div class="peek"><span>读</span><span>文</span></div>
@@ -272,8 +272,8 @@ body{margin:0}
     <div class="courses">
       <a class="course" href="tttc/"><span class="n">预科汉语强化教程 综合课本</span><span class="v">Giáo trình Tiếng Trung tăng cường giáo trình tổng hợp 1</span><div class="meta"><div class="dots" aria-label="3 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span>3 bài</span></div></a>
       <a class="course c-sky" href="ledu/"><span class="n">乐读 1</span><span class="v">Giáo trình môn đọc hiểu tiếng Trung 1</span><div class="meta"><div class="dots" aria-label="4 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span>4 bài</span></div></a>
-      <a class="course c-mint" href="yuedu/"><span class="n">汉语阅读教程</span><span class="v">Giáo trình Đọc hiểu Hán ngữ Tập 1</span><div class="meta"><div class="dots" aria-label="4 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span>Bài 16–19</span></div></a>
-      <a class="course c-lav" href="boya/"><span class="n">博雅汉语</span><span class="v">Giáo trình BOYA sơ cấp 1</span><div class="meta"><div class="dots" aria-label="2 bài đã mở"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><span>2 bài</span></div></a>
+      <a class="course c-mint" href="yuedu/"><span class="n">汉语阅读教程</span><span class="v">Giáo trình Đọc hiểu Hán ngữ Tập 1</span><div class="meta"><div class="dots" aria-label="5 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span>Bài 16–20</span></div></a>
+      <a class="course c-lav" href="boya/"><span class="n">博雅汉语</span><span class="v">Giáo trình BOYA sơ cấp 1</span><div class="meta"><div class="dots" aria-label="3 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span>3 bài</span></div></a>
       <a class="course c-peach" href="301/"><span class="n">汉语会话301句</span><span class="v">Giáo trình 301 câu đàm thoại tiếng Hoa</span><div class="meta"><div class="dots" aria-label="4 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span>Bài 11–14</span></div></a>
     </div>
   </section>
@@ -282,8 +282,10 @@ body{margin:0}
   <section class="news">
     <a class="nl" href="ledu/bai-4/"><span class="ic">本</span><span><b>乐读 1 · Bài 4 · 木上末，木下本</b><span>Chữ chỉ sự · 17 từ về thời gian · nghe – viết</span></span><span class="go">Học →</span></a>
     <a class="nl" href="tttc/bai-3/"><span class="ic">家</span><span><b>TTTC Bài 3 · 你家有几口人</b><span>Gia đình · số đếm · lượng từ · 吧 · 真 · 27 từ mới</span></span><span class="go">Học →</span></a>
+    <a class="nl" href="boya/bai-3/"><span class="ic">书</span><span><b>博雅汉语 · Bài 3 · 那是你的书吗</b><span>这 / 那 · câu hỏi 谁, 什么, 哪 · định ngữ 的</span></span><span class="go">Học →</span></a>
     <a class="nl" href="boya/bai-2/"><span class="ic">国</span><span><b>博雅汉语 · Bài 2 · 你是哪国人</b><span>Giới thiệu · hỏi quốc tịch · 们 · 也 · 呢</span></span><span class="go">Học →</span></a>
     <a class="nl" href="boya/bai-1/"><span class="ic">你好</span><span><b>博雅汉语 · Bài 1 · 你好</b><span>Chào hỏi · hỏi tên · câu chữ 是 · câu hỏi 吗</span></span><span class="go">Học →</span></a>
+    <a class="nl" href="yuedu/bai-20/"><span class="ic">祝</span><span><b>汉语阅读教程 · Bài 20 · 第二十课</b><span>Sinh nhật · 祝…, 打算, 一定, 是……的 · 12 con giáp</span></span><span class="go">Học →</span></a>
     <a class="nl" href="yuedu/bai-19/"><span class="ic">读</span><span><b>汉语阅读教程 · Bài 19 · 第十九课</b><span>Chọn quần áo · 太…了, 有点儿, 不A不B · nghe – viết</span></span><span class="go">Học →</span></a>
     <a class="nl" href="301/bai-14/"><span class="ic">换钱</span><span><b>301 câu · Bài 14 · 我要去换钱</b><span>Đổi tiền · câu kiêm ngữ · trợ từ ngữ khí 了</span></span><span class="go">Học →</span></a>
     <a class="nl" href="ledu/bai-3/"><span class="ic">象</span><span><b>乐读 1 · Bài 3 · 象形字</b><span>Đọc hiểu · chữ tượng hình</span></span><span class="go">Học →</span></a>
@@ -298,8 +300,8 @@ body{margin:0}
     <div class="fun">
       <div><h4><span>为什么是盒子？</span>Vì sao lại là hộp?</h4><p>Vì ai mà chẳng thích mở hộp quà! Tiếng Trung thoạt nhìn giống một gói quà buộc dây rối tung, nhưng gỡ từng nút một thì hoá ra bên trong toàn thứ hay ho. Cô gói mỗi hộp vừa một bữa học, ăn từ từ cho ngon, không lo bị “bội thực” chữ Hán.</p></div>
       <div><h4><span>盒子里有什么？</span>Trong hộp có gì?</h4><p>Chữ Hán tự viết từng nét cho các em xem, audio đọc mẫu nghe bao nhiêu lần cũng được, bài tập có đáp án để tự chấm. Sai thì làm lại, chỉ có các em và màn hình biết thôi.</p></div>
-      <div><h4><span>怎么开盒？</span>Mở hộp thế nào?</h4><p>Mỗi ngày mở một hộp nhỏ, 10–15 phút thôi cũng được. Học tiếng Trung như uống trà sữa: không cần uống nhiều một lúc, chỉ cần ngày nào cũng có.</p></div>
-      <div><h4><span>小秘密</span>Bí mật nhỏ</h4><p>Học khuya thì bấm nút ☀︎ ở góc trên để đổi sang nền tối cho đỡ chói mắt. Hộp nào dán nhãn “Sắp mở” là cô đang gói dở, các em chờ cô một chút nhé!</p></div>
+      <div><h4><span>怎么开盒？</span>Mở hộp thế nào?</h4><p>Chữ Hán hay dỗi lắm: ba ngày không gặp là nó… giả vờ không quen em. Học trên lớp xong, về nhà nhớ mở đúng hộp bài hôm đó ra xem lại, luyện thêm 10–15 phút để giữ tình cảm nhé! Lúc rảnh, chờ xe hay trước giờ ngủ, mở một hộp bài cũ ra ôn lại cũng được, chữ Hán sẽ quý em lắm đó.</p></div>
+      <div><h4><span>小秘密</span>Bí mật nhỏ</h4><p>Học khuya thì bấm nút ☀︎ ở góc trên để đổi sang nền tối cho đỡ chói mắt nè. Hộp nào dán nhãn “Sắp mở” là cô đang gói dở, các em chờ cô một chút nhé! Còn thắc mắc gì cứ bỏ vào <a href="#hop-thu">Hộp thư</a>, mọi câu hỏi đều sẽ được cô giải đáp.</p></div>
     </div>
     </section>
 

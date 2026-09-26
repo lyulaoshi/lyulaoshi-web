@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nối từ 词语接龙 – Trò chơi 吕老师汉语盒</title>
+<meta name="description" content="Trò chơi Nối từ (词语接龙): từ sau phải bắt đầu bằng chữ cuối của từ trước. Luyện từ vựng HSK 1–6.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../game.css?v=2">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+[hidden]{display:none!important}
+.screen{padding:26px 0}
+.eyebrow{font-family:var(--hz);color:var(--peach);font-size:22px}
+h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4px}
+.lead{color:var(--muted);max-width:40em;margin:10px 0 0}
+.panel{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:20px;margin-top:20px;display:grid;gap:14px}
+.panel h2{font-size:16px;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--ground);color:var(--ink);font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;text-align:left}
+.chip[aria-pressed="true"]{border-color:var(--peach);background:var(--peach-s);color:var(--peach)}
+.chip small{font-weight:400;color:var(--muted);margin-left:4px}
+.how{margin:0;padding-left:20px;color:var(--muted);font-size:14.5px}
+.how b{color:var(--ink)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.muted{color:var(--muted);font-size:14px}
+/* chơi */
+#play{padding:16px 0}
+.hud{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-weight:700;font-size:15px}
+.hud b{font-size:20px;font-variant-numeric:tabular-nums}
+.hud .sp{margin-left:auto}
+.hud button{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer}
+.timer{height:8px;border-radius:99px;background:var(--ground2);overflow:hidden;margin-top:12px}
+.timer i{display:block;height:100%;width:100%;background:var(--mint);transform-origin:left}
+.timer i.low{background:var(--coral)}
+.chain{display:flex;gap:6px;align-items:center;overflow-x:auto;padding:10px 2px 4px;scrollbar-width:thin;min-height:44px}
+.chain span{flex:none;font-family:var(--kai);font-size:20px;background:var(--card);border-radius:10px;padding:2px 8px;box-shadow:var(--shadow)}
+.chain i{flex:none;color:var(--faint);font-style:normal}
+.q{margin-top:8px;background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:22px 16px;text-align:center}
+.q .w{font-family:var(--kai);font-size:clamp(52px,12vw,84px);line-height:1.15}
+.q .w b{font-weight:400;color:var(--peach);background:var(--peach-s);border-radius:14px;padding:0 6px}
+.q .py{font-size:20px;font-weight:700;color:var(--sky)}
+.q .ask{color:var(--muted);font-size:14.5px;margin-top:6px}
+.q .ask b{font-family:var(--kai);font-size:22px;color:var(--peach);font-weight:400}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.opt{font-family:var(--kai);font-size:clamp(34px,8vw,46px);line-height:1.2;padding:12px 4px;border:0;border-radius:20px;background:var(--card);color:var(--ink);box-shadow:var(--shadow);cursor:pointer;display:grid;transition:transform .15s}
+.opt:hover{transform:translateY(-3px)}
+.opt small{font-family:var(--vi);font-size:14px;font-weight:700;color:var(--sky);min-height:1.2em}
+.opt:disabled{cursor:default;transform:none}
+.opt.ok{background:var(--mint-s);color:var(--mint);box-shadow:0 0 0 3px var(--mint)}
+.opt.no{background:var(--coral-s);color:var(--coral);box-shadow:0 0 0 3px var(--coral);animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.typer{display:flex;gap:8px;margin-top:14px}
+.typer input{flex:1;min-width:0;font:inherit;font-size:20px;font-weight:700;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px 14px}
+.typer input:focus{border-color:var(--peach);outline:none}
+.typer input.bad{animation:shake .3s;border-color:var(--coral)}
+.fb{min-height:40px;margin-top:12px;text-align:center;font-size:15px;display:grid;gap:8px;justify-items:center}
+.fb .zh{font-family:var(--kai);font-size:22px}
+.fb .good{color:var(--mint);font-weight:800;font-size:18px}
+.fb .bad{color:var(--coral);font-weight:800;font-size:18px}
+.fb .note{color:var(--peach);font-weight:700}
+/* kết thúc */
+.big{font-size:56px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.rank{font-weight:800;font-size:20px;color:var(--peach)}
+.rank .zh{font-family:var(--hz);font-weight:400;font-size:24px;margin-right:8px}
+.review{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.review li{background:var(--ground);border-radius:12px;padding:6px 10px;display:grid}
+.review .zh{font-family:var(--kai);font-size:24px;line-height:1.2}
+.review .py{color:var(--sky);font-weight:700;font-size:13px}
+.missBox .zh{font-family:var(--kai);font-size:22px}
+@media (max-width:560px){.big{font-size:44px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/><rect x="78" y="38" width="44" height="30" rx="8" fill="#fff"/><rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/><path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/><rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/><rect x="60" y="142" width="80" height="30" rx="8" fill="#fff"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="screen" id="setup">
+    <div class="eyebrow">词语接龙</div>
+    <h1>Nối từ</h1>
+    <p class="lead">老师 → 师傅 → 傅… Từ sau phải <b>bắt đầu bằng chữ cuối</b> của từ trước. Nối được chuỗi càng dài, em càng giỏi!</p>
+    <div class="panel">
+      <h2>1. Dùng từ vựng đến cấp</h2>
+      <div class="chips" id="lvChips"></div>
+      <h2>2. Chế độ</h2>
+      <div class="chips" id="modeChips">
+        <button class="chip" type="button" data-mode="pick" aria-pressed="true">🔗 Chọn từ nối<small>chọn 1 trong 4 từ, 10 giây mỗi lượt</small></button>
+        <button class="chip" type="button" data-mode="type" aria-pressed="false">⌨️ Tự nối<small>khó: tự nghĩ từ, gõ pinyin, 20 giây mỗi lượt</small></button>
+      </div>
+      <ul class="how">
+        <li><b>Chọn từ nối:</b> trong 4 từ chỉ có 1 từ nối đúng. Cẩn thận các từ “bẫy” bắt đầu bằng chữ <b>đồng âm</b> (师 / 诗 / 时) hoặc chữ <b>trông giống</b>!</li>
+        <li><b>Tự nối:</b> tự nghĩ một từ HSK bắt đầu bằng chữ cuối, gõ pinyin không dấu (师傅 → shifu). Bí quá thì bấm <b>Gợi ý</b> (3 lần mỗi ván).</li>
+        <li>Chọn sai hoặc hết giờ là <b>đứt chuỗi</b>, ván kết thúc. Mỗi từ chỉ được dùng một lần.</li>
+      </ul>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="bestSetup"></span></div>
+    </div>
+  </section>
+
+  <section id="play" hidden>
+    <div class="hud">
+      <span>Chuỗi <b id="len">0</b></span>
+      <span>Điểm <b id="score">0</b></span>
+      <span id="hintLeft"></span>
+      <span class="sp"></span>
+      <button type="button" id="quitBtn">✕ Dừng</button>
+    </div>
+    <div class="timer"><i id="timer"></i></div>
+    <div class="chain" id="chain" aria-label="Chuỗi đã nối"></div>
+    <div class="q"><div class="w" id="word" lang="zh"></div><div class="py" id="py"></div><div class="ask" id="ask"></div></div>
+    <div class="opts" id="opts"></div>
+    <form class="typer" id="typer" autocomplete="off" hidden>
+      <input id="ans" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ pinyin không dấu rồi Enter…" aria-label="Gõ pinyin từ nối tiếp">
+      <button class="btn pri" type="submit">Nối</button>
+      <button class="btn sec" type="button" id="hintBtn">💡</button>
+    </form>
+    <div class="fb" id="fb" aria-live="polite"></div>
+  </section>
+
+  <section class="screen" id="over" hidden>
+    <div class="eyebrow">接龙结束</div>
+    <h1 id="overTitle">Đứt chuỗi rồi!</h1>
+    <div class="panel">
+      <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
+      <div class="missBox" id="missBox"></div>
+      <div><h2>Chuỗi em đã nối</h2><ul class="review" id="review"></ul></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại ↻</button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">Từ vựng và pinyin theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../hsk-words.js"></script>
+<script src="../tts.js?v=1"></script>
+<script src="../nhom-chu.js?v=1"></script>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
+
+(function(){
+const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'];
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const norm=s=>s.toLowerCase().replace(/v/g,'u').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z]/g,'');
+const SIM={};(window.GROUPS||[]).forEach(g=>[...g].forEach(c=>{SIM[c]=SIM[c]||new Set();[...g].forEach(o=>o!==c&&SIM[c].add(o))}));
+// âm đọc (không dấu) của từng chữ, lấy từ các từ một chữ, để tìm chữ đồng âm làm bẫy
+const SOUND={};LEVELS.forEach(l=>HSK[l].forEach(([w,p])=>{if(w.length===1&&!SOUND[w])SOUND[w]=norm(p)}));
+
+let upTo=store.get('nt-upto')||'2',mode='pick';
+const lvChips=$('lvChips');
+LEVELS.forEach(l=>{const n=LEVELS.slice(0,+l).reduce((s,k)=>s+HSK[k].length,0),b=document.createElement('button');b.type='button';b.className='chip';b.dataset.lv=l;
+  b.innerHTML=(l==='1'?'HSK 1':'HSK 1–'+l)+'<small>'+n+' từ</small>';b.setAttribute('aria-pressed',l===upTo);
+  b.onclick=()=>{upTo=l;lvChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.lv===upTo));showBest()};
+  lvChips.appendChild(b)});
+$('modeChips').querySelectorAll('.chip').forEach(c=>c.onclick=()=>{mode=c.dataset.mode;
+  $('modeChips').querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));showBest()});
+const bestKey=()=>'nt-best-'+mode+'-'+upTo;
+function showBest(){const b=store.get(bestKey());$('bestSetup').textContent=b?'Kỷ lục: chuỗi '+b+' từ':''}
+showBest();
+
+let POOL,BY,used,chain,curW,score,hints,timerId,t0,limit,alive,locked;
+function build(){
+  const seen=new Set();POOL=[];
+  LEVELS.slice(0,+upTo).forEach(l=>HSK[l].forEach(([w,p])=>{if(w.length<2||w.length>4||seen.has(w)||!/^[一-鿿]+$/.test(w))return;
+    if(/儿$/.test(w)&&!/er$/.test(norm(p)))return; // bỏ từ âm cuốn lưỡi (有空儿…): chữ 儿 không đọc thành âm riêng
+    seen.add(w);POOL.push({w,p,k:norm(p),lv:l})}));
+  BY={};POOL.forEach(x=>(BY[x.w[0]]=BY[x.w[0]]||[]).push(x));
+}
+const nextsOf=x=>(BY[x.w[x.w.length-1]]||[]).filter(y=>!used.has(y.w));
+const alive2=x=>nextsOf(x).length>0; // còn nối tiếp được
+function start(){
+  build();used=new Set();chain=[];score=0;hints=3;alive=true;
+  const starts=shuffle(POOL.filter(x=>alive2(x)&&x.lv===upTo).concat(shuffle(POOL.filter(alive2)).slice(0,50)));
+  setWord(starts[0]);
+  $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);
+  $('opts').hidden=mode!=='pick';$('typer').hidden=mode!=='type';$('hintLeft').textContent=mode==='type'?'💡 '+hints:'';
+  turn();
+}
+function setWord(x){curW=x;used.add(x.w);chain.push(x)}
+function hud(){$('len').textContent=chain.length-1;$('score').textContent=score;
+  $('chain').innerHTML=chain.slice(-8).map(x=>'<span lang="zh">'+x.w+'</span>').join('<i>→</i>');$('chain').scrollLeft=9999}
+function turn(){
+  if(!alive)return;locked=false;$('fb').innerHTML='';
+  // hết đường nối: đổi sang từ mới, không mất chuỗi
+  if(!alive2(curW)){const fresh=shuffle(POOL.filter(x=>!used.has(x.w)&&alive2(x)))[0];
+    if(!fresh)return end('win');
+    $('fb').innerHTML='<span class="note">Không còn từ nào bắt đầu bằng 「'+curW.w.slice(-1)+'」, đổi sang từ mới nhé!</span>';setWord(fresh)}
+  const last=curW.w.slice(-1);
+  $('word').innerHTML=curW.w.slice(0,-1)+'<b>'+last+'</b>';$('py').textContent=curW.p;
+  $('ask').innerHTML='Nối một từ bắt đầu bằng <b lang="zh">'+last+'</b>';
+  hud();TTS.say(curW.w);
+  if(mode==='pick')makeOpts(last);else{$('ans').value='';$('ans').focus()}
+  limit=mode==='pick'?10:20;clearInterval(timerId);t0=performance.now();const bar=$('timer');
+  timerId=setInterval(()=>{const f=1-(performance.now()-t0)/(limit*1000);bar.style.transform='scaleX('+Math.max(0,f)+')';bar.classList.toggle('low',f<.3);
+    if(f<=0){clearInterval(timerId);fail(null)}},50);
+}
+function makeOpts(last){
+  const goods=nextsOf(curW),good=shuffle(goods.filter(alive2))[0]||shuffle(goods)[0];
+  const bad=[],take=list=>{for(const y of shuffle(list)){if(bad.length>=3)break;if(y.w[0]!==last&&!bad.some(b=>b.w===y.w)&&!used.has(y.w))bad.push(y)}};
+  // bẫy 1: chữ đầu trông giống; bẫy 2: chữ đầu đồng âm; còn lại: ngẫu nhiên
+  take(POOL.filter(y=>SIM[last]&&SIM[last].has(y.w[0])));
+  if(SOUND[last])take(POOL.filter(y=>y.w[0]!==last&&SOUND[y.w[0]]===SOUND[last]));
+  take(POOL);
+  const opts=shuffle([good,...bad.slice(0,3)]);$('opts').innerHTML='';
+  opts.forEach(y=>{const b=document.createElement('button');b.type='button';b.className='opt';b.lang='zh';b.innerHTML=y.w+'<small></small>';
+    b.onclick=()=>{if(locked)return;if(y.w[0]===last)ok(y,b);else fail(y,b)};$('opts').appendChild(b)});
+}
+function ok(y,btn){
+  locked=true;clearInterval(timerId);
+  const secs=Math.max(0,limit-(performance.now()-t0)/1000),pts=Math.round((mode==='type'?20:10)*(1+chain.length*.1)+secs);
+  score+=pts;
+  if(btn){btn.classList.add('ok');btn.querySelector('small').textContent=y.p;document.querySelectorAll('.opt').forEach(b=>b.disabled=true)}
+  $('fb').innerHTML='<span class="good">'+['Nối hay!','Chuẩn!','好！','接得好！','Tiếp nào!'][Math.random()*5|0]+' +'+pts+'</span><span><span class="zh" lang="zh">'+y.w+'</span> '+y.p+'</span>';
+  setWord(y);hud();setTimeout(turn,mode==='pick'?1000:1200);
+}
+function fail(y,btn){
+  if(locked)return;locked=true;clearInterval(timerId);
+  if(btn){btn.classList.add('no');document.querySelectorAll('.opt').forEach(b=>{b.disabled=true;const w=b.textContent.replace(/[a-zāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜü\s']+$/i,'');const p=POOL.find(z=>z.w===w);if(p)b.querySelector('small').textContent=p.p;if(w[0]===curW.w.slice(-1))b.classList.add('ok')})}
+  missed={y,last:curW.w.slice(-1),sample:shuffle(nextsOf(curW)).slice(0,3)};
+  $('fb').innerHTML='<span class="bad">'+(y?'Nối sai rồi!':'Hết giờ!')+'</span>';
+  setTimeout(()=>end('fail'),1300);
+}
+let missed=null;
+function tryType(){
+  const k=norm($('ans').value);if(!k)return;
+  const last=curW.w.slice(-1),m=nextsOf(curW).find(y=>y.k===k);
+  if(m){ok(m,null);return}
+  const any=POOL.find(y=>y.k===k);
+  $('ans').classList.remove('bad');void $('ans').offsetWidth;$('ans').classList.add('bad');
+  $('fb').innerHTML='<span class="bad">'+(any&&used.has(any.w)&&any.w[0]===last?'Từ '+any.w+' dùng rồi!':any&&any.w[0]!==last?'「'+any.w+'」 không bắt đầu bằng '+last:'Không có từ này trong HSK 1–'+upTo)+'</span>';
+}
+$('typer').addEventListener('submit',e=>{e.preventDefault();if(!locked)tryType()});
+$('hintBtn').onclick=()=>{if(locked||hints<=0)return;hints--;$('hintLeft').textContent='💡 '+hints;
+  const y=shuffle(nextsOf(curW).filter(alive2))[0]||nextsOf(curW)[0];
+  $('fb').innerHTML='<span class="note">Gợi ý: <span class="zh" lang="zh">'+y.w+'</span> ('+y.p.replace(/(\S)\S*/g,(m,a)=>a+'…')+')</span>';$('ans').focus()};
+$('quitBtn').onclick=()=>{if(alive){clearInterval(timerId);missed=null;end('quit')}};
+function end(why){
+  alive=false;clearInterval(timerId);$('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
+  const n=chain.length-1,k=bestKey(),best=store.get(k)||0,rec=n>best;if(rec)store.set(k,n);store.set('nt-upto',upTo);
+  $('overTitle').textContent=why==='win'?'Nối hết cả kho từ!':why==='quit'?'Kết thúc!':'Đứt chuỗi rồi!';
+  $('finalScore').textContent=n+' từ';
+  const rk=n>=20?['接龙大王','Vua nối từ!']:n>=10?['厉害！','Giỏi lắm!']:n>=5?['加油！','Cố lên!']:['再来一次','Thử lại nhé!'];
+  $('rank').innerHTML='<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1];
+  $('finalInfo').textContent=score+' điểm · '+(rec&&n>0?'Kỷ lục mới!':'Kỷ lục: chuỗi '+Math.max(best,n)+' từ')+' · HSK 1–'+upTo+' · '+(mode==='type'?'Tự nối':'Chọn từ nối');
+  $('missBox').innerHTML=missed&&missed.sample.length?'<h2>Có thể nối bằng</h2><p>'+missed.sample.map(y=>'<span class="zh" lang="zh">'+y.w+'</span> '+y.p+' '+TTS.btn(y.w)).join(' · ')+'</p>':'';
+  $('review').innerHTML=chain.map(x=>'<li><span class="zh" lang="zh">'+x.w+'</span><span class="py">'+x.p+'</span></li>').join('<li style="background:none;padding:6px 0;align-self:center">→</li>');
+}
+$('startBtn').onclick=()=>{store.set('nt-upto',upTo);start()};
+$('againBtn').onclick=start;
+$('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
+document.addEventListener('keydown',e=>{if(!alive||$('play').hidden||mode!=='pick')return;const n=+e.key;if(n>=1&&n<=4){const b=document.querySelectorAll('.opt')[n-1];if(b&&!b.disabled)b.click()}});
+})();
+</script>
+</body>
+</html>
