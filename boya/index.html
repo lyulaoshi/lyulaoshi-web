@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="博雅汉语 · Giáo trình BOYA sơ cấp 1 — bài giảng tương tác của ThS. Lã Thị Thuỳ Phương trên Lyu Laoshi Chinese Box: từ mới có bút thuận, audio bài khoá, bài tập có đáp án, nghe – viết.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E %3Cpath d=%22M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z%22 fill=%22%23E0545F%22/%3E %3Crect x=%2278%22 y=%2238%22 width=%2244%22 height=%2230%22 rx=%228%22 fill=%22%23FFFFFF%22/%3E %3Crect x=%2234%22 y=%22122%22 width=%22132%22 height=%2264%22 rx=%2214%22 fill=%22%233B87D6%22/%3E %3Cpath d=%22M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z%22 fill=%22%232C6DB3%22/%3E %3Crect x=%22112%22 y=%22110%22 width=%2218%22 height=%2220%22 rx=%222%22 fill=%22%23D9B98C%22/%3E %3Crect x=%2260%22 y=%22142%22 width=%2280%22 height=%2230%22 rx=%228%22 fill=%22%23FFFFFF%22/%3E %3C/svg%3E">
-<title>博雅汉语 · BOYA sơ cấp 1 — 吕老师汉语盒</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect x=%228%22 y=%228%22 width=%2284%22 height=%2284%22 rx=%2220%22 fill=%22%237C6BD6%22/%3E%3Ctext x=%2250%22 y=%2270%22 font-size=%2256%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22serif%22%3E%E5%8D%9A%3C/text%3E%3C/svg%3E">
+<title>博雅汉语 · Giáo trình BOYA sơ cấp 1 · Bài giảng</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap">
@@ -64,8 +64,9 @@ nav.menu a.cta{white-space:nowrap}
 .hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:32px;align-items:center;padding-block:48px 36px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--kraft-d)}
 .eyebrow::before{content:"";width:26px;height:10px;background:var(--tape);border-radius:2px;transform:rotate(-4deg)}
-.hero h1{font-size:clamp(38px,5.4vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.02em;margin-top:14px}
-.hero h1 .zh{display:block;font-family:var(--hz);font-weight:400;letter-spacing:.02em;font-size:.92em;margin-top:8px}
+.hero h1{font-size:clamp(32px,4.4vw,56px);text-wrap:balance;line-height:1.02;font-weight:800;letter-spacing:-.02em;margin-top:14px}
+.hero h1 .zh{display:block;font-family:var(--hz);font-weight:400;letter-spacing:.02em;font-size:.78em;margin-top:12px;line-height:1.25}
+.hero h1 .zh i,.hero h1 .zh u{white-space:nowrap}
 .hero h1 .zh i{font-style:normal;color:var(--coral)} .hero h1 .zh u{text-decoration:none;color:var(--sky)}
 .hero p.lead{font-size:18px;color:var(--muted);max-width:34em;margin:18px 0 0}
 .hero .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
@@ -155,7 +156,15 @@ nav.menu a.cta{white-space:nowrap}
 .teacher{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center;margin:44px 0 24px;padding:22px;border-radius:24px;background:var(--ground2)}
 @media (max-width:720px){.teacher{grid-template-columns:1fr;text-align:left}}
 .seal{width:76px;height:76px;border-radius:12px;background:var(--coral);color:#fff;display:grid;place-items:center;font-family:var(--kai);font-size:44px;box-shadow:inset 0 0 0 4px var(--coral),inset 0 0 0 6px rgba(255,255,255,.85);transform:rotate(-4deg)}
-.seal svg{width:62px;height:62px}
+.teacher{position:relative;grid-template-columns:minmax(0,1fr)}
+.seal.stamp{position:absolute;left:-44px;top:-50px;width:124px;height:124px;background:none;box-shadow:none;border-radius:0;display:block;transform:rotate(-14deg);opacity:.9;pointer-events:none;z-index:2}
+.teacher .txt{position:relative}
+.teacher .txt h3{padding-left:44px}
+@media (max-width:720px){.seal.stamp{left:-14px;top:-54px;width:108px;height:108px}.teacher .txt h3{padding-left:62px}}
+:root:not([data-theme="dark"]) .seal.stamp{mix-blend-mode:multiply}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .seal.stamp{mix-blend-mode:normal;opacity:.8}}
+:root[data-theme="dark"] .seal.stamp{mix-blend-mode:normal;opacity:.8}
+.seal.stamp img{display:block;width:100%;height:100%}
 .teacher h3{font-size:20px;font-weight:800}
 .teacher p{margin:4px 0 0;color:var(--muted)}
 .fun{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
@@ -171,7 +180,15 @@ footer{padding-block:18px 36px;color:var(--muted);font-size:13.5px;border-top:1p
 body{margin:0}
 </style>
 <style>
-/* --- riêng trang mục lục BOYA (cùng phong cách trang chủ) --- */
+/* --- riêng trang mục lục BOYA (cùng phong cách trang chủ, không dùng logo trang chủ) --- */
+.bseal{flex:none;width:42px;height:42px;border-radius:12px;background:var(--lav);color:#fff;display:grid;place-items:center;font-family:var(--kai);font-size:26px;transform:rotate(-5deg);box-shadow:inset 0 0 0 3px var(--lav),inset 0 0 0 5px rgba(255,255,255,.8)}
+.brand .t span{color:var(--lav)}
+.hero h1{font-size:clamp(32px,4.4vw,56px)}
+.hero h1 .zh.big{display:block;font-size:clamp(64px,9vw,120px);line-height:1;margin:0 0 12px}
+.art .book{filter:drop-shadow(0 18px 30px rgba(90,73,184,.22))}
+.pop.a{color:var(--lav)} .pop.b{color:var(--coral)}
+.pop.c{top:auto;bottom:24%;left:-2%} .pop.d{top:auto;bottom:10%;right:-4%}
+@media (max-width:560px){.bseal{width:36px;height:36px;font-size:22px}}
 .hero h1 .zh i{color:var(--lav)} .hero h1 .zh u{color:var(--coral)}
 .sh h2 small{color:var(--lav)}
 .box .zh{font-size:40px;letter-spacing:.02em}
@@ -202,19 +219,10 @@ a.rl b{color:var(--ink)}
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
- <symbol id="lvbox" viewBox="0 0 200 200">
-  <path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/>
-  <rect x="78" y="38" width="44" height="30" rx="8" fill="#FFFFFF"/>
-  <rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/>
-  <path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/>
-  <rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/>
-  <rect x="60" y="142" width="80" height="30" rx="8" fill="#FFFFFF"/>
-</symbol></defs></svg>
 <header class="top"><div class="wrap">
-  <a class="brand" href="/" aria-label="Lyu Laoshi Chinese Box – về trang chủ">
-    <svg class="logo" aria-hidden="true"><use href="#lvbox"/></svg>
-    <span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span>
+  <a class="brand" href="#top" aria-label="博雅汉语 – đầu trang">
+    <span class="bseal" aria-hidden="true">博</span>
+    <span class="t"><b>Giáo trình BOYA sơ cấp 1</b><span>博雅汉语 · 初级起步篇</span></span>
   </a>
   <nav class="menu" aria-label="Menu">
     <a href="#bai-hoc">Bài học</a><a href="#lo-trinh">Lộ trình</a><a href="#co-gi">Trong hộp có gì</a><a class="cta" href="/">← Trang chủ</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☀︎</button>
@@ -224,15 +232,34 @@ a.rl b{color:var(--ink)}
 <main class="wrap" id="top">
   <section class="hero">
     <div>
-      <span class="eyebrow">课本盒 · Giáo trình BOYA sơ cấp 1</span>
-      <h1>Hộp BOYA đã mở,<br>học từng bài một!<span class="zh"><i>博雅</i><u>汉语</u></span></h1>
+      <span class="eyebrow">Bài giảng tương tác · ThS. Lã Thị Thuỳ Phương</span>
+      <h1><span class="zh big"><i>博雅</i><u>汉语</u></span>Giáo trình Hán ngữ BOYA<br>sơ cấp 1</h1>
       <p class="lead">Bài giảng theo <b>Giáo trình Hán ngữ BOYA sơ cấp 1</b>: nghe phát âm từng từ, xem chữ Hán tự viết từng nét, nghe bài khoá, làm bài tập có đáp án và luyện nghe – viết. Trên lớp bật toàn màn hình để trình chiếu, ở nhà mở điện thoại là học.</p>
       <div class="acts"><a class="btn pri" href="bai-2/">Học Bài 2 · 你是哪国人 →</a><a class="btn sec" href="#bai-hoc">Xem các bài ↓</a></div>
       <div class="stats"><div><b>2</b>bài đã mở</div><div><b>32</b>từ mới có bút thuận</div><div><b>4</b>bài khoá có audio</div><div><b>30</b>bài cả giáo trình</div></div>
     </div>
     <div class="art" aria-hidden="true">
-      <svg viewBox="0 0 400 410"><ellipse cx="200" cy="392" rx="140" ry="12" fill="currentColor" opacity=".08"/><use href="#lvbox" x="50" y="40" width="300" height="300"/></svg>
-      <span class="pop a">你好</span><span class="pop b">博雅</span><span class="pop c">nǐ hǎo</span><span class="pop d">Nǐ shì nǎ guó rén?</span>
+      <svg viewBox="0 0 400 420" class="book">
+        <defs>
+          <linearGradient id="cv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9A8BEA"/><stop offset=".55" stop-color="#7C6BD6"/><stop offset="1" stop-color="#5A49B8"/></linearGradient>
+          <pattern id="tz" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0 20H40M20 0V40" stroke="#fff" stroke-opacity=".10" stroke-dasharray="3 3"/></pattern>
+        </defs>
+        <ellipse cx="205" cy="398" rx="150" ry="13" fill="currentColor" opacity=".09"/>
+        <rect x="104" y="46" width="236" height="332" rx="14" fill="#FFFDF7" stroke="#E3DFEE" stroke-width="2"/>
+        <path d="M320 60V368M312 60V368" stroke="#E3DFEE" stroke-width="2"/>
+        <rect x="72" y="32" width="244" height="340" rx="16" fill="url(#cv)"/>
+        <rect x="72" y="32" width="244" height="340" rx="16" fill="url(#tz)"/>
+        <rect x="72" y="32" width="30" height="340" rx="14" fill="#000" opacity=".16"/>
+        <path d="M270 32V104L284 92L298 104V32Z" fill="#E0545F"/>
+        <text x="209" y="112" text-anchor="middle" font-family="ZCOOL KuaiLe, STKaiti, KaiTi, serif" font-size="50" fill="#fff" letter-spacing="2">博雅汉语</text>
+        <text x="209" y="142" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="14" font-weight="800" fill="#fff" fill-opacity=".85" letter-spacing="4">BOYA CHINESE</text>
+        <circle cx="209" cy="226" r="54" fill="#fff"/>
+        <circle cx="209" cy="226" r="54" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="10" transform="scale(1)" />
+        <text x="209" y="252" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="72" font-weight="800" fill="#7C6BD6">1</text>
+        <text x="209" y="322" text-anchor="middle" font-family="STKaiti, KaiTi, Kaiti SC, serif" font-size="28" fill="#fff">初级起步篇</text>
+        <text x="209" y="348" text-anchor="middle" font-family="Be Vietnam Pro, system-ui, sans-serif" font-size="13" font-weight="700" fill="#fff" fill-opacity=".85" letter-spacing="1">SƠ CẤP · TẬP 1</text>
+      </svg>
+      <span class="pop a">你好</span><span class="pop b">谢谢</span><span class="pop c">nǐ hǎo</span><span class="pop d">Nǐ shì nǎ guó rén?</span>
     </div>
   </section>
 
