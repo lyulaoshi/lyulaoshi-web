@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="博雅汉语 · Giáo trình BOYA sơ cấp 1 — bài giảng tương tác của ThS. Lã Thị Thuỳ Phương trên Lyu Laoshi Chinese Box: từ mới có bút thuận, audio bài khoá, bài tập có đáp án, nghe – viết.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E %3Cpath d=%22M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z%22 fill=%22%23E0545F%22/%3E %3Crect x=%2278%22 y=%2238%22 width=%2244%22 height=%2230%22 rx=%228%22 fill=%22%23FFFFFF%22/%3E %3Crect x=%2234%22 y=%22122%22 width=%22132%22 height=%2264%22 rx=%2214%22 fill=%22%233B87D6%22/%3E %3Cpath d=%22M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z%22 fill=%22%232C6DB3%22/%3E %3Crect x=%22112%22 y=%22110%22 width=%2218%22 height=%2220%22 rx=%222%22 fill=%22%23D9B98C%22/%3E %3Crect x=%2260%22 y=%22142%22 width=%2280%22 height=%2230%22 rx=%228%22 fill=%22%23FFFFFF%22/%3E %3C/svg%3E">
+<title>博雅汉语 · BOYA sơ cấp 1 — 吕老师汉语盒</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<style>
+:root{
+  --ground:#F7F5FB; --ground2:#EFEBF7; --ink:#2B2E45; --muted:#6B6E86; --faint:#A3A5B8; --line:#E3DFEE;
+  --card:#FFFFFF; --kraft:#D9B98C; --kraft-d:#B8925F; --tape:rgba(217,185,140,.72);
+  --coral:#E0545F; --coral-s:#FDE6E7; --sky:#3B87D6; --sky-s:#E3EFFB; --mint:#2E9E73; --mint-s:#DDF3EA;
+  --lav:#7C6BD6; --lav-s:#ECE8FB; --peach:#E7823A; --peach-s:#FDEBDD; --butter:#C99A14; --butter-s:#FBF1CF;
+  --shadow:0 1px 0 rgba(43,46,69,.04),0 10px 28px rgba(43,46,69,.08);
+  --hz:"ZCOOL KuaiLe","STKaiti","KaiTi","Kaiti SC","PingFang SC",sans-serif;
+  --kai:"STKaiti","KaiTi","Kaiti SC","LXGW WenKai","PingFang SC",serif;
+  --vi:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
+  --kraft:#C9A677;--kraft-d:#A7824F;--tape:rgba(201,166,119,.55);
+  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;
+  --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{
+  color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
+  --kraft:#C9A677;--kraft-d:#A7824F;--tape:rgba(201,166,119,.55);
+  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;
+  --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--vi);font-size:16px;line-height:1.6;padding-inline:16px;
+  background-image:radial-gradient(circle at 12% 8%,var(--coral-s) 0,transparent 32%),radial-gradient(circle at 92% 18%,var(--sky-s) 0,transparent 30%)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto}
+h1,h2,h3{text-wrap:balance;margin:0}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:8px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;margin-inline:-16px;padding:10px 16px;background:color-mix(in srgb,var(--ground) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand .t{display:grid;line-height:1.1}
+.brand .t b{font-weight:800;font-size:15px;letter-spacing:.01em}
+.brand .t span{font-family:var(--hz);font-size:15px;color:var(--coral)}
+nav.menu{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+nav.menu a{text-decoration:none;font-weight:600;font-size:14px;padding:7px 12px;border-radius:999px;color:var(--muted)}
+nav.menu a:hover{background:var(--ground2);color:var(--ink)}
+nav.menu a.cta{background:var(--coral);color:#fff}
+.themebtn{border:0;background:var(--ground2);color:var(--ink);width:36px;height:36px;border-radius:999px;font-size:16px;cursor:pointer}
+nav.menu{align-items:center;flex-wrap:nowrap}
+nav.menu a.cta{white-space:nowrap}
+.themebtn{flex:none}
+@media (max-width:560px){.top .wrap{gap:10px}.brand .t b{font-size:12.5px}.brand .t span{font-size:13px}nav.menu a.cta{padding:6px 11px;font-size:13px}.themebtn{width:32px;height:32px;font-size:14px}.logo{width:36px;height:36px}}
+@media (max-width:360px){.brand .t b{display:none}}
+@media (max-width:760px){nav.menu a:not(.cta){display:none}}
+
+/* logo */
+.logo{width:42px;height:42px;flex:none}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:32px;align-items:center;padding-block:48px 36px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--kraft-d)}
+.eyebrow::before{content:"";width:26px;height:10px;background:var(--tape);border-radius:2px;transform:rotate(-4deg)}
+.hero h1{font-size:clamp(38px,5.4vw,68px);line-height:1.02;font-weight:800;letter-spacing:-.02em;margin-top:14px}
+.hero h1 .zh{display:block;font-family:var(--hz);font-weight:400;letter-spacing:.02em;font-size:.92em;margin-top:8px}
+.hero h1 .zh i{font-style:normal;color:var(--coral)} .hero h1 .zh u{text-decoration:none;color:var(--sky)}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:34em;margin:18px 0 0}
+.hero .acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 15px var(--vi);padding:12px 20px;border-radius:14px;text-decoration:none;border:0;cursor:pointer}
+.btn.pri{background:var(--ink);color:var(--ground)} .btn.sec{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+.stats{display:flex;gap:22px;flex-wrap:wrap;margin-top:28px;font-size:13px;color:var(--muted)}
+.stats b{display:block;font-size:26px;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+
+/* hero art: 吕 = hai hộp */
+.art{position:relative;justify-self:center;width:min(420px,100%);aspect-ratio:1/1.02}
+.art svg{width:100%;height:100%;overflow:visible}
+.pop{position:absolute;font-family:var(--hz);font-size:clamp(18px,2.4vw,28px);padding:4px 12px;border-radius:12px;background:var(--card);box-shadow:var(--shadow);white-space:nowrap}
+.pop.a{left:8%;top:6%;color:var(--coral);transform:rotate(-8deg)} .pop.b{right:4%;top:2%;color:var(--sky);transform:rotate(7deg)}
+.pop.c{left:0;top:30%;color:var(--mint);font-family:var(--vi);font-weight:700;font-size:18px;transform:rotate(-4deg)} .pop.d{right:-2%;top:26%;color:var(--lav);font-family:var(--vi);font-weight:700;font-size:18px;transform:rotate(5deg)}
+@media (prefers-reduced-motion:no-preference){
+  .pop{animation:float 5s ease-in-out infinite}.pop.b{animation-delay:.8s}.pop.c{animation-delay:1.6s}.pop.d{animation-delay:2.4s}
+  .art svg{animation:bob 5s ease-in-out infinite}
+}
+@keyframes float{50%{translate:0 -8px}}
+@keyframes bob{50%{translate:0 -6px}}
+
+/* section heads */
+.sh{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:40px 0 18px}
+.sh h2{font-size:clamp(26px,3vw,36px);font-weight:800;letter-spacing:-.01em}
+.sh h2 small{font-family:var(--hz);font-weight:400;color:var(--coral);font-size:.8em;margin-left:8px}
+.sh p{margin:0;color:var(--muted);max-width:40em}
+
+/* shelf of boxes */
+.shelf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 22px;padding:26px 0 10px}
+@media (max-width:960px){.shelf{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.shelf{grid-template-columns:1fr;gap:26px}}
+.box{--c:var(--coral);--cs:var(--coral-s);position:relative;display:block;text-decoration:none;color:var(--ink);padding-top:22px;outline:none}
+.box .lid{position:absolute;left:-6px;right:-6px;top:0;height:30px;border-radius:12px 12px 6px 6px;background:var(--c);box-shadow:0 4px 0 rgba(0,0,0,.08);transition:transform .35s cubic-bezier(.3,1.4,.5,1);transform-origin:18% 100%;z-index:3}
+.box .lid::after{content:"";position:absolute;left:50%;top:-2px;width:54px;height:34px;margin-left:-27px;background:var(--tape);border-radius:2px}
+.box .peek{position:absolute;left:0;right:0;top:20px;display:flex;justify-content:center;gap:8px;z-index:2;pointer-events:none}
+.box .peek span{font-family:var(--hz);font-size:22px;background:var(--card);color:var(--c);border-radius:10px;padding:2px 10px;box-shadow:var(--shadow);opacity:0;transform:translateY(16px);transition:.35s cubic-bezier(.3,1.4,.5,1)}
+.box .peek span:nth-child(2){transition-delay:.05s}.box .peek span:nth-child(3){transition-delay:.1s}
+.box .face{position:relative;z-index:1;background:var(--card);border-radius:8px 8px 22px 22px;padding:26px 22px 20px;box-shadow:var(--shadow);border-top:6px solid var(--c);min-height:100%;display:grid;gap:10px;align-content:start}
+.box .face::before{content:"";position:absolute;inset:6px 6px auto auto;width:0;height:0}
+.box .zh{font-family:var(--hz);font-size:34px;line-height:1;color:var(--c)}
+.box .zh small{font-family:var(--vi);font-size:12px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;font-weight:700;margin-left:6px;vertical-align:middle}
+.box h3{font-size:19px;font-weight:800}
+.box p{margin:0;color:var(--muted);font-size:14.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--cs);color:var(--c)}
+.label{position:absolute;right:16px;bottom:16px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:6px}
+.label.open{background:var(--c);color:#fff}
+.label.soon{background:var(--ground2);color:var(--muted);border:1.5px dashed var(--faint)}
+.box .face{padding-bottom:48px}
+.box:hover .lid,.box:focus-visible .lid,.box.is-open .lid{transform:translateY(-16px) rotate(-8deg)}
+.box:hover .peek span,.box:focus-visible .peek span,.box.is-open .peek span{opacity:1;transform:translateY(-26px)}
+.box:focus-visible .face{outline:3px solid var(--c);outline-offset:3px}
+.box.c-sky{--c:var(--sky);--cs:var(--sky-s)} .box.c-mint{--c:var(--mint);--cs:var(--mint-s)} .box.c-lav{--c:var(--lav);--cs:var(--lav-s)}
+.box.c-peach{--c:var(--peach);--cs:var(--peach-s)} .box.c-butter{--c:var(--butter);--cs:var(--butter-s)} .box.c-kraft{--c:var(--kraft-d);--cs:color-mix(in srgb,var(--kraft) 22%,var(--card))}
+@media (prefers-reduced-motion:reduce){.box .lid,.box .peek span{transition:none}}
+
+/* course crate */
+.crate{background:var(--card);border-radius:28px;box-shadow:var(--shadow);padding:24px;border:2px solid color-mix(in srgb,var(--kraft) 40%,transparent);position:relative}
+.crate::before,.crate::after{content:"";position:absolute;top:-10px;width:80px;height:22px;background:var(--tape);border-radius:2px}
+.crate::before{left:40px;transform:rotate(-3deg)} .crate::after{right:40px;transform:rotate(3deg)}
+.courses{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+@media (max-width:1000px){.courses{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.courses{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:400px){.courses{grid-template-columns:1fr}}
+.course{--c:var(--coral);--cs:var(--coral-s);display:grid;gap:6px;align-content:start;padding:16px;border-radius:18px;background:var(--cs);text-decoration:none;color:var(--ink);border:1.5px solid transparent;transition:transform .2s,border-color .2s}
+.course:hover{transform:translateY(-3px);border-color:var(--c)}
+.course .tag{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.course .n{font-family:var(--kai);font-size:22px;line-height:1.2}
+.course .v{font-weight:700;font-size:14.5px}
+.course .meta{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted);margin-top:6px}
+.dots{display:flex;gap:4px}
+.dots i{width:12px;height:12px;border-radius:3px;background:color-mix(in srgb,var(--c) 22%,transparent)}
+.dots i.on{background:var(--c)}
+.course.c-sky{--c:var(--sky);--cs:var(--sky-s)} .course.c-mint{--c:var(--mint);--cs:var(--mint-s)} .course.c-lav{--c:var(--lav);--cs:var(--lav-s)} .course.c-peach{--c:var(--peach);--cs:var(--peach-s)}
+
+/* new lessons */
+.news{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:720px){.news{grid-template-columns:1fr}}
+.nl{display:flex;gap:14px;align-items:center;padding:14px;border-radius:18px;background:var(--card);box-shadow:var(--shadow);text-decoration:none}
+.nl .ic{flex:none;width:58px;height:58px;border-radius:14px;display:grid;place-items:center;font-family:var(--hz);font-size:26px;background:var(--coral-s);color:var(--coral)}
+.nl.sky .ic{background:var(--sky-s);color:var(--sky)}
+.nl b{display:block;font-size:15.5px}
+.nl span{font-size:13.5px;color:var(--muted)}
+.nl .go{margin-left:auto;font-weight:700;color:var(--coral);white-space:nowrap}
+
+/* teacher strip */
+.teacher{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:22px;align-items:center;margin:44px 0 24px;padding:22px;border-radius:24px;background:var(--ground2)}
+@media (max-width:720px){.teacher{grid-template-columns:1fr;text-align:left}}
+.seal{width:76px;height:76px;border-radius:12px;background:var(--coral);color:#fff;display:grid;place-items:center;font-family:var(--kai);font-size:44px;box-shadow:inset 0 0 0 4px var(--coral),inset 0 0 0 6px rgba(255,255,255,.85);transform:rotate(-4deg)}
+.seal svg{width:62px;height:62px}
+.teacher h3{font-size:20px;font-weight:800}
+.teacher p{margin:4px 0 0;color:var(--muted)}
+.fun{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.fun>div{background:var(--card);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow)}
+.fun h4{font-size:15.5px;font-weight:800}
+.fun h4 span{display:block;font-family:var(--hz);font-weight:400;font-size:19px;color:var(--coral);margin-bottom:2px}
+.fun>div:nth-child(even) h4 span{color:var(--sky)}
+.fun p{font-size:14.5px}
+.note{font-size:12.5px;color:var(--faint);margin-top:6px}
+footer{padding-block:18px 36px;color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:860px){.hero{grid-template-columns:1fr;padding-block:28px 10px}.art{width:min(320px,86%)}}
+body{margin:0}
+</style>
+<style>
+/* --- riêng trang mục lục BOYA (cùng phong cách trang chủ) --- */
+.hero h1 .zh i{color:var(--lav)} .hero h1 .zh u{color:var(--coral)}
+.sh h2 small{color:var(--lav)}
+.box .zh{font-size:40px;letter-spacing:.02em}
+.box .num{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.box.soon .face{background:color-mix(in srgb,var(--card) 60%,transparent);box-shadow:none;border:2px dashed var(--line);border-top:6px solid var(--line)}
+.box.soon .zh{color:var(--faint)}
+.box.soon .lid{background:var(--faint)}
+/* lộ trình 30 bài */
+.road{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:10px}
+.rl{--c:var(--lav);--cs:var(--lav-s);display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;align-items:center;padding:10px 12px;border-radius:14px;text-decoration:none;color:var(--muted);background:var(--ground);border:1.5px dashed var(--line)}
+.rl i{grid-row:span 2;font-style:normal;width:32px;height:32px;border-radius:9px;display:grid;place-items:center;font-weight:800;font-size:14px;background:var(--ground2);color:var(--faint)}
+.rl b{font-family:var(--kai);font-weight:400;font-size:17px;line-height:1.25;color:var(--muted);overflow-wrap:anywhere}
+.rl span{font-size:12px;line-height:1.3}
+a.rl{background:var(--cs);border:1.5px solid transparent;color:var(--ink);transition:transform .2s,border-color .2s}
+a.rl:hover{transform:translateY(-2px);border-color:var(--c)}
+a.rl i{background:var(--c);color:#fff}
+a.rl b{color:var(--ink)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:14px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--lav)}
+.legend i.off{background:var(--ground2);border:1.5px dashed var(--faint)}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px}
+.feat>div{background:var(--card);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow)}
+.feat h4{margin:0;font-size:15.5px;font-weight:800}
+.feat h4 span{display:block;font-family:var(--hz);font-weight:400;font-size:21px;color:var(--lav);margin-bottom:2px}
+.feat>div:nth-child(even) h4 span{color:var(--coral)}
+.feat p{margin:4px 0 0;font-size:14.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+ <symbol id="lvbox" viewBox="0 0 200 200">
+  <path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/>
+  <rect x="78" y="38" width="44" height="30" rx="8" fill="#FFFFFF"/>
+  <rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/>
+  <path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/>
+  <rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/>
+  <rect x="60" y="142" width="80" height="30" rx="8" fill="#FFFFFF"/>
+</symbol></defs></svg>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/" aria-label="Lyu Laoshi Chinese Box – về trang chủ">
+    <svg class="logo" aria-hidden="true"><use href="#lvbox"/></svg>
+    <span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span>
+  </a>
+  <nav class="menu" aria-label="Menu">
+    <a href="#bai-hoc">Bài học</a><a href="#lo-trinh">Lộ trình</a><a href="#co-gi">Trong hộp có gì</a><a class="cta" href="/">← Trang chủ</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☀︎</button>
+  </nav>
+</div></header>
+
+<main class="wrap" id="top">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">课本盒 · Giáo trình BOYA sơ cấp 1</span>
+      <h1>Hộp BOYA đã mở,<br>học từng bài một!<span class="zh"><i>博雅</i><u>汉语</u></span></h1>
+      <p class="lead">Bài giảng theo <b>Giáo trình Hán ngữ BOYA sơ cấp 1</b>: nghe phát âm từng từ, xem chữ Hán tự viết từng nét, nghe bài khoá, làm bài tập có đáp án và luyện nghe – viết. Trên lớp bật toàn màn hình để trình chiếu, ở nhà mở điện thoại là học.</p>
+      <div class="acts"><a class="btn pri" href="bai-2/">Học Bài 2 · 你是哪国人 →</a><a class="btn sec" href="#bai-hoc">Xem các bài ↓</a></div>
+      <div class="stats"><div><b>2</b>bài đã mở</div><div><b>32</b>từ mới có bút thuận</div><div><b>4</b>bài khoá có audio</div><div><b>30</b>bài cả giáo trình</div></div>
+    </div>
+    <div class="art" aria-hidden="true">
+      <svg viewBox="0 0 400 410"><ellipse cx="200" cy="392" rx="140" ry="12" fill="currentColor" opacity=".08"/><use href="#lvbox" x="50" y="40" width="300" height="300"/></svg>
+      <span class="pop a">你好</span><span class="pop b">博雅</span><span class="pop c">nǐ hǎo</span><span class="pop d">Nǐ shì nǎ guó rén?</span>
+    </div>
+  </section>
+
+  <div class="sh" id="bai-hoc"><h2>Các bài đã mở <small>课文</small></h2><p>Rê chuột hoặc chạm vào hộp để mở nắp, bấm lần nữa để vào học.</p></div>
+  <section class="shelf" aria-label="Các bài học">
+    <a class="box c-lav" href="bai-1/"><div class="lid"></div><div class="peek"><span>你</span><span>好</span><span>吗</span></div>
+      <div class="face"><span class="num">Bài 1 · 第一课</span><div class="zh">你好</div><h3>Chào bạn!</h3><p>Chào hỏi · hỏi – đáp thân phận · hỏi tên · câu chữ 是 · câu hỏi 吗</p><div class="chips"><span class="chip">16 từ mới</span><span class="chip">2 bài khoá</span><span class="chip">听写</span></div><span class="label open">Đang mở</span></div></a>
+    <a class="box c-sky" href="bai-2/"><div class="lid"></div><div class="peek"><span>哪</span><span>国</span><span>人</span></div>
+      <div class="face"><span class="num">Bài 2 · 第二课</span><div class="zh">你是哪国人</div><h3>Bạn là người nước nào?</h3><p>Giới thiệu bản thân · hỏi quốc tịch · hậu tố 们 · 也 · 呢</p><div class="chips"><span class="chip">16 từ mới</span><span class="chip">2 bài khoá</span><span class="chip">听写</span></div><span class="label open">Mới mở</span></div></a>
+    <a class="box soon" href="#lo-trinh"><div class="lid"></div><div class="peek"><span>…</span></div>
+      <div class="face"><span class="num">Bài 3</span><div class="zh">那是你的书吗</div><h3>Kia là sách của bạn phải không?</h3><p>Cô đang gói hộp này, các em chờ cô một chút nhé!</p><span class="label soon">Sắp mở</span></div></a>
+  </section>
+
+  <div class="sh" id="lo-trinh"><h2>Lộ trình 30 bài <small>目录</small></h2><p>Mỗi ô là một bài trong giáo trình. Ô tô màu là bài đã mở — bấm để vào học.</p></div>
+  <section class="crate">
+    <div class="road">
+      <a class="rl" href="bai-1/"><i>1</i><b>你好</b><span>Xin chào</span></a>
+      <a class="rl" href="bai-2/"><i>2</i><b>你是哪国人</b><span>Bạn là người nước nào?</span></a>
+      <div class="rl"><i>3</i><b>那是你的书吗</b><span>Kia là sách của bạn phải không?</span></div>
+      <div class="rl"><i>4</i><b>图书馆在哪儿</b><span>Thư viện ở đâu?</span></div>
+      <div class="rl"><i>5</i><b>在北京大学的东边</b><span>Ở phía đông của Đại học Bắc Kinh</span></div>
+      <div class="rl"><i>6</i><b>现在几点</b><span>Bây giờ mấy giờ rồi?</span></div>
+      <div class="rl"><i>7</i><b>明天你有课吗</b><span>Ngày mai bạn có lên lớp không?</span></div>
+      <div class="rl"><i>8</i><b>你的电话号码是多少</b><span>Số điện thoại của bạn là bao nhiêu?</span></div>
+      <div class="rl"><i>9</i><b>多少钱一瓶</b><span>Bao nhiêu tiền một chai?</span></div>
+      <div class="rl"><i>10</i><b>你家有几口人</b><span>Gia đình bạn có mấy người?</span></div>
+      <div class="rl"><i>11</i><b>北京的冬天比较冷</b><span>Mùa đông ở Bắc Kinh tương đối lạnh</span></div>
+      <div class="rl"><i>12</i><b>你在干什么呢</b><span>Bạn đang làm gì?</span></div>
+      <div class="rl"><i>13</i><b>我去图书馆借书</b><span>Tôi đi thư viện mượn sách</span></div>
+      <div class="rl"><i>14</i><b>我喜欢浅颜色的</b><span>Tôi thích màu nhạt</span></div>
+      <div class="rl"><i>15</i><b>明天是我朋友的生日</b><span>Ngày mai là sinh nhật của bạn tôi</span></div>
+      <div class="rl"><i>16</i><b>周末你干什么</b><span>Cuối tuần bạn làm gì?</span></div>
+      <div class="rl"><i>17</i><b>做客（一）</b><span>Làm khách (1)</span></div>
+      <div class="rl"><i>18</i><b>做客（二）</b><span>Làm khách (2)</span></div>
+      <div class="rl"><i>19</i><b>现在习惯了</b><span>Bây giờ đã quen rồi</span></div>
+      <div class="rl"><i>20</i><b>看病人</b><span>Thăm bệnh nhân</span></div>
+      <div class="rl"><i>21</i><b>我喝了半斤白酒</b><span>Tôi đã uống nửa cân rượu</span></div>
+      <div class="rl"><i>22</i><b>他感冒了</b><span>Anh ấy bị cảm rồi</span></div>
+      <div class="rl"><i>23</i><b>你学了多长时间汉语</b><span>Bạn học tiếng Hán bao lâu rồi?</span></div>
+      <div class="rl"><i>24</i><b>你吃了早饭来找我</b><span>Bạn ăn sáng xong thì tới tìm tôi</span></div>
+      <div class="rl"><i>25</i><b>你得多锻炼锻炼了</b><span>Bạn phải luyện tập nhiều</span></div>
+      <div class="rl"><i>26</i><b>快考试了</b><span>Sắp thi rồi</span></div>
+      <div class="rl"><i>27</i><b>爸爸妈妈让我回家</b><span>Bố mẹ bảo tôi về nhà</span></div>
+      <div class="rl"><i>28</i><b>考得怎么样</b><span>Thi cử thế nào?</span></div>
+      <div class="rl"><i>29</i><b>我们已经买好票了</b><span>Chúng tôi đã mua được vé rồi</span></div>
+      <div class="rl"><i>30</i><b>我要参加联欢会</b><span>Tôi phải tham dự buổi liên hoan</span></div>
+    </div>
+    <div class="legend"><span><i></i>Đã mở</span><span><i class="off"></i>Cô đang soạn</span></div>
+  </section>
+
+  <div class="sh" id="co-gi"><h2>Trong mỗi hộp có gì? <small>盒子里有什么</small></h2></div>
+  <section class="feat">
+    <div><h4><span>词语</span>Từ mới có phát âm</h4><p>Nghe từng từ, chiết tự dễ nhớ mặt chữ, câu ví dụ có pinyin và nghĩa.</p></div>
+    <div><h4><span>笔顺</span>Bút thuận to, rõ</h4><p>Chữ Hán tự viết từng nét trong ô điền tự cách; trình chiếu mỗi từ vừa một màn hình.</p></div>
+    <div><h4><span>课文</span>Audio bài khoá</h4><p>Nghe cả đoạn, bật/tắt chữ Hán – pinyin – tiếng Việt để luyện đọc.</p></div>
+    <div><h4><span>练习</span>Bài tập có đáp án</h4><p>Giữ nguyên bài tập giáo trình, thêm ghép cặp, sắp xếp câu, sửa câu sai.</p></div>
+    <div><h4><span>听写</span>Nghe – viết ngẫu nhiên</h4><p>Bốc thăm một từ hoặc một câu trong bài, nghe rồi gõ lại bằng chữ Hán.</p></div>
+  </section>
+
+  <section class="teacher" id="giao-vien">
+    <div class="seal" aria-hidden="true"><svg viewBox="0 0 120 120"><g fill="none" stroke="#fff" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 22H88M40 22V38Q40 50 52 50H68Q80 50 80 38V22M60 50V62M26 62H94M34 62V86Q34 98 46 98H74Q86 98 86 86V62"/></g></svg></div>
+    <div><h3>ThS. Lã Thị Thuỳ Phương · 吕老师</h3><p>Giảng viên tiếng Trung · Biên soạn và thiết kế bài giảng BOYA. Mỗi bài cô gói vừa một buổi học; bài nào còn nhãn “đang soạn” là cô đang gói dở, các em chờ cô một chút nhé!</p></div>
+    <a class="btn sec" href="/">Mở các hộp khác →</a>
+  </section>
+</main>
+<footer class="wrap"><span>© Bài giảng được biên soạn bởi ThS. Lã Thị Thuỳ Phương.</span><span><a href="/">lyulaoshi.com</a> · 博雅汉语</span></footer>
+
+<script>
+// Giao diện sáng / tối: mặc định theo máy, nút ☀︎/☾ để đổi (dùng chung lựa chọn với trang chủ)
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾';};
+ try{const t=localStorage.getItem('cb-theme');if(t)r.dataset.theme=t;}catch(e){}
+ paint();b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint();});})();
+
+// Chạm (điện thoại): lần chạm đầu mở nắp, lần sau mới đi vào bài
+document.querySelectorAll('.box').forEach(b=>{
+  b.addEventListener('click',e=>{
+    if(matchMedia('(hover:none)').matches && !b.classList.contains('is-open')){
+      e.preventDefault();document.querySelectorAll('.box.is-open').forEach(x=>x.classList.remove('is-open'));b.classList.add('is-open');
+    }
+  });
+});
+</script>
+</body>
+</html>
