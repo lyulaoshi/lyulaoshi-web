@@ -173,6 +173,35 @@ nav.menu a.cta{white-space:nowrap}
 .fun h4 span{display:block;font-family:var(--hz);font-weight:400;font-size:19px;color:var(--coral);margin-bottom:2px}
 .fun>div:nth-child(even) h4 span{color:var(--sky)}
 .fun p{font-size:14.5px}
+.mailbox{display:grid;gap:14px;padding:22px;border-radius:24px;background:var(--card);box-shadow:var(--shadow);margin-bottom:24px}
+.mailbox label{display:grid;gap:6px;font-weight:700;font-size:15px}
+.mailbox input,.mailbox textarea{font:inherit;font-weight:400;color:var(--ink);background:var(--ground);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;width:100%;box-sizing:border-box;resize:vertical}
+.mailbox input:focus,.mailbox textarea:focus{border-color:var(--sky);outline:none}
+.mailbox label.anon{display:flex;align-items:center;gap:10px;font-weight:600;cursor:pointer;margin-top:-4px}
+.mguide{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px}
+.mguide>div{background:var(--ground2);border-radius:16px;padding:12px 14px;display:grid;gap:4px;font-size:14.5px}
+.mguide b{display:flex;align-items:center;gap:8px}
+.mguide i{font-style:normal;font-family:var(--hz);font-weight:400;color:#fff;background:var(--coral);border-radius:8px;width:28px;height:28px;display:grid;place-items:center;flex:none}
+.mguide>div+div i{background:var(--sky)}
+.mguide span{color:var(--muted)} .mguide a{color:var(--sky)}
+.mailbox label.anon small a{color:var(--sky)}
+.mailbox label small.opt{font-weight:400;color:var(--muted);font-size:14px}
+.qa{display:grid;gap:10px;margin-bottom:24px}
+.qa details{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:14px 18px}
+.qa summary{cursor:pointer;font-weight:700;list-style:none;display:flex;gap:10px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::before{content:"问";font-family:var(--hz);font-weight:400;color:var(--coral);flex:none}
+.qa .ans{margin:10px 0 0;color:var(--ink);display:flex;gap:10px}
+.qa .ans::before{content:"答";font-family:var(--hz);color:var(--sky);flex:none}
+.qa .who{font-size:13px;color:var(--faint);font-weight:400;margin-left:auto;white-space:nowrap}
+.qa .empty{color:var(--muted);background:var(--ground2);border-radius:18px;padding:16px 18px;margin:0}
+.mailbox label.anon small{font-weight:400;color:var(--muted);font-size:14px}
+.mailbox label.anon input{width:20px;height:20px;flex:none;accent-color:var(--coral)}
+.mailbox input:disabled{opacity:.45}
+.mailbox .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.mailbox .mrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.mailbox .btn{border:0;cursor:pointer;font:inherit;font-weight:700}
+.mstat{font-size:14.5px;color:var(--muted)} .mstat.ok{color:var(--mint)} .mstat.err{color:var(--coral)}
 .note{font-size:12.5px;color:var(--faint);margin-top:6px}
 footer{padding-block:18px 36px;color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
@@ -205,7 +234,7 @@ body{margin:0}
   <section class="hero">
     <div>
       <span class="eyebrow">Hộp học tiếng Trung của cô Lã</span>
-      <h1>Đập hộp tiếng Trung cùng cô Lã, mở khoá niềm vui chữ Hán!<span class="zh"><i>吕老师汉语盒，</i><u>拆盒解锁汉字乐。</u></span></h1>
+      <h1>Nghe nói đọc viết,<br>mở hộp là biết!<span class="zh"><i>吕老师汉语盒，</i><u>拆盒解锁汉语乐。</u></span></h1>
       <p class="lead">Hộp nào cũng có quà: bài giảng theo giáo trình, thanh điệu luyện tới khi “chuẩn không cần chỉnh”, chữ Hán tự viết từng nét, từ vựng và bài đọc. Không cần sổ, không cần bút, chọn một hộp, bấm mở là học, trên điện thoại hay máy chiếu đều được.</p>
       <div class="acts"><a class="btn pri" href="#ke-hop">Mở kệ hộp ↓</a><a class="btn sec" href="tttc/bai-3/">Học tiếp TTTC Bài 3</a></div>
       <div class="stats"><div><b>5</b>giáo trình</div><div><b>13</b>bài giảng đã mở</div><div><b>79</b>từ mới có bút thuận</div><div><b>9</b>chiếc hộp</div></div>
@@ -232,8 +261,8 @@ body{margin:0}
       <div class="face"><div class="zh">听说盒<small>Nghe – nói</small></div><h3>Nghe, nhại, nói theo vai</h3><p>Hội thoại ngắn, shadowing, luyện nghe – viết tổng hợp.</p><div class="chips"><span class="chip">Shadowing</span><span class="chip">Đóng vai</span></div><span class="label soon">Sắp mở</span></div></a>
     <a class="box c-sky" href="#ke-hop"><div class="lid"></div><div class="peek"><span>的</span><span>也</span><span>都</span></div>
       <div class="face"><div class="zh">语法盒<small>Ngữ pháp</small></div><h3>Mỗi điểm ngữ pháp một thẻ</h3><p>Công thức, ví dụ đúng ✓ sai ✗ của người Việt, bài luyện nhỏ có đáp án.</p><div class="chips"><span class="chip">的</span><span class="chip">谁</span><span class="chip">也 · 都</span></div><span class="label soon">Sắp mở</span></div></a>
-    <a class="box c-kraft" href="#ke-hop"><div class="lid"></div><div class="peek"><span>资料</span></div>
-      <div class="face"><div class="zh">资料盒<small>Tài liệu</small></div><h3>Tài liệu cô tự soạn</h3><p>Phiếu bài tập, bảng tổng hợp, link từ điển và kênh học hay.</p><div class="chips"><span class="chip">Phiếu bài tập</span><span class="chip">Link hữu ích</span></div><span class="label soon">Sắp mở</span></div></a>
+    <a class="box c-kraft" href="#hop-thu"><div class="lid"></div><div class="peek"><span>问</span><span>？</span></div>
+      <div class="face"><div class="zh">信箱<small>Hộp thư</small></div><h3>Hộp thư thắc mắc</h3><p>Chỗ nào chưa hiểu, chữ nào quên nét? Để lại tên và câu hỏi, cô sẽ giải đáp.</p><div class="chips"><span class="chip">Hỏi bài</span><span class="chip">Góp ý</span></div><span class="label open">Đang mở</span></div></a>
     <a class="box" href="#giao-vien"><div class="lid"></div><div class="peek"><span>吕</span><span>老师</span></div>
       <div class="face"><div class="zh">老师盒<small>Giáo viên</small></div><h3>Về cô Lã</h3><p>Ai đã đóng những chiếc hộp này, và vì sao lại là hộp?</p><div class="chips"><span class="chip">吕老师</span><span class="chip">Giới thiệu</span></div><span class="label open">Đang mở</span></div></a>
   </section>
@@ -273,9 +302,47 @@ body{margin:0}
       <div><h4><span>小秘密</span>Bí mật nhỏ</h4><p>Học khuya thì bấm nút ☀︎ ở góc trên để đổi sang nền tối cho đỡ chói mắt. Hộp nào dán nhãn “Sắp mở” là cô đang gói dở, các em chờ cô một chút nhé!</p></div>
     </div>
     </section>
+
+  <div class="sh" id="hop-thu"><h2>Hộp thư thắc mắc <small>信箱</small></h2><p>Bài nào chưa hiểu, chữ nào quên nét, câu nào nghe chưa ra? Cứ bỏ thư vào đây, cô sẽ đọc và giải đáp cho các em.</p></div>
+  <form class="mailbox" id="mailForm" novalidate>
+    <div class="mguide"><div><b><i>私</i>Muốn cô trả lời riêng?</b><span>Ghi tên và Zalo / email / Facebook, <u>không</u> tích ô ẩn danh. Cô sẽ nhắn lại cho em.</span></div><div><b><i>公</i>Muốn hỏi ẩn danh?</b><span>Tích ô <u>Gửi ẩn danh</u>. Cô sẽ trả lời ở mục <a href="#hoi-dap">Cô trả lời</a> cho cả lớp cùng xem.</span></div></div>
+    <label>Tên của em<input name="ten" id="mfName" autocomplete="name" maxlength="80" placeholder="Ví dụ: Nguyễn Minh Anh – lớp TTTC"></label>
+    <label class="anon"><input type="checkbox" id="mfAnon"><span>Gửi ẩn danh <small>(cô không biết ai hỏi, cứ mạnh dạn nhé! Cô sẽ trả lời ở mục <a href="#hoi-dap">Cô trả lời</a> ngay bên dưới.)</small></span></label>
+    <label><span>Zalo / email / Facebook để cô nhắn lại <small class="opt">(không bắt buộc)</small></span><input name="lh" id="mfContact" maxlength="120" placeholder="Ví dụ: Zalo 09xx xxx xxx"><small class="opt">Muốn cô trả lời riêng thì ghi vào đây. Để trống thì em xem lời giải đáp ở mục Cô trả lời bên dưới.</small></label>
+    <label>Tin nhắn<textarea name="tin" id="mfMsg" rows="5" maxlength="2000" placeholder="Cô ơi, em chưa hiểu cách dùng 也 và 都…"></textarea></label>
+    <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="mrow"><button class="btn pri" type="submit">Bỏ thư vào hộp ✉</button><span class="mstat" id="mfStat" role="status"></span></div>
+  </form>
+
+  <div class="sh" id="hoi-dap"><h2>Cô trả lời <small>问答</small></h2><p>Thư ẩn danh và thư không để lại liên hệ, cô trả lời ở đây cho cả lớp cùng xem. Bấm vào câu hỏi để mở lời giải đáp.</p></div>
+  <section class="qa" aria-label="Hỏi đáp">
+    <!-- Mẫu thêm 1 câu hỏi (mới nhất để trên cùng):
+    <details><summary>Câu hỏi của học viên <span class="who">Ẩn danh · 26/09</span></summary><p class="ans">Lời cô giải đáp.</p></details>
+    -->
+    <p class="empty">Chưa có câu hỏi nào được giải đáp. Em hãy là người đầu tiên bỏ thư vào hộp nhé!</p>
+  </section>
 </main>
 <footer class="wrap"><span>© Lyu Laoshi Chinese Box · 吕老师汉语盒</span><span>lyulaoshi.com</span></footer>
 
+<script>
+// Hộp thư thắc mắc → Google Form của cô. Điền 3 dòng dưới khi có link Google Form (để trống = hộp thư chưa mở).
+const MAIL_FORM={action:'https://docs.google.com/forms/d/e/1FAIpQLSdROCwYI6ur6BmYUdv7PuKEgYobgjIqWXPEm2i98JQQcjZ2aw/formResponse',ten:'entry.1826526353',lh:'entry.599620490',tin:'entry.1070907299'};
+(function(){const f=document.getElementById('mailForm'),st=document.getElementById('mfStat'),n=document.getElementById('mfName'),m=document.getElementById('mfMsg'),a=document.getElementById('mfAnon'),c=document.getElementById('mfContact');
+ a.addEventListener('change',()=>{n.disabled=c.disabled=a.checked;say('')});
+ const say=(t,c)=>{st.textContent=t;st.className='mstat '+(c||'')};
+ [n,m].forEach(e=>e.addEventListener('input',()=>say('')));
+ f.addEventListener('submit',async e=>{e.preventDefault();
+  if(f.website.value)return;
+  const anon=a.checked;if(!anon&&!n.value.trim()){say('Em ghi tên, hoặc tích ô Gửi ẩn danh nhé.','err');n.focus();return}
+  if(!m.value.trim()){say('Em chưa viết tin nhắn.','err');m.focus();return}
+  if(!MAIL_FORM.action){say('Hộp thư sắp mở, các em quay lại sau nhé!','err');return}
+  const b=f.querySelector('button');b.disabled=true;say('Đang gửi…');
+  const d=new FormData();d.append(MAIL_FORM.ten,anon?'Ẩn danh':n.value.trim());if(MAIL_FORM.lh)d.append(MAIL_FORM.lh,anon?'':c.value.trim());d.append(MAIL_FORM.tin,m.value.trim());
+  try{await fetch(MAIL_FORM.action,{method:'POST',mode:'no-cors',body:d});const pub=anon||!c.value.trim();f.reset();n.disabled=c.disabled=false;say(pub?'Cô nhận được thư rồi! Em xem lời giải đáp ở mục Cô trả lời bên dưới nhé. 谢谢！':'Cô nhận được thư rồi, cô sẽ nhắn lại cho em. 谢谢！','ok')}
+  catch(_){say('Chưa gửi được, em kiểm tra mạng rồi thử lại nhé.','err')}
+  b.disabled=false});
+})();
+</script>
 <script>
 // Giao diện sáng / tối: mặc định theo máy, nút ☀︎/☾ để đổi
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
