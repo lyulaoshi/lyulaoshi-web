@@ -2619,5 +2619,31 @@ document.addEventListener('fullscreenchange', ()=>{
   document.addEventListener('click',e=>{ if(!e.target.closest('.spine')) sp.classList.remove('open'); });
 })();
 </script>
+<!-- 词汇盒: nút ôn từ vựng, do tools/build_site.py gắn khi ghép -->
+<a class="lls-tv" href="../../tu-vung/#yuedu/bai-19" style="--tv-bg:var(--white-ish,#FEFBF2);--tv-c:var(--seal,#AB2B23);--tv-b:var(--grid-line,#C7BC9E);--tv-r:4px" title="Ôn từ vựng bài này bằng flashcard (词汇盒)" aria-label="Ôn từ vựng bài này"><b>词</b><span>Ôn từ vựng bài này</span></a>
+<style>.lls-tv{position:fixed;left:14px;bottom:14px;z-index:2147483000;display:flex;align-items:center;padding:3px;border-radius:var(--tv-r,999px);
+background:var(--tv-bg,#fff);color:var(--tv-c,#7C6BD6)!important;border:1.5px solid var(--tv-b,currentColor);text-decoration:none!important;
+font-family:inherit;font-size:13px;font-weight:700;line-height:1;box-shadow:0 2px 6px rgba(0,0,0,.08);opacity:.85;transition:opacity .2s,padding .25s}
+.lls-tv b{display:grid;place-items:center;width:24px;height:24px;border-radius:var(--tv-r,50%);background:var(--tv-c,#7C6BD6);color:var(--tv-bg,#fff);font:400 14px/1 "STKaiti","KaiTi","Kaiti SC",serif;flex:none}
+.lls-tv span{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width .25s,opacity .2s,margin .25s}
+.lls-tv:hover,.lls-tv:focus-visible{opacity:1;padding-right:11px}.lls-tv:hover span,.lls-tv:focus-visible span{max-width:150px;opacity:1;margin-left:7px}
+@media print{.lls-tv{display:none}}</style>
+<script>/* bài có cột mục lục cố định bên trái: dịch nút sang phải cột đó */
+(function(){const b=document.querySelector('.lls-tv');if(!b)return;
+function fit(){b.style.left='';const r=b.getBoundingClientRect();let x=14;
+ document.elementsFromPoint(r.left+4,r.top+r.height/2).forEach(e=>{if(e===b||b.contains(e)||e===document.body||e===document.documentElement)return;
+  for(let p=e;p&&p!==document.body;p=p.parentElement){const c=getComputedStyle(p).position;if(c==='fixed'||c==='sticky'){const q=p.getBoundingClientRect();if(q.width<innerWidth*.6)x=Math.max(x,q.right+14);break}}});
+ b.style.left=x+'px'}
+addEventListener('load',fit);addEventListener('resize',fit);setTimeout(fit,1500)})();</script>
+<!-- 语法盒: mở điểm ngữ pháp theo #np-…, do tools/build_site.py gắn khi ghép -->
+<style>.lls-np{outline:3px solid #16949E!important;outline-offset:4px;border-radius:14px;transition:outline-color 1.2s}.lls-np.off{outline-color:transparent!important}</style>
+<script>(function(){function show(el){for(var p=el;p&&p!==document.body;p=p.parentElement){
+ if(p.id&&p.offsetParent===null&&getComputedStyle(p).position!=='fixed'){var b=document.querySelector('[data-panel="'+p.id+'"],[onclick*="\''+p.id+'\'"]');if(b)b.click();}}}
+function go(){var h=decodeURIComponent(location.hash);if(h.indexOf('#np-')!==0)return;var t=h.slice(4),el,box;
+ if(t.indexOf('k-')===0){var g=document.querySelector('.gtab[data-k="'+t.slice(2)+'"]');if(!g)return;show(g);g.click();el=g;box=document.getElementById('grammarPanels')||g;}
+ else{el=document.getElementById(t);if(!el)return;show(el);box=el.closest('.grammar-card,.gram-card')||el;}
+ setTimeout(function(){var r=box.getBoundingClientRect(),y=scrollY+r.top-(r.height<innerHeight*.8?(innerHeight-r.height)/2:90);scrollTo({top:Math.max(0,y),behavior:'instant'});box.classList.add('lls-np');
+  setTimeout(function(){box.classList.add('off')},2200);setTimeout(function(){box.classList.remove('lls-np','off')},3600)},700);}
+setTimeout(go,200);addEventListener('load',function(){setTimeout(go,100)});addEventListener('hashchange',go);})();</script>
 </body>
 </html>
