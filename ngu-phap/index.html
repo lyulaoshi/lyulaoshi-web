@@ -3,19 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>语法盒 · Ngữ pháp theo cấp HSK – 吕老师汉语盒</title>
-<meta name="description" content="Các điểm ngữ pháp đã học trong bài giảng, xếp theo cấp HSK khung mới (《国际中文教育中文水平等级标准》) – Lyu Laoshi Chinese Box.">
+<title>语法盒 · Ngữ pháp HSK 3.0 – 吕老师汉语盒</title>
+<meta name="description" content="Ngữ pháp tiếng Trung theo HSK 3.0 (《国际中文教育中文水平等级标准》): mỗi điểm ngữ pháp một bài giảng có công thức, ví dụ, lỗi người Việt và bài luyện – Lyu Laoshi Chinese Box.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
 <link rel="stylesheet" href="../tro-choi/game.css?v=3">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
-:root{--c:var(--teal);--cs:var(--teal-s)}
+:root{--c:var(--teal);--cs:var(--teal-s);--kh:"LXGW WenKai","STKaiti","KaiTi","Kaiti SC",serif}
 [hidden]{display:none!important}
-.hero{padding:30px 0 6px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:end;padding:30px 0 6px}
 .hero .eyebrow{font-family:var(--hz);color:var(--c);font-size:20px}
 .hero h1{font-size:clamp(28px,4.4vw,44px);font-weight:800;line-height:1.1;margin-top:6px}
 .hero p{color:var(--muted);max-width:44em;margin:10px 0 0}
+.stat{display:flex;gap:18px}
+.stat div{text-align:center}
+.stat b{display:block;font-size:30px;font-weight:800;line-height:1;color:var(--c)}
+.stat span{font-size:12.5px;color:var(--muted)}
 
 /* Thanh chọn */
 .tools{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--ground) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:14px 0 10px;margin-top:10px}
@@ -24,6 +29,9 @@
 .tab{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;cursor:pointer}
 .tab[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
 .tab .zh{font-family:var(--hz);font-weight:400;font-size:15px}
+.tab small{font-weight:600;opacity:.75}
+.lvtab{min-width:74px}
+.lvtab:disabled{opacity:.45;cursor:default}
 .search{flex:1 1 220px;min-width:0;display:flex;align-items:center;gap:8px;background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:0 14px;height:40px}
 .search:focus-within{border-color:var(--c)}
 .search input{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:15px;color:var(--ink);outline:none}
@@ -32,92 +40,103 @@
 .chk input{width:18px;height:18px;accent-color:var(--teal)}
 .sep{width:1px;height:26px;background:var(--line);margin:0 4px}
 
-/* Khối cấp */
-.lvl{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:20px 22px 12px;margin-top:22px;border-top:8px solid var(--c)}
-.lvl-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.lvl-h h2{font-size:20px;font-weight:800;line-height:1.2}
-.lvl-h h2 .zh{font-family:var(--hz);font-weight:400;color:var(--c);font-size:18px;margin-left:6px}
-.meter{display:grid;gap:5px;min-width:180px;font-size:13px;color:var(--muted);text-align:right}
+/* Cấp */
+.lvl{margin-top:18px}
+.lvl-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:18px 22px;border-top:8px solid var(--c)}
+.lvl-h h2{font-size:22px;font-weight:800;line-height:1.2}
+.lvl-h h2 .zh{font-family:var(--hz);font-weight:400;color:var(--c);font-size:19px;margin-left:6px}
+.lvl-h p{color:var(--muted);font-size:14px;margin-top:4px}
+.meter{display:grid;gap:5px;min-width:200px;font-size:13px;color:var(--muted);text-align:right}
 .meter b{color:var(--ink)}
-.meter .bar{height:8px;border-radius:999px;background:var(--ground2);overflow:hidden}
-.meter .bar i{display:block;height:100%;background:var(--c);border-radius:999px}
-.grp{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:16px 0 2px}
+.meter .bar{height:8px;border-radius:999px;background:var(--ground2);overflow:hidden;display:flex}
+.meter .bar i{display:block;height:100%;background:var(--c)}
+.meter .bar i.cls{background:color-mix(in srgb,var(--c) 35%,transparent)}
+.grp{display:flex;align-items:baseline;gap:8px;margin:22px 0 10px;font-weight:800;font-size:15px}
+.grp .zh{font-family:var(--hz);font-weight:400;color:var(--c);font-size:18px}
+.grp small{color:var(--faint);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px}
 
-/* Dòng điểm ngữ pháp */
-.pt{display:grid;grid-template-columns:62px minmax(0,1fr);gap:4px 12px;padding:12px 0;border-top:1px solid var(--line)}
-.grp+.pt{border-top:0}
-.code{font-family:var(--kai);font-size:15px;color:var(--c);background:var(--cs);border-radius:10px;text-align:center;padding:5px 0;align-self:start;white-space:nowrap}
-.pt .nm{font-family:var(--kai);font-size:18px;line-height:1.45;color:var(--ink);overflow-wrap:anywhere}
-.links{grid-column:2;display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.lk{display:inline-flex;align-items:baseline;gap:6px;max-width:100%;text-decoration:none;color:var(--ink);background:var(--ground2);border:1.5px solid transparent;border-radius:12px;padding:5px 11px;font-size:13.5px;line-height:1.35;transition:border-color .15s,transform .15s}
-.lk:hover,.lk:focus-visible{border-color:var(--c);transform:translateY(-1px)}
-.lk b{font-weight:700;color:var(--c);white-space:nowrap}
-.lk span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
-.lk .zh{font-family:var(--kai);font-size:15px}
-.pt.none .code{background:var(--ground2);color:var(--faint)}
-.pt.none .nm{color:var(--faint)}
-.pt.none .links{display:none}
+/* Thẻ điểm ngữ pháp */
+.pc{position:relative;display:grid;align-content:start;gap:6px;background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:14px 16px 14px;text-decoration:none;color:var(--ink);border:2px solid transparent;transition:transform .15s,border-color .15s;min-width:0}
+a.pc:hover,a.pc:focus-visible{transform:translateY(-2px);border-color:var(--c)}
+.pc .cd{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.pc .cd b{font-family:var(--kh);font-weight:400;font-size:14px;color:var(--c);background:var(--cs);border-radius:8px;padding:2px 8px}
+.pc .st{font-size:11.5px;font-weight:800;letter-spacing:.03em;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.pc .st.ok{background:var(--c);color:#fff}
+.pc .st.soon{color:var(--faint);border:1.5px dashed var(--line)}
+.pc .nm{font-family:var(--kh);font-size:21px;line-height:1.3;overflow-wrap:anywhere}
+.pc .it{font-family:var(--kh);font-size:15px;color:var(--muted);line-height:1.45;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pc .cls{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.pc .cls a,.pc .cls span{font-size:12px;font-weight:700;color:var(--c);background:var(--ground2);border-radius:8px;padding:2px 7px;text-decoration:none;position:relative;z-index:2}
+.pc .cls a:hover{background:var(--cs)}
+.pc.soon{background:color-mix(in srgb,var(--card) 55%,transparent);box-shadow:none;border:2px dashed var(--line)}
+.pc.soon .nm{color:var(--muted)}
+.pc.soon .cd b{background:var(--ground2);color:var(--muted)}
+.pc.ready::after{content:"→";position:absolute;right:14px;bottom:10px;color:var(--c);font-weight:800}
 mark{background:color-mix(in srgb,var(--butter) 35%,transparent);color:inherit;border-radius:3px}
 
-/* Theo bài */
+/* Theo giáo trình */
 .book{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:20px 22px 12px;margin-top:22px;border-top:8px solid var(--c)}
 .book h2{font-family:var(--hz);font-weight:400;font-size:22px;color:var(--c)}
-.book h2 small{font-family:inherit;font-family:"Be Vietnam Pro",sans-serif;font-size:14px;font-weight:600;color:var(--muted);margin-left:8px}
+.book h2 small{font-family:"Be Vietnam Pro",sans-serif;font-size:14px;font-weight:600;color:var(--muted);margin-left:8px}
 .lesson{display:grid;grid-template-columns:62px minmax(0,1fr);gap:8px 12px;padding:12px 0;border-top:1px solid var(--line)}
 .lesson>a.bn{font-weight:800;font-size:14px;color:var(--c);text-decoration:none;background:var(--cs);border-radius:10px;text-align:center;padding:6px 0;align-self:start}
 .lesson ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .lesson li{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 8px}
-.lesson li a{color:var(--ink);text-decoration:none;font-size:15px;border-bottom:1.5px solid transparent}
-.lesson li a:hover{border-color:var(--c)}
-.lesson li a .zh{font-family:var(--kai);font-size:17px}
-.tag{font-family:var(--kai);font-size:13px;color:var(--c);background:var(--cs);border-radius:8px;padding:1px 7px;white-space:nowrap;cursor:help}
+.lesson li>a{color:var(--ink);text-decoration:none;font-size:15px;border-bottom:1.5px solid transparent}
+.lesson li>a:hover{border-color:var(--c)}
+.zh{font-family:var(--kh)}
+.lesson li>a .zh{font-size:17px}
+.tag{font-family:var(--kh);font-size:13px;color:var(--c);background:var(--cs);border-radius:8px;padding:1px 7px;white-space:nowrap;text-decoration:none}
+a.tag{border:1.5px solid var(--c)}
 .tag.x{color:var(--muted);background:var(--ground2);font-family:inherit;font-size:12px}
 .empty{color:var(--muted);text-align:center;padding:30px 10px;border:2px dashed var(--line);border-radius:18px;margin-top:22px}
-.note{color:var(--muted);font-size:13.5px;margin-top:22px}
-@media (max-width:560px){
-  .pt,.lesson{grid-template-columns:52px minmax(0,1fr);gap:4px 10px}
-  .code{font-size:13px}
-  .pt .nm{font-size:16.5px}
-  .lvl,.book{padding:16px 14px 8px;border-radius:20px}
-  .meter{min-width:0;width:100%;text-align:left}
-  .sep{display:none}
+.note{color:var(--muted);font-size:13.5px;margin-top:26px}
+@media (max-width:600px){
+  .hero{grid-template-columns:1fr}
   .tools{position:static;background:none;-webkit-backdrop-filter:none;backdrop-filter:none}
-  .lk span{white-space:normal}
-  .tab{font-size:13px;padding:7px 12px}
+  .tab{font-size:13px;padding:7px 12px}.lvtab{min-width:0}
+  .sep{display:none}
+  .meter{min-width:0;width:100%;text-align:left}
+  .lvl-h,.book{padding:16px 14px;border-radius:20px}
+  .lesson{grid-template-columns:52px minmax(0,1fr);gap:4px 10px}
 }
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/><rect x="78" y="38" width="44" height="30" rx="8" fill="#fff"/><rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/><path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/><rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/><rect x="60" y="142" width="80" height="30" rx="8" fill="#fff"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
   <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="../tu-vung/" class="hide-s">词汇盒</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
 </div></header>
 
 <main class="wrap">
   <section class="hero">
-    <div class="eyebrow">语法盒</div>
-    <h1>Ngữ pháp theo cấp HSK</h1>
-    <p>Các điểm ngữ pháp đã học trong bài giảng, xếp theo cấp của 《国际中文教育中文水平等级标准》. Bấm tên bài để mở đúng phần ngữ pháp đó trong bài.</p>
+    <div>
+      <div class="eyebrow">语法盒</div>
+      <h1>Ngữ pháp HSK 3.0</h1>
+      <p>Mỗi điểm ngữ pháp trong 语法等级大纲 của 《国际中文教育中文水平等级标准》 là một bài giảng: công thức, câu ví dụ chuẩn, lỗi người Việt hay mắc và bài luyện có đáp án. Chọn cấp rồi bấm vào điểm muốn học.</p>
+    </div>
+    <div class="stat" id="stat"></div>
   </section>
 
   <div class="tools">
-    <div class="row" role="group" aria-label="Cách xếp">
+    <div class="row" role="group" aria-label="Cách xem">
       <button class="tab" type="button" data-view="hsk" aria-pressed="true">Theo cấp HSK</button>
-      <button class="tab" type="button" data-view="bai" aria-pressed="false">Theo bài</button>
+      <button class="tab" type="button" data-view="bai" aria-pressed="false">Theo giáo trình trên lớp</button>
       <span class="sep"></span>
-      <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Tìm: 了, 比, bổ ngữ, 二60…" aria-label="Tìm điểm ngữ pháp"></label>
+      <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Tìm: 了, 比, 补语, 二60…" aria-label="Tìm điểm ngữ pháp"></label>
     </div>
     <div class="row" id="lvRow" role="group" aria-label="Cấp HSK"></div>
-    <div class="row" id="bkRow" role="group" aria-label="Giáo trình"></div>
   </div>
 
   <div id="out"></div>
-  <p class="note">Cấp và mã điểm (như 【二60】) theo 附录A 语法等级大纲 của 《等级标准》(GF 0025—2021). Một điểm trong bài có thể ứng với nhiều mã của đề cương. Danh sách tự cập nhật khi có bài mới.</p>
+  <p class="note">Mã điểm (như 【二60】) và thứ tự theo 附录A 语法等级大纲, 《国际中文教育中文水平等级标准》(GF 0025—2021). Bài giảng đang được soạn dần; điểm nào đã học trên lớp có ghi tên bài để xem lại.</p>
 </main>
-<footer class="wrap">Ngữ pháp theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · Bài giảng của cô trên web · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+<footer class="wrap">Ngữ pháp theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Bài giảng được biên soạn bởi ThS. Lã Thị Thuỳ Phương · 吕老师汉语盒</footer>
 
 <script src="hsk-ngu-phap.js"></script>
 <script src="bai-data.js"></script>
+<script src="co-bai.js"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
@@ -126,79 +145,66 @@ mark{background:color-mix(in srgb,var(--butter) 35%,transparent);color:inherit;b
 
 (function(){
 const $=id=>document.getElementById(id);
-const H=window.HSK_NP||{}, BAI=window.NP_BAI||[], BOOKS=window.NP_BOOKS||[];
+const H=window.HSK_NP||{}, BAI=window.NP_BAI||[], BOOKS=window.NP_BOOKS||[], READY=window.NP_READY||{};
 const SHORT={"301":"301句","boya":"博雅","yuedu":"阅读教程","tttc":"综合课本","ledu":"乐读"};
-const CN="一二三四五六七八九";
+const CN="一二三四五六七八九", GZH={"语素":"Hình vị","词类":"Từ loại","短语":"Cụm từ","固定格式":"Cấu trúc cố định","句子成分":"Thành phần câu","句子的类型":"Loại câu","动作的态":"Thể của động tác","特殊表达法":"Cách diễn đạt đặc biệt","强调的方法":"Cách nhấn mạnh","提问的方法":"Cách đặt câu hỏi","口语格式":"Khẩu ngữ"};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const lvOf=code=>CN.indexOf(code[0])+1;
-const official={}; Object.values(H).forEach(L=>L.ds.forEach(d=>official[d[0]]=d));
-// điểm trong bài -> theo từng mã HSK
-const byCode={};
-BAI.forEach(p=>p.h.forEach(c=>(byCode[c]=byCode[c]||[]).push(p)));
-const S={view:"hsk",lv:"all",bk:"all",q:"",all:false};
-try{Object.assign(S,JSON.parse(sessionStorage.getItem('np-state')||'{}'))}catch(e){}
-function readHash(){const h=decodeURIComponent(location.hash.slice(1));
-  let m=h.match(/^hsk-?(\d)$/); if(m){S.view="hsk";S.lv=m[1];}
-  m=h.match(/^bai(?:\/(\w[\w-]*))?$/); if(m){S.view="bai";S.bk=m[1]||"all";}}
-readHash();
-const zhWrap=s=>esc(s).replace(/([㐀-鿿“”（）()…·、，：；？！／\/＋+]+)/g,'<span class="zh">$1</span>');
-const url=p=>`../${p.b}/bai-${p.l}/#np-${encodeURIComponent(p.t)}`;
+const lvOf=c=>CN.indexOf(c[0])+1;
+const OFF={}; Object.values(H).forEach(L=>L.ds.forEach(d=>OFF[d[0]]=d));
+const byCode={}; BAI.forEach(p=>p.h.forEach(c=>(byCode[c]=byCode[c]||[]).push(p)));
+const S={view:"hsk",lv:"1",q:""};
+try{Object.assign(S,JSON.parse(sessionStorage.getItem('np-state2')||'{}'))}catch(e){}
+function readHash(){const h=decodeURIComponent(location.hash.slice(1));let m=h.match(/^hsk-?(\d)$/);if(m){S.view="hsk";S.lv=m[1]}if(/^bai/.test(h))S.view="bai"}
+readHash(); if(!H[S.lv])S.lv="1";
 function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d')}
 function hit(...xs){if(!S.q)return true;const q=norm(S.q);return xs.some(x=>norm(x).includes(q))}
-function hl(html){if(!S.q)return html;const q=S.q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-  return html.replace(/>([^<]+)</g,(m,t)=>'>'+t.replace(new RegExp(q,'gi'),'<mark>$&</mark>')+'<')}
-const bkOK=p=>S.bk==="all"||p.b===S.bk;
+function hl(t){t=esc(t);if(!S.q)return t;const q=esc(S.q).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return t.replace(new RegExp(q,'gi'),'<mark>$&</mark>')}
+const url=p=>`../${p.b}/bai-${p.l}/#np-${encodeURIComponent(p.t)}`;
+
+// số liệu đầu trang
+const total=Object.values(H).filter((L,i)=>+Object.keys(H)[i]<=3).reduce((a,L)=>a+L.ds.length,0);
+$('stat').innerHTML=`<div><b>${Object.keys(READY).length}</b><span>bài giảng</span></div><div><b>${Object.keys(byCode).filter(c=>c!=="x").length}</b><span>điểm đã học<br>trên lớp</span></div><div><b>${total}</b><span>điểm HSK 1–3</span></div>`;
 
 function buildRows(){
-  const lvs=Object.keys(H).filter(k=>BAI.some(p=>p.h.some(c=>lvOf(c)==k)));
-  $('lvRow').innerHTML=[["all","Tất cả cấp"],...lvs.map(k=>[k,"HSK "+k])].concat(BAI.some(p=>p.h.includes("x"))?[["x","Ngoài đề cương"]]:[])
-    .map(([k,t])=>`<button class="tab" type="button" data-lv="${k}" aria-pressed="${S.lv==k}">${t}</button>`).join('')
-    +`<label class="chk" style="margin-left:6px"><input type="checkbox" id="allPts" ${S.all?"checked":""}> Hiện cả điểm chưa có bài</label>`;
-  $('bkRow').innerHTML=[["all","Mọi giáo trình"],...BOOKS.map(b=>[b.id,`<span class="zh">${esc(b.zh)}</span>`])]
-    .map(([k,t])=>`<button class="tab" type="button" data-bk="${k}" aria-pressed="${S.bk==k}">${t}</button>`).join('');
+  const lvs=["1","2","3","4","5","6","7"];
+  $('lvRow').innerHTML=lvs.map(k=>{const L=H[k];const full=L&&L.ds.length===L.tong;const label=k==="7"?"HSK 7–9":"HSK "+k;
+    return `<button class="tab lvtab" type="button" data-lv="${k}" aria-pressed="${S.lv==k}" ${full?"":"disabled title=\"Đang chép danh mục\""}>${label} <small>${L?L.tong:k==="5"?71:k==="6"?67:148}</small></button>`}).join('');
   $('lvRow').hidden=S.view!=="hsk";
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===S.view));
 }
-function linkChip(p){return `<a class="lk" href="${url(p)}"><b>${esc(SHORT[p.b]||p.b)} · Bài ${p.l}</b><span>${zhWrap(p.n)}</span></a>`}
-
+function card(d){
+  const [code,name,grp]=d, i=name.indexOf("："), nm=i>0?name.slice(0,i):name, items=i>0?name.slice(i+1):"";
+  const cls=(byCode[code]||[]), rd=READY[code];
+  const chips=cls.length?`<div class="cls">${cls.map(p=>`<a href="${url(p)}" title="${esc(p.n)}">${esc(SHORT[p.b]||p.b)} B${p.l}</a>`).join('')}</div>`:"";
+  const inner=`<div class="cd"><b>【${esc(code)}】</b><span class="st ${rd?"ok":"soon"}">${rd?"Bài giảng":"Sắp có"}</span></div>
+    <div class="nm">${hl(nm)}</div>${items?`<div class="it">${hl(items)}</div>`:""}`;
+  // thẻ có bài: cả thẻ là link (chip bài trên lớp vẫn bấm riêng được)
+  return rd?`<div class="pc ready" style="cursor:pointer" data-href="${rd}/"><a href="${rd}/" style="position:absolute;inset:0;border-radius:20px" aria-label="Học 【${esc(code)}】${esc(nm)}"></a>${inner}${chips}</div>`
+           :`<div class="pc soon">${inner}${chips}</div>`;
+}
 function renderHSK(){
-  let html="";
-  const levels=Object.keys(H).filter(k=>S.lv==="all"||S.lv==k);
-  levels.forEach(k=>{
-    const L=H[k]; let lastG="",rows="",shown=0;
-    const learned=L.ds.filter(d=>(byCode[d[0]]||[]).some(bkOK)).length;
-    L.ds.forEach(d=>{
-      const ps=(byCode[d[0]]||[]).filter(bkOK);
-      if(!ps.length&&!S.all)return;
-      if(!hit(d[0],d[1],...ps.map(p=>p.n)))return;
-      if(d[2]!==lastG){rows+=`<div class="grp">${esc(d[2])}</div>`;lastG=d[2];}
-      rows+=`<div class="pt${ps.length?"":" none"}"><span class="code">【${esc(d[0])}】</span><div class="nm">${esc(d[1])}</div><div class="links">${ps.map(linkChip).join('')}</div></div>`;
-      shown++;
-    });
-    if(!shown)return;
-    const full=k<=3; // cấp 1–3 đã chép đủ danh mục
-    html+=`<section class="lvl" id="hsk-${k}"><div class="lvl-h"><h2>HSK ${k}<span class="zh">${esc(L.ten)}</span></h2>
-      <div class="meter">${full?`<span>Đã có bài: <b>${learned}</b> / ${L.tong} điểm</span><div class="bar"><i style="width:${(learned/L.tong*100).toFixed(1)}%"></i></div>`:`<span>Đề cương cấp này có ${L.tong} điểm</span>`}</div></div>${hl(rows)}</section>`;
-  });
-  if(S.lv==="all"||S.lv==="x"){
-    const ps=BAI.filter(p=>p.h.includes("x")&&bkOK(p)&&hit(p.n));
-    if(ps.length)html+=`<section class="lvl" style="--c:var(--faint)"><div class="lvl-h"><h2>Ngoài đề cương</h2><div class="meter"><span>Cách dùng từ, không phải điểm trong 语法等级大纲</span></div></div>
-      <div class="pt"><span class="code">—</span><div class="links" style="grid-column:2">${ps.map(linkChip).join('')}</div></div></section>`;
-  }
-  return html;
+  const L=H[S.lv]; if(!L)return "";
+  const ds=L.ds.filter(d=>hit(d[0],d[1],...(byCode[d[0]]||[]).map(p=>p.n)));
+  const nReady=L.ds.filter(d=>READY[d[0]]).length, nCls=L.ds.filter(d=>byCode[d[0]]).length;
+  let html=`<section class="lvl" id="hsk-${S.lv}"><div class="lvl-h"><div><h2>HSK ${S.lv}<span class="zh">${esc(L.ten)}</span></h2><p>${L.tong} điểm ngữ pháp trong đề cương</p></div>
+    <div class="meter"><span>Bài giảng: <b>${nReady}</b> / ${L.tong} · đã học trên lớp: ${nCls}</span><div class="bar"><i style="width:${nReady/L.tong*100}%"></i><i class="cls" style="width:${Math.max(0,nCls-nReady)/L.tong*100}%"></i></div></div></div>`;
+  let g="";
+  ds.forEach((d,i)=>{if(d[2]!==g){if(g)html+=`</div>`;g=d[2];html+=`<div class="grp"><span class="zh">${esc(g)}</span>${esc(GZH[g]||"")}</div><div class="grid">`}html+=card(d)});
+  if(g)html+=`</div>`;
+  return ds.length?html+`</section>`:"";
 }
 function renderBai(){
   let html="";
-  BOOKS.filter(b=>S.bk==="all"||b.id===S.bk).forEach(b=>{
+  BOOKS.forEach(b=>{
     const ls={}; BAI.filter(p=>p.b===b.id).forEach(p=>(ls[p.l]=ls[p.l]||[]).push(p));
     let rows="";
     Object.keys(ls).sort((a,c)=>a-c).forEach(l=>{
-      const ps=ls[l].filter(p=>hit(p.n,...p.h,...p.h.map(c=>(official[c]||[])[1]||"")));
+      const ps=ls[l].filter(p=>hit(p.n,...p.h,...p.h.map(c=>(OFF[c]||[])[1]||"")));
       if(!ps.length)return;
-      rows+=`<div class="lesson"><a class="bn" href="../${b.id}/bai-${l}/">Bài ${l}</a><ul>${ps.map(p=>`<li><a href="${url(p)}">${zhWrap(p.n)}</a>${
-        p.h.map(c=>c==="x"?`<span class="tag x">ngoài đề cương</span>`:`<span class="tag" title="${esc((official[c]||[])[1]||"")}">HSK ${lvOf(c)} · ${esc(c)}</span>`).join('')}</li>`).join('')}</ul></div>`;
+      rows+=`<div class="lesson"><a class="bn" href="../${b.id}/bai-${l}/">Bài ${l}</a><ul>${ps.map(p=>`<li><a href="${url(p)}"><span class="zh">${hl(p.n)}</span></a>${
+        p.h.map(c=>c==="x"?`<span class="tag x">ngoài đề cương</span>`:READY[c]?`<a class="tag" href="${READY[c]}/" title="Bài giảng: ${esc((OFF[c]||[])[1]||"")}">HSK ${lvOf(c)} · ${esc(c)} →</a>`:`<span class="tag" title="${esc((OFF[c]||[])[1]||"")}">HSK ${lvOf(c)} · ${esc(c)}</span>`).join('')}</li>`).join('')}</ul></div>`;
     });
-    if(rows)html+=`<section class="book" id="bai-${b.id}"><h2>${esc(b.zh)}<small>${esc(b.vi)}</small></h2>${hl(rows)}</section>`;
+    if(rows)html+=`<section class="book"><h2>${esc(b.zh)}<small>${esc(b.vi)}</small></h2>${rows}</section>`;
   });
   return html;
 }
@@ -206,17 +212,10 @@ function render(){
   buildRows();
   const html=S.view==="hsk"?renderHSK():renderBai();
   $('out').innerHTML=html||`<div class="empty">Không tìm thấy điểm ngữ pháp nào${S.q?` với “${esc(S.q)}”`:""}.</div>`;
-  try{sessionStorage.setItem('np-state',JSON.stringify({view:S.view,lv:S.lv,bk:S.bk,all:S.all}))}catch(e){}
+  try{sessionStorage.setItem('np-state2',JSON.stringify({view:S.view,lv:S.lv}))}catch(e){}
 }
-document.querySelector('.tools').addEventListener('click',e=>{
-  const b=e.target.closest('button');if(!b)return;
-  if(b.dataset.view){S.view=b.dataset.view;}
-  else if(b.dataset.lv){S.lv=b.dataset.lv;}
-  else if(b.dataset.bk){S.bk=b.dataset.bk;}
-  else return;
-  render();
-});
-document.querySelector('.tools').addEventListener('change',e=>{if(e.target.id==='allPts'){S.all=e.target.checked;render();}});
+document.querySelector('.tools').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
+  if(b.dataset.view)S.view=b.dataset.view;else if(b.dataset.lv)S.lv=b.dataset.lv;else return;render();});
 $('q').addEventListener('input',e=>{S.q=e.target.value.trim();render();});
 addEventListener('hashchange',()=>{readHash();render();});
 render();
