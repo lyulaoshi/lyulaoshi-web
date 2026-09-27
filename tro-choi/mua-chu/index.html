@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
-<title>Mưa chữ 汉字雨 – Trò chơi 吕老师汉语盒</title>
-<meta name="description" content="Trò chơi Mưa chữ: chữ Hán rơi xuống, gõ pinyin để bắn rơi. Luyện từ vựng HSK cấp 1–6.">
+<title>Mưa chữ Hán 汉字雨 – Trò chơi 吕老师汉语盒</title>
+<meta name="description" content="Trò chơi Mưa chữ Hán: chữ Hán rơi xuống, gõ pinyin để bắn rơi. Luyện từ vựng HSK cấp 1–6.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="../game.css?v=2">
+<link rel="stylesheet" href="../game.css?v=3">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 .screen{padding:26px 0}
@@ -78,7 +78,7 @@ body.playing .wrap{max-width:900px}
   <!-- 1. Chọn cấp -->
   <section class="screen" id="setup">
     <div class="eyebrow">汉字雨</div>
-    <h1>Mưa chữ</h1>
+    <h1>Mưa chữ Hán</h1>
     <p class="lead">Chữ Hán rơi từ trên trời xuống. Gõ đúng pinyin để bắn rơi trước khi chữ chạm đất. Để lọt 3 chữ là thua!</p>
     <div class="panel">
       <h2>1. Chọn cấp HSK <span class="best">(chọn được nhiều cấp)</span></h2>
@@ -90,11 +90,11 @@ body.playing .wrap{max-width:900px}
         <button class="chip" type="button" data-sp="1.4" aria-pressed="false">🚀 Nhanh</button>
       </div>
       <ul class="how">
-        <li>Gõ pinyin <b>không cần dấu</b>: 你好 → <b>nihao</b>. Chữ ü gõ <b>v</b> hoặc <b>u</b> (女 → nv / nu).</li>
+        <li>Gõ pinyin <b>không cần dấu</b>: 你好 → <b>nihao</b>. Chữ ü gõ <b>v</b> hoặc <b>u</b> (女 → nv / nu). Dùng <b>bộ gõ tiếng Trung</b> gõ ra chữ Hán cũng được.</li>
         <li>Không nhớ? <b>Chạm vào chữ</b> để xem pinyin, nhưng chữ đó chỉ được nửa điểm.</li>
         <li>Bắn liên tiếp không trượt để lên <b>combo</b>, điểm càng nhân lên.</li>
       </ul>
-      <p class="warn">Máy đang bật bộ gõ tiếng Việt (Telex, VNI) thì em chuyển sang bàn phím tiếng Anh trước khi chơi nhé, nếu không pinyin sẽ bị biến thành chữ có dấu.</p>
+      <p class="warn">Máy đang bật bộ gõ tiếng Việt (Telex, VNI) thì em chuyển sang bộ gõ tiếng Trung hoặc bàn phím tiếng Anh trước khi chơi nhé, nếu không pinyin sẽ bị biến thành chữ có dấu.</p>
       <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="best" id="bestSetup"></span></div>
     </div>
   </section>
@@ -111,9 +111,10 @@ body.playing .wrap{max-width:900px}
     </div>
     <div class="field" id="field"></div>
     <form class="typer" id="typer" autocomplete="off">
-      <input id="ans" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ pinyin rồi Enter…" aria-label="Gõ pinyin">
+      <input id="ans" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ pinyin hoặc chữ Hán…" aria-label="Gõ pinyin">
       <button class="btn pri" type="submit">Bắn</button>
     </form>
+    <p class="tip" id="telexTip" hidden style="color:var(--coral);font-weight:700">Chữ em gõ bị thêm dấu: máy đang bật gõ tiếng Việt. Em tắt Telex/VNI hoặc chuyển sang bàn phím tiếng Anh nhé.</p>
     <p class="tip">Gõ đúng là chữ tự nổ, không cần bấm Bắn. Chạm vào chữ để xem pinyin.</p>
   </section>
 
@@ -132,6 +133,9 @@ body.playing .wrap{max-width:900px}
 <footer class="wrap">Từ vựng theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../hsk-words.js"></script>
+<script src="../../tu-vung/bai-data.js"></script>
+<script src="../../tu-vung/chu-de.js"></script>
+<script src="../bo-tu.js?v=1"></script>
 <script src="../tts.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
@@ -222,15 +226,22 @@ function hit(d){
   d.el.classList.add('boom');setTimeout(()=>d.el.remove(),350);hud();
 }
 function tryHit(auto){
+  const raw=ans.value.trim(),hz=/[\u4e00-\u9fff]/.test(raw);
+  if(hz){ // gõ bằng bộ gõ tiếng Trung: so thẳng chữ Hán
+    const w=raw.replace(/[^\u4e00-\u9fff]/g,''),mh=drops.filter(d=>d.w[0]===w).sort((a,b)=>b.y-a.y)[0];
+    if(mh){hit(mh);ans.value='';return true}return false}
+  if(composing)return false;
   const k=norm(ans.value);if(!k)return false;
   const m=drops.filter(d=>d.key===k).sort((a,b)=>b.y-a.y)[0];
   // đang gõ dở một từ dài hơn (hai → haishi) thì chưa tự bắn, chờ gõ tiếp hoặc Enter
   if(m&&auto&&drops.some(d=>d.key!==k&&d.key.startsWith(k)))return false;
   if(m){hit(m);ans.value='';return true}return false;
 }
+let composing=false;ans.addEventListener('compositionstart',()=>composing=true);ans.addEventListener('compositionend',()=>{composing=false;tryHit(true)});
 ans.addEventListener('input',()=>tryHit(true));
 $('typer').addEventListener('submit',e=>{e.preventDefault();
-  if(!tryHit()&&ans.value.trim()){combo=0;hud();ans.classList.remove('bad');void ans.offsetWidth;ans.classList.add('bad');ans.select()}});
+  if(!tryHit()&&ans.value.trim()){combo=0;hud();ans.classList.remove('bad');void ans.offsetWidth;ans.classList.add('bad');ans.select();
+    if(/[^\x00-\x7f]/.test(ans.value)&&!/[\u4e00-\u9fff]/.test(ans.value))$('telexTip').hidden=false}});
 function setPause(p){paused=p;$('pauseBtn').textContent=p?'▶ Chơi tiếp':'⏸ Dừng';
   let o=field.querySelector('.paused');
   if(p&&!o){o=document.createElement('div');o.className='paused';o.textContent='Tạm dừng · 暂停';field.appendChild(o)}

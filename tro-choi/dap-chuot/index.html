@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Đập chuột thanh điệu 打地鼠 – Trò chơi 吕老师汉语盒</title>
+<meta name="description" content="Trò chơi Đập chuột thanh điệu: chuột chũi mang chữ Hán thò lên, chỉ đập những chữ có đúng thanh điệu đề bài. Luyện phản xạ thanh điệu HSK 1–6.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../game.css?v=3">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+[hidden]{display:none!important}
+.screen{padding:26px 0}
+.eyebrow{font-family:var(--hz);color:var(--peach);font-size:22px}
+h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4px}
+.lead{color:var(--muted);max-width:40em;margin:10px 0 0}
+.panel{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:20px;margin-top:20px;display:grid;gap:14px}
+.panel h2{font-size:16px;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--ground);color:var(--ink);font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;text-align:left}
+.chip[aria-pressed="true"]{border-color:var(--peach);background:var(--peach-s);color:var(--peach)}
+.chip small{font-weight:400;color:var(--muted);margin-left:4px}
+.how{margin:0;padding-left:20px;color:var(--muted);font-size:14.5px}
+.how b{color:var(--ink)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.muted{color:var(--muted);font-size:14px}
+/* chơi */
+#play{padding:12px 0 20px}
+.hud{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;font-size:15px}
+.hud b{font-size:20px;font-variant-numeric:tabular-nums}
+.hud .combo{color:var(--peach)}
+.hud .sp{margin-left:auto}
+.hud button{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer}
+.timer{height:8px;border-radius:99px;background:var(--ground2);overflow:hidden;margin-top:10px}
+.timer i{display:block;height:100%;width:100%;background:var(--peach);transform-origin:left}
+.goal{margin-top:12px;text-align:center;background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:10px 14px}
+.goal .t{font-size:clamp(22px,5vw,30px);font-weight:800}
+.goal .t b{color:var(--peach);font-size:1.15em}
+.goal .ex{color:var(--muted);font-size:14px}
+.goal.flash{animation:gl .6s ease}
+@keyframes gl{0%{transform:scale(1)}40%{transform:scale(1.08);background:var(--peach-s)}100%{transform:scale(1)}}
+.field{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,2.5vw,18px);margin:14px auto 0;max-width:560px;padding:14px;border-radius:24px;
+  background:linear-gradient(#9ED88B,#7CC56C);touch-action:manipulation}
+:root[data-theme="dark"] .field{background:linear-gradient(#3E6B45,#2F5537)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .field{background:linear-gradient(#3E6B45,#2F5537)}}
+.hole{position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:0 0 50% 50%/0 0 32% 32%;cursor:pointer}
+.hole::after{content:"";position:absolute;left:6%;right:6%;bottom:6%;height:26%;border-radius:50%;background:#4A3524;box-shadow:inset 0 6px 10px rgba(0,0,0,.45);z-index:0}
+.mole{position:absolute;left:50%;bottom:8%;height:88%;aspect-ratio:1/1;transform:translate(-50%,105%);transition:transform .16s ease-out;z-index:1;pointer-events:none}
+.hole.up .mole{transform:translate(-50%,0)}
+.mole svg{position:absolute;inset:0;width:100%;height:100%}
+.mole .hz{position:absolute;left:0;right:0;top:64%;transform:translateY(-50%);text-align:center;font-family:var(--kai);font-size:clamp(26px,7vw,40px);line-height:1;color:#3B2A1C}
+.mole .hz.w2{font-size:clamp(15px,3.8vw,24px)}
+.hole .py{position:absolute;left:0;right:0;top:4%;text-align:center;font-weight:800;font-size:clamp(14px,3.6vw,18px);z-index:3;opacity:0;transition:opacity .15s}
+.hole.hit .py{opacity:1}
+.hole.good .py{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.hole.bad .py{color:#FFE3E3;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+.hole.good .mole{filter:brightness(1.1)}
+.hole.bad .mole{animation:wob .3s}
+@keyframes wob{25%{rotate:-8deg}75%{rotate:8deg}}
+.hole .star{position:absolute;inset:0;display:grid;place-items:center;font-size:34px;z-index:4;pointer-events:none;animation:st .5s ease-out forwards}
+@keyframes st{from{transform:scale(.4);opacity:1}to{transform:scale(1.4);opacity:0}}
+.pts{position:absolute;left:50%;top:30%;transform:translateX(-50%);font-weight:800;font-size:18px;z-index:5;pointer-events:none;animation:up .8s ease-out forwards}
+@keyframes up{to{transform:translate(-50%,-40px);opacity:0}}
+.fieldbox{position:relative}
+.hole.gold .mole svg{filter:sepia(1) saturate(5) hue-rotate(-14deg) brightness(1.18) drop-shadow(0 0 8px #FFD34D)}
+.hole.gold .mole::after{content:"✨";position:absolute;right:-4%;top:-6%;font-size:clamp(16px,4vw,24px);animation:tw 1s ease-in-out infinite}
+@keyframes tw{50%{transform:scale(1.3) rotate(15deg)}}
+.hole .bombi{position:absolute;left:-2%;bottom:6%;font-size:clamp(20px,5vw,30px);z-index:2;display:none}
+.hole.bomb .bombi{display:block;animation:tick .5s ease-in-out infinite}
+@keyframes tick{50%{transform:rotate(-12deg) scale(1.1)}}
+.stageUp{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:10px;text-align:center;border-radius:24px;background:color-mix(in srgb,var(--card) 88%,transparent);z-index:8;padding:18px}
+.stageUp .t{font-size:clamp(26px,5vw,36px);font-weight:800;color:var(--peach)}
+.stageUp .zh{font-family:var(--hz);font-size:32px;color:var(--mint)}
+.hammer{position:fixed;left:0;top:0;width:88px;height:88px;pointer-events:none;z-index:60;display:none;transform-origin:30% 90%;transition:rotate .08s}
+.hammer.down{rotate:-55deg}
+@media (hover:hover) and (pointer:fine){.field.aim{cursor:none}.field.aim ~ .hammer,.hammer.on{display:block}}
+/* kết thúc */
+.big{font-size:56px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.rank{font-weight:800;font-size:20px;color:var(--peach)}
+.rank .zh{font-family:var(--hz);font-weight:400;font-size:24px;margin-right:8px}
+.review{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.review li{background:var(--ground);border-radius:12px;padding:8px 12px;display:grid}
+.review .zh{font-family:var(--kai);font-size:26px;line-height:1.2}
+.review .py{color:var(--sky);font-weight:700;font-size:14px}
+.review .n{font-size:13px;color:var(--coral)}
+@media (max-width:560px){.big{font-size:44px}}
+/* máy tính: bãi cỏ nằm ngang, vừa khít chiều cao màn hình, không phải cuộn */
+@media (min-width:700px){
+  .field{max-width:min(980px,calc((100dvh - 280px) * 1.45));padding:14px 22px;gap:6px 22px}
+  .hole{aspect-ratio:16/10}
+  .goal{padding:8px 14px}.goal .t{font-size:26px}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/><rect x="78" y="38" width="44" height="30" rx="8" fill="#fff"/><rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/><path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/><rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/><rect x="60" y="142" width="80" height="30" rx="8" fill="#fff"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="screen" id="setup">
+    <div class="eyebrow">打地鼠</div>
+    <h1>Đập chuột thanh điệu</h1>
+    <p class="lead">Lũ chuột chũi mang chữ Hán thò đầu lên khỏi hang! Đề bài bảo <b>“Đập thanh 3”</b> thì chỉ đập những con mang chữ thanh 3. Đập nhầm là bị trừ điểm. Nhanh tay, nhanh mắt, nhanh tai!</p>
+    <div class="panel">
+      <h2>1. Chọn cấp HSK <span class="muted">(chọn được nhiều cấp)</span></h2>
+      <div class="chips" id="lvChips"></div>
+      <h2>2. Kiểu chơi</h2>
+      <div class="chips" id="modeChips">
+        <button class="chip" type="button" data-mode="one" aria-pressed="true">🐹 Một chữ<small>đập chữ có đúng thanh đề bài</small></button>
+        <button class="chip" type="button" data-mode="two" aria-pressed="false">🐹🐹 Từ hai chữ<small>khó: đập từ có đúng cặp thanh, ví dụ 3 + 1</small></button>
+      </div>
+      <h2>3. Tốc độ chuột</h2>
+      <div class="chips" id="spChips">
+        <button class="chip" type="button" data-sp="slow" aria-pressed="true">🐢 Chậm</button>
+        <button class="chip" type="button" data-sp="mid" aria-pressed="false">🐇 Vừa</button>
+        <button class="chip" type="button" data-sp="fast" aria-pressed="false">🚀 Nhanh</button>
+      </div>
+      <ul class="how">
+        <li>Mỗi màn <b>60 giây</b>. Đủ điểm thì <b>qua màn</b>: chuột nhanh hơn, từ màn 3 đề đổi sang <b>cặp thanh</b> của từ hai chữ. Cứ khoảng 12 giây đề đổi một lần, nhớ để ý nhé!</li>
+        <li>🐹✨ <b>Chuột vàng</b>: đập đúng được <b>nhân đôi điểm</b>. 💣 <b>Chuột cầm bom</b> (luôn là chữ sai thanh): đập nhầm là <b>mất 5 giây</b>!</li>
+        <li>Đập đúng được điểm và nhân combo. Đập nhầm bị trừ 5 điểm, mất combo. Để chuột đúng chui xuống thì không bị trừ.</li>
+        <li>Đập xong, chữ hiện pinyin có dấu để em kiểm tra lại.</li>
+        <li>Chỉ dùng những chữ có một cách đọc, để không bị tranh cãi về thanh điệu.</li>
+      </ul>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="bestSetup"></span></div>
+    </div>
+  </section>
+
+  <section id="play" hidden>
+    <div class="hud">
+      <span>Điểm <b id="score">0</b></span>
+      <span class="combo" id="combo"></span>
+      <span>⏱ <b id="clock">60</b>s</span>
+      <span>Màn <b id="stage">1</b> <small class="muted" id="need"></small></span>
+      <span class="sp"></span>
+      <button type="button" id="sndBtn" aria-label="Bật/tắt âm thanh">🔊</button>
+      <button type="button" id="pauseBtn">⏸</button>
+      <button type="button" id="quitBtn">✕</button>
+    </div>
+    <div class="timer"><i id="timer"></i></div>
+    <div class="goal" id="goal"><div class="t" id="goalT"></div><div class="ex" id="goalEx"></div></div>
+    <div class="fieldbox"><div class="field" id="field"></div><div class="stageUp" id="stageUp" hidden></div></div>
+    <div class="hammer" id="hammer" aria-hidden="true"><svg viewBox="0 0 64 64"><rect x="29" y="22" width="7" height="38" rx="3" fill="#A0703F"/><rect x="10" y="8" width="44" height="20" rx="6" fill="#6B7A99"/><rect x="10" y="8" width="44" height="7" rx="3.5" fill="#8E9CBC"/><rect x="7" y="10" width="6" height="16" rx="2" fill="#56627E"/><rect x="51" y="10" width="6" height="16" rx="2" fill="#56627E"/></svg></div>
+  </section>
+
+  <section class="screen" id="over" hidden>
+    <div class="eyebrow">时间到！</div>
+    <h1 id="overTitle">Hết giờ!</h1>
+    <div class="panel">
+      <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
+      <div id="revBox"><h2>Những chữ em đập nhầm, xem lại thanh nhé</h2><ul class="review" id="review"></ul></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại ↻</button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / kiểu chơi</button></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">Từ vựng và pinyin theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../hsk-words.js"></script>
+<script src="../tts.js?v=1"></script>
+<script src="../pinyin.js?v=1"></script>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
+
+(function(){
+const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'];
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+// chữ một cách đọc: gom mọi cách đọc của chữ đơn trong đề cương, chữ nào có hơn một cách đọc thì bỏ
+const READ={};LEVELS.forEach(l=>HSK[l].forEach(([w,p])=>{if(w.length!==1||!/[一-鿿]/.test(w))return;const ss=PY.parse(p,1);if(!ss)return;
+  (READ[w]=READ[w]||{lv:l,set:new Set(),p,t:ss[0].tone}).set.add(p)}));
+const POLY='长行了得觉乐还重为和发都好只中地的教数调种背便差处当倒更干空累难片强少相应着转传分几假间将降结卡看量落没冲参藏称乘答担弹恶划会济奇系血要载曾朝兴';
+const ONE=Object.entries(READ).filter(([c,r])=>r.set.size===1&&!POLY.includes(c)&&r.t>0).map(([c,r])=>({w:c,p:r.p,t:[r.t],lv:r.lv}));
+const TWO=[];{const seen=new Set();LEVELS.forEach(l=>HSK[l].forEach(([w,p])=>{if(w.length!==2||seen.has(w)||!/^[一-鿿]+$/.test(w))return;const ss=PY.parse(p,2);
+  if(ss&&ss.every(x=>x.tone>0)){seen.add(w);TWO.push({w,p,t:ss.map(x=>x.tone),lv:l})}}))}
+const EX={1:'mā',2:'má',3:'mǎ',4:'mà'},MARKS={1:'ˉ',2:'ˊ',3:'ˇ',4:'ˋ'};
+let picked=new Set(store.get('dc-levels')||['1']),mode='one',sp=store.get('dc-sp')||'slow',sound=store.get('dc-sound')!==false,stage=1;
+const SPEED={slow:[1500,1100],mid:[1150,850],fast:[850,650]}; // [chuột ở trên (ms), khoảng cách giữa hai con]
+const pm=()=>mode==='two'||stage>=3?'two':'one'; // từ màn 3 chuyển sang cặp thanh
+const pool=()=>(pm()==='one'?ONE:TWO).filter(x=>picked.has(x.lv));
+const NEED=s=>100+(s-1)*60,SF=()=>Math.pow(.88,stage-1); // điểm cần để qua màn, hệ số tốc độ
+// âm thanh tự tạo bằng Web Audio (không cần file)
+let AC=null;const sfx=t=>{if(!sound)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain(),n=AC.currentTime;o.connect(g);g.connect(AC.destination);
+  const S={hit:['triangle',420,120,.18,.12],miss:['sawtooth',180,90,.12,.22],gold:['sine',880,1760,.18,.3],bomb:['square',120,40,.22,.45],up:['sine',520,1040,.2,.5]}[t];
+  o.type=S[0];o.frequency.setValueAtTime(S[1],n);o.frequency.exponentialRampToValueAtTime(S[2],n+S[4]);g.gain.setValueAtTime(S[3],n);g.gain.exponentialRampToValueAtTime(.001,n+S[4]);o.start(n);o.stop(n+S[4]+.02)}catch(e){}};
+const lvChips=$('lvChips');
+function drawLv(){lvChips.innerHTML='';LEVELS.forEach(l=>{const n=(mode==='one'?ONE:TWO).filter(x=>x.lv===l).length,b=document.createElement('button');b.type='button';b.className='chip';b.dataset.lv=l;
+  b.innerHTML='HSK '+l+'<small>'+n+(mode==='one'?' chữ':' từ')+'</small>';b.setAttribute('aria-pressed',picked.has(l));
+  b.onclick=()=>{if(picked.has(l)){if(picked.size>1)picked.delete(l)}else picked.add(l);
+    lvChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',picked.has(c.dataset.lv)));showBest()};lvChips.appendChild(b)})}
+drawLv();
+const group=(id,attr,get,set)=>document.querySelectorAll('#'+id+' .chip').forEach(c=>{c.setAttribute('aria-pressed',c.dataset[attr]===get());
+  c.onclick=()=>{set(c.dataset[attr]);document.querySelectorAll('#'+id+' .chip').forEach(x=>x.setAttribute('aria-pressed',x===c));showBest()}});
+group('modeChips','mode',()=>mode,v=>{mode=v;drawLv()});
+group('spChips','sp',()=>sp,v=>{sp=v;store.set('dc-sp',v)});
+const bestKey=()=>'dc-best-'+mode+'-'+sp+'-'+[...picked].sort().join('');
+function showBest(){const b=store.get(bestKey());$('bestSetup').textContent=b?'Kỷ lục: '+b+' điểm':''}
+showBest();
+
+// hang và chuột
+const MOLE='<svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="62" rx="42" ry="44" fill="#9A6B45"/><ellipse cx="50" cy="70" rx="30" ry="30" fill="#C99A70"/>'+
+ '<circle cx="22" cy="24" r="9" fill="#9A6B45"/><circle cx="78" cy="24" r="9" fill="#9A6B45"/><circle cx="22" cy="24" r="4.5" fill="#E7A9A0"/><circle cx="78" cy="24" r="4.5" fill="#E7A9A0"/>'+
+ '<circle cx="36" cy="30" r="4" fill="#2B1D12"/><circle cx="64" cy="30" r="4" fill="#2B1D12"/><circle cx="37.3" cy="28.7" r="1.3" fill="#fff"/><circle cx="65.3" cy="28.7" r="1.3" fill="#fff"/>'+
+ '<ellipse cx="50" cy="38" rx="6" ry="4.5" fill="#E77C8A"/><circle cx="28" cy="40" r="5" fill="#F2A7A7" opacity=".6"/><circle cx="72" cy="40" r="5" fill="#F2A7A7" opacity=".6"/>'+
+ '<rect x="26" y="46" width="48" height="36" rx="10" fill="#FFF6E6" stroke="#8A5E3C" stroke-width="2"/></svg>';
+const field=$('field');
+function holes(){field.innerHTML='';for(let i=0;i<9;i++){const h=document.createElement('div');h.className='hole';
+  h.innerHTML='<span class="py"></span><div class="mole">'+MOLE+'<span class="hz" lang="zh"></span><span class="bombi">💣</span></div>';
+  h.addEventListener('pointerdown',e=>{e.preventDefault();whack(i)});field.appendChild(h)}}
+let deck,goal,score,combo,hits,misses,wrongs,alive,paused,endAt,left,tick,spawnT,goalT,occ,pauseAt;
+const eq=(a,b)=>a.length===b.length&&a.every((x,i)=>x===b[i]);
+function newGoal(){
+  const P=pool();let g;
+  if(pm()==='one')g=[1+(Math.random()*4|0)];
+  else{const c=shuffle(P.slice()).slice(0,30);g=c[Math.random()*c.length|0].t.slice()}
+  if(goal&&eq(g,goal))return newGoal();goal=g;
+  $('goalT').innerHTML='🔨 Đập '+(pm()==='one'?'chữ <b>thanh '+g[0]+' '+MARKS[g[0]]+'</b>':'từ <b>thanh '+g.join(' + ')+'</b>')+'!';
+  $('goalEx').textContent=pm()==='one'?'như '+EX[g[0]]:'như '+g.map(t=>EX[t]).join(' ');
+  const el=$('goal');el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+}
+function spawn(){
+  if(!alive||paused)return;
+  const free=[...Array(9).keys()].filter(i=>!occ[i]);if(free.length){
+    const i=free[Math.random()*free.length|0],P=pool(),yes=P.filter(x=>eq(x.t,goal)),no=P.filter(x=>!eq(x.t,goal));
+    const arr=(Math.random()<.45&&yes.length)||!no.length?yes:no,item=arr[Math.random()*arr.length|0]; // khoảng 45% chuột đúng thanh
+    const gold=arr===yes&&Math.random()<.14,bomb=arr===no&&Math.random()<.2;
+    const h=field.children[i];h.className='hole up'+(gold?' gold':bomb?' bomb':'');h.querySelector('.hz').textContent=item.w;h.querySelector('.hz').classList.toggle('w2',item.w.length>1);
+    h.querySelector('.py').textContent=item.p;
+    const up=SPEED[sp][0]*(pm()==='two'?1.25:1)*SF()*(gold?.8:1);
+    occ[i]={item,gold,bomb,timer:setTimeout(()=>hide(i),up)};
+  }
+  const gap=SPEED[sp][1]*(pm()==='two'?1.2:1)*SF()*(.7+Math.random()*.6);spawnT=setTimeout(spawn,gap);
+}
+function hide(i){const o=occ[i];if(!o)return;clearTimeout(o.timer);occ[i]=null;const h=field.children[i];h.classList.remove('up');setTimeout(()=>{if(!occ[i])h.className='hole'},350)}
+function pop(i,txt,col){const h=field.children[i],p=document.createElement('span');p.className='pts';p.textContent=txt;p.style.color=col;h.appendChild(p);setTimeout(()=>p.remove(),800)}
+function whack(i){
+  const o=occ[i];if(!alive||paused||!o||o.hitDone)return;o.hitDone=true;const h=field.children[i];
+  if(eq(o.item.t,goal)){combo++;hits++;const pts=Math.round(10*(1+Math.min(combo,10)*.1))*(o.gold?2:1);score+=pts;stageScore+=pts;h.classList.add('hit','good');
+    pop(i,(o.gold?'✨×2 ':'')+'+'+pts,o.gold?'#FFE27A':'#fff');sfx(o.gold?'gold':'hit');
+    const s=document.createElement('span');s.className='star';s.textContent=o.gold?'🌟':'💥';h.appendChild(s);setTimeout(()=>s.remove(),500);TTS.say(o.item.w)}
+  else{combo=0;misses++;h.classList.add('hit','bad');if(!wrongs.some(x=>x.w===o.item.w))wrongs.push({...o.item,g:goal.slice()});
+    if(o.bomb){endAt-=5000;pop(i,'💥 −5 giây','#FFD2D2');sfx('bomb');field.animate([{transform:'translateX(-8px)'},{transform:'translateX(8px)'},{transform:'none'}],{duration:300})}
+    else{score=Math.max(0,score-5);stageScore=Math.max(0,stageScore-5);pop(i,'−5','#FFD2D2');sfx('miss')}}
+  hud();clearTimeout(o.timer);o.timer=setTimeout(()=>hide(i),650);
+}
+let stageScore=0;
+function hud(){$('score').textContent=score;$('combo').textContent=combo>1?'combo ×'+combo:'';$('stage').textContent=stage;$('need').textContent='('+stageScore+'/'+NEED(stage)+')'}
+function start(){
+  if(pool().length<8){alert('Cấp này có ít chữ quá, em chọn thêm cấp nhé!');return}
+  store.set('dc-levels',[...picked]);score=0;combo=0;hits=0;misses=0;wrongs=[];alive=true;paused=false;stage=1;
+  $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);holes();runStage();
+}
+function runStage(){
+  goal=null;stageScore=0;occ=Array(9).fill(null);[...field.children].forEach(h=>h.className='hole');$('stageUp').hidden=true;hud();newGoal();
+  left=60000;endAt=performance.now()+left;clearInterval(tick);
+  tick=setInterval(()=>{if(paused)return;left=endAt-performance.now();const s=Math.max(0,Math.ceil(left/1000));$('clock').textContent=s;
+    $('timer').style.transform='scaleX('+Math.max(0,left/60000)+')';if(left<=0)stageEnd()},100);
+  clearTimeout(spawnT);spawn();clearInterval(goalT);goalT=setInterval(()=>{if(!paused&&alive)newGoal()},12000);
+}
+function stageEnd(){
+  clearInterval(tick);clearInterval(goalT);clearTimeout(spawnT);occ.forEach((o,i)=>o&&hide(i));
+  if(stageScore<NEED(stage))return end();
+  const bonus=20*stage;score+=bonus;hud();sfx('up');
+  const nx=stage+1,toTwo=mode!=='two'&&nx===3;
+  $('stageUp').innerHTML='<div class="zh" lang="zh">过关！</div><div class="t">Qua màn '+stage+'! +'+bonus+' điểm thưởng</div><div class="muted">Màn '+nx+': chuột nhanh hơn'+(toTwo?', và đề đổi sang <b>cặp thanh</b> của từ hai chữ!':'')+' Cần '+NEED(nx)+' điểm.</div><button class="btn hot" type="button" id="nextBtn">Màn '+nx+' ▶</button>';
+  $('stageUp').hidden=false;$('nextBtn').onclick=()=>{stage=nx;runStage()};$('nextBtn').focus();
+}
+function setPause(p){if(!alive)return;paused=p;$('pauseBtn').textContent=p?'▶':'⏸';
+  if(p){pauseAt=performance.now();clearTimeout(spawnT);occ.forEach((o,i)=>o&&hide(i));$('goalEx').dataset.keep=$('goalEx').textContent;$('goalEx').textContent='⏸ Tạm dừng · bấm ▶ để chơi tiếp'}
+  else{endAt+=performance.now()-pauseAt;$('goalEx').textContent=$('goalEx').dataset.keep||'';spawn()}}
+$('pauseBtn').onclick=()=>setPause(!paused);
+$('quitBtn').onclick=()=>{if(alive)end()};
+const paintSnd=()=>{$('sndBtn').textContent=sound?'🔊':'🔇'};paintSnd();
+$('sndBtn').onclick=()=>{sound=!sound;store.set('dc-sound',sound);paintSnd();if(sound)sfx('hit')};
+// búa đi theo con trỏ (máy tính)
+const hm=$('hammer'),fine=matchMedia('(hover:hover) and (pointer:fine)');
+addEventListener('pointermove',e=>{ // búa hiện khi con trỏ chuột nằm trên bãi cỏ lúc đang chơi
+  const r=field.getBoundingClientRect(),on=alive&&!paused&&fine.matches&&e.pointerType==='mouse'&&e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;
+  field.classList.toggle('aim',on);hm.classList.toggle('on',on);if(on)hm.style.transform='translate('+(e.clientX-28)+'px,'+(e.clientY-70)+'px)'});
+field.addEventListener('pointerdown',()=>{hm.classList.add('down');setTimeout(()=>hm.classList.remove('down'),110)});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)setPause(true)});
+function end(){
+  alive=false;clearInterval(tick);clearInterval(goalT);clearTimeout(spawnT);occ.forEach((o,i)=>o&&clearTimeout(o.timer));hm.classList.remove('on');
+  $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
+  const k=bestKey(),best=store.get(k)||0,rec=score>best;if(rec)store.set(k,score);
+  $('overTitle').textContent=left<=0?'Chưa đủ điểm qua màn '+stage+'!':'Kết thúc!';$('finalScore').textContent=score;
+  const acc=hits+misses?Math.round(hits/(hits+misses)*100):0;
+  const rk=stage>=4||hits>=30&&acc>=90?['打鼠高手','Cao thủ đập chuột!']:hits>=15&&acc>=75?['厉害！','Giỏi lắm!']:hits>=6?['加油！','Cố lên!']:['再来一次','Thử lại nhé!'];
+  $('rank').innerHTML='<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1];
+  $('finalInfo').textContent=(rec&&score>0?'Kỷ lục mới! · ':'Kỷ lục: '+Math.max(best,score)+' điểm · ')+'Tới màn '+stage+' · Đập đúng '+hits+' · nhầm '+misses+' (chính xác '+acc+'%) · HSK '+[...picked].sort().join(', ');
+  $('review').innerHTML=wrongs.map(x=>'<li><span class="zh" lang="zh">'+x.w+' '+TTS.btn(x.w)+'</span><span class="py">'+x.p+' · thanh '+x.t.join(' + ')+'</span><span class="n">đề là thanh '+x.g.join(' + ')+'</span></li>').join('');
+  $('revBox').hidden=!wrongs.length;showBest();
+}
+$('startBtn').onclick=start;$('againBtn').onclick=start;
+$('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
+})();
+</script>
+</body>
+</html>

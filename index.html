@@ -15,6 +15,7 @@
   --card:#FFFFFF; --kraft:#D9B98C; --kraft-d:#B8925F; --tape:rgba(217,185,140,.72);
   --coral:#E0545F; --coral-s:#FDE6E7; --sky:#3B87D6; --sky-s:#E3EFFB; --mint:#2E9E73; --mint-s:#DDF3EA;
   --lav:#7C6BD6; --lav-s:#ECE8FB; --peach:#E7823A; --peach-s:#FDEBDD; --butter:#C99A14; --butter-s:#FBF1CF;
+  --teal:#16949E; --teal-s:#D9F1F2; --rose:#D24E86; --rose-s:#FBE3EE;
   --shadow:0 1px 0 rgba(43,46,69,.04),0 10px 28px rgba(43,46,69,.08);
   --hz:"ZCOOL KuaiLe","STKaiti","KaiTi","Kaiti SC","PingFang SC",sans-serif;
   --kai:"STKaiti","KaiTi","Kaiti SC","LXGW WenKai","PingFang SC",serif;
@@ -23,12 +24,12 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
   --kraft:#C9A677;--kraft-d:#A7824F;--tape:rgba(201,166,119,.55);
-  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;
+  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;--teal-s:#16363A;--rose-s:#3F2433;
   --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}}
 :root[data-theme="dark"]{
   color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
   --kraft:#C9A677;--kraft-d:#A7824F;--tape:rgba(201,166,119,.55);
-  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;
+  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;--teal-s:#16363A;--rose-s:#3F2433;
   --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}
 *{box-sizing:border-box}
 body{background:var(--ground);color:var(--ink);font-family:var(--vi);font-size:16px;line-height:1.6;padding-inline:16px;
@@ -120,7 +121,7 @@ nav.menu a.cta{white-space:nowrap}
 .box:hover .peek span,.box:focus-visible .peek span,.box.is-open .peek span{opacity:1;transform:translateY(-26px)}
 .box:focus-visible .face{outline:3px solid var(--c);outline-offset:3px}
 .box.c-sky{--c:var(--sky);--cs:var(--sky-s)} .box.c-mint{--c:var(--mint);--cs:var(--mint-s)} .box.c-lav{--c:var(--lav);--cs:var(--lav-s)}
-.box.c-peach{--c:var(--peach);--cs:var(--peach-s)} .box.c-butter{--c:var(--butter);--cs:var(--butter-s)} .box.c-kraft{--c:var(--kraft-d);--cs:color-mix(in srgb,var(--kraft) 22%,var(--card))}
+.box.c-peach{--c:var(--peach);--cs:var(--peach-s)} .box.c-butter{--c:var(--butter);--cs:var(--butter-s)} .box.c-teal{--c:var(--teal);--cs:var(--teal-s)} .box.c-rose{--c:var(--rose);--cs:var(--rose-s)} .box.c-kraft{--c:var(--kraft-d);--cs:color-mix(in srgb,var(--kraft) 22%,var(--card))}
 @media (prefers-reduced-motion:reduce){.box .lid,.box .peek span{transition:none}}
 
 /* course crate */
@@ -235,9 +236,9 @@ body{margin:0}
     <div>
       <span class="eyebrow">Hộp học tiếng Trung của cô Lã</span>
       <h1>Nghe nói đọc viết,<br>mở hộp là biết!<span class="zh"><i>吕老师汉语盒，</i><u>拆盒解锁汉语乐。</u></span></h1>
-      <p class="lead">Hộp nào cũng có quà: bài giảng theo giáo trình, thanh điệu luyện tới khi “chuẩn không cần chỉnh”, chữ Hán tự viết từng nét, từ vựng và bài đọc. Không cần sổ, không cần bút, chọn một hộp, bấm mở là học, trên điện thoại hay máy chiếu đều được.</p>
-      <div class="acts"><a class="btn pri" href="#ke-hop">Mở kệ hộp ↓</a><a class="btn sec" href="tttc/bai-3/">Học tiếp TTTC Bài 3</a></div>
-      <div class="stats"><div><b>5</b>giáo trình</div><div><b>13</b>bài giảng đã mở</div><div><b>79</b>từ mới có bút thuận</div><div><b>9</b>chiếc hộp</div></div>
+      <p class="lead">Mỗi chiếc hộp là một phần bài học cô gói sẵn: bài giảng, thanh điệu, chữ Hán, từ vựng, bài đọc, trò chơi, thứ gì cũng có. Học ở lớp chưa kỹ, về nhà mở hộp ra xem; lúc rảnh lúc chờ, mở một hộp là nhớ.</p>
+      <div class="acts"><a class="btn pri" href="#ke-hop">Mở kệ hộp ↓</a></div>
+      <div class="stats"><div><b data-count="boxes">9</b>chiếc hộp</div><div><b data-count="textbooks">5</b>giáo trình</div><div><b data-count="lessons">27</b>bài giảng đã mở</div><div><b data-count="games">12</b>trò chơi</div></div>
     </div>
     <div class="art" aria-hidden="true">
       <svg viewBox="0 0 400 410"><ellipse cx="200" cy="392" rx="140" ry="12" fill="currentColor" opacity=".08"/><use href="#lvbox" x="50" y="40" width="300" height="300"/></svg>
@@ -252,18 +253,18 @@ body{margin:0}
     <a class="box c-sky" href="ngu-am/"><div class="lid"></div><div class="peek"><span>ā</span><span>á</span><span>ǎ</span></div>
       <div class="face"><div class="zh">拼音盒<small>Phát âm</small></div><h3>Ngữ âm tiếng Trung · 4 phần</h3><p>Thanh mẫu, vận mẫu, thanh điệu, biến điệu 一 · 不 — có audio và video khẩu hình.</p><div class="chips"><span class="chip">zh / z</span><span class="chip">ü / u</span><span class="chip">-n / -ng</span></div><span class="label open">Đang mở</span></div></a>
     <a class="box c-peach" href="tro-choi/"><div class="lid"></div><div class="peek"><span>玩</span><span>赢</span></div>
-      <div class="face"><div class="zh">游戏盒<small>Trò chơi</small></div><h3>Vừa chơi vừa nhớ từ</h3><p>Mưa chữ, bẫy chữ giống nhau, săn thanh điệu… theo cấp HSK khung mới, chơi một mình hay thi cả lớp.</p><div class="chips"><span class="chip">HSK 1–6</span><span class="chip">Mưa chữ</span><span class="chip">Thi đấu</span></div><span class="label open">Đang mở</span></div></a>
-    <a class="box c-lav" href="#ke-hop"><div class="lid"></div><div class="peek"><span>手机</span><span>书</span></div>
-      <div class="face"><div class="zh">词汇盒<small>Từ vựng</small></div><h3>Flashcard mỗi ngày</h3><p>Thẻ từ theo bài học, theo cấp HSK 3.0 và theo chủ đề — có âm thanh, tự kiểm tra.</p><div class="chips"><span class="chip">HSK 1–9</span><span class="chip">Theo bài</span><span class="chip">Nghe – viết</span></div><span class="label soon">Sắp mở</span></div></a>
-    <a class="box c-peach" href="#ke-hop"><div class="lid"></div><div class="peek"><span>读</span><span>文</span></div>
+      <div class="face"><div class="zh">游戏盒<small>Trò chơi</small></div><h3>Vừa chơi vừa nhớ từ</h3><p>Mưa chữ Hán, bẫy chữ giống nhau, săn thanh điệu… theo cấp HSK khung mới, chơi một mình hay thi cả lớp.</p><div class="chips"><span class="chip">HSK 1–6</span><span class="chip">Mưa chữ Hán</span><span class="chip">Thi đấu</span></div><span class="label open">Đang mở</span></div></a>
+    <a class="box c-lav" href="tu-vung/"><div class="lid"></div><div class="peek"><span>手机</span><span>书</span></div>
+      <div class="face"><div class="zh">词汇盒<small>Từ vựng</small></div><h3>Flashcard mỗi ngày</h3><p>Thẻ từ theo bài học, theo cấp HSK 3.0 và theo chủ đề, ôn theo 5 chiếc hộp: nhớ thì lên hộp, quên thì quay lại.</p><div class="chips"><span class="chip">Theo bài</span><span class="chip">HSK 1–9</span><span class="chip">Chủ đề</span></div><span class="label open">Đang mở</span></div></a>
+    <a class="box c-mint" href="#ke-hop"><div class="lid"></div><div class="peek"><span>读</span><span>文</span></div>
       <div class="face"><div class="zh">阅读盒<small>Luyện đọc</small></div><h3>Bài đọc chia theo cấp</h3><p>Bật tắt pinyin và nghĩa từng câu, có audio và câu hỏi đọc hiểu.</p><div class="chips"><span class="chip">Sơ cấp</span><span class="chip">Trung cấp</span></div><span class="label soon">Sắp mở</span></div></a>
     <a class="box c-butter" href="#ke-hop"><div class="lid"></div><div class="peek"><span>听</span><span>说</span></div>
       <div class="face"><div class="zh">听说盒<small>Nghe – nói</small></div><h3>Nghe, nhại, nói theo vai</h3><p>Hội thoại ngắn, shadowing, luyện nghe – viết tổng hợp.</p><div class="chips"><span class="chip">Shadowing</span><span class="chip">Đóng vai</span></div><span class="label soon">Sắp mở</span></div></a>
-    <a class="box c-sky" href="#ke-hop"><div class="lid"></div><div class="peek"><span>的</span><span>也</span><span>都</span></div>
-      <div class="face"><div class="zh">语法盒<small>Ngữ pháp</small></div><h3>Mỗi điểm ngữ pháp một thẻ</h3><p>Công thức, ví dụ đúng ✓ sai ✗ của người Việt, bài luyện nhỏ có đáp án.</p><div class="chips"><span class="chip">的</span><span class="chip">谁</span><span class="chip">也 · 都</span></div><span class="label soon">Sắp mở</span></div></a>
+    <a class="box c-teal" href="ngu-phap/"><div class="lid"></div><div class="peek"><span>了</span><span>比</span><span>把</span></div>
+      <div class="face"><div class="zh">语法盒<small>Ngữ pháp</small></div><h3>Ngữ pháp theo cấp HSK</h3><p>Điểm ngữ pháp đã học trong các bài, xếp theo cấp HSK khung mới. Bấm là mở đúng phần ngữ pháp trong bài.</p><div class="chips"><span class="chip">HSK 1–4</span><span class="chip">Theo bài</span><span class="chip">Tìm nhanh</span></div><span class="label open">Đang mở</span></div></a>
     <a class="box c-kraft" href="#hop-thu"><div class="lid"></div><div class="peek"><span>问</span><span>？</span></div>
       <div class="face"><div class="zh">信箱<small>Hộp thư</small></div><h3>Hộp thư thắc mắc</h3><p>Chỗ nào chưa hiểu, chữ nào quên nét? Để lại tên và câu hỏi, cô sẽ giải đáp.</p><div class="chips"><span class="chip">Hỏi bài</span><span class="chip">Góp ý</span></div><span class="label open">Đang mở</span></div></a>
-    <a class="box" href="#giao-vien"><div class="lid"></div><div class="peek"><span>吕</span><span>老师</span></div>
+    <a class="box c-rose" href="#giao-vien"><div class="lid"></div><div class="peek"><span>吕</span><span>老师</span></div>
       <div class="face"><div class="zh">老师盒<small>Giáo viên</small></div><h3>Về cô Lã</h3><p>Ai đã đóng những chiếc hộp này, và vì sao lại là hộp?</p><div class="chips"><span class="chip">吕老师</span><span class="chip">Giới thiệu</span></div><span class="label open">Đang mở</span></div></a>
   </section>
 
@@ -271,7 +272,7 @@ body{margin:0}
   <section class="crate">
     <div class="courses">
       <a class="course" href="tttc/"><span class="n">预科汉语强化教程 综合课本</span><span class="v">Giáo trình Tiếng Trung tăng cường giáo trình tổng hợp 1</span><div class="meta"><div class="dots" aria-label="3 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span>3 bài</span></div></a>
-      <a class="course c-sky" href="ledu/"><span class="n">乐读 1</span><span class="v">Giáo trình môn đọc hiểu tiếng Trung 1</span><div class="meta"><div class="dots" aria-label="4 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span>4 bài</span></div></a>
+      <a class="course c-sky" href="ledu/"><span class="n">乐读 1</span><span class="v">Giáo trình môn đọc hiểu tiếng Trung 1</span><div class="meta"><div class="dots" aria-label="5 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span>5 bài</span></div></a>
       <a class="course c-mint" href="yuedu/"><span class="n">汉语阅读教程</span><span class="v">Giáo trình Đọc hiểu Hán ngữ Tập 1</span><div class="meta"><div class="dots" aria-label="5 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span>Bài 16–20</span></div></a>
       <a class="course c-lav" href="boya/"><span class="n">博雅汉语</span><span class="v">Giáo trình BOYA sơ cấp 1</span><div class="meta"><div class="dots" aria-label="3 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div><span>3 bài</span></div></a>
       <a class="course c-peach" href="301/"><span class="n">汉语会话301句</span><span class="v">Giáo trình 301 câu đàm thoại tiếng Hoa</span><div class="meta"><div class="dots" aria-label="4 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div><span>Bài 11–14</span></div></a>
@@ -280,6 +281,7 @@ body{margin:0}
 
   <div class="sh" id="bai-moi"><h2>Bài mới mở hộp <small>新课</small></h2></div>
   <section class="news">
+    <a class="nl" href="ledu/bai-5/"><span class="ic">明</span><span><b>乐读 1 · Bài 5 · 二人土上坐，一月日边明</b><span>Chữ hội ý · 40 từ mới · tập viết · nghe – viết</span></span><span class="go">Học →</span></a>
     <a class="nl" href="ledu/bai-4/"><span class="ic">本</span><span><b>乐读 1 · Bài 4 · 木上末，木下本</b><span>Chữ chỉ sự · 17 từ về thời gian · nghe – viết</span></span><span class="go">Học →</span></a>
     <a class="nl" href="tttc/bai-3/"><span class="ic">家</span><span><b>TTTC Bài 3 · 你家有几口人</b><span>Gia đình · số đếm · lượng từ · 吧 · 真 · 27 từ mới</span></span><span class="go">Học →</span></a>
     <a class="nl" href="boya/bai-3/"><span class="ic">书</span><span><b>博雅汉语 · Bài 3 · 那是你的书吗</b><span>这 / 那 · câu hỏi 谁, 什么, 哪 · định ngữ 的</span></span><span class="go">Học →</span></a>

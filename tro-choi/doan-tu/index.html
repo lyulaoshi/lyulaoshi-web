@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Đoán từ 汉兜 – Trò chơi 吕老师汉语盒</title>
+<meta name="description" content="Trò chơi Đoán từ kiểu Wordle (汉兜): đoán từ tiếng Trung 2 chữ trong 6 lượt, dựa vào màu của chữ, thanh mẫu, vận mẫu và thanh điệu.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../game.css?v=3">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+[hidden]{display:none!important}
+.screen{padding:26px 0}
+.eyebrow{font-family:var(--hz);color:var(--lav);font-size:22px}
+h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4px}
+.lead{color:var(--muted);max-width:40em;margin:10px 0 0}
+.panel{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:20px;margin-top:20px;display:grid;gap:14px}
+.panel h2{font-size:16px;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--ground);color:var(--ink);font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;text-align:left}
+.chip[aria-pressed="true"]{border-color:var(--lav);background:var(--lav-s);color:var(--lav)}
+.chip small{font-weight:400;color:var(--muted);margin-left:4px}
+.how{margin:0;padding-left:20px;color:var(--muted);font-size:14.5px}
+.how b{color:var(--ink)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.muted{color:var(--muted);font-size:14px}
+/* màu gợi ý */
+:root{--g:#2E9E73;--y:#D9A21B;--x:#9A9CB0}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:14px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:18px;height:18px;border-radius:5px;display:inline-block}
+/* bảng đoán */
+#play{padding:14px 0 24px}
+.hud{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;font-size:15px}
+.hud .sp{margin-left:auto}
+.hud button{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer}
+.playwrap{display:grid;gap:18px;margin-top:14px}
+.grid{display:grid;gap:10px;justify-content:center}
+.guess{display:flex;align-items:center;gap:8px}
+.guess .no{width:22px;text-align:center;font-weight:800;color:var(--faint);font-size:14px}
+.guess.now .no{color:var(--lav)}
+.row{display:flex;gap:8px;justify-content:center}
+.side{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-content:start;min-width:0}
+.legend.mini{justify-content:center;font-size:13px;color:var(--muted)}
+.legend.mini i{width:14px;height:14px}
+.hintbig{display:flex;align-items:center;justify-content:center;gap:12px;border:3px dashed var(--butter);background:var(--butter-s);color:var(--ink);border-radius:22px;padding:12px 18px;font:inherit;cursor:pointer;transition:transform .15s}
+.hintbig:hover{transform:translateY(-2px) rotate(-1deg)}
+.hintbig .bulb{font-size:40px;line-height:1;animation:wig 2.4s ease-in-out infinite}
+.hintbig b{display:block;font-size:17px;color:var(--butter)}
+.hintbig small{display:block;font-size:13px;color:var(--muted);text-align:left}
+.hintbig:disabled{opacity:.5;cursor:default;transform:none;border-style:solid}
+.hintbig:disabled .bulb{animation:none;filter:grayscale(1)}
+@keyframes wig{0%,70%,100%{transform:rotate(0)}75%{transform:rotate(-14deg)}85%{transform:rotate(12deg)}92%{transform:rotate(-6deg)}}
+.hints{display:grid;gap:8px}
+.hints div{background:var(--butter-s);border-radius:14px;padding:10px 14px;font-size:14.5px}
+.hints b{color:var(--butter)}
+@media (min-width:900px){
+  .playwrap{grid-template-columns:minmax(0,1fr) 340px;align-items:start}
+  .grid{grid-template-columns:repeat(2,auto);gap:14px 26px;justify-content:start}
+  .tile{width:118px}
+  .side{position:sticky;top:80px}
+  .side .typer{margin:0}
+}
+@media (prefers-reduced-motion:reduce){.hintbig .bulb{animation:none}}
+.tile{width:min(34vw,120px);border-radius:14px;background:var(--card);box-shadow:inset 0 0 0 2px var(--line);display:grid;justify-items:center;padding:6px 4px 8px;min-height:104px;align-content:center}
+.tile .py{display:flex;align-items:baseline;gap:1px;font-weight:800;font-size:17px;min-height:24px}
+.tile .py .t{font-size:13px;margin-left:3px;padding:0 4px;border-radius:5px}
+.tile .hz{font-family:var(--kai);font-size:44px;line-height:1.1}
+.tile.done{box-shadow:none}
+.c-g{color:var(--g)}.c-y{color:var(--y)}.c-x{color:var(--x)}
+.t.c-g{background:color-mix(in srgb,var(--g) 18%,transparent)}.t.c-y{background:color-mix(in srgb,var(--y) 20%,transparent)}.t.c-x{background:color-mix(in srgb,var(--x) 18%,transparent)}
+.tile.b-g{background:color-mix(in srgb,var(--g) 16%,var(--card));box-shadow:inset 0 0 0 3px var(--g)}
+.tile.b-y{background:color-mix(in srgb,var(--y) 16%,var(--card));box-shadow:inset 0 0 0 3px var(--y)}
+.tile.b-x{background:var(--ground2)}
+.tile.flip{animation:flip .5s ease both}
+@keyframes flip{0%{transform:rotateX(0)}50%{transform:rotateX(90deg)}100%{transform:rotateX(0)}}
+.typer{display:flex;gap:8px;margin:0 auto;width:100%;max-width:520px}
+.typer input{flex:1;min-width:0;font:inherit;font-size:20px;font-weight:700;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:16px;padding:10px 14px}
+.typer input:focus{border-color:var(--lav);outline:none}
+.typer input.bad{animation:shake .3s;border-color:var(--coral)}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.pick{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.pick button{font-family:var(--kai);font-size:26px;border:0;border-radius:12px;background:var(--card);box-shadow:var(--shadow);padding:6px 14px;cursor:pointer;color:var(--ink)}
+.msg{min-height:24px;text-align:center;font-weight:700;margin-top:10px;font-size:15px}
+.msg .bad{color:var(--coral)}.msg .ok{color:var(--g)}
+/* kết thúc */
+.result{text-align:center;display:grid;gap:8px;justify-items:center}
+.result .ans{font-family:var(--kai);font-size:56px;line-height:1.1}
+.result .ans small{display:block;font-family:var(--vi);font-size:20px;font-weight:800;color:var(--sky)}
+.emoji{font-size:22px;line-height:1.25;white-space:pre}
+.rank{font-weight:800;font-size:20px;color:var(--peach)}
+.rank .zh{font-family:var(--hz);font-weight:400;font-size:24px;margin-right:8px}
+@media (max-width:420px){.tile{min-height:96px}.tile .hz{font-size:38px}.tile .py{font-size:15px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/><rect x="78" y="38" width="44" height="30" rx="8" fill="#fff"/><rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/><path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/><rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/><rect x="60" y="142" width="80" height="30" rx="8" fill="#fff"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="screen" id="setup">
+    <div class="eyebrow">汉兜</div>
+    <h1>Đoán từ</h1>
+    <p class="lead">Cô giấu một từ <b>2 chữ</b>. Em có <b>6 lượt</b> đoán. Sau mỗi lượt, chữ Hán, thanh mẫu, vận mẫu và thanh điệu sẽ đổi màu để em biết mình đoán gần đúng tới đâu. Giống Wordle, nhưng bằng tiếng Trung!</p>
+    <div class="panel">
+      <div class="legend"><span><i style="background:var(--g)"></i>đúng chỗ</span><span><i style="background:var(--y)"></i>có trong từ nhưng sai chỗ</span><span><i style="background:var(--x)"></i>không có</span></div>
+      <ul class="how">
+        <li>Mỗi ô có 4 phần được tô màu riêng: <b>chữ Hán</b> (màu ô), <b>thanh mẫu</b> (ví dụ zh), <b>vận mẫu</b> (ví dụ ong) và <b>thanh điệu</b> (số 1–4, · là thanh nhẹ).</li>
+        <li>Ví dụ đáp án là 老师 lǎoshī, em đoán 上学 shàngxué: chữ 上 có thanh mẫu <b>sh</b> màu vàng (sh có trong từ nhưng ở chữ thứ hai).</li>
+        <li>Vào ván, em được một <b>gợi ý mở đầu</b> miễn phí: cấp HSK và thanh điệu của từ. Bí quá thì xin thêm 2 gợi ý nữa.</li>
+        <li>Mỗi lượt phải là một <b>từ HSK có thật</b> gồm 2 chữ. Gõ bằng bộ gõ tiếng Trung, hoặc gõ pinyin không dấu rồi chọn chữ.</li>
+      </ul>
+      <h2>Chọn đề</h2>
+      <div class="chips" id="modeChips">
+        <button class="chip" type="button" data-mode="daily" aria-pressed="true">📅 Đề hôm nay<small>cả lớp cùng một đề, mỗi ngày một từ (HSK 1–3)</small></button>
+        <button class="chip" type="button" data-mode="free" aria-pressed="false">🎲 Chơi tự do<small>đề ngẫu nhiên, chơi bao nhiêu ván cũng được</small></button>
+      </div>
+      <div id="lvBox" hidden><h2>Cấp HSK của đáp án <span class="muted">(chọn được nhiều cấp)</span></h2><div class="chips" id="lvChips"></div></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="stat"></span></div>
+    </div>
+  </section>
+
+  <section id="play" hidden>
+    <div class="hud"><span id="modeName"></span><span class="sp"></span><button type="button" id="quitBtn">✕ Dừng</button></div>
+    <div class="playwrap">
+      <div class="grid" id="grid" lang="zh"></div>
+      <div class="side">
+        <div class="legend mini"><span><i style="background:var(--g)"></i>đúng chỗ</span><span><i style="background:var(--y)"></i>sai chỗ</span><span><i style="background:var(--x)"></i>không có</span></div>
+        <form class="typer" id="typer" autocomplete="off">
+          <input id="ans" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ chữ Hán hoặc pinyin…" aria-label="Từ em đoán">
+          <button class="btn pri" type="submit">Đoán</button>
+        </form>
+        <div class="pick" id="pick"></div>
+        <div class="msg" id="msg" aria-live="polite"></div>
+        <button type="button" class="hintbig" id="hintBtn"><span class="bulb" aria-hidden="true">💡</span><span><b>Bí quá? Xin gợi ý nè!</b><small id="hintLeft">còn 2 lần</small></span></button>
+        <div class="hints" id="hints"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="over" hidden>
+    <div class="panel result">
+      <div class="eyebrow" id="overEyebrow"></div>
+      <div class="rank" id="rank"></div>
+      <div class="ans" id="ansShow" lang="zh"></div>
+      <div class="emoji" id="emoji"></div>
+      <div class="muted" id="finalInfo"></div>
+      <div class="acts" style="justify-content:center"><button class="btn sec" id="shareBtn" type="button">📋 Chép kết quả</button><button class="btn hot" id="againBtn" type="button">Chơi ván mới ↻</button><button class="btn sec" id="setupBtn" type="button">Về màn chọn đề</button></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">Từ vựng và pinyin theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · Ý tưởng từ trò 汉兜 (Handle) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../hsk-words.js"></script>
+<script src="../hsk79-words.js?v=1"></script>
+<script src="../tts.js?v=1"></script>
+<script src="../pinyin.js?v=1"></script>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
+
+(function(){
+const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'],N=2,TRIES=6;
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const norm=s=>s.toLowerCase().replace(/v/g,'u').normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z]/g,'');
+// từ 2 chữ tách được âm tiết: {w,p,lv,s:[{c,ini,fin,tone}]}
+const DICT=new Map();
+function add(w,p,lv){if(w.length!==N||DICT.has(w)||!/^[一-鿿]+$/.test(w)||!p)return;const ss=PY.parse(p,N);if(!ss)return;
+  DICT.set(w,{w,p,lv,k:norm(p),s:ss.map((x,i)=>{const [ini,fin]=PY.split(x.bare);return{c:w[i],ini,fin,tone:x.tone}})})}
+LEVELS.forEach(l=>HSK[l].forEach(([w,p])=>add(w,p,l)));(window.HSK79||[]).forEach(([w,p])=>add(w,p,'7'));
+const ALL=[...DICT.values()];
+let mode='daily',picked=new Set(store.get('dt-levels')||['1','2']);
+const lvChips=$('lvChips');
+LEVELS.forEach(l=>{const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.lv=l;
+  b.innerHTML='HSK '+l+'<small>'+ALL.filter(x=>x.lv===l).length+' từ</small>';b.setAttribute('aria-pressed',picked.has(l));
+  b.onclick=()=>{if(picked.has(l)){if(picked.size>1)picked.delete(l)}else picked.add(l);
+    lvChips.querySelectorAll('.chip').forEach(c=>c.setAttribute('aria-pressed',picked.has(c.dataset.lv)))};lvChips.appendChild(b)});
+$('modeChips').querySelectorAll('.chip').forEach(c=>c.onclick=()=>{mode=c.dataset.mode;$('lvBox').hidden=mode!=='free';
+  $('modeChips').querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));showStat()});
+// đề hôm nay: cùng một từ cho mọi người trong ngày (theo giờ Việt Nam)
+const today=()=>new Date(Date.now()+7*3600e3).toISOString().slice(0,10);
+function dailyWord(){const pool=ALL.filter(x=>+x.lv<=3).sort((a,b)=>a.w<b.w?-1:1);let h=2166136261;for(const ch of 'lyulaoshi'+today()){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)>>>0}return pool[h%pool.length]}
+function showStat(){const st=store.get('dt-stat')||{played:0,won:0,streak:0};
+  const d=store.get('dt-daily');$('stat').textContent=(mode==='daily'&&d&&d.day===today()?'Hôm nay em đã chơi rồi, bấm Bắt đầu để xem lại kết quả. ':'')+(st.played?'Đã chơi '+st.played+' ván · thắng '+st.won+(st.streak>1?' · chuỗi thắng '+st.streak:''):'')}
+showStat();
+
+let ans,rows,over,hinted,starter;
+function start(){
+  over=false;hinted=0;rows=[];$('pick').innerHTML='';$('hints').innerHTML='';$('msg').innerHTML='';$('ans').value='';
+  starter=true;
+  if(mode==='daily'){ans=dailyWord();const d=store.get('dt-daily');if(d&&d.day===today()){rows=d.rows.map(w=>DICT.get(w)).filter(Boolean);over=true}}
+  else{const pool=ALL.filter(x=>picked.has(x.lv));ans=pool[Math.random()*pool.length|0];store.set('dt-levels',[...picked])}
+  $('modeName').textContent=mode==='daily'?'📅 Đề hôm nay · '+today().split('-').reverse().join('/'):'🎲 Chơi tự do · HSK '+[...picked].sort().join(', ');
+  $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);render();
+  $('hints').innerHTML='<div>🎁 <b>Gợi ý mở đầu:</b> từ '+(ans.lv==='7'?'HSK 7–9':'HSK '+ans.lv)+', đọc theo '+ans.s.map(x=>x.tone?'thanh '+x.tone:'thanh nhẹ').join(' + ')+'</div>';
+  if(over)return finish(false);$('ans').focus();
+}
+function score(g){ // màu cho từng phần của từng chữ
+  const A=ans.s;return g.s.map((x,i)=>{
+    const st=(key)=>x[key]===A[i][key]?'g':A.some((a,j)=>j!==i&&a[key]===x[key]&&A[j][key]!==g.s[j][key])?'y':'x';
+    return{c:st('c'),ini:x.ini?st('ini'):'x',fin:st('fin'),tone:st('tone')}})}
+const TONE=['·','1','2','3','4'];
+function tileHTML(x,sc){
+  if(!x)return '<div class="tile"><div class="py">&nbsp;</div><div class="hz">&nbsp;</div></div>';
+  return '<div class="tile done flip b-'+sc.c+'"><div class="py"><span class="c-'+sc.ini+'">'+(x.ini||'')+'</span><span class="c-'+sc.fin+'">'+x.fin+'</span><span class="t c-'+sc.tone+'">'+TONE[x.tone]+'</span></div><div class="hz">'+x.c+'</div></div>'}
+function render(){
+  let h='';for(let r=0;r<TRIES;r++){const g=rows[r];const sc=g&&score(g);
+    h+='<div class="guess'+(r===rows.length&&!over?' now':'')+'"><span class="no">'+(r+1)+'</span><div class="row">'+[0,1].map(i=>tileHTML(g&&g.s[i],sc&&sc[i])).join('')+'</div></div>'}
+  $('grid').innerHTML=h;$('hintBtn').disabled=over||hinted>=2;
+  $('hintLeft').textContent=hinted>=2?'hết gợi ý rồi':'còn '+(2-hinted)+' lần';
+}
+function guess(g){
+  if(over)return;
+  if(rows.some(r=>r.w===g.w)){bad('Em đoán từ 「'+g.w+'」 rồi!');return}
+  rows.push(g);$('ans').value='';$('pick').innerHTML='';$('msg').innerHTML='';render();
+  if(g.w===ans.w)finish(true);else if(rows.length>=TRIES)finish(false);
+  else $('msg').innerHTML='Còn <b>'+(TRIES-rows.length)+'</b> lượt';
+}
+function bad(t){const i=$('ans');i.classList.remove('bad');void i.offsetWidth;i.classList.add('bad');$('msg').innerHTML='<span class="bad">'+t+'</span>'}
+let composing=false;$('ans').addEventListener('compositionstart',()=>composing=true);$('ans').addEventListener('compositionend',()=>setTimeout(()=>composing=false,0));
+$('typer').addEventListener('submit',e=>{e.preventDefault();if(composing||over)return;
+  const raw=$('ans').value.trim();if(!raw)return;
+  if(/[一-鿿]/.test(raw)){const w=raw.replace(/[^一-鿿]/g,'');
+    if(w.length!==N)return bad('Từ phải có đúng 2 chữ');const g=DICT.get(w);if(!g)return bad('「'+w+'」 không có trong kho từ HSK');return guess(g)}
+  if(/[^\x00-\x7f]/.test(raw))return bad('Chữ bị thêm dấu: máy đang bật gõ tiếng Việt. Em chuyển sang bộ gõ tiếng Trung hoặc bàn phím tiếng Anh nhé.');
+  const k=norm(raw),m=ALL.filter(x=>x.k===k&&!rows.some(r=>r.w===x.w));
+  if(!m.length)return bad('Không có từ 2 chữ nào đọc là “'+raw+'”');if(m.length===1)return guess(m[0]);
+  $('msg').innerHTML='Có '+m.length+' từ đọc giống nhau, em chọn một:';
+  $('pick').innerHTML='';m.slice(0,12).forEach(x=>{const b=document.createElement('button');b.type='button';b.textContent=x.w;b.title=x.p;b.onclick=()=>guess(x);$('pick').appendChild(b)});
+});
+$('hintBtn').onclick=()=>{if(over||hinted>=2)return;hinted++;
+  const t=hinted===1?'Gợi ý 1: chữ đầu có thanh mẫu “'+(ans.s[0].ini||'(không có)')+'”, chữ sau có vận mẫu “'+ans.s[1].fin+'”':'Gợi ý 2: chữ đầu tiên là 「'+ans.w[0]+'」';
+  $('hints').insertAdjacentHTML('beforeend','<div>💡 '+t.replace(/^(Gợi ý \d:)/,'<b>$1</b>')+'</div>');render()};
+$('quitBtn').onclick=()=>{if(!over&&rows.length){finish(false)}else{$('play').hidden=true;$('setup').hidden=false;showStat()}};
+function finish(win){
+  const already=over;over=true;render();
+  if(!already){const st=store.get('dt-stat')||{played:0,won:0,streak:0};st.played++;if(win){st.won++;st.streak++}else st.streak=0;store.set('dt-stat',st);
+    if(mode==='daily')store.set('dt-daily',{day:today(),rows:rows.map(r=>r.w)})}
+  const won=rows.length&&rows[rows.length-1].w===ans.w;
+  setTimeout(()=>{
+    $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
+    $('overEyebrow').textContent=won?'答对了！':'下次加油！';
+    const n=rows.length,rk=!won?['别灰心','Chưa đoán ra, lần sau nhé!']:n<=2?['神了！','Thần đoán!']:n<=4?['厉害！','Giỏi lắm!']:['好险！','Suýt nữa thì thua!'];
+    $('rank').innerHTML='<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1];
+    $('ansShow').innerHTML=ans.w+' '+TTS.btn(ans.w)+'<small>'+ans.p+'</small>';
+    $('emoji').textContent=rows.map(r=>score(r).map(s=>({g:'🟩',y:'🟨',x:'⬜'})[s.c]).join('')).join('\n');
+    $('finalInfo').textContent=(won?'Đoán đúng sau '+n+'/6 lượt':n>=TRIES?'Hết 6 lượt':'Dừng sau '+n+' lượt')+(hinted?' · dùng '+hinted+' gợi ý':'')+' · HSK '+ans.lv;
+    $('againBtn').hidden=mode==='daily';TTS.say(ans.w);showStat();
+  },already?0:900);
+}
+$('shareBtn').onclick=()=>{const won=rows.length&&rows[rows.length-1].w===ans.w;
+  const t='吕老师汉语盒 · Đoán từ '+(mode==='daily'?today().split('-').reverse().join('/'):'')+' '+(won?rows.length:'X')+'/6\n'+$('emoji').textContent+'\nlyulaoshi.com/tro-choi/doan-tu/';
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$('shareBtn').textContent='✓ Đã chép'},()=>{prompt('Chép đoạn này:',t)})};
+$('startBtn').onclick=start;
+$('againBtn').onclick=start;
+$('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;$('shareBtn').textContent='📋 Chép kết quả';showStat();scrollTo(0,0)};
+})();
+</script>
+</body>
+</html>

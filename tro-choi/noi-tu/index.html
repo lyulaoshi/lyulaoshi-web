@@ -7,7 +7,7 @@
 <meta name="description" content="Trò chơi Nối từ (词语接龙): từ sau phải bắt đầu bằng chữ cuối của từ trước. Luyện từ vựng HSK 1–6.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="../game.css?v=2">
+<link rel="stylesheet" href="../game.css?v=3">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 [hidden]{display:none!important}
@@ -82,7 +82,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
   <section class="screen" id="setup">
     <div class="eyebrow">词语接龙</div>
     <h1>Nối từ</h1>
-    <p class="lead">老师 → 师傅 → 傅… Từ sau phải <b>bắt đầu bằng chữ cuối</b> của từ trước. Nối được chuỗi càng dài, em càng giỏi!</p>
+    <p class="lead">学生 → 生日 → 日期 → … Từ sau phải <b>bắt đầu bằng chữ cuối</b> của từ trước. Nối được chuỗi càng dài, em càng giỏi!</p>
     <div class="panel">
       <h2>1. Dùng từ vựng đến cấp</h2>
       <div class="chips" id="lvChips"></div>
@@ -93,8 +93,9 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       </div>
       <ul class="how">
         <li><b>Chọn từ nối:</b> trong 4 từ chỉ có 1 từ nối đúng. Cẩn thận các từ “bẫy” bắt đầu bằng chữ <b>đồng âm</b> (师 / 诗 / 时) hoặc chữ <b>trông giống</b>!</li>
-        <li><b>Tự nối:</b> tự nghĩ một từ HSK bắt đầu bằng chữ cuối, gõ pinyin không dấu (师傅 → shifu). Bí quá thì bấm <b>Gợi ý</b> (3 lần mỗi ván).</li>
+        <li><b>Tự nối:</b> tự nghĩ một từ HSK bắt đầu bằng chữ cuối, gõ bằng <b>bộ gõ tiếng Trung</b> (ra chữ 生日) hoặc gõ <b>pinyin không dấu</b> (shengri). Từ nào trong HSK 1–9 cũng được, không cần đúng cấp đã chọn. Bí quá thì bấm <b>Gợi ý</b> (3 lần mỗi ván).</li>
         <li>Chọn sai hoặc hết giờ là <b>đứt chuỗi</b>, ván kết thúc. Mỗi từ chỉ được dùng một lần.</li>
+        <li>Chơi <b>Tự nối</b> thì dùng bộ gõ tiếng Trung hoặc bàn phím tiếng Anh. Đừng dùng bộ gõ tiếng Việt (Telex, VNI), vì pinyin sẽ bị biến thành chữ có dấu.</li>
       </ul>
       <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="bestSetup"></span></div>
     </div>
@@ -113,7 +114,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="q"><div class="w" id="word" lang="zh"></div><div class="py" id="py"></div><div class="ask" id="ask"></div></div>
     <div class="opts" id="opts"></div>
     <form class="typer" id="typer" autocomplete="off" hidden>
-      <input id="ans" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ pinyin không dấu rồi Enter…" aria-label="Gõ pinyin từ nối tiếp">
+      <input id="ans" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ chữ Hán hoặc pinyin không dấu, rồi Enter…" aria-label="Gõ pinyin từ nối tiếp">
       <button class="btn pri" type="submit">Nối</button>
       <button class="btn sec" type="button" id="hintBtn">💡</button>
     </form>
@@ -137,6 +138,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script src="../hsk-words.js"></script>
 <script src="../tts.js?v=1"></script>
 <script src="../nhom-chu.js?v=1"></script>
+<script src="../hsk79-words.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
@@ -167,16 +169,18 @@ showBest();
 let POOL,BY,used,chain,curW,score,hints,timerId,t0,limit,alive,locked;
 function build(){
   const seen=new Set();POOL=[];
-  LEVELS.slice(0,+upTo).forEach(l=>HSK[l].forEach(([w,p])=>{if(w.length<2||w.length>4||seen.has(w)||!/^[一-鿿]+$/.test(w))return;
+  // Tự nối: nhận mọi từ HSK 1–6 (em nghĩ ra từ nào đúng cũng được); cấp đã chọn chỉ dùng cho từ khởi đầu và gợi ý
+  LEVELS.slice(0,mode==='type'?6:+upTo).forEach(l=>HSK[l].forEach(([w,p])=>{if(w.length<2||w.length>4||seen.has(w)||!/^[一-鿿]+$/.test(w))return;
     if(/儿$/.test(w)&&!/er$/.test(norm(p)))return; // bỏ từ âm cuốn lưỡi (有空儿…): chữ 儿 không đọc thành âm riêng
     seen.add(w);POOL.push({w,p,k:norm(p),lv:l})}));
+  if(mode==='type'&&window.HSK79)HSK79.forEach(([w,p])=>{if(w.length<2||w.length>4||seen.has(w))return;seen.add(w);POOL.push({w,p,k:p?norm(p):'',lv:'7'})});
   BY={};POOL.forEach(x=>(BY[x.w[0]]=BY[x.w[0]]||[]).push(x));
 }
 const nextsOf=x=>(BY[x.w[x.w.length-1]]||[]).filter(y=>!used.has(y.w));
 const alive2=x=>nextsOf(x).length>0; // còn nối tiếp được
 function start(){
   build();used=new Set();chain=[];score=0;hints=3;alive=true;
-  const starts=shuffle(POOL.filter(x=>alive2(x)&&x.lv===upTo).concat(shuffle(POOL.filter(alive2)).slice(0,50)));
+  const inLv=x=>+x.lv<=+upTo,starts=shuffle(POOL.filter(x=>alive2(x)&&x.lv===upTo)).concat(shuffle(POOL.filter(x=>alive2(x)&&inLv(x))));
   setWord(starts[0]);
   $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);
   $('opts').hidden=mode!=='pick';$('typer').hidden=mode!=='type';$('hintLeft').textContent=mode==='type'?'💡 '+hints:'';
@@ -188,7 +192,7 @@ function hud(){$('len').textContent=chain.length-1;$('score').textContent=score;
 function turn(){
   if(!alive)return;locked=false;$('fb').innerHTML='';
   // hết đường nối: đổi sang từ mới, không mất chuỗi
-  if(!alive2(curW)){const fresh=shuffle(POOL.filter(x=>!used.has(x.w)&&alive2(x)))[0];
+  if(!alive2(curW)){const cand=POOL.filter(x=>!used.has(x.w)&&alive2(x)),fresh=shuffle(cand.filter(x=>+x.lv<=+upTo))[0]||shuffle(cand)[0];
     if(!fresh)return end('win');
     $('fb').innerHTML='<span class="note">Không còn từ nào bắt đầu bằng 「'+curW.w.slice(-1)+'」, đổi sang từ mới nhé!</span>';setWord(fresh)}
   const last=curW.w.slice(-1);
@@ -227,17 +231,23 @@ function fail(y,btn){
   setTimeout(()=>end('fail'),1300);
 }
 let missed=null;
+const HZ=/[\u4e00-\u9fff]/;
 function tryType(){
-  const k=norm($('ans').value);if(!k)return;
-  const last=curW.w.slice(-1),m=nextsOf(curW).find(y=>y.k===k);
+  const raw=$('ans').value.trim(),hz=HZ.test(raw),k=hz?'':norm(raw);if(!raw||(!hz&&!k))return;
+  // gõ bằng bộ gõ tiếng Trung (ra chữ Hán) hoặc gõ pinyin không dấu đều được
+  const same=y=>hz?y.w===raw.replace(/[^\u4e00-\u9fff]/g,''):y.k===k;
+  const last=curW.w.slice(-1),m=nextsOf(curW).find(same);
   if(m){ok(m,null);return}
-  const any=POOL.find(y=>y.k===k);
+  const any=POOL.find(same);
+  if(!hz&&/[^\x00-\x7f]/.test(raw)&&!any){$('ans').classList.remove('bad');void $('ans').offsetWidth;$('ans').classList.add('bad');
+    $('fb').innerHTML='<span class="bad">Chữ em gõ bị thêm dấu (“'+$('ans').value+'”)</span><span class="note">Máy đang bật gõ tiếng Việt (Telex/VNI). Em tắt bộ gõ hoặc chuyển sang bàn phím tiếng Anh rồi gõ lại nhé.</span>';return}
   $('ans').classList.remove('bad');void $('ans').offsetWidth;$('ans').classList.add('bad');
-  $('fb').innerHTML='<span class="bad">'+(any&&used.has(any.w)&&any.w[0]===last?'Từ '+any.w+' dùng rồi!':any&&any.w[0]!==last?'「'+any.w+'」 không bắt đầu bằng '+last:'Không có từ này trong HSK 1–'+upTo)+'</span>';
+  $('fb').innerHTML='<span class="bad">'+(any&&used.has(any.w)&&any.w[0]===last?'Từ '+any.w+' dùng rồi!':any&&any.w[0]!==last?'「'+any.w+'」 không bắt đầu bằng '+last:(hz&&raw[0]!==last?'「'+raw+'」 không bắt đầu bằng '+last:'Không có từ này trong HSK 1–'+(mode==='type'?9:upTo)))+'</span>';
 }
-$('typer').addEventListener('submit',e=>{e.preventDefault();if(!locked)tryType()});
+let composing=false;$('ans').addEventListener('compositionstart',()=>composing=true);$('ans').addEventListener('compositionend',()=>setTimeout(()=>composing=false,0));
+$('typer').addEventListener('submit',e=>{e.preventDefault();if(!locked&&!composing)tryType()});
 $('hintBtn').onclick=()=>{if(locked||hints<=0)return;hints--;$('hintLeft').textContent='💡 '+hints;
-  const y=shuffle(nextsOf(curW).filter(alive2))[0]||nextsOf(curW)[0];
+  const nx=nextsOf(curW),mine=nx.filter(z=>+z.lv<=+upTo),y=shuffle(mine.filter(alive2))[0]||shuffle(mine)[0]||shuffle(nx)[0];
   $('fb').innerHTML='<span class="note">Gợi ý: <span class="zh" lang="zh">'+y.w+'</span> ('+y.p.replace(/(\S)\S*/g,(m,a)=>a+'…')+')</span>';$('ans').focus()};
 $('quitBtn').onclick=()=>{if(alive){clearInterval(timerId);missed=null;end('quit')}};
 function end(why){

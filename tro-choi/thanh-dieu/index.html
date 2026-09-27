@@ -7,7 +7,7 @@
 <meta name="description" content="Trò chơi Săn thanh điệu: nhìn chữ Hán, chọn đúng pinyin có dấu thanh. Luyện theo cấp HSK 1–6.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="../game.css?v=2">
+<link rel="stylesheet" href="../game.css?v=3">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 [hidden]{display:none!important}
@@ -131,6 +131,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 
 <script src="../hsk-words.js"></script>
 <script src="../tts.js?v=1"></script>
+<script src="../pinyin.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
@@ -141,29 +142,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'];
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 // --- tách pinyin thành âm tiết + thanh ---
-const INI=['b','p','m','f','d','t','n','l','g','k','h','j','q','x','zh','ch','sh','r','z','c','s'];
-const FIN=['a','o','e','ai','ei','ao','ou','an','en','ang','eng','ong','i','ia','ie','iao','iu','ian','in','iang','ing','iong','u','ua','uo','uai','ui','uan','un','uang','ü','üe','ue','üan','ün'];
-const SYL=new Set();INI.forEach(i=>FIN.forEach(f=>SYL.add(i+f)));
-['a','o','e','er','ai','ei','ao','ou','an','en','ang','eng'].forEach(f=>SYL.add(f));
-['a','o','e','ai','ao','ou','an','in','ang','ing','ong','i','u','ue','uan','un'].forEach(f=>SYL.add('y'+f));
-['a','o','ai','ei','an','en','ang','eng','u'].forEach(f=>SYL.add('w'+f));
-['ng','n','m','hm','hng'].forEach(x=>SYL.add(x));
-const MARK={'̄':1,'́':2,'̌':3,'̀':4};
-function parse(py,n){ // → [{bare,tone}] hoặc null; dấu cách, ' và - là ranh giới âm tiết
-  const ch=[];for(const c of py.toLowerCase().replace(/[\s'\-]+/g,'|')){if(c==='|'){ch.push(['|',0]);continue}
-    const d=c.normalize('NFD');let t=0,b=d[0];for(const m of d.slice(1)){if(MARK[m])t=MARK[m];if(m==='\u0308')b='ü'}ch.push([b,t])}
-  const s=ch.map(x=>x[0]).join(''),memo={};
-  function go(i,k){if(s[i]==='|')return go(i+1,k);if(i===s.length)return k===0?[]:null;if(k===0)return null;
-    const key=i+','+k;if(key in memo)return memo[key];
-    for(let L=Math.min(6,s.length-i);L>=1;L--){const w=s.slice(i,i+L);if(SYL.has(w)){const r=go(i+L,k-1);if(r)return memo[key]=[[i,L],...r]}}
-    return memo[key]=null}
-  const seg=go(0,n);if(!seg)return null;
-  return seg.map(([i,L])=>({bare:s.slice(i,i+L),tone:Math.max(0,...ch.slice(i,i+L).map(x=>x[1]))}));
-}
-const V={a:'āáǎà',e:'ēéěè',i:'īíǐì',o:'ōóǒò',u:'ūúǔù','ü':'ǖǘǚǜ'};
-function mark(b,t){if(!t)return b;let i=b.indexOf('a');if(i<0)i=b.indexOf('e');if(i<0&&b.includes('ou'))i=b.indexOf('o');
-  if(i<0){for(let k=b.length-1;k>=0;k--)if(V[b[k]]){i=k;break}}if(i<0)return b;return b.slice(0,i)+V[b[i]][t-1]+b.slice(i+1)}
-const show=ss=>ss.map(x=>mark(x.bare,x.tone)).join('');
+const {parse,mark,show}=window.PY;
 const TN=t=>t?'thanh '+t:'thanh nhẹ';
 // câu hỏi theo cấp
 if(!TTS.ready()){setTimeout(()=>{if(!TTS.ready()){$('listenChip').hidden=true;$('ttsNote').hidden=false}},1500)}

@@ -15,6 +15,7 @@
   --card:#FFFFFF; --kraft:#D9B98C; --kraft-d:#B8925F; --tape:rgba(217,185,140,.72);
   --coral:#E0545F; --coral-s:#FDE6E7; --sky:#3B87D6; --sky-s:#E3EFFB; --mint:#2E9E73; --mint-s:#DDF3EA;
   --lav:#7C6BD6; --lav-s:#ECE8FB; --peach:#E7823A; --peach-s:#FDEBDD; --butter:#C99A14; --butter-s:#FBF1CF;
+  --teal:#16949E; --teal-s:#D9F1F2; --rose:#D24E86; --rose-s:#FBE3EE;
   --shadow:0 1px 0 rgba(43,46,69,.04),0 10px 28px rgba(43,46,69,.08);
   --hz:"ZCOOL KuaiLe","STKaiti","KaiTi","Kaiti SC","PingFang SC",sans-serif;
   --kai:"STKaiti","KaiTi","Kaiti SC","LXGW WenKai","PingFang SC",serif;
@@ -23,12 +24,12 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
   --kraft:#C9A677;--kraft-d:#A7824F;--tape:rgba(201,166,119,.55);
-  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;
+  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;--teal-s:#16363A;--rose-s:#3F2433;
   --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}}
 :root[data-theme="dark"]{
   color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
   --kraft:#C9A677;--kraft-d:#A7824F;--tape:rgba(201,166,119,.55);
-  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;
+  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A;--teal-s:#16363A;--rose-s:#3F2433;
   --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}
 *{box-sizing:border-box}
 body{background:var(--ground);color:var(--ink);font-family:var(--vi);font-size:16px;line-height:1.6;padding-inline:16px;
@@ -120,7 +121,7 @@ nav.menu a.cta{white-space:nowrap}
 .box:hover .peek span,.box:focus-visible .peek span,.box.is-open .peek span{opacity:1;transform:translateY(-26px)}
 .box:focus-visible .face{outline:3px solid var(--c);outline-offset:3px}
 .box.c-sky{--c:var(--sky);--cs:var(--sky-s)} .box.c-mint{--c:var(--mint);--cs:var(--mint-s)} .box.c-lav{--c:var(--lav);--cs:var(--lav-s)}
-.box.c-peach{--c:var(--peach);--cs:var(--peach-s)} .box.c-butter{--c:var(--butter);--cs:var(--butter-s)} .box.c-kraft{--c:var(--kraft-d);--cs:color-mix(in srgb,var(--kraft) 22%,var(--card))}
+.box.c-peach{--c:var(--peach);--cs:var(--peach-s)} .box.c-butter{--c:var(--butter);--cs:var(--butter-s)} .box.c-teal{--c:var(--teal);--cs:var(--teal-s)} .box.c-rose{--c:var(--rose);--cs:var(--rose-s)} .box.c-kraft{--c:var(--kraft-d);--cs:color-mix(in srgb,var(--kraft) 22%,var(--card))}
 @media (prefers-reduced-motion:reduce){.box .lid,.box .peek span{transition:none}}
 
 /* course crate */
@@ -287,8 +288,8 @@ a.rl b{color:var(--ink)}
       <span class="eyebrow">Bài giảng tương tác · ThS. Lã Thị Thuỳ Phương</span>
       <h1><span class="zh big"><i>博雅</i><u>汉语</u></span>Giáo trình Hán ngữ BOYA<br>sơ cấp 1</h1>
       <p class="lead">Bài giảng theo <b>Giáo trình Hán ngữ BOYA sơ cấp 1</b>: nghe phát âm từng từ, xem chữ Hán tự viết từng nét, nghe bài khoá, làm bài tập có đáp án và luyện nghe – viết. Trên lớp bật toàn màn hình để trình chiếu, ở nhà mở điện thoại là học.</p>
-      <div class="acts"><a class="btn pri" href="bai-3/">Học Bài 3 · 那是你的书吗 →</a><a class="btn sec" href="#bai-hoc">Xem các bài ↓</a></div>
-      <div class="stats"><div><b>3</b>bài đã mở</div><div><b>45</b>từ mới có bút thuận</div><div><b>6</b>bài khoá có audio</div><div><b>30</b>bài cả giáo trình</div></div>
+      <div class="acts"><a class="btn pri" href="bai-4/">Học Bài 4 · 图书馆在哪儿 →</a><a class="btn sec" href="#bai-hoc">Xem các bài ↓</a></div>
+      <div class="stats"><div><b>4</b>bài đã mở</div><div><b>63</b>từ mới có bút thuận</div><div><b>8</b>bài khoá có audio</div><div><b>30</b>bài cả giáo trình</div></div>
     </div>
     <div class="art" aria-hidden="true">
       <svg viewBox="0 0 400 420" class="book">
@@ -336,7 +337,7 @@ a.rl b{color:var(--ink)}
      <div class="go">Vào học <span class="ar">→</span></div>
     </a>
     <a class="card c-coral" href="bai-3/">
-     <span class="new">MỚI</span><span class="wm" aria-hidden="true">词</span>
+     <span class="wm" aria-hidden="true">词</span>
      <span class="num"><i>3</i>BÀI 3 · 第三课</span>
      <div class="zh" style="font-size:clamp(40px,4.4vw,52px);margin-top:20px">那是你的书吗</div>
      <div class="vi">Kia là sách của bạn phải không?</div>
@@ -344,11 +345,20 @@ a.rl b{color:var(--ink)}
      <div class="chips"><span class="chip">13 từ mới</span><span class="chip">2 bài khoá</span><span class="chip">Ngữ pháp</span><span class="chip">听写</span></div>
      <div class="go">Vào học <span class="ar">→</span></div>
     </a>
+    <a class="card c-mint" href="bai-4/">
+     <span class="new">MỚI</span><span class="wm" aria-hidden="true">书</span>
+     <span class="num"><i>4</i>BÀI 4 · 第四课</span>
+     <div class="zh" style="font-size:clamp(40px,4.4vw,52px);margin-top:20px">图书馆在哪儿</div>
+     <div class="vi">Thư viện ở đâu?</div>
+     <p class="desc">Hỏi đường · nói vị trí với 在 / 是 · 哪儿 · 这儿 / 那儿 · phương vị 东西南北, 左右</p>
+     <div class="chips"><span class="chip">18 từ mới</span><span class="chip">2 bài khoá</span><span class="chip">Ngữ pháp</span><span class="chip">听写</span></div>
+     <div class="go">Vào học <span class="ar">→</span></div>
+    </a>
     <div class="card soon c-mint">
      <span class="wm" aria-hidden="true">雅</span>
-     <span class="num"><i>4</i>BÀI 4 · 第四课</span>
-     <div class="zh" style="font-size:clamp(34px,4vw,46px);margin-top:22px">图书馆在哪儿</div>
-     <div class="vi">Thư viện ở đâu?</div>
+     <span class="num"><i>5</i>BÀI 5 · 第五课</span>
+     <div class="zh" style="font-size:clamp(34px,4vw,46px);margin-top:22px">在北京大学的东边</div>
+     <div class="vi">Ở phía đông của Đại học Bắc Kinh</div>
      <p class="desc">Bài giảng đang được biên soạn.</p>
      <span class="lock">🔒 Sắp ra mắt</span>
     </div>
@@ -360,7 +370,7 @@ a.rl b{color:var(--ink)}
       <a class="rl" href="bai-1/"><i>1</i><b>你好</b><span>Xin chào</span></a>
       <a class="rl" href="bai-2/"><i>2</i><b>你是哪国人</b><span>Bạn là người nước nào?</span></a>
       <a class="rl" href="bai-3/"><i>3</i><b>那是你的书吗</b><span>Kia là sách của bạn phải không?</span></a>
-      <div class="rl"><i>4</i><b>图书馆在哪儿</b><span>Thư viện ở đâu?</span></div>
+      <a class="rl" href="bai-4/"><i>4</i><b>图书馆在哪儿</b><span>Thư viện ở đâu?</span></a>
       <div class="rl"><i>5</i><b>在北京大学的东边</b><span>Ở phía đông của Đại học Bắc Kinh</span></div>
       <div class="rl"><i>6</i><b>现在几点</b><span>Bây giờ mấy giờ rồi?</span></div>
       <div class="rl"><i>7</i><b>明天你有课吗</b><span>Ngày mai bạn có lên lớp không?</span></div>
