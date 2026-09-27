@@ -60,7 +60,7 @@ canvas{display:block;width:100%;height:auto;border-radius:18px;background:var(--
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/><rect x="78" y="38" width="44" height="30" rx="8" fill="#fff"/><rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/><path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/><rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/><rect x="60" y="142" width="80" height="30" rx="8" fill="#fff"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
   <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
 </div></header>
 
@@ -124,6 +124,7 @@ canvas{display:block;width:100%;height:auto;border-radius:18px;background:var(--
 
 <script src="../hsk-words.js"></script>
 <script src="../tts.js?v=1"></script>
+<script src="../vui.js?v=2"></script>
 <script src="../nhom-chu.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
@@ -206,12 +207,12 @@ function step(){
     if(f.i===pos){pos++;score+=10;$('slots').children[f.i].textContent=f.c;$('slots').children[f.i].classList.add('on');
       $('msg').innerHTML='<span class="ok">Ngon! '+(pos<word[0].length?'Chữ tiếp theo…':'')+'</span>';
       if(pos===word[0].length){const pts=30+word[0].length*10;score+=pts;done.push(word);TTS.say(word[0]);
-        $('msg').innerHTML='<span class="ok">Ghép xong <span lang="zh">'+word[0]+'</span> '+word[1]+' · +'+pts+'</span>';
+        $('msg').innerHTML='<span class="ok">'+VUI.dung(done.length)+' Ghép xong <span lang="zh">'+word[0]+'</span> '+word[1]+' · +'+pts+'</span>';
         speed=Math.max(SPEED[sp][1],speed-SPEED[sp][2]);clearInterval(timer);timer=setInterval(step,speed);
         $('py').textContent=word[1];setTimeout(()=>{if(alive)newWord()},0)}
     }else{
       snake.pop();if(snake.length>3)snake.pop();lives--;flash=6;hud();
-      $('msg').innerHTML='<span class="bad">Ăn nhầm 「'+f.c+'」'+(f.i>=0?' (sai thứ tự)':'')+'! Mất 1 mạng</span>';
+      $('msg').innerHTML='<span class="bad">Ăn nhầm 「'+f.c+'」'+(f.i>=0?' (sai thứ tự)':'')+'! '+(VUI.mang(lives)||'Mất 1 mạng')+'</span>';
       if(f.i>=0){const[x,y]=free();foods.push({...f,x,y})}
       if(lives<=0)return crash('Hết mạng rồi!')}
     hud()}
@@ -234,9 +235,9 @@ function end(){
   $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   const k=bestKey(),best=store.get(k)||0,rec=score>best;if(rec)store.set(k,score);store.set('rs-levels',[...picked]);
   $('finalScore').textContent=score;
-  const n=done.length,rk=n>=15?['蛇王','Vua rắn săn chữ!']:n>=8?['厉害！','Giỏi lắm!']:n>=3?['加油！','Cố lên!']:['再来一次','Thử lại nhé!'];
+  const n=done.length,tier=n>=15?3:n>=8?2:n>=3?1:0,rk=tier===3?['蛇王','Vua rắn săn chữ!']:VUI.rank(tier);
   $('overTitle').textContent=n?'Rắn đã ăn '+n+' từ!':'Rắn còn đói lắm!';
-  $('rank').innerHTML='<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1];
+  $('rank').innerHTML=VUI.rankHTML(rk,tier);
   $('finalInfo').textContent=(rec&&score>0?'Kỷ lục mới! · ':'Kỷ lục: '+Math.max(best,score)+' điểm · ')+'HSK '+[...picked].sort().join(', ')+' · '+(mode==='ear'?'Chỉ nghe':'Xem pinyin')+' · '+{slow:'Chậm',mid:'Vừa',fast:'Nhanh',fixed:'Không tăng tốc'}[sp];
   $('review').innerHTML=done.map(([w,p])=>'<li><span class="zh" lang="zh">'+w+' '+TTS.btn(w)+'</span><span class="py">'+p+'</span></li>').join('');
   $('revBox').hidden=!done.length;showBest();

@@ -79,7 +79,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/><rect x="78" y="38" width="44" height="30" rx="8" fill="#fff"/><rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/><path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/><rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/><rect x="60" y="142" width="80" height="30" rx="8" fill="#fff"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
   <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
 </div></header>
 
@@ -155,6 +155,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 
 <script src="../hsk-words.js"></script>
 <script src="../tts.js?v=1"></script>
+<script src="../vui.js?v=2"></script>
 <script src="../nhom-chu.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
@@ -276,9 +277,9 @@ function check(cells){
     if(b&&!b.done){b.done=true;b.cells=cells;TTS.say(b.w);const a=center(b.cells[0]),e=center(b.cells[b.cells.length-1]);
       $('lines').insertAdjacentHTML('beforeend','<line class="bonus" x1="'+a[0]+'" y1="'+a[1]+'" x2="'+e[0]+'" y2="'+e[1]+'" stroke="#C99A14" stroke-width="'+a[2]*.5+'"/>');
       $('bonus').textContent=bonus.filter(b=>b.done).length;$('msg').innerHTML='<span class="ok">🎁 Từ thưởng bí mật! '+b.w+' '+b.p+' +50</span>';return true}
-    $('msg').innerHTML='<span class="bad">「'+s+'」 '+(b?'đã tìm rồi':'không phải từ cần tìm')+'</span>';return false}
+    $('msg').innerHTML='<span class="bad">「'+s+'」 '+(b?'đã tìm rồi':'không phải từ cần tìm · '+VUI.treu())+'</span>';return false}
   w.done=true;found++;drawFound(w);TTS.say(w.w);const el=$('w'+list.indexOf(w));el.classList.add('found');el.querySelector('.hz').textContent=w.w;el.querySelector('.py').textContent=w.p;
-  $('found').textContent=found;$('msg').innerHTML='<span class="ok">'+['Tìm ra rồi!','好眼力！','Tinh mắt ghê!','Chuẩn!'][Math.random()*4|0]+' '+w.w+' '+w.p+'</span>';
+  $('found').textContent=found;$('msg').innerHTML='<span class="ok">'+VUI.any(['Tìm ra rồi!','好眼力！','Tinh mắt ghê!',VUI.khen()])+' '+w.w+' '+w.p+'</span>';
   if(found===list.length)setTimeout(win,700);return true;
 }
 function pos(e){const el=document.elementFromPoint(e.clientX,e.clientY);if(!el||!el.classList.contains('cell'))return null;return{x:+el.dataset.x,y:+el.dataset.y}}
@@ -305,8 +306,8 @@ function win(){
   const STAR=on=>'<svg class="star '+(on?'on':'off')+'" viewBox="0 0 100 100" aria-hidden="true"><path class="body" stroke-width="12" stroke-linejoin="round" d="M50 10 61 37 91 38 67 57 76 87 50 70 24 87 33 57 9 38 39 37Z"/><g class="face"><circle cx="41" cy="50" r="4.5" fill="#5A3A12"/><circle cx="59" cy="50" r="4.5" fill="#5A3A12"/><circle cx="33" cy="58" r="5" fill="#FF8FA3" opacity=".75"/><circle cx="67" cy="58" r="5" fill="#FF8FA3" opacity=".75"/><path d="M44 58q6 7 12 0" fill="none" stroke="#5A3A12" stroke-width="3.5" stroke-linecap="round"/></g></svg>';
   $('stars').innerHTML=[0,1,2].map(i=>STAR(i<st)).join('');$('stars').setAttribute('aria-label',st+' trên 3 sao');
   confetti();
-  const rk=!used&&per<12?['火眼金睛','Mắt thần!']:per<25?['厉害！','Giỏi lắm!']:['加油！','Lần sau nhanh hơn nhé!'];
-  $('rank').innerHTML='<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1];
+  const tier=!used&&per<12?3:per<25?2:1,rk=!used&&per<12?['火眼金睛','Mắt thần!']:per<25?['厉害！','Giỏi lắm!']:['加油！','Lần sau nhanh hơn nhé!'];
+  $('rank').innerHTML=VUI.rankHTML(rk,tier);
   $('finalInfo').textContent=list.length+' từ · '+(used?'dùng '+used+' gợi ý':'không dùng gợi ý')+(rec?' · Kỷ lục mới!':best?' · Kỷ lục: '+fmt(best):'')+' · 🎁 '+got+'/'+bonus.length+' từ thưởng'+(theme?' · chủ đề '+theme:'')+' · HSK '+[...picked].sort().join(', ');
   $('bonusBox').hidden=!bonus.length;
   $('bonusList').innerHTML=bonus.map(b=>'<li'+(b.done?'':' class="miss"')+'><span class="zh" lang="zh">'+b.w+' '+TTS.btn(b.w)+'</span><span class="py">'+b.p+(b.done?' ✓':' · chưa tìm')+'</span></li>').join('');

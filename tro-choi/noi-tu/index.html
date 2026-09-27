@@ -74,7 +74,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/><rect x="78" y="38" width="44" height="30" rx="8" fill="#fff"/><rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/><path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/><rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/><rect x="60" y="142" width="80" height="30" rx="8" fill="#fff"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
   <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
 </div></header>
 
@@ -137,6 +137,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 
 <script src="../hsk-words.js"></script>
 <script src="../tts.js?v=1"></script>
+<script src="../vui.js?v=2"></script>
 <script src="../nhom-chu.js?v=1"></script>
 <script src="../hsk79-words.js?v=1"></script>
 <script>
@@ -220,14 +221,14 @@ function ok(y,btn){
   const secs=Math.max(0,limit-(performance.now()-t0)/1000),pts=Math.round((mode==='type'?20:10)*(1+chain.length*.1)+secs);
   score+=pts;
   if(btn){btn.classList.add('ok');btn.querySelector('small').textContent=y.p;document.querySelectorAll('.opt').forEach(b=>b.disabled=true)}
-  $('fb').innerHTML='<span class="good">'+['Nối hay!','Chuẩn!','好！','接得好！','Tiếp nào!'][Math.random()*5|0]+' +'+pts+'</span><span><span class="zh" lang="zh">'+y.w+'</span> '+y.p+'</span>';
+  $('fb').innerHTML='<span class="good">'+VUI.dung(chain.length)+' +'+pts+'</span><span><span class="zh" lang="zh">'+y.w+'</span> '+y.p+'</span>';
   setWord(y);hud();setTimeout(turn,mode==='pick'?1000:1200);
 }
 function fail(y,btn){
   if(locked)return;locked=true;clearInterval(timerId);
   if(btn){btn.classList.add('no');document.querySelectorAll('.opt').forEach(b=>{b.disabled=true;const w=b.textContent.replace(/[a-zāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜü\s']+$/i,'');const p=POOL.find(z=>z.w===w);if(p)b.querySelector('small').textContent=p.p;if(w[0]===curW.w.slice(-1))b.classList.add('ok')})}
   missed={y,last:curW.w.slice(-1),sample:shuffle(nextsOf(curW)).slice(0,3)};
-  $('fb').innerHTML='<span class="bad">'+(y?'Nối sai rồi!':'Hết giờ!')+'</span>';
+  $('fb').innerHTML='<span class="bad">'+(y?'Nối sai rồi! '+VUI.sai(chain.length):VUI.hetgio())+'</span>';
   setTimeout(()=>end('fail'),1300);
 }
 let missed=null;
@@ -255,8 +256,8 @@ function end(why){
   const n=chain.length-1,k=bestKey(),best=store.get(k)||0,rec=n>best;if(rec)store.set(k,n);store.set('nt-upto',upTo);
   $('overTitle').textContent=why==='win'?'Nối hết cả kho từ!':why==='quit'?'Kết thúc!':'Đứt chuỗi rồi!';
   $('finalScore').textContent=n+' từ';
-  const rk=n>=20?['接龙大王','Vua nối từ!']:n>=10?['厉害！','Giỏi lắm!']:n>=5?['加油！','Cố lên!']:['再来一次','Thử lại nhé!'];
-  $('rank').innerHTML='<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1];
+  const tier=n>=20?3:n>=10?2:n>=5?1:0,rk=tier===3?['接龙大王','Vua nối từ!']:VUI.rank(tier);
+  $('rank').innerHTML=VUI.rankHTML(rk,tier);
   $('finalInfo').textContent=score+' điểm · '+(rec&&n>0?'Kỷ lục mới!':'Kỷ lục: chuỗi '+Math.max(best,n)+' từ')+' · HSK 1–'+upTo+' · '+(mode==='type'?'Tự nối':'Chọn từ nối');
   $('missBox').innerHTML=missed&&missed.sample.length?'<h2>Có thể nối bằng</h2><p>'+missed.sample.map(y=>'<span class="zh" lang="zh">'+y.w+'</span> '+y.p+' '+TTS.btn(y.w)).join(' · ')+'</p>':'';
   $('review').innerHTML=chain.map(x=>'<li><span class="zh" lang="zh">'+x.w+'</span><span class="py">'+x.p+'</span></li>').join('<li style="background:none;padding:6px 0;align-self:center">→</li>');

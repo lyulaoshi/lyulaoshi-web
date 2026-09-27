@@ -61,7 +61,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><path d="M74 18 H126 a18 18 0 0 1 18 18 V70 a18 18 0 0 1 -18 18 H104 L86 110 L88 88 H74 a18 18 0 0 1 -18 -18 V36 a18 18 0 0 1 18 -18z" fill="#E0545F"/><rect x="78" y="38" width="44" height="30" rx="8" fill="#fff"/><rect x="34" y="122" width="132" height="64" rx="14" fill="#3B87D6"/><path d="M28 110 H172 a6 6 0 0 1 6 6 V124 a6 6 0 0 1 -6 6 H28 a6 6 0 0 1 -6 -6 V116 a6 6 0 0 1 6 -6z" fill="#2C6DB3"/><rect x="112" y="110" width="18" height="20" rx="2" fill="#D9B98C"/><rect x="60" y="142" width="80" height="30" rx="8" fill="#fff"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
   <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
 </div></header>
 
@@ -119,6 +119,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js"></script>
 <script src="../hsk-words.js"></script>
 <script src="../tts.js?v=1"></script>
+<script src="../vui.js?v=2"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
@@ -172,7 +173,7 @@ function next(){
 }
 function quiz(){
   writer.quiz({
-    onMistake:d=>{mistakes++;$('info').innerHTML='<span class="bad">Sai nét '+(d.strokeNum+1)+'</span> · viết lại nét này'},
+    onMistake:d=>{mistakes++;$('info').innerHTML='<span class="bad">Sai nét '+(d.strokeNum+1)+'</span> · viết lại nét này'+(mistakes===3?' · '+VUI.treu():'')},
     onCorrectStroke:d=>{$('info').innerHTML='Nét '+(d.strokeNum+1)+'/'+(d.strokeNum+1+d.strokesRemaining)+' <span class="ok">✓</span>'},
     onComplete:()=>finish(false)
   });
@@ -182,7 +183,7 @@ function finish(skipped){
   if(done)return;done=true;
   const st=skipped?0:starsFor();results.push({x:cur,st,m:mistakes});
   $('starSum').textContent=results.reduce((s,r)=>s+r.st,0);
-  $('info').innerHTML=skipped?'Đã bỏ qua chữ này':'<span class="ok">'+['Đẹp quá!','Chuẩn nét!','好！','写得好！'][Math.random()*4|0]+'</span> '+'⭐'.repeat(st)+(mistakes?' · sai '+mistakes+' nét':' · không sai nét nào');
+  $('info').innerHTML=skipped?'Đã bỏ qua chữ này':'<span class="ok">'+(st===3?VUI.any(['Đẹp như in! 🖨️','Nét chữ nết người, quá đẹp ✨','Thư pháp gia tương lai đây rồi 🖌️','好！写得漂亮！']):st===2?VUI.khen():VUI.any(['Hơi run tay xíu, không sao 😅','Nét hơi “bay bổng” nhưng vẫn ra chữ 😆','Chữ này hơi khó ở nhỉ 😤']))+'</span> '+'⭐'.repeat(st)+(mistakes?' · sai '+mistakes+' nét':' · không sai nét nào');
   writer.showCharacter();TTS.say(cur.c.length?cur.ctx[0]:cur.c);
   $('hintBtn').disabled=true;$('skipBtn').textContent='Chữ tiếp →';
 }
@@ -200,8 +201,8 @@ function end(){
   store.set('vc-levels',[...picked]);
   $('finalScore').textContent=total+' ⭐';
   const pct=results.length?total/(results.length*3):0;
-  const rk=pct>=.95?['笔走龙蛇','Chữ đẹp như thư pháp!']:pct>=.75?['写得好！','Viết giỏi lắm!']:pct>=.5?['加油！','Cố lên!']:['多练习','Luyện thêm nhé!'];
-  $('rank').innerHTML='<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1];
+  const tier=pct>=.95?3:pct>=.75?2:pct>=.5?1:0,rk=tier===3?['笔走龙蛇','Chữ đẹp như thư pháp!']:VUI.rank(tier);
+  $('rank').innerHTML=VUI.rankHTML(rk,tier);
   $('finalInfo').textContent=results.length+' chữ · '+(mode==='blind'?'Viết mù':'Tô nét mờ')+(rec?' · Kỷ lục mới!':best?' · Kỷ lục: '+best+'/30 sao':'')+' · HSK '+[...picked].sort().join(', ');
   $('review').innerHTML=results.map(r=>'<li><span class="zh" lang="zh">'+r.x.c+' '+TTS.btn(r.x.ctx[0])+'</span><span class="py">'+r.x.ctx[0]+' · '+r.x.ctx[1]+'</span><span class="n">'+(r.st?'⭐'.repeat(r.st):'bỏ qua')+(r.m?' · sai '+r.m+' nét':'')+'</span></li>').join('');
   $('overTitle').textContent=results.length>=N?'Viết xong rồi!':'Kết thúc!';showBest();

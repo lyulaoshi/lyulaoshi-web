@@ -8,6 +8,8 @@
     if(l){w=l.w.map(x=>[x[0],x[1]]);name=bk.zh+' · Bài '+l.n;back=a+'/'+b}}
   else if(t==='cd'){const c=(window.CHUDE||[]).find(x=>x.id===a);if(c){w=c.w.map(x=>[x[0],x[1]]);name=c.zh+' · '+c.vi;back='chu-de/'+a}}
   else if(t==='hsk'&&HSK[a]){w=HSK[a].slice(+b,+b+20);name='HSK '+a+' · Gói '+(+b/20+1);back='hsk/'+a}
+  else if(t==='tu'){const ws=(a||'').split(','),py=x=>{for(const l in HSK){const f=HSK[l].find(([v])=>v===x);if(f)return f[1]}};  // bộ tuỳ chọn, ví dụ từ trò Đoán từ
+    w=ws.map(x=>[x,py(x)]).filter(x=>x[1]);name='Từ vừa gặp · '+ws[0];back='tu/'+a}
   if(!w||w.length<4)return;
   const all=HSK;window.HSK={};Object.keys(all).forEach(k=>HSK[k]=k==='1'?w:[]);
   window.BO_TU={id,name,n:w.length};
