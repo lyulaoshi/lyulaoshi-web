@@ -43,6 +43,7 @@ body.playing .wrap{max-width:900px}
 .drop .py{font-size:13px;font-weight:700;color:var(--sky);background:var(--card);border-radius:8px;padding:0 6px;margin-top:3px;opacity:0}
 .drop.hint .py{opacity:1}
 .drop.near .hz{box-shadow:0 0 0 3px var(--coral)}
+.drop.aim .hz{box-shadow:0 0 0 3px var(--sky);color:var(--sky)}
 .drop.boom{animation:boom .35s ease-out forwards}
 @keyframes boom{to{opacity:0;scale:1.6;filter:blur(2px)}}
 .pop{position:absolute;font-weight:800;color:var(--mint);pointer-events:none;animation:up .8s ease-out forwards}
@@ -67,6 +68,7 @@ body.playing .wrap{max-width:900px}
 @media (max-width:560px){.drop .hz{font-size:28px;padding:3px 9px}.big{font-size:44px}}
 @media (prefers-reduced-motion:reduce){.drop.boom,.pop{animation-duration:.01s}}
 </style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -90,12 +92,11 @@ body.playing .wrap{max-width:900px}
         <button class="chip" type="button" data-sp="1.4" aria-pressed="false">🚀 Nhanh</button>
       </div>
       <ul class="how">
-        <li>Gõ pinyin <b>không cần dấu</b>: 你好 → <b>nihao</b>. Chữ ü gõ <b>v</b> hoặc <b>u</b> (女 → nv / nu). Dùng <b>bộ gõ tiếng Trung</b> gõ ra chữ Hán cũng được.</li>
+        <li>Gõ pinyin <b>không cần dấu</b>: 你好 → <b>nihao</b>. Chữ ü gõ <b>v</b> hoặc <b>u</b> (女 → nv / nu). Chỉ gõ chữ cái, không gõ chữ Hán. Gõ xong bấm <b>Enter</b> để bắn.</li>
         <li>Không nhớ? <b>Chạm vào chữ</b> để xem pinyin, nhưng chữ đó chỉ được nửa điểm.</li>
-        <li>Bắn liên tiếp không trượt để lên <b>combo</b>, điểm càng nhân lên.</li>
+        <li>Bắn liên tiếp không trượt để lên <b>combo</b>, điểm càng nhân lên. Bấm Enter mà gõ sai thì mất combo.</li>
       </ul>
-      <p class="warn">Máy đang bật bộ gõ tiếng Việt (Telex, VNI) thì em chuyển sang bộ gõ tiếng Trung hoặc bàn phím tiếng Anh trước khi chơi nhé, nếu không pinyin sẽ bị biến thành chữ có dấu.</p>
-      <p class="tip">⚡ <b>Mẹo bắn nhanh:</b> dùng bàn phím tiếng Anh, gõ pinyin không dấu là nhanh nhất. Nếu đang bật bộ gõ tiếng Trung thì cũng chỉ cần gõ xong pinyin là bắn, <b>không cần chọn chữ Hán</b>.</p>
+      <p class="warn">⌨️ Trò này là bài <b>luyện gõ pinyin không dấu</b>, như luyện đánh máy: nhìn chữ Hán, gõ pinyin (ví dụ 你好 → <b>nihao</b>, ü gõ bằng <b>v</b> hoặc <b>u</b>). Em dùng <b>bàn phím tiếng Anh</b>, tắt Telex/VNI và bộ gõ tiếng Trung trước khi chơi nhé.</p>
       <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="best" id="bestSetup"></span></div>
     </div>
   </section>
@@ -112,11 +113,11 @@ body.playing .wrap{max-width:900px}
     </div>
     <div class="field" id="field"></div>
     <form class="typer" id="typer" autocomplete="off">
-      <input id="ans" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ pinyin hoặc chữ Hán…" aria-label="Gõ pinyin">
+      <input id="ans" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ pinyin không dấu, ví dụ: nihao" aria-label="Gõ pinyin">
       <button class="btn pri" type="submit">Bắn</button>
     </form>
-    <p class="tip" id="telexTip" hidden style="color:var(--coral);font-weight:700">Chữ em gõ bị thêm dấu: máy đang bật gõ tiếng Việt. Em tắt Telex/VNI hoặc chuyển sang bàn phím tiếng Anh nhé.</p>
-    <p class="tip">Gõ đúng là chữ tự nổ, không cần bấm Bắn. Chạm vào chữ để xem pinyin.</p>
+    <p class="tip" id="imeTip" hidden style="color:var(--coral);font-weight:700">Trò này chỉ gõ pinyin không dấu (chữ a–z). Máy đang bật bộ gõ tiếng Trung hoặc Telex/VNI, em chuyển sang bàn phím tiếng Anh nhé.</p>
+    <p class="tip">Gõ xong pinyin thì bấm <b>Enter</b> (hoặc nút Bắn) để bắn. Chữ nào khớp với phần em đang gõ sẽ sáng viền xanh. Chạm vào chữ để xem pinyin.</p>
   </section>
 
   <!-- 3. Kết thúc -->
@@ -168,7 +169,7 @@ showBest();
 
 // trạng thái ván chơi
 const field=$('field'),ans=$('ans');
-let pool,drops,score,combo,lives,missed,t0,last,spawnIn,wave,raf,paused,hitCount,alive;
+let pool,drops,score,combo,lives,missed,t0,last,spawnIn,wave,raf,paused,hitCount,alive,keys=0,playT=0;
 
 function fit(){ // vừa màn hình, kể cả khi bàn phím điện thoại mở
   const vh=(window.visualViewport?visualViewport.height:innerHeight);
@@ -190,7 +191,7 @@ function spawn(){
 }
 function start(){
   pool=[];[...picked].forEach(l=>HSK[l].forEach(w=>pool.push(Object.assign([w[0],w[1]],{k:norm(w[1])}))));
-  drops=[];score=0;combo=0;lives=3;missed=[];wave=0;hitCount=0;spawnIn=0;paused=false;alive=true;
+  drops=[];score=0;combo=0;lives=3;missed=[];wave=0;hitCount=0;spawnIn=0;paused=false;alive=true;keys=0;playT=0;tip(false);
   field.innerHTML='';hud();
   document.body.classList.add('playing');$('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;
   scrollTo(0,0);fit();ans.value='';ans.focus();last=performance.now();raf=requestAnimationFrame(loop);
@@ -200,7 +201,7 @@ function hud(){$('score').textContent=score;$('combo').textContent=combo>1?'comb
 function loop(now){
   if(!alive)return;
   const dt=Math.min(.05,(now-last)/1000);last=now;
-  if(!paused){
+  if(!paused){playT+=dt;
     const H=field.clientHeight,v=(38+wave*4)*speed*(H/420);
     spawnIn-=dt;
     if(spawnIn<=0){spawn();spawnIn=Math.max(.9,2.6-wave*.12)/speed}
@@ -221,7 +222,7 @@ function miss(d){
   if(lives<=0)end();
 }
 function hit(d){
-  remove(d);combo++;hitCount++;
+  remove(d);combo++;hitCount++;keys+=d.key.length;
   const pts=Math.round(10*d.w[0].length*(1+Math.min(combo,10)*.1)*(d.hint?.5:1));
   score+=pts;if(hitCount%8===0)wave++;
   const p=document.createElement('span');p.className='pop';p.textContent='+'+pts;
@@ -229,38 +230,26 @@ function hit(d){
   const cm=VUI.combo(combo);if(cm)VUI.pop(cm,d.el,'good');
   d.el.classList.add('boom');setTimeout(()=>d.el.remove(),350);hud();
 }
-function tryHit(auto){
-  const raw=ans.value.trim(),hz=/[\u4e00-\u9fff]/.test(raw);
-  if(hz){ // gõ bằng bộ gõ tiếng Trung: so thẳng chữ Hán
-    const w=raw.replace(/[^\u4e00-\u9fff]/g,''),mh=drops.filter(d=>d.w[0]===w).sort((a,b)=>b.y-a.y)[0];
-    if(mh){hit(mh);clearSoon('');return true}
-    // chữ gõ sai: tự bỏ, chỉ giữ phần cuối còn có thể là đầu của một từ đang rơi (gõ từng chữ 睡 → 睡觉)
-    let keep='';for(let i=0;i<w.length;i++){const t=w.slice(i);if(drops.some(d=>d.w[0].startsWith(t))){keep=t;break}}
-    const mk=keep&&drops.filter(d=>d.w[0]===keep).sort((a,b)=>b.y-a.y)[0];if(mk){hit(mk);clearSoon('');return true}
-    if(keep!==w&&!composing)clearSoon(keep);
-    return false}
-  if(composing)return false;
-  const k=norm(ans.value);if(!k)return false;
+const typed=()=>ans.value.replace(/v/g,'u'); // ü gõ bằng v hay u đều được (khoá pinyin lưu ü thành u)
+// chỉ bắn khi bấm Enter (hoặc nút Bắn): gõ xong pinyin rồi mới bắn, như luyện đánh máy
+function tryHit(){
+  const k=typed();if(!k)return false;
   const m=drops.filter(d=>d.key===k).sort((a,b)=>b.y-a.y)[0];
-  // đang gõ dở một từ dài hơn (hai → haishi) thì chưa tự bắn, chờ gõ tiếp hoặc Enter
-  if(m&&auto&&drops.some(d=>d.key!==k&&d.key.startsWith(k)))return false;
-  if(m){hit(m);ans.value='';return true}return false;
+  if(m){hit(m);ans.value='';aim();return true}return false;
 }
-// xoá ô gõ sau một nhịp: bộ gõ tiếng Trung ghi chữ vào ô SAU sự kiện, xoá ngay thì chữ cũ vẫn còn
-function clearSoon(v){ans.value=v;setTimeout(()=>{if(!composing)ans.value=v},0);setTimeout(()=>{if(!composing)ans.value=v},60)}
-// Đang gõ bằng bộ gõ tiếng Trung: pinyin đang gõ dở (chưa chọn chữ) khớp từ đang rơi là bắn luôn,
-// khỏi phải tìm chữ đồng âm. Gõ tiếp từ sau vẫn trong cùng một lần gõ; bấm cách / Enter để xoá ô.
-let composing=false,compEat=0,compHit=false;
-ans.addEventListener('compositionstart',()=>{composing=true;compEat=0;compHit=false});
-ans.addEventListener('compositionupdate',e=>{const d=e.data||'';if(/[\u4e00-\u9fff]/.test(d))return;
-  const k=norm(d).slice(compEat);if(!k)return;
-  const m=drops.filter(x=>x.key===k).sort((a,b)=>b.y-a.y)[0];
-  if(m&&!drops.some(x=>x.key!==k&&x.key.startsWith(k))){hit(m);compEat+=k.length;compHit=true}});
-ans.addEventListener('compositionend',()=>{composing=false;if(compHit){compHit=false;compEat=0;clearSoon('');return}tryHit(true)});
-ans.addEventListener('input',()=>{if(!composing)tryHit(true)});
+// luyện gõ pinyin không dấu: ô gõ chỉ giữ chữ cái a–z (ü gõ bằng v); gõ chữ Hán / chữ có dấu thì nhắc chuyển bàn phím
+function tip(show){$('imeTip').hidden=!show}
+function aim(){const k=typed();drops.forEach(d=>d.el.classList.toggle('aim',!!k&&d.key.startsWith(k)))}
+let composing=false;
+ans.addEventListener('compositionstart',()=>{composing=true;tip(true)});
+ans.addEventListener('compositionend',()=>{composing=false;setTimeout(()=>{ans.value='';aim()},0)});
+ans.addEventListener('input',()=>{if(composing)return;
+  const raw=ans.value,clean=raw.toLowerCase().replace(/ü/g,'v').replace(/[^a-z]/g,'');
+  if(/[^\x00-\x7f]/.test(raw))tip(true);else if(clean)tip(false);
+  if(clean!==raw)ans.value=clean;
+  aim()});
 $('typer').addEventListener('submit',e=>{e.preventDefault();
-  if(!tryHit()&&ans.value.trim()){combo=0;hud();ans.classList.remove('bad');void ans.offsetWidth;ans.classList.add('bad');ans.select();
-    if(/[^\x00-\x7f]/.test(ans.value)&&!/[\u4e00-\u9fff]/.test(ans.value))$('telexTip').hidden=false}});
+  if(!tryHit()&&ans.value){combo=0;hud();ans.classList.remove('bad');void ans.offsetWidth;ans.classList.add('bad');ans.select()}});
 function setPause(p){paused=p;$('pauseBtn').textContent=p?'▶ Chơi tiếp':'⏸ Dừng';
   let o=field.querySelector('.paused');
   if(p&&!o){o=document.createElement('div');o.className='paused';o.textContent='Tạm dừng · 暂停';field.appendChild(o)}
@@ -276,7 +265,7 @@ function end(){
   $('overTitle').textContent=lives>0?'Kết thúc ván chơi':'Hết mạng rồi!';$('finalScore').textContent=score;
   const tier=score>=1500?3:score>=800?2:score>=300?1:0,rk=tier===3?['汉字大师','Bậc thầy chữ Hán']:VUI.rank(tier);
   $('rank').innerHTML=VUI.rankHTML(rk,tier);
-  $('finalInfo').textContent=(rec&&score>0?'Kỷ lục mới! ':'Kỷ lục: '+Math.max(best,score)+' điểm · ')+'Bắn trúng '+hitCount+' chữ · HSK '+[...picked].sort().join(', ');
+  $('finalInfo').textContent=(rec&&score>0?'Kỷ lục mới! ':'Kỷ lục: '+Math.max(best,score)+' điểm · ')+'Bắn trúng '+hitCount+' từ · tốc độ gõ '+(playT>5?Math.round(keys/(playT/60)):0)+' chữ cái/phút · HSK '+[...picked].sort().join(', ');
   $('missed').innerHTML=missed.map(w=>'<li><span class="hz" lang="zh">'+w[0]+' '+TTS.btn(w[0])+'</span><span class="py">'+w[1]+'</span></li>').join('');
   $('missBox').hidden=!missed.length;showBest();
 }
