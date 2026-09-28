@@ -156,8 +156,9 @@ const OFF={}; Object.values(H).forEach(L=>L.ds.forEach(d=>OFF[d[0]]=d));
 const byCode={}; BAI.forEach(p=>p.h.forEach(c=>(byCode[c]=byCode[c]||[]).push(p)));
 const S={view:"hsk",lv:"1",q:""};
 try{Object.assign(S,JSON.parse(sessionStorage.getItem('np-state2')||'{}'))}catch(e){}
-function readHash(){const h=decodeURIComponent(location.hash.slice(1));let m=h.match(/^hsk-?(\d)$/);if(m){S.view="hsk";S.lv=m[1]}if(/^bai/.test(h))S.view="bai"}
-readHash(); if(!H[S.lv])S.lv="1";
+function readHash(){const h=decodeURIComponent(location.hash.slice(1));let m=h.match(/^hsk-?(\d|all)$/);if(m){S.view="hsk";S.lv=m[1]}if(/^bai/.test(h))S.view="bai"}
+readHash(); if(S.lv!=="all"&&!H[S.lv])S.lv="1";
+const FULL=Object.keys(H).filter(k=>H[k].ds.length===H[k].tong);
 function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d')}
 function hit(...xs){if(!S.q)return true;const q=norm(S.q);return xs.some(x=>norm(x).includes(q))}
 function hl(t){t=esc(t);if(!S.q)return t;const q=esc(S.q).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return t.replace(new RegExp(q,'gi'),'<mark>$&</mark>')}
@@ -169,7 +170,7 @@ $('stat').innerHTML=`<div><b>${Object.keys(READY).length}</b><span>bài giảng<
 
 function buildRows(){
   const lvs=["1","2","3","4","5","6","7"];
-  $('lvRow').innerHTML=lvs.map(k=>{const L=H[k];const full=L&&L.ds.length===L.tong;const label=k==="7"?"HSK 7–9":"HSK "+k;
+  $('lvRow').innerHTML=`<button class="tab lvtab" type="button" data-lv="all" aria-pressed="${S.lv==='all'}">Tất cả <small>${total}</small></button>`+lvs.map(k=>{const L=H[k];const full=L&&L.ds.length===L.tong;const label=k==="7"?"HSK 7–9":"HSK "+k;
     return `<button class="tab lvtab" type="button" data-lv="${k}" aria-pressed="${S.lv==k}" ${full?"":"disabled title=\"Đang chép danh mục\""}>${label} <small>${L?L.tong:k==="5"?71:k==="6"?67:148}</small></button>`}).join('');
   $('lvRow').hidden=S.view!=="hsk";
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===S.view));
@@ -185,10 +186,14 @@ function card(d){
            :`<div class="pc soon">${inner}${chips}</div>`;
 }
 function renderHSK(){
-  const L=H[S.lv]; if(!L)return "";
+  if(S.lv==="all")return FULL.map(renderLv).join('');
+  return renderLv(S.lv);
+}
+function renderLv(lv){
+  const L=H[lv]; if(!L)return "";
   const ds=L.ds.filter(d=>hit(d[0],d[1],d[3]||"",...(byCode[d[0]]||[]).map(p=>p.n)));
   const nReady=L.ds.filter(d=>READY[d[0]]).length, nCls=L.ds.filter(d=>byCode[d[0]]).length;
-  let html=`<section class="lvl" id="hsk-${S.lv}"><div class="lvl-h"><div><h2>HSK ${S.lv}<span class="zh">${esc(L.ten)}</span></h2><p>${L.tong} điểm ngữ pháp trong đề cương</p></div>
+  let html=`<section class="lvl" id="hsk-${lv}"><div class="lvl-h"><div><h2>HSK ${lv}<span class="zh">${esc(L.ten)}</span></h2><p>${L.tong} điểm ngữ pháp trong đề cương</p></div>
     <div class="meter"><span>Bài giảng: <b>${nReady}</b> / ${L.tong} · đã học trên lớp: ${nCls}</span><div class="bar"><i style="width:${nReady/L.tong*100}%"></i><i class="cls" style="width:${Math.max(0,nCls-nReady)/L.tong*100}%"></i></div></div></div>`;
   let g="";
   ds.forEach((d,i)=>{if(d[2]!==g){if(g)html+=`</div>`;g=d[2];html+=`<div class="grp"><span class="zh">${esc(g)}</span>${esc(GZH[g]||"")}</div><div class="grid">`}html+=card(d)});
