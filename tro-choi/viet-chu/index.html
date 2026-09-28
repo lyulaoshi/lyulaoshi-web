@@ -36,6 +36,9 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 .ctx{font-family:var(--kai);font-size:clamp(30px,7vw,42px);line-height:1.2;text-align:center}
 .ctx .gap{color:var(--sky)}
 .ctx .py{display:block;font-family:var(--vi);font-size:19px;font-weight:700;color:var(--sky)}
+.ctx .vi{display:block;font-family:var(--vi);font-size:16px;font-weight:600;color:var(--ink);margin-top:2px}
+.ctx .alt{display:block;font-family:var(--vi);font-size:15px;color:var(--muted);margin-top:4px}
+.ctx .alt [lang]{font-family:var(--kai);font-size:22px;color:var(--ink)}
 .pad{position:relative;width:min(300px,78vw);aspect-ratio:1;border-radius:18px;background:var(--ground);touch-action:none;
   background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px),
   linear-gradient(45deg,transparent calc(50% - .5px),var(--line) 50%,transparent calc(50% + .5px)),linear-gradient(-45deg,transparent calc(50% - .5px),var(--line) 50%,transparent calc(50% + .5px));
@@ -78,6 +81,11 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
         <button class="chip" type="button" data-mode="trace" aria-pressed="true">✏️ Tô theo nét mờ<small>có chữ mờ để tô, hợp người mới</small></button>
         <button class="chip" type="button" data-mode="blind" aria-pressed="false">🙈 Viết mù<small>không có chữ mẫu, sai 3 lần mới gợi ý</small></button>
       </div>
+      <h2>3. Chấm nét</h2>
+      <div class="chips" id="strictChips">
+        <button class="chip" type="button" data-st="de" aria-pressed="true">😊 Dễ tính<small>nét hơi ngắn, hơi lệch vẫn tính đúng</small></button>
+        <button class="chip" type="button" data-st="chuan" aria-pressed="false">🎯 Chuẩn<small>nét phải đủ dài, đúng vị trí</small></button>
+      </div>
       <ul class="how">
         <li>Mỗi ván <b>10 chữ</b>. Dùng ngón tay (điện thoại) hoặc chuột (máy tính) viết từng nét vào ô.</li>
         <li>Viết đúng nét thì nét được giữ lại, viết sai thì nét biến mất, viết lại nét đó.</li>
@@ -118,8 +126,9 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js"></script>
 <script src="../hsk-words.js"></script>
+<script src="../../tu-vung/nghia-hsk1.js"></script>
 <script src="../tts.js?v=1"></script>
-<script src="../vui.js?v=2"></script>
+<script src="../vui.js?v=3"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
@@ -131,11 +140,17 @@ const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'];
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 // mỗi chữ: cấp thấp nhất xuất hiện + một từ làm ngữ cảnh (ưu tiên từ 2 chữ cùng cấp)
+// + các từ chứa chữ đó, để chọn từ ngữ cảnh rõ nghĩa (tránh chữ đồng âm khi viết mù)
+const NG=window.NGHIA||{},mean=(w,p)=>NG[w+'|'+p]||NG[w]||'';
 const CH={};LEVELS.forEach(l=>HSK[l].forEach(([w,p])=>[...w].forEach(c=>{
   if(!/[一-鿿]/.test(c))return;
-  if(!CH[c])CH[c]={c,lv:l,ctx:[w,p]};else if(CH[c].lv===l&&CH[c].ctx[0].length!==2&&w.length===2)CH[c].ctx=[w,p]})));
+  if(!CH[c])CH[c]={c,lv:l,ws:[]};if(!CH[c].ws.some(x=>x[0]===w))CH[c].ws.push([w,p,+l])})));
+// điểm từ ngữ cảnh: có nghĩa tiếng Việt > từ 2 chữ > cấp thấp > từ ngắn
+const wScore=([w,p,l])=>(mean(w,p)?100:0)+(w.length>1?50:0)+(w.length===2?10:0)-l*3;
+Object.values(CH).forEach(x=>{x.ws.sort((a,b)=>wScore(b)-wScore(a));x.ctx=x.ws[0];x.alt=x.ws.find(y=>y[0]!==x.ctx[0]&&y[0].length>1)||null});
 const ALL=Object.values(CH),byLv=l=>ALL.filter(x=>x.lv===l);
-let picked=new Set(store.get('vc-levels')||['1']),mode='trace';
+let picked=new Set(store.get('vc-levels')||['1']),mode='trace',strict=store.get('vc-strict')||'de';
+const LENI={de:1.7,chuan:1};
 const lvChips=$('lvChips');
 LEVELS.forEach(l=>{const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.lv=l;
   b.innerHTML='HSK '+l+'<small>'+byLv(l).length+' chữ</small>';b.setAttribute('aria-pressed',picked.has(l));
@@ -144,7 +159,9 @@ LEVELS.forEach(l=>{const b=document.createElement('button');b.type='button';b.cl
   lvChips.appendChild(b)});
 $('modeChips').querySelectorAll('.chip').forEach(c=>c.onclick=()=>{mode=c.dataset.mode;
   $('modeChips').querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));showBest()});
-const bestKey=()=>'vc-best-'+mode+'-'+[...picked].sort().join('');
+$('strictChips').querySelectorAll('.chip').forEach(c=>{c.setAttribute('aria-pressed',c.dataset.st===strict);c.onclick=()=>{strict=c.dataset.st;store.set('vc-strict',strict);
+  $('strictChips').querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));showBest()}});
+const bestKey=()=>'vc-best-'+mode+'-'+[...picked].sort().join('')+(strict==='chuan'?'-chuan':'');
 function showBest(){const b=store.get(bestKey());$('bestSetup').textContent=b?'Kỷ lục: '+b+'/30 sao':''}
 showBest();
 
@@ -154,7 +171,10 @@ function start(){
   deck=shuffle(ALL.filter(x=>picked.has(x.lv)));qi=0;results=[];alive=true;
   $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);next();
 }
-function ctxHTML(x){const [w,p]=x.ctx;return [...w].map(ch=>ch===x.c?'<span class="gap">？</span>':ch).join('')+'<span class="py">'+p+'</span>'}
+const hole=(w,c)=>[...w].map(ch=>ch===c?'<span class="gap">？</span>':ch).join('');
+function ctxHTML(x){const [w,p]=x.ctx,m=mean(w,p);
+  return hole(w,x.c)+'<span class="py">'+p+'</span>'+(m?'<span class="vi">'+(w.length>1?'Từ này nghĩa là: ':'Nghĩa: ')+m+'</span>':'')+
+    (mode==='blind'&&x.alt?'<span class="alt">Cũng có trong: <span lang="zh">'+hole(x.alt[0],x.c)+'</span> '+x.alt[1]+(mean(x.alt[0],x.alt[1])?' ('+mean(x.alt[0],x.alt[1])+')':'')+'</span>':'')}
 function next(){
   if(!alive)return;
   if(results.length>=N||qi>=deck.length)return end();
@@ -167,12 +187,13 @@ function next(){
   writer=HanziWriter.create(pad,cur.c,{width:size,height:size,padding:size*.06,showCharacter:false,showOutline:mode==='trace',
     strokeColor:css('--ink')||'#2B2E45',outlineColor:css('--line')||'#E3DFEE',drawingColor:css('--sky')||'#3B87D6',highlightColor:css('--peach')||'#E7823A',
     drawingWidth:Math.max(18,size*.07),showHintAfterMisses:mode==='blind'?3:2,highlightOnComplete:true,
-    onLoadCharDataSuccess:()=>{const l=pad.querySelector('.load');l&&l.remove();quiz()},
+    onLoadCharDataSuccess:d=>{const l=pad.querySelector('.load');l&&l.remove();
+      if(mode==='blind'&&d&&d.strokes)$('info').innerHTML='Viết chữ còn thiếu vào ô bên dưới · chữ này có <b>'+d.strokes.length+' nét</b>';quiz()},
     onLoadCharDataError:()=>{qi<deck.length?next():end()}});
   TTS.say(cur.ctx[0]);
 }
 function quiz(){
-  writer.quiz({
+  writer.quiz({leniency:LENI[strict]||1,
     onMistake:d=>{mistakes++;$('info').innerHTML='<span class="bad">Sai nét '+(d.strokeNum+1)+'</span> · viết lại nét này'+(mistakes===3?' · '+VUI.treu():'')},
     onCorrectStroke:d=>{$('info').innerHTML='Nét '+(d.strokeNum+1)+'/'+(d.strokeNum+1+d.strokesRemaining)+' <span class="ok">✓</span>'},
     onComplete:()=>finish(false)
@@ -203,7 +224,7 @@ function end(){
   const pct=results.length?total/(results.length*3):0;
   const tier=pct>=.95?3:pct>=.75?2:pct>=.5?1:0,rk=tier===3?['笔走龙蛇','Chữ đẹp như thư pháp!']:VUI.rank(tier);
   $('rank').innerHTML=VUI.rankHTML(rk,tier);
-  $('finalInfo').textContent=results.length+' chữ · '+(mode==='blind'?'Viết mù':'Tô nét mờ')+(rec?' · Kỷ lục mới!':best?' · Kỷ lục: '+best+'/30 sao':'')+' · HSK '+[...picked].sort().join(', ');
+  $('finalInfo').textContent=results.length+' chữ · '+(mode==='blind'?'Viết mù':'Tô nét mờ')+(strict==='chuan'?' · chấm chuẩn':' · chấm dễ tính')+(rec?' · Kỷ lục mới!':best?' · Kỷ lục: '+best+'/30 sao':'')+' · HSK '+[...picked].sort().join(', ');
   $('review').innerHTML=results.map(r=>'<li><span class="zh" lang="zh">'+r.x.c+' '+TTS.btn(r.x.ctx[0])+'</span><span class="py">'+r.x.ctx[0]+' · '+r.x.ctx[1]+'</span><span class="n">'+(r.st?'⭐'.repeat(r.st):'bỏ qua')+(r.m?' · sai '+r.m+' nét':'')+'</span></li>').join('');
   $('overTitle').textContent=results.length>=N?'Viết xong rồi!':'Kết thúc!';showBest();
 }

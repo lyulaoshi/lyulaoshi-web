@@ -95,6 +95,7 @@ body.playing .wrap{max-width:900px}
         <li>Bắn liên tiếp không trượt để lên <b>combo</b>, điểm càng nhân lên.</li>
       </ul>
       <p class="warn">Máy đang bật bộ gõ tiếng Việt (Telex, VNI) thì em chuyển sang bộ gõ tiếng Trung hoặc bàn phím tiếng Anh trước khi chơi nhé, nếu không pinyin sẽ bị biến thành chữ có dấu.</p>
+      <p class="tip">⚡ <b>Mẹo bắn nhanh:</b> dùng bàn phím tiếng Anh, gõ pinyin không dấu là nhanh nhất. Nếu đang bật bộ gõ tiếng Trung thì cũng chỉ cần gõ xong pinyin là bắn, <b>không cần chọn chữ Hán</b>.</p>
       <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="best" id="bestSetup"></span></div>
     </div>
   </section>
@@ -137,7 +138,7 @@ body.playing .wrap{max-width:900px}
 <script src="../../tu-vung/chu-de.js"></script>
 <script src="../bo-tu.js?v=2"></script>
 <script src="../tts.js?v=1"></script>
-<script src="../vui.js?v=2"></script>
+<script src="../vui.js?v=3"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
@@ -232,7 +233,12 @@ function tryHit(auto){
   const raw=ans.value.trim(),hz=/[\u4e00-\u9fff]/.test(raw);
   if(hz){ // gõ bằng bộ gõ tiếng Trung: so thẳng chữ Hán
     const w=raw.replace(/[^\u4e00-\u9fff]/g,''),mh=drops.filter(d=>d.w[0]===w).sort((a,b)=>b.y-a.y)[0];
-    if(mh){hit(mh);ans.value='';return true}return false}
+    if(mh){hit(mh);clearSoon('');return true}
+    // chữ gõ sai: tự bỏ, chỉ giữ phần cuối còn có thể là đầu của một từ đang rơi (gõ từng chữ 睡 → 睡觉)
+    let keep='';for(let i=0;i<w.length;i++){const t=w.slice(i);if(drops.some(d=>d.w[0].startsWith(t))){keep=t;break}}
+    const mk=keep&&drops.filter(d=>d.w[0]===keep).sort((a,b)=>b.y-a.y)[0];if(mk){hit(mk);clearSoon('');return true}
+    if(keep!==w&&!composing)clearSoon(keep);
+    return false}
   if(composing)return false;
   const k=norm(ans.value);if(!k)return false;
   const m=drops.filter(d=>d.key===k).sort((a,b)=>b.y-a.y)[0];
@@ -240,8 +246,18 @@ function tryHit(auto){
   if(m&&auto&&drops.some(d=>d.key!==k&&d.key.startsWith(k)))return false;
   if(m){hit(m);ans.value='';return true}return false;
 }
-let composing=false;ans.addEventListener('compositionstart',()=>composing=true);ans.addEventListener('compositionend',()=>{composing=false;tryHit(true)});
-ans.addEventListener('input',()=>tryHit(true));
+// xoá ô gõ sau một nhịp: bộ gõ tiếng Trung ghi chữ vào ô SAU sự kiện, xoá ngay thì chữ cũ vẫn còn
+function clearSoon(v){ans.value=v;setTimeout(()=>{if(!composing)ans.value=v},0);setTimeout(()=>{if(!composing)ans.value=v},60)}
+// Đang gõ bằng bộ gõ tiếng Trung: pinyin đang gõ dở (chưa chọn chữ) khớp từ đang rơi là bắn luôn,
+// khỏi phải tìm chữ đồng âm. Gõ tiếp từ sau vẫn trong cùng một lần gõ; bấm cách / Enter để xoá ô.
+let composing=false,compEat=0,compHit=false;
+ans.addEventListener('compositionstart',()=>{composing=true;compEat=0;compHit=false});
+ans.addEventListener('compositionupdate',e=>{const d=e.data||'';if(/[\u4e00-\u9fff]/.test(d))return;
+  const k=norm(d).slice(compEat);if(!k)return;
+  const m=drops.filter(x=>x.key===k).sort((a,b)=>b.y-a.y)[0];
+  if(m&&!drops.some(x=>x.key!==k&&x.key.startsWith(k))){hit(m);compEat+=k.length;compHit=true}});
+ans.addEventListener('compositionend',()=>{composing=false;if(compHit){compHit=false;compEat=0;clearSoon('');return}tryHit(true)});
+ans.addEventListener('input',()=>{if(!composing)tryHit(true)});
 $('typer').addEventListener('submit',e=>{e.preventDefault();
   if(!tryHit()&&ans.value.trim()){combo=0;hud();ans.classList.remove('bad');void ans.offsetWidth;ans.classList.add('bad');ans.select();
     if(/[^\x00-\x7f]/.test(ans.value)&&!/[\u4e00-\u9fff]/.test(ans.value))$('telexTip').hidden=false}});

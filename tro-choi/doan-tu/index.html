@@ -211,6 +211,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script src="../hsk79-words.js?v=1"></script>
 <script src="../tts.js?v=1"></script>
 <script src="../pinyin.js?v=1"></script>
+<script src="../qr-anh.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
@@ -228,6 +229,8 @@ function add(w,p,lv){if(w.length!==N||DICT.has(w)||!/^[一-鿿]+$/.test(w)||!p)r
   DICT.set(w,{w,p,lv,k:norm(p),s:ss.map((x,i)=>{const [ini,fin]=PY.split(x.bare);return{c:w[i],ini,fin,tone:x.tone}})})}
 LEVELS.forEach(l=>HSK[l].forEach(([w,p])=>add(w,p,l)));(window.HSK79||[]).forEach(([w,p])=>add(w,p,'7'));
 const ALL=[...DICT.values()];
+// đề bạn gửi: ?de=<mã ngắn của từ> (link không lộ chữ) → vào thẳng chơi đúng từ đó ở chế độ tự do
+let gift=null,giftOn=false;{const d=new URLSearchParams(location.search).get('de');if(d&&window.QRANH)gift=ALL.find(x=>QRANH.id(x.w)===d)||null}
 // kho từ HSK 1–6 (2–4 chữ) để gợi ý học thêm các từ có chung chữ với đáp án
 const LEARN=[];{const seen=new Set();LEVELS.forEach(l=>HSK[l].forEach(([w,p])=>{if(w.length>=2&&w.length<=4&&/^[一-鿿]+$/.test(w)&&!seen.has(w)){seen.add(w);LEARN.push({w,p,lv:l})}}))}
 let mode='daily',picked=new Set(store.get('dt-levels')||['1','2']);
@@ -266,8 +269,9 @@ function start(){
   over=false;hinted=0;extra=0;gaveUp=false;rows=[];$('pick').innerHTML='';$('hints').innerHTML='';$('msg').innerHTML='';$('ans').value='';
   let done=false;
   if(mode==='daily'){ans=dailyWord();const d=store.get('dt-daily');if(d&&d.day===today()){rows=d.rows.map(w=>DICT.get(w)).filter(Boolean);extra=d.extra||0;hinted=d.hinted||0;gaveUp=!!d.gave;done=d.done!==false}}
-  else{const pool=ALL.filter(x=>picked.has(x.lv));ans=pool[Math.random()*pool.length|0];store.set('dt-levels',[...picked])}
-  $('modeName').textContent=mode==='daily'?'📅 Đề hôm nay · '+today().split('-').reverse().join('/'):'🎲 Chơi tự do · HSK '+[...picked].sort().join(', ');
+  else if(gift){ans=gift;gift=null;giftOn=true}
+  else{giftOn=false;const pool=ALL.filter(x=>picked.has(x.lv));ans=pool[Math.random()*pool.length|0];store.set('dt-levels',[...picked])}
+  $('modeName').textContent=giftOn&&mode!=='daily'?'🎯 Đề bạn gửi':mode==='daily'?'📅 Đề hôm nay · '+today().split('-').reverse().join('/'):'🎲 Chơi tự do · HSK '+[...picked].sort().join(', ');
   $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);showRescue(false);resetGive();
   $('hints').innerHTML='<div>🎁 <b>Gợi ý mở đầu:</b> từ '+(ans.lv==='7'?'HSK 7–9':'HSK '+ans.lv)+', đọc theo '+ans.s.map(x=>x.tone?'thanh '+x.tone:'thanh nhẹ').join(' + ')+'</div>';
   for(let i=1;i<=hinted;i++)$('hints').insertAdjacentHTML('beforeend',hintHTML(i));
@@ -346,6 +350,7 @@ function finish(win){
 }
 // ===== chia sẻ: ảnh "lầy" để cầu cứu (đang chơi) hoặc khoe / kể khổ (sau ván). Ảnh không bao giờ lộ đáp án =====
 const URL_GAME='https://lyulaoshi.com/tro-choi/doan-tu/',URL_SHORT='lyulaoshi.com/tro-choi/doan-tu';
+const deLink=()=>URL_GAME+'?de='+QRANH.id(ans.w); // bạn mở link / quét mã là chơi đúng từ này (kể cả khi đã sang ngày khác)
 const THEMES={sos:[['truyna','📜 Truy nã'],['bien','🌊 Sắp chìm'],['tin','📺 Tin nóng']],
   win:[['cup','🏆 Cúp vàng'],['thach','😏 Thách đấu'],['tin','📺 Tin nóng']],
   lose:[['khoc','😭 Kể khổ'],['thach','😏 Thách đấu'],['tin','📺 Tin nóng']]};
@@ -359,9 +364,9 @@ const lvTxt=()=>ans.lv==='7'?'HSK 7–9':'HSK '+ans.lv,toneTxt=()=>ans.s.map(x=>
 const dayTxt=()=>mode==='daily'?'đề ngày '+today().split('-').reverse().join('/'):'chơi tự do';
 function shText(){const nm=nameOf(),left=maxT()-rows.length,sq=rows.map(r=>score(r).map(s=>SQ[s.c]).join('')).join('\n');
   if(shKind==='sos')return any(SOS_TXT)+'\n'+(nm?nm+' đang':'Mình đang')+' chơi Đoán từ 汉兜 (từ 2 chữ, '+lvTxt()+', '+toneTxt()+'):\n'+
-    rows.map((r,i)=>(i+1)+'. '+r.w+' '+score(r).map(s=>SQ[s.c]).join('')).join('\n')+'\n'+(left?'Còn '+left+' lượt!':'Hết lượt rồi, sắp phải bám phao!')+' Bạn nghĩ là từ gì?\n👉 '+URL_GAME;
-  if(shKind==='win')return '🏆 Đoán từ 汉兜 · '+dayTxt()+' · '+rows.length+'/6'+(rows.length>TRIES?' (nhờ phao 🛟)':'')+'\n'+sq+'\n'+any(['Bạn dám thử không? 😏','Ai phá kỷ lục của mình nào? 💪','Dễ ợt à… mà thôi, bạn thử đi rồi biết 😆'])+'\n👉 '+URL_GAME;
-  return '😭 Đoán từ 汉兜 · '+dayTxt()+' · X/6\n'+sq+'\n'+any(['Từ này đã hạ gục mình… ai trả thù giúp với 🥲','Mình thua rồi, bạn giỏi hơn không? 😤','Khó xỉu! Thử đi rồi biết 😵'])+'\n👉 '+URL_GAME}
+    rows.map((r,i)=>(i+1)+'. '+r.w+' '+score(r).map(s=>SQ[s.c]).join('')).join('\n')+'\n'+(left?'Còn '+left+' lượt!':'Hết lượt rồi, sắp phải bám phao!')+' Bạn nghĩ là từ gì?\n👉 '+deLink();
+  if(shKind==='win')return '🏆 Đoán từ 汉兜 · '+dayTxt()+' · '+rows.length+'/6'+(rows.length>TRIES?' (nhờ phao 🛟)':'')+'\n'+sq+'\n'+any(['Bạn dám thử không? 😏','Ai phá kỷ lục của mình nào? 💪','Dễ ợt à… mà thôi, bạn thử đi rồi biết 😆'])+'\n👉 '+deLink();
+  return '😭 Đoán từ 汉兜 · '+dayTxt()+' · X/6\n'+sq+'\n'+any(['Từ này đã hạ gục mình… ai trả thù giúp với 🥲','Mình thua rồi, bạn giỏi hơn không? 😤','Khó xỉu! Thử đi rồi biết 😵'])+'\n👉 '+deLink()}
 // ---- vẽ ----
 let C,W=1080,H=1350,KAI,VI;
 const RR=(x,y,w,h,r)=>{C.beginPath();C.roundRect?C.roundRect(x,y,w,h,r):C.rect(x,y,w,h)};
@@ -388,7 +393,7 @@ function squares(cx,y0,h){ // chỉ ô màu, dùng cho ảnh khoe (không lộ c
 }
 const confetti=(n,cols)=>{for(let i=0;i<n;i++){C.save();C.translate(Math.random()*W,Math.random()*H);C.rotate(Math.random()*6.3);C.fillStyle=cols[i%cols.length];C.globalAlpha=.55;C.fillRect(-9,-14,18,28);C.restore()}};
 const footer=(y,col)=>TXT('👉 '+URL_SHORT+' · 吕老师汉语盒',W/2,y,'700 34px '+VI,col);
-function draw(){
+async function draw(){
   const cv=document.createElement('canvas');cv.width=W;cv.height=H;C=cv.getContext('2d');
   KAI=getComputedStyle(document.body).getPropertyValue('--kai');VI=getComputedStyle(document.body).getPropertyValue('--vi');
   const nm=nameOf(),left=maxT()-rows.length,n=rows.length,won=isWon();
@@ -449,7 +454,8 @@ function draw(){
     RR(290,560,500,540,34);C.fillStyle='rgba(255,255,255,.85)';C.fill();squares(W/2,580,500);
     TXT('Ai trả thù giúp mình với 🥲',W/2,1175,'900 58px '+VI,'#1F2F4A');footer(1270,'#1F2F4A');
   }
-  return new Promise(res=>cv.toBlob(res,'image/png'));
+  const out=window.QRANH?await QRANH.frame(cv,deLink(),shKind==='sos'?'Vào đoán giúp đúng từ này 🦸':'Thử sức với đúng từ này 😏'):cv; // dải mã QR
+  return new Promise(res=>out.toBlob(res,'image/png'));
 }
 async function redraw(){shBlob=await draw();if(shUrl)URL.revokeObjectURL(shUrl);shUrl=URL.createObjectURL(shBlob);$('shImg').src=shUrl;$('shSave').href=shUrl;
   $('shCopyImg').textContent='🖼️ Chép ảnh';$('shCopyTxt').textContent='📋 Chép lời nhắn'}
@@ -457,7 +463,7 @@ function openShare(kind){shKind=kind;const th=THEMES[kind];if(!th.some(t=>t[0]==
   $('shTitle').textContent=SH_TITLE[kind];$('shName').value=nameOf();
   $('shThemes').innerHTML=th.map(([id,l])=>'<button type="button" class="chip" data-t="'+id+'" aria-pressed="'+(id===shTheme)+'">'+l+'</button>').join('');
   $('shThemes').querySelectorAll('.chip').forEach(c=>c.onclick=()=>{shTheme=c.dataset.t;$('shThemes').querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));redraw()});
-  $('shFb').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(URL_GAME);
+  $('shFb').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(deLink());
   $('shModal').hidden=false;document.body.style.overflow='hidden';redraw();
   const f=new File([new Blob()],'x.png',{type:'image/png'});$('shSend').hidden=!(navigator.canShare&&navigator.canShare({files:[f]}));
   $('shCopyImg').hidden=!(navigator.clipboard&&window.ClipboardItem)}
@@ -482,6 +488,8 @@ $('freeBtn').onclick=()=>{mode='free';$('lvBox').hidden=false;$('modeChips').que
 $('shareBtn').onclick=()=>openShare(isWon()?'win':'lose');
 $('startBtn').onclick=start;
 $('againBtn').onclick=start;
+if(gift){mode='free';$('lvBox').hidden=false;$('modeChips').querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.mode==='free'));
+  history.replaceState(null,'',location.pathname);start()}
 $('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;showStat();scrollTo(0,0)};
 })();
 </script>

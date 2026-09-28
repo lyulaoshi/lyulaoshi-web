@@ -36,6 +36,8 @@ window.VUI=(function(){
       ['Rắn ăn bậy đau bụng rồi 🤢','Rắn đói quá ăn nhầm 😵','Ăn từ từ thôi, nghẹn bây giờ 🥴','Rắn cần đeo kính rồi 👓','Thứ tự nha, rắn ơi 🐍']],
     'bong-bay':[['Tai thính ghê!','Bùm! Trúng rồi!','Bắn đâu trúng đó 🎯','神射手！Xạ thủ thần sầu','Bóng nổ cái bụp 🎈💥','Phi tiêu bách phát bách trúng 🎯'],
       ['Bóng bay lên trời gặp ông trăng rồi 🌙','Bắn trượt, bóng cười khẩy 🎈😏','Bóng này giả dạng giỏi ghê 🥸','Phi tiêu bay đi đâu rồi? 🤷','Nghe kỹ lại nha 👂']],
+    'do-chu':[['Thông minh ghê 🧠','Thám tử chữ Hán 🕵️','猜对了！','Giải đố như thần 🔮','Đầu óc nhanh nhạy ghê ⚡','Nhìn thấu chữ Hán luôn 👀'],
+      ['Câu đố xoắn não thật 🌀','Nghĩ thêm chút nữa, gần ra rồi 🤔','Thử tách từng bộ phận xem 🧩','Chữ Hán đang chơi trốn tìm 🙈','Đọc lại câu đố từng chữ nha 📜']],
     'tim-tu':[['Tinh mắt ghê!','好眼力！','Mắt đại bàng 🦅','Soi đâu ra đó 🔍','Tìm nhanh như chớp ⚡'],
       ['Từ này trốn kỹ lắm 🙈','Kính lúp đâu rồi? 🔍','Đọc kỹ từng chữ nha 👀','Chữ nhiễu lừa em rồi 😜','Khoanh nhầm rồi, không sao 😅']]};
   const TRO=(location.pathname.match(/tro-choi\/([^/]+)\//)||[])[1],MINE=RIENG[TRO];
