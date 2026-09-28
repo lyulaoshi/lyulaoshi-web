@@ -33,9 +33,9 @@ errs:[
  {bad:"你必须不来。（ý: không cần đến）", good:"你不用来。/ 你不必来。", why:"Phủ định của 必须 là 不用 / 不必."}],
 practice:[
  {t:"A. Chọn từ đúng", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"考试的时候＿＿关手机。(bắt buộc)", o:["必须","好像","也许"], a:0, why:"Bắt buộc → 必须."},
-  {q:"天黑了，＿＿要下雨了。(hình như)", o:["一定","好像","必须"], a:1, why:"Đoán → 好像."},
-  {q:"机票＿＿要两千块。(khoảng)", o:["差不多","一定","必须"], a:0, why:"Xấp xỉ → 差不多."},
+  {q:"考试的时候＿＿关手机。(bắt buộc)", vi:"Khi thi ＿＿ tắt điện thoại.", o:["必须","好像","也许"], a:0, why:"Bắt buộc → 必须."},
+  {q:"天黑了，＿＿要下雨了。(hình như)", vi:"Trời tối rồi, ＿＿ sắp mưa.", o:["一定","好像","必须"], a:1, why:"Đoán → 好像."},
+  {q:"机票＿＿要两千块。(khoảng)", vi:"Vé máy bay ＿＿ 2.000 tệ.", o:["差不多","一定","必须"], a:0, why:"Xấp xỉ → 差不多."},
   {q:"Tôi chưa chắc đi.", o:["我一定不去。","我不一定去。","我去不一定。"], a:1, why:"不一定."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["今天","好像","要","下雨"], a:"今天好像要下雨。", vi:"Hôm nay hình như sắp mưa."},

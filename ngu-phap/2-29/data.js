@@ -22,10 +22,10 @@ errs:[
  {bad:"我下午去打球还是去爬山。", good:"我下午去打球或者去爬山。", why:"Câu kể dùng 或者."}],
 practice:[
  {t:"A. Điền 或者 hoặc 还是", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"你想喝茶＿＿咖啡？", o:["或者","还是"], a:1, why:"Câu hỏi."},
-  {q:"我周末看电影＿＿听音乐。", o:["或者","还是"], a:0, why:"Câu kể."},
-  {q:"你今天去＿＿明天去？", o:["或者","还是"], a:1, why:"Câu hỏi."},
-  {q:"你打电话＿＿发短信都行。", o:["或者","还是"], a:0, why:"Câu kể."}]},
+  {q:"你想喝茶＿＿咖啡？", vi:"Bạn muốn uống trà ＿＿ cà phê?", o:["或者","还是"], a:1, why:"Câu hỏi."},
+  {q:"我周末看电影＿＿听音乐。", vi:"Cuối tuần tôi xem phim ＿＿ nghe nhạc.", o:["或者","还是"], a:0, why:"Câu kể."},
+  {q:"你今天去＿＿明天去？", vi:"Bạn đi hôm nay ＿＿ ngày mai?", o:["或者","还是"], a:1, why:"Câu hỏi."},
+  {q:"你打电话＿＿发短信都行。", vi:"Bạn gọi điện ＿＿ nhắn tin đều được.", o:["或者","还是"], a:0, why:"Câu kể."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["我","下午","去打球","或者","去爬山"], a:"我下午去打球或者去爬山。", vi:"Chiều tôi đi chơi bóng hoặc đi leo núi."},
   {w:["你","明天","或者","后天","来","都行"], a:"你明天或者后天来都行。", vi:"Bạn đến mai hoặc ngày kia đều được."}]},

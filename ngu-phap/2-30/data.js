@@ -30,10 +30,10 @@ errs:[
  {bad:"她会说中文，和说得很好。", good:"她会说中文，而且说得很好。", why:"Nối hai vế dùng 而且, không dùng 和."}],
 practice:[
  {t:"A. Chọn liên từ đúng", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"这个菜很好吃，＿＿有点儿辣。", o:["不过","而且","只要"], a:0, why:"Chuyển ý."},
-  {q:"他会唱歌，＿＿唱得很好。", o:["但是","而且","那"], a:1, why:"Tăng tiến."},
-  {q:"＿＿你努力，就能学好。", o:["虽然","只要","那"], a:1, why:"Điều kiện."},
-  {q:"——我不想去。——＿＿我们在家吧。", o:["那","但是","如果"], a:0, why:"Vậy thì."}]},
+  {q:"这个菜很好吃，＿＿有点儿辣。", vi:"Món này rất ngon, ＿＿ hơi cay.", o:["不过","而且","只要"], a:0, why:"Chuyển ý."},
+  {q:"他会唱歌，＿＿唱得很好。", vi:"Anh ấy biết hát, ＿＿ hát rất hay.", o:["但是","而且","那"], a:1, why:"Tăng tiến."},
+  {q:"＿＿你努力，就能学好。", vi:"＿＿ bạn cố gắng là sẽ học giỏi.", o:["虽然","只要","那"], a:1, why:"Điều kiện."},
+  {q:"——我不想去。——＿＿我们在家吧。", vi:"— Tôi không muốn đi. — ＿＿ chúng ta ở nhà nhé.", o:["那","但是","如果"], a:0, why:"Vậy thì."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["虽然","很累","但是","我","很高兴"], a:"虽然很累，但是我很高兴。", vi:"Tuy rất mệt nhưng tôi rất vui."},
   {w:["你","不去","那","我","就","一个人","去"], a:"你不去，那我就一个人去。", vi:"Bạn không đi thì tôi đi một mình vậy."}]},

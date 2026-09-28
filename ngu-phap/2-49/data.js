@@ -29,16 +29,16 @@ errs:[
  {bad:"我没听懂了。", good:"我没听懂。", why:"Có 没 thì bỏ 了."}],
 practice:[
  {t:"A. Chọn bổ ngữ đúng", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"你写＿＿了一个字。(sai)", o:["错","完","会"], a:0, why:"写错."},
-  {q:"衣服我洗＿＿了。(sạch)", o:["好","干净","懂"], a:1, why:"洗干净."},
-  {q:"这个句子我没看＿＿。(hiểu)", o:["懂","完","错"], a:0, why:"看懂."},
+  {q:"你写＿＿了一个字。(sai)", vi:"Bạn viết ＿＿ một chữ.", o:["错","完","会"], a:0, why:"写错."},
+  {q:"衣服我洗＿＿了。(sạch)", vi:"Quần áo tôi giặt ＿＿ rồi.", o:["好","干净","懂"], a:1, why:"洗干净."},
+  {q:"这个句子我没看＿＿。(hiểu)", vi:"Câu này tôi đọc chưa ＿＿.", o:["懂","完","错"], a:0, why:"看懂."},
   {q:"Tôi chưa nghe rõ.", o:["我不听清楚。","我没听清楚。","我没听清楚了。"], a:1, why:"没 + V + bổ ngữ."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["你","写错","了","两个","汉字"], a:"你写错了两个汉字。", vi:"Bạn viết sai hai chữ Hán."},
   {w:["这个","句子","我","没","看懂"], a:"这个句子我没看懂。", vi:"Câu này tôi chưa đọc hiểu."},
   {w:["衣服","我","洗","干净","了"], a:"衣服我洗干净了。", vi:"Quần áo tôi giặt sạch rồi."}]},
  {t:"C. Đổi sang phủ định / câu hỏi", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {ask:"Phủ định", q:"我做完作业了。", a:"我没做完作业。"},
-  {ask:"Hỏi", q:"你听清楚了。", a:"你听清楚了没有？/ 你听清楚了吗？"}]}],
+  {ask:"Phủ định", q:"我做完作业了。", vi:"Tôi làm xong bài tập rồi.", a:"我没做完作业。"},
+  {ask:"Hỏi", q:"你听清楚了。", vi:"Bạn nghe rõ rồi.", a:"你听清楚了没有？/ 你听清楚了吗？"}]}],
 rel:["三46","二40","二37","三48"]
 };

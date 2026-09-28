@@ -33,10 +33,10 @@ errs:[
  {bad:"这篇作文我要写重新。", good:"这篇作文我要重新写。", why:"重新 trước động từ."}],
 practice:[
  {t:"A. Điền 又 hoặc 再", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"他昨天迟到了，今天＿＿迟到了。", o:["又","再"], a:0, why:"Đã xảy ra."},
-  {q:"这个电影很好看，我想＿＿看一遍。", o:["又","再"], a:1, why:"Chưa xảy ra."},
-  {q:"你怎么＿＿忘带书了？", o:["又","再"], a:0, why:"Đã xảy ra."},
-  {q:"请您明天＿＿来。", o:["又","再"], a:1, why:"Chưa xảy ra."}]},
+  {q:"他昨天迟到了，今天＿＿迟到了。", vi:"Hôm qua anh ấy đến muộn, hôm nay ＿＿ đến muộn.", o:["又","再"], a:0, why:"Đã xảy ra."},
+  {q:"这个电影很好看，我想＿＿看一遍。", vi:"Bộ phim này rất hay, tôi muốn ＿＿ xem một lần nữa.", o:["又","再"], a:1, why:"Chưa xảy ra."},
+  {q:"你怎么＿＿忘带书了？", vi:"Sao bạn ＿＿ quên mang sách rồi?", o:["又","再"], a:0, why:"Đã xảy ra."},
+  {q:"请您明天＿＿来。", vi:"Mời ông mai ＿＿ đến.", o:["又","再"], a:1, why:"Chưa xảy ra."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["这个月","北京","老是","下雨"], a:"这个月北京老是下雨。", vi:"Tháng này Bắc Kinh cứ mưa suốt."},
   {w:["我们队","又","进了","一个球"], a:"我们队又进了一个球。", vi:"Đội ta lại ghi thêm một bàn."},

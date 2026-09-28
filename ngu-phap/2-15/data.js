@@ -36,17 +36,17 @@ errs:[
  {bad:"他还不睡觉。（ý: vẫn chưa ngủ）", good:"他还没睡觉。", why:"“vẫn chưa” = 还没."}],
 practice:[
  {t:"A. Chọn từ đúng", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"我＿＿从学校回来，很累。(vừa)", o:["刚","已经","一直"], a:0, why:"Vừa mới → 刚."},
-  {q:"外边＿＿在下雨呢。(vẫn)", o:["刚","还","忽然"], a:1, why:"Vẫn → 还."},
-  {q:"电影＿＿开始了。(đã)", o:["已经","还","刚刚"], a:0, why:"已经……了."},
-  {q:"她＿＿在说话，不停。(suốt)", o:["忽然","一直","刚"], a:1, why:"Liên tục → 一直."}]},
+  {q:"我＿＿从学校回来，很累。(vừa)", vi:"Tôi ＿＿ ở trường về, rất mệt.", o:["刚","已经","一直"], a:0, why:"Vừa mới → 刚."},
+  {q:"外边＿＿在下雨呢。(vẫn)", vi:"Bên ngoài ＿＿ đang mưa.", o:["刚","还","忽然"], a:1, why:"Vẫn → 还."},
+  {q:"电影＿＿开始了。(đã)", vi:"Phim ＿＿ bắt đầu rồi.", o:["已经","还","刚刚"], a:0, why:"已经……了."},
+  {q:"她＿＿在说话，不停。(suốt)", vi:"Cô ấy ＿＿ nói, không ngừng.", o:["忽然","一直","刚"], a:1, why:"Liên tục → 一直."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["校长","已经","下班","了"], a:"校长已经下班了。", vi:"Hiệu trưởng đã tan làm rồi."},
   {w:["外边","还","在","下雨","呢"], a:"外边还在下雨呢。", vi:"Bên ngoài vẫn đang mưa."},
   {w:["我","刚","从","学校","回到家"], a:"我刚从学校回到家。", vi:"Tôi vừa từ trường về đến nhà."}]},
  {t:"C. Sửa câu sai", sub:"tự sửa rồi xem đáp án", type:"show", items:[
-  {q:"我刚吃完饭了。", bad:true, a:"我刚吃完饭。"},
-  {q:"他还不起床。(ý: vẫn chưa dậy)", bad:true, a:"他还没起床。"},
-  {q:"我一直想中国去。", bad:true, a:"我一直想去中国。"}]}],
+  {q:"我刚吃完饭了。", vi:"(ý: Tôi vừa ăn cơm xong.)", bad:true, a:"我刚吃完饭。"},
+  {q:"他还不起床。(ý: vẫn chưa dậy)", vi:"(ý: Anh ấy vẫn chưa dậy.)", bad:true, a:"他还没起床。"},
+  {q:"我一直想中国去。", vi:"(ý: Tôi luôn muốn đi Trung Quốc.)", bad:true, a:"我一直想去中国。"}]}],
 rel:["一11","三14","二16","一40"]
 };

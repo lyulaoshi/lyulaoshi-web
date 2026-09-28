@@ -39,8 +39,8 @@ practice:[
   {w:["他哥哥","有","你","这么","高"], a:"他哥哥有你这么高。", vi:"Anh cậu ấy cao bằng bạn."},
   {w:["我","喜欢","那样的","房子"], a:"我喜欢那样的房子。", vi:"Tôi thích ngôi nhà như thế kia."}]},
  {t:"C. Điền 这么 hoặc 这样", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"你怎么来得＿＿晚？", a:"这么", why:"Trước tính từ."},
-  {q:"你别＿＿做，不对。", a:"这样", why:"Trước động từ."},
-  {q:"我想买＿＿的手机。", a:"这样"}]}],
+  {q:"你怎么来得＿＿晚？", vi:"Sao bạn đến muộn ＿＿?", a:"这么", why:"Trước tính từ."},
+  {q:"你别＿＿做，不对。", vi:"Bạn đừng làm ＿＿, không đúng.", a:"这样", why:"Trước động từ."},
+  {q:"我想买＿＿的手机。", vi:"Tôi muốn mua cái điện thoại ＿＿.", a:"这样"}]}],
 rel:["一06","二58","二06","二13"]
 };

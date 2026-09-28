@@ -31,10 +31,10 @@ errs:[
  {bad:"才我八点起床。", good:"我八点才起床。", why:"才 đứng trước động từ, sau thời gian."}],
 practice:[
  {t:"A. Điền 才 hoặc 就", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"他十点＿＿起床，太晚了。", o:["才","就"], a:0, why:"Muộn → 才."},
-  {q:"我六点＿＿起床了，很早。", o:["才","就"], a:1, why:"Sớm → 就……了."},
-  {q:"这么难的题，他五分钟＿＿做完了。", o:["才","就"], a:1, why:"Nhanh → 就."},
-  {q:"我等了一个小时，他＿＿来。", o:["才","就"], a:0, why:"Chậm → 才."}]},
+  {q:"他十点＿＿起床，太晚了。", vi:"10 giờ anh ấy ＿＿ dậy, muộn quá.", o:["才","就"], a:0, why:"Muộn → 才."},
+  {q:"我六点＿＿起床了，很早。", vi:"6 giờ tôi ＿＿ dậy rồi, rất sớm.", o:["才","就"], a:1, why:"Sớm → 就……了."},
+  {q:"这么难的题，他五分钟＿＿做完了。", vi:"Bài khó thế này, anh ấy 5 phút ＿＿ làm xong rồi.", o:["才","就"], a:1, why:"Nhanh → 就."},
+  {q:"我等了一个小时，他＿＿来。", vi:"Tôi đợi một tiếng, anh ấy ＿＿ đến.", o:["才","就"], a:0, why:"Chậm → 才."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["我","今天","八点","才","起床"], a:"我今天八点才起床。", vi:"Hôm nay 8 giờ tôi mới dậy."},
   {w:["班长","七点半","就","到","教室","了"], a:"班长七点半就到教室了。", vi:"Lớp trưởng 7 rưỡi đã đến lớp rồi."},

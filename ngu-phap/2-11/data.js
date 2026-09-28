@@ -27,10 +27,10 @@ errs:[
  {bad:"你等一个下。", good:"你等一下。", why:"一下 không có 个."}],
 practice:[
  {t:"A. Chọn lượng từ đúng", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"这本书我看了两＿＿。(đọc hết hai lượt)", o:["遍","场","下"], a:0, why:"Trọn lượt → 遍."},
-  {q:"昨天下了一＿＿大雨。", o:["次","场","下"], a:1, why:"Trận mưa → 场."},
-  {q:"你等一＿＿儿。", o:["下","遍","回"], a:0, why:"一下儿."},
-  {q:"我去过三＿＿中国。", o:["次","场","下"], a:0, why:"Lần → 次."}]},
+  {q:"这本书我看了两＿＿。(đọc hết hai lượt)", vi:"Quyển sách này tôi đọc hai ＿＿.", o:["遍","场","下"], a:0, why:"Trọn lượt → 遍."},
+  {q:"昨天下了一＿＿大雨。", vi:"Hôm qua mưa một ＿＿ to.", o:["次","场","下"], a:1, why:"Trận mưa → 场."},
+  {q:"你等一＿＿儿。", vi:"Bạn đợi một ＿＿.", o:["下","遍","回"], a:0, why:"一下儿."},
+  {q:"我去过三＿＿中国。", vi:"Tôi đã đi Trung Quốc ba ＿＿.", o:["次","场","下"], a:0, why:"Lần → 次."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["我","去过","两次","上海"], a:"我去过两次上海。", vi:"Tôi đã đi Thượng Hải hai lần."},
   {w:["请","再","说","一遍"], a:"请再说一遍。", vi:"Xin nói lại một lượt."},

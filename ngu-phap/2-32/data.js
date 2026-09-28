@@ -36,7 +36,7 @@ practice:[
   {w:["我","去","过","一次","中国"], a:"我去过一次中国。", vi:"Tôi từng đi Trung Quốc một lần."},
   {w:["他","没","学","过","中文"], a:"他没学过中文。", vi:"Anh ấy chưa từng học tiếng Trung."}]},
  {t:"C. Đổi sang phủ định", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {ask:"Phủ định", q:"我吃过饺子。", a:"我没吃过饺子。"},
-  {ask:"Hỏi", q:"他去过上海。", a:"他去过上海吗？/ 他去过上海没有？"}]}],
+  {ask:"Phủ định", q:"我吃过饺子。", vi:"Tôi từng ăn sủi cảo.", a:"我没吃过饺子。"},
+  {ask:"Hỏi", q:"他去过上海。", vi:"Anh ấy từng đến Thượng Hải.", a:"他去过上海吗？/ 他去过上海没有？"}]}],
 rel:["二71","一21","二33","二11"]
 };

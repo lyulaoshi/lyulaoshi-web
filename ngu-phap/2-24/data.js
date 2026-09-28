@@ -28,8 +28,8 @@ practice:[
   {w:["你","从","这儿","走","五分钟","就到了"], a:"你从这儿走，五分钟就到了。", vi:"Bạn đi lối này, năm phút là tới."},
   {w:["我们","从","这个门","进去","吧"], a:"我们从这个门进去吧。", vi:"Chúng mình vào bằng cửa này nhé."}]},
  {t:"C. 从 ở đây là “từ” (điểm đầu) hay “qua” (lối đi)?", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"他从上海来。", a:"“từ” — điểm xuất phát (从¹)."},
-  {q:"你从公园里走吧。", a:"“qua” — lối đi (从²)."},
-  {q:"我们从八点开始上课。", a:"“từ” — mốc thời gian (从¹)."}]}],
+  {q:"他从上海来。", vi:"Anh ấy đến từ Thượng Hải.", a:"“từ” — điểm xuất phát (从¹)."},
+  {q:"你从公园里走吧。", vi:"Bạn đi qua công viên nhé.", a:"“qua” — lối đi (从²)."},
+  {q:"我们从八点开始上课。", vi:"Chúng tôi học từ 8 giờ.", a:"“từ” — mốc thời gian (从¹)."}]}],
 rel:["一15","二22","二23","三39"]
 };

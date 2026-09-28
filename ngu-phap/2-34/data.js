@@ -26,9 +26,9 @@ errs:[
  {bad:"今天真冷了啊！", good:"今天真冷啊！", why:"真 + Adj + 啊, không thêm 了."}],
 practice:[
  {t:"A. Điền 啊 / 吧 / 的", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"这儿的风景多美＿！", o:["啊","吧","的"], a:0, why:"Cảm thán."},
-  {q:"你是新来的同学＿？(đoán)", o:["啊","吧","的"], a:1, why:"Đoán."},
-  {q:"我是坐飞机来＿。", o:["啊","吧","的"], a:2, why:"是……的."}]},
+  {q:"这儿的风景多美＿！", vi:"Phong cảnh ở đây đẹp biết bao ＿!", o:["啊","吧","的"], a:0, why:"Cảm thán."},
+  {q:"你是新来的同学＿？(đoán)", vi:"Bạn là bạn học mới đến ＿?", o:["啊","吧","的"], a:1, why:"Đoán."},
+  {q:"我是坐飞机来＿。", vi:"Tôi đến bằng máy bay ＿.", o:["啊","吧","的"], a:2, why:"是……的."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["今天","真","冷","啊"], a:"今天真冷啊！", vi:"Hôm nay lạnh thật đấy!"},
   {w:["您","是","老师","吧"], a:"您是老师吧？", vi:"Ông là thầy giáo phải không ạ?"},

@@ -34,9 +34,9 @@ errs:[
  {bad:"我做自己。（ý: tự tôi làm）", good:"我自己做。", why:"自己 đứng trước động từ khi nghĩa “tự làm”."}],
 practice:[
  {t:"A. Chọn đại từ đúng", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"＿＿好！我是新老师。(chào cả lớp)", o:["大家","别人","自己"], a:0, why:"Mọi người."},
-  {q:"我家有一只狗，＿＿很聪明。", o:["他","它","她"], a:1, why:"Con vật → 它."},
-  {q:"这是我＿＿做的。(tự tay)", o:["别人","大家","自己"], a:2, why:"Tự mình."},
+  {q:"＿＿好！我是新老师。(chào cả lớp)", vi:"Chào ＿＿! Tôi là giáo viên mới.", o:["大家","别人","自己"], a:0, why:"Mọi người."},
+  {q:"我家有一只狗，＿＿很聪明。", vi:"Nhà tôi có một con chó, ＿＿ rất thông minh.", o:["他","它","她"], a:1, why:"Con vật → 它."},
+  {q:"这是我＿＿做的。(tự tay)", vi:"Đây là do tôi ＿＿ làm.", o:["别人","大家","自己"], a:2, why:"Tự mình."},
   {q:"Chúng ta (gồm bạn) cùng đi nhé:", o:["咱们一起走吧。","我们们一起走吧。","他们一起走吧。"], a:0, why:"咱们."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["大家","一起","唱歌","吧"], a:"大家一起唱歌吧。", vi:"Mọi người cùng hát nhé."},
