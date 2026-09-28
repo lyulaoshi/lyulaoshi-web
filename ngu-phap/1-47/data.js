@@ -28,14 +28,14 @@ practice:[
  {t:"A. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
   {q:"Bạn uống nước hay uống sữa?", o:["你喝水还是喝牛奶吗？","你喝水还是喝牛奶？","你喝水和喝牛奶？"], a:1, why:"还是, không 吗."},
   {q:"Chúng ta đi hôm nay hay mai?", o:["我们今天去还是明天去？","我们去今天还是明天？","我们今天还是去明天？"], a:0, why:"Thời gian trước động từ."},
-  {q:"— 你是老师还是学生？ — ?", o:["是。","对。","我是学生。"], a:2, why:"Chọn một vế."}]},
+  {q:"— 你是老师还是学生？ — ?", vi:"— Bạn là giáo viên hay học sinh? — ?", o:["是。","对。","我是学生。"], a:2, why:"Chọn một vế."}]},
  {t:"B. Sắp xếp thành câu hỏi", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["她妈妈","是","老师","还是","医生"], a:"她妈妈是老师还是医生？", vi:"Mẹ cô ấy là giáo viên hay bác sĩ?"},
   {w:["你","去","还是","他","去"], a:"你去还是他去？", vi:"Bạn đi hay anh ấy đi?"},
   {w:["你","想","吃","米饭","还是","面条"], a:"你想吃米饭还是面条？", vi:"Bạn muốn ăn cơm hay mì?"}]},
  {t:"C. Đặt câu hỏi với 还是", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"(trà / cà phê) 你喝……", a:"你喝茶还是喝咖啡？"},
-  {q:"(hôm nay / ngày mai) 你……去北京", a:"你今天去北京还是明天去北京？/ 你今天还是明天去北京？"},
-  {q:"(của bạn / của tôi) 这本书是……", a:"这本书是你的还是我的？"}]}],
+  {q:"(hôm nay / ngày mai) 你……去北京", vi:"Bạn … đi Bắc Kinh", a:"你今天去北京还是明天去北京？/ 你今天还是明天去北京？"},
+  {q:"(của bạn / của tôi) 这本书是……", vi:"Quyển sách này là …", a:"这本书是你的还是我的？"}]}],
 rel:["一19","一33","一45","二64"]
 };

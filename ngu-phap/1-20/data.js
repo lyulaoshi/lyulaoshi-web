@@ -31,10 +31,10 @@ errs:[
  {bad:"我喜欢的人他。", good:"我喜欢他。/ 他是我喜欢的人。", why:"Cụm 的 phải đi với danh từ đứng sau."}],
 practice:[
  {t:"A. Điền 的 hoặc 地", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"这是我＿＿书。", o:["的","地"], a:0, why:"Trước danh từ → 的."},
-  {q:"他认真＿＿写汉字。", o:["的","地"], a:1, why:"Trước động từ → 地."},
-  {q:"她是很好＿＿老师。", o:["的","地"], a:0, why:"Trước danh từ → 的."},
-  {q:"妈妈高兴＿＿笑了。", o:["的","地"], a:1, why:"Trước động từ → 地."}]},
+  {q:"这是我＿＿书。", vi:"Đây là sách ＿＿ tôi.", o:["的","地"], a:0, why:"Trước danh từ → 的."},
+  {q:"他认真＿＿写汉字。", vi:"Anh ấy chăm chú ＿＿ viết chữ Hán.", o:["的","地"], a:1, why:"Trước động từ → 地."},
+  {q:"她是很好＿＿老师。", vi:"Cô ấy là một giáo viên rất tốt ＿＿.", o:["的","地"], a:0, why:"Trước danh từ → 的."},
+  {q:"妈妈高兴＿＿笑了。", vi:"Mẹ vui vẻ ＿＿ cười.", o:["的","地"], a:1, why:"Trước động từ → 地."}]},
  {t:"B. Sắp xếp thành cụm / câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["你的","衣服","很","好看"], a:"你的衣服很好看。", vi:"Quần áo của bạn rất đẹp."},
   {w:["这","是","谁的","手机"], a:"这是谁的手机？", vi:"Đây là điện thoại của ai?"},

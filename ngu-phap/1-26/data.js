@@ -35,8 +35,8 @@ practice:[
   {w:["我","喜欢","中国菜"], a:"我喜欢中国菜。", vi:"Tôi thích món Trung Quốc."},
   {w:["你","认识","他","吗"], a:"你认识他吗？", vi:"Bạn quen anh ấy không?"}]},
  {t:"C. Tìm tân ngữ", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"我想喝一杯茶。", a:"一杯茶"},
-  {q:"老师在找你。", a:"你"},
-  {q:"他们都喜欢这本书。", a:"这本书"}]}],
+  {q:"我想喝一杯茶。", vi:"Tôi muốn uống một cốc trà.", a:"一杯茶"},
+  {q:"老师在找你。", vi:"Thầy giáo đang tìm bạn.", a:"你"},
+  {q:"他们都喜欢这本书。", vi:"Họ đều thích quyển sách này.", a:"这本书"}]}],
 rel:["一24","一27","三05","三44"]
 };

@@ -33,11 +33,11 @@ errs:[
  {bad:"学校前边有一个商店们。", good:"学校前边有一家商店。", why:"Cửa hàng dùng 家; đồ vật không thêm 们."}],
 practice:[
  {t:"A. Chọn lượng từ đúng", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"两＿＿牛奶", o:["本","杯","口"], a:1, why:"Cốc sữa → 杯."},
-  {q:"你家有几＿＿人？", o:["口","家","块"], a:0, why:"Người trong gia đình → 口."},
-  {q:"三＿＿书", o:["个","页","本"], a:2, why:"Quyển → 本."},
-  {q:"一＿＿商店", o:["家","间","杯"], a:0, why:"Cửa hàng → 家."},
-  {q:"七＿＿面包", o:["页","块","本"], a:1, why:"Miếng → 块."}]},
+  {q:"两＿＿牛奶", vi:"hai ＿＿ sữa", o:["本","杯","口"], a:1, why:"Cốc sữa → 杯."},
+  {q:"你家有几＿＿人？", vi:"Nhà bạn có mấy ＿＿ người?", o:["口","家","块"], a:0, why:"Người trong gia đình → 口."},
+  {q:"三＿＿书", vi:"ba ＿＿ sách", o:["个","页","本"], a:2, why:"Quyển → 本."},
+  {q:"一＿＿商店", vi:"một ＿＿ cửa hàng", o:["家","间","杯"], a:0, why:"Cửa hàng → 家."},
+  {q:"七＿＿面包", vi:"bảy ＿＿ bánh mì", o:["页","块","本"], a:1, why:"Miếng → 块."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["我家","有","四","口","人"], a:"我家有四口人。", vi:"Nhà tôi có bốn người."},
   {w:["我","要","一","杯","水"], a:"我要一杯水。", vi:"Tôi muốn một cốc nước."},

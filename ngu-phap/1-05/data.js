@@ -38,8 +38,8 @@ errs:[
 practice:[
  {t:"A. Chọn đáp án đúng", sub:"bấm vào đáp án", type:"choice", items:[
   {q:"Chào thầy (lịch sự):", o:["你们好！","您好！","您们好！"], a:1, why:"Kính trọng → 您."},
-  {q:"＿＿是我姐姐。(nữ)", o:["他","它","她"], a:2, why:"Nữ → 她."},
-  {q:"Anh trai và chị gái tôi → ＿＿都是老师。", o:["他们","她们","您们"], a:0, why:"Nhóm có nam → 他们."},
+  {q:"＿＿是我姐姐。(nữ)", vi:"＿＿ là chị gái tôi.", o:["他","它","她"], a:2, why:"Nữ → 她."},
+  {q:"Anh trai và chị gái tôi → ＿＿都是老师。", vi:"＿＿ đều là giáo viên.", o:["他们","她们","您们"], a:0, why:"Nhóm có nam → 他们."},
   {q:"Sách của tôi:", o:["我书","我的书","的我书"], a:1, why:"Đồ vật + 的."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["她们","是","我的","同学"], a:"她们是我的同学。", vi:"Các bạn ấy là bạn học của tôi."},

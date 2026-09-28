@@ -32,14 +32,14 @@ practice:[
  {t:"A. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
   {q:"Bạn là học sinh à?", o:["吗你是学生？","你是学生吗？","你吗是学生？"], a:1, why:"Câu + 吗."},
   {q:"Bạn đi đâu?", o:["你去哪儿吗？","你去哪儿？","你吗去哪儿？"], a:1, why:"Không dùng 吗."},
-  {q:"— 你喜欢喝茶吗？ — (Thích.)", o:["是。","喜欢。","对喜欢。"], a:1, why:"Lặp lại động từ."}]},
+  {q:"— 你喜欢喝茶吗？ — (Thích.)", vi:"— Bạn thích uống trà không? — (Thích.)", o:["是。","喜欢。","对喜欢。"], a:1, why:"Lặp lại động từ."}]},
  {t:"B. Sắp xếp thành câu hỏi", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["他","是","老师","吗"], a:"他是老师吗？", vi:"Anh ấy là giáo viên à?"},
   {w:["这","包子","好吃","吗"], a:"这包子好吃吗？", vi:"Bánh bao này có ngon không?"},
   {w:["你","会","说","英语","吗"], a:"你会说英语吗？", vi:"Bạn biết nói tiếng Anh không?"}]},
  {t:"C. Đặt câu hỏi với 吗 rồi trả lời phủ định", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"他是中国人。", a:"他是中国人吗？——不是。"},
-  {q:"你有哥哥。", a:"你有哥哥吗？——没有。"},
-  {q:"今天冷。", a:"今天冷吗？——不冷。"}]}],
+  {q:"他是中国人。", vi:"Anh ấy là người Trung Quốc.", a:"他是中国人吗？——不是。"},
+  {q:"你有哥哥。", vi:"Bạn có anh trai.", a:"你有哥哥吗？——没有。"},
+  {q:"今天冷。", vi:"Hôm nay lạnh.", a:"今天冷吗？——不冷。"}]}],
 rel:["一33","一22","一48","二78","二79"]
 };

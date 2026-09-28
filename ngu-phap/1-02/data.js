@@ -45,9 +45,9 @@ practice:[
   {w:["明天","你","能","来","吗"], a:"明天你能来吗？", alt:["你明天能来吗？"], vi:"Ngày mai bạn đến được không?"},
   {w:["他","会","写","汉字"], a:"他会写汉字。", vi:"Anh ấy biết viết chữ Hán."}]},
  {t:"C. Điền 会 hay 能", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"我＿＿做饭，我妈妈教我的。", a:"会", why:"Kỹ năng đã học."},
-  {q:"今天下雨，我们不＿＿去公园。", a:"能", why:"Điều kiện không cho phép."},
-  {q:"你＿＿唱中文歌吗？", a:"会", why:"Kỹ năng."},
-  {q:"我的手机没有电了，不＿＿打电话。", a:"能", why:"Hoàn cảnh: hết pin."}]}],
+  {q:"我＿＿做饭，我妈妈教我的。", vi:"Tôi ＿＿ nấu cơm, mẹ tôi dạy tôi đấy.", a:"会", why:"Kỹ năng đã học."},
+  {q:"今天下雨，我们不＿＿去公园。", vi:"Hôm nay trời mưa, chúng ta không ＿＿ đi công viên.", a:"能", why:"Điều kiện không cho phép."},
+  {q:"你＿＿唱中文歌吗？", vi:"Bạn ＿＿ hát bài hát tiếng Trung không?", a:"会", why:"Kỹ năng."},
+  {q:"我的手机没有电了，不＿＿打电话。", vi:"Điện thoại tôi hết pin rồi, không ＿＿ gọi điện.", a:"能", why:"Hoàn cảnh: hết pin."}]}],
 rel:["一03","二01","二02","一14"]
 };

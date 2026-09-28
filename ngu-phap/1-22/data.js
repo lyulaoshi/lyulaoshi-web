@@ -33,11 +33,11 @@ errs:[
  {bad:"我在看书了。", good:"我在看书呢。", why:"“đang” đi với 呢, không đi với 了."}],
 practice:[
  {t:"A. Điền trợ từ", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"我们一起去＿＿！(rủ)", o:["吧","吗","呢"], a:0, why:"Rủ rê → 吧."},
-  {q:"你是中国人＿＿？", o:["吧","吗","呢"], a:1, why:"Hỏi có / không → 吗."},
-  {q:"我很好，你＿＿？", o:["吗","了","呢"], a:2, why:"Còn bạn? → 呢."},
-  {q:"下雨＿＿，我们别去了。", o:["了","吗","吧"], a:0, why:"Tình huống thay đổi → 了."},
-  {q:"你去哪儿＿＿？", o:["吗","呢","吧"], a:1, why:"Có 哪儿 → không dùng 吗."}]},
+  {q:"我们一起去＿＿！(rủ)", vi:"Chúng mình cùng đi ＿＿!", o:["吧","吗","呢"], a:0, why:"Rủ rê → 吧."},
+  {q:"你是中国人＿＿？", vi:"Bạn là người Trung Quốc ＿＿?", o:["吧","吗","呢"], a:1, why:"Hỏi có / không → 吗."},
+  {q:"我很好，你＿＿？", vi:"Tôi khỏe, bạn ＿＿?", o:["吗","了","呢"], a:2, why:"Còn bạn? → 呢."},
+  {q:"下雨＿＿，我们别去了。", vi:"Mưa ＿＿, chúng ta đừng đi nữa.", o:["了","吗","吧"], a:0, why:"Tình huống thay đổi → 了."},
+  {q:"你去哪儿＿＿？", vi:"Bạn đi đâu ＿＿?", o:["吗","呢","吧"], a:1, why:"Có 哪儿 → không dùng 吗."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["我们","走","吧"], a:"我们走吧。", vi:"Chúng mình đi thôi."},
   {w:["她","是","医生","吗"], a:"她是医生吗？", vi:"Cô ấy là bác sĩ à?"},

@@ -41,8 +41,8 @@ practice:[
   {w:["我们","明天","再","去","看","吧"], a:"我们明天再去看吧。", vi:"Mai chúng mình lại đi xem nhé."},
   {w:["欢迎","你","再","来"], a:"欢迎你再来！", vi:"Hoan nghênh bạn lại đến!"}]},
  {t:"C. Điền 再 hoặc 又", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"这个菜很好吃，我想＿＿吃一次。", a:"再", why:"Muốn ăn lại — chưa xảy ra."},
-  {q:"他昨天来了，今天＿＿来了。", a:"又", why:"Đã xảy ra 【二16】."},
-  {q:"我没听懂，请您＿＿说一遍。", a:"再"}]}],
+  {q:"这个菜很好吃，我想＿＿吃一次。", vi:"Món này ngon lắm, tôi muốn ＿＿ ăn một lần nữa.", a:"再", why:"Muốn ăn lại — chưa xảy ra."},
+  {q:"他昨天来了，今天＿＿来了。", vi:"Hôm qua anh ấy đến rồi, hôm nay ＿＿ đến.", a:"又", why:"Đã xảy ra 【二16】."},
+  {q:"我没听懂，请您＿＿说一遍。", vi:"Em chưa nghe hiểu, xin thầy ＿＿ nói một lần nữa.", a:"再"}]}],
 rel:["二16","一11","三15","二62"]
 };

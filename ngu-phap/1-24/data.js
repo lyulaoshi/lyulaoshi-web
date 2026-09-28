@@ -35,8 +35,8 @@ practice:[
   {w:["我们","学校","很","大"], a:"我们学校很大。", vi:"Trường chúng tôi rất rộng."},
   {w:["我","妈妈","是","老师"], a:"我妈妈是老师。", vi:"Mẹ tôi là giáo viên."}]},
  {t:"C. Tìm chủ ngữ", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"我的新手机很好看。", a:"我的新手机"},
-  {q:"那些学生都是越南人。", a:"那些学生"},
-  {q:"今天很冷。", a:"今天"}]}],
+  {q:"我的新手机很好看。", vi:"Điện thoại mới của tôi rất đẹp.", a:"我的新手机"},
+  {q:"那些学生都是越南人。", vi:"Những học sinh kia đều là người Việt Nam.", a:"那些学生"},
+  {q:"今天很冷。", vi:"Hôm nay rất lạnh.", a:"今天"}]}],
 rel:["一25","一26","一27","三43"]
 };

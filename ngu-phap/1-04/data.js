@@ -44,19 +44,19 @@ errs:[
  {bad:"你是哪国人吗？", good:"你是哪国人？", why:"Không dùng 吗 với 哪."}],
 practice:[
  {t:"A. Chọn từ để hỏi đúng", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"你家有＿＿口人？ (nhà có mấy người)", o:["什么","几","哪"], a:1, why:"Số nhỏ, có lượng từ 口 → 几."},
-  {q:"＿＿是你的老师？", o:["谁","哪儿","多少"], a:0, why:"Hỏi người → 谁."},
-  {q:"你的手机在＿＿？", o:["什么","谁","哪儿"], a:2, why:"Hỏi nơi chốn → 哪儿."},
-  {q:"这个字＿＿写？", o:["怎么","多少","哪些"], a:0, why:"Hỏi cách làm → 怎么 + V."},
-  {q:"你们学校有＿＿学生？ (số lớn)", o:["几","多少","多"], a:1, why:"Số lớn → 多少."}]},
+  {q:"你家有＿＿口人？ (nhà có mấy người)", vi:"Nhà bạn có ＿＿ người?", o:["什么","几","哪"], a:1, why:"Số nhỏ, có lượng từ 口 → 几."},
+  {q:"＿＿是你的老师？", vi:"＿＿ là thầy giáo của bạn?", o:["谁","哪儿","多少"], a:0, why:"Hỏi người → 谁."},
+  {q:"你的手机在＿＿？", vi:"Điện thoại của bạn ở ＿＿?", o:["什么","谁","哪儿"], a:2, why:"Hỏi nơi chốn → 哪儿."},
+  {q:"这个字＿＿写？", vi:"Chữ này viết ＿＿?", o:["怎么","多少","哪些"], a:0, why:"Hỏi cách làm → 怎么 + V."},
+  {q:"你们学校有＿＿学生？ (số lớn)", vi:"Trường các bạn có ＿＿ học sinh?", o:["几","多少","多"], a:1, why:"Số lớn → 多少."}]},
  {t:"B. Sắp xếp thành câu hỏi", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["你","喜欢","哪个","电影"], a:"你喜欢哪个电影？", vi:"Bạn thích bộ phim nào?"},
   {w:["车站","在","哪里"], a:"车站在哪里？", vi:"Nhà ga ở đâu?"},
   {w:["你","怎么","去","医院"], a:"你怎么去医院？", vi:"Bạn đi bệnh viện bằng cách nào?"}]},
  {t:"C. Đặt câu hỏi cho phần trong 【 】", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"他是【王老师】。", a:"他是谁？"},
-  {q:"我去【图书馆】。", a:"你去哪儿？"},
-  {q:"我买【三本】书。", a:"你买几本书？"},
-  {q:"我喜欢【这个】书包。", a:"你喜欢哪个书包？"}]}],
+  {q:"他是【王老师】。", vi:"Anh ấy là 【thầy Vương】.", a:"他是谁？"},
+  {q:"我去【图书馆】。", vi:"Tôi đi 【thư viện】.", a:"你去哪儿？"},
+  {q:"我买【三本】书。", vi:"Tôi mua 【ba quyển】 sách.", a:"你买几本书？"},
+  {q:"我喜欢【这个】书包。", vi:"Tôi thích cái cặp 【này】.", a:"你喜欢哪个书包？"}]}],
 rel:["一46","一33","二05","三07"]
 };

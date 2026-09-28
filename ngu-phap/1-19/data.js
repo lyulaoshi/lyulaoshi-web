@@ -40,8 +40,8 @@ practice:[
   {w:["你","是","老师","还是","学生"], a:"你是老师还是学生？", vi:"Bạn là giáo viên hay học sinh?"},
   {w:["这","是","你的","还是","他的"], a:"这是你的还是他的？", vi:"Cái này của bạn hay của anh ấy?"}]},
  {t:"C. Sửa câu sai", sub:"tự sửa rồi xem đáp án", type:"show", items:[
-  {q:"我吃饭和喝茶。", bad:true, a:"我吃饭，喝茶。/ 我吃饭，也喝茶。"},
-  {q:"你去还是不去吗？", bad:true, a:"你去还是不去？"},
-  {q:"他是老师和我是学生。", bad:true, a:"他是老师，我是学生。"}]}],
+  {q:"我吃饭和喝茶。", vi:"(ý: Tôi ăn cơm, uống trà.)", bad:true, a:"我吃饭，喝茶。/ 我吃饭，也喝茶。"},
+  {q:"你去还是不去吗？", vi:"(ý: Bạn đi hay không đi?)", bad:true, a:"你去还是不去？"},
+  {q:"他是老师和我是学生。", vi:"(ý: Anh ấy là giáo viên, tôi là học sinh.)", bad:true, a:"他是老师，我是学生。"}]}],
 rel:["一17","一47","一33","二29"]
 };

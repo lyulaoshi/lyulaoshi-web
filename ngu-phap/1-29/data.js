@@ -36,8 +36,8 @@ practice:[
   {w:["他","不","去","医院"], a:"他不去医院。", vi:"Anh ấy không đi bệnh viện."},
   {w:["你","喜欢","不","喜欢","唱歌"], a:"你喜欢不喜欢唱歌？", vi:"Bạn có thích hát không?"}]},
  {t:"C. Đổi câu", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {ask:"Phủ định", q:"我喝咖啡。", a:"我不喝咖啡。"},
-  {ask:"Hỏi bằng 吗", q:"他学中文。", a:"他学中文吗？"},
-  {ask:"Hỏi bằng V不V", q:"你看电视。", a:"你看不看电视？"}]}],
+  {ask:"Phủ định", q:"我喝咖啡。", vi:"Tôi uống cà phê.", a:"我不喝咖啡。"},
+  {ask:"Hỏi bằng 吗", q:"他学中文。", vi:"Anh ấy học tiếng Trung.", a:"他学中文吗？"},
+  {ask:"Hỏi bằng V不V", q:"你看电视。", vi:"Bạn xem ti vi.", a:"你看不看电视？"}]}],
 rel:["一25","一30","一14","一48"]
 };

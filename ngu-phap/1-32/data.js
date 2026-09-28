@@ -33,8 +33,8 @@ practice:[
   {w:["我","不","喜欢","看","电视"], a:"我不喜欢看电视。", vi:"Tôi không thích xem ti vi."},
   {w:["他","昨天","没","上班"], a:"他昨天没上班。", alt:["昨天他没上班。"], vi:"Hôm qua anh ấy không đi làm."}]},
  {t:"C. Đổi sang phủ định", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {ask:"Phủ định", q:"我会说英语。", a:"我不会说英语。"},
-  {ask:"Phủ định", q:"他昨天来了。", a:"他昨天没来。"},
-  {ask:"Phủ định", q:"我想喝咖啡。", a:"我不想喝咖啡。"}]}],
+  {ask:"Phủ định", q:"我会说英语。", vi:"Tôi biết nói tiếng Anh.", a:"我不会说英语。"},
+  {ask:"Phủ định", q:"他昨天来了。", vi:"Hôm qua anh ấy đã đến.", a:"他昨天没来。"},
+  {ask:"Phủ định", q:"我想喝咖啡。", vi:"Tôi muốn uống cà phê.", a:"我不想喝咖啡。"}]}],
 rel:["一33","一34","一35","一14"]
 };

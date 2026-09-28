@@ -53,13 +53,13 @@ practice:[
   {w:["车站","东边","是","一个","学校"], a:"车站东边是一个学校。", vi:"Phía đông nhà ga là một trường học."},
   {w:["那","不是","我的","手机"], a:"那不是我的手机。", vi:"Kia không phải điện thoại của tôi."}]},
  {t:"C. Sửa câu sai", sub:"tự sửa rồi xem đáp án", type:"show", items:[
-  {q:"我是很高兴。", bad:true, a:"我很高兴。", why:"Tính từ không cần 是."},
-  {q:"他们没是学生。", bad:true, a:"他们不是学生。", why:"Phủ định 是 bằng 不."},
-  {q:"我妈妈是四十五岁。", bad:true, a:"我妈妈四十五岁。", why:"Nói tuổi không cần 是."},
-  {q:"你是不是老师吗？", bad:true, a:"你是不是老师？ / 你是老师吗？", why:"Đã dùng 是不是 thì không thêm 吗."}]},
+  {q:"我是很高兴。", vi:"(ý: Tôi rất vui.)", bad:true, a:"我很高兴。", why:"Tính từ không cần 是."},
+  {q:"他们没是学生。", vi:"(ý: Họ không phải là học sinh.)", bad:true, a:"他们不是学生。", why:"Phủ định 是 bằng 不."},
+  {q:"我妈妈是四十五岁。", vi:"(ý: Mẹ tôi 45 tuổi.)", bad:true, a:"我妈妈四十五岁。", why:"Nói tuổi không cần 是."},
+  {q:"你是不是老师吗？", vi:"(ý: Bạn có phải là giáo viên không?)", bad:true, a:"你是不是老师？ / 你是老师吗？", why:"Đã dùng 是不是 thì không thêm 吗."}]},
  {t:"D. Đổi câu", sub:"phủ định và câu hỏi", type:"show", items:[
-  {ask:"Phủ định", q:"这是我的书。", a:"这不是我的书。"},
-  {ask:"Hỏi bằng 吗", q:"他是老师。", a:"他是老师吗？"},
-  {ask:"Hỏi bằng 是不是", q:"那是你的杯子。", a:"那是不是你的杯子？"}]}],
+  {ask:"Phủ định", q:"这是我的书。", vi:"Đây là sách của tôi.", a:"这不是我的书。"},
+  {ask:"Hỏi bằng 吗", q:"他是老师。", vi:"Anh ấy là giáo viên.", a:"他是老师吗？"},
+  {ask:"Hỏi bằng 是不是", q:"那是你的杯子。", vi:"Kia là cái cốc của bạn.", a:"那是不是你的杯子？"}]}],
 rel:["一30","一37","一45","一48","二48","二60","三77"]
 };

@@ -40,8 +40,8 @@ practice:[
   {w:["这个","学生","最","认真"], a:"这个学生最认真。", vi:"Học sinh này chăm chỉ nhất."},
   {w:["中文","不太","难"], a:"中文不太难。", vi:"Tiếng Trung không khó lắm."}]},
  {t:"C. Đổi câu", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {ask:"Phủ định", q:"这件衣服很贵。", a:"这件衣服不贵。"},
-  {ask:"Hỏi bằng 吗", q:"今天很热。", a:"今天热吗？"},
-  {ask:"Hỏi bằng Adj不Adj", q:"他很高。", a:"他高不高？"}]}],
+  {ask:"Phủ định", q:"这件衣服很贵。", vi:"Chiếc áo này rất đắt.", a:"这件衣服不贵。"},
+  {ask:"Hỏi bằng 吗", q:"今天很热。", vi:"Hôm nay rất nóng.", a:"今天热吗？"},
+  {ask:"Hỏi bằng Adj不Adj", q:"他很高。", vi:"Anh ấy rất cao.", a:"他高不高？"}]}],
 rel:["一25","一09","一36","一48"]
 };

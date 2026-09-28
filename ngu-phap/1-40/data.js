@@ -44,8 +44,8 @@ practice:[
   {w:["我","会","说","中文","了"], a:"我会说中文了。", vi:"Tôi biết nói tiếng Trung rồi."},
   {w:["他","不","喝","咖啡","了"], a:"他不喝咖啡了。", vi:"Anh ấy không uống cà phê nữa."}]},
  {t:"C. Đổi sang phủ định", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {ask:"Phủ định", q:"他吃早饭了。", a:"他没吃早饭。"},
-  {ask:"Phủ định", q:"雨小了。", a:"雨没小。"},
-  {ask:"Hỏi", q:"你吃饭了。", a:"你吃饭了吗？/ 你吃饭了没有？"}]}],
+  {ask:"Phủ định", q:"他吃早饭了。", vi:"Anh ấy ăn sáng rồi.", a:"他没吃早饭。"},
+  {ask:"Phủ định", q:"雨小了。", vi:"Mưa nhỏ rồi.", a:"雨没小。"},
+  {ask:"Hỏi", q:"你吃饭了。", vi:"Bạn ăn cơm rồi.", a:"你吃饭了吗？/ 你吃饭了没有？"}]}],
 rel:["一22","一41","一21","二81"]
 };

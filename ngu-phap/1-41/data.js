@@ -38,8 +38,8 @@ practice:[
   {w:["我","没","喝","水"], a:"我没喝水。", vi:"Tôi không uống nước."},
   {w:["我们","学","了","十个","生词"], a:"我们学了十个生词。", vi:"Chúng tôi đã học mười từ mới."}]},
  {t:"C. Đổi sang phủ định", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {ask:"Phủ định", q:"他买了两个面包。", a:"他没买面包。"},
-  {ask:"Phủ định", q:"我吃了三个饺子。", a:"我没吃饺子。"},
-  {ask:"Hỏi", q:"她看了两本书。", a:"她看了几本书？"}]}],
+  {ask:"Phủ định", q:"他买了两个面包。", vi:"Anh ấy đã mua hai cái bánh mì.", a:"他没买面包。"},
+  {ask:"Phủ định", q:"我吃了三个饺子。", vi:"Tôi đã ăn ba cái sủi cảo.", a:"我没吃饺子。"},
+  {ask:"Hỏi", q:"她看了两本书。", vi:"Cô ấy đã đọc hai quyển sách.", a:"她看了几本书？"}]}],
 rel:["一21","一40","一14","三73"]
 };

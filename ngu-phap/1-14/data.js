@@ -38,18 +38,18 @@ errs:[
  {bad:"别你说话。", good:"你别说话。", why:"别 đứng sau chủ ngữ, trước động từ."}],
 practice:[
  {t:"A. Điền 不 / 没 / 别", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"我明天＿＿去学校。", o:["不","没","别"], a:0, why:"Tương lai → 不."},
-  {q:"他昨天＿＿来上课。", o:["不","没","别"], a:1, why:"Đã qua → 没."},
-  {q:"我＿＿有中文书。", o:["不","没","别"], a:1, why:"没有."},
-  {q:"你＿＿喝了，太晚了。", o:["不","没","别"], a:2, why:"Khuyên ngăn → 别."},
-  {q:"她＿＿是我姐姐。", o:["不","没","别"], a:0, why:"不是."}]},
+  {q:"我明天＿＿去学校。", vi:"Mai tôi ＿＿ đến trường.", o:["不","没","别"], a:0, why:"Tương lai → 不."},
+  {q:"他昨天＿＿来上课。", vi:"Hôm qua anh ấy ＿＿ đến lớp.", o:["不","没","别"], a:1, why:"Đã qua → 没."},
+  {q:"我＿＿有中文书。", vi:"Tôi ＿＿ có sách tiếng Trung.", o:["不","没","别"], a:1, why:"没有."},
+  {q:"你＿＿喝了，太晚了。", vi:"Bạn ＿＿ uống nữa, muộn quá rồi.", o:["不","没","别"], a:2, why:"Khuyên ngăn → 别."},
+  {q:"她＿＿是我姐姐。", vi:"Cô ấy ＿＿ phải là chị gái tôi.", o:["不","没","别"], a:0, why:"不是."}]},
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["他","昨天","没","上课"], a:"他昨天没上课。", alt:["昨天他没上课。"], vi:"Hôm qua anh ấy không lên lớp."},
   {w:["你","别","进来"], a:"你别进来。", vi:"Bạn đừng vào."},
   {w:["今天","不","热"], a:"今天不热。", vi:"Hôm nay không nóng."}]},
  {t:"C. Sửa câu sai", sub:"tự sửa rồi xem đáp án", type:"show", items:[
-  {q:"我不有时间。", bad:true, a:"我没有时间。"},
-  {q:"他没是中国人。", bad:true, a:"他不是中国人。"},
-  {q:"昨天我没去了商店。", bad:true, a:"昨天我没去商店。"}]}],
+  {q:"我不有时间。", vi:"(ý: Tôi không có thời gian.)", bad:true, a:"我没有时间。"},
+  {q:"他没是中国人。", vi:"(ý: Anh ấy không phải người Trung Quốc.)", bad:true, a:"他不是中国人。"},
+  {q:"昨天我没去了商店。", vi:"(ý: Hôm qua tôi không đi cửa hàng.)", bad:true, a:"昨天我没去商店。"}]}],
 rel:["一34","一21","一40","一37"]
 };

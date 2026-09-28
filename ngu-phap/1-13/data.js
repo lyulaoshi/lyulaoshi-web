@@ -40,8 +40,8 @@ practice:[
   {w:["你","还","想","吃","什么"], a:"你还想吃什么？", vi:"Bạn còn muốn ăn gì nữa?"},
   {w:["他","会","说","中文","还","会","说","英语"], a:"他会说中文，还会说英语。", vi:"Anh ấy biết tiếng Trung, còn biết tiếng Anh."}]},
  {t:"C. Điền 也 hoặc 还", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"你喜欢喝茶，我＿＿喜欢喝茶。", a:"也", why:"Hai người giống nhau."},
-  {q:"我今天要上课，＿＿要去医院。", a:"还", why:"Cùng một người, thêm việc."},
-  {q:"妈妈不去，爸爸＿＿不去。", a:"也"}]}],
+  {q:"你喜欢喝茶，我＿＿喜欢喝茶。", vi:"Bạn thích uống trà, tôi ＿＿ thích uống trà.", a:"也", why:"Hai người giống nhau."},
+  {q:"我今天要上课，＿＿要去医院。", vi:"Hôm nay tôi phải đi học, ＿＿ phải đi bệnh viện.", a:"还", why:"Cùng một người, thêm việc."},
+  {q:"妈妈不去，爸爸＿＿不去。", vi:"Mẹ không đi, bố ＿＿ không đi.", a:"也"}]}],
 rel:["一10","一39","二15","三12"]
 };
