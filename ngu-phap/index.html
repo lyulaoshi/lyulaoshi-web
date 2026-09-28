@@ -65,6 +65,8 @@ a.pc:hover,a.pc:focus-visible{transform:translateY(-2px);border-color:var(--c)}
 .pc .st.ok{background:var(--c);color:#fff}
 .pc .st.soon{color:var(--faint);border:1.5px dashed var(--line)}
 .pc .nm{font-family:var(--kh);font-size:21px;line-height:1.3;overflow-wrap:anywhere}
+.pc .vn{font-size:14.5px;font-weight:700;line-height:1.4;color:var(--ink);overflow-wrap:anywhere}
+.pc.soon .vn{color:var(--muted)}
 .pc .it{font-family:var(--kh);font-size:15px;color:var(--muted);line-height:1.45;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .pc .cls{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
 .pc .cls a,.pc .cls span{font-size:12px;font-weight:700;color:var(--c);background:var(--ground2);border-radius:8px;padding:2px 7px;text-decoration:none;position:relative;z-index:2}
@@ -124,7 +126,7 @@ a.tag{border:1.5px solid var(--c)}
       <button class="tab" type="button" data-view="hsk" aria-pressed="true">Theo cấp HSK</button>
       <button class="tab" type="button" data-view="bai" aria-pressed="false">Theo giáo trình trên lớp</button>
       <span class="sep"></span>
-      <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Tìm: 了, 比, 补语, 二60…" aria-label="Tìm điểm ngữ pháp"></label>
+      <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Tìm: 了, so sánh, bổ ngữ, 二60…" aria-label="Tìm điểm ngữ pháp"></label>
     </div>
     <div class="row" id="lvRow" role="group" aria-label="Cấp HSK"></div>
   </div>
@@ -134,9 +136,9 @@ a.tag{border:1.5px solid var(--c)}
 </main>
 <footer class="wrap">Ngữ pháp theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Bài giảng được biên soạn bởi ThS. Lã Thị Thuỳ Phương · 吕老师汉语盒</footer>
 
-<script src="hsk-ngu-phap.js"></script>
-<script src="bai-data.js"></script>
-<script src="co-bai.js"></script>
+<script src="hsk-ngu-phap.js?v=5a59c7"></script>
+<script src="bai-data.js?v=5a59c7"></script>
+<script src="co-bai.js?v=5a59c7"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
@@ -177,14 +179,14 @@ function card(d){
   const cls=(byCode[code]||[]), rd=READY[code];
   const chips=cls.length?`<div class="cls">${cls.map(p=>`<a href="${url(p)}" title="${esc(p.n)}">${esc(SHORT[p.b]||p.b)} B${p.l}</a>`).join('')}</div>`:"";
   const inner=`<div class="cd"><b>【${esc(code)}】</b><span class="st ${rd?"ok":"soon"}">${rd?"Bài giảng":"Sắp có"}</span></div>
-    <div class="nm">${hl(nm)}</div>${items?`<div class="it">${hl(items)}</div>`:""}`;
+    <div class="nm">${hl(nm)}</div>${d[3]?`<div class="vn">${hl(d[3])}</div>`:""}${items?`<div class="it">${hl(items)}</div>`:""}`;
   // thẻ có bài: cả thẻ là link (chip bài trên lớp vẫn bấm riêng được)
   return rd?`<div class="pc ready" style="cursor:pointer" data-href="${rd}/"><a href="${rd}/" style="position:absolute;inset:0;border-radius:20px" aria-label="Học 【${esc(code)}】${esc(nm)}"></a>${inner}${chips}</div>`
            :`<div class="pc soon">${inner}${chips}</div>`;
 }
 function renderHSK(){
   const L=H[S.lv]; if(!L)return "";
-  const ds=L.ds.filter(d=>hit(d[0],d[1],...(byCode[d[0]]||[]).map(p=>p.n)));
+  const ds=L.ds.filter(d=>hit(d[0],d[1],d[3]||"",...(byCode[d[0]]||[]).map(p=>p.n)));
   const nReady=L.ds.filter(d=>READY[d[0]]).length, nCls=L.ds.filter(d=>byCode[d[0]]).length;
   let html=`<section class="lvl" id="hsk-${S.lv}"><div class="lvl-h"><div><h2>HSK ${S.lv}<span class="zh">${esc(L.ten)}</span></h2><p>${L.tong} điểm ngữ pháp trong đề cương</p></div>
     <div class="meter"><span>Bài giảng: <b>${nReady}</b> / ${L.tong} · đã học trên lớp: ${nCls}</span><div class="bar"><i style="width:${nReady/L.tong*100}%"></i><i class="cls" style="width:${Math.max(0,nCls-nReady)/L.tong*100}%"></i></div></div></div>`;

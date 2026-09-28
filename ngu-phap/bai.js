@@ -9,6 +9,7 @@ const SHORT={"301":"301句","boya":"博雅","yuedu":"阅读教程","tttc":"综�
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const mk=s=>esc(s).replace(/\[([^\]]+)\]/g,'<mark>$1</mark>');          // [是] -> tô đậm phần trọng tâm
 const zhw=s=>esc(s).replace(/([\u3400-\u9fff＿“”，。？！、…（）]+)/g,'<span class="zh">$1</span>');
+const qvi=it=>it.vi?`<div class="qvi">${esc(it.vi)}</div>`:"";   // nghĩa tiếng Việt của đề bài (ẩn khi tắt nút Nghĩa)
 const plain=s=>String(s).replace(/[\[\]]/g,'');
 const say=s=>{const t=plain(s).replace(/——/g,'，');return window.TTS&&("speechSynthesis" in window)?`<button type="button" class="spk" data-say="${esc(t)}" aria-label="Nghe câu này">🔊</button>`:""};
 const folder=c=>READY[c];
@@ -26,7 +27,7 @@ function sec(cls,zh,vi,body){secN++;return `<section class="sec ${cls}" id="m${s
 // ---------- các mục ----------
 const off=OFF[L.code]||[L.code,L.title,""];
 let html=`<div class="np-bar"><nav class="np-crumb"><a href="../"><span class="zh">语法盒</span></a>›<a href="../#hsk-${lv}">HSK ${lv}</a>›<span>【${esc(L.code)}】</span></nav>
- <div class="np-tools"><button class="tg" id="pyBtn" type="button" aria-pressed="true">Pinyin</button><button class="tg" id="viBtn" type="button" aria-pressed="true">Nghĩa</button><button class="tg solid" id="presentBtn" type="button">▶ Trình chiếu</button></div></div>`;
+ <div class="np-tools"><button class="tg" id="pyBtn" type="button" aria-pressed="true">Pinyin</button><button class="tg" id="viBtn" type="button" aria-pressed="true">Nghĩa</button></div></div>`;
 html+=`<section class="sec cover" id="m0"><div><div class="code"><b>【${esc(L.code)}】</b>HSK ${lv} · <span class="zh">${esc(L.tag||off[2])}</span></div>
   <h1>${esc(L.title).replace(/(“|”)/g,'<span class="qm">$1</span>')}</h1><div class="vi">${esc(L.vi)}</div>
   ${off[1]!==L.title?`<p style="color:var(--muted);font-size:14px;margin-top:10px">Đề cương: <span class="zh">${esc(off[1])}</span></p>`:""}</div>
@@ -47,7 +48,7 @@ let qn=0;
 if(L.practice) html+=sec("peach","练习","Luyện tập",L.practice.map((g,gi)=>`<div class="ex-grp"><h3>${esc(g.t)} ${g.sub?`<small>· ${esc(g.sub)}</small>`:""}</h3>${g.items.map((it,ii)=>q(g.type,it,gi,ii)).join('')}</div>`).join(''));
 function q(type,it,gi,ii){
   const id=`q${gi}-${ii}`; qn++;
-  if(type==="choice") return `<div class="qz" data-type="choice" id="${id}"><div class="qt"><span class="n">${ii+1}.</span><span>${zhw(it.q)}</span></div>
+  if(type==="choice") return `<div class="qz" data-type="choice" id="${id}"><div class="qt"><span class="n">${ii+1}.</span><span>${zhw(it.q)}</span>${qvi(it)}</div>
     <div class="opts">${it.o.map((o,k)=>`<button type="button" class="opt" data-k="${k}">${esc(o)}</button>`).join('')}</div><div class="fb" hidden></div></div>`;
   if(type==="order"){ // xáo trộn cố định để bài giống nhau mỗi lần mở
     let w=it.w.slice(), s=gi*7+ii*13+3; for(let k=w.length-1;k>0;k--){s=(s*9301+49297)%233280;const j=s%(k+1);[w[k],w[j]]=[w[j],w[k]];}
@@ -58,13 +59,14 @@ function q(type,it,gi,ii){
       <div class="fb" hidden></div><div class="ans" hidden><span class="z">${esc(it.a)}</span></div></div>`;
   }
   // show: câu hỏi mở, tự làm rồi bấm xem đáp án
-  return `<div class="qz" data-type="show" id="${id}"><div class="qt"><span class="n">${ii+1}.</span>${it.ask?`<span>${esc(it.ask)}:</span>`:""}<span class="${it.bad?"bad-s":/[\u3400-\u9fff]/.test(it.q)?"z":"vq"}">${it.bad||/[\u3400-\u9fff]/.test(it.q)&&!/[a-zà-ỹ]/i.test(it.q)?esc(it.q):zhw(it.q)}</span></div>
-    <div class="acts"><button type="button" class="btn2" data-act="show">Xem đáp án</button></div><div class="ans" hidden><span class="z">${esc(it.a)}</span>${it.why?`<div style="font-size:14px;color:var(--muted);margin-top:4px">${it.why}</div>`:""}</div></div>`;
+  return `<div class="qz" data-type="show" id="${id}"><div class="qt"><span class="n">${ii+1}.</span>${it.ask?`<span>${esc(it.ask)}:</span>`:""}<span class="${it.bad?"bad-s":/[\u3400-\u9fff]/.test(it.q)?"z":"vq"}">${it.bad||/[\u3400-\u9fff]/.test(it.q)&&!/[a-zà-ỹ]/i.test(it.q)?esc(it.q):zhw(it.q)}</span>${qvi(it)}</div>
+    ${canType(it)?`<div class="typ"><input class="tin" type="text" lang="zh-CN" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Gõ câu trả lời bằng chữ Hán…" aria-label="Câu trả lời của em"><button type="button" class="btn2" data-act="type">Kiểm tra</button></div><div class="fb" hidden></div>`:""}
+    <div class="acts"><button type="button" class="btn2${canType(it)?" ghost":""}" data-act="show">Xem đáp án</button></div><div class="ans" hidden><span class="z">${esc(it.a)}</span>${it.why?`<div style="font-size:14px;color:var(--muted);margin-top:4px">${it.why}</div>`:""}</div></div>`;
 }
 
 // Gặp trong bài giảng + điểm liên quan
 const seen=BAI.filter(p=>p.h.includes(L.code));
-const relHTML=(L.rel||[]).map(c=>{const o=OFF[c]; const nm=o?o[1].split("：")[0]:c;
+const relHTML=(L.rel||[]).map(c=>{const o=OFF[c]; const nm=(o?o[1].split("：")[0]:c)+(o&&o[3]?" · "+o[3].split(" — ")[0]:"");
   return folder(c)?`<a href="../${folder(c)}/"><b>【${c}】</b><span class="zh">${esc(nm)}</span></a>`:`<span class="soon" title="Chưa có bài"><b>【${c}】</b><span class="zh">${esc(nm)}</span></span>`}).join('');
 html+=sec("mint","相关","Học ở đâu · Điểm liên quan",
   (seen.length?`<p style="margin-top:0"><b>Đã học trong bài:</b></p><div class="rel">${seen.map(p=>`<a href="../../${p.b}/bai-${p.l}/#np-${encodeURIComponent(p.t)}"><b>${esc(SHORT[p.b]||p.b)} · Bài ${p.l}</b><span class="zh">${esc(p.n)}</span></a>`).join('')}</div>`:"")
@@ -75,9 +77,39 @@ const order=Object.keys(READY).sort((a,b)=>(CN.indexOf(a[0])-CN.indexOf(b[0]))||
 const at=order.indexOf(L.code), pv=order[at-1], nx=order[at+1];
 const nm=c=>(OFF[c]||[c,c])[1].split("：")[0];
 html+=`<div class="pn">${pv?`<a href="../${folder(pv)}/">← Bài trước<b>【${pv}】${esc(nm(pv))}</b></a>`:"<span></span>"}${nx?`<a class="nx" href="../${folder(nx)}/">Bài sau →<b>【${nx}】${esc(nm(nx))}</b></a>`:""}</div>
-<p class="copy">© Bài giảng được biên soạn bởi ThS. Lã Thị Thuỳ Phương.</p>
-<div class="pnav" role="toolbar" aria-label="Trình chiếu"><button type="button" data-p="-1" aria-label="Mục trước">←</button><span id="pnum"></span><button type="button" data-p="1" aria-label="Mục sau">→</button><button type="button" data-p="z-" aria-label="Thu nhỏ chữ">A−</button><button type="button" data-p="z+" aria-label="Phóng to chữ">A+</button><button type="button" data-p="x" aria-label="Thoát trình chiếu">✕</button></div>`;
+<p class="copy">© Bài giảng được biên soạn bởi ThS. Lã Thị Thuỳ Phương.</p>`;
 $('#np').innerHTML=html;
+
+
+// ---------- ô gõ chữ cho câu tự làm ----------
+// Có ô gõ khi đáp án là câu chữ Hán cụ thể (bỏ qua đáp án mở có "…", đáp án giải thích bằng tiếng Việt)
+function canType(it){return /[\u3400-\u9fff]/.test(it.a)&&!/…|[a-zà-ỹ]{2}/i.test(it.a)}
+const norm=s=>String(s).replace(/[\s，。？！、,.?!;；:：“”"'‘’「」—\-…·]/g,'');
+// "A / B" = nhiều đáp án; "X（Y）": Y có thể bỏ, giữ, hoặc thay cho chữ ngay trước (那儿（那里）)
+function accepted(a){const out=new Set();
+  String(a).split(/\s*\/\s*/).forEach(v=>{let vs=[v];
+    for(let k=0;k<4;k++){const nx=[];vs.forEach(x=>{const m=x.match(/^(.*?)[（(]([^）)]*)[）)](.*)$/);
+      if(!m){nx.push(x);return}const [,pre,opt,post]=m;
+      nx.push(pre+post, pre+opt+post); for(let k=1;k<=Math.min(pre.length,opt.length+1);k++) nx.push(pre.slice(0,pre.length-k)+opt+post);});vs=nx;}
+    vs.forEach(x=>out.add(norm(x)));});
+  out.delete("");return [...out];}
+function lcsMark(u,a){ // đánh dấu chữ của học sinh không có trong đáp án (theo dãy con chung dài nhất)
+  const n=u.length,m=a.length,D=Array.from({length:n+1},()=>new Array(m+1).fill(0));
+  for(let i=n-1;i>=0;i--)for(let j=m-1;j>=0;j--)D[i][j]=u[i]===a[j]?D[i+1][j+1]+1:Math.max(D[i+1][j],D[i][j+1]);
+  let i=0,j=0,h="";while(i<n){if(j<m&&u[i]===a[j]){h+=esc(u[i]);i++;j++}else if(j<m&&D[i][j+1]>=D[i+1][j])j++;else{h+=`<mark class="xw">${esc(u[i])}</mark>`;i++}}
+  return {h,score:D[0][0]/Math.max(m,1)};}
+function checkTyped(qd,it){
+  const inp=qd.querySelector('.tin'), fb=qd.querySelector('.typ + .fb'), raw=inp.value.trim(); fb.hidden=false;
+  if(!raw){fb.className="fb no";fb.innerHTML="Em gõ câu trả lời vào ô trước nhé.";return}
+  if(!/[\u3400-\u9fff]/.test(raw)){fb.className="fb no";fb.innerHTML="<b>Chưa có chữ Hán.</b> Em bật bộ gõ tiếng Trung (pinyin) rồi gõ lại — nếu đang để Telex thì máy sẽ ra chữ Việt.";return}
+  const u=norm(raw), acc=accepted(it.a);
+  if(acc.includes(u)){fb.className="fb ok";fb.innerHTML="<b>✓ Chính xác!</b>";inp.classList.add('ok');qd.querySelector('.ans').hidden=false;
+    const b=qd.querySelector('[data-act=show]');if(b)b.textContent="Ẩn đáp án";return}
+  let best={h:esc(u),score:-1};acc.forEach(a=>{const r=lcsMark(u,a);if(r.score>best.score)best=r});
+  inp.classList.remove('ok');fb.className="fb no";
+  fb.innerHTML=`<b>✗ Chưa khớp đáp án mẫu.</b> Câu của em: <span class="zh tw">${best.h}</span>`
+    +(/<mark/.test(best.h)?" — chữ tô đỏ không có trong đáp án.":" — câu còn thiếu chữ.")
+    +`<div class="hint">Có thể em diễn đạt cách khác mà vẫn đúng: bấm “Xem đáp án” để so, chưa chắc thì hỏi cô nhé.</div>`;}
 
 // ---------- tương tác ----------
 document.addEventListener('click',e=>{
@@ -100,8 +132,11 @@ document.addEventListener('click',e=>{
       fb.hidden=false; fb.className="fb "+(ok?"ok":"no");
       fb.innerHTML=ok?"<b>✓ Chính xác!</b>":(pool.querySelector('.chip:not(.used)')?"<b>Chưa xong</b> — còn thẻ chưa dùng.":"<b>✗ Chưa đúng.</b> Bấm vào thẻ ở dòng trên để đưa về, rồi xếp lại."); return;}
   }
+  if(act==="type"){checkTyped(qd,it);return;}
   if(act==="show"){ans.hidden=!ans.hidden; const b=e.target.closest('[data-act]'); if(qd.dataset.type==="show")b.textContent=ans.hidden?"Xem đáp án":"Ẩn đáp án";}
 });
+document.addEventListener('keydown',e=>{const t=e.target;if(!t.classList||!t.classList.contains('tin')||e.key!=="Enter"||e.isComposing||e.keyCode===229)return;
+  e.preventDefault();const qd=t.closest('.qz');const [gi,ii]=qd.id.slice(1).split('-').map(Number);checkTyped(qd,L.practice[gi].items[ii]);});
 function tog(id,cls){const b=document.getElementById(id);let on=true;try{on=localStorage.getItem('np-'+cls)!=="0"}catch(e){}
   const set=()=>{document.body.classList.toggle(cls,!on);b.setAttribute('aria-pressed',on)};set();
   b.addEventListener('click',()=>{on=!on;set();try{localStorage.setItem('np-'+cls,on?"1":"0")}catch(e){}});}
@@ -114,8 +149,8 @@ function show(i){cur=Math.max(0,Math.min(secs.length-1,i));secs.forEach((s,k)=>s
 function present(on){document.body.classList.toggle('present',on);document.body.style.setProperty('--z',z);
   if(on){show(0);document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen().catch(()=>{});}
   else{secs.forEach(s=>s.classList.remove('on'));document.fullscreenElement&&document.exitFullscreen().catch(()=>{});}}
-$('#presentBtn').addEventListener('click',()=>present(true));
-document.querySelector('.pnav').addEventListener('click',e=>{const p=e.target.closest('button')?.dataset.p;if(!p)return;
+// (đã bỏ nút Trình chiếu theo ý cô, 28/09/2026)
+document.querySelector('.pnav')?.addEventListener('click',e=>{const p=e.target.closest('button')?.dataset.p;if(!p)return;
   if(p==="x")present(false);else if(p[0]==="z"){z=Math.max(.9,Math.min(2,z+(p==="z+"?.1:-.1)));document.body.style.setProperty('--z',z);try{localStorage.setItem('np-z',z)}catch(e){}}else show(cur+ +p);});
 addEventListener('keydown',e=>{if(!document.body.classList.contains('present'))return;
   if(e.key==="ArrowRight"||e.key===" "||e.key==="PageDown"){e.preventDefault();show(cur+1)}

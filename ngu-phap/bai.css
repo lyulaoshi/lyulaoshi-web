@@ -150,3 +150,12 @@ body.present .pnav{display:flex}
 .qz .qt .zh{font-size:20px;font-weight:400}
 .qz .qt{display:block;line-height:1.6}.qz .qt>span{margin-right:6px}
 .fx span{max-width:100%;min-width:0}.fx b{max-width:100%;white-space:normal;overflow-wrap:anywhere;text-align:center}
+.qz .qvi{font-size:14.5px;font-weight:500;color:var(--muted);margin-top:3px;font-style:italic}
+.typ{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.tin{flex:1 1 220px;min-width:0;font-family:var(--kh);font-size:21px;padding:8px 12px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);outline:none}
+.tin:focus{border-color:var(--sc)}
+.tin.ok{border-color:var(--mint);background:var(--mint-s)}
+.typ + .fb .tw{font-size:19px}
+.typ + .fb mark.xw{background:var(--coral-s);color:var(--coral);border-radius:3px;text-decoration:underline wavy}
+.typ + .fb .hint{font-size:13px;color:var(--muted);margin-top:4px}
+body.present .tin{font-size:calc(24px*var(--z,1.25))}
