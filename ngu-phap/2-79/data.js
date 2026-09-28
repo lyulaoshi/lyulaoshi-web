@@ -22,9 +22,9 @@ errs:[
  {bad:"你去哪儿吧？", good:"你去哪儿？", why:"吧 hỏi không dùng với từ để hỏi."}],
 practice:[
  {t:"A. Điền 吗 hoặc 吧", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"(Thấy bạn ngáp) 你困了＿？", o:["吗","吧"], a:1, why:"Đoán."},
-  {q:"(Hoàn toàn chưa biết) 你会游泳＿？", o:["吗","吧"], a:0, why:"Hỏi trung tính."},
-  {q:"(Nghe giọng miền Bắc) 你是北京人＿？", o:["吗","吧"], a:1, why:"Đoán."}]},
+  {q:"(Thấy bạn ngáp) 你困了＿？", vi:"Bạn buồn ngủ rồi ＿?", o:["吗","吧"], a:1, why:"Đoán."},
+  {q:"(Hoàn toàn chưa biết) 你会游泳＿？", vi:"Bạn biết bơi ＿?", o:["吗","吧"], a:0, why:"Hỏi trung tính."},
+  {q:"(Nghe giọng miền Bắc) 你是北京人＿？", vi:"Bạn là người Bắc Kinh ＿?", o:["吗","吧"], a:1, why:"Đoán."}]},
  {t:"B. Sắp xếp thành câu hỏi", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["您","是","经理","吧"], a:"您是经理吧？", vi:"Ông là giám đốc phải không ạ?"},
   {w:["你","以前","学过","中文","吧"], a:"你以前学过中文吧？", vi:"Trước đây bạn học tiếng Trung rồi phải không?"}]},

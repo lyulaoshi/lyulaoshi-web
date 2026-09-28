@@ -31,7 +31,7 @@ practice:[
   {w:["她","去","过","很多","国家"], a:"她去过很多国家。", vi:"Cô ấy đã từng đi nhiều nước."},
   {w:["我","以前","见","过","他"], a:"我以前见过他。", vi:"Trước đây tôi từng gặp anh ấy."}]},
  {t:"C. Trả lời theo kinh nghiệm của em", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"你去过中国吗？", a:"去过。/ 我去过一次中国。/ 没去过。"},
-  {q:"你吃过北京烤鸭吗？", a:"吃过。/ 没吃过。"}]}],
+  {q:"你去过中国吗？", vi:"Bạn từng đến Trung Quốc chưa?", a:"去过。/ 我去过一次中国。/ 没去过。"},
+  {q:"你吃过北京烤鸭吗？", vi:"Bạn từng ăn vịt quay Bắc Kinh chưa?", a:"吃过。/ 没吃过。"}]}],
 rel:["二32","一41","二70","三14"]
 };

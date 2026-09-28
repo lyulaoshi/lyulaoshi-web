@@ -26,17 +26,17 @@ errs:[
  {bad:"你为什么没去上课吗？", good:"你为什么没去上课？", why:"Không thêm 吗."}],
 practice:[
  {t:"A. Chọn từ để hỏi đúng", sub:"bấm vào đáp án", type:"choice", items:[
-  {q:"你＿＿回国？——下个月。", o:["什么时候","为什么","怎样"], a:0, why:"Thời gian."},
-  {q:"你喜欢＿＿的电影？——有意思的。", o:["什么样","怎么样","为什么"], a:0, why:"Kiểu loại."},
-  {q:"明天天气＿＿？——很好。", o:["怎样","怎么样","什么样"], a:1, why:"Tình hình."},
-  {q:"你＿＿学中文？——因为我喜欢中国。", o:["为什么","什么时候","怎样"], a:0, why:"Lý do."}]},
+  {q:"你＿＿回国？——下个月。", vi:"Bạn ＿＿ về nước? — Tháng sau.", o:["什么时候","为什么","怎样"], a:0, why:"Thời gian."},
+  {q:"你喜欢＿＿的电影？——有意思的。", vi:"Bạn thích phim ＿＿? — Phim thú vị.", o:["什么样","怎么样","为什么"], a:0, why:"Kiểu loại."},
+  {q:"明天天气＿＿？——很好。", vi:"Thời tiết ngày mai ＿＿? — Rất đẹp.", o:["怎样","怎么样","什么样"], a:1, why:"Tình hình."},
+  {q:"你＿＿学中文？——因为我喜欢中国。", vi:"＿＿ bạn học tiếng Trung? — Vì tôi thích Trung Quốc.", o:["为什么","什么时候","怎样"], a:0, why:"Lý do."}]},
  {t:"B. Sắp xếp thành câu hỏi", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["你们","什么时候","见面"], a:"你们什么时候见面？", vi:"Khi nào các bạn gặp nhau?"},
   {w:["你","喜欢","什么样的","朋友"], a:"你喜欢什么样的朋友？", vi:"Bạn thích người bạn như thế nào?"},
   {w:["你","明天","怎样","去","学校"], a:"你明天怎样去学校？", vi:"Mai bạn đến trường bằng cách nào?"}]},
  {t:"C. Đặt câu hỏi cho phần trong 【 】", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"我【下个月】回国。", a:"你什么时候回国？"},
-  {q:"我【坐地铁】去学校。", a:"你怎样（怎么）去学校？"},
-  {q:"我喜欢【安静的】地方。", a:"你喜欢什么样的地方？"}]}],
+  {q:"我【下个月】回国。", vi:"Tôi 【tháng sau】 về nước.", a:"你什么时候回国？"},
+  {q:"我【坐地铁】去学校。", vi:"Tôi 【đi tàu điện ngầm】 đến trường.", a:"你怎样（怎么）去学校？"},
+  {q:"我喜欢【安静的】地方。", vi:"Tôi thích nơi 【yên tĩnh】.", a:"你喜欢什么样的地方？"}]}],
 rel:["二05","一46","一04","二75"]
 };

@@ -34,8 +34,8 @@ practice:[
   {w:["我","是","昨天","到","北京","的"], a:"我是昨天到北京的。", vi:"Tôi đến Bắc Kinh hôm qua."},
   {w:["这件事","是","老师","告诉","我","的"], a:"这件事是老师告诉我的。", vi:"Chuyện này là thầy giáo nói cho tôi."}]},
  {t:"C. Đặt câu hỏi với 是……的", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"(hỏi thời gian) 你来中国", a:"你是什么时候来中国的？"},
-  {q:"(hỏi cách thức) 你来学校", a:"你是怎么来学校的？"},
-  {q:"(hỏi nơi chốn) 你买衣服", a:"你（的衣服）是在哪儿买的？"}]}],
+  {q:"(hỏi thời gian) 你来中国", vi:"Bạn đến Trung Quốc", a:"你是什么时候来中国的？"},
+  {q:"(hỏi cách thức) 你来学校", vi:"Bạn đến trường", a:"你是怎么来学校的？"},
+  {q:"(hỏi nơi chốn) 你买衣服", vi:"Bạn mua quần áo", a:"你（的衣服）是在哪儿买的？"}]}],
 rel:["二34","三77","一36","二74"]
 };

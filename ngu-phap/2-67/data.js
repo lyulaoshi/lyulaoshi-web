@@ -27,7 +27,7 @@ practice:[
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["只要","有时间","我","就","去看你"], a:"只要有时间，我就去看你。", vi:"Chỉ cần có thời gian là tôi đến thăm bạn."}]},
  {t:"C. Nối bằng 只要……就……", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"你认真学习 / 能取得好成绩", a:"只要你认真学习，就能取得好成绩。"},
-  {q:"你喜欢 / 我送给你", a:"只要你喜欢，我就送给你。"}]}],
+  {q:"你认真学习 / 能取得好成绩", vi:"Bạn chăm chỉ học / có thể đạt thành tích tốt", a:"只要你认真学习，就能取得好成绩。"},
+  {q:"你喜欢 / 我送给你", vi:"Bạn thích / tôi tặng bạn", a:"只要你喜欢，我就送给你。"}]}],
 rel:["二66","三70","二17","二30"]
 };

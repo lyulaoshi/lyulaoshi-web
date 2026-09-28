@@ -413,7 +413,8 @@
   @media (min-width:641px){ body{ padding-left:5.4rem; } }
   @media print{ #toc-hot{ display:none; } }
 </style>
-<style>.stroke-anim-box svg,.tzg .ghost-anim svg,.tzg-modal-char .ghost-anim svg{display:block;width:100%!important;height:100%!important} .stroke-static-frame{width:101px!important;height:101px!important} @media (max-width:640px){.stroke-static-frame{width:64px!important;height:64px!important}}</style></head>
+<style>.stroke-anim-box svg,.tzg .ghost-anim svg,.tzg-modal-char .ghost-anim svg{display:block;width:100%!important;height:100%!important} .stroke-static-frame{width:101px!important;height:101px!important} @media (max-width:640px){.stroke-static-frame{width:64px!important;height:64px!important}}</style><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+</head>
 <body>
 
 <div id="floatToolbar" class="no-print">
@@ -1145,13 +1146,20 @@ const dictWords=[].concat(...vocabGroups.map(g=>g.items.map(it=>({h:it.w, p:it.p
 const dictSents=dictSentences.map(s=>Object.assign({}, s));
 const kAudio=new Audio(AUD.k1); let kStop=null;
 let dictCurrent=null, dictDone=0;
-const dictNorm=s=>s.replace(/[\s。，、！？!?,.：:；;“”"'（）()]/g,"");
+/* chấm nghe – viết: bỏ mọi dấu câu/khoảng trắng, đồng nhất chữ số (８→8) và số chữ Hán (八→8, 十二→12) */
+const CN_D={"零":0,"〇":0,"一":1,"二":2,"两":2,"三":3,"四":4,"五":5,"六":6,"七":7,"八":8,"九":9};
+const cnToNum=m=>{ if(m.includes("十")){ const [a,b]=m.split("十"); return String((a?(CN_D[a]??1):1)*10+(b?(CN_D[b]||0):0)); } return [...m].map(c=>CN_D[c]).join(""); };
+const dictNorm=s=>s.normalize("NFKC").replace(/[\p{P}\p{S}\s]/gu,"").replace(/[零〇一二两三四五六七八九]?十[一二三四五六七八九]?|[零〇一二两三四五六七八九]+/g,cnToNum);
+/* ô gõ tự thu nhỏ chữ để câu dài vẫn hiện đủ */
+function fitDictInput(){ const i=document.getElementById("dictInput"); if(!i) return; i.style.fontSize=""; const base=parseFloat(getComputedStyle(i).fontSize); let fs=base; const cs=getComputedStyle(i); const pad=parseFloat(cs.paddingLeft)+parseFloat(cs.paddingRight)+8;
+  const n=[...(i.value||dictCurrent&&dictCurrent.h||"")].length; const w=i.clientWidth-pad; if(n&&fs*n>w) fs=Math.max(14,w/n); i.style.fontSize=fs+"px"; }
+window.addEventListener("resize",fitDictInput);
 function dictPool(){ const v=document.getElementById("dictSet").value; return v==="w"?dictWords:v==="s"?dictSents:dictWords.concat(dictSents); }
 function dictNewWord(){
   const pool=dictPool(); let next;
   do{ next=pool[Math.floor(Math.random()*pool.length)]; }while(pool.length>1 && next===dictCurrent);
   dictCurrent=next;
-  const input=document.getElementById("dictInput"); input.value=""; input.classList.remove("correct","wrong");
+  const input=document.getElementById("dictInput"); input.value=""; input.classList.remove("correct","wrong"); fitDictInput();
   document.getElementById("dictResult").innerHTML="";
 }
 function dictPlay(){
@@ -1159,8 +1167,8 @@ function dictPlay(){
   const btn=document.querySelector(".dict-play-btn");
   kAudio.pause(); clearInterval(kStop);
   if(dictCurrent.audio){ playVocabAudio(btn, dictCurrent.audio); return; }
-  btn.classList.add("playing"); kAudio.currentTime=dictCurrent.seg[0]; kAudio.play().catch(()=>btn.classList.remove("playing"));
-  const end=dictCurrent.seg[1]+0.25;
+  btn.classList.add("playing"); kAudio.currentTime=Math.max(0,dictCurrent.seg[0]-0.3); kAudio.play().catch(()=>btn.classList.remove("playing"));
+  const end=dictCurrent.seg[1]+0.45;
   kStop=setInterval(()=>{ if(kAudio.currentTime>=end||kAudio.paused){ kAudio.pause(); clearInterval(kStop); btn.classList.remove("playing"); } },50);
 }
 function checkDictation(){
@@ -1180,8 +1188,10 @@ function revealDictation(){
   if(!dictCurrent) dictNewWord();
   const input=document.getElementById("dictInput"); input.value=dictCurrent.h; input.classList.remove("wrong"); input.classList.add("correct");
   document.getElementById("dictResult").innerHTML='<span class="dr-py">'+dictCurrent.p+'</span> — '+dictCurrent.vi;
+  fitDictInput();
 }
 document.getElementById("dictSet").addEventListener("change", dictNewWord);
+document.getElementById("dictInput").addEventListener("input", fitDictInput);
 document.getElementById("dictInput").addEventListener("keydown", e=>{ if(e.key==="Enter"){ e.preventDefault(); if(e.target.classList.contains("correct")) dictNewWord(); else checkDictation(); } });
 dictNewWord();
 

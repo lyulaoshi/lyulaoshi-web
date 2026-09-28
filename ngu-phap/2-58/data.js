@@ -39,7 +39,7 @@ practice:[
   {w:["他的手机","比","我的","更","贵"], a:"他的手机比我的更贵。", vi:"Điện thoại của anh ấy còn đắt hơn của tôi."},
   {w:["我的","中文成绩","不如","班长"], a:"我的中文成绩不如班长。", vi:"Điểm tiếng Trung của tôi không bằng lớp trưởng."}]},
  {t:"C. Viết lại theo yêu cầu", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {ask:"Dùng 不如", q:"飞机比火车快。", a:"火车不如飞机快。"},
-  {ask:"Dùng 没有……那么", q:"他比我高。", a:"我没有他那么高。"}]}],
+  {ask:"Dùng 不如", q:"飞机比火车快。", vi:"Máy bay nhanh hơn tàu hỏa.", a:"火车不如飞机快。"},
+  {ask:"Dùng 没有……那么", q:"他比我高。", vi:"Anh ấy cao hơn tôi.", a:"我没有他那么高。"}]}],
 rel:["一38","二53","二59","三58"]
 };

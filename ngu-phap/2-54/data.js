@@ -31,7 +31,7 @@ practice:[
   {w:["明天","阴天"], a:"明天阴天。", vi:"Mai trời âm u."},
   {w:["我","今年","十九岁"], a:"我今年十九岁。", vi:"Năm nay tôi 19 tuổi."}]},
  {t:"C. Đổi sang phủ định", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {ask:"Phủ định", q:"今天星期三。", a:"今天不是星期三。"},
-  {ask:"Phủ định", q:"他中国人。", a:"他不是中国人。"}]}],
+  {ask:"Phủ định", q:"今天星期三。", vi:"Hôm nay thứ Tư.", a:"今天不是星期三。"},
+  {ask:"Phủ định", q:"他中国人。", vi:"Anh ấy người Trung Quốc.", a:"他不是中国人。"}]}],
 rel:["二48","一29","一30","三53"]
 };

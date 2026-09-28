@@ -28,7 +28,7 @@ practice:[
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["因为","明天有考试","所以","我","想","早点儿","睡觉"], a:"因为明天有考试，所以我想早点儿睡觉。", vi:"Vì mai có thi nên tôi muốn ngủ sớm."}]},
  {t:"C. Nối bằng 因为……所以……", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"他病了 / 没来上课", a:"因为他病了，所以没来上课。"},
-  {q:"今天很冷 / 我不想出去", a:"因为今天很冷，所以我不想出去。"}]}],
+  {q:"他病了 / 没来上课", vi:"Anh ấy bị ốm / không đến lớp", a:"因为他病了，所以没来上课。"},
+  {q:"今天很冷 / 我不想出去", vi:"Hôm nay rất lạnh / tôi không muốn ra ngoài", a:"因为今天很冷，所以我不想出去。"}]}],
 rel:["二05","三71","三25","二66"]
 };
