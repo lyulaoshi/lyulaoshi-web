@@ -1,135 +1,82 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ngữ âm tiếng Trung — ThS. Lã Thị Thùy Phương</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>拼音盒 · Ngữ âm tiếng Trung – 吕老师汉语盒</title>
+<meta name="description" content="Ngữ âm tiếng Trung cho người mới bắt đầu: thanh mẫu, vận mẫu, thanh điệu, biến điệu, có audio và video khẩu hình – ThS. Lã Thị Thuỳ Phương.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../tro-choi/game.css?v=4">
+<link rel="stylesheet" href="/chung/hero.css?v=1">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
-  :root{
-    --coral:#FF8FA3; --coral-deep:#FF6B85; --lavender:#B2A4FF; --mint:#7FE0C7;
-    --butter:#FFD972; --sky:#8FD3FF; --bg:#FFF8F5; --card:#FFFFFF; --ink:#4A4458; --muted:#9089A3; --line:#F1E4F5;
-  }
-  *{box-sizing:border-box;}
-  body{
-    margin:0; font-family:'Nunito',sans-serif; background:var(--bg); color:var(--ink);
-    min-height:100vh; display:flex; flex-direction:column; align-items:center;
-  }
-  header{
-    width:100%; background:linear-gradient(135deg, var(--coral), var(--lavender));
-    padding:56px 20px 44px; text-align:center; color:#fff;
-    background-image:
-      radial-gradient(circle at 20% 30%, rgba(255,255,255,.18) 0 40px, transparent 41px),
-      radial-gradient(circle at 80% 60%, rgba(255,255,255,.14) 0 60px, transparent 61px),
-      linear-gradient(135deg, var(--coral), var(--lavender));
-  }
-  header .pill{
-    display:inline-block; background:rgba(255,255,255,.22); border-radius:999px; padding:8px 24px;
-    font-family:'Baloo 2',sans-serif; font-weight:700; font-size:22px; margin-bottom:18px;
-  }
-  header h1{
-    font-family:'Baloo 2',sans-serif; font-size:44px; font-weight:800; margin:0 0 12px;
-    text-shadow:0 2px 10px rgba(0,0,0,.08);
-  }
-  header p{font-size:18px; margin:0 auto; max-width:640px; opacity:.95; line-height:1.6;}
-  header .teacher{margin-top:22px; font-size:17px; font-weight:700; display:inline-flex; align-items:center; gap:8px;}
-  main{width:100%; max-width:1100px; padding:40px 20px 60px;}
-  .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
-  @media (max-width:720px){.grid{grid-template-columns:1fr;}}
-  .cardLink{text-decoration:none; color:inherit;}
-  .card{
-    background:var(--card); border-radius:24px; padding:26px 28px; height:100%;
-    border:2px solid var(--line); transition:.18s; display:flex; flex-direction:column; gap:12px;
-    box-shadow:0 4px 14px rgba(74,68,88,.05);
-  }
-  .card:hover{transform:translateY(-4px); box-shadow:0 12px 28px rgba(74,68,88,.14); border-color:var(--coral);}
-  .cardTop{display:flex; align-items:center; gap:14px;}
-  .badge{
-    font-family:'Baloo 2',sans-serif; font-weight:800; font-size:22px; color:#fff;
-    width:52px; height:52px; border-radius:16px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;
-  }
-  .b1{background:var(--coral-deep);} .b2{background:var(--sky);} .b3{background:var(--lavender);} .b4{background:#3BB89A;}
-  .card h2{font-family:'Baloo 2',sans-serif; font-size:24px; margin:0; font-weight:700;}
-  .card .zh{color:var(--muted); font-size:15px; font-weight:600;}
-  .card .desc{font-size:15.5px; line-height:1.6; color:var(--ink); margin:0;}
-  .card .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:auto;}
-  .tag{background:var(--bg); border:1px solid var(--line); border-radius:999px; padding:5px 14px; font-size:13px; font-weight:700; color:var(--coral-deep);}
-  .goBtn{
-    margin-top:6px; align-self:flex-start; background:var(--coral); color:#fff; font-weight:800;
-    padding:10px 22px; border-radius:999px; font-size:15px; display:inline-flex; align-items:center; gap:6px;
-  }
-  footer{color:var(--muted); font-size:14px; padding:0 20px 40px; text-align:center;}
+body{background-image:radial-gradient(circle at 12% 8%,var(--sky-s) 0,transparent 32%),radial-gradient(circle at 92% 18%,var(--coral-s) 0,transparent 30%)}
+.brand img{width:34px;height:34px;flex:none}
+.sh{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:44px 0 18px;scroll-margin-top:70px}
+.sh h2{font-size:clamp(24px,3vw,32px);font-weight:800}
+.sh h2 small{font-family:var(--hz);font-weight:400;color:var(--sky);font-size:.8em;margin-left:8px}
+.sh p{margin:0;color:var(--muted)}
+.lessons{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:22px}
+.card{--c:var(--sky);--cs:var(--sky-s);position:relative;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:var(--card);border-radius:28px;padding:24px 26px 22px;box-shadow:var(--shadow);border:1.5px solid transparent;transition:transform .2s,box-shadow .2s,border-color .2s}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:118px;background:var(--cs);z-index:0}
+.card>*{position:relative;z-index:1}
+.card .wm{position:absolute;right:-6px;top:-18px;font-family:var(--kai);font-size:150px;line-height:1;color:var(--c);opacity:.12;z-index:0;pointer-events:none}
+.card:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:0 18px 40px rgba(46,50,80,.14);border-color:var(--c)}
+.card .num{display:inline-flex;align-items:center;gap:8px;font-weight:800;color:var(--c);font-size:14px;letter-spacing:.06em}
+.card .num i{font-style:normal;background:var(--c);color:#fff;border-radius:12px;min-width:34px;height:34px;display:grid;place-items:center;font-size:17px}
+.card .zh{font-family:var(--hz);font-size:40px;line-height:1.15;margin:16px 0 0}
+.card .vi{font-size:19px;font-weight:700}
+.card .desc{color:var(--muted);font-size:15px;margin:6px 0 14px}
+.card .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.card .chip{font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--cs);color:var(--c)}
+.card .go{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1.5px dashed var(--line);font-weight:700;color:var(--c)}
+.card .go .ar{width:38px;height:38px;border-radius:50%;background:var(--c);color:#fff;display:grid;place-items:center;font-size:18px;transition:transform .2s}
+.card:hover .go .ar{transform:translateX(4px)}
+.card.c-coral{--c:var(--coral);--cs:var(--coral-s)}.card.c-peach{--c:var(--peach);--cs:var(--peach-s)}.card.c-mint{--c:var(--mint);--cs:var(--mint-s)}.card.c-lav{--c:var(--lav);--cs:var(--lav-s)}
+@media (max-width:480px){.card{padding:22px 20px 20px}}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
 </head>
 <body>
-  <header>
-    <span class="pill">语音</span>
-    <h1>Ngữ âm tiếng Trung</h1>
-    <p>Bộ 4 bài giảng ngữ âm tương tác — thanh mẫu, vận mẫu, thanh điệu và bài tập luyện tập có audio/video minh hoạ.</p>
-    <div class="teacher">👩‍🏫 Giảng viên: ThS. Lã Thị Thùy Phương</div>
-  </header>
-  <main>
-    <div class="grid">
-      <a class='cardLink' href='phan-1/'>
-        <div class="card">
-          <div class="cardTop">
-            <div class="badge b1">1</div>
-            <div>
-              <h2>Ngữ âm tiếng Trung (1)</h2>
-              <div class="zh">预备课（一）</div>
-            </div>
-          </div>
-          <p class="desc">Kiến thức nền tảng: thanh mẫu b, p, m, f, d, t, n, l; vận mẫu đơn/kép a, o, e, i, u, ü, ai, ei, ao, ou; 4 thanh điệu và thanh nhẹ.</p>
-          <div class="tags"><span class="tag">Thanh mẫu b p m f d t n l</span><span class="tag">Vận mẫu cơ bản</span><span class="tag">4 thanh điệu</span></div>
-          <span class="goBtn">Vào học →</span>
-        </div>
-      </a>
-      <a class='cardLink' href='phan-2/'>
-        <div class="card">
-          <div class="cardTop">
-            <div class="badge b2">2</div>
-            <div>
-              <h2>Ngữ âm tiếng Trung (2)</h2>
-              <div class="zh">预备课（二）</div>
-            </div>
-          </div>
-          <p class="desc">Thanh mẫu gốc lưỡi g, k, h; vận mẫu mũi an, ang, en, eng, ong; biến điệu thanh 3, biến điệu "一" và "不".</p>
-          <div class="tags"><span class="tag">Thanh mẫu g k h</span><span class="tag">Vận mẫu mũi</span><span class="tag">Biến điệu</span></div>
-          <span class="goBtn">Vào học →</span>
-        </div>
-      </a>
-      <a class='cardLink' href='phan-3/'>
-        <div class="card">
-          <div class="cardTop">
-            <div class="badge b3">3</div>
-            <div>
-              <h2>Ngữ âm tiếng Trung (3)</h2>
-              <div class="zh">预备课（三）</div>
-            </div>
-          </div>
-          <p class="desc">Thanh mẫu mặt lưỡi j, q, x; vận mẫu ia, ie, iao, iou, ian, iang, in, ing, iong; üe, üan, ün và quy tắc dấu cách âm.</p>
-          <div class="tags"><span class="tag">Thanh mẫu j q x</span><span class="tag">Vận mẫu nhóm i/ü</span><span class="tag">Dấu cách âm</span></div>
-          <span class="goBtn">Vào học →</span>
-        </div>
-      </a>
-      <a class='cardLink' href='phan-4/'>
-        <div class="card">
-          <div class="cardTop">
-            <div class="badge b4">4</div>
-            <div>
-              <h2>Ngữ âm tiếng Trung (4)</h2>
-              <div class="zh">预备课（四）</div>
-            </div>
-          </div>
-          <p class="desc">Thanh mẫu đầu lưỡi/uốn lưỡi z, c, s, zh, ch, sh, r; vận mẫu ua, uo, uai, uei, uan, uen, uang; er và er hoá.</p>
-          <div class="tags"><span class="tag">Thanh mẫu z c s zh ch sh r</span><span class="tag">Vận mẫu nhóm u</span><span class="tag">er hoá</span></div>
-          <span class="goBtn">Vào học →</span>
-        </div>
-      </a>
-    </div>
-  </main>
-  <footer>© Tài liệu được biên soạn bởi ThS. Lã Thị Thuỳ Phương</footer>
+<!-- 拼音盒 · trang mục lục ngữ âm (làm lại theo phong cách chung 29/09/2026; 4 bài phan-1..4 giữ nguyên từ site cũ) -->
+<header class="top"><div class="wrap">
+  <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><img src="../img/logo-hallo-128.png" alt=""><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="../tro-choi/thanh-dieu/" class="hide-s">Săn thanh điệu</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+</div></header>
+<main class="wrap">
+<section class="lh" style="--c:var(--sky);--c2:var(--coral);--cs:var(--sky-s)">
+  <div><span class="lh-eyebrow">Hộp học tiếng Trung của cô Lã</span>
+    <h1><span class="lh-big"><i>拼音</i><u>盒</u></span>Ngữ âm<br>tiếng Trung</h1>
+    <p class="lh-lead">Bốn bài ngữ âm tương tác cho người mới bắt đầu: <b>thanh mẫu, vận mẫu, thanh điệu</b> và biến điệu 一 · 不, có audio, video khẩu hình và bài tập luyện nghe.</p>
+    <div class="lh-acts"><a class="lh-btn pri" href="phan-1/">Học Phần 1 →</a><a class="lh-btn sec" href="#cac-phan">Xem 4 phần ↓</a></div>
+    <div class="lh-stats"><div><b>4</b>phần bài giảng</div><div><b>21</b>thanh mẫu</div><div><b>4</b>thanh điệu + thanh nhẹ</div><div><b>一 · 不</b>biến điệu</div></div></div>
+  <div class="lh-art" aria-hidden="true"><svg viewBox="0 0 400 420"><ellipse cx="200" cy="398" rx="160" ry="13" fill="currentColor" opacity=".09"/><rect x="56" y="40" width="288" height="330" rx="26" fill="#fff" stroke="#E3DFEE" stroke-width="2"/><path d="M56 110V66a26 26 0 0 1 26-26h236a26 26 0 0 1 26 26v44z" fill="#3B87D6"/><text x="84" y="88" font-family="ZCOOL KuaiLe,STKaiti,serif" font-size="30" fill="#fff">声调</text><text x="316" y="86" text-anchor="end" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="14" fill="#fff" fill-opacity=".9">4 THANH ĐIỆU</text><path d="M96 150H276" stroke="#E3DFEE" stroke-width="2" stroke-dasharray="4 5"/><path d="M96 180H276" stroke="#E3DFEE" stroke-width="2" stroke-dasharray="4 5"/><path d="M96 210H276" stroke="#E3DFEE" stroke-width="2" stroke-dasharray="4 5"/><path d="M96 240H276" stroke="#E3DFEE" stroke-width="2" stroke-dasharray="4 5"/><path d="M96 270H276" stroke="#E3DFEE" stroke-width="2" stroke-dasharray="4 5"/><text x="292" y="156" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="12" fill="#A3A5B8">5</text><text x="292" y="186" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="12" fill="#A3A5B8">4</text><text x="292" y="216" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="12" fill="#A3A5B8">3</text><text x="292" y="246" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="12" fill="#A3A5B8">2</text><text x="292" y="276" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="12" fill="#A3A5B8">1</text><path d="M110 150H170" fill="none" stroke="#E0545F" stroke-width="9" stroke-linecap="round"/><path d="M200 210L260 150" fill="none" stroke="#E7823A" stroke-width="9" stroke-linecap="round"/><path d="M110 230Q140 290 170 220" fill="none" stroke="#2E9E73" stroke-width="9" stroke-linecap="round"/><path d="M200 150L260 270" fill="none" stroke="#7C6BD6" stroke-width="9" stroke-linecap="round"/><text x="140" y="138" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="22" fill="#E0545F">mā</text><text x="230" y="138" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="22" fill="#E7823A">má</text><text x="140" y="318" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="22" fill="#2E9E73">mǎ</text><text x="230" y="318" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="22" fill="#7C6BD6">mà</text><text x="200" y="352" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="22" fill="#6B6E86">妈 麻 马 骂</text></svg><span class="lh-pop a py">ā á ǎ à</span><span class="lh-pop b">你好</span><span class="lh-pop c py">zh ch sh</span><span class="lh-pop d py">bō pō mō</span></div>
+</section>
+  <div class="sh" id="cac-phan"><h2>Bốn phần ngữ âm <small>语音</small></h2><p>Học theo thứ tự từ Phần 1; mỗi phần có audio, video khẩu hình và bài tập.</p></div>
+  <section class="lessons">
+    <a class="card c-coral" href="phan-1/"><span class="wm">声</span><span class="num"><i>1</i>PHẦN 1</span>
+      <span class="zh">预备课（一）</span><span class="vi">Nền tảng</span><p class="desc">Thanh mẫu b, p, m, f, d, t, n, l; vận mẫu đơn/kép a, o, e, i, u, ü, ai, ei, ao, ou; 4 thanh điệu và thanh nhẹ.</p>
+      <div class="chips"><span class="chip">b p m f d t n l</span><span class="chip">Vận mẫu cơ bản</span><span class="chip">4 thanh điệu</span></div>
+      <span class="go">Vào học<span class="ar">→</span></span></a>
+    <a class="card c-peach" href="phan-2/"><span class="wm">韵</span><span class="num"><i>2</i>PHẦN 2</span>
+      <span class="zh">预备课（二）</span><span class="vi">Âm gốc lưỡi & vận mẫu mũi</span><p class="desc">Thanh mẫu gốc lưỡi g, k, h; vận mẫu mũi an, ang, en, eng, ong; biến điệu thanh 3, biến điệu “一” và “不”.</p>
+      <div class="chips"><span class="chip">g k h</span><span class="chip">Vận mẫu mũi</span><span class="chip">Biến điệu</span></div>
+      <span class="go">Vào học<span class="ar">→</span></span></a>
+    <a class="card c-mint" href="phan-3/"><span class="wm">调</span><span class="num"><i>3</i>PHẦN 3</span>
+      <span class="zh">预备课（三）</span><span class="vi">Âm mặt lưỡi j q x</span><p class="desc">Thanh mẫu mặt lưỡi j, q, x; vận mẫu ia, ie, iao, iou, ian, iang, in, ing, iong; üe, üan, ün và quy tắc dấu cách âm.</p>
+      <div class="chips"><span class="chip">j q x</span><span class="chip">Nhóm i / ü</span><span class="chip">Dấu cách âm</span></div>
+      <span class="go">Vào học<span class="ar">→</span></span></a>
+    <a class="card c-lav" href="phan-4/"><span class="wm">儿</span><span class="num"><i>4</i>PHẦN 4</span>
+      <span class="zh">预备课（四）</span><span class="vi">Âm đầu lưỡi & uốn lưỡi</span><p class="desc">Thanh mẫu z, c, s, zh, ch, sh, r; vận mẫu ua, uo, uai, uei, uan, uen, uang; er và âm er hoá.</p>
+      <div class="chips"><span class="chip">z c s · zh ch sh r</span><span class="chip">Nhóm u</span><span class="chip">er hoá</span></div>
+      <span class="go">Vào học<span class="ar">→</span></span></a>
+    </section>
+</main>
+<div class="wrap"><footer>Lyu Laoshi Chinese Box · 吕老师汉语盒 — ThS. Lã Thị Thuỳ Phương</footer></div>
+<script>(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();</script>
 </body>
 </html>

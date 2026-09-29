@@ -125,6 +125,7 @@
 @media (prefers-reduced-motion:reduce){.card .in,.pack,.goal i{transition:none}}
 </style>
 <link rel="stylesheet" href="/chung/ic.css">
+<link rel="stylesheet" href="/chung/hero.css?v=1">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
 </head>
 <body>
@@ -134,11 +135,14 @@
 </div></header>
 
 <main class="wrap" id="home">
-  <section class="hero">
-    <div class="eyebrow">词汇盒</div>
-    <h1>Flashcard mỗi ngày</h1>
-    <p>Học theo cấp HSK, theo bài trong giáo trình hoặc theo chủ đề. Mỗi thẻ từ đi qua 5 chiếc hộp. Nhớ thì thẻ lên hộp sau và lâu hơn mới gặp lại, quên thì quay về hộp đầu. Mỗi ngày chỉ cần ôn những thẻ đến hạn.</p>
-  </section>
+<section class="lh" style="--c:var(--lav);--c2:var(--coral);--cs:var(--lav-s)">
+  <div><span class="lh-eyebrow">Hộp học tiếng Trung của cô Lã</span>
+    <h1><span class="lh-big"><i>词汇</i><u>盒</u></span>Flashcard<br>từ vựng mỗi ngày</h1>
+    <p class="lh-lead">Thẻ từ theo <b>bài học</b>, theo <b>cấp HSK</b> (đề cương thi 2025) và theo <b>chủ đề</b>. Mỗi thẻ đi qua 5 chiếc hộp: nhớ thì lên hộp sau, lâu hơn mới gặp lại; quên thì quay về hộp đầu. Mỗi ngày chỉ ôn thẻ đến hạn.</p>
+    <div class="lh-acts"><a class="lh-btn pri" href="#hTitle">Ôn hôm nay ↓</a><a class="lh-btn sec" href="../tro-choi/">Chơi với từ →</a></div>
+    <div class="lh-stats"><div><b>3</b>cách chọn thẻ</div><div id="stBai"><b>20</b>bài có thẻ từ</div><div><b>HSK 1–9</b>đề cương 2025</div><div><b>5</b>hộp Leitner</div></div></div>
+  <div class="lh-art" aria-hidden="true"><svg viewBox="0 0 400 420"><ellipse cx="200" cy="398" rx="150" ry="13" fill="currentColor" opacity=".09"/><rect x="96" y="60" width="230" height="310" rx="22" fill="#ECE8FB" transform="rotate(8 211 215)"/><g transform="rotate(-4 195 209)"><rect x="80" y="54" width="230" height="310" rx="22" fill="#fff" stroke="#E3DFEE" stroke-width="2"/><path d="M80 118V76a22 22 0 0 1 22-22h186a22 22 0 0 1 22 22v42z" fill="#7C6BD6"/><text x="195" y="94" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="15" fill="#fff" letter-spacing="3">HSK 1 · 301 BÀI 11</text><text x="195" y="222" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="92" fill="#2B2E45">手机</text><text x="195" y="264" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="24" fill="#7C6BD6">shǒujī</text><text x="195" y="296" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-size="17" fill="#6B6E86">điện thoại di động</text><rect x="137" y="326" width="18" height="18" rx="5" fill="#7C6BD6"/><rect x="161" y="326" width="18" height="18" rx="5" fill="#7C6BD6"/><rect x="185" y="326" width="18" height="18" rx="5" fill="#7C6BD6"/><rect x="209" y="326" width="18" height="18" rx="5" fill="#ECE8FB"/><rect x="233" y="326" width="18" height="18" rx="5" fill="#ECE8FB"/></g></svg><span class="lh-pop a">记住了！</span><span class="lh-pop b py">shǒujī</span><span class="lh-pop c">再来</span><span class="lh-pop d py">điện thoại</span></div>
+</section>
 
   <section class="panel today" aria-labelledby="hTitle">
     <div>
@@ -481,5 +485,6 @@ function route(){const h=decodeURIComponent(location.hash.slice(1)).split('/');i
 route();addEventListener('hashchange',route);
 })();
 </script>
+<script>try{const e=document.querySelector('#stBai b');if(e&&window.BAI)e.textContent=BAI.reduce((t,b)=>t+b.bai.length,0)}catch(e){}</script>
 </body>
 </html>

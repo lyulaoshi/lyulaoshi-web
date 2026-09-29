@@ -56,7 +56,7 @@ h1,h2,h3{margin:0;text-wrap:balance}
 .head h1 span{font-family:var(--hz);font-weight:400;color:var(--coral);margin-right:10px}
 .head p{margin:8px 0 0;color:var(--muted);max-width:36em}
 
-.resume{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:18px;background:var(--card);box-shadow:var(--shadow);text-decoration:none;min-width:0}
+.resume{margin-top:22px;max-width:420px;display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:18px;background:var(--card);box-shadow:var(--shadow);text-decoration:none;min-width:0}
 .resume .ic{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-family:var(--hz);font-size:20px;background:var(--peach-s);color:var(--peach)}
 .resume small{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .resume b{display:block;font-size:15px}
@@ -219,6 +219,7 @@ body.has-bar{padding-bottom:96px}
 footer{padding:18px 0 32px;margin-top:32px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
 </style>
 <link rel="stylesheet" href="/chung/ic.css">
+<link rel="stylesheet" href="/chung/hero.css?v=1">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -227,16 +228,17 @@ footer{padding:18px 0 32px;margin-top:32px;color:var(--muted);font-size:13px;bor
 </div></header>
 
 <main class="wrap">
-  <header class="head">
-    <div>
-      <span class="eyebrow">Giá sách của cô Lã</span>
-      <h1><span>课本盒</span>Giáo trình</h1>
-      <p>Chọn cuốn sách em đang học trên lớp. Mục lục ghi đủ các bài: bài chữ đậm đã có trên web, bấm để xem ngay.</p>
-    </div>
-    <a class="resume" id="resume" href="#" hidden><span class="ic" id="rIc"></span><span><small>Học tiếp</small><b id="rT"></b></span><span class="go">→</span></a>
-  </header>
+<section class="lh" style="--c:var(--coral);--c2:var(--sky);--cs:var(--coral-s)">
+  <div><span class="lh-eyebrow">Hộp học tiếng Trung của cô Lã</span>
+    <h1><span class="lh-big"><i>课本</i><u>盒</u></span>Giá sách<br>giáo trình</h1>
+    <p class="lh-lead">Năm giáo trình cô dạy trên lớp: <b>TTTC, 乐读, 汉语阅读教程, 博雅汉语, 301 câu</b>. Chọn cuốn đang học, mở mục lục, học bài, ôn từ vựng và ngữ pháp của từng bài.</p>
+    <div class="lh-acts"><a class="lh-btn pri" id="lhGo" href="#ke">Chọn giáo trình ↓</a><a class="lh-btn sec" href="../tu-vung/">Ôn từ vựng →</a></div>
+    <div class="lh-stats"><div id="stGt"><b>5</b>giáo trình</div><div id="stWeb"><b>23</b>bài trên web</div><div id="stHp"><b>52</b>bài cả học phần</div><div id="stOn"><b>5</b>bài ôn tập</div></div>
+    <a class="resume" id="resume" href="#" hidden><span class="ic" id="rIc"></span><span><small>Học tiếp</small><b id="rT"></b></span><span class="go">→</span></a></div>
+  <div class="lh-art" aria-hidden="true"><svg viewBox="0 0 400 420"><defs><linearGradient id="lhsh" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset=".3" stop-color="#fff" stop-opacity=".2"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="200" cy="398" rx="170" ry="13" fill="currentColor" opacity=".09"/><rect x="30" y="360" width="340" height="18" rx="4" fill="#B98457"/><rect x="30" y="360" width="340" height="5" fill="#D6AC7C"/><rect x="52" y="130" width="66" height="230" rx="6" fill="#E0545F"/><rect x="52" y="130" width="66" height="230" rx="6" fill="url(#lhsh)"/><path d="M52 146h66M52 152h66M52 344h66" stroke="#F1D79E" stroke-width="2.5"/><rect x="72.0" y="166" width="26" height="108" rx="2" fill="#FBF5E6"/><text x="85.0" y="188" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45" style="writing-mode:vertical-rl">强化教程</text><rect x="126" y="164" width="48" height="196" rx="6" fill="#3B87D6"/><rect x="126" y="164" width="48" height="196" rx="6" fill="url(#lhsh)"/><path d="M126 180h48M126 186h48M126 344h48" stroke="#F1D79E" stroke-width="2.5"/><rect x="137.0" y="200" width="26" height="60" rx="2" fill="#FBF5E6"/><text x="150.0" y="222" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45" style="writing-mode:vertical-rl">乐读</text><rect x="182" y="138" width="58" height="222" rx="6" fill="#2E9E73"/><rect x="182" y="138" width="58" height="222" rx="6" fill="url(#lhsh)"/><path d="M182 154h58M182 160h58M182 344h58" stroke="#F1D79E" stroke-width="2.5"/><rect x="198.0" y="174" width="26" height="108" rx="2" fill="#FBF5E6"/><text x="211.0" y="196" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45" style="writing-mode:vertical-rl">阅读教程</text><rect x="248" y="154" width="52" height="206" rx="6" fill="#7C6BD6"/><rect x="248" y="154" width="52" height="206" rx="6" fill="url(#lhsh)"/><path d="M248 170h52M248 176h52M248 344h52" stroke="#F1D79E" stroke-width="2.5"/><rect x="261.0" y="190" width="26" height="108" rx="2" fill="#FBF5E6"/><text x="274.0" y="212" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45" style="writing-mode:vertical-rl">博雅汉语</text><rect x="308" y="122" width="56" height="238" rx="6" fill="#E7823A"/><rect x="308" y="122" width="56" height="238" rx="6" fill="url(#lhsh)"/><path d="M308 138h56M308 144h56M308 344h56" stroke="#F1D79E" stroke-width="2.5"/><rect x="323.0" y="158" width="26" height="60" rx="2" fill="#FBF5E6"/><text x="336.0" y="180" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45" style="writing-mode:vertical-rl">会话</text><path d="M340 122v70l-9-10-9 10v-70" fill="#B8323C"/></svg><span class="lh-pop a">目录</span><span class="lh-pop b">课本</span><span class="lh-pop c py">Bài 11–14</span><span class="lh-pop d py">mùlù</span></div>
+</section>
 
-  <section class="shelf" aria-label="Giá sách">
+  <section class="shelf" id="ke" aria-label="Giá sách">
     <div class="books" id="books" role="group" aria-label="Chọn giáo trình"></div>
   </section>
   <div class="plank"></div>
@@ -354,11 +356,15 @@ function bar(){
 }
 function resume(){
   const L=last();if(!L)return;
-  $("#resume").hidden=false;$("#resume").href=`${SITE}${L.b}/bai-${L.n}/`;
+  $("#resume").hidden=false;const g=$("#lhGo");if(g){g.href=`${SITE}${L.b}/bai-${L.n}/`;g.textContent=`Học tiếp: ${L.B.short} · Bài ${L.n} →`}$("#resume").href=`${SITE}${L.b}/bai-${L.n}/`;
   const t=title(L.B,L.n);$("#rIc").textContent=(t.zh.startsWith("第")?L.B.seal:t.zh.slice(0,2));
   $("#rT").textContent=`${L.B.short} · Bài ${L.n} · ${t.zh}`;
 }
 books();panel();resume();
+// số liệu đầu trang tự đếm từ dữ liệu giá sách
+(function(){const n=(id,v)=>{const e=document.querySelector('#'+id+' b');if(e)e.textContent=v};
+ n('stGt',BOOKS.length);n('stWeb',BOOKS.reduce((t,B)=>t+nums(B).length,0));
+ n('stHp',BOOKS.reduce((t,B)=>t+(B.total?B.total-(B.from||1)+1:nums(B).length),0));n('stOn',BOOKS.reduce((t,B)=>t+(B.on||[]).length,0));})();
 // giữ dải lụa đúng khi quay lại trang bằng nút Back
 addEventListener("pageshow",e=>{if(e.persisted){books();panel();resume()}});
 (function(){const r=document.documentElement,b=$("#themeBtn");
