@@ -1247,5 +1247,21 @@ tocLinks.forEach(a=>a.addEventListener("click", ()=>document.getElementById("toc
   document.addEventListener("keydown",e=>{ if(e.key==="Escape") set(false); });
 })();
 </script>
+<!-- 词汇盒: nút ôn từ vựng, do tools/build_site.py gắn khi ghép -->
+<a class="lls-tv" href="../../tu-vung/#ledu/bai-5" style="--tv-bg:#fff;--tv-c:var(--red,#E63946);--tv-b:#F3C9CC" title="Ôn từ vựng bài này bằng flashcard (词汇盒)" aria-label="Ôn từ vựng bài này"><b>词</b><span>Ôn từ vựng bài này</span></a>
+<style>.lls-tv{position:fixed;left:14px;bottom:14px;z-index:2147483000;display:flex;align-items:center;padding:3px;border-radius:var(--tv-r,999px);
+background:var(--tv-bg,#fff);color:var(--tv-c,#7C6BD6)!important;border:1.5px solid var(--tv-b,currentColor);text-decoration:none!important;
+font-family:inherit;font-size:13px;font-weight:700;line-height:1;box-shadow:0 2px 6px rgba(0,0,0,.08);opacity:.85;transition:opacity .2s,padding .25s}
+.lls-tv b{display:grid;place-items:center;width:24px;height:24px;border-radius:var(--tv-r,50%);background:var(--tv-c,#7C6BD6);color:var(--tv-bg,#fff);font:400 14px/1 "STKaiti","KaiTi","Kaiti SC",serif;flex:none}
+.lls-tv span{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transition:max-width .25s,opacity .2s,margin .25s}
+.lls-tv:hover,.lls-tv:focus-visible{opacity:1;padding-right:11px}.lls-tv:hover span,.lls-tv:focus-visible span{max-width:150px;opacity:1;margin-left:7px}
+@media print{.lls-tv{display:none}}</style>
+<script>/* bài có cột mục lục cố định bên trái: dịch nút sang phải cột đó */
+(function(){const b=document.querySelector('.lls-tv');if(!b)return;
+function fit(){b.style.left='';const r=b.getBoundingClientRect();let x=14;
+ document.elementsFromPoint(r.left+4,r.top+r.height/2).forEach(e=>{if(e===b||b.contains(e)||e===document.body||e===document.documentElement)return;
+  for(let p=e;p&&p!==document.body;p=p.parentElement){const c=getComputedStyle(p).position;if(c==='fixed'||c==='sticky'){const q=p.getBoundingClientRect();if(q.width<innerWidth*.6)x=Math.max(x,q.right+14);break}}});
+ b.style.left=x+'px'}
+addEventListener('load',fit);addEventListener('resize',fit);setTimeout(fit,1500)})();</script>
 </body>
 </html>
