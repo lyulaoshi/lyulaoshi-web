@@ -1,3 +1,6 @@
+/* Trang có tiêu đề .lh: khung rộng như trang chủ (khung cũ 1080px để hai bên trống nhiều) */
+body:has(.lh) .wrap{max-width:1240px}
+
 /* Tiêu đề đầu trang dùng chung cho các hộp (theo phong cách trang 博雅汉语, cô duyệt 29/09/2026).
    Dùng: <section class="lh" style="--c:var(--teal);--c2:var(--coral);--cs:var(--teal-s)"> … </section>
    Cần các biến màu của trang (--ink, --muted, --card, --shadow, --hz, --vi …) — có sẵn trong tro-choi/game.css. */
