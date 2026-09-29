@@ -1,4 +1,4 @@
-// Nghĩa tiếng Việt cho từ HSK 1 (khớp danh sách trong ../tro-choi/hsk-words.js). Bản nháp — cô duyệt lại.
+// Nghĩa tiếng Việt cho từ HSK 1 — đủ 300 từ HSK 1 đề cương thi mới 2025 (../tro-choi/hsk-words.js); còn giữ nghĩa các từ HSK 1 bản 2021 (nay ở HSK 2–4). Bản nháp — cô duyệt lại.
 // Mỗi dòng: chữ|nghĩa, hoặc chữ|pinyin|nghĩa khi chữ có nhiều cách đọc.
 window.NGHIA=window.NGHIA||{};
 `爱|yêu, thích
@@ -500,4 +500,42 @@ window.NGHIA=window.NGHIA||{};
 左边|bên trái
 坐|ngồi; đi (xe)
 坐下|ngồi xuống
-做|làm`.split('\n').forEach(l=>{const p=l.split('|');NGHIA[p.length>2?p[0]+'|'+p[1]:p[0]]=p[p.length-1]});
+做|làm
+边|bên, phía
+不要|đừng; không cần, không muốn
+超市|siêu thị
+出租车|xe taxi
+大家|mọi người
+店|cửa hàng, tiệm
+分钟|phút
+公司|công ty
+狗|con chó
+件|chiếc, cái (lượng từ cho áo, việc)
+饺子|sủi cảo, bánh chẻo
+可以|có thể, được
+卖|bán
+猫|con mèo
+没事|không sao; không có việc gì
+没|không, chưa (đã không); không có
+那个|cái đó, cái kia
+哪个|cái nào
+你好|xin chào
+女士|bà, quý cô (cách gọi lịch sự)
+便宜|rẻ
+漂亮|đẹp, xinh
+苹果|quả táo
+千|nghìn
+它|nó (chỉ vật, con vật)
+它们|chúng nó (chỉ vật, con vật)
+玩|chơi
+喂|alô; này
+问题|câu hỏi; vấn đề
+些|một số, vài
+雪|tuyết
+一下|một chút, một lát
+椅子|cái ghế
+有点儿|hơi, có chút
+怎么样|thế nào
+这个|cái này
+只|con, chiếc (lượng từ)
+做饭|nấu cơm`.split('\n').forEach(l=>{const p=l.split('|');NGHIA[p.length>2?p[0]+'|'+p[1]:p[0]]=p[p.length-1]});

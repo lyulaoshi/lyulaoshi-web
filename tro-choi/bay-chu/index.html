@@ -7,7 +7,7 @@
 <meta name="description" content="Trò chơi Bẫy chữ giống nhau: chọn đúng chữ Hán giữa những chữ na ná (已/己, 未/末, 买/卖…). Luyện theo cấp HSK 1–6.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="../game.css?v=3">
+<link rel="stylesheet" href="../game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 [hidden]{display:none!important}
@@ -73,7 +73,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap">
@@ -87,15 +87,15 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="chips" id="lvChips"></div>
       <h2>2. Chế độ</h2>
       <div class="chips" id="modeChips">
-        <button class="chip" type="button" data-mode="practice" aria-pressed="true">📘 Luyện tập<small>20 câu, không tính giờ</small></button>
-        <button class="chip" type="button" data-mode="challenge" aria-pressed="false">🔥 Thử thách<small>6 giây mỗi câu, 3 mạng</small></button>
+        <button class="chip" type="button" data-mode="practice" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sach></use></svg> Luyện tập<small>20 câu, không tính giờ</small></button>
+        <button class="chip" type="button" data-mode="challenge" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#lua></use></svg> Thử thách<small>6 giây mỗi câu, 3 mạng</small></button>
       </div>
       <ul class="how">
         <li>Mỗi câu là một từ HSK bị <b>khuyết một chữ</b>, có pinyin gợi ý. Chọn chữ đúng trong 2–4 chữ trông gần giống nhau.</li>
         <li>Đúng liên tiếp để lên <b>chuỗi</b>, điểm được nhân lên. Chế độ Thử thách trả lời càng nhanh càng nhiều điểm.</li>
         <li>Chọn sai, cô sẽ chỉ ra chữ đúng và pinyin của từng chữ để em phân biệt.</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -107,7 +107,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <span class="streak" id="streak"></span>
       <span class="hearts" id="hearts"></span>
       <span class="sp"></span>
-      <button type="button" id="quitBtn">✕ Dừng</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg> Dừng</button>
     </div>
     <div class="timer" id="timerBox"><i id="timer"></i></div>
     <div class="q"><div class="word" id="word" lang="zh"></div><div class="py" id="py"></div><div class="ask">Chữ nào còn thiếu?</div></div>
@@ -122,21 +122,21 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="panel">
       <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
       <div id="revBox"><h2>Những chữ em bị dính bẫy, ôn lại nhé</h2><ul class="review" id="review"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại ↻</button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
     </div>
   </section>
 </main>
 
-<footer class="wrap">Từ vựng theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · Nhóm chữ dễ nhầm do Lyu Laoshi Chinese Box biên soạn · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+<footer class="wrap">Từ vựng theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · Nhóm chữ dễ nhầm do Lyu Laoshi Chinese Box biên soạn · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../hsk-words.js"></script>
-<script src="../tts.js?v=1"></script>
-<script src="../vui.js?v=3"></script>
+<script src="../tts.js?v=2"></script>
+<script src="../vui.js?v=4"></script>
 <script src="../nhom-chu.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -181,7 +181,7 @@ function start(){
   next();
 }
 function hud(){$('qNo').textContent=qi;$('score').textContent=score;$('streak').textContent=streak>1?'chuỗi ×'+streak:'';
-  $('hearts').textContent=mode==='challenge'?'♥'.repeat(lives)+'♡'.repeat(3-lives):''}
+  $('hearts').innerHTML=mode==='challenge'?'<svg class=lli-do aria-hidden=true><use href=/chung/ic.svg#tim></use></svg>'.repeat(lives)+'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#tim-rong></use></svg>'.repeat(3-lives):''}
 function next(){
   if(!alive)return;
   if((mode==='practice'&&qi>=TOTAL)||(mode==='challenge'&&lives<=0)||qi>=deck.length)return end();

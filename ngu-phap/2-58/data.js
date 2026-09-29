@@ -40,6 +40,19 @@ practice:[
   {w:["我的","中文成绩","不如","班长"], a:"我的中文成绩不如班长。", vi:"Điểm tiếng Trung của tôi không bằng lớp trưởng."}]},
  {t:"C. Viết lại theo yêu cầu", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {ask:"Dùng 不如", q:"飞机比火车快。", vi:"Máy bay nhanh hơn tàu hỏa.", a:"火车不如飞机快。"},
-  {ask:"Dùng 没有……那么", q:"他比我高。", vi:"Anh ấy cao hơn tôi.", a:"我没有他那么高。"}]}],
+  {ask:"Dùng 没有……那么", q:"他比我高。", vi:"Anh ấy cao hơn tôi.", a:"我没有他那么高。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"他比我很高。", vi:"Anh ấy cao hơn tôi nhiều.", o:["Đúng","Sai"], a:1, why:"Không dùng 很 trong câu 比: 他比我高多了。/ 他比我高得多。"},
+  {q:"我比他大两岁。", vi:"Tôi lớn hơn anh ấy hai tuổi.", o:["Đúng","Sai"], a:0, why:"Số lượng đứng sau tính từ."},
+  {q:"今天比昨天更冷。", vi:"Hôm nay còn lạnh hơn hôm qua.", o:["Đúng","Sai"], a:0, why:"比……更 + Adj."},
+  {q:"我比他两岁大。", vi:"Tôi lớn hơn anh ấy hai tuổi.", o:["Đúng","Sai"], a:1, why:"Số lượng đứng sau tính từ: 我比他大两岁。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Tôi cao hơn em gái 5 cm.", o:["我比妹妹高五厘米。", "我比妹妹五厘米高。"], a:0, why:"比 B + Adj + số lượng."},
+  {q:"Tiếng Anh của tôi không bằng anh ấy.", o:["我的英语不如他。", "我的英语不比如他。", "我的英语如不他。"], a:0, why:"A 不如 B."},
+  {q:"Em trai không cao bằng anh trai.", o:["弟弟没有哥哥那么高。", "弟弟没有哥哥很高。"], a:0, why:"没有 B 那么 + Adj, không dùng 很."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Hôm nay nóng hơn hôm qua.", a:"今天比昨天热。/ 今天比昨天还热。/ 今天比昨天更热。"},
+  {q:"Anh ấy lớn hơn tôi ba tuổi.", a:"他比我大三岁。"},
+  {q:"Tàu hỏa không nhanh bằng máy bay.", a:"火车不如飞机快。/ 火车没有飞机快。/ 火车没有飞机那么快。"}]}],
 rel:["一38","二53","二59","三58"]
 };

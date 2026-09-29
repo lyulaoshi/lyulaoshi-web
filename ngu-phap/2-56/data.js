@@ -14,7 +14,7 @@ rules:[
       ["教室前边坐[着]一位老师。","Jiàoshì qiánbian zuò zhe yí wèi lǎoshī.","Phía trước lớp có một thầy giáo đang ngồi.","等级标准"],
       ["桌子上放[着]书、笔和本子。","Zhuōzi shang fàng zhe shū, bǐ hé běnzi.","Trên bàn để sách, bút và vở.","等级标准"]]}],
 notes:[
- {t:"Không thêm 在 đầu câu", html:"✗ <span class='zh'>在桌子上放着一本书。</span> → ✓ <span class='zh'>桌子上放着一本书。</span>"}],
+ {t:"Không thêm 在 đầu câu", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> <span class='zh'>在桌子上放着一本书。</span> → <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg#tick'/></svg> <span class='zh'>桌子上放着一本书。</span>"}],
 cmp:[
  {vn:"Trên tường treo một bức tranh.", zh:"墙上挂[着]一张画。", py:"Qiáng shang guà zhe yì zhāng huà.", ok:true, why:"Giống trật tự tiếng Việt, nhưng 上 sau danh từ và có 着."}],
 ex:[
@@ -34,6 +34,19 @@ practice:[
   {w:["黑板上","写着","两个","字"], a:"黑板上写着两个字。", vi:"Trên bảng có viết hai chữ."}]},
  {t:"C. Miêu tả bằng câu tồn hiện", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Trên bàn để sách, bút và vở.", a:"桌子上放着书、笔和本子。"},
-  {q:"Ở cửa có nhiều người đang đứng.", a:"门口站着很多人。"}]}],
+  {q:"Ở cửa có nhiều người đang đứng.", a:"门口站着很多人。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"桌子上放着一本词典。", vi:"Trên bàn có đặt một quyển từ điển.", o:["Đúng","Sai"], a:0, why:"Nơi chốn + V着 + số lượng + N."},
+  {q:"在桌子上放着一本书。", vi:"Trên bàn có đặt một quyển sách.", o:["Đúng","Sai"], a:1, why:"Câu tồn hiện không có 在 ở đầu: 桌子上放着一本书。"},
+  {q:"墙上挂着那张画。", vi:"Trên tường treo bức tranh đó.", o:["Đúng","Sai"], a:1, why:"Vật xuất hiện thường chưa xác định: 墙上挂着一张画。"},
+  {q:"门口站很多人。", vi:"Ở cửa có nhiều người đang đứng.", o:["Đúng","Sai"], a:1, why:"Cần 着: 门口站着很多人。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Trên tường treo một tấm bản đồ.", o:["墙上挂着一张地图。", "在墙上挂着一张地图。", "一张地图挂着墙上。"], a:0, why:"Nơi chốn + V着 + số lượng + N."},
+  {q:"Trong phòng có mấy người đang ngồi.", o:["房间里坐着几个人。", "房间里坐几个人着。"], a:0, why:"着 ngay sau động từ."},
+  {q:"Trên bảng có viết hai chữ.", o:["黑板上写着两个字。", "黑板上两个字写着。"], a:0, why:"Người / vật đứng sau V着."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Trên bàn đặt một cốc trà.", a:"桌子上放着一杯茶。"},
+  {q:"Trên tường treo một bức ảnh.", a:"墙上挂着一张照片。/ 墙上挂着一张相片。"},
+  {q:"Ở cửa có một chiếc xe đang đỗ.", a:"门口停着一辆车。/ 门口停着一辆汽车。"}]}],
 rel:["一37","二33","一01","二70"]
 };

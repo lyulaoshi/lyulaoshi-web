@@ -7,7 +7,7 @@
 <meta name="description" content="Flashcard từ vựng tiếng Trung mỗi ngày theo cấp HSK (khung 9 cấp), ôn theo hộp Leitner – Lyu Laoshi Chinese Box.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="../tro-choi/game.css?v=3">
+<link rel="stylesheet" href="../tro-choi/game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 :root{--c:var(--lav);--cs:var(--lav-s)}
@@ -124,12 +124,13 @@
 @media (hover:none){.keys{display:none}}
 @media (prefers-reduced-motion:reduce){.card .in,.pack,.goal i{transition:none}}
 </style>
+<link rel="stylesheet" href="/chung/ic.css">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
 </head>
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="../tro-choi/" class="hide-s">游戏盒</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="../tro-choi/" class="hide-s">游戏盒</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap" id="home">
@@ -145,7 +146,7 @@
       <div class="nums">
         <div class="num"><b id="nDue">0</b><span>thẻ đến hạn</span></div>
         <div class="num"><b id="nNew">0</b><span>thẻ mới</span></div>
-        <div class="num fire"><b id="nStreak">0</b><span>ngày liên tiếp 🔥</span></div>
+        <div class="num fire"><b id="nStreak">0</b><span>ngày liên tiếp <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#lua"/></svg></span></div>
       </div>
       <div class="goal" role="progressbar" aria-label="Mục tiêu hôm nay" aria-valuemin="0" aria-valuemax="20" id="goal"><i></i></div>
       <button class="btn hot" id="startToday" type="button">Ôn hôm nay</button>
@@ -200,7 +201,7 @@
     <div class="sbar">
       <button class="btn sec" type="button" id="quit">← Về kệ</button>
       <b id="deckName"></b>
-      <a class="game" id="gameLink" href="#" hidden title="Mở 游戏盒 với bộ từ này">🎮 Chơi bộ này</a>
+      <a class="game" id="gameLink" href="#" hidden title="Mở 游戏盒 với bộ từ này"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#choi"/></svg> Chơi bộ này</a>
       <span class="prog" id="prog"></span>
     </div>
     <div class="modes" role="group" aria-label="Kiểu thẻ">
@@ -216,25 +217,25 @@
       </div>
     </div>
     <div class="judge">
-      <button class="btn no" type="button" id="bNo" disabled>✗ Chưa nhớ</button>
-      <button class="btn yes" type="button" id="bYes" disabled>✓ Nhớ rồi</button>
+      <button class="btn no" type="button" id="bNo" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#sai"/></svg> Chưa nhớ</button>
+      <button class="btn yes" type="button" id="bYes" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#tick"/></svg> Nhớ rồi</button>
     </div>
     <p class="keys">Phím tắt: Space lật thẻ · ← chưa nhớ · → nhớ rồi · S nghe đọc</p>
   </div>
   <div class="study sum panel" id="sumBox" hidden></div>
 </main>
 
-<footer class="wrap">Từ vựng theo 《国际中文教育中文水平等级标准》(GF 0025—2021). Từ theo bài lấy từ bài giảng của cô trên web. Nghĩa tiếng Việt HSK: cấp 1 (các cấp sau đang bổ sung) · Câu ví dụ lấy từ bài giảng · Tiến độ lưu trên máy này · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+<footer class="wrap">Từ vựng theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025). Từ theo bài lấy từ bài giảng của cô trên web. Nghĩa tiếng Việt HSK: cấp 1 (các cấp sau đang bổ sung) · Câu ví dụ lấy từ bài giảng · Tiến độ lưu trên máy này · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../tro-choi/hsk-words.js"></script>
-<script src="../tro-choi/tts.js"></script>
+<script src="../tro-choi/tts.js?v=2"></script>
 <script src="nghia-hsk1.js"></script>
 <script src="bai-data.js"></script>
 <script src="chu-de.js"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -267,7 +268,8 @@ const hskWords=lv=>HSK[lv].map(([w,p])=>card(w,p));
 function deck(id){
   const [t,a,b]=id.split(':');
   if(t==='hsk'&&HSK[a]){const i=+b;return{name:'HSK '+a+' · Gói '+(i/PACK+1),cards:hskWords(a).slice(i,i+PACK)}}
-  if(t==='bai'){const bk=BAI.find(x=>x.id===a),l=bk&&bk.bai.find(x=>x.id===b);if(l)return{name:bk.zh+' · Bài '+l.n,cards:l.w.map(x=>card(...x))}}
+  if(t==='bai'){const bk=BAI.find(x=>x.id===a),ls=bk?(b||'').split(/[+ ]/).map(y=>bk.bai.find(x=>x.id===y)).filter(Boolean):[];   // "bai-11+bai-12": ôn gộp nhiều bài (từ 课本盒)
+    if(ls.length)return{name:bk.zh+' · Bài '+ls.map(l=>l.n).join(', '),cards:ls.flatMap(l=>l.w.map(x=>card(...x)))}}
   if(t==='cd'){const c=CHUDE.find(x=>x.id===a);if(c)return{name:c.zh+' · '+c.vi,cards:c.w.map(x=>card(...x))}}
   if(t==='tu'){ // bộ từ tuỳ chọn do trò chơi gửi sang: "tu:老师,老人,教师" (pinyin tra trong HSK 1–6)
     const py=w=>{for(const l in HSK){const x=HSK[l].find(([v])=>v===w);if(x)return x[1]}return null};
@@ -283,7 +285,7 @@ function stats(cards){const n=cards.length,seen=cards.filter(c=>box(c)>0).length
 function packBtn(id,title,sub,words,st,ic){
   const done=st.n&&st.ok===st.n;
   return '<button class="pack'+(done?' done':'')+'" type="button" data-deck="'+id+'">'+(ic?'<span class="ic" lang="zh">'+esc(ic)+'</span>':'')+
-    '<span class="t">'+title+'<span>'+(done?'Đã thuộc ✓':st.seen?st.seen+'/'+st.n+' đã học':st.n+' từ')+'</span></span>'+
+    '<span class="t">'+title+'<span>'+(done?'Đã thuộc <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#tick"/></svg>':st.seen?st.seen+'/'+st.n+' đã học':st.n+' từ')+'</span></span>'+
     (sub?'<span class="s">'+sub+'</span>':'')+
     '<span class="w" lang="zh">'+words.slice(0,6).map(esc).join(' ')+'</span><span class="bar"><i style="width:'+(st.n?st.seen/st.n*100:0)+'%"></i></span></button>';
 }
@@ -351,7 +353,7 @@ function start(list,nm,id){
 }
 const BOXN=['Thẻ mới','Hộp 一','Hộp 二','Hộp 三','Hộp 熟'];
 function exHtml(c){ // câu ví dụ trong bài giảng, tô đậm từ đang học
-  if(!c.ex)return'';const [z,py,vi]=c.ex,sp=TTS.can(z)?'<button type="button" class="spk" data-say="'+esc(z)+'" aria-label="Nghe câu ví dụ">🔊</button>':'';
+  if(!c.ex)return'';const [z,py,vi]=c.ex,sp=TTS.can(z)?'<button type="button" class="spk" data-say="'+esc(z)+'" aria-label="Nghe câu ví dụ"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#loa"/></svg></button>':'';
   return '<div class="ex"><span class="z" lang="zh">'+esc(z).split(esc(c.w)).join('<b>'+esc(c.w)+'</b>')+sp+'</span><small>'+esc(py)+'</small>'+(vi?'<small>'+esc(vi)+'</small>':'')+'</div>';
 }
 function face(c,part){
@@ -360,7 +362,7 @@ function face(c,part){
   if(part==='back')return tag+spk+'<div class="hz" lang="zh">'+esc(c.w)+'</div><div class="py">'+esc(c.p)+'</div>'+
     (m?'<div class="vi">'+esc(m)+'</div>':'<div class="vi none">Nghĩa tiếng Việt của cấp này đang được bổ sung.</div>')+exHtml(c);
   let f;
-  if(S.mode==='nghe'&&TTS.can(c.w))f='<div class="hz" aria-hidden="true">🔊</div><div class="vi none">Nghe rồi đoán chữ</div>';
+  if(S.mode==='nghe'&&TTS.can(c.w))f='<div class="hz" aria-hidden="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#loa"/></svg></div><div class="vi none">Nghe rồi đoán chữ</div>';
   else if(S.mode==='vi'&&m)f='<div class="vi" style="font-size:26px">'+esc(m)+'</div><div class="vi none">Chữ Hán là gì?</div>';
   else f='<div class="hz'+(c.w.length>4?' long':'')+'" lang="zh">'+esc(c.w)+'</div>';
   return tag+(S.mode==='hz'?'':spk)+f+'<span class="hint">Bấm vào thẻ để lật</span>';

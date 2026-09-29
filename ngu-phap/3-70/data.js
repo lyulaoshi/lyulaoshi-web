@@ -24,6 +24,19 @@ practice:[
  {t:"B. Sắp xếp thành câu", sub:"bấm thẻ theo thứ tự", type:"order", items:[
   {w:["只有","他","才","知道","这件事"], a:"只有他才知道这件事。", vi:"Chỉ có anh ấy mới biết chuyện này."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"Chỉ có luyện nhiều, bạn mới nâng cao được trình độ tiếng Trung.", a:"只有多练习，你才能提高中文水平。"}]}],
+  {q:"Chỉ có luyện nhiều, bạn mới nâng cao được trình độ tiếng Trung.", a:"只有多练习，你才能提高中文水平。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"只有努力学习，才能考好。", vi:"Chỉ có học chăm mới thi tốt được.", o:["Đúng","Sai"], a:0, why:"只有……，才……"},
+  {q:"只有你来，我就去。", vi:"Chỉ khi bạn đến tôi mới đi.", o:["Đúng","Sai"], a:1, why:"只有 đi với 才: 只有你来，我才去。"},
+  {q:"只有他才知道这件事。", vi:"Chỉ có anh ấy mới biết chuyện này.", o:["Đúng","Sai"], a:0, why:"只有 + người + 才 + V."},
+  {q:"只有多听多说，你能才说好中文。", vi:"Chỉ có nghe nhiều nói nhiều bạn mới nói giỏi tiếng Trung.", o:["Đúng","Sai"], a:1, why:"才 đứng trước 能: 你才能说好中文。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Chỉ khi làm xong bài tập mới được xem ti vi.", o:["只有做完作业，才能看电视。", "只有做完作业，就能看电视。"], a:0, why:"Điều kiện bắt buộc → 只有……才."},
+  {q:"Chỉ cần làm xong bài tập là được xem ti vi.", o:["只要做完作业，就能看电视。", "只要做完作业，才能看电视。"], a:0, why:"Điều kiện đủ → 只要……就."},
+  {q:"Chỉ có luyện nhiều mới nhớ được.", o:["只有多练习，才能记住。", "只有多练习，能才记住。"], a:0, why:"才 + 能 + V."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Chỉ có chăm chỉ mới thành công.", a:"只有努力，才能成功。/ 只有努力，才会成功。"},
+  {q:"Chỉ có cô giáo mới biết đáp án.", a:"只有老师才知道答案。"},
+  {q:"Chỉ khi mua vé mới vào được.", a:"只有买了票，才能进去。/ 只有买票，才能进去。"}]}],
 rel:["二67","三30","三69","三13"]
 };

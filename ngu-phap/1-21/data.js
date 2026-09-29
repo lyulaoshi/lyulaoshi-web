@@ -42,6 +42,20 @@ practice:[
  {t:"C. Đổi sang phủ định", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {ask:"Phủ định", q:"我喝了两杯茶。", vi:"Tôi đã uống hai cốc trà.", a:"我没喝茶。"},
   {ask:"Phủ định", q:"她买了一件衣服。", vi:"Cô ấy đã mua một bộ quần áo.", a:"她没买衣服。"},
-  {ask:"Hỏi (没有)", q:"你看了那个电影。", vi:"Bạn đã xem bộ phim đó.", a:"你看那个电影了没有？/ 你看了那个电影吗？"}]}],
+  {ask:"Hỏi (没有)", q:"你看了那个电影。", vi:"Bạn đã xem bộ phim đó.", a:"你看那个电影了没有？/ 你看了那个电影吗？"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我昨天买了三本书。", vi:"Hôm qua tôi mua ba quyển sách.", o:["Đúng","Sai"], a:0, why:"V + 了 + số lượng + N."},
+  {q:"我没去了超市。", vi:"Tôi không đi siêu thị.", o:["Đúng","Sai"], a:1, why:"Phủ định dùng 没 + V, bỏ 了: 我没去超市。"},
+  {q:"他每天都喝了一杯咖啡。", vi:"Ngày nào anh ấy cũng uống một cốc cà phê.", o:["Đúng","Sai"], a:1, why:"Việc lặp lại thường ngày (每天) không dùng 了: 他每天都喝一杯咖啡。"},
+  {q:"上个月我常常去了图书馆。", vi:"Tháng trước tôi thường đến thư viện.", o:["Đúng","Sai"], a:1, why:"Thói quen (常常) không dùng 了: 上个月我常常去图书馆。"}]},
+ {t:"E. Cần 了 hay không?", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"我以前每天八点＿起床。", vi:"Trước đây ngày nào tôi cũng dậy lúc 8 giờ.", o:["了", "(không cần)"], a:1, why:"Thói quen trong quá khứ không dùng 了."},
+  {q:"昨天我写＿三个汉字。", vi:"Hôm qua tôi viết ba chữ Hán.", o:["了", "(không cần)"], a:0, why:"Việc đã xong, có số lượng → V + 了."},
+  {q:"我没买＿衣服。", vi:"Tôi không mua quần áo.", o:["了", "(không cần)"], a:1, why:"没 + V thì bỏ 了."},
+  {q:"你喝＿几杯茶？", vi:"Bạn đã uống mấy cốc trà?", o:["了", "(không cần)"], a:0, why:"Hỏi số lượng đã làm: V + 了 + 几."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Hôm qua tôi đã mua hai cốc cà phê.", a:"昨天我买了两杯咖啡。/ 我昨天买了两杯咖啡。"},
+  {q:"Tôi không xem bộ phim đó.", a:"我没看那个电影。"},
+  {q:"Bạn đã đọc mấy quyển sách?", a:"你看了几本书？"}]}],
 rel:["一41","一40","一22","一14"]
 };

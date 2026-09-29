@@ -7,7 +7,7 @@
 <meta name="description" content="Trò chơi Đập chuột thanh điệu: chuột chũi mang chữ Hán thò lên, chỉ đập những chữ có đúng thanh điệu đề bài. Luyện phản xạ thanh điệu HSK 1–6.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="../game.css?v=3">
+<link rel="stylesheet" href="../game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 [hidden]{display:none!important}
@@ -64,7 +64,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 @keyframes up{to{transform:translate(-50%,-40px);opacity:0}}
 .fieldbox{position:relative}
 .hole.gold .mole svg{filter:sepia(1) saturate(5) hue-rotate(-14deg) brightness(1.18) drop-shadow(0 0 8px #FFD34D)}
-.hole.gold .mole::after{content:"✨";position:absolute;right:-4%;top:-6%;font-size:clamp(16px,4vw,24px);animation:tw 1s ease-in-out infinite}
+.hole.gold .mole::after{content:"";width:clamp(16px,4vw,24px);height:clamp(16px,4vw,24px);background:#FFC928;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 3l1.6 5.4L17 10l-5.4 1.6L10 17l-1.6-5.4L3 10l5.4-1.6zM18 14.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 3l1.6 5.4L17 10l-5.4 1.6L10 17l-1.6-5.4L3 10l5.4-1.6zM18 14.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z'/%3E%3C/svg%3E") center/contain no-repeat;position:absolute;right:-4%;top:-6%;animation:tw 1s ease-in-out infinite}
 @keyframes tw{50%{transform:scale(1.3) rotate(15deg)}}
 .hole .bombi{position:absolute;left:-2%;bottom:6%;font-size:clamp(20px,5vw,30px);z-index:2;display:none}
 .hole.bomb .bombi{display:block;animation:tick .5s ease-in-out infinite}
@@ -97,7 +97,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap">
@@ -110,23 +110,23 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="chips" id="lvChips"></div>
       <h2>2. Kiểu chơi</h2>
       <div class="chips" id="modeChips">
-        <button class="chip" type="button" data-mode="one" aria-pressed="true">🐹 Một chữ<small>đập chữ có đúng thanh đề bài</small></button>
-        <button class="chip" type="button" data-mode="two" aria-pressed="false">🐹🐹 Từ hai chữ<small>khó: đập từ có đúng cặp thanh, ví dụ 3 + 1</small></button>
+        <button class="chip" type="button" data-mode="one" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#chuot></use></svg> Một chữ<small>đập chữ có đúng thanh đề bài</small></button>
+        <button class="chip" type="button" data-mode="two" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#chuot></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#chuot></use></svg> Từ hai chữ<small>khó: đập từ có đúng cặp thanh, ví dụ 3 + 1</small></button>
       </div>
       <h2>3. Tốc độ chuột</h2>
       <div class="chips" id="spChips">
-        <button class="chip" type="button" data-sp="slow" aria-pressed="true">🐢 Chậm</button>
-        <button class="chip" type="button" data-sp="mid" aria-pressed="false">🐇 Vừa</button>
-        <button class="chip" type="button" data-sp="fast" aria-pressed="false">🚀 Nhanh</button>
+        <button class="chip" type="button" data-sp="slow" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#cham></use></svg> Chậm</button>
+        <button class="chip" type="button" data-sp="mid" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tho></use></svg> Vừa</button>
+        <button class="chip" type="button" data-sp="fast" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#ten-lua></use></svg> Nhanh</button>
       </div>
       <ul class="how">
         <li>Mỗi màn <b>60 giây</b>. Đủ điểm thì <b>qua màn</b>: chuột nhanh hơn, từ màn 3 đề đổi sang <b>cặp thanh</b> của từ hai chữ. Cứ khoảng 12 giây đề đổi một lần, nhớ để ý nhé!</li>
-        <li>🐹✨ <b>Chuột vàng</b>: đập đúng được <b>nhân đôi điểm</b>. 💣 <b>Chuột cầm bom</b> (luôn là chữ sai thanh): đập nhầm là <b>mất 5 giây</b>!</li>
+        <li><svg class=lli aria-hidden=true><use href=/chung/ic.svg#chuot></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#lap-lanh></use></svg> <b>Chuột vàng</b>: đập đúng được <b>nhân đôi điểm</b>. <svg class=lli aria-hidden=true><use href=/chung/ic.svg#bom></use></svg> <b>Chuột cầm bom</b> (luôn là chữ sai thanh): đập nhầm là <b>mất 5 giây</b>!</li>
         <li>Đập đúng được điểm và nhân combo. Đập nhầm bị trừ 5 điểm, mất combo. Để chuột đúng chui xuống thì không bị trừ.</li>
         <li>Đập xong, chữ hiện pinyin có dấu để em kiểm tra lại.</li>
         <li>Chỉ dùng những chữ có một cách đọc, để không bị tranh cãi về thanh điệu.</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -134,12 +134,12 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="hud">
       <span>Điểm <b id="score">0</b></span>
       <span class="combo" id="combo"></span>
-      <span>⏱ <b id="clock">60</b>s</span>
+      <span><svg class=lli aria-hidden=true><use href=/chung/ic.svg#dong-ho></use></svg> <b id="clock">60</b>s</span>
       <span>Màn <b id="stage">1</b> <small class="muted" id="need"></small></span>
       <span class="sp"></span>
-      <button type="button" id="sndBtn" aria-label="Bật/tắt âm thanh">🔊</button>
-      <button type="button" id="pauseBtn">⏸</button>
-      <button type="button" id="quitBtn">✕</button>
+      <button type="button" id="sndBtn" aria-label="Bật/tắt âm thanh"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa></use></svg></button>
+      <button type="button" id="pauseBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tam-dung></use></svg></button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg></button>
     </div>
     <div class="timer"><i id="timer"></i></div>
     <div class="goal" id="goal"><div class="t" id="goalT"></div><div class="ex" id="goalEx"></div></div>
@@ -153,21 +153,21 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="panel">
       <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
       <div id="revBox"><h2>Những chữ em đập nhầm, xem lại thanh nhé</h2><ul class="review" id="review"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại ↻</button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / kiểu chơi</button></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / kiểu chơi</button></div>
     </div>
   </section>
 </main>
 
-<footer class="wrap">Từ vựng và pinyin theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+<footer class="wrap">Từ vựng và pinyin theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../hsk-words.js"></script>
-<script src="../tts.js?v=1"></script>
-<script src="../vui.js?v=3"></script>
+<script src="../tts.js?v=2"></script>
+<script src="../vui.js?v=4"></script>
 <script src="../pinyin.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -213,7 +213,7 @@ const MOLE='<svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="6
  '<rect x="26" y="46" width="48" height="36" rx="10" fill="#FFF6E6" stroke="#8A5E3C" stroke-width="2"/></svg>';
 const field=$('field');
 function holes(){field.innerHTML='';for(let i=0;i<9;i++){const h=document.createElement('div');h.className='hole';
-  h.innerHTML='<span class="py"></span><div class="mole">'+MOLE+'<span class="hz" lang="zh"></span><span class="bombi">💣</span></div>';
+  h.innerHTML='<span class="py"></span><div class="mole">'+MOLE+'<span class="hz" lang="zh"></span><span class="bombi"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#bom></use></svg></span></div>';
   h.addEventListener('pointerdown',e=>{e.preventDefault();whack(i)});field.appendChild(h)}}
 let deck,goal,score,combo,hits,misses,wrongs,alive,paused,endAt,left,tick,spawnT,goalT,occ,pauseAt;
 const eq=(a,b)=>a.length===b.length&&a.every((x,i)=>x===b[i]);
@@ -222,7 +222,7 @@ function newGoal(){
   if(pm()==='one')g=[1+(Math.random()*4|0)];
   else{const c=shuffle(P.slice()).slice(0,30);g=c[Math.random()*c.length|0].t.slice()}
   if(goal&&eq(g,goal))return newGoal();goal=g;
-  $('goalT').innerHTML='🔨 Đập '+(pm()==='one'?'chữ <b>thanh '+g[0]+' '+MARKS[g[0]]+'</b>':'từ <b>thanh '+g.join(' + ')+'</b>')+'!';
+  $('goalT').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#bua></use></svg> Đập '+(pm()==='one'?'chữ <b>thanh '+g[0]+' '+MARKS[g[0]]+'</b>':'từ <b>thanh '+g.join(' + ')+'</b>')+'!';
   $('goalEx').textContent=pm()==='one'?'như '+EX[g[0]]:'như '+g.map(t=>EX[t]).join(' ');
   const el=$('goal');el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
 }
@@ -244,11 +244,11 @@ function pop(i,txt,col){const h=field.children[i],p=document.createElement('span
 function whack(i){
   const o=occ[i];if(!alive||paused||!o||o.hitDone)return;o.hitDone=true;const h=field.children[i];
   if(eq(o.item.t,goal)){combo++;hits++;const pts=Math.round(10*(1+Math.min(combo,10)*.1))*(o.gold?2:1);score+=pts;stageScore+=pts;h.classList.add('hit','good');
-    pop(i,(o.gold?'✨×2 ':'')+'+'+pts,o.gold?'#FFE27A':'#fff');sfx(o.gold?'gold':'hit');
-    const s=document.createElement('span');s.className='star';s.textContent=o.gold?'🌟':'💥';h.appendChild(s);setTimeout(()=>s.remove(),500);TTS.say(o.item.w);{const cm=VUI.combo(combo);if(cm)VUI.pop(cm,h,'good')}}
+    pop(i,(o.gold?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#lap-lanh></use></svg>×2 ':'')+'+'+pts,o.gold?'#FFE27A':'#fff');sfx(o.gold?'gold':'hit');
+    const s=document.createElement('span');s.className='star';s.innerHTML=o.gold?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#sao></use></svg>':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#no></use></svg>';h.appendChild(s);setTimeout(()=>s.remove(),500);TTS.say(o.item.w);{const cm=VUI.combo(combo);if(cm)VUI.pop(cm,h,'good')}}
   else{const was=combo;combo=0;misses++;h.classList.add('hit','bad');
-    if(o.bomb)VUI.pop(VUI.any(['Bùm! Đập trúng bom rồi 💣','Ối, bom đó bom đó! 💣','Búa đâu mà nhanh thế, trúng bom 😵']),h,'bad');else if(was>=5)VUI.pop(VUI.sai(was),h,'bad');else if(Math.random()<.35)VUI.pop(VUI.treu(),h,'bad');if(!wrongs.some(x=>x.w===o.item.w))wrongs.push({...o.item,g:goal.slice()});
-    if(o.bomb){endAt-=5000;pop(i,'💥 −5 giây','#FFD2D2');sfx('bomb');field.animate([{transform:'translateX(-8px)'},{transform:'translateX(8px)'},{transform:'none'}],{duration:300})}
+    if(o.bomb)VUI.pop(VUI.any(['Bùm! Đập trúng bom rồi','Ối, bom đó bom đó!','Búa đâu mà nhanh thế, trúng bom']),h,'bad');else if(was>=5)VUI.pop(VUI.sai(was),h,'bad');else if(Math.random()<.35)VUI.pop(VUI.treu(),h,'bad');if(!wrongs.some(x=>x.w===o.item.w))wrongs.push({...o.item,g:goal.slice()});
+    if(o.bomb){endAt-=5000;pop(i,'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#no></use></svg> −5 giây','#FFD2D2');sfx('bomb');field.animate([{transform:'translateX(-8px)'},{transform:'translateX(8px)'},{transform:'none'}],{duration:300})}
     else{score=Math.max(0,score-5);stageScore=Math.max(0,stageScore-5);pop(i,'−5','#FFD2D2');sfx('miss')}}
   hud();clearTimeout(o.timer);o.timer=setTimeout(()=>hide(i),650);
 }
@@ -271,15 +271,15 @@ function stageEnd(){
   if(stageScore<NEED(stage))return end();
   const bonus=20*stage;score+=bonus;hud();sfx('up');
   const nx=stage+1,toTwo=mode!=='two'&&nx===3;
-  $('stageUp').innerHTML='<div class="zh" lang="zh">过关！</div><div class="t">Qua màn '+stage+'! +'+bonus+' điểm thưởng</div><div class="muted">Màn '+nx+': chuột nhanh hơn'+(toTwo?', và đề đổi sang <b>cặp thanh</b> của từ hai chữ!':'')+' Cần '+NEED(nx)+' điểm.</div><button class="btn hot" type="button" id="nextBtn">Màn '+nx+' ▶</button>';
+  $('stageUp').innerHTML='<div class="zh" lang="zh">过关！</div><div class="t">Qua màn '+stage+'! +'+bonus+' điểm thưởng</div><div class="muted">Màn '+nx+': chuột nhanh hơn'+(toTwo?', và đề đổi sang <b>cặp thanh</b> của từ hai chữ!':'')+' Cần '+NEED(nx)+' điểm.</div><button class="btn hot" type="button" id="nextBtn">Màn '+nx+' <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button>';
   $('stageUp').hidden=false;$('nextBtn').onclick=()=>{stage=nx;runStage()};$('nextBtn').focus();
 }
-function setPause(p){if(!alive)return;paused=p;$('pauseBtn').textContent=p?'▶':'⏸';
-  if(p){pauseAt=performance.now();clearTimeout(spawnT);occ.forEach((o,i)=>o&&hide(i));$('goalEx').dataset.keep=$('goalEx').textContent;$('goalEx').textContent='⏸ Tạm dừng · bấm ▶ để chơi tiếp'}
+function setPause(p){if(!alive)return;paused=p;$('pauseBtn').innerHTML=p?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg>':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#tam-dung></use></svg>';
+  if(p){pauseAt=performance.now();clearTimeout(spawnT);occ.forEach((o,i)=>o&&hide(i));$('goalEx').dataset.keep=$('goalEx').textContent;$('goalEx').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#tam-dung></use></svg> Tạm dừng · bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg> để chơi tiếp'}
   else{endAt+=performance.now()-pauseAt;$('goalEx').textContent=$('goalEx').dataset.keep||'';spawn()}}
 $('pauseBtn').onclick=()=>setPause(!paused);
 $('quitBtn').onclick=()=>{if(alive)end()};
-const paintSnd=()=>{$('sndBtn').textContent=sound?'🔊':'🔇'};paintSnd();
+const paintSnd=()=>{$('sndBtn').innerHTML=sound?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa></use></svg>':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa-tat></use></svg>'};paintSnd();
 $('sndBtn').onclick=()=>{sound=!sound;store.set('dc-sound',sound);paintSnd();if(sound)sfx('hit')};
 // búa đi theo con trỏ (máy tính)
 const hm=$('hammer'),fine=matchMedia('(hover:hover) and (pointer:fine)');

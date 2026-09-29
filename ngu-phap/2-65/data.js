@@ -34,6 +34,19 @@ practice:[
   {w:["这个房间","不太大","不过","住着","很舒服"], a:"这个房间不太大，不过住着很舒服。", vi:"Phòng này không rộng lắm, có điều ở rất thoải mái."}]},
  {t:"C. Nối bằng 虽然……但是……", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"他很忙 / 每天都运动", vi:"Anh ấy rất bận / ngày nào cũng tập thể dục", a:"虽然他很忙，但是每天都运动。/ 他虽然很忙，但是每天都运动。"},
-  {q:"外边很冷 / 我想出去走走", vi:"Bên ngoài rất lạnh / tôi muốn ra ngoài đi dạo", a:"虽然外边很冷，但是我想出去走走。"}]}],
+  {q:"外边很冷 / 我想出去走走", vi:"Bên ngoài rất lạnh / tôi muốn ra ngoài đi dạo", a:"虽然外边很冷，但是我想出去走走。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"虽然他很忙，但是每天都运动。", vi:"Tuy anh ấy rất bận nhưng ngày nào cũng tập thể dục.", o:["Đúng","Sai"], a:0, why:"虽然……，但是……"},
+  {q:"虽然中文很难，所以很有意思。", vi:"Tuy tiếng Trung khó nhưng rất thú vị.", o:["Đúng","Sai"], a:1, why:"Chuyển ý dùng 但是: 虽然中文很难，但是很有意思。"},
+  {q:"他虽然很累，可是还在工作。", vi:"Tuy anh ấy mệt nhưng vẫn đang làm việc.", o:["Đúng","Sai"], a:0, why:"虽然……，可是……"},
+  {q:"虽然下雨，我们但是去了公园。", vi:"Tuy trời mưa nhưng chúng tôi vẫn đi công viên.", o:["Đúng","Sai"], a:1, why:"但是 đứng đầu vế sau, trước chủ ngữ: 虽然下雨，但是我们去了公园。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Tuy nhỏ nhưng rất sạch.", o:["虽然小，但是很干净。", "虽然小，所以很干净。"], a:0, why:"Chuyển ý → 但是."},
+  {q:"Tuy anh ấy là người nước ngoài nhưng nói tiếng Trung rất giỏi.", o:["他虽然是外国人，但是中文说得很好。", "他虽然是外国人，而且中文说得很好。"], a:0, why:"虽然 đi với 但是 / 可是."},
+  {q:"Món này ngon, có điều hơi cay.", o:["这个菜很好吃，不过有点儿辣。", "这个菜很好吃，不过辣一点儿。"], a:0, why:"Không vừa ý → 有点儿 + Adj."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Tuy bài tập nhiều nhưng tôi đã làm xong.", a:"虽然作业很多，但是我做完了。/ 虽然作业很多，但是我都做完了。/ 虽然作业很多，可是我做完了。/ 虽然作业很多，可是我都做完了。"},
+  {q:"Phòng này hơi nhỏ nhưng rất sáng.", a:"这个房间有点儿小，但是很亮。/ 这个房间虽然有点儿小，但是很亮。/ 这个房间有点儿小，不过很亮。"},
+  {q:"Tuy anh ấy chưa từng đến Trung Quốc nhưng nói tiếng Trung rất giỏi.", a:"虽然他没去过中国，但是中文说得很好。/ 他虽然没去过中国，但是中文说得很好。/ 虽然他没去过中国，但是他中文说得很好。/ 他虽然没去过中国，但是他中文说得很好。"}]}],
 rel:["二30","三68","二63","二66"]
 };

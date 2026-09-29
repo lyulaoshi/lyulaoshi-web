@@ -110,6 +110,21 @@
 .ex .ans{display:inline-grid;place-items:center;min-width:26px;height:26px;border:2px solid var(--ink);border-radius:6px;font-weight:800;margin-left:8px}
 .ex .play{padding:6px 14px;font-size:14px;margin:6px 0 0}
 .opt.exo{opacity:.45;cursor:default;border-style:dashed}
+.opts.zib .opt .t .zh{font-size:32px;line-height:1.1}
+.zi{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.zc{display:grid;justify-items:center;gap:2px}
+.zc small{color:var(--muted);font-size:14px;min-height:18px}
+.zc b{font-family:var(--kh);font-weight:400;font-size:40px;line-height:1;width:66px;height:66px;display:grid;place-items:center;border:2px solid var(--line);border-radius:10px;background:linear-gradient(var(--line),var(--line)) center/100% 1px no-repeat,linear-gradient(var(--line),var(--line)) center/1px 100% no-repeat,var(--card)}
+.zc.part b{border-style:dashed;border-color:var(--c);color:var(--c)}
+.ex .zi{margin-top:6px}.ex .zc b{width:48px;height:48px;font-size:28px}
+.wb{display:inline-grid;justify-items:center;vertical-align:bottom;margin:0 2px}
+.wb small{font-family:var(--vi);font-size:14px;color:var(--c);line-height:1.2}
+.wb .wl{min-width:1.6em;border-bottom:3px solid var(--c);text-align:center;line-height:1.3}
+.wr{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:18px}
+.wr input{font-family:var(--kh);font-size:28px;width:5.5em;padding:6px 12px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-align:center}
+.wr input:focus{border-color:var(--c);outline:none}
+.wr input:disabled{opacity:.8}
+.wr .muted{flex-basis:100%}
 .fb{margin-top:16px;border-radius:16px;padding:12px 16px;line-height:1.6}
 .fb.ok{background:var(--mint-s)} .fb.bad{background:var(--coral-s)}
 .fb b.h{display:block}
@@ -191,15 +206,16 @@
   .pt .pc{display:none}
 }
 </style>
+<link rel="stylesheet" href="/chung/ic.css">
 </head>
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="./" id="homeLink">考试盒</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="./" id="homeLink">考试盒</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap">
-<p class="demo"><b>Mới mở</b> · Hiện có 2 đề HSK 1 (mỗi đề 40 câu, đúng cấu trúc đề HSK 3.0 mới); đề HSK 2, HSK 3 đang soạn. Ảnh minh hoạ: Pexels.</p>
+<p class="demo"><b>Mới mở</b> · Hiện có 2 đề HSK 1 và 2 đề HSK 2, đúng cấu trúc đề HSK 3.0 mới; đề HSK 3 đang soạn. Ảnh minh hoạ: Pexels.</p>
 
 <!-- ============ TRANG MỤC LỤC ============ -->
 <section id="vHome">
@@ -208,9 +224,9 @@
     <p>Làm đề đúng cấu trúc đề thi mới (áp dụng từ 07/2026), biết điểm ngay, và biết chính xác <b>điểm ngữ pháp nào, từ nào</b> em còn yếu — bấm một cái là mở đúng bài để ôn.</p>
   </div>
   <div class="modes">
-    <button class="mode" style="--mc:var(--c)" data-start="exam"><span class="ic">📝</span><b>Đề mô phỏng <span class="zh">模拟考</span></b><span class="muted">Làm trọn đề như thi thật: đồng hồ đếm ngược, mỗi bài nghe phát tối đa 2 lần, đánh dấu câu nghi ngờ, nộp bài mới biết điểm.</span><span class="go" id="examGo">Chọn đề →</span></button>
-    <button class="mode" style="--mc:var(--peach)" data-start="quick"><span class="ic">⚡</span><b>Luyện nhanh <span class="zh">快练</span></b><span class="muted">10 câu lấy ngẫu nhiên từ các đề HSK 1. Chấm ngay từng câu, có nghĩa tiếng Việt, pinyin và giải thích.</span><span class="go">Bắt đầu HSK 1 →</span></button>
-    <button class="mode" style="--mc:var(--lav)" id="wrongBtn" data-start="wrong"><span class="ic">📒</span><b>Sổ câu sai <span class="zh">错题本</span></b><span class="muted">Câu nào làm sai sẽ tự vào đây. Làm lại đúng thì câu tự ra khỏi sổ.</span><span class="go" id="wrongGo">Chưa có câu sai</span></button>
+    <button class="mode" style="--mc:var(--c)" data-start="exam"><span class="ic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#de"/></svg></span><b>Đề mô phỏng <span class="zh">模拟考</span></b><span class="muted">Làm trọn đề như thi thật: đồng hồ đếm ngược, mỗi bài nghe phát tối đa 2 lần, đánh dấu câu nghi ngờ, nộp bài mới biết điểm.</span><span class="go" id="examGo">Chọn đề →</span></button>
+    <button class="mode" style="--mc:var(--peach)" data-start="quick"><span class="ic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#nhanh"/></svg></span><b>Luyện nhanh <span class="zh">快练</span></b><span class="muted">10 câu lấy ngẫu nhiên từ các đề của cấp đang chọn ở bảng cấu trúc bên dưới. Chấm ngay từng câu, có nghĩa tiếng Việt, pinyin và giải thích.</span><span class="go" id="quickGo">Bắt đầu HSK 1 →</span></button>
+    <button class="mode" style="--mc:var(--lav)" id="wrongBtn" data-start="wrong"><span class="ic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#sotay"/></svg></span><b>Sổ câu sai <span class="zh">错题本</span></b><span class="muted">Câu nào làm sai sẽ tự vào đây. Làm lại đúng thì câu tự ra khỏi sổ.</span><span class="go" id="wrongGo">Chưa có câu sai</span></button>
   </div>
 
   <div class="card" id="deCard">
@@ -236,7 +252,7 @@
         <span class="tag" id="qTag"></span>
         <div class="tools">
           <button class="tg" id="pyBtn" aria-pressed="true">Pinyin</button>
-          <button class="tg" id="flagBtn" aria-pressed="false">⚑ Đánh dấu</button>
+          <button class="tg" id="flagBtn" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#co"/></svg> Đánh dấu</button>
         </div>
       </div>
       <div id="qBody"></div>
@@ -280,7 +296,7 @@
   </div>
   <div class="card" id="wordCard">
     <h2>Từ cần ôn <span class="zh">生词</span></h2>
-    <p class="muted">Từ nằm trong các câu làm sai. Bấm 🔊 để nghe.</p>
+    <p class="muted">Từ nằm trong các câu làm sai. Bấm <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#loa"/></svg> để nghe.</p>
     <div class="words" id="words"></div>
     <div class="acts"><a class="btn" href="../tu-vung/" style="background:var(--sky-s)">Ôn thẻ từ HSK · 词汇盒</a><a class="btn" href="../tro-choi/" style="background:var(--peach-s)">Chơi trò chơi · 游戏盒</a></div>
   </div>
@@ -295,6 +311,8 @@
 <script src="cau-truc.js"></script>
 <script src="de/hsk1-01.js"></script>
 <script src="de/hsk1-02.js"></script>
+<script src="de/hsk2-01.js"></script>
+<script src="de/hsk2-02.js"></script>
 <script src="../ngu-phap/hsk-ngu-phap.js"></script>
 <script src="../tro-choi/tts.js"></script>
 <script>
@@ -328,6 +346,7 @@ function home(){
   $("wrongBtn").setAttribute("aria-disabled",wrong.length?"false":"true");
   const sc=store.get("kt-de",{});
   $("examGo").textContent=`Chọn 1 trong ${DS.length} đề →`;
+  $("quickGo").textContent=`Bắt đầu HSK ${ALL.some(x=>x.de.cap==LV)?LV:1} →`;
   $("deList").innerHTML=DS.map(d=>`<div class="de"><b>${d.ten}</b><span class="sc">${d.q.length} câu · ${d.phut} phút${sc[d.id]?` · lần trước: <strong>${sc[d.id]}</strong>`:""}</span><button data-de="${d.id}">${sc[d.id]?"Làm lại":"Làm đề"} →</button></div>`).join("");
   $("lvTabs").innerHTML=Object.keys(CT).map(k=>`<button class="lvtab" role="tab" aria-selected="${k===LV}" data-lv="${k}">HSK ${k}</button>`).join("");
   const c=CT[LV],last=store.get("kt-phan",{});
@@ -361,8 +380,13 @@ function clock(){
   $("timer").classList.toggle("low",!!S.limit&&s<120);
   if(S.limit&&s<=0)finish(true);
 }
-const right=(q,a)=>a===q.ans;
-const optsOf=q=>q.part.type==="match"?q.part.bank:q.opts;
+// 书写: so chữ gõ với đáp án (nhiều cách ghi "A / B"), bỏ khoảng trắng và dấu câu
+const norm=s=>String(s||"").replace(/[\s，。！？、,.!?（）()]/g,"");
+const right=(q,a)=>q.part.type==="write"?(a!=null&&q.ans.split("/").some(x=>norm(x)===norm(a))):a===q.ans;
+const filled=a=>a!=null&&a!=="";
+const optsOf=q=>q.part.bank||q.opts||[];
+const ziHTML=(zi,full)=>`<div class="zi">`+zi.map((z,k)=>`<span class="zc${z[2]&&!full?" part":""}"><small>${S.py?z[1]:""}</small><b>${full&&z[2]?full[k]:z[0]}</b></span>`).join("")+`</div>`;
+const wHTML=(cn,fill)=>cn.replace(/（([^）]+)）/,(m,py)=>`<span class="wb"><small>${py}</small><span class="wl">${fill?esc(fill):"　"}</span></span>`);
 const exam=()=>S.mode==="exam";
 
 function optHTML(o,k,cls,q,used){
@@ -375,30 +399,35 @@ function render(){
   $("qTag").innerHTML=`${exam()?"":soDe(q.de)+" · "}Câu ${q.n} · <span class="zh">${SKN[p.sk][1]} ${PHAN[p.no]}</span>`;
   $("flagBtn").setAttribute("aria-pressed",S.flag[i]);
   let h=`<div class="instr">${p.vi}</div>`;
-  if(p.ex){const x=p.ex,o=p.bank[x.ans];
-    h+=`<div class="ex"><b class="t">示例</b>`+(x.say?`<button class="play" id="exPlay">🔊 Nghe câu mẫu</button><br><span class="zh">${esc(x.say).replace(/\n/g," ")}</span>`:`<span class="zh">${x.cn}</span>`)+
-      `${py?`<br><span class="py">${x.py}</span>`:""}${!exam()?`<br><span class="vi">${x.vi}</span>`:""}<br>Đáp án: <span class="ans">${L[x.ans]}</span>${o.img?"":` <span class="zh">${o.t}</span>`}</div>`}
+  if(p.ex){const x=p.ex,o=p.bank?p.bank[x.ans]:null;
+    h+=`<div class="ex"><b class="t">示例</b>`+(x.say?`<button class="play" id="exPlay"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#loa"/></svg> Nghe câu mẫu</button><br><span class="zh">${esc(x.say).replace(/\n/g," ")}</span>`:x.zi?ziHTML(x.zi)+`<span class="zh">→ ${x.full}</span>`:p.type==="write"?`<span class="zh">${wHTML(x.cn,x.ans)}</span>`:`<span class="zh">${x.cn}</span>`)+
+      `${py&&!x.zi?`<br><span class="py">${x.py}</span>`:""}${!exam()?`<br><span class="vi">${x.vi}</span>`:""}`+(o?`<br>Đáp án: <span class="ans">${L[x.ans]}</span>${o.img?"":` <span class="zh">${o.t}</span>`}`:"")+`</div>`}
   if(q.say){
     const n=S.plays[q.id]||0,out=exam()&&n>=2;
-    h+=`<button class="play" id="playBtn"${out?" disabled":""}>🔊 ${out?"Đã nghe 2 lần":"Nghe"} <small>${exam()?`(còn ${Math.max(0,2-n)} lần)`:"(nghe lại thoải mái)"}</small></button>`;
+    h+=`<button class="play" id="playBtn"${out?" disabled":""}><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#loa"/></svg> ${out?"Đã nghe 2 lần":"Nghe"} <small>${exam()?`(còn ${Math.max(0,2-n)} lần)`:"(nghe lại thoải mái)"}</small></button>`;
     if(lock) h+=`<div class="script"><span class="zh">${esc(q.say)}</span>${py?`<br><span class="py">${q.py}</span>`:""}<br><span class="vi">${q.vi}</span></div>`;
   }
-  if(q.cn){
+  if(q.zi){
+    h+=ziHTML(q.zi,lock?q.full:null)+(!exam()||lock?`<div class="vi">${q.full} — ${q.vi}</div>`:"");
+  }else if(p.type==="write"){
+    h+=`<div class="cn">${wHTML(q.cn,lock?q.ans.split("/")[0]:a)}</div>${!exam()||lock?`<div class="vi">${q.vi}</div>`:""}`;
+  }else if(q.cn){
     h+=`<div class="cn">${q.cn}</div>${py?`<div class="py">${q.py}</div>`:""}${!exam()||lock?`<div class="vi">${q.vi}</div>`:""}`;
-    if(q.star) h+=`<div class="star">★ <span class="zh">${q.star}</span>${py?` <span class="py">${q.spy}</span>`:""}${!exam()||lock?` <span class="vi">— ${q.svi}</span>`:""}</div>`;
+    if(q.star) h+=`<div class="star"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#sao"/></svg> <span class="zh">${q.star}</span>${py?` <span class="py">${q.spy}</span>`:""}${!exam()||lock?` <span class="vi">— ${q.svi}</span>`:""}</div>`;
   }
-  const os=optsOf(q),isPic=!!os[0].img;
+  const os=optsOf(q),isPic=!!(os[0]&&os[0].img);
   // với phần ghép A–F: nhắc lựa chọn đã dùng ở câu khác cùng phần (như phiếu trả lời thật)
-  const usedBy={};if(p.type==="match")S.qs.forEach((x,k)=>{if(k!==i&&x.part===p&&S.a[k]!=null)usedBy[S.a[k]]=x.n});
-  const cls=p.type==="pic3"?" pics":p.type==="match"?(isPic?" bank":" bank txt"+(os.some(o=>o.t.length>3)?" long":"")):"";
-  h+=`<div class="opts${cls}${lock?" locked":""}">`+os.map((o,k)=>{
+  const usedBy={};if(p.bank)S.qs.forEach((x,k)=>{if(k!==i&&x.part===p&&S.a[k]!=null)usedBy[S.a[k]]=x.n});
+  if(p.type==="write") h+=`<div class="wr"><input id="wrIn" lang="zh-CN" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(a||"")}"${lock?" disabled":""} placeholder="汉字" aria-label="Gõ chữ Hán vào chỗ trống">${!exam()&&!lock?`<button class="btn pri" id="wrChk">Kiểm tra</button>`:""}<span class="muted">Gõ chữ Hán bằng bộ gõ tiếng Trung (pinyin) trên máy.</span></div>`;
+  const cls=p.type==="pic3"?" pics":p.bank?(isPic?" bank":" bank txt"+(os.some(o=>o.t.length>3)?" long":"")):"";
+  h+=`<div class="opts${cls}${p.type==="zi"?" zib":""}${lock?" locked":""}">`+os.map((o,k)=>{
     let c="";if(lock){if(k===q.ans)c=" ok";else if(k===a)c=" bad"}else if(k===a)c=" sel";
     if(p.ex&&k===p.ex.ans)c+=" exo";
     return optHTML(o,k,c,q,p.ex&&k===p.ex.ans?`<span class="used">示例</span>`:usedBy[k]!=null?`<span class="used">câu ${usedBy[k]}</span>`:"")}).join("")+"</div>";
   $("qBody").innerHTML=h;
   let fb="";
   if(lock){const ok=right(q,a),o=os[q.ans];
-    fb=`<div class="fb ${ok?"ok":"bad"}"><b class="h">${ok?"✓ Đúng rồi!":"✗ Chưa đúng."} Đáp án: ${L[q.ans]}${o.img?` — ${o.t}`:` — <span class="zh">${o.t}</span>`}</b>${q.why||""}`+
+    fb=`<div class="fb ${ok?"ok":"bad"}"><b class="h">${ok?"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg#tick\"/></svg> Đúng rồi!":"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg#sai\"/></svg> Chưa đúng."} Đáp án: ${p.type==="write"?`<span class="zh">${q.ans}</span>`:L[q.ans]+(o.img?` — ${o.t}`:` — <span class="zh">${o.t}</span>`)}${q.zi?` → <span class="zh">${q.full}</span>`:""}</b>${q.why||""}`+
       (q.np.length?"<br>"+q.np.map(c=>`<a href="../ngu-phap/${npPath(c)}/">【${c}】${NP[c]||""} →</a>`).join("<br>"):"")+"</div>"}
   $("qFb").innerHTML=fb;
   $("prevBtn").disabled=i===0;
@@ -409,7 +438,7 @@ function nums(){
   let h="",last=null;
   S.qs.forEach((q,k)=>{
     if(exam()&&q.part.sk!==last){last=q.part.sk;h+=`<span class="grp"><span class="zh">${SKN[last][1]}</span> ${SKN[last][0]}</span>`}
-    let c=S.a[k]!=null?" done":"";
+    let c=filled(S.a[k])?" done":"";
     if(S.checked[k])c=right(q,S.a[k])?" ok":" bad";
     h+=`<button class="num${c}${k===S.cur?" cur":""}${S.flag[k]?" flag":""}" data-go="${k}" aria-label="Câu ${q.n}">${exam()?q.n:k+1}</button>`;
   });
@@ -442,7 +471,7 @@ document.addEventListener("click",e=>{
     if(t.getAttribute("aria-disabled")==="true")return;
     const m=t.dataset.start;
     if(m==="wrong"){const w=store.get("kt-sai",[]);start("wrong",ALL.filter(q=>w.includes(q.id)))}
-    else if(m==="quick")start("quick",[...ALL].sort(()=>Math.random()-.5).slice(0,10).sort((a,b)=>a.n-b.n));
+    else if(m==="quick"){const pool=ALL.filter(q=>q.de.cap==(ALL.some(x=>x.de.cap==LV)?LV:1));start("quick",[...pool].sort(()=>Math.random()-.5).slice(0,10).sort((a,b)=>a.de.id.localeCompare(b.de.id)||a.n-b.n))}
     else $("deCard").scrollIntoView({behavior:"smooth"});
     return}
   if(t.dataset.de){const d=DS.find(x=>x.id===t.dataset.de);start("exam",d.q,d);return}
@@ -453,6 +482,7 @@ document.addEventListener("click",e=>{
   switch(t.id){
     case "playBtn":play(S.qs[S.cur]);break;
     case "exPlay":say(S.qs[S.cur].part.ex.say);break;
+    case "wrChk":{const q=S.qs[S.cur];if(!filled(S.a[S.cur]))break;S.checked[S.cur]=true;log(q,right(q,S.a[S.cur]));render();break}
     case "prevBtn":if(S.cur>0){S.cur--;render()}break;
     case "nextBtn":if(S.cur<S.qs.length-1){S.cur++;render()}else finish();break;
     case "submitBtn":finish();break;
@@ -462,12 +492,14 @@ document.addEventListener("click",e=>{
     case "backBtn":home();break;
   }
 });
+document.addEventListener("input",e=>{if(e.target.id!=="wrIn"||!S)return;S.a[S.cur]=e.target.value.trim()||null;nums()});
+document.addEventListener("keydown",e=>{if(e.target.id==="wrIn"&&e.key==="Enter"&&!e.isComposing){const b=$("wrChk");if(b)b.click();else $("nextBtn").click()}});
 $("homeLink").addEventListener("click",e=>{if(!$("vHome").hidden)return;e.preventDefault();home()});
 
 // ---------- Nộp bài & chẩn đoán ----------
 function finish(timeUp){
   if(!timeUp){
-    const left=S.a.filter(a=>a==null).length,fl=S.flag.filter(Boolean).length;
+    const left=S.a.filter(a=>!filled(a)).length,fl=S.flag.filter(Boolean).length;
     if(left&&!confirm(`Còn ${left} câu chưa làm. Vẫn nộp bài?`))return;
     if(exam()&&fl&&!left&&!confirm(`Còn ${fl} câu em đánh dấu xem lại. Vẫn nộp bài?`))return}
   stop();speechSynthesis&&speechSynthesis.cancel();
@@ -492,7 +524,7 @@ function finish(timeUp){
   // điểm ngữ pháp yếu
   const cnt={};S.qs.forEach((q,k)=>{if(!res[k])q.np.forEach(c=>cnt[c]=(cnt[c]||0)+1)});
   const codes=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]);
-  $("weak").innerHTML=codes.length?codes.map(c=>`<div class="wk"><span><span class="code">【${c}】</span>${NP[c]||""} <span class="muted">· sai ${cnt[c]} câu</span></span><a href="../ngu-phap/${npPath(c)}/">Mở bài giảng →</a></div>`).join(""):'<p>🎉 Không có điểm ngữ pháp nào cần ôn trong lượt này.</p>';
+  $("weak").innerHTML=codes.length?codes.map(c=>`<div class="wk"><span><span class="code">【${c}】</span>${NP[c]||""} <span class="muted">· sai ${cnt[c]} câu</span></span><a href="../ngu-phap/${npPath(c)}/">Mở bài giảng →</a></div>`).join(""):'<p><svg class="lli ok" aria-hidden="true"><use href="/chung/ic.svg#huy"/></svg> Không có điểm ngữ pháp nào cần ôn trong lượt này.</p>';
   const ws=new Map();S.qs.forEach((q,k)=>{if(!res[k])q.w.forEach(w=>ws.set(w[0],w[1]))});
   $("wordCard").hidden=!ws.size;
   $("words").innerHTML=[...ws].map(([h,py])=>`<span class="word"><span class="zh">${h}</span><small>${py}</small>${spk(h)}</span>`).join("");
@@ -500,17 +532,17 @@ function finish(timeUp){
   const ot=o=>o.img?`hình ${o.t}`:`${o.t}${o.py?` (${o.py})`:""}`;
   $("review").innerHTML=S.qs.map((q,k)=>{
     const os=optsOf(q),a=S.a[k];
-    const head=q.cn||q.say.split("\n")[0].replace(/^(女|男)：/,"");
-    return `<details${res[k]?"":" open"}><summary><span class="m">${res[k]?"✅":a==null?"⬜":"❌"}</span>${exam()?"":soDe(q.de)+" · "}Câu ${q.n} · ${SKN[q.part.sk][0]} ${q.part.no} · <span class="zh">${esc(head)}</span></summary><p>`+
+    const head=q.full||(q.cn||q.say.split("\n")[0].replace(/^(女|男)：/,"")).replace(/（[^）]*）/g,"（ ）");
+    return `<details${res[k]?"":" open"}><summary><span class="m">${res[k]?"<svg class=\"lli ok\" aria-hidden=\"true\"><use href=\"/chung/ic.svg#dung-tron\"/></svg>":!filled(a)?"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg#trong-tron\"/></svg>":"<svg class=\"lli no\" aria-hidden=\"true\"><use href=\"/chung/ic.svg#sai-tron\"/></svg>"}</span>${exam()?"":soDe(q.de)+" · "}Câu ${q.n} · ${SKN[q.part.sk][0]} ${q.part.no} · <span class="zh">${esc(head)}</span></summary><p>`+
       (q.say?`Bài nghe: <span class="zh">${esc(q.say).replace(/\n/g," ")}</span> ${spk(q.say.split("\n")[0].replace(/^(女|男)：/,""))}<br><span class="muted">${q.py}</span><br>`:"")+
-      (q.star?`★ <span class="zh">${q.star}</span><br>`:"")+
-      `<i class="muted">${q.vi}${q.svi?" — "+q.svi:""}</i><br>Em chọn: <b>${a==null?"(bỏ trống)":L[a]+". "+esc(ot(os[a]))}</b> · Đáp án: <b>${L[q.ans]}. ${esc(ot(os[q.ans]))}</b>${q.why?`<br>${q.why}`:""}</p></details>`}).join("");
+      (q.star?`<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#sao"/></svg> <span class="zh">${q.star}</span><br>`:"")+
+      `<i class="muted">${q.vi}${q.svi?" — "+q.svi:""}</i><br>${q.part.type==="write"?`Em viết: <b class="zh">${filled(a)?esc(a):"(bỏ trống)"}</b> · Đáp án: <b class="zh">${q.ans}</b>`:`Em chọn: <b>${!filled(a)?"(bỏ trống)":L[a]+". "+esc(ot(os[a]))}</b> · Đáp án: <b>${L[q.ans]}. ${esc(ot(os[q.ans]))}</b>`}${q.why?`<br>${q.why}`:""}</p></details>`}).join("");
   show("vResult");
 }
 
 (function(){const r=document.documentElement,b=$("themeBtn");
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 home();
 </script>

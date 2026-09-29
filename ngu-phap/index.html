@@ -54,25 +54,35 @@
 .grp{display:flex;align-items:baseline;gap:8px;margin:22px 0 10px;font-weight:800;font-size:15px}
 .grp .zh{font-family:var(--hz);font-weight:400;color:var(--c);font-size:18px}
 .grp small{color:var(--faint);font-weight:600}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:12px}
 
 /* Thẻ điểm ngữ pháp */
-.pc{position:relative;display:grid;align-content:start;gap:6px;background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:14px 16px 14px;text-decoration:none;color:var(--ink);border:2px solid transparent;transition:transform .15s,border-color .15s;min-width:0}
+.pc{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;gap:0 14px;background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:14px 16px 14px;text-decoration:none;color:var(--ink);border:2px solid transparent;transition:transform .15s,border-color .15s;min-width:0}
 a.pc:hover,a.pc:focus-visible{transform:translateY(-2px);border-color:var(--c)}
+/* chữ biểu tượng */
+.pc .gl{width:66px;height:66px;border-radius:18px;background:var(--cs);color:var(--c);display:grid;place-items:center;text-align:center;font-family:var(--kh);font-size:40px;line-height:1.05;padding:4px;overflow-wrap:anywhere;transition:transform .2s}
+.pc .gl.n2{font-size:28px}.pc .gl.n3{font-size:18px}.pc .gl.n4{font-size:13.5px}.pc .gl{white-space:nowrap}
+.pc.ready:hover .gl{transform:rotate(-6deg) scale(1.06)}
+.pc.soon .gl{background:var(--ground2);color:var(--faint)}
+.pc .bd{display:grid;gap:4px;min-width:0}
+.pc .bl{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.pc .bl a{position:relative;z-index:2;font-size:12px;font-weight:700;color:var(--ink);background:var(--cs);border-radius:8px;padding:2px 7px;text-decoration:none;font-family:var(--kh)}
+.pc .bl a:hover{background:var(--c);color:#fff}
+.pc .hd{justify-self:start;font-size:11.5px;font-weight:800;color:var(--coral);background:var(--coral-s);border-radius:999px;padding:2px 9px}
 .pc .cd{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.pc .cd b{font-family:var(--kh);font-weight:400;font-size:14px;color:var(--c);background:var(--cs);border-radius:8px;padding:2px 8px}
+.pc .cd b{white-space:nowrap;font-family:var(--kh);font-weight:400;font-size:14px;color:var(--c);background:var(--cs);border-radius:8px;padding:2px 8px}
 .pc .st{font-size:11.5px;font-weight:800;letter-spacing:.03em;border-radius:999px;padding:3px 9px;white-space:nowrap}
 .pc .st.ok{background:var(--c);color:#fff}
 .pc .st.soon{color:var(--faint);border:1.5px dashed var(--line)}
-.pc .nm{font-family:var(--kh);font-size:21px;line-height:1.3;overflow-wrap:anywhere}
-.pc .vn{font-size:14.5px;font-weight:700;line-height:1.4;color:var(--ink);overflow-wrap:anywhere}
+.pc .vn{font-size:15.5px;font-weight:800;line-height:1.35;color:var(--ink);overflow-wrap:anywhere}
+.pc .nm{font-family:var(--kh);font-size:16.5px;line-height:1.35;color:var(--muted);overflow-wrap:anywhere}
 .pc.soon .vn{color:var(--muted)}
-.pc .it{font-family:var(--kh);font-size:15px;color:var(--muted);line-height:1.45;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pc .cls{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.pc .it{font-family:var(--kh);font-size:14px;color:var(--faint);line-height:1.45;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.pc .cls{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
 .pc .cls a,.pc .cls span{font-size:12px;font-weight:700;color:var(--c);background:var(--ground2);border-radius:8px;padding:2px 7px;text-decoration:none;position:relative;z-index:2}
 .pc .cls a:hover{background:var(--cs)}
 .pc.soon{background:color-mix(in srgb,var(--card) 55%,transparent);box-shadow:none;border:2px dashed var(--line)}
-.pc.soon .nm{color:var(--muted)}
+.pc.soon .vn{color:var(--muted)}
 .pc.soon .cd b{background:var(--ground2);color:var(--muted)}
 .pc.ready::after{content:"→";position:absolute;right:14px;bottom:10px;color:var(--c);font-weight:800}
 mark{background:color-mix(in srgb,var(--butter) 35%,transparent);color:inherit;border-radius:3px}
@@ -102,14 +112,20 @@ a.tag{border:1.5px solid var(--c)}
   .meter{min-width:0;width:100%;text-align:left}
   .lvl-h,.book{padding:16px 14px;border-radius:20px}
   .lesson{grid-template-columns:52px minmax(0,1fr);gap:4px 10px}
+  .pc .gl{width:56px;height:56px;font-size:34px;border-radius:15px}.pc .gl.n2{font-size:24px}.pc .gl.n3{font-size:15.5px}.pc .gl.n4{font-size:11.5px}
 }
+/* In: chỉ giáo viên (máy đã mở chế độ giáo viên ở một bài bất kỳ bằng ?gv=…) */
+@media print{html.np-in:not(.gv) body>*{display:none!important}html.np-in:not(.gv) body::before{content:"Bản in chỉ dành cho giáo viên · 吕老师汉语盒 lyulaoshi.com";display:block;font:600 16px/1.5 "Be Vietnam Pro",sans-serif;padding:30mm 0;text-align:center}}
 </style>
+<script>const NP_IN=false; if(NP_IN)document.documentElement.classList.add('np-in'); // tạm gác việc in (28/09/2026)
+try{if(localStorage.getItem('np-gv')==="90d7f6d38bc77fbade6f4aec51474079fa4810d61b1774787db9938057d2cb70")document.documentElement.classList.add('gv')}catch(e){}</script>
+<link rel="stylesheet" href="/chung/ic.css">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
 </head>
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="../tu-vung/" class="hide-s">词汇盒</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="../tu-vung/" class="hide-s">词汇盒</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap">
@@ -117,7 +133,7 @@ a.tag{border:1.5px solid var(--c)}
     <div>
       <div class="eyebrow">语法盒</div>
       <h1>Ngữ pháp HSK 3.0</h1>
-      <p>Mỗi điểm ngữ pháp trong 语法等级大纲 của 《国际中文教育中文水平等级标准》 là một bài giảng: công thức, câu ví dụ chuẩn, lỗi người Việt hay mắc và bài luyện có đáp án. Chọn cấp rồi bấm vào điểm muốn học.</p>
+      <p>Ngữ pháp xếp theo <b>đề cương thi HSK mới</b> (《HSK考试大纲》, 汉考国际 2025 — áp dụng từ 07/2026). Mỗi điểm là một bài giảng: công thức, câu ví dụ chuẩn, lỗi người Việt hay mắc và bài luyện có đáp án. Chọn cấp rồi bấm vào điểm muốn học.</p>
     </div>
     <div class="stat" id="stat"></div>
   </section>
@@ -127,79 +143,101 @@ a.tag{border:1.5px solid var(--c)}
       <button class="tab" type="button" data-view="hsk" aria-pressed="true">Theo cấp HSK</button>
       <button class="tab" type="button" data-view="bai" aria-pressed="false">Theo giáo trình trên lớp</button>
       <span class="sep"></span>
-      <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Tìm: 了, so sánh, bổ ngữ, 二60…" aria-label="Tìm điểm ngữ pháp"></label>
+      <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Tìm: 了, so sánh, bổ ngữ, 把…" aria-label="Tìm điểm ngữ pháp"></label>
     </div>
     <div class="row" id="lvRow" role="group" aria-label="Cấp HSK"></div>
   </div>
 
   <div id="out"></div>
-  <p class="note">Mã điểm (như 【二60】) và thứ tự theo 附录A 语法等级大纲, 《国际中文教育中文水平等级标准》(GF 0025—2021). Bài giảng đang được soạn dần; điểm nào đã học trên lớp có ghi tên bài để xem lại.</p>
+  <p class="note">Cấp và thứ tự theo 语法大纲 trong 《HSK考试大纲》(汉考国际, 2025-11). Mã trong ngoặc như 【二60】 là mã bài theo 《国际中文教育中文水平等级标准》(GF 0025—2021) — một điểm của đề cương mới có thể gồm nhiều bài. Điểm “Sắp có” đang được soạn; điểm nào đã học trên lớp có ghi tên bài để xem lại.</p>
 </main>
-<footer class="wrap">Ngữ pháp theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Bài giảng được biên soạn bởi ThS. Lã Thị Thuỳ Phương · 吕老师汉语盒</footer>
+<footer class="wrap">Ngữ pháp theo 《HSK考试大纲》(2025) và 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Bài giảng được biên soạn bởi ThS. Lã Thị Thuỳ Phương · 吕老师汉语盒</footer>
 
-<script src="hsk-ngu-phap.js?v=5a59c7"></script>
-<script src="bai-data.js?v=5a59c7"></script>
-<script src="co-bai.js?v=5a59c7"></script>
+<script src="hsk-ngu-phap.js?v=ac0d8f"></script>
+<script src="hsk-ngu-phap-2025.js?v=ac0d8f"></script>
+<script src="bai-data.js?v=ac0d8f"></script>
+<script src="co-bai.js?v=ac0d8f"></script>
+<script src="ky-hieu.js?v=ac0d8f"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
 const $=id=>document.getElementById(id);
-const H=window.HSK_NP||{}, BAI=window.NP_BAI||[], BOOKS=window.NP_BOOKS||[], READY=window.NP_READY||{};
+// Mục lục theo ĐỀ CƯƠNG THI HSK MỚI 2025 (HSK_NP25, shared/hsk/ngu-phap-2025.js); bài giảng vẫn mang mã 2021 (HSK_NP)
+const H=window.HSK_NP||{}, N=window.HSK_NP25||{}, LV25=window.NP_LV25||{}, BAI=window.NP_BAI||[], BOOKS=window.NP_BOOKS||[], READY=window.NP_READY||{};
 const SHORT={"301":"301句","boya":"博雅","yuedu":"阅读教程","tttc":"综合课本","ledu":"乐读"};
-const CN="一二三四五六七八九", GZH={"语素":"Hình vị","词类":"Từ loại","短语":"Cụm từ","固定格式":"Cấu trúc cố định","句子成分":"Thành phần câu","句子的类型":"Loại câu","动作的态":"Thể của động tác","特殊表达法":"Cách diễn đạt đặc biệt","强调的方法":"Cách nhấn mạnh","提问的方法":"Cách đặt câu hỏi","口语格式":"Khẩu ngữ"};
+const GZH={"语素":"Hình vị","词类":"Từ loại","短语":"Cụm từ · cấu trúc cố định","句子成分":"Thành phần câu","句子的类型":"Loại câu","动作的态":"Thể của động tác","特殊表达法":"Cách diễn đạt đặc biệt"};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const lvOf=c=>CN.indexOf(c[0])+1;
 const OFF={}; Object.values(H).forEach(L=>L.ds.forEach(d=>OFF[d[0]]=d));
+Object.values(N).forEach(L=>L.ds.forEach(d=>OFF["新"+d[0]]=["新"+d[0],d[2],d[1],d[3]]));   // bài chỉ có trong đề cương 2025
 const byCode={}; BAI.forEach(p=>p.h.forEach(c=>(byCode[c]=byCode[c]||[]).push(p)));
 const S={view:"hsk",lv:"1",q:""};
-try{Object.assign(S,JSON.parse(sessionStorage.getItem('np-state2')||'{}'))}catch(e){}
-function readHash(){const h=decodeURIComponent(location.hash.slice(1));let m=h.match(/^hsk-?(\d|all)$/);if(m){S.view="hsk";S.lv=m[1]}if(/^bai/.test(h))S.view="bai"}
-readHash(); if(S.lv!=="all"&&!H[S.lv])S.lv="1";
-const FULL=Object.keys(H).filter(k=>H[k].ds.length===H[k].tong);
+const GL=window.NP_GLYPH||{}, HARD=new Set(window.NP_HARD||[]);
+const lvVars=k=>{const n=(window.NP_LVCOLOR||{})[k]||"teal";return `--c:var(--${n});--cs:var(--${n}-s)`};
+const LVS=["1","2","3"];
+const lvName=c=>{const v=LV25[c];return v==="?"?"ngoài đề cương mới":"HSK "+v};
+// bài không thuộc HSK 1–3 mới (HSK 4–5 hoặc đề cương 2025 không ghi)
+const inNew=new Set(); LVS.forEach(k=>(N[k]?.ds||[]).forEach(d=>d[4].forEach(c=>inNew.add(c))));
+const OTHER=Object.keys(OFF).filter(c=>READY[c]&&!inNew.has(c));
+try{Object.assign(S,JSON.parse(sessionStorage.getItem('np-state3')||'{}'))}catch(e){}
+function readHash(){const h=decodeURIComponent(location.hash.slice(1));let m=h.match(/^hsk-?(\d|all|khac)$/);if(m){S.view="hsk";S.lv=m[1]}if(/^bai/.test(h))S.view="bai"}
+readHash(); if(!["all","khac"].includes(S.lv)&&!N[S.lv])S.lv="1";
 function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d')}
 function hit(...xs){if(!S.q)return true;const q=norm(S.q);return xs.some(x=>norm(x).includes(q))}
 function hl(t){t=esc(t);if(!S.q)return t;const q=esc(S.q).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return t.replace(new RegExp(q,'gi'),'<mark>$&</mark>')}
 const url=p=>`../${p.b}/bai-${p.l}/#np-${encodeURIComponent(p.t)}`;
+const nm21=c=>(OFF[c]||[c,c])[1].split("：")[0];
 
 // số liệu đầu trang
-const total=Object.values(H).filter((L,i)=>+Object.keys(H)[i]<=3).reduce((a,L)=>a+L.ds.length,0);
-$('stat').innerHTML=`<div><b>${Object.keys(READY).length}</b><span>bài giảng</span></div><div><b>${Object.keys(byCode).filter(c=>c!=="x").length}</b><span>điểm đã học<br>trên lớp</span></div><div><b>${total}</b><span>điểm HSK 1–3</span></div>`;
+const total=LVS.reduce((a,k)=>a+(N[k]?.ds.length||0),0), have=LVS.reduce((a,k)=>a+(N[k]?.ds.filter(d=>d[4].some(c=>READY[c])).length||0),0);
+$('stat').innerHTML=`<div><b>${Object.keys(READY).length}</b><span>bài giảng</span></div><div><b>${have}</b><span>điểm đã có bài<br>/ ${total} điểm HSK 1–3</span></div><div><b>${Object.keys(byCode).filter(c=>c!=="x").length}</b><span>điểm đã học<br>trên lớp</span></div>`;
 
 function buildRows(){
-  const lvs=["1","2","3","4","5","6","7"];
-  $('lvRow').innerHTML=`<button class="tab lvtab" type="button" data-lv="all" aria-pressed="${S.lv==='all'}">Tất cả <small>${total}</small></button>`+lvs.map(k=>{const L=H[k];const full=L&&L.ds.length===L.tong;const label=k==="7"?"HSK 7–9":"HSK "+k;
-    return `<button class="tab lvtab" type="button" data-lv="${k}" aria-pressed="${S.lv==k}" ${full?"":"disabled title=\"Đang chép danh mục\""}>${label} <small>${L?L.tong:k==="5"?71:k==="6"?67:148}</small></button>`}).join('');
+  $('lvRow').innerHTML=`<button class="tab lvtab" type="button" data-lv="all" aria-pressed="${S.lv==='all'}">Tất cả <small>${total}</small></button>`
+    +LVS.map(k=>`<button class="tab lvtab" type="button" data-lv="${k}" style="${lvVars(k)}" aria-pressed="${S.lv==k}">HSK ${k} <small>${N[k].ds.length}</small></button>`).join('')
+    +`<button class="tab lvtab" type="button" data-lv="khac" style="${lvVars("4")}" aria-pressed="${S.lv==='khac'}" title="Bài đã có nhưng theo đề cương mới thuộc HSK 4–5 hoặc không ghi">HSK 4+ · khác <small>${OTHER.length}</small></button>`;
   $('lvRow').hidden=S.view!=="hsk";
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===S.view));
 }
-function card(d){
-  const [code,name,grp]=d, i=name.indexOf("："), nm=i>0?name.slice(0,i):name, items=i>0?name.slice(i+1):"";
-  const cls=(byCode[code]||[]), rd=READY[code];
+const glyphOf=(codes,zh)=>{for(const c of codes)if(GL[c])return GL[c];const t=zh.split("：").pop();return (t.match(/[㐀-鿿]+/)||[""])[0].slice(0,2)};
+function card(d,lv){ // d = [mã 2025, nhóm, nội dung, tên Việt, [bài]]
+  const [id,grp,zh,vi,codes]=d, rd=codes.filter(c=>READY[c]), main=rd[0];
+  const cls=[...new Set(codes.flatMap(c=>byCode[c]||[]))];
   const chips=cls.length?`<div class="cls">${cls.map(p=>`<a href="${url(p)}" title="${esc(p.n)}">${esc(SHORT[p.b]||p.b)} B${p.l}</a>`).join('')}</div>`:"";
-  const inner=`<div class="cd"><b>【${esc(code)}】</b><span class="st ${rd?"ok":"soon"}">${rd?"Bài giảng":"Sắp có"}</span></div>
-    <div class="nm">${hl(nm)}</div>${d[3]?`<div class="vn">${hl(d[3])}</div>`:""}${items?`<div class="it">${hl(items)}</div>`:""}`;
-  // thẻ có bài: cả thẻ là link (chip bài trên lớp vẫn bấm riêng được)
-  return rd?`<div class="pc ready" style="cursor:pointer" data-href="${rd}/"><a href="${rd}/" style="position:absolute;inset:0;border-radius:20px" aria-label="Học 【${esc(code)}】${esc(nm)}"></a>${inner}${chips}</div>`
-           :`<div class="pc soon">${inner}${chips}</div>`;
+  const more=rd.length>1?`<div class="bl">${rd.map(c=>`<a href="${READY[c]}/" title="${esc((OFF[c]||[])[3]||"")}">【${esc(c)}】${esc(nm21(c))}</a>`).join('')}</div>`:"";
+  const g=glyphOf(codes,zh), gn=Array.from(g).length, hard=rd.some(c=>HARD.has(c));
+  const i=zh.indexOf("："), head=i>0?zh.slice(0,i):zh, items=i>0?zh.slice(i+1):"";
+  const inner=`<div class="gl${gn>1?" n"+Math.min(gn,4):""}" aria-hidden="true">${esc(g)}</div><div class="bd"><div class="cd"><b>HSK ${lv} · ${esc(id.split(".")[1])}</b><span class="st ${main?"ok":"soon"}">${main?"Bài giảng":"Sắp có"}</span></div>${hard?`<span class="hd"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#sao"/></svg> Luyện thêm</span>`:""}
+    <div class="vn">${hl(vi)}</div><div class="nm">${hl(head)}</div>${items?`<div class="it">${hl(items)}</div>`:""}</div>`;
+  return main?`<div class="pc ready" style="cursor:pointer"><a href="${READY[main]}/" style="position:absolute;inset:0;border-radius:20px" aria-label="Học ${esc(vi)}"></a>${inner}${more}${chips}</div>`
+             :`<div class="pc soon">${inner}${chips}</div>`;
 }
 function renderHSK(){
-  if(S.lv==="all")return FULL.map(renderLv).join('');
+  if(S.lv==="all")return LVS.map(renderLv).join('')+renderOther();
+  if(S.lv==="khac")return renderOther();
   return renderLv(S.lv);
 }
 function renderLv(lv){
-  const L=H[lv]; if(!L)return "";
-  const ds=L.ds.filter(d=>hit(d[0],d[1],d[3]||"",...(byCode[d[0]]||[]).map(p=>p.n)));
-  const nReady=L.ds.filter(d=>READY[d[0]]).length, nCls=L.ds.filter(d=>byCode[d[0]]).length;
-  let html=`<section class="lvl" id="hsk-${lv}"><div class="lvl-h"><div><h2>HSK ${lv}<span class="zh">${esc(L.ten)}</span></h2><p>${L.tong} điểm ngữ pháp trong đề cương</p></div>
-    <div class="meter"><span>Bài giảng: <b>${nReady}</b> / ${L.tong} · đã học trên lớp: ${nCls}</span><div class="bar"><i style="width:${nReady/L.tong*100}%"></i><i class="cls" style="width:${Math.max(0,nCls-nReady)/L.tong*100}%"></i></div></div></div>`;
+  const L=N[lv]; if(!L)return "";
+  const ds=L.ds.filter(d=>hit(d[0],d[2],d[3],...d[4],...d[4].map(c=>(OFF[c]||[])[1]||""),...d[4].flatMap(c=>(byCode[c]||[]).map(p=>p.n))));
+  const nReady=L.ds.filter(d=>d[4].some(c=>READY[c])).length, tong=L.ds.length;
+  let html=`<section class="lvl" id="hsk-${lv}" style="${lvVars(lv)}"><div class="lvl-h"><div><h2>HSK ${lv}<span class="zh">${esc(L.ten)}</span></h2><p>${tong} điểm ngữ pháp theo đề cương thi HSK mới (2025)</p></div>
+    <div class="meter"><span>Đã có bài: <b>${nReady}</b> / ${tong}</span><div class="bar"><i style="width:${nReady/tong*100}%"></i></div></div></div>`;
   let g="";
-  ds.forEach((d,i)=>{if(d[2]!==g){if(g)html+=`</div>`;g=d[2];html+=`<div class="grp"><span class="zh">${esc(g)}</span>${esc(GZH[g]||"")}</div><div class="grid">`}html+=card(d)});
+  ds.forEach(d=>{if(d[1]!==g){if(g)html+=`</div>`;g=d[1];html+=`<div class="grp"><span class="zh">${esc(g)}</span>${esc(GZH[g]||"")}</div><div class="grid">`}html+=card(d,lv)});
   if(g)html+=`</div>`;
   return ds.length?html+`</section>`:"";
+}
+function renderOther(){ // bài đã soạn nhưng không thuộc HSK 1–3 mới
+  const cs=OTHER.filter(c=>hit(c,(OFF[c]||[])[1]||"",(OFF[c]||[])[3]||""));
+  if(!cs.length)return "";
+  const cardO=c=>{const o=OFF[c]||[c,c,"",""],g=GL[c]||"",gn=Array.from(g).length;
+    return `<div class="pc ready" style="cursor:pointer"><a href="${READY[c]}/" style="position:absolute;inset:0;border-radius:20px" aria-label="Học ${esc(o[3]||o[1])}"></a><div class="gl${gn>1?" n"+Math.min(gn,4):""}" aria-hidden="true">${esc(g)}</div><div class="bd"><div class="cd"><b>${esc(lvName(c))}</b><span class="st ok">Bài giảng</span></div>${HARD.has(c)?`<span class="hd"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#sao"/></svg> Luyện thêm</span>`:""}<div class="vn">${hl(o[3]||"")}</div><div class="nm">${hl(o[1].split("：")[0])}</div></div></div>`};
+  return `<section class="lvl" id="hsk-khac" style="${lvVars("4")}"><div class="lvl-h"><div><h2>HSK 4+ · khác<span class="zh">其他</span></h2><p>Bài đã soạn (theo chuẩn 2021) nhưng đề cương thi mới xếp ở HSK 4–5 hoặc không ghi — vẫn học được, thi HSK 1–3 mới chưa yêu cầu.</p></div></div>
+    <div class="grid" style="margin-top:14px">${cs.map(cardO).join('')}</div></section>`;
 }
 function renderBai(){
   let html="";
@@ -210,17 +248,18 @@ function renderBai(){
       const ps=ls[l].filter(p=>hit(p.n,...p.h,...p.h.map(c=>(OFF[c]||[])[1]||"")));
       if(!ps.length)return;
       rows+=`<div class="lesson"><a class="bn" href="../${b.id}/bai-${l}/">Bài ${l}</a><ul>${ps.map(p=>`<li><a href="${url(p)}"><span class="zh">${hl(p.n)}</span></a>${
-        p.h.map(c=>c==="x"?`<span class="tag x">ngoài đề cương</span>`:READY[c]?`<a class="tag" href="${READY[c]}/" title="Bài giảng: ${esc((OFF[c]||[])[1]||"")}">HSK ${lvOf(c)} · ${esc(c)} →</a>`:`<span class="tag" title="${esc((OFF[c]||[])[1]||"")}">HSK ${lvOf(c)} · ${esc(c)}</span>`).join('')}</li>`).join('')}</ul></div>`;
+        p.h.map(c=>c==="x"?`<span class="tag x">ngoài đề cương</span>`:READY[c]?`<a class="tag" href="${READY[c]}/" title="Bài giảng: ${esc((OFF[c]||[])[1]||"")}">${esc(lvName(c))} →</a>`:`<span class="tag" title="${esc((OFF[c]||[])[1]||"")}">${esc(lvName(c))}</span>`).join('')}</li>`).join('')}</ul></div>`;
     });
     if(rows)html+=`<section class="book"><h2>${esc(b.zh)}<small>${esc(b.vi)}</small></h2>${rows}</section>`;
   });
   return html;
 }
 function render(){
+  document.documentElement.style.cssText=S.view==="hsk"&&LVS.includes(S.lv)?lvVars(S.lv):"";
   buildRows();
   const html=S.view==="hsk"?renderHSK():renderBai();
   $('out').innerHTML=html||`<div class="empty">Không tìm thấy điểm ngữ pháp nào${S.q?` với “${esc(S.q)}”`:""}.</div>`;
-  try{sessionStorage.setItem('np-state2',JSON.stringify({view:S.view,lv:S.lv}))}catch(e){}
+  try{sessionStorage.setItem('np-state3',JSON.stringify({view:S.view,lv:S.lv}))}catch(e){}
 }
 document.querySelector('.tools').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||b.disabled)return;
   if(b.dataset.view)S.view=b.dataset.view;else if(b.dataset.lv)S.lv=b.dataset.lv;else return;render();});

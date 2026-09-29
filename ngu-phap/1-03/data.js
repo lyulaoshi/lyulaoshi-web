@@ -15,7 +15,7 @@ rules:[
       ["明天我[要]去北京。","Míngtiān wǒ yào qù Běijīng.","Ngày mai tôi sẽ đi Bắc Kinh."]],
   note:"Phủ định của 要 (muốn) thường là <b>不想</b>: <span class='zh'>我不想去。</span> Vì <span class='zh'>不要 + động từ</span> hay mang nghĩa “<b>đừng</b>”: <span class='zh'>不要说话！</span> = Đừng nói chuyện!"}],
 notes:[
- {t:"要 + danh từ", html:"= muốn có, cần (động từ thường): <span class='zh'>我要一杯水。</span> Tôi muốn một cốc nước. Không nói ✗ <span class='zh'>我想一杯水。</span>"},
+ {t:"要 + danh từ", html:"= muốn có, cần (động từ thường): <span class='zh'>我要一杯水。</span> Tôi muốn một cốc nước. Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> <span class='zh'>我想一杯水。</span>"},
  {t:"想 + người", html:"= nhớ: <span class='zh'>我很想妈妈。</span> Tôi rất nhớ mẹ."}],
 cmp:[
  {vn:"Tôi muốn học tiếng Trung.", zh:"我[想]学中文。", py:"Wǒ xiǎng xué Zhōngwén.", ok:true, why:"Muốn + động từ → 想 / 要."},

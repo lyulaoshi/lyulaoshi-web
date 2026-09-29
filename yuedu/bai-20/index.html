@@ -854,7 +854,7 @@
   }
 
   @media (max-width:760px){ .hero-lecturer{display:inline-block; font-size:14.5px; line-height:1.5;} }
-  /* ===== Mục lục tự đóng (dải hẹp, rê chuột/chạm để mở) + chữ nội dung lớn hơn — chỉ màn hình rộng ===== */
+  /* ===== Mục lục tự đóng (dải hẹp, rê chuột/chạm để mở; chọn mục xong đóng ngay) + chữ nội dung lớn hơn — chỉ màn hình rộng ===== */
   @media (min-width:761px){
     :root{--spine-w:58px;}
     .spine{
@@ -871,6 +871,11 @@
     .spine-title{font-size:22px; margin-bottom:4px;}
     .spine:not(:hover):not(.open) .spine-title, .spine:not(:hover):not(.open) .spine-rule{display:none;}
     .spine:hover .spine-mini, .spine.open .spine-mini{display:none;}
+    /* vừa chọn mục: đóng ngay dù chuột còn nằm trên menu (mở lại khi rê chuột ra rồi vào lại) */
+    .spine.shut:not(.open){width:var(--spine-w); box-shadow:none;}
+    .spine.shut:not(.open) .spine-title, .spine.shut:not(.open) .spine-rule{display:none;}
+    .spine.shut:not(.open) .spine-foot, .spine.shut:not(.open) .labelwrap{opacity:0;}
+    .spine.shut:not(.open) .spine-mini{display:block;}
     .tab{padding:9px 8px; gap:9px; min-width:186px;}
     .tab .num{font-size:12px; width:22px; text-align:center;}
     .tab .cn{font-size:18px;}
@@ -2594,15 +2599,16 @@ document.addEventListener('fullscreenchange', ()=>{
 });
 </script>
 <script>
-/* Mục lục tự đóng: chạm vào dải menu để mở (máy tính bảng), chọn mục xong tự đóng; rời chuột cũng tự đóng */
+/* Mục lục tự đóng: rê chuột (máy tính) hoặc chạm (máy tính bảng) để mở; chọn mục xong đóng ngay; bấm ra ngoài cũng đóng */
 (function(){
-  const sp=document.querySelector('.spine');
+  const sp=document.querySelector('.spine'); if(!sp) return;
   sp.addEventListener('click',e=>{
     if(innerWidth<=760) return;
-    if(e.target.closest('.tab')){ sp.classList.remove('open'); if(document.activeElement) document.activeElement.blur(); }
-    else sp.classList.toggle('open');
+    if(e.target.closest('.tab')){ sp.classList.remove('open'); sp.classList.add('shut'); if(document.activeElement) document.activeElement.blur(); }
+    else { sp.classList.remove('shut'); sp.classList.toggle('open'); }
   });
-  document.addEventListener('click',e=>{ if(!e.target.closest('.spine')) sp.classList.remove('open'); });
+  sp.addEventListener('mouseleave',()=>sp.classList.remove('shut'));
+  document.addEventListener('click',e=>{ if(!e.target.closest('.spine')){ sp.classList.remove('open'); sp.classList.remove('shut'); } });
 })();
 </script>
 <!-- 词汇盒: nút ôn từ vựng, do tools/build_site.py gắn khi ghép -->

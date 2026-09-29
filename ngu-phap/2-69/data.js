@@ -29,6 +29,19 @@ practice:[
   {w:["我","一","到家","就","给你","打电话"], a:"我一到家就给你打电话。", vi:"Tôi vừa về đến nhà là gọi cho bạn."}]},
  {t:"C. Nối bằng 一……就……", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"他下课 / 回家了", vi:"Anh ấy tan học / về nhà", a:"他一下课就回家了。"},
-  {q:"我看书 / 想睡觉", vi:"Tôi đọc sách / buồn ngủ", a:"我一看书就想睡觉。"}]}],
+  {q:"我看书 / 想睡觉", vi:"Tôi đọc sách / buồn ngủ", a:"我一看书就想睡觉。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我一到家，就给你打电话。", vi:"Tôi về đến nhà là gọi cho bạn ngay.", o:["Đúng","Sai"], a:0, why:"一 + V1，就 + V2."},
+  {q:"他就一看书就睡觉。", vi:"Hễ đọc sách là anh ấy ngủ.", o:["Đúng","Sai"], a:1, why:"他一看书就睡觉。"},
+  {q:"一下课，他就去食堂。", vi:"Vừa tan học anh ấy đi nhà ăn.", o:["Đúng","Sai"], a:0, why:"就 sau chủ ngữ vế sau."},
+  {q:"天一黑，就路灯亮了。", vi:"Trời vừa tối là đèn đường sáng.", o:["Đúng","Sai"], a:1, why:"就 đứng sau chủ ngữ: 天一黑，路灯就亮了。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Vừa về nhà là tôi đi tắm.", o:["我一回家就洗澡。", "我回家一就洗澡。", "一我回家就洗澡。"], a:0, why:"S + 一 + V1 + 就 + V2."},
+  {q:"Trời vừa mưa là đường tắc.", o:["一下雨，路上就堵车。", "一下雨，就路上堵车。"], a:0, why:"就 sau chủ ngữ vế sau."},
+  {q:"Hễ uống cà phê là tôi không ngủ được.", o:["我一喝咖啡就睡不着。", "我喝咖啡一就睡不着。"], a:0, why:"一 đứng trước V1."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Vừa tan học anh ấy đi thư viện.", a:"他一下课就去图书馆。/ 一下课他就去图书馆。"},
+  {q:"Tôi vừa nhìn là hiểu.", a:"我一看就懂了。/ 我一看就明白了。/ 我一看就懂。/ 我一看就明白。"},
+  {q:"Về đến nhà tôi gọi cho bạn ngay.", a:"我一到家就给你打电话。/ 我一回家就给你打电话。"}]}],
 rel:["二17","二20","三73","三41"]
 };

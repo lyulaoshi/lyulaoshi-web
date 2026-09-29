@@ -35,6 +35,20 @@ practice:[
   {w:["这件衣服","洗不干净","了"], a:"这件衣服洗不干净了。", vi:"Chiếc áo này giặt không sạch được nữa."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Chữ trên bảng bạn nhìn rõ không?", a:"黑板上的字你看得清楚吗？/ 黑板上的字你看得清楚看不清楚？"},
-  {q:"Mai tôi không đi được.", a:"明天我去不了。/ 我明天去不了。"}]}],
+  {q:"Mai tôi không đi được.", a:"明天我去不了。/ 我明天去不了。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我听不懂他说的话。", vi:"Tôi nghe không hiểu lời anh ấy nói.", o:["Đúng","Sai"], a:0, why:"V + 不 + bổ ngữ."},
+  {q:"我不听懂你的话。", vi:"Tôi không hiểu lời bạn.", o:["Đúng","Sai"], a:1, why:"Không thể hiểu → bổ ngữ khả năng: 我听不懂你的话。"},
+  {q:"黑板上的字我看得清楚。", vi:"Chữ trên bảng tôi nhìn rõ được.", o:["Đúng","Sai"], a:0, why:"V + 得 + bổ ngữ."},
+  {q:"今天太忙，我去得不了。", vi:"Hôm nay bận quá, tôi không đi được.", o:["Đúng","Sai"], a:1, why:"Phủ định là V不了: 我去不了。"}]},
+ {t:"E. Chọn câu đúng nghĩa", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Nhiều quá, tôi ăn không hết (không thể).", o:["我吃不完。", "我不吃完。", "我没吃完。"], a:0, why:"Không thể → V不C."},
+  {q:"Hôm qua tôi chưa ăn hết (sự thật đã xảy ra).", o:["我吃不完。", "我没吃完。"], a:1, why:"Kết quả thực tế → 没 + V + C."},
+  {q:"Chữ nhỏ quá, tôi nhìn không rõ.", o:["我看不清楚。", "我不看清楚。"], a:0, why:"V不C."},
+  {q:"Bạn nghe có hiểu không?", o:["你听得懂吗？", "你得听懂吗？"], a:0, why:"V得C + 吗."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Tôi nghe không hiểu.", a:"我听不懂。"},
+  {q:"Mai tôi bận, không đến được.", a:"明天我很忙，来不了。/ 我明天很忙，来不了。/ 明天我很忙，去不了。/ 我明天很忙，去不了。"},
+  {q:"Bạn nhìn có rõ không?", a:"你看得清楚吗？/ 你看得清楚看不清楚？"}]}],
 rel:["二49","三06","三46","二31"]
 };

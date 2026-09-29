@@ -10,7 +10,7 @@ rules:[
  {t:"自从 + sự việc (+ 以后)，vế sau", sub:"自从", fx:[["自从",null],["sự việc / thời điểm (quá khứ)",""],["(以后)，",""],["vế sau",""]], mean:"",
   ex:[["[自从]修了公路，这儿的交通就方便多了。","Zìcóng xiū le gōnglù, zhèr de jiāotōng jiù fāngbiàn duō le.","Từ khi làm đường, giao thông ở đây thuận tiện hơn nhiều.","等级标准"],
       ["[自从]来到中国，他就喜欢上了中国菜。","Zìcóng láidào Zhōngguó, tā jiù xǐhuanshang le Zhōngguó cài.","Từ khi đến Trung Quốc, anh ấy thích món Trung Quốc.","等级标准"]]}],
-notes:[{t:"自从 và 从", html:"Tương lai dùng <span class='zh'>从</span>: <span class='zh'>从明天起……</span> (✗ 自从明天) 【三39】."}],
+notes:[{t:"自从 và 从", html:"Tương lai dùng <span class='zh'>从</span>: <span class='zh'>从明天起……</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 自从明天) 【三39】."}],
 cmp:[
  {vn:"Từ khi học tiếng Trung, tôi rất thích Trung Quốc.", zh:"[自从]学了中文，我就很喜欢中国。", py:"Zìcóng xué le Zhōngwén, wǒ jiù hěn xǐhuan Zhōngguó.", ok:true, why:"Mốc quá khứ → 自从."}],
 ex:[

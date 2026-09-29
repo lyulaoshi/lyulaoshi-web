@@ -14,7 +14,7 @@ rules:[
       ["这件事[是]老师告诉我[的]。","Zhè jiàn shì shì lǎoshī gàosu wǒ de.","Chuyện này (là) thầy giáo nói cho tôi.","等级标准"]]}],
 notes:[
  {t:"Phủ định", html:"<span class='zh'>我不是昨天到的，是前天到的。</span>"},
- {t:"Chỉ dùng cho việc đã xảy ra", html:"✗ <span class='zh'>我是明天去的。</span>"}],
+ {t:"Chỉ dùng cho việc đã xảy ra", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> <span class='zh'>我是明天去的。</span>"}],
 cmp:[
  {vn:"Bạn đến lúc nào? — Tôi đến hôm qua.", zh:"你[是]什么时候来[的]？——我是昨天来的。", py:"Nǐ shì shénme shíhou lái de? —— Wǒ shì zuótiān lái de.", ok:true, why:"Việc “đến” đã biết; hỏi / nhấn mạnh thời gian → 是……的."}],
 ex:[
@@ -36,6 +36,19 @@ practice:[
  {t:"C. Đặt câu hỏi với 是……的", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"(hỏi thời gian) 你来中国", vi:"Bạn đến Trung Quốc", a:"你是什么时候来中国的？"},
   {q:"(hỏi cách thức) 你来学校", vi:"Bạn đến trường", a:"你是怎么来学校的？"},
-  {q:"(hỏi nơi chốn) 你买衣服", vi:"Bạn mua quần áo", a:"你（的衣服）是在哪儿买的？"}]}],
+  {q:"(hỏi nơi chốn) 你买衣服", vi:"Bạn mua quần áo", a:"你（的衣服）是在哪儿买的？"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我是去年来中国的。", vi:"Tôi đến Trung Quốc năm ngoái.", o:["Đúng","Sai"], a:0, why:"是 + thời gian + V + 的."},
+  {q:"我是明天去北京的。", vi:"Mai tôi đi Bắc Kinh.", o:["Đúng","Sai"], a:1, why:"是……的 chỉ dùng cho việc đã xảy ra: 我明天去北京。"},
+  {q:"你是怎么来的？", vi:"Bạn đến bằng cách nào?", o:["Đúng","Sai"], a:0, why:"是 + 怎么 + V + 的."},
+  {q:"他是坐火车来了。", vi:"Anh ấy đến bằng tàu hỏa.", o:["Đúng","Sai"], a:1, why:"Kết thúc bằng 的, không dùng 了: 他是坐火车来的。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"(Hỏi người đã đến) Bạn đến cùng ai?", o:["你是跟谁一起来的？", "你是跟谁一起来了？"], a:0, why:"Việc đã xảy ra, hỏi người đi cùng → 是……的."},
+  {q:"Tôi không đến bằng taxi.", o:["我不是坐出租车来的。", "我没是坐出租车来的。"], a:0, why:"Phủ định: 不是……的."},
+  {q:"Tôi đến Bắc Kinh hôm qua.", o:["我是昨天到北京的。", "我是到北京昨天的。"], a:0, why:"是 + thời gian + V + nơi chốn + 的."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Bạn đến Việt Nam khi nào?", a:"你是什么时候来越南的？"},
+  {q:"Tôi đi bộ đến.", a:"我是走来的。/ 我是走路来的。"},
+  {q:"Quyển sách này tôi mua ở Bắc Kinh.", a:"这本书是我在北京买的。/ 这本书我是在北京买的。"}]}],
 rel:["二34","三77","一36","二74"]
 };

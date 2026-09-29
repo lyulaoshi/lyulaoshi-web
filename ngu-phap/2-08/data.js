@@ -9,7 +9,7 @@ intro:"Lặp tính từ làm lời miêu tả <b>sinh động, có sắc thái y
 rules:[
  {t:"AA (một âm tiết)", sub:"AA", fx:[["A",null],["A",null],["(的)",""]], mean:"高高的、大大的、慢慢地…",
   ex:[["那个女孩儿[高高]的个子，[大大]的眼睛，非常漂亮。","Nàge nǚháir gāogāo de gèzi, dàdà de yǎnjing, fēicháng piàoliang.","Cô bé ấy dáng cao cao, mắt to tròn, rất xinh.","等级标准"]]},
- {t:"AABB (hai âm tiết)", sub:"AABB", fx:[["AA",null],["BB",null],["(的 / 地)",""]], mean:"干净 → 干干净净; 高兴 → 高高兴兴 (không nói ✗ 干净干净).",
+ {t:"AABB (hai âm tiết)", sub:"AABB", fx:[["AA",null],["BB",null],["(的 / 地)",""]], mean:"干净 → 干干净净; 高兴 → 高高兴兴 (không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 干净干净).",
   ex:[["这个房间[干干净净]的。","Zhège fángjiān gāngānjìngjìng de.","Căn phòng này sạch sẽ tinh tươm.","等级标准"],
       ["他们都[高高兴兴]地回家了。","Tāmen dōu gāogāoxìngxìng de huí jiā le.","Họ đều vui vẻ về nhà.","等级标准"]]}],
 notes:[

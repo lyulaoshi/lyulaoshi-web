@@ -7,7 +7,7 @@
 <meta name="description" content="Trò chơi luyện từ vựng tiếng Trung theo cấp HSK (khung 9 cấp) – Lyu Laoshi Chinese Box.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="game.css?v=3">
+<link rel="stylesheet" href="game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 .hero{padding:34px 0 8px}
@@ -22,7 +22,7 @@ a.game:hover{transform:translateY(-4px)}
 .game p{margin:0;color:var(--muted);font-size:14.5px}
 .game .tag{justify-self:start;font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--mint-s);color:var(--mint)}
 .bo-bar{margin-top:22px;padding:14px 18px;border-radius:18px;background:var(--lav-s);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:15px}
-.bo-bar b{font-family:var(--hz);font-weight:400;color:var(--lav);font-size:19px}.bo-bar a{color:var(--lav);font-weight:700;font-size:14px}
+.bo-bar b{font-family:var(--hz);font-weight:400;color:var(--lav);font-size:19px}.bo-bar .bo-vi{font-weight:700;color:var(--lav);font-size:16px}.bo-bar a{color:var(--lav);font-weight:700;font-size:14px}
 .gchips[hidden],.bo-bar[hidden]{display:none}
 .gchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .chip{border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:700;font-size:14.5px;padding:7px 14px;border-radius:999px;cursor:pointer}
@@ -47,14 +47,14 @@ a.game:hover{transform:translateY(-4px)}
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap">
   <section class="hero">
     <div class="eyebrow">游戏盒</div>
     <h1>Hộp trò chơi: vừa chơi vừa nhớ từ</h1>
-    <p>Các trò chia thành 4 nhóm theo thứ tự học: <b>âm → chữ → từ → vận dụng</b>. Trong mỗi nhóm, trò xếp từ dễ <span class="lvx">●○○</span> đến khó <span class="lvx">●●●</span>; vào trò nào cũng chọn được cấp HSK. Một ván chừng 2–3 phút, hợp để ôn lúc rảnh hay thi đấu cả lớp trên máy chiếu.</p>
+    <p>Các trò chia thành 4 nhóm theo thứ tự học: <b>âm → chữ → từ → vận dụng</b>. Trong mỗi nhóm, trò xếp từ dễ <span class="lvx"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg></span> đến khó <span class="lvx"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg></span>; vào trò nào cũng chọn được cấp HSK. Một ván chừng 2–3 phút, hợp để ôn lúc rảnh hay thi đấu cả lớp trên máy chiếu.</p>
   </section>
 
   <nav class="gchips" id="gChips" aria-label="Lọc theo nhóm"><button type="button" class="chip" data-g="all" aria-pressed="true">Tất cả</button><button type="button" class="chip" data-g="am" aria-pressed="false" style="--gc:var(--sky)"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 8a5 5 0 0 1 0 8"/><path d="M17.7 5a9 9 0 0 1 0 14"/><path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5"/></svg></span>Pinyin & thanh điệu</button><button type="button" class="chip" data-g="chu" aria-pressed="false" style="--gc:var(--coral)"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21v-4a4 4 0 1 1 4 4h-4"/><path d="M21 3a16 16 0 0 0 -12.8 10.2"/><path d="M21 3a16 16 0 0 1 -10.2 12.8"/><path d="M10.6 9a9 9 0 0 1 4.4 4.4"/></svg></span>Mặt chữ & cách viết</button><button type="button" class="chip" data-g="tu" aria-pressed="false" style="--gc:var(--teal)"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/><path d="M9 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/><path d="M5 8h4"/><path d="M9 16h4"/><path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041z"/><path d="M14 9l4 -1"/><path d="M16 16l3.923 -.98"/></svg></span>Từ vựng</button><button type="button" class="chip" data-g="do" aria-pressed="false" style="--gc:var(--lav)"><span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"/></svg></span>Giải đố & thách bạn</button></nav>
@@ -63,45 +63,45 @@ a.game:hover{transform:translateY(-4px)}
   <section class="grp" data-g="am" aria-labelledby="gh-am">
     <h2 class="gh" id="gh-am"><span class="gi" style="--gc:var(--sky)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 8a5 5 0 0 1 0 8"/><path d="M17.7 5a9 9 0 0 1 0 14"/><path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a.8 .8 0 0 1 1.5 .5v14a.8 .8 0 0 1 -1.5 .5l-3.5 -4.5"/></svg></span>1. Pinyin & thanh điệu <small>Nhìn chữ Hán, nhận ra cách đọc.</small></h2>
     <div class="games">
-      <a class="game" href="lat-the/" style="--c:var(--mint)"><span class="lv" title="Độ khó: Dễ" aria-label="Độ khó: Dễ">●○○</span><span class="ic">配对</span><h2>Lật thẻ ghép đôi</h2><p>Lật thẻ, ghép chữ Hán với pinyin. Ghép hết bàn với ít lượt nhất là thắng!</p><span class="tag">HSK 1–6</span></a>
-      <a class="game" href="thanh-dieu/" style="--c:var(--lav)"><span class="lv" title="Độ khó: Dễ" aria-label="Độ khó: Dễ">●○○</span><span class="ic">声调</span><h2>Săn thanh điệu</h2><p>Nhìn chữ, chọn đúng cách đọc có dấu thanh. Thanh 2 hay thanh 3, đừng để chữ Hán dỗi nhé!</p><span class="tag">HSK 1–6</span></a>
-      <a class="game" href="dap-chuot/" style="--c:var(--peach)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa">●●○</span><span class="ic">打地鼠</span><h2>Đập chuột thanh điệu</h2><p>Chuột chũi mang chữ Hán thò lên. Chỉ đập những con có đúng thanh đề bài, đập nhầm là trừ điểm!</p><span class="tag">HSK 1–6</span></a>
-      <a class="game" href="mua-chu/" style="--c:var(--sky)"><span class="lv" title="Độ khó: Khó" aria-label="Độ khó: Khó">●●●</span><span class="ic">汉字雨</span><h2>Mưa chữ Hán</h2><p>Luyện gõ pinyin không dấu như luyện đánh máy: chữ Hán rơi xuống, gõ nhanh pinyin để bắn rơi. Để lọt 3 chữ là thua!</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="lat-the/" style="--c:var(--mint)"><span class="lv" title="Độ khó: Dễ" aria-label="Độ khó: Dễ"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg></span><span class="ic">配对</span><h2>Lật thẻ ghép đôi</h2><p>Lật thẻ, ghép chữ Hán với pinyin. Ghép hết bàn với ít lượt nhất là thắng!</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="thanh-dieu/" style="--c:var(--lav)"><span class="lv" title="Độ khó: Dễ" aria-label="Độ khó: Dễ"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg></span><span class="ic">声调</span><h2>Săn thanh điệu</h2><p>Nhìn chữ, chọn đúng cách đọc có dấu thanh. Thanh 2 hay thanh 3, đừng để chữ Hán dỗi nhé!</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="dap-chuot/" style="--c:var(--peach)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg></span><span class="ic">打地鼠</span><h2>Đập chuột thanh điệu</h2><p>Chuột chũi mang chữ Hán thò lên. Chỉ đập những con có đúng thanh đề bài, đập nhầm là trừ điểm!</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="mua-chu/" style="--c:var(--sky)"><span class="lv" title="Độ khó: Khó" aria-label="Độ khó: Khó"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg></span><span class="ic">汉字雨</span><h2>Mưa chữ Hán</h2><p>Luyện gõ pinyin không dấu như luyện đánh máy: chữ Hán rơi xuống, gõ nhanh pinyin để bắn rơi. Để lọt 3 chữ là thua!</p><span class="tag">HSK 1–6</span></a>
     </div>
   </section>
   <section class="grp" data-g="chu" aria-labelledby="gh-chu">
     <h2 class="gh" id="gh-chu"><span class="gi" style="--gc:var(--coral)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21v-4a4 4 0 1 1 4 4h-4"/><path d="M21 3a16 16 0 0 0 -12.8 10.2"/><path d="M21 3a16 16 0 0 1 -10.2 12.8"/><path d="M10.6 9a9 9 0 0 1 4.4 4.4"/></svg></span>2. Mặt chữ & cách viết <small>Cấu tạo, hình dạng và cách viết chữ Hán.</small></h2>
     <div class="games">
-      <a class="game" href="ghep-bo/" style="--c:var(--butter)"><span class="lv" title="Độ khó: Dễ" aria-label="Độ khó: Dễ">●○○</span><span class="ic">部首</span><h2>Ghép bộ thủ</h2><p>女 + 子 = ? Ghép hai bộ phận thành chữ Hán đúng, học luôn tên bộ thủ.</p><span class="tag">HSK 1–6</span></a>
-      <a class="game" href="bay-chu/" style="--c:var(--coral)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa">●●○</span><span class="ic">找不同</span><h2>Bẫy chữ giống nhau</h2><p>已 hay 己? 买 hay 卖? Điền chữ còn thiếu giữa những chữ na ná nhau. Nhìn vội là dính bẫy!</p><span class="tag">HSK 1–6</span></a>
-      <a class="game" href="viet-chu/" style="--c:var(--teal)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa">●●○</span><span class="ic">写汉字</span><h2>Viết chữ</h2><p>Tự viết chữ Hán đúng thứ tự nét ngay trên màn hình. Có chế độ viết mù cho người giỏi!</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="ghep-bo/" style="--c:var(--butter)"><span class="lv" title="Độ khó: Dễ" aria-label="Độ khó: Dễ"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg></span><span class="ic">部首</span><h2>Ghép bộ thủ</h2><p>女 + 子 = ? Ghép hai bộ phận thành chữ Hán đúng, học luôn tên bộ thủ.</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="bay-chu/" style="--c:var(--coral)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg></span><span class="ic">找不同</span><h2>Bẫy chữ giống nhau</h2><p>已 hay 己? 买 hay 卖? Điền chữ còn thiếu giữa những chữ na ná nhau. Nhìn vội là dính bẫy!</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="viet-chu/" style="--c:var(--teal)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg></span><span class="ic">写汉字</span><h2>Viết chữ</h2><p>Tự viết chữ Hán đúng thứ tự nét ngay trên màn hình. Có chế độ viết mù cho người giỏi!</p><span class="tag">HSK 1–6</span></a>
     </div>
   </section>
   <section class="grp" data-g="tu" aria-labelledby="gh-tu">
     <h2 class="gh" id="gh-tu"><span class="gi" style="--gc:var(--teal)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/><path d="M9 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/><path d="M5 8h4"/><path d="M9 16h4"/><path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041z"/><path d="M14 9l4 -1"/><path d="M16 16l3.923 -.98"/></svg></span>3. Từ vựng <small>Từ nhận ra từ đến tự nhớ ra từ.</small></h2>
     <div class="games">
-      <a class="game" href="bong-bay/" style="--c:var(--coral)"><span class="lv" title="Độ khó: Dễ" aria-label="Độ khó: Dễ">●○○</span><span class="ic">打气球</span><h2>Săn bóng bay</h2><p>Nghe máy đọc, chạm đúng quả bóng mang từ đó trước khi nó bay mất. Coi chừng bóng đọc gần giống!</p><span class="tag">HSK 1–6</span></a>
-      <a class="game" href="tim-tu/" style="--c:var(--teal)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa">●●○</span><span class="ic">找词语</span><h2>Tìm từ trong bảng chữ</h2><p>Các từ HSK giấu trong bảng chữ Hán theo hàng ngang, dọc, chéo. Kéo tay khoanh lại cho đủ!</p><span class="tag">HSK 1–6</span></a>
-      <a class="game" href="ran-san-chu/" style="--c:var(--rose)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa">●●○</span><span class="ic">贪吃蛇</span><h2>Rắn săn chữ</h2><p>Điều khiển rắn ăn đúng các chữ theo thứ tự để ghép thành từ. Coi chừng chữ bẫy!</p><span class="tag">HSK 1–6</span></a>
-      <a class="game" href="noi-tu/" style="--c:var(--peach)"><span class="lv" title="Độ khó: Khó" aria-label="Độ khó: Khó">●●●</span><span class="ic">接龙</span><h2>Nối từ</h2><p>老师 → 师傅 → … Từ sau bắt đầu bằng chữ cuối của từ trước. Nối được chuỗi dài nhất là thắng!</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="bong-bay/" style="--c:var(--coral)"><span class="lv" title="Độ khó: Dễ" aria-label="Độ khó: Dễ"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg></span><span class="ic">打气球</span><h2>Săn bóng bay</h2><p>Nghe máy đọc, chạm đúng quả bóng mang từ đó trước khi nó bay mất. Coi chừng bóng đọc gần giống!</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="tim-tu/" style="--c:var(--teal)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg></span><span class="ic">找词语</span><h2>Tìm từ trong bảng chữ</h2><p>Các từ HSK giấu trong bảng chữ Hán theo hàng ngang, dọc, chéo. Kéo tay khoanh lại cho đủ!</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="ran-san-chu/" style="--c:var(--rose)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg></span><span class="ic">贪吃蛇</span><h2>Rắn săn chữ</h2><p>Điều khiển rắn ăn đúng các chữ theo thứ tự để ghép thành từ. Coi chừng chữ bẫy!</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="noi-tu/" style="--c:var(--peach)"><span class="lv" title="Độ khó: Khó" aria-label="Độ khó: Khó"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg></span><span class="ic">接龙</span><h2>Nối từ</h2><p>老师 → 师傅 → … Từ sau bắt đầu bằng chữ cuối của từ trước. Nối được chuỗi dài nhất là thắng!</p><span class="tag">HSK 1–6</span></a>
     </div>
   </section>
   <section class="grp" data-g="do" aria-labelledby="gh-do">
     <h2 class="gh" id="gh-do"><span class="gi" style="--gc:var(--lav)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"/></svg></span>4. Giải đố & thách bạn <small>Vận dụng tổng hợp, có thách đấu và cầu cứu bạn bè.</small></h2>
     <div class="games">
-      <a class="game" href="do-chu/" style="--c:var(--peach)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa">●●○</span><span class="ic">猜字谜</span><h2>Đố chữ Hán</h2><p>一夜又一夜 là chữ gì? Hơn 100 câu đố chữ dân gian, ngẫm xem chữ được ghép từ những bộ phận nào. Có dịch và gợi ý!</p><span class="tag">Mới · HSK 1–6</span></a>
-      <a class="game" href="doan-tu/" style="--c:var(--lav)"><span class="lv" title="Độ khó: Khó" aria-label="Độ khó: Khó">●●●</span><span class="ic">汉兜</span><h2>Đoán từ</h2><p>Wordle tiếng Trung: đoán từ 2 chữ trong 6 lượt nhờ màu của chữ, thanh mẫu, vận mẫu, thanh điệu. Mỗi ngày một đề!</p><span class="tag">HSK 1–6</span></a>
+      <a class="game" href="do-chu/" style="--c:var(--peach)"><span class="lv" title="Độ khó: Vừa" aria-label="Độ khó: Vừa"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem-rong></use></svg></span><span class="ic">猜字谜</span><h2>Đố chữ Hán</h2><p>一夜又一夜 là chữ gì? Hơn 100 câu đố chữ dân gian, ngẫm xem chữ được ghép từ những bộ phận nào. Có dịch và gợi ý!</p><span class="tag">Mới · HSK 1–6</span></a>
+      <a class="game" href="doan-tu/" style="--c:var(--lav)"><span class="lv" title="Độ khó: Khó" aria-label="Độ khó: Khó"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg><svg class=lli aria-hidden=true><use href=/chung/ic.svg#diem></use></svg></span><span class="ic">汉兜</span><h2>Đoán từ</h2><p>Wordle tiếng Trung: đoán từ 2 chữ trong 6 lượt nhờ màu của chữ, thanh mẫu, vận mẫu, thanh điệu. Mỗi ngày một đề!</p><span class="tag">HSK 1–6</span></a>
     </div>
   </section>
   </div>
 </main>
 
-<footer class="wrap">Từ vựng theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+<footer class="wrap">Từ vựng theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 </script>
 <script>
@@ -118,7 +118,8 @@ a.game:hover{transform:translateY(-4px)}
 (function(){
   const id=new URLSearchParams(location.search).get('bo');if(!id)return;
   const [t,a,b]=id.split(':');let name='',back='',n=0;
-  if(t==='bai'){const bk=(window.BAI||[]).find(x=>x.id===a),l=bk&&bk.bai.find(x=>x.id===b);if(l){name=bk.zh+' · Bài '+l.n;back=a+'/'+b;n=l.w.length}}
+  if(t==='bai'){const bk=(window.BAI||[]).find(x=>x.id===a),ls=bk?(b||'').split(/[+ ]/).map(y=>bk.bai.find(x=>x.id===y)).filter(Boolean):[];   // nhiều bài: bai-11+bai-12
+    if(ls.length){name=bk.zh+' · Bài '+ls.map(l=>l.n).join(', ');back=a+'/'+ls.map(l=>l.id).join('+');n=new Set(ls.flatMap(l=>l.w.map(x=>x[0]))).size}}
   else if(t==='cd'){const c=(window.CHUDE||[]).find(x=>x.id===a);if(c){name=c.zh+' · '+c.vi;back='chu-de/'+a;n=c.w.length}}
   else if(t==='hsk'){name='HSK '+a+' · Gói '+(+b/20+1);back='hsk/'+a;n=20}
   if(!name)return;
@@ -126,8 +127,8 @@ a.game:hover{transform:translateY(-4px)}
   // chế độ bộ từ: bỏ chia nhóm, xếp trò nhận được bộ từ lên đầu
   const list=document.createElement('section');list.className='games';list.setAttribute('aria-label','Danh sách trò chơi');
 
-  bar.hidden=false;bar.innerHTML='<span>🎴 Bộ từ đang chọn: <b lang="zh"></b> ('+n+' từ)</span><a href="../tu-vung/#'+back+'">← Về thẻ từ</a><a href="./">Bỏ chọn, chơi theo HSK</a>';
-  bar.querySelector('b').textContent=name;
+  bar.hidden=false;bar.innerHTML='<span><svg class=lli aria-hidden=true><use href=/chung/ic.svg#the-bai></use></svg> Bộ từ đang chọn: <b lang="zh"></b><span class="bo-vi"></span> ('+n+' từ)</span><a href="../tu-vung/#'+back+'">← Về thẻ từ</a><a href="./">Bỏ chọn, chơi theo HSK</a>';
+  {const k=name.indexOf(' · ');bar.querySelector('b').textContent=k<0?name:name.slice(0,k);bar.querySelector('.bo-vi').textContent=k<0?'':' ·'+name.slice(k+2)}  // chữ Hán dùng phông KuaiLe, phần tiếng Việt dùng phông thường (KuaiLe không có chữ có dấu)
   const games=[...document.querySelectorAll('a.game')],yes=games.filter(g=>OK.includes(g.getAttribute('href'))),no=games.filter(g=>!yes.includes(g));
   yes.forEach(g=>{g.href=g.getAttribute('href')+'?bo='+encodeURIComponent(id);g.querySelector('.tag').textContent='Chơi với bộ từ này'});
   no.forEach(g=>{g.classList.add('nobo');g.querySelector('.tag').textContent='Chơi theo HSK'});

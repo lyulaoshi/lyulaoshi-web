@@ -12,7 +12,7 @@ rules:[
       ["妈妈来看[我]了。","Māma lái kàn wǒ le.","Mẹ đến thăm tôi rồi.","等级标准"],
       ["她买了[一个手机]。","Tā mǎi le yí ge shǒujī.","Cô ấy mua một chiếc điện thoại.","等级标准"]]}],
 notes:[
- {t:"Động từ ly hợp", html:"帮忙、见面、睡觉… đã có “tân ngữ” bên trong, không thêm tân ngữ sau: <span class='zh'>我帮你。/ 我帮你的忙。</span> (✗ 我帮忙你) 【三05】."}],
+ {t:"Động từ ly hợp", html:"帮忙、见面、睡觉… đã có “tân ngữ” bên trong, không thêm tân ngữ sau: <span class='zh'>我帮你。/ 我帮你的忙。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 我帮忙你) 【三05】."}],
 cmp:[
  {vn:"Tôi ăn bánh mì.", zh:"我吃[面包]。", py:"Wǒ chī miànbāo.", ok:true, why:"Giống tiếng Việt."},
  {vn:"Tôi giúp bạn.", zh:"我帮[你]。", py:"Wǒ bāng nǐ.", ok:true, why:"Dùng 帮 + người, không dùng 帮忙 + người."}],

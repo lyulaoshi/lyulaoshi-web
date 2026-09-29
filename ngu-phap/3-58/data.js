@@ -20,7 +20,7 @@ rules:[
       ["哥哥昨天比前天[晚]睡半个小时。","Gēge zuótiān bǐ qiántiān wǎn shuì bàn ge xiǎoshí.","Hôm qua anh trai ngủ muộn hơn hôm kia nửa tiếng.","等级标准"]]}],
 cmp:[
  {vn:"Tôi đến sớm hơn anh ấy 10 phút.", zh:"我比他[早]来十分钟。", py:"Wǒ bǐ tā zǎo lái shí fēnzhōng.", ok:true, why:"“sớm hơn” = 早 đứng trước động từ; số lượng sau động từ."},
- {vn:"Tôi chạy nhanh hơn anh ấy.", zh:"我跑得[比他]快。", py:"Wǒ pǎo de bǐ tā kuài.", ok:true, why:"Không nói ✗ 我跑快比他."}],
+ {vn:"Tôi chạy nhanh hơn anh ấy.", zh:"我跑得[比他]快。", py:"Wǒ pǎo de bǐ tā kuài.", ok:true, why:"Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 我跑快比他."}],
 ex:[
  ["他比我少买一个苹果。","Tā bǐ wǒ shǎo mǎi yí ge píngguǒ.","Anh ấy mua ít hơn tôi một quả táo.","等级标准"],
  ["她唱歌唱得比我好。","Tā chàng gē chàng de bǐ wǒ hǎo.","Cô ấy hát hay hơn tôi."]],
@@ -38,6 +38,19 @@ practice:[
   {w:["这个笔记本","不比","那个","大"], a:"这个笔记本不比那个大。", vi:"Cuốn sổ này không to hơn cuốn kia."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Cô ấy hát hay hơn tôi.", a:"她唱歌唱得比我好。/ 她唱得比我好。/ 她比我唱得好。"},
-  {q:"Tôi đến sớm hơn anh ấy 10 phút.", a:"我比他早来十分钟。/ 我比他早到十分钟。"}]}],
+  {q:"Tôi đến sớm hơn anh ấy 10 phút.", a:"我比他早来十分钟。/ 我比他早到十分钟。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我跑得比他快。", vi:"Tôi chạy nhanh hơn anh ấy.", o:["Đúng","Sai"], a:0, why:"V得 + 比 B + Adj."},
+  {q:"我比他跑快。", vi:"Tôi chạy nhanh hơn anh ấy.", o:["Đúng","Sai"], a:1, why:"Cần 得: 我比他跑得快。"},
+  {q:"我比他多吃了两个饺子。", vi:"Tôi ăn nhiều hơn anh ấy hai cái sủi cảo.", o:["Đúng","Sai"], a:0, why:"比 B + 多 + V + số lượng."},
+  {q:"我比姐姐回来早十分钟。", vi:"Tôi về sớm hơn chị 10 phút.", o:["Đúng","Sai"], a:1, why:"早 đứng trước động từ: 我比姐姐早回来十分钟。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Cô ấy nói tiếng Trung lưu loát hơn tôi.", o:["她说中文说得比我流利。", "她说中文比我说流利。"], a:0, why:"V得 + 比 B + Adj."},
+  {q:"Tôi đến sớm hơn anh ấy 5 phút.", o:["我比他早来五分钟。", "我比他来早五分钟。"], a:0, why:"早 + V + số lượng."},
+  {q:"Chị không cao hơn tôi (cũng xêm xêm).", o:["姐姐不比我高。", "姐姐比我不高。"], a:0, why:"A 不比 B + Adj."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Anh ấy chạy nhanh hơn tôi.", a:"他跑得比我快。/ 他比我跑得快。"},
+  {q:"Tôi mua nhiều hơn bạn hai quả táo.", a:"我比你多买了两个苹果。/ 我比你多买两个苹果。"},
+  {q:"Hôm nay tôi dậy muộn hơn hôm qua nửa tiếng.", a:"今天我比昨天晚起了半个小时。/ 我今天比昨天晚起了半个小时。/ 今天我比昨天晚起半个小时。/ 我今天比昨天晚起半个小时。"}]}],
 rel:["一38","二58","二51","二59"]
 };

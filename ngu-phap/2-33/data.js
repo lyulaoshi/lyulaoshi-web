@@ -38,6 +38,19 @@ practice:[
   {w:["我们","坐","着","聊天儿","吧"], a:"我们坐着聊天儿吧。", vi:"Chúng mình ngồi nói chuyện nhé."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Đèn vẫn đang sáng.", a:"灯还亮着。"},
-  {q:"Cô ấy mặc một chiếc váy đỏ.", a:"她穿着一条红裙子。"}]}],
+  {q:"Cô ấy mặc một chiếc váy đỏ.", a:"她穿着一条红裙子。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"门开着呢。", vi:"Cửa đang mở.", o:["Đúng","Sai"], a:0, why:"V + 着 (+ 呢): trạng thái."},
+  {q:"门不开着。", vi:"Cửa không mở.", o:["Đúng","Sai"], a:1, why:"Phủ định bằng 没: 门没开着。"},
+  {q:"他笑着说：“没关系。”", vi:"Anh ấy cười nói: “Không sao.”", o:["Đúng","Sai"], a:0, why:"V1着 + V2."},
+  {q:"她着穿一件大衣。", vi:"Cô ấy mặc một chiếc áo khoác.", o:["Đúng","Sai"], a:1, why:"着 đứng sau động từ: 她穿着一件大衣。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Cửa sổ đang mở.", o:["窗户开着。", "窗户在开。", "窗户开了着。"], a:0, why:"Trạng thái → V着."},
+  {q:"Anh ấy ngồi ăn cơm.", o:["他坐着吃饭。", "他吃饭坐着。"], a:0, why:"Cách thức V1着 đứng trước V2."},
+  {q:"Ti vi không bật.", o:["电视没开着。", "电视不开着。"], a:0, why:"没 + V + 着."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Cửa đang mở.", a:"门开着。/ 门开着呢。"},
+  {q:"Cô ấy cười nói: “Cảm ơn.”", a:"她笑着说：“谢谢。”/ 她笑着说：“谢谢！”/ 她笑着说谢谢。"},
+  {q:"Anh ấy mặc một chiếc áo khoác đen.", a:"他穿着一件黑大衣。/ 他穿着一件黑色的大衣。"}]}],
 rel:["二70","二56","一42","二32"]
 };

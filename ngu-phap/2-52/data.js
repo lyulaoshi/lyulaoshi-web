@@ -31,6 +31,20 @@ practice:[
   {w:["请","你","等","一下儿"], a:"请你等一下儿。", vi:"Xin bạn đợi một chút."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Tôi tìm anh ấy ba lần rồi.", a:"我找了他三次。"},
-  {q:"Bài khóa này tôi đọc hai lượt.", a:"这篇课文我读了两遍。"}]}],
+  {q:"Bài khóa này tôi đọc hai lượt.", a:"这篇课文我读了两遍。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我一次去过。", vi:"Tôi đã đi một lần.", o:["Đúng","Sai"], a:1, why:"Số lần đứng sau động từ: 我去过一次。"},
+  {q:"请等一下儿。", vi:"Xin đợi một chút.", o:["Đúng","Sai"], a:0, why:"V + 一下儿."},
+  {q:"这本书我看了两遍。", vi:"Quyển sách này tôi đọc hai lượt.", o:["Đúng","Sai"], a:0, why:"V + 了 + số lần."},
+  {q:"我们两次去了。", vi:"Chúng tôi đi hai lần rồi.", o:["Đúng","Sai"], a:1, why:"我们去了两次。"}]},
+ {t:"E. Chọn lượng từ / câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"这个电影我看了三＿，从头到尾。", vi:"Bộ phim này tôi xem ba ＿, từ đầu đến cuối.", o:["遍", "下", "口"], a:0, why:"遍: trọn một lượt từ đầu đến cuối."},
+  {q:"请你看一＿。", vi:"Bạn xem một ＿ nhé.", o:["下", "遍", "口"], a:0, why:"一下 = một chút, nói nhẹ nhàng."},
+  {q:"我去过两＿长城。", vi:"Tôi đã đi Trường Thành hai ＿.", o:["次", "遍", "下"], a:0, why:"次: số lần đi."},
+  {q:"Tôi đọc bài khóa hai lượt.", o:["我读了两遍课文。", "我两遍读了课文。"], a:0, why:"V + 了 + số lần + O."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Tôi đã đi Trung Quốc một lần.", a:"我去过一次中国。/ 我去过中国一次。/ 我去了一次中国。"},
+  {q:"Xin đợi một chút.", a:"请等一下。/ 请等一下儿。/ 请你等一下。/ 请你等一下儿。"},
+  {q:"Bộ phim này tôi xem ba lần rồi.", a:"这个电影我看了三遍。/ 这个电影我看了三次。/ 我看了三遍这个电影。/ 我看了三次这个电影。"}]}],
 rel:["二11","三50","二53","二32"]
 };

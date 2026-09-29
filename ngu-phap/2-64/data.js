@@ -30,6 +30,19 @@ practice:[
   {w:["你","想在家休息","还是","想出去玩儿"], a:"你想在家休息，还是想出去玩儿？", vi:"Bạn muốn ở nhà nghỉ hay ra ngoài chơi?"}]},
  {t:"C. Đặt câu hỏi lựa chọn", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"看电影 / 听音乐", vi:"xem phim / nghe nhạc", a:"你想看电影，还是想听音乐？"},
-  {q:"星期六去 / 星期天去", vi:"đi thứ Bảy / đi Chủ nhật", a:"我们星期六去，还是星期天去？"}]}],
+  {q:"星期六去 / 星期天去", vi:"đi thứ Bảy / đi Chủ nhật", a:"我们星期六去，还是星期天去？"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"你喝茶还是喝咖啡？", vi:"Bạn uống trà hay uống cà phê?", o:["Đúng","Sai"], a:0, why:"Câu hỏi lựa chọn → 还是."},
+  {q:"你喝茶或者咖啡？", vi:"Bạn uống trà hay cà phê?", o:["Đúng","Sai"], a:1, why:"Câu hỏi lựa chọn dùng 还是: 你喝茶还是喝咖啡？"},
+  {q:"你是今天去，还是明天去？", vi:"Bạn đi hôm nay hay ngày mai?", o:["Đúng","Sai"], a:0, why:"(是)……，还是……？"},
+  {q:"我想喝茶还是咖啡。", vi:"Tôi muốn uống trà hoặc cà phê.", o:["Đúng","Sai"], a:1, why:"Câu kể dùng 或者: 我想喝茶或者咖啡。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Bạn là người Việt hay người Trung Quốc?", o:["你是越南人还是中国人？", "你是越南人或者中国人？"], a:0, why:"Hỏi lựa chọn → 还是."},
+  {q:"Thứ Bảy hoặc Chủ nhật đều được.", o:["星期六或者星期天都可以。", "星期六还是星期天都可以。"], a:0, why:"Câu kể nêu các lựa chọn → 或者."},
+  {q:"Bạn muốn cái to hay cái nhỏ?", o:["你要大的还是小的？", "你要大的还是小的吗？"], a:0, why:"Câu hỏi với 还是 không thêm 吗."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Bạn uống trà hay cà phê?", a:"你喝茶还是喝咖啡？/ 你喝茶还是咖啡？"},
+  {q:"Bạn đi bằng tàu hỏa hay máy bay?", a:"你坐火车去还是坐飞机去？/ 你是坐火车去还是坐飞机去？/ 你坐火车还是坐飞机去？"},
+  {q:"Bạn học tiếng Trung hay tiếng Anh?", a:"你学中文还是学英语？/ 你学中文还是英语？/ 你学汉语还是学英语？/ 你学汉语还是英语？"}]}],
 rel:["一47","一19","二29","一33"]
 };

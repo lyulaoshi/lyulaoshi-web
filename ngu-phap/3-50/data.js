@@ -31,6 +31,19 @@ practice:[
   {w:["我","见过","他","三次"], a:"我见过他三次。", vi:"Tôi đã gặp anh ấy ba lần."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Tôi hỏi thầy hai lần.", a:"我问了老师两次。"},
-  {q:"Tôi từng ăn vịt quay một lần.", a:"我吃过一次烤鸭。"}]}],
+  {q:"Tôi từng ăn vịt quay một lần.", a:"我吃过一次烤鸭。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我找了两次他。", vi:"Tôi tìm anh ấy hai lần.", o:["Đúng","Sai"], a:1, why:"Đại từ người đứng trước số lần: 我找了他两次。"},
+  {q:"我看了两遍这本书。", vi:"Tôi đọc quyển sách này hai lượt.", o:["Đúng","Sai"], a:0, why:"Danh từ vật đứng sau số lần."},
+  {q:"我去过上海两次。", vi:"Tôi từng đến Thượng Hải hai lần.", o:["Đúng","Sai"], a:0, why:"Địa danh đứng trước hoặc sau số lần đều được."},
+  {q:"我问两次了老师。", vi:"Tôi hỏi thầy hai lần.", o:["Đúng","Sai"], a:1, why:"了 sau động từ; người trước số lần: 我问了老师两次。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Tôi đã gặp cô ấy một lần.", o:["我见过她一次。", "我见过一次她。"], a:0, why:"Đại từ + số lần."},
+  {q:"Tôi đọc bài khóa ba lượt.", o:["我读了三遍课文。", "我三遍读了课文。"], a:0, why:"V + 了 + số lần + O."},
+  {q:"Tôi gọi điện cho mẹ hai lần.", o:["我给妈妈打了两次电话。", "我给妈妈两次打了电话。"], a:0, why:"Số lần đứng sau động từ, trước 电话."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Tôi tìm anh ấy ba lần.", a:"我找了他三次。/ 我找过他三次。"},
+  {q:"Tôi từng đến Bắc Kinh một lần.", a:"我去过一次北京。/ 我去过北京一次。"},
+  {q:"Tôi hỏi thầy hai lần.", a:"我问了老师两次。/ 我问过老师两次。"}]}],
 rel:["二52","二11","三51","二32"]
 };

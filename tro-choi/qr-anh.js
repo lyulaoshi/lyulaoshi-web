@@ -23,7 +23,7 @@ window.QRANH=(function(){
     const ox=bx+(box-qs)/2,oy=by+(box-qs)/2;C.fillStyle='#111';
     for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.isDark(r,c))C.fillRect(ox+c*cell,oy+r*cell,cell,cell);
     const tx=bx+box+36,mw=W-tx-x+10;C.textAlign='left';C.textBaseline='middle';
-    C.fillStyle='#FFD23F';C.font='900 46px '+VI;C.fillText('📷 Quét mã để vào chơi',tx,by+50,mw);
+    C.fillStyle='#FFD23F';C.font='900 46px '+VI;if(window.LLI)LLI.ve(C,'may-anh',tx+22,by+50,44,'#FFD23F');C.fillText('Quét mã để vào chơi',tx+60,by+50,mw-60);
     C.fillStyle='#FFFFFF';C.font='700 34px '+VI;C.fillText(cap||'',tx,by+118,mw);
     C.fillStyle='#B7B3E0';C.font='700 29px '+VI;C.fillText('Mở camera điện thoại, hướng vào mã',tx,by+178,mw);
     C.fillText('lyulaoshi.com · 吕老师汉语盒',tx,by+226,mw);

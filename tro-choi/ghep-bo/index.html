@@ -7,7 +7,7 @@
 <meta name="description" content="Trò chơi Ghép bộ thủ: ghép hai bộ phận thành chữ Hán đúng (女 + 子 = 好). Luyện nhận diện cấu tạo chữ Hán HSK 1–6.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="../game.css?v=3">
+<link rel="stylesheet" href="../game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 [hidden]{display:none!important}
@@ -82,7 +82,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap">
@@ -95,16 +95,16 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="chips" id="lvChips"></div>
       <h2>2. Chế độ</h2>
       <div class="chips" id="modeChips">
-        <button class="chip" type="button" data-mode="practice" aria-pressed="true">📘 Luyện tập<small>15 câu, chọn chữ đúng</small></button>
-        <button class="chip" type="button" data-mode="rush" aria-pressed="false">⚡ Chạy đua 60 giây<small>càng nhiều càng tốt, sai trừ 5 giây</small></button>
-        <button class="chip" type="button" data-mode="build" aria-pressed="false">🧩 Tự lắp chữ<small>khó nhất: tự chọn 2 bộ phận</small></button>
+        <button class="chip" type="button" data-mode="practice" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sach></use></svg> Luyện tập<small>15 câu, chọn chữ đúng</small></button>
+        <button class="chip" type="button" data-mode="rush" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#nhanh></use></svg> Chạy đua 60 giây<small>càng nhiều càng tốt, sai trừ 5 giây</small></button>
+        <button class="chip" type="button" data-mode="build" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#manh-ghep></use></svg> Tự lắp chữ<small>khó nhất: tự chọn 2 bộ phận</small></button>
       </div>
       <ul class="how">
         <li><b>Luyện tập / Chạy đua:</b> cho hai bộ phận, chọn chữ ghép đúng. Chữ gây nhiễu là những chữ <b>trông gần giống</b> (清 / 请 / 情 / 晴), nhìn vội là nhầm!</li>
         <li><b>Tự lắp chữ:</b> cho một từ bị khuyết chữ kèm pinyin (ví dụ ？子 háizi). Em tự chọn đúng <b>2 bộ phận theo đúng thứ tự</b> trong 8 mảnh, có cả mảnh “bẫy” như 讠/言, 氵/冫, 扌/才, 木/禾.</li>
         <li>Trả lời xong, em xem được <b>tên bộ thủ</b> (bộ nữ, bộ thuỷ…) và nghe máy đọc chữ.</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -113,9 +113,9 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <span>Câu <b id="qNo">1</b><span id="qOf"></span></span>
       <span>Điểm <b id="score">0</b></span>
       <span class="streak" id="streak"></span>
-      <span class="hearts" id="hearts"></span><span id="clockBox" hidden>⏱ <b id="clock">60</b>s</span>
+      <span class="hearts" id="hearts"></span><span id="clockBox" hidden><svg class=lli aria-hidden=true><use href=/chung/ic.svg#dong-ho></use></svg> <b id="clock">60</b>s</span>
       <span class="sp"></span>
-      <button type="button" id="quitBtn">✕ Dừng</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg> Dừng</button>
     </div>
     <div class="timer" id="timerBox"><i id="timer"></i></div>
     <div class="q"><div class="eq" id="eq"></div><div class="lay" id="lay"></div></div>
@@ -130,21 +130,21 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="panel">
       <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
       <div id="revBox"><h2>Những chữ em ghép nhầm, ôn lại nhé</h2><ul class="review" id="review"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại ↻</button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
     </div>
   </section>
 </main>
 
-<footer class="wrap">Cấp độ chữ theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · Bảng ghép chữ do Lyu Laoshi Chinese Box biên soạn · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+<footer class="wrap">Cấp độ chữ theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · Bảng ghép chữ do Lyu Laoshi Chinese Box biên soạn · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../hsk-words.js"></script>
-<script src="../tts.js?v=1"></script>
-<script src="../vui.js?v=3"></script>
+<script src="../tts.js?v=2"></script>
+<script src="../vui.js?v=4"></script>
 <script src="../nhom-chu.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -176,7 +176,7 @@ const NAME={'亻':'bộ nhân đứng','氵':'bộ ba chấm thuỷ','讠':'bộ
  '月':'bộ nguyệt','王':'bộ ngọc','禾':'bộ hoà','米':'bộ mễ','心':'bộ tâm','力':'bộ lực','又':'bộ hựu','子':'bộ tử','矢':'bộ thỉ','白':'bộ bạch',
  '田':'bộ điền','弓':'bộ cung','勹':'bộ bao','匚':'bộ phương','斤':'bộ cân','欠':'bộ khiếm','页':'bộ hiệt','寸':'bộ thốn','贝':'bộ bối',
  '人':'bộ nhân','八':'bộ bát','小':'bộ tiểu','山':'bộ sơn','覀':'bộ á','手':'bộ thủ','父':'bộ phụ','夕':'bộ tịch','大':'bộ đại','石':'bộ thạch','刀':'bộ đao'};
-const LAY={lr:'Ghép trái – phải ⬅️➡️',tb:'Ghép trên – dưới ⬆️⬇️',out:'Ghép bao ngoài – trong ⭕'};
+const LAY={lr:'Ghép trái – phải ←→',tb:'Ghép trên – dưới ↑↓',out:'Ghép bao ngoài – trong'};
 const ITEMS=[];[[LR,'lr'],[TB,'tb'],[OUT,'out']].forEach(([s,k])=>s.trim().split(/\s+/).forEach(e=>{const [c,p]=e.split('=');ITEMS.push({c,a:[...p][0],b:[...p].slice(1).join(''),k})}));
 
 const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'];

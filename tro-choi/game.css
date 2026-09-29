@@ -42,3 +42,9 @@ footer{padding:18px 0 32px;margin-top:32px;color:var(--muted);font-size:13px;bor
 @media (max-width:560px){.brand .t b{display:none}.crumb .hide-s{display:none}}
 .spk{border:0;background:var(--sky-s);color:var(--sky);border-radius:999px;width:34px;height:34px;font-size:16px;cursor:pointer;display:inline-grid;place-items:center;vertical-align:middle;flex:none}
 .spk.big{width:52px;height:52px;font-size:24px}
+
+/* icon tự vẽ dùng chung (/chung/ic.svg) */
+.lli{display:inline-block;width:1.2em;height:1.2em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.22em;overflow:visible}
+.themebtn{display:inline-grid;place-items:center}.themebtn .lli{width:19px;height:19px}
+.lli-do,.lli-xanh,.lli-vang,.lli-bac,.lli-xanhla{display:inline-block;width:1.2em;height:1.2em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.22em;overflow:visible}
+.lli-do{color:var(--coral)}.lli-xanh{color:var(--sky)}.lli-vang{color:#E0A800}.lli-bac{color:#8A94A6}.lli-xanhla{color:var(--mint)}

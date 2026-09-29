@@ -30,6 +30,19 @@ practice:[
   {w:["那个手机","被","我","用坏了"], a:"那个手机被我用坏了。", vi:"Chiếc điện thoại đó bị tôi dùng hỏng rồi."},
   {w:["蛋糕","让","孩子们","吃完了"], a:"蛋糕让孩子们吃完了。", vi:"Bánh bị bọn trẻ ăn hết rồi."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"Tôi bị thầy phê bình.", a:"我被老师批评了。"}]}],
+  {q:"Tôi bị thầy phê bình.", a:"我被老师批评了。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我的钱包被偷了。", vi:"Ví của tôi bị lấy trộm rồi.", o:["Đúng","Sai"], a:0, why:"被 + V + 了; không cần nói người làm."},
+  {q:"我的手机被弟弟用。", vi:"Điện thoại của tôi bị em trai dùng.", o:["Đúng","Sai"], a:1, why:"Sau động từ cần thành phần khác: 我的手机被弟弟用坏了。"},
+  {q:"我的衣服叫弄脏了。", vi:"Quần áo của tôi bị làm bẩn rồi.", o:["Đúng","Sai"], a:1, why:"叫 / 让 phải có người làm: 我的衣服叫弟弟弄脏了。"},
+  {q:"我被老师没批评。", vi:"Tôi không bị thầy phê bình.", o:["Đúng","Sai"], a:1, why:"没 đứng trước 被: 我没被老师批评。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Cái cốc bị em gái làm vỡ rồi.", o:["杯子被妹妹打破了。", "妹妹被杯子打破了。", "杯子被打破妹妹了。"], a:0, why:"Vật + 被 + người + V + bổ ngữ."},
+  {q:"Tôi không bị mưa làm ướt.", o:["我没被雨淋湿。", "我被雨没淋湿。"], a:0, why:"没 trước 被."},
+  {q:"Bánh bị ăn hết rồi (không nói ai ăn).", o:["蛋糕被吃完了。", "蛋糕让吃完了。"], a:0, why:"Không có người làm thì chỉ dùng 被."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Xe đạp của tôi bị bạn mượn đi rồi.", a:"我的自行车被朋友借走了。/ 我的自行车叫朋友借走了。/ 我的自行车让朋友借走了。"},
+  {q:"Điện thoại của tôi bị lấy trộm rồi.", a:"我的手机被偷了。/ 我的手机被人偷了。/ 我的手机被偷走了。/ 我的手机被人偷走了。"},
+  {q:"Tôi chưa bị thầy phê bình.", a:"我没被老师批评。/ 我没被老师批评过。"}]}],
 rel:["三27","三54","二49","三46"]
 };

@@ -7,7 +7,7 @@
 <meta name="description" content="Trò chơi Đố chữ Hán 猜字谜: giải câu đố chữ dân gian (一夜又一夜 là chữ gì?), có dịch tiếng Việt, gợi ý bộ phận và lời giải cách ghép chữ.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="../game.css?v=3">
+<link rel="stylesheet" href="../game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 [hidden]{display:none!important}
@@ -115,7 +115,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap">
@@ -123,12 +123,12 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="eyebrow">挑战书</div>
     <h1 id="duelH1">Có người thách đấu em!</h1>
     <div class="panel duelcard">
-      <div class="sword" aria-hidden="true" id="duelIcon">⚔️</div>
+      <div class="sword" aria-hidden="true" id="duelIcon"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#kiem></use></svg></div>
       <p class="dl" id="duelLead"></p>
       <p class="chain" id="duelChain" hidden></p>
       <p class="muted">Câu đố sẽ hiện ra và đồng hồ bắt đầu chạy khi em bấm Nhận lời.</p>
       <label class="name">Tên em: <input id="duelName" type="text" maxlength="20" autocomplete="off" placeholder="không bắt buộc"></label>
-      <div class="acts" style="justify-content:center"><button class="btn hot" id="duelGo" type="button">⚔️ Nhận lời thách ▶</button><button class="btn sec" id="duelSkip" type="button">Chơi cả ván thường</button></div>
+      <div class="acts" style="justify-content:center"><button class="btn hot" id="duelGo" type="button"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#kiem></use></svg> Nhận lời thách <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><button class="btn sec" id="duelSkip" type="button">Chơi cả ván thường</button></div>
     </div>
   </section>
 
@@ -139,21 +139,21 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="panel">
       <h2>Độ khó</h2>
       <div class="chips" id="lvChips">
-        <button class="chip" type="button" data-k="1" aria-pressed="true">🌱 Dễ<small>ghép chữ đơn giản: 一夜又一夜</small></button>
-        <button class="chip" type="button" data-k="2" aria-pressed="false">🌿 Vừa<small>thêm câu phải nghĩ: 牛走独木桥</small></button>
-        <button class="chip" type="button" data-k="3" aria-pressed="false">🌳 Tất cả<small>có cả câu đố dài như thơ</small></button>
+        <button class="chip" type="button" data-k="1" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#nhanh-la></use></svg> Dễ<small>ghép chữ đơn giản: 一夜又一夜</small></button>
+        <button class="chip" type="button" data-k="2" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#la></use></svg> Vừa<small>thêm câu phải nghĩ: 牛走独木桥</small></button>
+        <button class="chip" type="button" data-k="3" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#cay></use></svg> Tất cả<small>có cả câu đố dài như thơ</small></button>
       </div>
       <ul class="how">
         <li>Mỗi ván <b>10 câu đố</b>. Em <b>gõ đáp án bằng chữ Hán</b> (bật bộ gõ tiếng Trung), sai 3 lần thì lộ đáp án.</li>
         <li>Mỗi câu tối đa 100 điểm, trả lời đúng liên tiếp được thưởng thêm.</li>
-        <li>Bí quá thì mở gợi ý: <b>✍️ Số nét</b> (−10 điểm), <b>💬 Dịch câu đố</b> (−20 điểm) và <b>🧩 Bộ phận chữ</b> (−30 điểm). Mỗi lần đoán sai −30 điểm.</li>
-        <li><b>🆘 Cầu cứu bạn bè</b> (mỗi ván 1 lần): gửi câu đang bí cho bạn, bạn giải được sẽ gửi lại gợi ý hoặc đáp án.</li>
-        <li>Giải xong câu nào hay thì <b>⚔️ Thách bạn câu này</b>: bạn nhận đúng câu đó cùng thành tích của em, giải xong là biết ai thắng! Bạn thách tiếp người khác thành <b>🔥 chuỗi tiếp sức</b>.</li>
+        <li>Bí quá thì mở gợi ý: <b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#but></use></svg> Số nét</b> (−10 điểm), <b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tin-nhan></use></svg> Dịch câu đố</b> (−20 điểm) và <b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#manh-ghep></use></svg> Bộ phận chữ</b> (−30 điểm). Mỗi lần đoán sai −30 điểm.</li>
+        <li><b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Cầu cứu bạn bè</b> (mỗi ván 1 lần): gửi câu đang bí cho bạn, bạn giải được sẽ gửi lại gợi ý hoặc đáp án.</li>
+        <li>Giải xong câu nào hay thì <b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#kiem></use></svg> Thách bạn câu này</b>: bạn nhận đúng câu đó cùng thành tích của em, giải xong là biết ai thắng! Bạn thách tiếp người khác thành <b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#lua></use></svg> chuỗi tiếp sức</b>.</li>
       </ul>
       <label class="name">Tên em <span class="muted">(hiện trong lời thách đấu, không bắt buộc)</span>: <input id="myName" type="text" maxlength="20" autocomplete="off" placeholder="ví dụ: Lan"></label>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
-    <div class="panel"><h2>🏅 Huy hiệu của em <span class="muted">(thách bạn, cứu bạn để mở khóa)</span></h2><div class="badges" id="badges"></div></div>
+    <div class="panel"><h2><svg class=lli-vang aria-hidden=true><use href=/chung/ic.svg#huy-chuong></use></svg> Huy hiệu của em <span class="muted">(thách bạn, cứu bạn để mở khóa)</span></h2><div class="badges" id="badges"></div></div>
   </section>
 
   <section id="play" hidden>
@@ -163,15 +163,15 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <span class="streak" id="streak"></span>
       <span class="clock" id="clock" hidden></span>
       <span class="sp"></span>
-      <button type="button" id="quitBtn">✕ Dừng</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg> Dừng</button>
     </div>
     <div class="q">
       <div class="lab">谜面 · CÂU ĐỐ</div>
       <div class="riddle" id="riddle" lang="zh"></div>
       <div class="ask">Đoán <b>1 chữ Hán</b> <span class="tag" id="lvTag"></span></div>
-      <div class="hintbar"><button type="button" id="h0Btn">✍️ Số nét −10</button><button type="button" id="h1Btn">💬 Dịch câu đố −20</button><button type="button" id="h2Btn">🧩 Bộ phận chữ −30</button></div>
+      <div class="hintbar"><button type="button" id="h0Btn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#but></use></svg> Số nét −10</button><button type="button" id="h1Btn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tin-nhan></use></svg> Dịch câu đố −20</button><button type="button" id="h2Btn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#manh-ghep></use></svg> Bộ phận chữ −30</button></div>
       <div class="hints" id="hints"></div>
-      <button type="button" class="sosb" id="sosBtn">🆘 Cầu cứu bạn bè</button>
+      <button type="button" class="sosb" id="sosBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Cầu cứu bạn bè</button>
     </div>
     <form class="typer" id="typer" autocomplete="off">
       <input id="ans" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ 1 chữ Hán…" aria-label="Đáp án">
@@ -187,23 +187,24 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
       <div class="toppick" id="topPick" hidden></div>
       <div><h2>Các câu đố vừa giải</h2><ul class="review" id="review"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Ván mới ↻</button><button class="btn sec" id="setupBtn" type="button">Đổi độ khó</button></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Ván mới <svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi độ khó</button></div>
     </div>
   </section>
 </main>
 
-<footer class="wrap">Câu đố chữ Hán dân gian, lời giải do Lyu Laoshi Chinese Box biên soạn · Cấp HSK theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+<footer class="wrap">Câu đố chữ Hán dân gian, lời giải do Lyu Laoshi Chinese Box biên soạn · Cấp HSK theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../hsk-words.js"></script>
-<script src="../tts.js?v=1"></script>
-<script src="../vui.js?v=3"></script>
-<script src="cau-do.js?v=3"></script>
-<script src="../qr-anh.js?v=1"></script>
-<script src="chia-se.js?v=4"></script>
+<script src="../tts.js?v=2"></script>
+<script src="../vui.js?v=4"></script>
+<script src="cau-do.js?v=4"></script>
+<script src="/chung/ic-ve.js"></script>
+<script src="../qr-anh.js?v=2"></script>
+<script src="chia-se.js?v=5"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -215,7 +216,7 @@ const LV={};Object.keys(HSK).forEach(l=>HSK[l].forEach(([w])=>[...w].forEach(c=>
 const ALL=CAU_DO.map(([q,a,py,vi,giai,bp,k,src,alt])=>({q,a,py,vi,giai,bp,k,src,alt:alt||''}));
 const NGUON=window.CAU_DO_NGUON||{};
 // lời giải: tô đậm chữ đáp án, thêm dòng nguồn câu đố
-const giaiHTML=x=>'<div class="giai">'+x.giai.replace(/→\s*(\S)/,'→ <b lang="zh">$1</b>')+'</div>'+(NGUON[x.src]?'<div class="src">📚 '+NGUON[x.src]+'</div>':'');
+const giaiHTML=x=>'<div class="giai">'+x.giai.replace(/→\s*(\S)/,'→ <b lang="zh">$1</b>')+'</div>'+(NGUON[x.src]?'<div class="src"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sach></use></svg> '+NGUON[x.src]+'</div>':'');
 let k=store.get('zm-k')||'1';
 const group=(id,attr,get,set)=>document.querySelectorAll('#'+id+' .chip').forEach(c=>{c.setAttribute('aria-pressed',c.dataset[attr]===get());
   c.onclick=()=>{set(c.dataset[attr]);document.querySelectorAll('#'+id+' .chip').forEach(x=>x.setAttribute('aria-pressed',x===c));showBest()}});
@@ -233,11 +234,11 @@ $('myName').value=nameOf();$('myName').addEventListener('input',e=>setName(e.tar
 $('duelName').addEventListener('input',e=>setName(e.target.value));
 // ---- huy hiệu (lưu trên máy) ----
 const CNT=Object.assign({sent:0,cuu:0,win:0,chain:0},store.get('zm-cnt')||{});
-const BADGES=[['🗡️','Chiến binh','gửi 1 lời thách hoặc cầu cứu',c=>c.sent>=1],['📣','Loa phường','gửi 5 lời thách / cầu cứu',c=>c.sent>=5],['👑','Trùm thách đấu','gửi 15 lời thách / cầu cứu',c=>c.sent>=15],
-  ['🦸','Người hùng','giải cứu 1 bạn đang bí',c=>c.cuu>=1],['🛡️','Siêu anh hùng','giải cứu 5 bạn',c=>c.cuu>=5],['🏆','Bất bại','thắng 3 trận thách đấu',c=>c.win>=3],['🔥','Tiếp lửa','nhận thách trong chuỗi từ 5 người',c=>c.chain>=1]];
+const BADGES=[['<svg class=lli aria-hidden=true><use href=/chung/ic.svg#kiem></use></svg>','Chiến binh','gửi 1 lời thách hoặc cầu cứu',c=>c.sent>=1],['<svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa-to></use></svg>','Loa phường','gửi 5 lời thách / cầu cứu',c=>c.sent>=5],['<svg class=lli aria-hidden=true><use href=/chung/ic.svg#vuong-mien></use></svg>','Trùm thách đấu','gửi 15 lời thách / cầu cứu',c=>c.sent>=15],
+  ['<svg class=lli aria-hidden=true><use href=/chung/ic.svg#sieu-nhan></use></svg>','Người hùng','giải cứu 1 bạn đang bí',c=>c.cuu>=1],['<svg class=lli aria-hidden=true><use href=/chung/ic.svg#khien></use></svg>','Siêu anh hùng','giải cứu 5 bạn',c=>c.cuu>=5],['<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg>','Bất bại','thắng 3 trận thách đấu',c=>c.win>=3],['<svg class=lli aria-hidden=true><use href=/chung/ic.svg#lua></use></svg>','Tiếp lửa','nhận thách trong chuỗi từ 5 người',c=>c.chain>=1]];
 function showBadges(){$('badges').innerHTML=BADGES.map(([ic,n,d,f])=>'<span class="bd'+(f(CNT)?' on':'')+'" title="'+d+'"><i>'+ic+'</i><b>'+n+'</b><small>'+d+'</small></span>').join('')}
 function award(key){const had=BADGES.filter(b=>b[3](CNT)).map(b=>b[1]);CNT[key]++;store.set('zm-cnt',CNT);
-  BADGES.filter(b=>b[3](CNT)&&!had.includes(b[1])).forEach(b=>VUI.pop('🏅 Huy hiệu mới: '+b[0]+' '+b[1]+'!',null,'good'));
+  BADGES.filter(b=>b[3](CNT)&&!had.includes(b[1])).forEach(b=>VUI.pop('<svg class=lli-vang aria-hidden=true><use href=/chung/ic.svg#huy-chuong></use></svg> Huy hiệu mới: '+b[0]+' '+b[1]+'!',null,'good'));
   showBadges()}
 showBadges();
 // ---- nhận link: ?thach=<câu đố> (thách đấu) hoặc ?cuu=<câu đố> (cầu cứu); c = số người đã chơi câu này trong chuỗi, ds = tên gần nhất ----
@@ -251,12 +252,12 @@ const chainC=()=>duel?duel.c+1:1;
 function link(kind,r){const p={[kind]:QRANH.id(r.x.q),ten:nameOf(),c:chainC(),ds:chainOut().join('·')};
   if(kind==='thach')Object.assign(p,{ok:r.ok?1:0,p:r.p,t:r.t,g:r.g,s:r.s});return URL_GAME+'?'+new URLSearchParams(p).toString()}
 if(duel){$('setup').hidden=true;$('duel').hidden=false;$('duelName').value=nameOf();const t=esc(duel.ten);
-  if(duel.type==='cuu'){$('duelIcon').textContent='🆘';$('duelH1').textContent='Có bạn đang cầu cứu em!';$('duelGo').textContent='🦸 Vào cứu ngay ▶';
+  if(duel.type==='cuu'){$('duelIcon').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg>';$('duelH1').textContent='Có bạn đang cầu cứu em!';$('duelGo').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#sieu-nhan></use></svg> Vào cứu ngay <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg>';
     $('duelLead').innerHTML='<b>'+t+'</b> đang kẹt một câu đố chữ Hán và gọi em tới cứu! Giải được thì gửi <b>gợi ý</b> hoặc <b>đáp án</b> cho '+t+' nhé.'}
-  else $('duelLead').innerHTML=duel.ok?'<b>'+t+'</b> vừa giải một câu đố chữ Hán trong <b>'+duel.t+' giây</b> ('+hintTxt(duel.g,duel.s)+'). Em có nhanh hơn không? 😏'
-    :'<b>'+t+'</b> bó tay trước một câu đố chữ Hán 😭 và nhờ em giải giúp. Em có làm được không?';
+  else $('duelLead').innerHTML=duel.ok?'<b>'+t+'</b> vừa giải một câu đố chữ Hán trong <b>'+duel.t+' giây</b> ('+hintTxt(duel.g,duel.s)+'). Em có nhanh hơn không?'
+    :'<b>'+t+'</b> bó tay trước một câu đố chữ Hán <svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat-khoc></use></svg> và nhờ em giải giúp. Em có làm được không?';
   const ds=duel.ds.length?duel.ds:[duel.ten];
-  $('duelChain').innerHTML=duel.c>=2?'🔥 Câu đố này đã qua tay <b>'+duel.c+' người</b>: '+ds.map(esc).join(' → ')+' → <b>em</b>!':'';$('duelChain').hidden=duel.c<2;
+  $('duelChain').innerHTML=duel.c>=2?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#lua></use></svg> Câu đố này đã qua tay <b>'+duel.c+' người</b>: '+ds.map(esc).join(' → ')+' → <b>em</b>!':'';$('duelChain').hidden=duel.c<2;
   if(duel.c+1>=5&&!CNT.chain){award('chain')}}
 $('duelGo').onclick=()=>{deck=[duel.x];qi=0;score=0;streak=0;results=[];alive=true;$('qOf').textContent=1;
   $('duel').hidden=true;$('play').hidden=false;scrollTo(0,0);next()};
@@ -271,11 +272,11 @@ function start(){
   $('qOf').textContent=deck.length;$('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);next();
 }
 function sosLabel(){const b=$('sosBtn');b.hidden=!!duel;b.disabled=solved||(sosLeft<=0&&!sosCur);
-  b.innerHTML=sosCur?'🆘 Đã cầu cứu câu này · gửi thêm bạn khác':sosLeft>0?'🆘 Cầu cứu bạn bè <small>(mỗi ván 1 lần)</small>':'🆘 Hết lượt cầu cứu ván này'}
+  b.innerHTML=sosCur?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Đã cầu cứu câu này · gửi thêm bạn khác':sosLeft>0?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Cầu cứu bạn bè <small>(mỗi ván 1 lần)</small>':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Hết lượt cầu cứu ván này'}
 function next(){
   if(!alive)return;if(qi>=deck.length)return end();
   cur=deck[qi++];pts=100;tries=0;h0=h1=h2=false;solved=false;altHit='';sosCur=false;t0=performance.now();
-  clearInterval(tick);$('clock').hidden=!duel;if(duel){const f=()=>$('clock').textContent='⏱ '+Math.floor((performance.now()-t0)/1000)+' giây';f();tick=setInterval(f,250)}
+  clearInterval(tick);$('clock').hidden=!duel;if(duel){const f=()=>$('clock').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#dong-ho></use></svg> '+Math.floor((performance.now()-t0)/1000)+' giây';f();tick=setInterval(f,250)}
   $('qNo').textContent=qi;$('score').textContent=score;$('streak').textContent=streak>1?'chuỗi ×'+streak:'';
   $('riddle').textContent=cur.q;$('lvTag').textContent=LV[cur.a]?'đáp án là chữ HSK '+LV[cur.a]:'';$('lvTag').hidden=!LV[cur.a];
   $('hints').innerHTML='';$('fb').innerHTML='';$('h0Btn').disabled=!(window.SO_NET||{})[cur.a];$('h1Btn').disabled=false;$('h2Btn').disabled=false;
@@ -283,33 +284,33 @@ function next(){
 }
 const cost=n=>{pts=Math.max(10,pts-n)};
 $('h0Btn').onclick=()=>{const n=(window.SO_NET||{})[cur.a];if(solved||h0||!n)return;h0=true;cost(10);$('h0Btn').disabled=true;
-  $('hints').insertAdjacentHTML('beforeend','<div><b>✍️ Số nét:</b> chữ này có <b>'+n+' nét</b></div>')};
+  $('hints').insertAdjacentHTML('beforeend','<div><b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#but></use></svg> Số nét:</b> chữ này có <b>'+n+' nét</b></div>')};
 $('h1Btn').onclick=()=>{if(solved||h1)return;h1=true;cost(20);$('h1Btn').disabled=true;
-  $('hints').insertAdjacentHTML('beforeend','<div><b>💬 Dịch:</b> '+cur.vi+'</div>')};
+  $('hints').insertAdjacentHTML('beforeend','<div><b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tin-nhan></use></svg> Dịch:</b> '+cur.vi+'</div>')};
 $('h2Btn').onclick=()=>{if(solved||h2)return;h2=true;cost(30);$('h2Btn').disabled=true;
-  $('hints').insertAdjacentHTML('beforeend','<div><b>🧩 Bộ phận:</b> <span class="zh" lang="zh">'+cur.bp+'</span></div>')};
+  $('hints').insertAdjacentHTML('beforeend','<div><b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#manh-ghep></use></svg> Bộ phận:</b> <span class="zh" lang="zh">'+cur.bp+'</span></div>')};
 // cầu cứu ngay khi đang bí: ảnh không có đáp án, bạn mở link sẽ vào chế độ cứu trợ
 function openSos(x,after){
-  CHIASE.open({kind:'sos',q:x.q,name:nameOf,onName:setName,me:{},chain:chainOut(),qr:()=>link('cuu',{x}),qrCap:'Vào giải giúp câu đố này 🦸',
+  CHIASE.open({kind:'sos',q:x.q,name:nameOf,onName:setName,me:{},chain:chainOut(),qr:()=>link('cuu',{x}),qrCap:'Vào giải giúp câu đố này',
     text:()=>{const nm=nameOf()||'Mình';return VUI.any(['🆘 Cứu '+nm+' với! Kẹt câu đố chữ Hán này rồi 😭','🆘 SOS! '+nm+' cần cao nhân giải giúp 🙏','🆘 '+nm+' bó tay rồi, ai giỏi chữ Hán vào cứu với!'])+'\n「'+x.q+'」 (đoán 1 chữ Hán)\n'+(chainOut().length>1?'🔥 Đã qua tay: '+chainOut().join(' → ')+'\n':'')+'👉 Vào cứu: '+link('cuu',{x})},
     onSent:()=>{award('sent');after&&after()}});
 }
 $('sosBtn').onclick=()=>{if(solved||duel)return;if(sosLeft<=0&&!sosCur)return;
   openSos(cur,()=>{if(!sosCur){sosCur=true;sosLeft--}sosLabel();
-    $('fb').innerHTML='<span class="good">📣 Đã gửi lời cầu cứu!</span><span class="muted">Trong lúc chờ bạn trả lời, em cứ thử đoán tiếp nhé 💪</span>'})};
+    $('fb').innerHTML='<span class="good"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa-to></use></svg> Đã gửi lời cầu cứu!</span><span class="muted">Trong lúc chờ bạn trả lời, em cứ thử đoán tiếp nhé</span>'})};
 function wrong(){const was=streak;streak=0;tries++;cost(30);$('streak').textContent='';
-  $('fb').innerHTML='<span class="bad">'+VUI.sai(was)+'</span>'+(tries===1&&!h0&&!h1&&!h2?'<span class="muted">Bí thì mở gợi ý ✍️ 💬 🧩, hoặc 🆘 cầu cứu bạn bè nhé</span>':'')}
+  $('fb').innerHTML='<span class="bad">'+VUI.sai(was)+'</span>'+(tries===1&&!h0&&!h1&&!h2?'<span class="muted">Bí thì mở gợi ý <svg class=lli aria-hidden=true><use href=/chung/ic.svg#but></use></svg> <svg class=lli aria-hidden=true><use href=/chung/ic.svg#tin-nhan></use></svg> <svg class=lli aria-hidden=true><use href=/chung/ic.svg#manh-ghep></use></svg>, hoặc <svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> cầu cứu bạn bè nhé</span>':'')}
 let composing=false;$('ans').addEventListener('compositionstart',()=>composing=true);$('ans').addEventListener('compositionend',()=>setTimeout(()=>composing=false,0));
 $('typer').addEventListener('submit',e=>{e.preventDefault();if(solved||composing)return;const raw=$('ans').value.trim();if(!raw)return;
   const hz=raw.replace(/[^一-鿿]/g,'');
   // đáp án chỉ nhận chữ Hán: gõ pinyin / chữ Latin thì nhắc bật bộ gõ tiếng Trung, không tính lượt sai
-  if(!hz){$('fb').innerHTML='<span class="bad">Đáp án phải viết bằng chữ Hán nhé ✍️</span><span class="muted">Em bật bộ gõ tiếng Trung (pinyin), gõ rồi chọn đúng chữ Hán.</span>';return}
+  if(!hz){$('fb').innerHTML='<span class="bad">Đáp án phải viết bằng chữ Hán nhé <svg class=lli aria-hidden=true><use href=/chung/ic.svg#but></use></svg></span><span class="muted">Em bật bộ gõ tiếng Trung (pinyin), gõ rồi chọn đúng chữ Hán.</span>';return}
   if(hz===cur.a)return solve(true);
   if(hz.length===1&&cur.alt.includes(hz)){altHit=hz;return solve(true)} // đáp án phụ (câu đố có nhiều cách giải)
   const i=$('ans');i.classList.remove('bad');void i.offsetWidth;i.classList.add('bad');i.select();wrong();
   if(tries>=3)solve(false)});
 const solHTML=()=>'<div class="muted">谜底 · Đáp án</div><div class="ans" lang="zh">'+cur.a+'</div><div class="py">'+cur.py+' '+TTS.btn(cur.a)+'</div>'+
-  (altHit?'<div class="muted">Em đoán <b lang="zh">'+altHit+'</b> cũng được tính đúng 👍 (câu này có nhiều cách giải)</div>':'')+giaiHTML(cur);
+  (altHit?'<div class="muted">Em đoán <b lang="zh">'+altHit+'</b> cũng được tính đúng (câu này có nhiều cách giải)</div>':'')+giaiHTML(cur);
 function solve(ok){
   solved=true;$('ans').disabled=true;$('sosBtn').disabled=true;
   $('h0Btn').disabled=$('h1Btn').disabled=$('h2Btn').disabled=true;
@@ -317,37 +318,37 @@ function solve(ok){
   const sec=Math.max(1,Math.round((performance.now()-t0)/1000));clearInterval(tick);
   const me={x:cur,ok,got,p:ok?pts:0,t:sec,g:(h0?1:0)+(h1?1:0)+(h2?1:0),s:tries,sos:sosCur};results.push(me);
   if(duel)return duel.type==='cuu'?rescueResult(me):duelResult(me);
-  const head=ok?'<span class="good">'+(tries===0&&!h0&&!h1&&!h2?VUI.any(['Đoán một phát trúng luôn! 🎯','猜对了！Thông minh ghê 🧠','Giải đố như thần 🔮',VUI.dung(streak)]):VUI.dung(streak))+' +'+got+'</span>'
-    :'<span class="bad">'+VUI.any(['Câu này hóc thật 😵','Chữ Hán giấu kỹ ghê 🙈','Lần sau gặp lại là biết liền 😉'])+'</span>';
+  const head=ok?'<span class="good">'+(tries===0&&!h0&&!h1&&!h2?VUI.any(['Đoán một phát trúng luôn!','猜对了！Thông minh ghê','Giải đố như thần',VUI.dung(streak)]):VUI.dung(streak))+' +'+got+'</span>'
+    :'<span class="bad">'+VUI.any(['Câu này hóc thật','Chữ Hán giấu kỹ ghê','Lần sau gặp lại là biết liền'])+'</span>';
   $('fb').innerHTML=head+'<div class="sol">'+solHTML()+
-    (ok?'<div class="nudge">'+VUI.any(['Câu này hay nè, thách bạn thử xem ai nhanh hơn? ⚔️','Em giải trong '+sec+' giây, bạn em làm được không? 😏','Đố bạn thân câu này đi, cá là bí luôn 🤭'])+'</div>':'')+
-    '<div class="acts"><button class="btn '+(ok?'hot':'sec')+'" type="button" id="shareBtn">'+(ok?'⚔️ Thách bạn câu này':'🆘 Đố bạn câu này')+'</button><button class="btn pri" type="button" id="goOn">'+(qi>=deck.length?'Xem kết quả →':'Câu tiếp →')+'</button></div></div>';
+    (ok?'<div class="nudge">'+VUI.any(['Câu này hay nè, thách bạn thử xem ai nhanh hơn?','Em giải trong '+sec+' giây, bạn em làm được không?','Đố bạn thân câu này đi, cá là bí luôn'])+'</div>':'')+
+    '<div class="acts"><button class="btn '+(ok?'hot':'sec')+'" type="button" id="shareBtn">'+(ok?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#kiem></use></svg> Thách bạn câu này':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Đố bạn câu này')+'</button><button class="btn pri" type="button" id="goOn">'+(qi>=deck.length?'Xem kết quả →':'Câu tiếp →')+'</button></div></div>';
   TTS.say(cur.a);$('goOn').onclick=next;$('goOn').focus({preventScroll:true});$('shareBtn').onclick=()=>ok?challenge(me):openSos(me.x);
   setTimeout(()=>$('fb').scrollIntoView({block:'nearest',behavior:'smooth'}),60);
 }
 function send(t,b,doneTxt){
   if(navigator.share){navigator.share({text:t,title:'Đố chữ 猜字谜'}).then(()=>{award('sent')},()=>{});return}
-  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.textContent=doneTxt||'✓ Đã chép, dán gửi bạn nhé'},()=>prompt('Chép đoạn này gửi bạn:',t));
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{b.innerHTML=doneTxt||'<svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg#tick></use></svg> Đã chép, dán gửi bạn nhé'},()=>prompt('Chép đoạn này gửi bạn:',t));
 }
 function challenge(r){
-  CHIASE.open({kind:'thach',q:r.x.q,name:nameOf,onName:setName,me:r,chain:chainOut(),qr:()=>link('thach',r),qrCap:'Nhận lời thách đấu câu này ⚔️',
+  CHIASE.open({kind:'thach',q:r.x.q,name:nameOf,onName:setName,me:r,chain:chainOut(),qr:()=>link('thach',r),qrCap:'Nhận lời thách đấu câu này',
     text:()=>{const nm=nameOf()||'Mình';return '⚔️ '+nm+' thách bạn giải câu đố chữ Hán này!\n「'+r.x.q+'」 (đoán 1 chữ)\n'+nm+' giải trong '+r.t+' giây, '+hintTxt(r.g,r.s)+'. '+VUI.any(['Bạn nhanh hơn không? 😏','Dám nhận lời không? 😎','Thua thì khao trà sữa nha 🧋'])+'\n'+(chainOut().length>1?'🔥 Chuỗi: '+chainOut().join(' → ')+' → bạn?\n':'')+'👉 '+link('thach',r)},
     onSent:()=>award('sent')});
 }
 // so kết quả: ai giải được thắng; cùng giải được thì nhiều điểm hơn, bằng điểm thì nhanh hơn
 function duelResult(me){
   const a=duel,nm=nameOf()||'Em',win=(!a.ok&&me.ok)?1:(a.ok&&!me.ok)?-1:(!a.ok&&!me.ok)?0:me.p!==a.p?(me.p>a.p?1:-1):me.t!==a.t?(me.t<a.t?1:-1):0;
-  const side=(n,r,w)=>'<div class="side'+(w?' win':'')+'"><b>'+esc(n)+(w?' 🏆':'')+'</b>'+(r.ok?'<span>⏱ '+r.t+' giây</span><span>💡 '+(r.g||'không')+' gợi ý · ❌ sai '+r.s+'</span><span class="pt">'+r.p+' điểm</span>':'<span>😵 bó tay</span><span class="pt">0 điểm</span>')+'</div>';
-  const verdict=win>0?VUI.any(['🏆 Em thắng '+a.ten+' rồi! Gửi kết quả khoe đi 😎','🏆 Thắng đẹp! '+a.ten+' phải khao trà sữa rồi 🧋','🏆 Quá đỉnh, '+a.ten+' chắc đang ngỡ ngàng 😱']):
-    win<0?VUI.any(['😅 '+a.ten+' nhỉnh hơn chút xíu… thách người khác gỡ gạc nào!','😤 Thua keo này, ta bày keo khác!','🥲 Suýt nữa thôi! Chuyền câu này cho bạn khác thử xem']):
-    (!a.ok&&!me.ok)?'🤝 Cả hai cùng bó tay, câu này hóc thật!':'🤝 Hòa! Hai bạn ngang tài ngang sức';
+  const side=(n,r,w)=>'<div class="side'+(w?' win':'')+'"><b>'+esc(n)+(w?' <svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg>':'')+'</b>'+(r.ok?'<span><svg class=lli aria-hidden=true><use href=/chung/ic.svg#dong-ho></use></svg> '+r.t+' giây</span><span><svg class=lli aria-hidden=true><use href=/chung/ic.svg#den></use></svg> '+(r.g||'không')+' gợi ý · <svg class=lli-do aria-hidden=true><use href=/chung/ic.svg#sai-tron></use></svg> sai '+r.s+'</span><span class="pt">'+r.p+' điểm</span>':'<span><svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat-choang></use></svg> bó tay</span><span class="pt">0 điểm</span>')+'</div>';
+  const verdict=win>0?VUI.any(['<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg> Em thắng '+a.ten+' rồi! Gửi kết quả khoe đi','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg> Thắng đẹp! '+a.ten+' phải khao trà sữa rồi','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg> Quá đỉnh, '+a.ten+' chắc đang ngỡ ngàng']):
+    win<0?VUI.any([''+a.ten+' nhỉnh hơn chút xíu… thách người khác gỡ gạc nào!','Thua keo này, ta bày keo khác!','Suýt nữa thôi! Chuyền câu này cho bạn khác thử xem']):
+    (!a.ok&&!me.ok)?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#bat-tay></use></svg> Cả hai cùng bó tay, câu này hóc thật!':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#bat-tay></use></svg> Hòa! Hai bạn ngang tài ngang sức';
   if(win>0)award('win');
   $('fb').innerHTML='<div class="sol">'+solHTML()+
     '<div class="vs">'+side(a.ten,a,win<0)+'<div class="mid">VS</div>'+side(nm,me,win>0)+'</div><div class="verdict">'+verdict+'</div>'+
-    '<div class="acts"><button class="btn hot" type="button" id="backBtn">📣 Khoe kết quả với '+esc(a.ten)+'</button><button class="btn sec" type="button" id="fwdBtn">⚔️ Thách tiếp người khác</button><button class="btn sec" type="button" id="freeBtn">🎲 Chơi cả ván</button></div></div>';
-  TTS.say(cur.a);if(win>0)VUI.pop('🏆 Thắng rồi!',$('fb'),'good');
+    '<div class="acts"><button class="btn hot" type="button" id="backBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa-to></use></svg> Khoe kết quả với '+esc(a.ten)+'</button><button class="btn sec" type="button" id="fwdBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#kiem></use></svg> Thách tiếp người khác</button><button class="btn sec" type="button" id="freeBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#xuc-xac></use></svg> Chơi cả ván</button></div></div>';
+  TTS.say(cur.a);if(win>0)VUI.pop('<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg> Thắng rồi!',$('fb'),'good');
   $('backBtn').onclick=()=>{const my=()=>nameOf()||'Mình';
-    CHIASE.open({kind:'ketqua',q:cur.q,name:nameOf,onName:setName,me,foe:a,win,chain:chainOut(),qr:()=>link('thach',me),qrCap:'Vào đấu câu này ⚔️',
+    CHIASE.open({kind:'ketqua',q:cur.q,name:nameOf,onName:setName,me,foe:a,win,chain:chainOut(),qr:()=>link('thach',me),qrCap:'Vào đấu câu này',
       text:()=>(win>0?'🏆 '+my()+' đã nhận lời thách của '+a.ten+' và THẮNG rồi nhé 😎':win<0?'😤 '+my()+' thua '+a.ten+' câu này… nhưng sẽ phục thù!':'🤝 '+my()+' và '+a.ten+' hòa nhau câu này!')+
         '\n「'+cur.q+'」\n'+a.ten+': '+(a.ok?a.t+' giây · '+a.p+' điểm':'bó tay')+'\n'+my()+': '+(me.ok?me.t+' giây · '+me.p+' điểm':'bó tay')+'\nAi muốn vào đấu thì bấm đây 👉 '+link('thach',me),
       onSent:()=>award('sent')})};
@@ -359,10 +360,10 @@ function duelResult(me){
 function rescueResult(me){
   const a=duel,t=esc(a.ten);
   $('fb').innerHTML='<div class="sol">'+solHTML()+(me.ok?
-    '<div class="verdict">🦸 Em giải được rồi! Giờ gửi cứu trợ cho '+t+' nào:</div><div class="acts"><button class="btn sec" type="button" id="hintSend">💡 Chỉ gửi gợi ý</button><button class="btn hot" type="button" id="ansSend">🎯 Gửi đáp án</button></div>'+
-    '<div class="muted">Gửi gợi ý để '+t+' tự nghĩ ra thì vui hơn đó 😉</div><div class="acts"><button class="btn sec" type="button" id="fwdBtn">⚔️ Thách người khác câu này</button><button class="btn sec" type="button" id="freeBtn">🎲 Chơi cả ván</button></div>'
-    :'<div class="verdict">😵 Câu này khó thật, em cũng bó tay rồi!</div><div class="acts"><button class="btn hot" type="button" id="fwdBtn">🆘 Chuyền tiếp lời cầu cứu</button><button class="btn sec" type="button" id="freeBtn">🎲 Chơi cả ván</button></div>')+'</div>';
-  TTS.say(cur.a);if(me.ok)VUI.pop('🦸 Cứu trợ tới nơi!',$('fb'),'good');
+    '<div class="verdict"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sieu-nhan></use></svg> Em giải được rồi! Giờ gửi cứu trợ cho '+t+' nào:</div><div class="acts"><button class="btn sec" type="button" id="hintSend"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#den></use></svg> Chỉ gửi gợi ý</button><button class="btn hot" type="button" id="ansSend"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#bia></use></svg> Gửi đáp án</button></div>'+
+    '<div class="muted">Gửi gợi ý để '+t+' tự nghĩ ra thì vui hơn đó</div><div class="acts"><button class="btn sec" type="button" id="fwdBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#kiem></use></svg> Thách người khác câu này</button><button class="btn sec" type="button" id="freeBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#xuc-xac></use></svg> Chơi cả ván</button></div>'
+    :'<div class="verdict"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat-choang></use></svg> Câu này khó thật, em cũng bó tay rồi!</div><div class="acts"><button class="btn hot" type="button" id="fwdBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Chuyền tiếp lời cầu cứu</button><button class="btn sec" type="button" id="freeBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#xuc-xac></use></svg> Chơi cả ván</button></div>')+'</div>';
+  TTS.say(cur.a);if(me.ok)VUI.pop('<svg class=lli aria-hidden=true><use href=/chung/ic.svg#sieu-nhan></use></svg> Cứu trợ tới nơi!',$('fb'),'good');
   const saved=()=>{if(!me.saved){me.saved=true;award('cuu')}};
   if(me.ok){
     $('hintSend').onclick=()=>{const n=(window.SO_NET||{})[cur.a];send('💡 '+(nameOf()||'Mình')+' giải ra rồi! Gợi ý cho '+a.ten+' nè:\n「'+cur.q+'」\n🧩 Bộ phận: '+cur.bp+(n?'\n✍️ Chữ có '+n+' nét':'')+'\nNghĩ tiếp đi, sắp ra rồi đó 💪',$('hintSend'),'✓ Đã chép gợi ý, dán gửi '+a.ten+' nhé');saved()};
@@ -383,9 +384,9 @@ function end(){
   $('finalInfo').textContent='Giải đúng '+right+'/'+n+' câu'+(rec?' · Kỷ lục mới!':best?' · Kỷ lục: '+best+' điểm':'');
   // câu "khoe" được nhất: khó nhất, ít gợi ý nhất, nhanh nhất
   const top=results.filter(r=>r.ok).sort((a,b)=>b.x.k-a.x.k||a.g-b.g||a.t-b.t)[0];
-  $('topPick').hidden=!top;if(top){$('topPick').innerHTML='<div class="tp-h">🎯 Câu “khoe” được nhất của em</div><div class="tp-q" lang="zh">'+top.x.q+'</div><div class="muted">Em giải trong '+top.t+' giây, '+hintTxt(top.g,top.s)+'. Cá là bạn em bí luôn 😏</div><button class="btn hot" type="button" id="topBtn">⚔️ Thách bạn câu này</button>';
+  $('topPick').hidden=!top;if(top){$('topPick').innerHTML='<div class="tp-h"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#bia></use></svg> Câu “khoe” được nhất của em</div><div class="tp-q" lang="zh">'+top.x.q+'</div><div class="muted">Em giải trong '+top.t+' giây, '+hintTxt(top.g,top.s)+'. Cá là bạn em bí luôn <svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat-nhech></use></svg></div><button class="btn hot" type="button" id="topBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#kiem></use></svg> Thách bạn câu này</button>';
     $('topBtn').onclick=()=>challenge(top)}
-  $('review').innerHTML=results.map(r=>'<li'+(r.ok?'':' class="miss"')+'><span class="rq" lang="zh">'+r.x.q+'</span><span class="ra"><span lang="zh">'+r.x.a+'</span> '+TTS.btn(r.x.a)+'<small>'+r.x.py+'</small></span><span class="n">'+(r.ok?'+'+r.got+' điểm · '+r.t+' giây':'chưa đoán ra')+(r.sos?' · 🆘 đã cầu cứu':'')+'</span><button type="button" class="ch" data-i="'+results.indexOf(r)+'">'+(r.ok?'⚔️ Thách bạn câu này':'🆘 Đố bạn câu này')+'</button></li>').join('');
+  $('review').innerHTML=results.map(r=>'<li'+(r.ok?'':' class="miss"')+'><span class="rq" lang="zh">'+r.x.q+'</span><span class="ra"><span lang="zh">'+r.x.a+'</span> '+TTS.btn(r.x.a)+'<small>'+r.x.py+'</small></span><span class="n">'+(r.ok?'+'+r.got+' điểm · '+r.t+' giây':'chưa đoán ra')+(r.sos?' · <svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> đã cầu cứu':'')+'</span><button type="button" class="ch" data-i="'+results.indexOf(r)+'">'+(r.ok?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#kiem></use></svg> Thách bạn câu này':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Đố bạn câu này')+'</button></li>').join('');
   $('review').querySelectorAll('.ch').forEach(b=>b.onclick=()=>{const r=results[+b.dataset.i];r.ok?challenge(r):openSos(r.x)});
   $('overTitle').textContent=n>=deck.length?'Giải xong rồi!':'Kết thúc!';showBest();showBadges();
 }

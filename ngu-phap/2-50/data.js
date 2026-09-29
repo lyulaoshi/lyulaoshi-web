@@ -19,7 +19,7 @@ rules:[
       ["车开[进]学校了，我们快[过]去吧。","Chē kāijìn xuéxiào le, wǒmen kuài guòqu ba.","Xe chạy vào trường rồi, mình mau qua đó đi.","等级标准"],
       ["你打[开]包让我看看。","Nǐ dǎkāi bāo ràng wǒ kànkan.","Bạn mở túi ra cho tôi xem."]]}],
 notes:[
- {t:"Nơi chốn + 来 / 去", html:"<span class='zh'>他进教室来了。</span> (✗ 他进来教室了) — nơi chốn chen giữa. Bổ ngữ xu hướng kép (走进来、拿出去…) học ở 【三47】."}],
+ {t:"Nơi chốn + 来 / 去", html:"<span class='zh'>他进教室来了。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 他进来教室了) — nơi chốn chen giữa. Bổ ngữ xu hướng kép (走进来、拿出去…) học ở 【三47】."}],
 cmp:[
  {vn:"Anh ấy đi vào lớp.", zh:"他走[进]教室。", py:"Tā zǒujìn jiàoshì.", ok:true, why:"“vào” sau động từ — giống tiếng Việt."},
  {vn:"Mang sách đến đây.", zh:"带书[来]。", py:"Dài shū lái.", ok:true, why:"来 = về phía người nói."}],
@@ -43,6 +43,19 @@ practice:[
   {w:["你","打开","包","让我","看看"], a:"你打开包让我看看。", vi:"Bạn mở túi ra cho tôi xem."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Bố lấy máy tính từ trên xe xuống.", a:"爸爸从车上拿下电脑。"},
-  {q:"Mai tôi mang một chiếc máy ảnh đến.", a:"我明天带一个相机来。"}]}],
+  {q:"Mai tôi mang một chiếc máy ảnh đến.", a:"我明天带一个相机来。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"他走进来教室了。", vi:"Anh ấy đi vào lớp.", o:["Đúng","Sai"], a:1, why:"Nơi chốn đứng trước 来 / 去: 他走进教室来了。"},
+  {q:"请你上来吧。", vi:"Mời bạn lên đây.", o:["Đúng","Sai"], a:0, why:"Về phía người nói → 来."},
+  {q:"他回去家了。", vi:"Anh ấy về nhà rồi.", o:["Đúng","Sai"], a:1, why:"Nơi chốn đứng trước 去: 他回家去了。"},
+  {q:"妈妈买来了很多水果。", vi:"Mẹ mua về rất nhiều hoa quả.", o:["Đúng","Sai"], a:0, why:"V + 来 + 了 + tân ngữ (vật)."}]},
+ {t:"E. Chọn 来 hay 去", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"(Bạn ở tầng trên, tôi ở dưới gọi) 你下＿吧！", vi:"Bạn xuống đây đi!", o:["来", "去"], a:0, why:"Về phía người nói → 来."},
+  {q:"(Tôi ở trong lớp, nói với bạn ở ngoài) 快进＿！", vi:"Mau vào đây!", o:["来", "去"], a:0, why:"Đi vào chỗ người nói → 来."},
+  {q:"(Chúng ta ở trong phòng, nói về anh ấy) 他出＿了。", vi:"Anh ấy ra ngoài rồi.", o:["来", "去"], a:1, why:"Rời xa người nói → 去."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Anh ấy đi vào lớp rồi.", a:"他走进教室来了。/ 他进教室来了。/ 他走进教室了。/ 他进教室了。"},
+  {q:"Bạn mang từ điển đến chưa?", a:"你带词典来了吗？/ 你带来词典了吗？/ 你带词典来了没有？"},
+  {q:"Mẹ về nhà rồi.", a:"妈妈回家了。/ 妈妈回家去了。/ 妈妈回家来了。"}]}],
 rel:["三47","二23","一01","二40"]
 };

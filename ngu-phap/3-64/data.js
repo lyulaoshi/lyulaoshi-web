@@ -11,7 +11,7 @@ rules:[
       ["我们[首先]要找到科学的练习方法，[然后]坚持每天练习。","Wǒmen shǒuxiān yào zhǎodào kēxué de liànxí fāngfǎ, ránhòu jiānchí měi tiān liànxí.","Trước hết chúng ta phải tìm phương pháp luyện tập khoa học, sau đó kiên trì luyện mỗi ngày.","等级标准"]]}],
 notes:[{t:"Thêm bước", html:"<span class='zh'>首先……，然后……，最后……</span> — trước hết …, sau đó …, cuối cùng …"}],
 cmp:[
- {vn:"Đầu tiên rửa tay, sau đó ăn cơm.", zh:"[首先]洗手，[然后]吃饭。", py:"Shǒuxiān xǐ shǒu, ránhòu chī fàn.", ok:true, why:"Không nói ✗ 以后吃饭 khi kể bước kế tiếp."}],
+ {vn:"Đầu tiên rửa tay, sau đó ăn cơm.", zh:"[首先]洗手，[然后]吃饭。", py:"Shǒuxiān xǐ shǒu, ránhòu chī fàn.", ok:true, why:"Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 以后吃饭 khi kể bước kế tiếp."}],
 ex:[
  ["[首先]打开电脑，[然后]输入密码，[最后]点“确定”。","Shǒuxiān dǎkāi diànnǎo, ránhòu shūrù mìmǎ, zuìhòu diǎn “quèdìng”.","Đầu tiên mở máy tính, sau đó nhập mật khẩu, cuối cùng bấm “OK”."]],
 errs:[

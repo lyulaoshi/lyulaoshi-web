@@ -7,7 +7,7 @@
 <meta name="description" content="Trò chơi Tìm từ trong bảng chữ Hán: kéo tay khoanh các từ HSK được giấu theo hàng ngang, dọc, chéo. Luyện nhận mặt chữ HSK 1–6.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="../game.css?v=3">
+<link rel="stylesheet" href="../game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 [hidden]{display:none!important}
@@ -81,7 +81,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap">
@@ -94,39 +94,39 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="chips" id="lvChips"></div>
       <h2>2. Độ khó</h2>
       <div class="chips" id="sizeChips">
-        <button class="chip" type="button" data-sz="easy" aria-pressed="true">🌱 Dễ<small>bảng 6×6, 5 từ, chỉ ngang và dọc</small></button>
-        <button class="chip" type="button" data-sz="mid" aria-pressed="false">🌿 Vừa<small>bảng 8×8, 7 từ, thêm đường chéo</small></button>
-        <button class="chip" type="button" data-sz="hard" aria-pressed="false">🌳 Khó<small>bảng 10×10, 9 từ, có cả từ viết ngược</small></button>
+        <button class="chip" type="button" data-sz="easy" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#nhanh-la></use></svg> Dễ<small>bảng 6×6, 5 từ, chỉ ngang và dọc</small></button>
+        <button class="chip" type="button" data-sz="mid" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#la></use></svg> Vừa<small>bảng 8×8, 7 từ, thêm đường chéo</small></button>
+        <button class="chip" type="button" data-sz="hard" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#cay></use></svg> Khó<small>bảng 10×10, 9 từ, có cả từ viết ngược</small></button>
       </div>
       <h2>3. Kiểu bảng</h2>
       <div class="chips" id="kindChips">
-        <button class="chip" type="button" data-kind="theme" aria-pressed="true">🎯 Theo chủ đề chữ<small>mọi từ đều chứa một chữ, ví dụ 学</small></button>
-        <button class="chip" type="button" data-kind="mix" aria-pressed="false">🎲 Ngẫu nhiên<small>từ bất kỳ trong cấp đã chọn</small></button>
+        <button class="chip" type="button" data-kind="theme" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#bia></use></svg> Theo chủ đề chữ<small>mọi từ đều chứa một chữ, ví dụ 学</small></button>
+        <button class="chip" type="button" data-kind="mix" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#xuc-xac></use></svg> Ngẫu nhiên<small>từ bất kỳ trong cấp đã chọn</small></button>
       </div>
       <h2>4. Danh sách từ cần tìm hiện</h2>
       <div class="chips" id="showChips">
         <button class="chip" type="button" data-show="py" aria-pressed="true">Pinyin<small>tự nhớ ra chữ Hán</small></button>
         <button class="chip" type="button" data-show="hz" aria-pressed="false">Chữ Hán<small>dễ hơn, chỉ cần tìm</small></button>
-        <button class="chip" type="button" data-show="ear" aria-pressed="false" id="earChip">🎧 Chỉ nghe<small>bấm loa nghe từ rồi tìm</small></button>
+        <button class="chip" type="button" data-show="ear" aria-pressed="false" id="earChip"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tai-nghe></use></svg> Chỉ nghe<small>bấm loa nghe từ rồi tìm</small></button>
       </div>
       <ul class="how">
         <li><b>Kéo tay</b> (hoặc giữ chuột) từ chữ đầu tới chữ cuối của từ. Hoặc <b>chạm chữ đầu rồi chạm chữ cuối</b>.</li>
         <li>Tìm đúng thì từ được tô màu, máy đọc từ đó. Bí quá thì bấm <b>Gợi ý</b> để thấy chữ đầu của một từ.</li>
         <li>Các chữ “gây nhiễu” trong bảng được chọn từ chính những từ cần tìm, nên phải đọc kỹ từng chữ!</li>
-        <li>🎁 <b>Từ thưởng bí mật:</b> trong bảng còn giấu thêm vài từ HSK khác không có trong danh sách. Khoanh được là thưởng thêm điểm!</li>
+        <li><svg class=lli aria-hidden=true><use href=/chung/ic.svg#qua></use></svg> <b>Từ thưởng bí mật:</b> trong bảng còn giấu thêm vài từ HSK khác không có trong danh sách. Khoanh được là thưởng thêm điểm!</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
   <section id="play" hidden>
     <div class="hud">
       <span>Đã tìm <b id="found">0</b>/<span id="total">0</span></span>
-      <span>⏱ <b id="clock">0:00</b></span>
-      <span title="Từ thưởng bí mật" id="bonusHud">🎁 <b id="bonus">0</b>/<span id="bonusTotal">0</span></span>
+      <span><svg class=lli aria-hidden=true><use href=/chung/ic.svg#dong-ho></use></svg> <b id="clock">0:00</b></span>
+      <span title="Từ thưởng bí mật" id="bonusHud"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#qua></use></svg> <b id="bonus">0</b>/<span id="bonusTotal">0</span></span>
       <span class="sp"></span>
-      <button type="button" id="newBtn">↻ Bảng mới</button>
-      <button type="button" id="quitBtn">✕</button>
+      <button type="button" id="newBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg> Bảng mới</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg></button>
     </div>
     <div class="themebar" id="themeBar" hidden></div>
     <div class="playwrap">
@@ -134,7 +134,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="side">
         <div class="msg" id="msg" aria-live="polite">Kéo tay qua các chữ để khoanh từ</div>
         <div class="words" id="words"></div>
-        <button type="button" class="hintbtn" id="hintBtn">💡 Gợi ý chữ đầu (còn 3)</button>
+        <button type="button" class="hintbtn" id="hintBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#den></use></svg> Gợi ý chữ đầu (còn 3)</button>
       </div>
     </div>
   </section>
@@ -145,23 +145,23 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="panel">
       <div class="stars" id="stars"></div>
       <div class="acts"><span class="big" id="finalTime">0:00</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
-      <div><h2>Các từ vừa tìm, bấm 🔊 để nghe lại</h2><ul class="review" id="review"></ul></div>
-      <div id="bonusBox"><h2>🎁 Từ thưởng bí mật trong bảng</h2><ul class="review" id="bonusList"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Bảng mới ↻</button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / độ khó</button></div>
+      <div><h2>Các từ vừa tìm, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa></use></svg> để nghe lại</h2><ul class="review" id="review"></ul></div>
+      <div id="bonusBox"><h2><svg class=lli aria-hidden=true><use href=/chung/ic.svg#qua></use></svg> Từ thưởng bí mật trong bảng</h2><ul class="review" id="bonusList"></ul></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Bảng mới <svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / độ khó</button></div>
     </div>
   </section>
 </main>
 
-<footer class="wrap">Từ vựng và pinyin theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+<footer class="wrap">Từ vựng và pinyin theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../hsk-words.js"></script>
-<script src="../tts.js?v=1"></script>
-<script src="../vui.js?v=3"></script>
+<script src="../tts.js?v=2"></script>
+<script src="../vui.js?v=4"></script>
 <script src="../nhom-chu.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -238,10 +238,10 @@ function start(){
   grid.forEach((row,y)=>row.forEach((c,x)=>{const d=document.createElement('div');d.className='cell';d.textContent=c;d.dataset.x=x;d.dataset.y=y;b.appendChild(d)}));
   b.style.setProperty('font-size','');
   $('words').innerHTML=list.map((w,i)=>'<div class="wd" id="w'+i+'" style="--c:'+w.col+'"><span class="py">'+(show==='py'?w.p:show==='ear'?TTS.btn(w.w)+' nghe':'')+'</span><span class="hz" lang="zh">'+(show==='hz'?w.w:'？'.repeat(w.w.length))+'</span></div>').join('');
-  $('themeBar').hidden=!theme;if(theme)$('themeBar').innerHTML='🎯 Chủ đề: <span class="zh" lang="zh">'+theme+'</span>'+(CHPY[theme]?' '+CHPY[theme]:'')+' <small>· mọi từ đều có chữ này</small>';
+  $('themeBar').hidden=!theme;if(theme)$('themeBar').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#bia></use></svg> Chủ đề: <span class="zh" lang="zh">'+theme+'</span>'+(CHPY[theme]?' '+CHPY[theme]:'')+' <small>· mọi từ đều có chữ này</small>';
   findBonus();$('bonus').textContent=0;$('bonusTotal').textContent=bonus.length;$('bonusHud').hidden=!bonus.length;
   if(show==='hz')list.forEach((w,i)=>{$('w'+i).querySelector('.hz').style.color='var(--ink)'});
-  $('lines').innerHTML='';$('total').textContent=list.length;$('found').textContent=0;$('hintBtn').disabled=false;$('hintBtn').textContent='💡 Gợi ý chữ đầu (còn 3)';
+  $('lines').innerHTML='';$('total').textContent=list.length;$('found').textContent=0;$('hintBtn').disabled=false;$('hintBtn').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#den></use></svg> Gợi ý chữ đầu (còn 3)';
   $('msg').innerHTML='Kéo tay qua các chữ để khoanh từ';
   clearInterval(tick);t0=performance.now();tick=setInterval(()=>$('clock').textContent=fmt(Math.floor((performance.now()-t0)/1000)),500);
   $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);
@@ -277,7 +277,7 @@ function check(cells){
   if(!w){const k=key(cells),b=bonus.find(b=>b.keys.includes(k));
     if(b&&!b.done){b.done=true;b.cells=cells;TTS.say(b.w);const a=center(b.cells[0]),e=center(b.cells[b.cells.length-1]);
       $('lines').insertAdjacentHTML('beforeend','<line class="bonus" x1="'+a[0]+'" y1="'+a[1]+'" x2="'+e[0]+'" y2="'+e[1]+'" stroke="#C99A14" stroke-width="'+a[2]*.5+'"/>');
-      $('bonus').textContent=bonus.filter(b=>b.done).length;$('msg').innerHTML='<span class="ok">🎁 Từ thưởng bí mật! '+b.w+' '+b.p+' +50</span>';return true}
+      $('bonus').textContent=bonus.filter(b=>b.done).length;$('msg').innerHTML='<span class="ok"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#qua></use></svg> Từ thưởng bí mật! '+b.w+' '+b.p+' +50</span>';return true}
     $('msg').innerHTML='<span class="bad">「'+s+'」 '+(b?'đã tìm rồi':'không phải từ cần tìm · '+VUI.treu())+'</span>';return false}
   w.done=true;found++;drawFound(w);TTS.say(w.w);const el=$('w'+list.indexOf(w));el.classList.add('found');el.querySelector('.hz').textContent=w.w;el.querySelector('.py').textContent=w.p;
   $('found').textContent=found;$('msg').innerHTML='<span class="ok">'+VUI.any(['Tìm ra rồi!','好眼力！','Tinh mắt ghê!',VUI.khen()])+' '+w.w+' '+w.p+'</span>';
@@ -294,7 +294,7 @@ addEventListener('pointerup',()=>{if(!dragFrom)return;const from=dragFrom;dragFr
   paintSel(null);check(sel)});
 $('hintBtn').onclick=()=>{if(hints<=0||!alive)return;const w=list.find(w=>!w.done);if(!w)return;hints--;
   const c=cellAt(w.x0,w.y0);c.classList.remove('hint');void c.offsetWidth;c.classList.add('hint');setTimeout(()=>c.classList.remove('hint'),2100);
-  $('hintBtn').textContent=hints?'💡 Gợi ý chữ đầu (còn '+hints+')':'💡 Hết gợi ý';$('hintBtn').disabled=!hints;
+  $('hintBtn').innerHTML=hints?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#den></use></svg> Gợi ý chữ đầu (còn '+hints+')':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#den></use></svg> Hết gợi ý';$('hintBtn').disabled=!hints;
   $('msg').innerHTML='Chữ đầu của từ <b>'+(show==='py'?w.p:show==='hz'?w.w:'số '+(list.indexOf(w)+1))+'</b> đang nhấp nháy!'};
 $('newBtn').onclick=start;
 $('quitBtn').onclick=()=>{alive=false;clearInterval(tick);$('play').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
@@ -302,16 +302,16 @@ addEventListener('resize',()=>{if(alive&&!$('play').hidden)redraw()});
 function win(){
   alive=false;clearInterval(tick);const sec=Math.floor((performance.now()-t0)/1000),used=3-hints;
   const k=bestKey(),best=store.get(k),rec=!used&&(!best||sec<best);if(rec)store.set(k,sec);
-  $('finalTime').textContent='⏱ '+fmt(sec);
+  $('finalTime').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#dong-ho></use></svg> '+fmt(sec);
   const per=sec/list.length,got=bonus.filter(b=>b.done).length;let st=per<=12?3:per<=25?2:1;if(used)st=Math.max(1,st-1);if(got&&st<3)st++;
   const STAR=on=>'<svg class="star '+(on?'on':'off')+'" viewBox="0 0 100 100" aria-hidden="true"><path class="body" stroke-width="12" stroke-linejoin="round" d="M50 10 61 37 91 38 67 57 76 87 50 70 24 87 33 57 9 38 39 37Z"/><g class="face"><circle cx="41" cy="50" r="4.5" fill="#5A3A12"/><circle cx="59" cy="50" r="4.5" fill="#5A3A12"/><circle cx="33" cy="58" r="5" fill="#FF8FA3" opacity=".75"/><circle cx="67" cy="58" r="5" fill="#FF8FA3" opacity=".75"/><path d="M44 58q6 7 12 0" fill="none" stroke="#5A3A12" stroke-width="3.5" stroke-linecap="round"/></g></svg>';
   $('stars').innerHTML=[0,1,2].map(i=>STAR(i<st)).join('');$('stars').setAttribute('aria-label',st+' trên 3 sao');
   confetti();
   const tier=!used&&per<12?3:per<25?2:1,rk=!used&&per<12?['火眼金睛','Mắt thần!']:per<25?['厉害！','Giỏi lắm!']:['加油！','Lần sau nhanh hơn nhé!'];
   $('rank').innerHTML=VUI.rankHTML(rk,tier);
-  $('finalInfo').textContent=list.length+' từ · '+(used?'dùng '+used+' gợi ý':'không dùng gợi ý')+(rec?' · Kỷ lục mới!':best?' · Kỷ lục: '+fmt(best):'')+' · 🎁 '+got+'/'+bonus.length+' từ thưởng'+(theme?' · chủ đề '+theme:'')+' · HSK '+[...picked].sort().join(', ');
+  $('finalInfo').innerHTML=list.length+' từ · '+(used?'dùng '+used+' gợi ý':'không dùng gợi ý')+(rec?' · Kỷ lục mới!':best?' · Kỷ lục: '+fmt(best):'')+' · <svg class=lli aria-hidden=true><use href=/chung/ic.svg#qua></use></svg> '+got+'/'+bonus.length+' từ thưởng'+(theme?' · chủ đề '+theme:'')+' · HSK '+[...picked].sort().join(', ');
   $('bonusBox').hidden=!bonus.length;
-  $('bonusList').innerHTML=bonus.map(b=>'<li'+(b.done?'':' class="miss"')+'><span class="zh" lang="zh">'+b.w+' '+TTS.btn(b.w)+'</span><span class="py">'+b.p+(b.done?' ✓':' · chưa tìm')+'</span></li>').join('');
+  $('bonusList').innerHTML=bonus.map(b=>'<li'+(b.done?'':' class="miss"')+'><span class="zh" lang="zh">'+b.w+' '+TTS.btn(b.w)+'</span><span class="py">'+b.p+(b.done?' <svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg#tick></use></svg>':' · chưa tìm')+'</span></li>').join('');
   $('review').innerHTML=list.map(w=>'<li><span class="zh" lang="zh">'+w.w+' '+TTS.btn(w.w)+'</span><span class="py">'+w.p+'</span></li>').join('');
   $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);showBest();
 }

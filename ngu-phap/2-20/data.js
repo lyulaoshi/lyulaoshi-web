@@ -42,6 +42,20 @@ practice:[
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Năm nay sinh nhật tôi đúng vào Chủ nhật.", a:"今年我的生日正好是星期天。"},
   {q:"Tôi năm phút đã làm xong.", a:"我五分钟就做完了。"},
-  {q:"11 giờ anh ấy mới về nhà.", a:"他十一点才回家。"}]}],
+  {q:"11 giờ anh ấy mới về nhà.", a:"他十一点才回家。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"他十点才起床了。", vi:"10 giờ anh ấy mới dậy.", o:["Đúng","Sai"], a:1, why:"Câu có 才 không dùng 了: 他十点才起床。"},
+  {q:"我五分钟就做完了。", vi:"Tôi năm phút đã làm xong.", o:["Đúng","Sai"], a:0, why:"Nhanh → 就……了."},
+  {q:"他七点就来了。", vi:"7 giờ anh ấy đã đến rồi.", o:["Đúng","Sai"], a:0, why:"Sớm → 就……了."},
+  {q:"我等了半天，他就来。", vi:"Tôi đợi mãi anh ấy mới đến.", o:["Đúng","Sai"], a:1, why:"Muộn → 才: 我等了半天，他才来。"}]},
+ {t:"E. Điền 才 hay 就", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"电影七点开始，他七点半＿＿到。", vi:"Phim bắt đầu lúc 7 giờ, 7 rưỡi anh ấy ＿＿ đến.", o:["才", "就"], a:0, why:"Muộn → 才."},
+  {q:"这件衣服很便宜，五十块＿＿买到了。", vi:"Áo này rẻ lắm, 50 tệ ＿＿ mua được rồi.", o:["才", "就"], a:1, why:"Dễ, rẻ → 就……了."},
+  {q:"他学了两年，＿＿会说一点儿中文。", vi:"Anh ấy học hai năm ＿＿ nói được chút tiếng Trung.", o:["才", "就"], a:0, why:"Lâu mà được ít → 才."},
+  {q:"我一看＿＿明白了。", vi:"Tôi vừa nhìn ＿＿ hiểu rồi.", o:["才", "就"], a:1, why:"Nhanh → 就."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"8 giờ tôi mới dậy.", a:"我八点才起床。/ 八点我才起床。"},
+  {q:"6 giờ anh ấy đã đi rồi.", a:"他六点就走了。/ 他六点就去了。"},
+  {q:"Đã 12 giờ rồi, đi ngủ thôi.", a:"都十二点了，睡觉吧。/ 都十二点了，我们睡觉吧。/ 都十二点了，该睡觉了。"}]}],
 rel:["二17","二15","三14","二80"]
 };

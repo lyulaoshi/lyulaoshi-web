@@ -34,6 +34,19 @@ practice:[
   {w:["姐姐","送给","我","一个","手机"], a:"姐姐送给我一个手机。", vi:"Chị tặng tôi một chiếc điện thoại."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Tôi hỏi thầy một câu hỏi.", a:"我问老师一个问题。"},
-  {q:"Cô giáo dạy chúng tôi tiếng Trung.", a:"老师教我们中文。"}]}],
+  {q:"Cô giáo dạy chúng tôi tiếng Trung.", a:"老师教我们中文。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"老师教我们中文。", vi:"Thầy dạy chúng tôi tiếng Trung.", o:["Đúng","Sai"], a:0, why:"V + người + vật."},
+  {q:"我给他一本书。", vi:"Tôi đưa anh ấy một quyển sách.", o:["Đúng","Sai"], a:0, why:"给 + người + vật."},
+  {q:"他送一本书我。", vi:"Anh ấy tặng tôi một quyển sách.", o:["Đúng","Sai"], a:1, why:"Người đứng trước vật: 他送我一本书。"},
+  {q:"我问一个问题老师。", vi:"Tôi hỏi thầy một câu hỏi.", o:["Đúng","Sai"], a:1, why:"我问老师一个问题。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Mẹ cho tôi 100 tệ.", o:["妈妈给我一百块钱。", "妈妈给一百块钱我。"], a:0, why:"给 + người + vật."},
+  {q:"Bạn cho tôi biết tên bạn nhé.", o:["你告诉我你的名字吧。", "你告诉你的名字我吧。"], a:0, why:"告诉 + người + điều."},
+  {q:"Tôi trả bạn 50 tệ.", o:["我还你五十块钱。", "我还五十块钱你。"], a:0, why:"还 + người + vật."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Thầy dạy chúng tôi tiếng Trung.", a:"老师教我们中文。/ 老师教我们汉语。"},
+  {q:"Tôi tặng mẹ một bó hoa.", a:"我送妈妈一束花。/ 我送给妈妈一束花。"},
+  {q:"Cho tôi một cốc cà phê.", a:"给我一杯咖啡。/ 请给我一杯咖啡。"}]}],
 rel:["二26","一26","三54","二60"]
 };

@@ -814,6 +814,34 @@
   .backlinks{margin:-6px 0 14px; font-size:15px;}
   .backlinks a{color:var(--jade); text-decoration:none; font-weight:600;}
   .backlinks a:hover{text-decoration:underline;}
+  /* ===== Mục lục tự đóng (dải hẹp, rê chuột/chạm để mở; chọn mục xong đóng ngay) + chữ nội dung lớn hơn — chỉ màn hình rộng ===== */
+  @media (min-width:761px){
+    :root{--spine-w:58px;}
+    .spine{
+      position:fixed; left:0; top:0; height:100vh; width:var(--spine-w); overflow:hidden;
+      padding:14px 7px; transition:width .22s ease, box-shadow .22s ease; z-index:70;
+    }
+    .spine:hover, .spine.open{width:200px; box-shadow:6px 0 22px rgba(0,0,0,.28);}
+    main{margin-left:var(--spine-w); zoom:1.2;}
+    .spine-mini{color:var(--paper); text-align:center; font-size:22px; line-height:1; margin:2px 0 14px; width:44px; flex:none;}
+    .spine-mini small{display:block; font-family:'JetBrains Mono',monospace; font-size:11px; color:#c9a86a; margin-top:4px;}
+    .spine-title, .spine-rule, .spine-foot, .tab .labelwrap{opacity:0; transition:opacity .15s ease; white-space:nowrap;}
+    .spine:hover .spine-title, .spine.open .spine-title, .spine:hover .spine-rule, .spine.open .spine-rule,
+    .spine:hover .spine-foot, .spine.open .spine-foot, .spine:hover .labelwrap, .spine.open .labelwrap{opacity:1;}
+    .spine-title{font-size:22px; margin-bottom:4px;}
+    .spine:not(:hover):not(.open) .spine-title, .spine:not(:hover):not(.open) .spine-rule{display:none;}
+    .spine:hover .spine-mini, .spine.open .spine-mini{display:none;}
+    /* vừa chọn mục: đóng ngay dù chuột còn nằm trên menu (mở lại khi rê chuột ra rồi vào lại) */
+    .spine.shut:not(.open){width:var(--spine-w); box-shadow:none;}
+    .spine.shut:not(.open) .spine-title, .spine.shut:not(.open) .spine-rule{display:none;}
+    .spine.shut:not(.open) .spine-foot, .spine.shut:not(.open) .labelwrap{opacity:0;}
+    .spine.shut:not(.open) .spine-mini{display:block;}
+    .tab{padding:9px 8px; gap:9px; min-width:186px;}
+    .tab .num{font-size:12px; width:22px; text-align:center;}
+    .tab .cn{font-size:18px;}
+    .tab .vi{font-size:12.5px;}
+  }
+  @media (max-width:760px){ .spine-mini{display:none;} }
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
 </head>
@@ -829,6 +857,7 @@
 
 <div class="shell" id="shell">
   <nav class="spine">
+    <div class="spine-mini" aria-hidden="true">☰<small>16</small></div>
     <div class="spine-title">第十六课<span class="vi">Bài 16</span></div>
     <div class="spine-rule"></div>
     <button class="tab active" data-panel="mo-dau"><span class="num">00</span><span class="labelwrap"><span class="cn">概览</span><span class="vi">Tổng quan</span></span></button>
@@ -2428,6 +2457,19 @@ btnFs.addEventListener('click', ()=>{
 document.addEventListener('fullscreenchange', ()=>{
   btnFs.textContent = document.fullscreenElement ? '⤢' : '⛶';
 });
+</script>
+<script>
+/* Mục lục tự đóng: rê chuột (máy tính) hoặc chạm (máy tính bảng) để mở; chọn mục xong đóng ngay; bấm ra ngoài cũng đóng */
+(function(){
+  const sp=document.querySelector('.spine'); if(!sp) return;
+  sp.addEventListener('click',e=>{
+    if(innerWidth<=760) return;
+    if(e.target.closest('.tab')){ sp.classList.remove('open'); sp.classList.add('shut'); if(document.activeElement) document.activeElement.blur(); }
+    else { sp.classList.remove('shut'); sp.classList.toggle('open'); }
+  });
+  sp.addEventListener('mouseleave',()=>sp.classList.remove('shut'));
+  document.addEventListener('click',e=>{ if(!e.target.closest('.spine')){ sp.classList.remove('open'); sp.classList.remove('shut'); } });
+})();
 </script>
 <!-- 词汇盒: nút ôn từ vựng, do tools/build_site.py gắn khi ghép -->
 <a class="lls-tv" href="../../tu-vung/#yuedu/bai-16" style="--tv-bg:var(--white-ish,#FEFBF2);--tv-c:var(--seal,#AB2B23);--tv-b:var(--grid-line,#C7BC9E);--tv-r:4px" title="Ôn từ vựng bài này bằng flashcard (词汇盒)" aria-label="Ôn từ vựng bài này"><b>词</b><span>Ôn từ vựng bài này</span></a>

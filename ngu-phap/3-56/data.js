@@ -30,6 +30,19 @@ practice:[
   {w:["我","来","中国","学习","中文"], a:"我来中国学习中文。", vi:"Tôi sang Trung Quốc học tiếng Trung."},
   {w:["他","笑着","说"], a:"他笑着说。", vi:"Anh ấy cười nói."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"Chúng mình đạp xe đi công viên nhé.", a:"我们骑自行车去公园吧。"}]}],
+  {q:"Chúng mình đạp xe đi công viên nhé.", a:"我们骑自行车去公园吧。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我坐飞机去北京。", vi:"Tôi đi Bắc Kinh bằng máy bay.", o:["Đúng","Sai"], a:0, why:"Cách thức (坐飞机) đứng trước."},
+  {q:"他去超市买东西。", vi:"Anh ấy đi siêu thị mua đồ.", o:["Đúng","Sai"], a:0, why:"Đi đâu trước, mục đích sau."},
+  {q:"他买东西去超市。", vi:"Anh ấy đi siêu thị mua đồ.", o:["Đúng","Sai"], a:1, why:"他去超市买东西。"},
+  {q:"她笑说：“没事儿。”", vi:"Cô ấy cười nói: “Không sao.”", o:["Đúng","Sai"], a:1, why:"Cách thức dùng V着: 她笑着说：“没事儿。”"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Tôi đến thư viện mượn sách.", o:["我去图书馆借书。", "我借书去图书馆。"], a:0, why:"Đi đâu + làm gì."},
+  {q:"Anh ấy đi làm bằng xe đạp.", o:["他骑自行车去上班。", "他去上班骑自行车。"], a:0, why:"Cách thức trước."},
+  {q:"Cô ấy đứng nói chuyện.", o:["她站着说话。", "她说话站着。"], a:0, why:"V1着 + V2."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Tôi đi taxi đến sân bay.", a:"我坐出租车去机场。/ 我打车去机场。"},
+  {q:"Chúng tôi đến Trung Quốc học tiếng Trung.", a:"我们来中国学习中文。/ 我们来中国学中文。/ 我们去中国学习中文。/ 我们去中国学中文。/ 我们来中国学习汉语。/ 我们去中国学习汉语。"},
+  {q:"Anh ấy về nhà ăn cơm.", a:"他回家吃饭。"}]}],
 rel:["二57","二70","三57","三72"]
 };

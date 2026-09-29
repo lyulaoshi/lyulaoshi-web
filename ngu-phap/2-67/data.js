@@ -28,6 +28,19 @@ practice:[
   {w:["只要","有时间","我","就","去看你"], a:"只要有时间，我就去看你。", vi:"Chỉ cần có thời gian là tôi đến thăm bạn."}]},
  {t:"C. Nối bằng 只要……就……", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"你认真学习 / 能取得好成绩", vi:"Bạn chăm chỉ học / có thể đạt thành tích tốt", a:"只要你认真学习，就能取得好成绩。"},
-  {q:"你喜欢 / 我送给你", vi:"Bạn thích / tôi tặng bạn", a:"只要你喜欢，我就送给你。"}]}],
+  {q:"你喜欢 / 我送给你", vi:"Bạn thích / tôi tặng bạn", a:"只要你喜欢，我就送给你。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"只要你来，我就很高兴。", vi:"Chỉ cần bạn đến là tôi vui rồi.", o:["Đúng","Sai"], a:0, why:"只要……，就……"},
+  {q:"只要多练习，才能说好。", vi:"Chỉ cần luyện nhiều là nói giỏi được.", o:["Đúng","Sai"], a:1, why:"只要 đi với 就: 只要多练习，就能说好。"},
+  {q:"只要有时间，就我去看你。", vi:"Chỉ cần có thời gian là tôi đến thăm bạn.", o:["Đúng","Sai"], a:1, why:"就 đứng sau chủ ngữ: 只要有时间，我就去看你。"},
+  {q:"只要天气好，我们就去爬山。", vi:"Chỉ cần trời đẹp là chúng ta đi leo núi.", o:["Đúng","Sai"], a:0, why:"只要……，S + 就……"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Chỉ cần bạn thích là được.", o:["只要你喜欢就行。", "只有你喜欢就行。"], a:0, why:"“chỉ cần … là” → 只要……就."},
+  {q:"Chỉ cần chăm chỉ là sẽ tiến bộ.", o:["只要努力，就会进步。", "只要努力，才会进步。"], a:0, why:"只要 đi với 就."},
+  {q:"Chỉ có anh ấy mới biết.", o:["只有他才知道。", "只要他就知道。"], a:0, why:"Điều kiện duy nhất → 只有……才 【三70】."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Chỉ cần bạn gọi điện là tôi đến ngay.", a:"只要你打电话，我就来。/ 只要你给我打电话，我就来。/ 只要你打电话，我马上就来。/ 只要你给我打电话，我马上就来。"},
+  {q:"Chỉ cần có thời gian là tôi đi du lịch.", a:"只要有时间，我就去旅行。/ 只要有时间，我就去旅游。"},
+  {q:"Chỉ cần mai không mưa là chúng ta đi.", a:"只要明天不下雨，我们就去。"}]}],
 rel:["二66","三70","二17","二30"]
 };

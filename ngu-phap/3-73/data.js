@@ -12,7 +12,7 @@ rules:[
       ["他喝[了]酒[就]会脸红。","Tā hē le jiǔ jiù huì liǎn hóng.","Anh ấy hễ uống rượu là đỏ mặt.","等级标准"]]}],
 notes:[{t:"Nói về tương lai", html:"Mẫu này cũng dùng cho việc chưa xảy ra: <span class='zh'>明天我吃了早饭就走。</span> (Mai ăn sáng xong tôi đi luôn.)"}],
 cmp:[
- {vn:"Ăn cơm xong tôi đi ngay.", zh:"我吃[了]饭[就]走。", py:"Wǒ chī le fàn jiù zǒu.", ok:true, why:"Không nói ✗ 我吃饭了就走 — 了 đứng sau động từ."}],
+ {vn:"Ăn cơm xong tôi đi ngay.", zh:"我吃[了]饭[就]走。", py:"Wǒ chī le fàn jiù zǒu.", ok:true, why:"Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 我吃饭了就走 — 了 đứng sau động từ."}],
 ex:[
  ["我到[了]北京[就]给你打电话。","Wǒ dào le Běijīng jiù gěi nǐ dǎ diànhuà.","Tôi đến Bắc Kinh là gọi điện cho bạn ngay."]],
 errs:[

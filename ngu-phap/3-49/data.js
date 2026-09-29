@@ -32,6 +32,20 @@ practice:[
   {w:["他们","今天","忙","死了"], a:"他们今天忙死了。", vi:"Hôm nay họ bận chết đi được."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Món này ngon cực!", a:"这个菜好吃极了！"},
-  {q:"Tôi đói chết mất.", a:"我饿死了。"}]}],
+  {q:"Tôi đói chết mất.", a:"我饿死了。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"今天热极了。", vi:"Hôm nay nóng vô cùng.", o:["Đúng","Sai"], a:0, why:"Adj + 极了."},
+  {q:"我累得很。", vi:"Tôi mệt lắm.", o:["Đúng","Sai"], a:0, why:"Adj + 得很."},
+  {q:"我很累死了。", vi:"Tôi mệt chết đi được.", o:["Đúng","Sai"], a:1, why:"Đã có bổ ngữ mức độ thì bỏ 很: 我累死了。"},
+  {q:"他高兴得极了。", vi:"Anh ấy vui vô cùng.", o:["Đúng","Sai"], a:1, why:"极了 đứng ngay sau tính từ, không có 得: 他高兴极了。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Hôm nay nóng kinh khủng.", o:["今天热死了。", "今天死热了。"], a:0, why:"Adj + 死了."},
+  {q:"Món này ngon tuyệt.", o:["这个菜好吃极了。", "这个菜极了好吃。", "这个菜好吃得极了。"], a:0, why:"Adj + 极了."},
+  {q:"Tôi mệt lắm.", o:["我累得很。", "我得很累。"], a:0, why:"Adj + 得很."},
+  {q:"Hôm nay đẹp trời vô cùng.", o:["今天天气好极了。", "今天天气很好极了。"], a:0, why:"Không thêm 很."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Mệt chết đi được!", a:"累死了！/ 我累死了！"},
+  {q:"Hôm nay lạnh vô cùng.", a:"今天冷极了。/ 今天冷死了。/ 今天冷得很。"},
+  {q:"Câu hỏi này khó lắm.", a:"这个问题难极了。/ 这个问题难得很。/ 这个问题难死了。"}]}],
 rel:["二51","一09","二31","三75"]
 };

@@ -37,6 +37,19 @@ practice:[
   {w:["他","打篮球","打","得","很好"], a:"他打篮球打得很好。", vi:"Anh ấy chơi bóng rổ rất giỏi."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Bạn đến muộn quá.", a:"你来得太晚了。"},
-  {q:"Cô ấy hát không hay lắm.", a:"她唱歌唱得不太好。/ 她歌唱得不太好。"}]}],
+  {q:"Cô ấy hát không hay lắm.", a:"她唱歌唱得不太好。/ 她歌唱得不太好。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"他说汉语说得很流利。", vi:"Anh ấy nói tiếng Trung rất lưu loát.", o:["Đúng","Sai"], a:0, why:"V + O + V得 + Adj."},
+  {q:"她跑得不快。", vi:"Cô ấy chạy không nhanh.", o:["Đúng","Sai"], a:0, why:"Phủ định: V得 + 不 + Adj."},
+  {q:"我睡了很好。", vi:"Tôi ngủ rất ngon.", o:["Đúng","Sai"], a:1, why:"Đánh giá hành động dùng 得: 我睡得很好。"},
+  {q:"他很好地唱歌。", vi:"Anh ấy hát rất hay.", o:["Đúng","Sai"], a:1, why:"Nhận xét kết quả dùng bổ ngữ trạng thái: 他唱歌唱得很好。/ 他唱得很好。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Cô ấy nấu ăn thế nào?", o:["她做饭做得怎么样？", "她做饭怎么样得？", "她怎么样做饭？"], a:0, why:"V得 + 怎么样."},
+  {q:"Anh ấy đến rất sớm.", o:["他来得很早。", "他来很早。", "他来得早很。"], a:0, why:"V得 + 很 + Adj."},
+  {q:"Họ chơi không vui lắm.", o:["他们玩儿得不太高兴。", "他们不玩儿得太高兴。"], a:0, why:"不 đứng sau 得."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Anh ấy chạy rất nhanh.", a:"他跑得很快。"},
+  {q:"Bạn viết chữ Hán rất đẹp.", a:"你写汉字写得很漂亮。/ 你汉字写得很漂亮。/ 你的汉字写得很漂亮。/ 你写汉字写得很好看。/ 你汉字写得很好看。"},
+  {q:"Hôm qua tôi ngủ không ngon.", a:"昨天我睡得不好。/ 我昨天睡得不好。/ 昨天我睡得不太好。/ 我昨天睡得不太好。"}]}],
 rel:["二31","三49","三59","二49"]
 };

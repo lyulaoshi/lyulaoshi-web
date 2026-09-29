@@ -31,6 +31,21 @@ practice:[
   {w:["我","没","找到","他"], a:"我没找到他。", vi:"Tôi không tìm thấy anh ấy."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Tôi tìm thấy điện thoại rồi.", a:"我找到手机了。/ 我找到我的手机了。"},
-  {q:"Ai lấy mất ô của tôi rồi?", a:"谁把我的伞拿走了？/ 谁拿走了我的伞？"}]}],
+  {q:"Ai lấy mất ô của tôi rồi?", a:"谁把我的伞拿走了？/ 谁拿走了我的伞？"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我找到了我的手机。", vi:"Tôi tìm thấy điện thoại rồi.", o:["Đúng","Sai"], a:0, why:"找到 = tìm thấy."},
+  {q:"我没找到了他。", vi:"Tôi không tìm thấy anh ấy.", o:["Đúng","Sai"], a:1, why:"没 + V + bổ ngữ, bỏ 了: 我没找到他。"},
+  {q:"请记住我的电话号码。", vi:"Hãy nhớ kỹ số điện thoại của tôi.", o:["Đúng","Sai"], a:0, why:"记住 = nhớ kỹ."},
+  {q:"我找了半天，可是没找住。", vi:"Tôi tìm mãi mà không thấy.", o:["Đúng","Sai"], a:1, why:"Tìm thấy là 找到: 没找到。"}]},
+ {t:"E. Chọn 到 / 住 / 走", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"我昨天看＿＿了王老师。", vi:"Hôm qua tôi nhìn ＿＿ thầy Vương.", o:["到", "住", "走"], a:0, why:"看到 = nhìn thấy."},
+  {q:"车停＿＿了。", vi:"Xe dừng ＿＿ lại rồi.", o:["住", "到", "走"], a:0, why:"停住 = dừng hẳn lại."},
+  {q:"谁把我的自行车骑＿＿了？", vi:"Ai đạp ＿＿ xe đạp của tôi rồi?", o:["走", "住", "到"], a:0, why:"骑走 = đạp đi mất."},
+  {q:"这些生词你记＿＿了吗？", vi:"Những từ mới này bạn nhớ ＿＿ chưa?", o:["住", "走", "到"], a:0, why:"记住 = nhớ được."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Cuối cùng tôi đã mua được vé.", a:"我终于买到票了。/ 我终于买到了票。/ 终于买到票了。"},
+  {q:"Tôi không tìm thấy anh ấy.", a:"我没找到他。/ 我没有找到他。"},
+  {q:"Ai mang quyển sách của tôi đi rồi?", a:"谁把我的书拿走了？/ 谁拿走了我的书？"},
+  {q:"Hãy nhớ kỹ số này.", a:"请记住这个号码。/ 你记住这个号码。/ 记住这个号码。"}]}],
 rel:["二49","三48","三47","三54"]
 };

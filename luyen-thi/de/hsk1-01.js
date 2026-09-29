@@ -22,8 +22,8 @@
    why:"V 不 V là câu hỏi chính phản → trả lời bằng chính động từ đó: 喝 / 不喝."}]},
 
  {sk:"nghe",no:3,type:"match",vi:"Nghe hội thoại, chọn hình phù hợp (A–F).",
-  ex:{say:"女：星期天你去做什么？\n男：我和朋友去打球。",py:"Xīngqītiān nǐ qù zuò shénme? — Wǒ hé péngyou qù dǎ qiú.",vi:"Chủ nhật bạn đi làm gì? — Mình đi chơi bóng với bạn.",ans:0},
-  bank:[{img:"dabong",t:"chơi bóng"},{img:"battay",t:"chào hỏi, làm quen"},{img:"hoaqua",t:"hoa quả"},{img:"docsach",t:"đọc sách"},{img:"ngu",t:"đi ngủ"},{img:"xebuyt",t:"xe buýt"}],q:[
+  ex:{say:"女：中午你想吃什么？\n男：我想吃米饭。",py:"Zhōngwǔ nǐ xiǎng chī shénme? — Wǒ xiǎng chī mǐfàn.",vi:"Trưa nay bạn muốn ăn gì? — Mình muốn ăn cơm.",ans:0},
+  bank:[{img:"ancom",t:"bát cơm"},{img:"battay",t:"chào hỏi, làm quen"},{img:"hoaqua",t:"hoa quả"},{img:"docsach",t:"đọc sách"},{img:"ngu",t:"đi ngủ"},{img:"xebuyt",t:"xe buýt"}],q:[
   {say:"女：你在做什么？\n男：我在看书呢。",py:"Nǐ zài zuò shénme? — Wǒ zài kàn shū ne.",vi:"Bạn đang làm gì thế? — Mình đang đọc sách.",ans:3,np:["一42"],w:[["做","zuò"],["看书","kàn shū"]],
    why:"在 + động từ + 呢 = đang làm gì. 看书 = đọc sách."},
   {say:"男：你好！\n女：你好，很高兴认识你！",py:"Nǐ hǎo! — Nǐ hǎo, hěn gāoxìng rènshi nǐ!",vi:"Chào bạn! — Chào bạn, rất vui được làm quen!",ans:1,np:[],w:[["高兴","gāoxìng"],["认识","rènshi"]]},
@@ -42,15 +42,15 @@
   {say:"这个杯子三十块钱。\n问：杯子多少钱？",py:"Zhège bēizi sānshí kuài qián. Wèn: Bēizi duōshao qián?",vi:"Cái cốc này 30 tệ. Hỏi: Cái cốc bao nhiêu tiền?",
    opts:[{t:"三块",py:"sān kuài"},{t:"十三块",py:"shísān kuài"},{t:"三十块",py:"sānshí kuài"}],ans:2,np:["一43"],w:[["块","kuài"],["钱","qián"],["多少","duōshao"]],
    why:"三十 = 30 (3 chục), 十三 = 13. Nghe kỹ chữ 十 đứng trước hay sau."},
-  {say:"我妈妈做的饭很好吃，我常常在家吃饭。\n问：他常常在哪儿吃饭？",py:"Wǒ māma zuò de fàn hěn hǎochī, wǒ chángcháng zài jiā chī fàn. Wèn: Tā chángcháng zài nǎr chī fàn?",vi:"Cơm mẹ tôi nấu rất ngon, tôi thường ăn cơm ở nhà. Hỏi: Anh ấy thường ăn cơm ở đâu?",
-   opts:[{t:"在家",py:"zài jiā"},{t:"在学校",py:"zài xuéxiào"},{t:"在朋友家",py:"zài péngyou jiā"}],ans:0,np:["一16","一12"],w:[["常常","chángcháng"],["饭","fàn"]]}]},
+  {say:"我妈妈做的饭很好吃，今天我在家吃饭。\n问：他今天在哪儿吃饭？",py:"Wǒ māma zuò de fàn hěn hǎochī, jīntiān wǒ zài jiā chī fàn. Wèn: Tā jīntiān zài nǎr chī fàn?",vi:"Cơm mẹ tôi nấu rất ngon, hôm nay tôi ăn cơm ở nhà. Hỏi: Hôm nay anh ấy ăn cơm ở đâu?",
+   opts:[{t:"在家",py:"zài jiā"},{t:"在学校",py:"zài xuéxiào"},{t:"在朋友家",py:"zài péngyou jiā"}],ans:0,np:["一16"],w:[["今天","jīntiān"],["饭","fàn"]]}]},
 
  {sk:"doc",no:1,type:"match",vi:"Đọc câu, chọn hình phù hợp (A–F).",
   ex:{cn:"他在打电话。",py:"Tā zài dǎ diànhuà.",vi:"Anh ấy đang gọi điện thoại.",ans:5},
   bank:[{img:"bacsi",t:"nữ bác sĩ"},{img:"ancom",t:"bát cơm"},{img:"thaygiao",t:"thầy giáo đứng lớp"},{img:"nong",t:"trời nóng"},{img:"muasam",t:"đi mua sắm"},{img:"goidien",t:"gọi điện thoại"}],q:[
   {cn:"我很喜欢吃米饭。",py:"Wǒ hěn xǐhuan chī mǐfàn.",vi:"Tôi rất thích ăn cơm.",ans:1,np:["一09"],w:[["喜欢","xǐhuan"],["米饭","mǐfàn"]]},
   {cn:"今天太热了！",py:"Jīntiān tài rè le!",vi:"Hôm nay nóng quá!",ans:3,np:["一35"],w:[["热","rè"],["太","tài"]],why:"太 + tính từ + 了！ = … quá!"},
-  {cn:"我们一起去买东西吧。",py:"Wǒmen yìqǐ qù mǎi dōngxi ba.",vi:"Chúng mình cùng đi mua đồ nhé.",ans:4,np:["一10","一22"],w:[["一起","yìqǐ"],["东西","dōngxi"]]},
+  {cn:"我们去买东西吧。",py:"Wǒmen qù mǎi dōngxi ba.",vi:"Chúng mình đi mua đồ nhé.",ans:4,np:["一22"],w:[["买","mǎi"],["东西","dōngxi"]]},
   {cn:"他是我们的汉语老师。",py:"Tā shì wǒmen de Hànyǔ lǎoshī.",vi:"Thầy ấy là giáo viên tiếng Trung của chúng tôi.",ans:2,np:["一36","一20"],w:[["汉语","Hànyǔ"],["老师","lǎoshī"]]},
   {cn:"她在医院工作。",py:"Tā zài yīyuàn gōngzuò.",vi:"Cô ấy làm việc ở bệnh viện.",ans:0,np:["一16"],w:[["医院","yīyuàn"],["工作","gōngzuò"]],why:"在 + nơi chốn đứng TRƯỚC động từ: 在医院工作 (không nói 工作在医院)."}]},
 
@@ -72,16 +72,16 @@
   {cn:"这（　）书是我的。",py:"Zhè (　) shū shì wǒ de.",vi:"Quyển sách này là của tôi.",ans:2,np:["一08","一06"],w:[["本","běn"],["书","shū"]],why:"这 / 那 + lượng từ + danh từ: 这本书. Sách dùng lượng từ 本."},
   {cn:"我昨天（　）去学校。",py:"Wǒ zuótiān (　) qù xuéxiào.",vi:"Hôm qua tôi không đi học.",ans:5,np:["一14"],w:[["昨天","zuótiān"],["学校","xuéxiào"]],why:"Việc đã qua (昨天) mà không xảy ra → 没, không dùng 不."}]},
 
- {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi ★.",q:[
+ {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg#sao'/></svg>.",q:[
   {cn:"我明天上午去看朋友，下午回家。",py:"Wǒ míngtiān shàngwǔ qù kàn péngyou, xiàwǔ huí jiā.",vi:"Sáng mai tôi đi thăm bạn, chiều về nhà.",
    star:"他明天下午：",spy:"Tā míngtiān xiàwǔ:",svi:"Chiều mai anh ấy:",opts:[{t:"去看朋友",py:"qù kàn péngyou"},{t:"回家",py:"huí jiā"},{t:"去学校",py:"qù xuéxiào"}],ans:1,np:["一44"],w:[["上午","shàngwǔ"],["下午","xiàwǔ"],["回家","huí jiā"]],
    why:"Câu hỏi về 下午 (chiều) → 下午回家. 去看朋友 là việc buổi sáng (上午)."},
   {cn:"这个饭店的菜很好吃，也不贵。",py:"Zhège fàndiàn de cài hěn hǎochī, yě bú guì.",vi:"Món ở nhà hàng này rất ngon, lại không đắt.",
    star:"这个饭店的菜：",spy:"Zhège fàndiàn de cài:",svi:"Món ăn ở nhà hàng này:",opts:[{t:"很贵",py:"hěn guì"},{t:"不好吃",py:"bù hǎochī"},{t:"很好吃",py:"hěn hǎochī"}],ans:2,np:["一13","一30"],w:[["饭店","fàndiàn"],["菜","cài"],["贵","guì"]]},
-  {cn:"小王比他哥哥高。",py:"Xiǎo Wáng bǐ tā gēge gāo.",vi:"Tiểu Vương cao hơn anh trai cậu ấy.",
-   star:"谁高？",spy:"Shéi gāo?",svi:"Ai cao hơn?",opts:[{t:"小王",py:"Xiǎo Wáng"},{t:"小王的哥哥",py:"Xiǎo Wáng de gēge"},{t:"小王的妈妈",py:"Xiǎo Wáng de māma"}],ans:0,np:["一18","一38"],w:[["比","bǐ"],["高","gāo"]],
-   why:"A 比 B + tính từ = A … hơn B. Người đứng trước 比 (小王) là người cao hơn."},
-  {cn:"我和同学一起坐飞机去北京。",py:"Wǒ hé tóngxué yìqǐ zuò fēijī qù Běijīng.",vi:"Tôi cùng bạn học đi máy bay đến Bắc Kinh.",
+  {cn:"小王的哥哥是医生，他在医院工作。",py:"Xiǎo Wáng de gēge shì yīshēng, tā zài yīyuàn gōngzuò.",vi:"Anh trai Tiểu Vương là bác sĩ, anh ấy làm việc ở bệnh viện.",
+   star:"小王的哥哥做什么工作？",spy:"Xiǎo Wáng de gēge zuò shénme gōngzuò?",svi:"Anh trai Tiểu Vương làm nghề gì?",opts:[{t:"医生",py:"yīshēng"},{t:"老师",py:"lǎoshī"},{t:"学生",py:"xuésheng"}],ans:0,np:["一36","一16"],w:[["医生","yīshēng"],["医院","yīyuàn"]],
+   why:"是 + nghề nghiệp: 哥哥是医生. Câu sau 在医院工作 cũng cho biết anh ấy làm ở bệnh viện."},
+  {cn:"我和同学坐飞机去北京。",py:"Wǒ hé tóngxué zuò fēijī qù Běijīng.",vi:"Tôi và bạn học đi máy bay đến Bắc Kinh.",
    star:"他怎么去北京？",spy:"Tā zěnme qù Běijīng?",svi:"Anh ấy đi Bắc Kinh bằng gì?",opts:[{t:"坐飞机",py:"zuò fēijī"},{t:"坐车",py:"zuò chē"},{t:"开车",py:"kāi chē"}],ans:0,np:["一17","一46"],w:[["同学","tóngxué"],["坐","zuò"],["飞机","fēijī"]]},
   {cn:"我女儿很喜欢看书，她有很多书。",py:"Wǒ nǚ'ér hěn xǐhuan kàn shū, tā yǒu hěn duō shū.",vi:"Con gái tôi rất thích đọc sách, cháu có rất nhiều sách.",
    star:"他女儿：",spy:"Tā nǚ'ér:",svi:"Con gái anh ấy:",opts:[{t:"爱看书",py:"ài kàn shū"},{t:"不喜欢书",py:"bù xǐhuan shū"},{t:"是老师",py:"shì lǎoshī"}],ans:0,np:["一37"],w:[["喜欢","xǐhuan"],["书","shū"]],

@@ -33,6 +33,20 @@ practice:[
   {w:["今天","凉快","一点儿"], a:"今天凉快一点儿。", vi:"Hôm nay mát hơn một chút."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Chiếc này đắt hơn chiếc kia 50 tệ.", a:"这件比那件贵五十块。"},
-  {q:"Anh ấy cao hơn tôi một chút.", a:"他比我高一点儿。"}]}],
+  {q:"Anh ấy cao hơn tôi một chút.", a:"他比我高一点儿。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"他比我高一点儿。", vi:"Anh ấy cao hơn tôi một chút.", o:["Đúng","Sai"], a:0, why:"Adj + 一点儿."},
+  {q:"这件比那件五十块贵。", vi:"Chiếc này đắt hơn chiếc kia 50 tệ.", o:["Đúng","Sai"], a:1, why:"Số lượng đứng sau tính từ: 这件比那件贵五十块。"},
+  {q:"我比哥哥两岁小。", vi:"Tôi kém anh trai hai tuổi.", o:["Đúng","Sai"], a:1, why:"我比哥哥小两岁。"},
+  {q:"便宜有点儿吧！", vi:"Rẻ hơn chút đi!", o:["Đúng","Sai"], a:1, why:"So sánh / mặc cả → Adj + 一点儿: 便宜一点儿吧！"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Rẻ hơn một chút được không?", o:["便宜一点儿吧！", "有点儿便宜吧！"], a:0, why:"Adj + 一点儿 = hơn một chút."},
+  {q:"Chiếc áo này hơi đắt (không vừa ý).", o:["这件衣服有点儿贵。", "这件衣服贵一点儿。"], a:0, why:"Không vừa ý → 有点儿 + Adj."},
+  {q:"Hôm nay mát hơn hôm qua một chút.", o:["今天比昨天凉快一点儿。", "今天比昨天一点儿凉快。"], a:0, why:"Adj + 一点儿."},
+  {q:"Anh trai cao hơn tôi 10 cm.", o:["哥哥比我高十厘米。", "哥哥比我十厘米高。"], a:0, why:"Adj + số lượng."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Tôi lớn hơn em gái ba tuổi.", a:"我比妹妹大三岁。"},
+  {q:"Bạn nói chậm một chút được không?", a:"你说慢一点儿，好吗？/ 你说慢一点儿，可以吗？/ 请你说慢一点儿。/ 你说慢一点儿吧。"},
+  {q:"Cái này đắt hơn cái kia 20 tệ.", a:"这个比那个贵二十块。/ 这个比那个贵二十块钱。"}]}],
 rel:["二58","二13","一18","二52"]
 };

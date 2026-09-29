@@ -29,6 +29,19 @@ practice:[
   {w:["她","走路","走累","了"], a:"她走路走累了。", vi:"Cô ấy đi bộ đến mệt rồi."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Anh ấy nói tiếng Trung rất lưu loát.", a:"他说中文说得很流利。/ 他中文说得很流利。"},
-  {q:"Tôi đợi bạn cả buổi.", a:"我等你等了半天。"}]}],
+  {q:"Tôi đợi bạn cả buổi.", a:"我等你等了半天。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"他打篮球打得很好。", vi:"Anh ấy chơi bóng rổ rất giỏi.", o:["Đúng","Sai"], a:0, why:"V + O + V得 + Adj."},
+  {q:"她说汉语得很流利。", vi:"Cô ấy nói tiếng Trung rất lưu loát.", o:["Đúng","Sai"], a:1, why:"得 phải ngay sau động từ: 她说汉语说得很流利。"},
+  {q:"我看书看了一个下午。", vi:"Tôi đọc sách cả buổi chiều.", o:["Đúng","Sai"], a:0, why:"V + O + V + 了 + thời lượng."},
+  {q:"他写汉字写很快。", vi:"Anh ấy viết chữ Hán rất nhanh.", o:["Đúng","Sai"], a:1, why:"Thiếu 得: 他写汉字写得很快。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Cô ấy nấu ăn rất ngon.", o:["她做饭做得很好吃。", "她做饭得很好吃。"], a:0, why:"Lặp động từ."},
+  {q:"Tôi chơi game đến mệt.", o:["我玩游戏玩累了。", "我玩游戏累了玩。"], a:0, why:"V + O + V + bổ ngữ kết quả."},
+  {q:"Anh ấy lái xe rất chậm.", o:["他开车开得很慢。", "他开车很慢得。"], a:0, why:"V + O + V得 + Adj."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Anh ấy nói tiếng Anh rất lưu loát.", a:"他说英语说得很流利。/ 他英语说得很流利。"},
+  {q:"Tôi học tiếng Trung được ba năm.", a:"我学中文学了三年。/ 我学了三年中文。"},
+  {q:"Cô ấy hát rất hay.", a:"她唱歌唱得很好。/ 她唱歌唱得很好听。/ 她唱得很好。/ 她唱得很好听。"}]}],
 rel:["二51","二52","二49","三48"]
 };

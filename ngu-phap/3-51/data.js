@@ -33,6 +33,20 @@ practice:[
   {w:["我","学了","两年","中文"], a:"我学了两年中文。", vi:"Tôi học hai năm tiếng Trung."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Hôm qua tôi ngủ tám tiếng.", a:"我昨天睡了八个小时。/ 昨天我睡了八个小时。"},
-  {q:"Anh ấy bơi 40 phút.", a:"他游泳游了四十分钟。/ 他游了四十分钟的泳。"}]}],
+  {q:"Anh ấy bơi 40 phút.", a:"他游泳游了四十分钟。/ 他游了四十分钟的泳。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我学了两年中文。", vi:"Tôi học hai năm tiếng Trung.", o:["Đúng","Sai"], a:0, why:"V + 了 + thời lượng + O."},
+  {q:"我两个小时看电视。", vi:"Tôi xem ti vi hai tiếng.", o:["Đúng","Sai"], a:1, why:"Thời lượng đứng sau động từ: 我看了两个小时电视。/ 我看电视看了两个小时。"},
+  {q:"我等了他半个小时。", vi:"Tôi đợi anh ấy nửa tiếng.", o:["Đúng","Sai"], a:0, why:"Người + thời lượng."},
+  {q:"我学中文了两年。", vi:"Tôi học tiếng Trung hai năm.", o:["Đúng","Sai"], a:1, why:"Lặp động từ: 我学中文学了两年。/ 我学了两年中文。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Tôi ngủ 8 tiếng.", o:["我睡了八个小时。", "我八个小时睡了。"], a:0, why:"V + 了 + thời lượng."},
+  {q:"Tôi đợi anh ấy nửa tiếng.", o:["我等了他半个小时。", "我等了半个小时他。"], a:0, why:"Đại từ người: V + người + thời lượng."},
+  {q:"Anh ấy học tiếng Trung được hai năm rồi (vẫn đang học).", o:["他学中文学了两年了。", "他学中文学了两年。"], a:0, why:"了 cuối câu: đến giờ vẫn tiếp tục."},
+  {q:"Hôm qua tôi chạy bộ một tiếng.", o:["昨天我跑步跑了一个小时。", "昨天我跑步了一个小时。"], a:0, why:"V + O + V + 了 + thời lượng."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Tôi học tiếng Trung một năm.", a:"我学了一年中文。/ 我学中文学了一年。/ 我学了一年的中文。"},
+  {q:"Hôm qua tôi xem ti vi hai tiếng.", a:"昨天我看了两个小时电视。/ 我昨天看了两个小时电视。/ 昨天我看电视看了两个小时。/ 我昨天看电视看了两个小时。/ 昨天我看了两个小时的电视。/ 我昨天看了两个小时的电视。"},
+  {q:"Tôi đợi bạn 20 phút.", a:"我等了你二十分钟。/ 我等你等了二十分钟。"}]}],
 rel:["二12","三52","三59","三50"]
 };

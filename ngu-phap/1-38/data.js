@@ -14,7 +14,7 @@ rules:[
   ex:[["昨天[没有]今天热。","Zuótiān méiyǒu jīntiān rè.","Hôm qua không nóng bằng hôm nay.","等级标准"],
       ["这个书包[没有]那个好看。","Zhège shūbāo méiyǒu nàge hǎokàn.","Cái cặp này không đẹp bằng cái kia.","等级标准"]]}],
 notes:[
- {t:"Không dùng 很", html:"✗ <span class='zh'>我朋友比我很高。</span>"},
+ {t:"Không dùng 很", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> <span class='zh'>我朋友比我很高。</span>"},
  {t:"没有 hay 不比?", html:"Phủ định thông thường dùng <b>没有</b>. <span class='zh'>不比</span> mang ý “không hơn” (bằng nhau hoặc kém), dùng ở cấp cao hơn 【三58】."}],
 cmp:[
  {vn:"Bạn tôi cao hơn tôi.", zh:"我朋友[比我]高。", py:"Wǒ péngyou bǐ wǒ gāo.", ok:true, why:"“hơn tôi” → 比我, đứng trước 高."},
@@ -41,6 +41,19 @@ practice:[
  {t:"C. Viết lại bằng 没有", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"哥哥比弟弟高。", vi:"Anh trai cao hơn em trai.", a:"弟弟没有哥哥高。"},
   {q:"今天比昨天冷。", vi:"Hôm nay lạnh hơn hôm qua.", a:"昨天没有今天冷。"},
-  {q:"他的汉字比我的好看。", vi:"Chữ Hán của anh ấy đẹp hơn của tôi.", a:"我的汉字没有他的好看。"}]}],
+  {q:"他的汉字比我的好看。", vi:"Chữ Hán của anh ấy đẹp hơn của tôi.", a:"我的汉字没有他的好看。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我比他很高。", vi:"Tôi cao hơn anh ấy nhiều.", o:["Đúng","Sai"], a:1, why:"Câu 比 không dùng 很: 我比他高。"},
+  {q:"今天没有昨天冷。", vi:"Hôm nay không lạnh bằng hôm qua.", o:["Đúng","Sai"], a:0, why:"A 没有 B + Adj."},
+  {q:"他高比我。", vi:"Anh ấy cao hơn tôi.", o:["Đúng","Sai"], a:1, why:"比 B đứng trước tính từ: 他比我高。"},
+  {q:"这个比那个便宜。", vi:"Cái này rẻ hơn cái kia.", o:["Đúng","Sai"], a:0, why:"A 比 B + Adj."}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Tôi thấp hơn anh ấy.", o:["我比他矮。", "我没有他矮。"], a:0, why:"“thấp hơn” → 比……矮."},
+  {q:"Tôi không cao bằng anh ấy.", o:["我没有他高。", "我比他不高。", "我不有他高。"], a:0, why:"“không … bằng” → 没有 B + Adj."},
+  {q:"Tiếng Trung của anh ấy giỏi hơn tôi.", o:["他的中文比我好。", "他的中文比我很好。"], a:0, why:"Không dùng 很."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Hôm nay nóng hơn hôm qua.", a:"今天比昨天热。"},
+  {q:"Em gái không cao bằng tôi.", a:"妹妹没有我高。"},
+  {q:"Cái này đắt hơn cái kia.", a:"这个比那个贵。"}]}],
 rel:["一18","二58","二59","三58"]
 };

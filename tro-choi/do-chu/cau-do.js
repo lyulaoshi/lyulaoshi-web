@@ -41,7 +41,7 @@ window.CAU_DO=[
 ["半个月亮","胖","pàng","Nửa (半) + mặt trăng (月)","月 + 半 → 胖 (béo)","月 · 半",2,"dg"],
 ["牛走独木桥","生","shēng","Con bò đi qua cầu độc mộc","牛 + 一 (cây cầu) → 生 (sinh)","牛 · 一",2,"dg"],
 ["十个哥哥","克","kè","Mười người anh","十 + 兄 (anh) → 克","十 · 兄",2,"dg"],
-["自大一点","臭","chòu","Tự cao (自大) thêm một chấm","自 + 大 + 丶 → 臭 (hôi — tự cao là bị chê “hôi” đó 😆)","自 · 大 · 丶",2,"dg"],
+["自大一点","臭","chòu","Tự cao (自大) thêm một chấm","自 + 大 + 丶 → 臭 (hôi — tự cao là bị chê “hôi” đó)","自 · 大 · 丶",2,"dg"],
 ["天无它大，人有它大","一","yī","Trời không có nó thì thành 大, người có nó cũng thành 大","天 bỏ 一 = 大, 人 thêm 一 = 大 → 一","天 · 人",2,"dg"],
 ["一人在内","肉","ròu","Một người ở bên trong chữ 内","内 thêm một 人 nữa → 肉 (thịt)","内 · 人",2,"dg"],
 ["千里相逢","重","zhòng","Nghìn dặm gặp nhau","千 + 里 → 重 (nặng). Có sách giải là 骤 (马 + 聚), cũng tính đúng","千 · 里",2,"dg","骤"],

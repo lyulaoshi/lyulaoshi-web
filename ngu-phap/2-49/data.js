@@ -39,6 +39,20 @@ practice:[
   {w:["衣服","我","洗","干净","了"], a:"衣服我洗干净了。", vi:"Quần áo tôi giặt sạch rồi."}]},
  {t:"C. Đổi sang phủ định / câu hỏi", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {ask:"Phủ định", q:"我做完作业了。", vi:"Tôi làm xong bài tập rồi.", a:"我没做完作业。"},
-  {ask:"Hỏi", q:"你听清楚了。", vi:"Bạn nghe rõ rồi.", a:"你听清楚了没有？/ 你听清楚了吗？"}]}],
+  {ask:"Hỏi", q:"你听清楚了。", vi:"Bạn nghe rõ rồi.", a:"你听清楚了没有？/ 你听清楚了吗？"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我听懂了老师的话。", vi:"Tôi nghe hiểu lời thầy rồi.", o:["Đúng","Sai"], a:0, why:"V + 懂 + 了."},
+  {q:"我没做完了作业。", vi:"Tôi chưa làm xong bài tập.", o:["Đúng","Sai"], a:1, why:"没 + V + bổ ngữ, bỏ 了: 我没做完作业。"},
+  {q:"我不看懂这个句子。", vi:"Tôi không hiểu câu này.", o:["Đúng","Sai"], a:1, why:"Phủ định kết quả dùng 没: 我没看懂这个句子。"},
+  {q:"这个字你写错了。", vi:"Chữ này bạn viết sai rồi.", o:["Đúng","Sai"], a:0, why:"V + 错 + 了."}]},
+ {t:"E. Chọn bổ ngữ đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"这本书我看＿了。(xong)", vi:"Quyển sách này tôi đọc ＿ rồi.", o:["完", "懂", "错"], a:0, why:"看完 = đọc xong."},
+  {q:"对不起，我打＿电话了。(nhầm số)", vi:"Xin lỗi, tôi gọi ＿ số rồi.", o:["错", "好", "完"], a:0, why:"打错 = gọi nhầm."},
+  {q:"你说的话我没听＿。(rõ)", vi:"Lời bạn nói tôi chưa nghe ＿.", o:["清楚", "干净", "会"], a:0, why:"听清楚 = nghe rõ."},
+  {q:"我学＿游泳了。(biết)", vi:"Tôi học ＿ bơi rồi.", o:["会", "懂", "完"], a:0, why:"学会 = học được, biết làm."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Tôi chưa làm xong bài tập.", a:"我没做完作业。/ 我还没做完作业。/ 作业我还没做完。/ 作业我没做完。"},
+  {q:"Bạn nghe rõ chưa?", a:"你听清楚了吗？/ 你听清楚了没有？"},
+  {q:"Tôi viết sai hai chữ.", a:"我写错了两个字。"}]}],
 rel:["三46","二40","二37","三48"]
 };

@@ -17,7 +17,7 @@ rules:[
   ex:[["你[别]进来。","Nǐ bié jìnlai.","Bạn đừng vào.","等级标准"],
       ["[别]说了！","Bié shuō le!","Đừng nói nữa!"]]}],
 notes:[
- {t:"Không dùng 没 với 是", html:"<span class='zh'>他不是老师。</span> (✗ 没是)"},
+ {t:"Không dùng 没 với 是", html:"<span class='zh'>他不是老师。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 没是)"},
  {t:"不 biến điệu", html:"trước thanh 4 đọc <b>bú</b>: <span class='zh'>不是 bú shì、不去 bú qù</span>."}],
 cmp:[
  {vn:"Mai tôi không đi.", zh:"我明天[不]去。", py:"Wǒ míngtiān bú qù.", ok:true, why:"Tương lai → 不."},
@@ -50,6 +50,20 @@ practice:[
  {t:"C. Sửa câu sai", sub:"tự sửa rồi xem đáp án", type:"show", items:[
   {q:"我不有时间。", vi:"(ý: Tôi không có thời gian.)", bad:true, a:"我没有时间。"},
   {q:"他没是中国人。", vi:"(ý: Anh ấy không phải người Trung Quốc.)", bad:true, a:"他不是中国人。"},
-  {q:"昨天我没去了商店。", vi:"(ý: Hôm qua tôi không đi cửa hàng.)", bad:true, a:"昨天我没去商店。"}]}],
+  {q:"昨天我没去了商店。", vi:"(ý: Hôm qua tôi không đi cửa hàng.)", bad:true, a:"昨天我没去商店。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我昨天不去学校。", vi:"Hôm qua tôi không đến trường.", o:["Đúng","Sai"], a:1, why:"Việc đã qua dùng 没: 我昨天没去学校。"},
+  {q:"他没是老师。", vi:"Anh ấy không phải giáo viên.", o:["Đúng","Sai"], a:1, why:"是 chỉ phủ định bằng 不: 他不是老师。"},
+  {q:"我不喜欢吃辣的。", vi:"Tôi không thích ăn cay.", o:["Đúng","Sai"], a:0, why:"Sở thích → 不."},
+  {q:"你别说话了。", vi:"Bạn đừng nói nữa.", o:["Đúng","Sai"], a:0, why:"别 + V: khuyên ngăn."}]},
+ {t:"E. Chọn 不 hay 没", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"我以前＿＿喜欢喝茶，现在喜欢了。", vi:"Trước đây tôi ＿＿ thích uống trà, giờ thì thích rồi.", o:["不", "没"], a:0, why:"Thích / không thích (tâm lý, trạng thái) → 不, kể cả trong quá khứ."},
+  {q:"他今天＿＿来上课，他病了。", vi:"Hôm nay anh ấy ＿＿ đến lớp, anh ấy ốm rồi.", o:["不", "没"], a:1, why:"Việc đã (không) xảy ra → 没."},
+  {q:"我＿＿会说日语。", vi:"Tôi ＿＿ biết nói tiếng Nhật.", o:["不", "没"], a:0, why:"会 phủ định bằng 不."},
+  {q:"我还＿＿吃晚饭呢。", vi:"Tôi vẫn ＿＿ ăn tối.", o:["不", "没"], a:1, why:"“chưa” (việc chưa xảy ra) → 还没……呢."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Hôm qua tôi không đi siêu thị.", a:"昨天我没去超市。/ 我昨天没去超市。/ 昨天我没有去超市。/ 我昨天没有去超市。"},
+  {q:"Anh ấy không phải giáo viên.", a:"他不是老师。"},
+  {q:"Đừng uống nữa!", a:"别喝了！/ 你别喝了！"}]}],
 rel:["一34","一21","一40","一37"]
 };

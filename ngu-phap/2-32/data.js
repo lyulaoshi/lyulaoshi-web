@@ -37,6 +37,19 @@ practice:[
   {w:["他","没","学","过","中文"], a:"他没学过中文。", vi:"Anh ấy chưa từng học tiếng Trung."}]},
  {t:"C. Đổi sang phủ định", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {ask:"Phủ định", q:"我吃过饺子。", vi:"Tôi từng ăn sủi cảo.", a:"我没吃过饺子。"},
-  {ask:"Hỏi", q:"他去过上海。", vi:"Anh ấy từng đến Thượng Hải.", a:"他去过上海吗？/ 他去过上海没有？"}]}],
+  {ask:"Hỏi", q:"他去过上海。", vi:"Anh ấy từng đến Thượng Hải.", a:"他去过上海吗？/ 他去过上海没有？"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"我没去过北京。", vi:"Tôi chưa từng đi Bắc Kinh.", o:["Đúng","Sai"], a:0, why:"没 + V + 过: giữ 过."},
+  {q:"我没有吃过了烤鸭。", vi:"Tôi chưa từng ăn vịt quay.", o:["Đúng","Sai"], a:1, why:"Không thêm 了: 我没吃过烤鸭。"},
+  {q:"我过去中国。", vi:"Tôi từng đi Trung Quốc.", o:["Đúng","Sai"], a:1, why:"过 đứng sau động từ: 我去过中国。"},
+  {q:"你看过这个电影吗？", vi:"Bạn từng xem phim này chưa?", o:["Đúng","Sai"], a:0, why:"V过……吗？"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"你吃＿烤鸭吗？(hỏi kinh nghiệm)", vi:"Bạn từng ăn vịt quay chưa?", o:["过", "了"], a:0, why:"Hỏi “đã từng” → 过."},
+  {q:"我没去＿长城。(chưa từng)", vi:"Tôi chưa từng đi Trường Thành.", o:["过", "了"], a:0, why:"没 + V + 过; với 了 thì phải bỏ."},
+  {q:"Tôi chưa từng học tiếng Nhật.", o:["我没学过日语。", "我没学日语过。", "我不学过日语。"], a:0, why:"没 + V + 过 + O."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Tôi từng đến Bắc Kinh hai lần.", a:"我去过两次北京。/ 我去过北京两次。"},
+  {q:"Bạn từng ăn đồ ăn Việt Nam chưa?", a:"你吃过越南菜吗？/ 你吃过越南菜没有？"},
+  {q:"Tôi chưa từng gặp anh ấy.", a:"我没见过他。/ 我没有见过他。"}]}],
 rel:["二71","一21","二33","二11"]
 };

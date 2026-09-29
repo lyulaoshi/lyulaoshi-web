@@ -40,6 +40,21 @@ practice:[
   {w:["他","从二楼","走下来"], a:"他从二楼走下来。", vi:"Anh ấy từ tầng hai đi xuống."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Hôm qua tôi mua về một ít hoa quả.", a:"我昨天买回来了一些水果。/ 我昨天买回来一些水果。/ 昨天我买回来了一些水果。"},
-  {q:"Mời mọi người đứng dậy.", a:"请大家站起来。"}]}],
+  {q:"Mời mọi người đứng dậy.", a:"请大家站起来。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"他跑上楼去了。", vi:"Anh ấy chạy lên lầu rồi.", o:["Đúng","Sai"], a:0, why:"Nơi chốn chen giữa 上 và 去."},
+  {q:"她走回去宿舍了。", vi:"Cô ấy đi về ký túc xá rồi.", o:["Đúng","Sai"], a:1, why:"Nơi chốn đứng trước 去: 她走回宿舍去了。"},
+  {q:"他从包里拿出来一本书。", vi:"Anh ấy lấy từ trong túi ra một quyển sách.", o:["Đúng","Sai"], a:0, why:"Tân ngữ vật có thể đứng sau 出来."},
+  {q:"请大家站来起。", vi:"Mời mọi người đứng dậy.", o:["Đúng","Sai"], a:1, why:"请大家站起来。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"(Tôi đứng dưới lầu) Anh ấy từ tầng 2 đi xuống.", o:["他从二楼走下来。", "他从二楼走下去。"], a:0, why:"Về phía người nói → 来."},
+  {q:"(Tôi ở trong phòng) Anh ấy đi ra ngoài rồi.", o:["他走出去了。", "他走出来了。"], a:0, why:"Rời xa người nói → 去."},
+  {q:"Anh ấy chạy vào lớp.", o:["他跑进教室来了。", "他跑进来教室了。", "他跑教室进来了。"], a:0, why:"V + 进 + nơi chốn + 来."},
+  {q:"Mọi người đứng dậy.", o:["大家站起来。", "大家站起去。"], a:0, why:"起 chỉ đi với 来."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Anh ấy lấy một quyển sách ra.", a:"他拿出一本书来。/ 他拿出来一本书。/ 他拿了一本书出来。"},
+  {q:"Bạn đứng dậy đi.", a:"你站起来吧。/ 你站起来。/ 请你站起来。"},
+  {q:"Anh ấy chạy lên tầng hai rồi.", a:"他跑上二楼去了。/ 他跑上二楼了。"},
+  {q:"Mời vào! (tôi ở trong phòng)", a:"请进来！/ 请进！/ 快进来！"}]}],
 rel:["二50","三46","三48","三35"]
 };

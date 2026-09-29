@@ -38,8 +38,8 @@
   {say:"我家有四口人：爸爸、妈妈、姐姐和我。\n问：他家有几口人？",py:"Wǒ jiā yǒu sì kǒu rén: bàba, māma, jiějie hé wǒ. Wèn: Tā jiā yǒu jǐ kǒu rén?",vi:"Nhà tôi có bốn người: bố, mẹ, chị gái và tôi. Hỏi: Nhà anh ấy có mấy người?",
    opts:[{t:"三口",py:"sān kǒu"},{t:"四口",py:"sì kǒu"},{t:"五口",py:"wǔ kǒu"}],ans:1,np:["一08","一37"],w:[["口","kǒu"],["姐姐","jiějie"]],
    why:"四 sì (4) và 十 shí (10) dễ nghe nhầm. Đếm lại: 爸爸、妈妈、姐姐、我 = 4 người."},
-  {say:"明天上午九点我去火车站。\n问：他明天几点去火车站？",py:"Míngtiān shàngwǔ jiǔ diǎn wǒ qù huǒchēzhàn. Wèn: Tā míngtiān jǐ diǎn qù huǒchēzhàn?",vi:"9 giờ sáng mai tôi đi ga tàu. Hỏi: Mai mấy giờ anh ấy đi ga tàu?",
-   opts:[{t:"下午九点",py:"xiàwǔ jiǔ diǎn"},{t:"上午十点",py:"shàngwǔ shí diǎn"},{t:"上午九点",py:"shàngwǔ jiǔ diǎn"}],ans:2,np:["一44"],w:[["上午","shàngwǔ"],["火车站","huǒchēzhàn"]],
+  {say:"明天上午九点我去医院。\n问：他明天几点去医院？",py:"Míngtiān shàngwǔ jiǔ diǎn wǒ qù yīyuàn. Wèn: Tā míngtiān jǐ diǎn qù yīyuàn?",vi:"9 giờ sáng mai tôi đi bệnh viện. Hỏi: Mai mấy giờ anh ấy đi bệnh viện?",
+   opts:[{t:"下午九点",py:"xiàwǔ jiǔ diǎn"},{t:"上午十点",py:"shàngwǔ shí diǎn"},{t:"上午九点",py:"shàngwǔ jiǔ diǎn"}],ans:2,np:["一44"],w:[["上午","shàngwǔ"],["医院","yīyuàn"]],
    why:"Giờ trong tiếng Trung: buổi + giờ (上午九点). Phải nghe cả 上午 / 下午."},
   {say:"我的汉语老师是中国人，她家在北京。\n问：汉语老师家在哪儿？",py:"Wǒ de Hànyǔ lǎoshī shì Zhōngguó rén, tā jiā zài Běijīng. Wèn: Hànyǔ lǎoshī jiā zài nǎr?",vi:"Cô giáo tiếng Trung của tôi là người Trung Quốc, nhà cô ở Bắc Kinh. Hỏi: Nhà cô giáo ở đâu?",
    opts:[{t:"学校",py:"xuéxiào"},{t:"北京",py:"Běijīng"},{t:"医院",py:"yīyuàn"}],ans:1,np:["一16","一46"],w:[["中国","Zhōngguó"],["北京","Běijīng"]]},
@@ -47,8 +47,8 @@
    opts:[{t:"衣服",py:"yīfu"},{t:"手机",py:"shǒujī"},{t:"电脑",py:"diànnǎo"}],ans:2,np:["一03"],w:[["电脑","diànnǎo"],["新","xīn"]]}]},
 
  {sk:"doc",no:1,type:"match",vi:"Đọc câu, chọn hình phù hợp (A–F).",
-  ex:{cn:"我坐汽车去上班。",py:"Wǒ zuò qìchē qù shàngbān.",vi:"Tôi đi xe buýt đi làm.",ans:1},
-  bank:[{img:"thaygiao",t:"lớp học"},{img:"xebuyt",t:"xe buýt"},{img:"sieuthi",t:"siêu thị"},{img:"docsach",t:"đọc sách"},{img:"benhnhan",t:"người bệnh nằm viện"},{img:"nhahang",t:"nhà hàng"}],q:[
+  ex:{cn:"我坐出租车去上班。",py:"Wǒ zuò chūzūchē qù shàngbān.",vi:"Tôi đi taxi đi làm.",ans:1},
+  bank:[{img:"thaygiao",t:"lớp học"},{img:"taxi",t:"xe taxi"},{img:"sieuthi",t:"siêu thị"},{img:"docsach",t:"đọc sách"},{img:"benhnhan",t:"người bệnh nằm viện"},{img:"nhahang",t:"nhà hàng"}],q:[
   {cn:"他生病了，在医院休息。",py:"Tā shēngbìng le, zài yīyuàn xiūxi.",vi:"Anh ấy bị ốm, đang nằm nghỉ ở bệnh viện.",ans:4,np:["一40","一16"],w:[["生病","shēngbìng"],["休息","xiūxi"]]},
   {cn:"我们去饭店吃饭吧。",py:"Wǒmen qù fàndiàn chī fàn ba.",vi:"Chúng mình đi nhà hàng ăn cơm nhé.",ans:5,np:["一22"],w:[["饭店","fàndiàn"],["吃饭","chī fàn"]]},
   {cn:"学生们在上课。",py:"Xuéshengmen zài shàngkè.",vi:"Các học sinh đang học bài trên lớp.",ans:0,np:["一42"],w:[["学生","xuésheng"],["上课","shàngkè"]],why:"在 + động từ = đang làm gì: 在上课 = đang học (trên lớp)."},
@@ -56,7 +56,7 @@
   {cn:"她很喜欢看书。",py:"Tā hěn xǐhuan kàn shū.",vi:"Cô ấy rất thích đọc sách.",ans:3,np:["一09"],w:[["喜欢","xǐhuan"],["书","shū"]]}]},
 
  {sk:"doc",no:2,type:"match",vi:"Chọn câu trả lời phù hợp (A–F).",
-  ex:{cn:"你身体好吗？",py:"Nǐ shēntǐ hǎo ma?",vi:"Bạn có khoẻ không?",ans:2},
+  ex:{cn:"你好吗？",py:"Nǐ hǎo ma?",vi:"Bạn có khoẻ không?",ans:2},
   bank:[{t:"在我家后边。",py:"Zài wǒ jiā hòubian.",vi:"Ở phía sau nhà tôi."},{t:"八块。",py:"Bā kuài.",vi:"8 tệ."},{t:"很好，谢谢！",py:"Hěn hǎo, xièxie!",vi:"Rất khoẻ, cảm ơn!"},{t:"好，再见！",py:"Hǎo, zàijiàn!",vi:"Được, tạm biệt!"},{t:"我想喝水。",py:"Wǒ xiǎng hē shuǐ.",vi:"Tôi muốn uống nước."},{t:"我去看朋友了。",py:"Wǒ qù kàn péngyou le.",vi:"Tôi đi thăm bạn."}],q:[
   {cn:"你的学校在哪儿？",py:"Nǐ de xuéxiào zài nǎr?",vi:"Trường của bạn ở đâu?",ans:0,np:["一01","一46"],w:[["后边","hòubian"],["学校","xuéxiào"]],why:"在 + nơi chốn + 后边 = ở phía sau …"},
   {cn:"你想喝什么？",py:"Nǐ xiǎng hē shénme?",vi:"Bạn muốn uống gì?",ans:4,np:["一03"],w:[["想","xiǎng"],["喝","hē"]]},
@@ -68,12 +68,12 @@
   ex:{cn:"我（　）喜欢学习汉语。",py:"Wǒ (　) xǐhuan xuéxí Hànyǔ.",vi:"Tôi rất thích học tiếng Trung.",ans:1},
   bank:[{t:"个",py:"gè"},{t:"很",py:"hěn"},{t:"去",py:"qù"},{t:"都",py:"dōu"},{t:"呢",py:"ne"},{t:"和",py:"hé"}],q:[
   {cn:"我们（　）是大学生。",py:"Wǒmen (　) shì dàxuéshēng.",vi:"Chúng tôi đều là sinh viên.",ans:3,np:["一10"],w:[["都","dōu"],["大学生","dàxuéshēng"]],why:"都 đứng sau chủ ngữ số nhiều, trước động từ: 我们都是…"},
-  {cn:"我（　）妈妈一起去商店。",py:"Wǒ (　) māma yìqǐ qù shāngdiàn.",vi:"Tôi cùng mẹ đi cửa hàng.",ans:5,np:["一17"],w:[["和","hé"],["一起","yìqǐ"]],why:"A 和 B 一起 + động từ = A cùng B làm gì."},
+  {cn:"我（　）妈妈去商店。",py:"Wǒ (　) māma qù shāngdiàn.",vi:"Tôi và mẹ đi cửa hàng.",ans:5,np:["一17"],w:[["和","hé"],["商店","shāngdiàn"]],why:"A 和 B + động từ = A và B cùng làm gì."},
   {cn:"我是王明，你（　）？",py:"Wǒ shì Wáng Míng, nǐ (　)?",vi:"Tôi là Vương Minh, còn bạn?",ans:4,np:["一22"],w:[["呢","ne"]],why:"Danh từ / đại từ + 呢？ = còn … thì sao? (hỏi lại câu vừa nói)."},
   {cn:"这（　）杯子是谁的？",py:"Zhè (　) bēizi shì shéi de?",vi:"Cái cốc này là của ai?",ans:0,np:["一08","一06"],w:[["杯子","bēizi"],["个","gè"]]},
   {cn:"明天我（　）北京。",py:"Míngtiān wǒ (　) Běijīng.",vi:"Ngày mai tôi đi Bắc Kinh.",ans:2,np:[],w:[["去","qù"],["明天","míngtiān"]]}]},
 
- {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi ★.",q:[
+ {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg#sao'/></svg>.",q:[
   {cn:"我叫李小月，今年十八岁，是大学生。",py:"Wǒ jiào Lǐ Xiǎoyuè, jīnnián shíbā suì, shì dàxuéshēng.",vi:"Tôi tên là Lý Tiểu Nguyệt, năm nay 18 tuổi, là sinh viên.",
    star:"李小月：",spy:"Lǐ Xiǎoyuè:",svi:"Lý Tiểu Nguyệt:",opts:[{t:"是老师",py:"shì lǎoshī"},{t:"十八岁",py:"shíbā suì"},{t:"是医生",py:"shì yīshēng"}],ans:1,np:["一36"],w:[["今年","jīnnián"],["大学生","dàxuéshēng"]]},
   {cn:"今天是星期天，我不去学校，在家看书。",py:"Jīntiān shì xīngqītiān, wǒ bú qù xuéxiào, zài jiā kàn shū.",vi:"Hôm nay là Chủ nhật, tôi không đến trường, ở nhà đọc sách.",

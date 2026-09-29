@@ -20,8 +20,8 @@ window.TTS=(function(){
       const u=new SpeechSynthesisUtterance(w);u.lang=voice.lang||'zh-CN';u.voice=voice;u.rate=rate||.85;
       speechSynthesis.speak(u);
     },
-    // nút loa nhỏ: <button class="spk" data-say="你好">🔊</button>
-    btn:w=>window.TTS.can(w)?'<button type="button" class="spk" data-say="'+w+'" aria-label="Nghe đọc '+w+'">🔊</button>':''
+    // nút loa nhỏ: <button class="spk" data-say="你好">(icon loa)</button>
+    btn:w=>window.TTS.can(w)?'<button type="button" class="spk" data-say="'+w+'" aria-label="Nghe đọc '+w+'"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#loa"/></svg></button>':''
   };
 })();
 document.addEventListener('click',e=>{const b=e.target.closest('.spk');if(b){e.preventDefault();TTS.say(b.dataset.say)}});

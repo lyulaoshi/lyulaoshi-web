@@ -5,10 +5,10 @@
 window.KT_CAU_TRUC={
  "1":{tong:40,phut:40,ky:[
   ["nghe","听力",12,[[5,"Nghe cụm từ, chọn hình (A/B/C)"],[5,"Nghe câu hỏi, chọn câu trả lời"],[5,"Nghe hội thoại, chọn hình (A–F)"],[5,"Nghe câu và câu hỏi, chọn đáp án"]]],
-  ["doc","阅读",20,[[5,"Đọc câu, chọn hình (A–F)"],[5,"Ghép câu hỏi với câu trả lời (A–F)"],[5,"Chọn từ điền chỗ trống (A–F)"],[5,"Đọc câu, trả lời câu hỏi ★"]]]]},
+  ["doc","阅读",20,[[5,"Đọc câu, chọn hình (A–F)"],[5,"Ghép câu hỏi với câu trả lời (A–F)"],[5,"Chọn từ điền chỗ trống (A–F)"],[5,"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg#sao'/></svg>"]]]]},
  "2":{tong:60,phut:60,ky:[
   ["nghe","听力",17,[[5,"Nghe câu, chọn hình (A/B/C)"],[10,"Nghe hội thoại, chọn hình (A–F)"],[10,"Nghe hội thoại và câu hỏi, chọn đáp án"]]],
-  ["doc","阅读",25,[[5,"Đọc câu, chọn hình (A–F)"],[5,"Chọn từ điền chỗ trống (A–F)"],[10,"Ghép câu với câu đáp (A–F)"],[5,"Đọc câu, trả lời câu hỏi ★"]]],
+  ["doc","阅读",25,[[5,"Đọc câu, chọn hình (A–F)"],[5,"Chọn từ điền chỗ trống (A–F)"],[10,"Ghép câu với câu đáp (A–F)"],[5,"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg#sao'/></svg>"]]],
   ["viet","书写",10,[[5,"Chọn bộ phận ghép thành chữ Hán"],[5,"Viết chữ Hán vào chỗ trống (có pinyin)"]]]]},
  "3":{tong:70,phut:83,ky:[
   ["nghe","听力",23,[[10,"Nghe hội thoại, chọn hình (A–F)"],[10,"Nghe hội thoại và câu hỏi, chọn đáp án"],[10,"Nghe đoạn văn và câu hỏi, chọn đáp án"]]],

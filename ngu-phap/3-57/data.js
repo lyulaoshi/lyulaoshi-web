@@ -29,6 +29,19 @@ practice:[
   {w:["老师","让","我们","读","课文"], a:"老师让我们读课文。", vi:"Cô bảo chúng tôi đọc bài khóa."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Chuyện này khiến tôi rất vui.", a:"这件事让我很高兴。"},
-  {q:"Mẹ bảo tôi về nước sớm.", a:"妈妈让我早点儿回国。/ 妈妈叫我早点儿回国。"}]}],
+  {q:"Mẹ bảo tôi về nước sớm.", a:"妈妈让我早点儿回国。/ 妈妈叫我早点儿回国。"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"妈妈让我早点儿回家。", vi:"Mẹ bảo tôi về nhà sớm.", o:["Đúng","Sai"], a:0, why:"让 + người + V."},
+  {q:"老师让我们不说话。", vi:"Cô không cho chúng tôi nói chuyện.", o:["Đúng","Sai"], a:1, why:"Phủ định trước 让: 老师不让我们说话。"},
+  {q:"我请他吃饭。", vi:"Tôi mời anh ấy ăn cơm.", o:["Đúng","Sai"], a:0, why:"请 + người + V."},
+  {q:"公司派去我北京。", vi:"Công ty cử tôi đi Bắc Kinh.", o:["Đúng","Sai"], a:1, why:"Người đứng giữa hai động từ: 公司派我去北京。"}]},
+ {t:"E. Chọn câu đúng", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Bố bảo tôi học tiếng Trung.", o:["爸爸让我学中文。", "爸爸让学中文我。"], a:0, why:"让 + người + V."},
+  {q:"Mẹ không cho tôi chơi game.", o:["妈妈不让我玩儿游戏。", "妈妈让我不玩儿游戏。"], a:0, why:"不 đứng trước 让."},
+  {q:"Tôi mời bạn uống cà phê.", o:["我请你喝咖啡。", "我请喝咖啡你。"], a:0, why:"请 + người + V."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Thầy bảo chúng tôi đọc bài khóa.", a:"老师让我们读课文。/ 老师叫我们读课文。"},
+  {q:"Tôi mời anh ấy đến nhà tôi ăn cơm.", a:"我请他来我家吃饭。/ 我请他去我家吃饭。/ 我请他到我家吃饭。"},
+  {q:"Chuyện này làm tôi rất vui.", a:"这件事让我很高兴。/ 这件事让我很开心。"}]}],
 rel:["三32","三27","三56","一34"]
 };

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>听说盒 · Nghe – nói – 吕老师汉语盒</title>
+<meta name="description" content="Luyện nghe – nói tiếng Trung theo hội thoại trong giáo trình: nghe hiểu, shadowing có ghi âm, đóng vai với máy, nghe – viết – Lyu Laoshi Chinese Box.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../tro-choi/game.css?v=4">
+<link rel="stylesheet" href="/chung/ic.css">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+@font-face{font-family:"LyuKai";font-display:swap;src:url(kai.woff?v=85eadf93) format("woff")}
+:root{--c:var(--butter);--cs:var(--butter-s);--kai:"LyuKai","STKaiti","KaiTi","Kaiti SC",serif}
+[hidden]{display:none!important}
+.zh{font-family:var(--kai)}
+.hero{padding:30px 0 6px}
+.hero .eyebrow{font-family:var(--hz);color:var(--c);font-size:20px}
+.hero h1{font-size:clamp(28px,4.4vw,44px);font-weight:800;line-height:1.1;margin-top:6px}
+.hero p{color:var(--muted);max-width:44em;margin:10px 0 0}
+.steps4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 0}
+.steps4 div{background:var(--card);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow);border-top:5px solid var(--c)}
+.steps4 b{font-family:var(--hz);font-size:20px;color:var(--c);font-weight:400}
+.steps4 span{display:block;font-weight:800;font-size:14px}
+.steps4 small{display:block;color:var(--muted);font-size:12.5px;line-height:1.4}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 12px}
+.tab{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.bais{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:16px}
+.bai{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:18px}
+.bai-h{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted);font-weight:600}
+.hsk{background:var(--cs);color:var(--c);border-radius:999px;padding:0 10px;font-weight:800}
+.bai h3{font-size:24px;margin:4px 0 12px;font-weight:400}.bai h3 small{font-family:var(--vi);font-size:14px;color:var(--muted);font-weight:600}
+.doans{display:grid;gap:8px}
+.doan{display:flex;align-items:center;gap:12px;text-decoration:none;background:var(--cs);border-radius:16px;padding:10px 12px;border:1.5px solid transparent;transition:border-color .15s,transform .15s}
+.doan:hover{border-color:var(--c);transform:translateY(-1px)}
+.doan .so{flex:none;width:30px;height:30px;border-radius:10px;background:var(--c);color:#fff;display:grid;place-items:center;font-weight:800}
+.doan .t{display:grid;min-width:0;flex:1;line-height:1.3}.doan .t b{font-size:18px;font-weight:400}.doan .t small{color:var(--muted);font-size:12.5px}
+.dots{display:flex;gap:4px;flex:none}.dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--mint)}
+.sap{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:12px}
+.sap div{background:var(--card);border:2px dashed var(--line);border-radius:18px;padding:14px;color:var(--muted)}
+.sap b{display:block;color:var(--ink);font-size:18px;font-weight:400}
+
+/* trang luyện */
+.back{display:inline-block;margin:20px 0 4px;color:var(--muted);font-weight:700;text-decoration:none;font-size:14px}
+.p-sach{color:var(--muted);font-weight:600;font-size:14px}
+#pTen{font-size:clamp(26px,4vw,38px);font-weight:400;line-height:1.2}#pTen small{font-family:var(--vi);font-size:16px;color:var(--muted);font-weight:600}
+.pdoan{display:flex;gap:6px;margin:10px 0 0}.pdoan a{text-decoration:none;font-weight:700;font-size:13px;padding:5px 12px;border-radius:999px;background:var(--ground2);color:var(--muted)}
+.pdoan a.on{background:var(--ink);color:var(--ground)}
+.buoc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:16px 0}
+.buoc a{display:flex;align-items:center;gap:8px;text-decoration:none;background:var(--card);border-radius:16px;padding:10px;box-shadow:var(--shadow);border:2px solid transparent;min-width:0}
+.buoc a.on{border-color:var(--c)}
+.buoc .n{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--ground2);color:var(--muted)}
+.buoc a.on .n{background:var(--c);color:#fff}.buoc a.xong .n{background:var(--mint);color:#fff}
+.buoc .t{display:grid;line-height:1.2;min-width:0}.buoc .t b{font-family:var(--hz);font-weight:400;font-size:17px;color:var(--c)}.buoc .t small{font-size:12.5px;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.panel{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:22px;border-top:8px solid var(--c)}
+.huong{margin:0 0 14px;color:var(--muted)}.huong b{color:var(--ink)}
+.thanh{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:0 0 16px}
+.toc{display:inline-flex;background:var(--ground2);border-radius:12px;padding:3px}
+.toc button{border:0;background:none;font:inherit;font-weight:700;font-size:13.5px;padding:8px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
+.toc button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.dangghi{background:var(--coral);color:#fff;animation:nhip 1s infinite}
+@keyframes nhip{50%{box-shadow:0 0 0 6px var(--coral-s)}}
+.h3{font-size:18px;font-weight:800;margin:24px 0 8px}
+
+/* icon tự vẽ */
+.ic{width:1.2em;height:1.2em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.22em}
+.btn .ic{margin-right:-2px}.toc .ic{margin-right:4px}
+.spk{font-size:0}.spk .ic{width:19px;height:19px}.spk.big .ic{width:27px;height:27px}
+.themebtn{display:inline-grid;place-items:center}.themebtn .ic{width:19px;height:19px}
+.ic.to{width:26px;height:26px;color:var(--mint);vertical-align:-.45em;margin-right:6px}
+.buoc .n .ic{width:17px;height:17px;stroke-width:3}
+.sao button .ic{width:30px;height:30px}
+.back .ic{width:1em;height:1em;vertical-align:-.12em}
+.ic.nhay{color:var(--coral);animation:nhay 1s infinite}@keyframes nhay{50%{opacity:.35}}
+.chat .mo .ic{width:16px;height:16px}
+
+/* bong bóng hội thoại */
+.chat{display:grid;gap:10px;background:var(--ground);border-radius:18px;padding:14px}
+.line{display:flex;align-items:flex-start;gap:10px;border:0;background:none;font:inherit;color:inherit;text-align:left;padding:0;cursor:pointer;max-width:88%}
+div.line{cursor:default}
+.line.B{margin-left:auto;flex-direction:row-reverse}
+.line .ai{flex:none;font-family:var(--kai);font-size:13px;background:var(--sky-s);color:var(--sky);border-radius:12px;padding:6px 8px;line-height:1.2;max-width:5.5em;text-align:center}
+.line.B .ai{background:var(--cs);color:var(--c)}
+.line .bb{display:grid;gap:2px;background:var(--card);border-radius:4px 16px 16px 16px;padding:10px 14px;box-shadow:var(--shadow);min-width:0}
+.line.B .bb{border-radius:16px 4px 16px 16px;background:var(--cs)}
+.line.dang .bb{outline:3px solid var(--c)}
+.line .hz{font-size:24px;line-height:1.35}
+.py{font-size:15px;color:var(--muted)}.vi{font-size:14px;color:var(--muted)}
+.chat .mo{display:none;color:var(--faint);letter-spacing:2px}
+.chat.an .hz,.chat.an .py,.chat.an .vi{display:none}.chat.an .mo{display:block}
+.py i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:var(--sky)}.t4{color:var(--lav)}.t0{color:var(--faint)}
+.lg{display:inline-flex;gap:8px;font-weight:800;font-size:13px;margin-left:4px}.lg i{font-style:normal}
+
+/* câu hỏi */
+.hoi{padding-left:22px;margin:0;display:grid;gap:14px}
+.hoi .q{font-size:21px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.qvi{color:var(--muted);font-size:14px}
+.opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.opts button{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:20px;padding:6px 16px;border-radius:14px;cursor:pointer}
+.opts button.dung{background:var(--mint);border-color:var(--mint);color:#fff}
+.opts button.sai{background:var(--coral-s);border-color:var(--coral);color:var(--coral);text-decoration:line-through}
+.ket{margin-top:20px;background:var(--mint-s);border-radius:18px;padding:14px 18px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.ket p{margin:0;font-weight:700}
+
+/* shadowing */
+.the{background:var(--ground);border-radius:20px;padding:22px 18px;text-align:center}
+.the .ai{font-family:var(--kai);color:var(--muted);font-size:14px}
+.the .big.hz{font-size:clamp(30px,6vw,46px);line-height:1.3;margin:6px 0 2px}
+.the .big.py{font-size:clamp(18px,3vw,22px);font-weight:600}
+.the .vi{font-size:15px;margin-top:4px}
+.nut{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:18px 0 6px}
+.nut .btn{padding:10px 14px;font-size:14.5px}
+.may{margin:10px auto 0;max-width:34em;background:var(--card);border-radius:14px;padding:10px 14px;font-size:14px;text-align:left}
+.may b.zh{font-size:20px;font-weight:400}.may span{font-family:var(--kai);font-size:22px}
+.ok{color:var(--mint)}.no{color:var(--coral)}
+.may small{display:block;color:var(--muted)}
+.sao{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:10px;font-size:14px;color:var(--muted);flex-wrap:wrap}
+.sao button{border:0;background:none;font-size:30px;line-height:1;color:var(--line);cursor:pointer;padding:0 2px}
+.sao button[aria-pressed="true"]{color:var(--butter)}
+.sao small{min-width:8em;text-align:left}
+.lui{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:14px;font-weight:700;color:var(--muted)}
+.lui .btn{padding:10px 14px}
+.mini{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.mini button{width:34px;height:34px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--muted);font:inherit;font-weight:700;cursor:pointer}
+.mini button.xong{background:var(--mint-s);border-color:var(--mint);color:var(--mint)}
+.mini button.on{border-color:var(--c);background:var(--c);color:#fff}
+
+/* đóng vai */
+.chon{display:grid;gap:14px;margin-bottom:16px}.chon>div>b{display:block;font-size:14px;margin-bottom:6px}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:700;font-size:14px;padding:8px 14px;border-radius:14px;cursor:pointer;display:grid;text-align:left;line-height:1.3}
+.seg button .zh{font-size:19px;font-weight:400}.seg button small{font-weight:600;color:var(--muted);font-size:12px}
+.seg button[aria-pressed="true"]{border-color:var(--c);background:var(--cs)}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:14px;color:var(--muted)}.chk input{margin-top:5px;accent-color:var(--c)}
+.chat.vai:empty{display:none}
+.line.minh .ai{background:var(--ink);color:var(--ground);font-family:var(--vi);font-weight:800}
+.line.minh .bb{outline:2px dashed var(--c)}
+.line.dangghi .bb{outline:3px solid var(--coral)}
+.cham3{color:var(--muted);font-style:italic}
+.luot{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.nho{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;font-size:13px;padding:6px 12px;border-radius:10px;cursor:pointer}
+.btn.nho{background:var(--coral);color:#fff}
+.bb .spk{justify-self:start;margin-top:4px}
+
+/* nghe – viết */
+.viet{padding-left:22px;margin:0;display:grid;gap:16px}
+.nghe2{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.goiy{color:var(--muted);font-size:14px}
+.typ{display:flex;gap:8px;margin-top:8px}
+.typ input{flex:1;min-width:0;font:inherit;font-family:var(--kai);font-size:22px;padding:8px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.typ input:focus{outline:none;border-color:var(--c)}
+.typ input::placeholder{font-family:var(--vi);font-size:15px}
+.viet li,.hoi li{min-width:0}.typ input{width:100%}
+.btn2{border:0;background:var(--ink);color:var(--ground);font:inherit;font-weight:700;padding:0 16px;border-radius:12px;cursor:pointer;flex:none}
+.viet li.daxong .typ input{border-color:var(--mint);background:var(--mint-s)}
+.fb{margin-top:6px;font-size:14px}.fb .zh,.fb span.ok,.fb span.no{font-family:var(--kai);font-size:20px}
+.fb.ok{color:var(--mint)}
+
+@media (max-width:760px){.steps4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){
+  .buoc{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.buoc a{flex-direction:column;padding:8px 4px;text-align:center;gap:4px}
+  .buoc .t small{white-space:normal;font-size:11px}.buoc .t b{font-size:15px}
+  .panel{padding:16px 14px}.chat{padding:10px}.line{max-width:96%}.line .hz{font-size:21px}
+  .line .ai{max-width:4em;font-size:12px}
+}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="#">听说盒</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap" id="home">
+  <section class="hero">
+    <div class="eyebrow">听说盒</div>
+    <h1>Nghe, nói theo, đóng vai</h1>
+    <p>Mỗi đoạn hội thoại luyện qua 4 bước. Em nghe hiểu trước, rồi nói theo từng câu và ghi âm giọng mình để so với mẫu, sau đó đóng vai nói chuyện với máy, cuối cùng nghe – viết lại. Chấm xanh là bước em đã xong.</p>
+    <div class="steps4">
+      <div><b>听</b><span>1. Nghe hiểu</span><small>Nghe cả đoạn, trả lời câu hỏi</small></div>
+      <div><b>跟读</b><span>2. Shadowing</span><small>Nói theo từng câu, ghi âm, so với mẫu</small></div>
+      <div><b>角色</b><span>3. Đóng vai</span><small>Em một vai, máy một vai, ẩn dần chữ</small></div>
+      <div><b>听写</b><span>4. Nghe – viết</span><small>Nghe rồi gõ lại bằng chữ Hán</small></div>
+    </div>
+  </section>
+  <div class="tabs" role="group" aria-label="Chọn nguồn bài">
+    <button class="tab" type="button" data-tab="gt" aria-pressed="true">Theo giáo trình</button>
+    <button class="tab" type="button" data-tab="th" aria-pressed="false">Theo tình huống</button>
+  </div>
+  <section data-pane="gt"><div class="bais" id="dsBai"></div></section>
+  <section data-pane="th" hidden>
+    <div class="sap">
+      <div><b class="zh">问路</b>Hỏi đường · sắp có</div>
+      <div><b class="zh">点菜</b>Gọi món · sắp có</div>
+      <div><b class="zh">认识新朋友</b>Làm quen · sắp có</div>
+      <div><b class="zh">打电话</b>Gọi điện thoại · sắp có</div>
+    </div>
+  </section>
+  <footer>Giọng đọc là giọng máy có sẵn trong trình duyệt. Bản ghi âm của em chỉ lưu tạm trên máy em, không gửi đi đâu.</footer>
+</main>
+
+<main class="wrap" id="play" hidden>
+  <a class="back" href="#"><svg class="ic lli" aria-hidden="true"><use href="/chung/ic.svg#truoc"/></svg> Mục lục 听说盒</a>
+  <div class="p-sach" id="pSach"></div>
+  <h1 id="pTen"></h1>
+  <nav class="pdoan" id="pDoan" aria-label="Chọn đoạn"></nav>
+  <nav class="buoc" id="pBuoc" aria-label="4 bước luyện"></nav>
+  <section class="panel" id="pBody"></section>
+  <footer>Giọng đọc là giọng máy có sẵn trong trình duyệt. Bản ghi âm của em chỉ lưu tạm trên máy em, không gửi đi đâu.</footer>
+</main>
+
+<script src="data.js"></script>
+<script src="nn.js"></script>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
+</script>
+</body>
+</html>

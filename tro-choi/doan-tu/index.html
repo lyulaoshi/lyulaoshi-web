@@ -7,7 +7,7 @@
 <meta name="description" content="Trò chơi Đoán từ kiểu Wordle (汉兜): đoán từ tiếng Trung 2 chữ trong 6 lượt, dựa vào màu của chữ, thanh mẫu, vận mẫu và thanh điệu.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="../game.css?v=3">
+<link rel="stylesheet" href="../game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 [hidden]{display:none!important}
@@ -121,7 +121,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 .tomorrow{font-weight:700;color:var(--lav)}
 .result .ans{font-family:var(--kai);font-size:56px;line-height:1.1}
 .result .ans small{display:block;font-family:var(--vi);font-size:20px;font-weight:800;color:var(--sky)}
-.emoji{font-size:22px;line-height:1.25;white-space:pre}
+.emoji{display:grid;gap:4px;justify-content:center}.emoji div{display:flex;gap:4px}.emoji .sq{width:20px;height:20px;border-radius:4px;background:var(--line)}.emoji .sq.g{background:var(--mint)}.emoji .sq.y{background:#E6B422}
 .rank{font-weight:800;font-size:20px;color:var(--peach)}
 .rank .zh{font-family:var(--hz);font-weight:400;font-size:24px;margin-right:8px}
 @media (max-width:420px){.tile{min-height:96px}.tile .hz{font-size:38px}.tile .py{font-size:15px}}
@@ -131,7 +131,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap">
@@ -145,22 +145,22 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
         <li>Mỗi ô có 4 phần được tô màu riêng: <b>chữ Hán</b> (màu ô), <b>thanh mẫu</b> (ví dụ zh), <b>vận mẫu</b> (ví dụ ong) và <b>thanh điệu</b> (số 1–4, · là thanh nhẹ).</li>
         <li>Ví dụ đáp án là 老师 lǎoshī, em đoán 上学 shàngxué: chữ 上 có thanh mẫu <b>sh</b> màu vàng (sh có trong từ nhưng ở chữ thứ hai).</li>
         <li>Vào ván, em được một <b>gợi ý mở đầu</b> miễn phí: cấp HSK và thanh điệu của từ. Bí quá thì xin thêm 2 gợi ý nữa.</li>
-        <li>Hết 6 lượt vẫn chưa ra? Có <b>🛟 phao cứu sinh +2 lượt</b>. Hoặc giơ <b>🏳️ cờ trắng</b> xem đáp án bất cứ lúc nào (không ai cười đâu… chắc vậy 😏).</li>
-        <li>Muốn nhờ bạn bè? Bấm <b>📣 Cầu cứu bạn bè</b> để gửi ảnh <b>Truy nã / Sắp chìm / Tin nóng</b> (không lộ đáp án) lên Zalo, Messenger, Facebook… Thắng rồi thì <b>🏆 khoe chiến tích</b> thách cả lớp!</li>
+        <li>Hết 6 lượt vẫn chưa ra? Có <b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> phao cứu sinh +2 lượt</b>. Hoặc giơ <b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#co></use></svg> cờ trắng</b> xem đáp án bất cứ lúc nào (không ai cười đâu… chắc vậy <svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat-nhech></use></svg>).</li>
+        <li>Muốn nhờ bạn bè? Bấm <b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa-to></use></svg> Cầu cứu bạn bè</b> để gửi ảnh <b>Truy nã / Sắp chìm / Tin nóng</b> (không lộ đáp án) lên Zalo, Messenger, Facebook… Thắng rồi thì <b><svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg> khoe chiến tích</b> thách cả lớp!</li>
         <li>Mỗi lượt phải là một <b>từ HSK có thật</b> gồm 2 chữ. Gõ bằng bộ gõ tiếng Trung, hoặc gõ pinyin không dấu rồi chọn chữ.</li>
       </ul>
       <h2>Chọn đề</h2>
       <div class="chips" id="modeChips">
-        <button class="chip" type="button" data-mode="daily" aria-pressed="true">📅 Đề hôm nay<small>cả lớp cùng một đề, mỗi ngày một từ (HSK 1–3)</small></button>
-        <button class="chip" type="button" data-mode="free" aria-pressed="false">🎲 Chơi tự do<small>đề ngẫu nhiên, chơi bao nhiêu ván cũng được</small></button>
+        <button class="chip" type="button" data-mode="daily" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#lich></use></svg> Đề hôm nay<small>cả lớp cùng một đề, mỗi ngày một từ (HSK 1–3)</small></button>
+        <button class="chip" type="button" data-mode="free" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#xuc-xac></use></svg> Chơi tự do<small>đề ngẫu nhiên, chơi bao nhiêu ván cũng được</small></button>
       </div>
       <div id="lvBox" hidden><h2>Cấp HSK của đáp án <span class="muted">(chọn được nhiều cấp)</span></h2><div class="chips" id="lvChips"></div></div>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="stat"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><span class="muted" id="stat"></span></div>
     </div>
   </section>
 
   <section id="play" hidden>
-    <div class="hud"><span id="modeName"></span><span class="sp"></span><button type="button" id="quitBtn">✕ Dừng</button></div>
+    <div class="hud"><span id="modeName"></span><span class="sp"></span><button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg> Dừng</button></div>
     <div class="playwrap">
       <div class="grid" id="grid" lang="zh"></div>
       <div class="side">
@@ -169,14 +169,14 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
           <input id="ans" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ chữ Hán hoặc pinyin…" aria-label="Từ em đoán">
           <button class="btn pri" type="submit">Đoán</button>
         </form>
-        <div class="rescue" id="rescue" hidden><p id="rescueTxt">Hết 6 lượt rồi! 🛟 Thêm 2 lượt nữa không?</p><p style="margin:0"><small>Đoán ra vẫn tính thắng (ghi 7/6 hoặc 8/6), nhưng không cộng chuỗi thắng.</small></p>
-          <div class="acts" style="justify-content:center"><button class="btn hot" id="moreBtn" type="button">🛟 Bám phao (+2 lượt)</button><button class="btn sec" id="noMoreBtn" type="button">Thôi, buông tay 🫠</button></div></div>
+        <div class="rescue" id="rescue" hidden><p id="rescueTxt">Hết 6 lượt rồi! <svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Thêm 2 lượt nữa không?</p><p style="margin:0"><small>Đoán ra vẫn tính thắng (ghi 7/6 hoặc 8/6), nhưng không cộng chuỗi thắng.</small></p>
+          <div class="acts" style="justify-content:center"><button class="btn hot" id="moreBtn" type="button"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Bám phao (+2 lượt)</button><button class="btn sec" id="noMoreBtn" type="button">Thôi, buông tay</button></div></div>
         <div class="pick" id="pick"></div>
         <div class="msg" id="msg" aria-live="polite"></div>
-        <button type="button" class="hintbig" id="hintBtn"><span class="bulb" aria-hidden="true">💡</span><span><b>Bí quá? Xin gợi ý nè!</b><small id="hintLeft">còn 2 lần</small></span></button>
+        <button type="button" class="hintbig" id="hintBtn"><span class="bulb" aria-hidden="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#den></use></svg></span><span><b>Bí quá? Xin gợi ý nè!</b><small id="hintLeft">còn 2 lần</small></span></button>
         <div class="hints" id="hints"></div>
-        <button type="button" class="sos" id="sosBtn" hidden>📣 Cầu cứu bạn bè</button>
-        <button type="button" class="giveup" id="giveBtn">🏳️ Chịu thua, xem đáp án</button>
+        <button type="button" class="sos" id="sosBtn" hidden><svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa-to></use></svg> Cầu cứu bạn bè</button>
+        <button type="button" class="giveup" id="giveBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#co></use></svg> Chịu thua, xem đáp án</button>
       </div>
     </div>
   </section>
@@ -188,35 +188,36 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="ans" id="ansShow" lang="zh"></div>
       <div class="emoji" id="emoji"></div>
       <div class="muted" id="finalInfo"></div>
-      <div class="tomorrow" id="tomorrow" hidden>📅 Mai quay lại đoán tiếp nhé! Trong lúc chờ, em chơi tự do không giới hạn.</div>
-      <div class="acts" style="justify-content:center"><button class="btn pri brag" id="shareBtn" type="button">🏆 Khoe chiến tích</button><button class="btn hot" id="againBtn" type="button">Chơi ván mới ↻</button><button class="btn hot" id="freeBtn" type="button">🎲 Sang chơi tự do</button><button class="btn sec" id="setupBtn" type="button">Về màn chọn đề</button></div>
+      <div class="tomorrow" id="tomorrow" hidden><svg class=lli aria-hidden=true><use href=/chung/ic.svg#lich></use></svg> Mai quay lại đoán tiếp nhé! Trong lúc chờ, em chơi tự do không giới hạn.</div>
+      <div class="acts" style="justify-content:center"><button class="btn pri brag" id="shareBtn" type="button"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg> Khoe chiến tích</button><button class="btn hot" id="againBtn" type="button">Chơi ván mới <svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg></button><button class="btn hot" id="freeBtn" type="button"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#xuc-xac></use></svg> Sang chơi tự do</button><button class="btn sec" id="setupBtn" type="button">Về màn chọn đề</button></div>
       <div class="study" id="study"></div>
-      <a class="btn sec" id="fcBtn" href="../../tu-vung/">📇 Ôn các từ này trong Flashcard</a>
+      <a class="btn sec" id="fcBtn" href="../../tu-vung/"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#the-bai></use></svg> Ôn các từ này trong Flashcard</a>
     </div>
   </section>
 </main>
 
 <div class="shmodal" id="shModal" hidden role="dialog" aria-modal="true" aria-labelledby="shTitle"><div class="shcard">
-  <button class="shx" type="button" id="shClose" aria-label="Đóng">✕</button>
+  <button class="shx" type="button" id="shClose" aria-label="Đóng"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg></button>
   <h2 id="shTitle"></h2>
   <div class="chips" id="shThemes"></div>
   <input id="shName" type="text" maxlength="20" autocomplete="off" placeholder="Tên em để in lên ảnh (không bắt buộc)" aria-label="Tên in lên ảnh">
   <img id="shImg" alt="Ảnh để chia sẻ">
-  <p class="muted">Ảnh không lộ đáp án đâu, yên tâm khoe! 🤫</p>
-  <div class="acts"><button class="btn hot" type="button" id="shSend">📤 Gửi ngay</button><button class="btn sec" type="button" id="shCopyImg">🖼️ Chép ảnh</button><a class="btn sec" id="shSave" download="doan-tu.png">⬇️ Lưu ảnh</a><button class="btn sec" type="button" id="shCopyTxt">📋 Chép lời nhắn</button><a class="btn sec" id="shFb" target="_blank" rel="noopener">Facebook</a></div>
+  <p class="muted">Ảnh không lộ đáp án đâu, yên tâm khoe!</p>
+  <div class="acts"><button class="btn hot" type="button" id="shSend"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#gui></use></svg> Gửi ngay</button><button class="btn sec" type="button" id="shCopyImg"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#anh></use></svg> Chép ảnh</button><a class="btn sec" id="shSave" download="doan-tu.png"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tai-ve></use></svg> Lưu ảnh</a><button class="btn sec" type="button" id="shCopyTxt"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#chep></use></svg> Chép lời nhắn</button><a class="btn sec" id="shFb" target="_blank" rel="noopener">Facebook</a></div>
 </div></div>
 
-<footer class="wrap">Từ vựng và pinyin theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · Ý tưởng từ trò 汉兜 (Handle) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+<footer class="wrap">Từ vựng và pinyin theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · Ý tưởng từ trò 汉兜 (Handle) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../hsk-words.js"></script>
 <script src="../hsk79-words.js?v=1"></script>
-<script src="../tts.js?v=1"></script>
+<script src="../tts.js?v=2"></script>
 <script src="../pinyin.js?v=1"></script>
-<script src="../qr-anh.js?v=1"></script>
+<script src="/chung/ic-ve.js"></script>
+<script src="../qr-anh.js?v=2"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -254,27 +255,27 @@ const maxT=()=>TRIES+extra;
 const any=a=>a[Math.random()*a.length|0];
 // câu chọc cho vui
 const FUN={
-  sure:['Giơ cờ trắng thật hả? Bấm lần nữa nhé 🏳️','Từ này đang run lắm rồi đó, bỏ thật à? 😅','认输？Bấm lần nữa là cô lật bài nha!','Chữ Hán đang cười khẩy kìa 😏 Bấm lần nữa để chịu thua'],
-  rescue:['Hết 6 lượt rồi! Cô ném phao 🛟, em bám không?','Ối, 6 lượt bay mất tiêu! Còn một chiếc phao cứu sinh 🛟 nè','Từ này lì ghê! Cho em thêm 2 lượt phục thù không? 🛟'],
-  miss:['Chưa trúng, nhưng màu sắc đang mách nước đó 👀','Suýt… mà cũng chưa suýt lắm 😆','Từ bí mật vừa thở phào nhẹ nhõm 😮‍💨','Gần rồi, gần rồi (có thể) 🤞','Nhìn màu mà đoán tiếp nha, thám tử 🕵️'],
-  last:['Lượt cuối rồi! Dồn hết nội công vào 🥋','Lượt cuối! Cả lớp đang nín thở 😬'],
-  give:[['认输了！','Cờ trắng đã tung bay 🏳️'],['投降！','Chịu thua cũng là một loại dũng cảm 😌'],['撤退！','Rút lui chiến thuật, mai phục thù 🐢']],
-  lose:[['别灰心','Từ này trốn giỏi quá!'],['没关系','Thua keo này ta bày keo khác 💪'],['下次吧','Hôm nay từ này thắng, mai tới lượt em!']]
+  sure:['Giơ cờ trắng thật hả? Bấm lần nữa nhé','Từ này đang run lắm rồi đó, bỏ thật à?','认输？Bấm lần nữa là cô lật bài nha!','Chữ Hán đang cười khẩy kìa <svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat-nhech></use></svg> Bấm lần nữa để chịu thua'],
+  rescue:['Hết 6 lượt rồi! Cô ném phao <svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg>, em bám không?','Ối, 6 lượt bay mất tiêu! Còn một chiếc phao cứu sinh <svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> nè','Từ này lì ghê! Cho em thêm 2 lượt phục thù không?'],
+  miss:['Chưa trúng, nhưng màu sắc đang mách nước đó','Suýt… mà cũng chưa suýt lắm','Từ bí mật vừa thở phào nhẹ nhõm','Gần rồi, gần rồi (có thể)','Nhìn màu mà đoán tiếp nha, thám tử'],
+  last:['Lượt cuối rồi! Dồn hết nội công vào','Lượt cuối! Cả lớp đang nín thở'],
+  give:[['认输了！','Cờ trắng đã tung bay'],['投降！','Chịu thua cũng là một loại dũng cảm'],['撤退！','Rút lui chiến thuật, mai phục thù']],
+  lose:[['别灰心','Từ này trốn giỏi quá!'],['没关系','Thua keo này ta bày keo khác'],['下次吧','Hôm nay từ này thắng, mai tới lượt em!']]
 };
 // đề hôm nay được lưu sau mỗi lượt: dừng giữa chừng thì lần sau chơi tiếp, không làm lại từ đầu
 const saveDaily=done=>{if(mode==='daily')store.set('dt-daily',{day:today(),rows:rows.map(r=>r.w),extra,hinted,done,gave:gaveUp})};
 function hintHTML(i){
   const t=i===1?'Gợi ý 1: chữ đầu có thanh mẫu “'+(ans.s[0].ini||'(không có)')+'”, chữ sau có vận mẫu “'+ans.s[1].fin+'”':'Gợi ý 2: chữ đầu tiên là 「'+ans.w[0]+'」';
-  return '<div>💡 '+t.replace(/^(Gợi ý \d:)/,'<b>$1</b>')+'</div>'}
+  return '<div><svg class=lli aria-hidden=true><use href=/chung/ic.svg#den></use></svg> '+t.replace(/^(Gợi ý \d:)/,'<b>$1</b>')+'</div>'}
 function start(){
   over=false;hinted=0;extra=0;gaveUp=false;rows=[];$('pick').innerHTML='';$('hints').innerHTML='';$('msg').innerHTML='';$('ans').value='';
   let done=false;
   if(mode==='daily'){ans=dailyWord();const d=store.get('dt-daily');if(d&&d.day===today()){rows=d.rows.map(w=>DICT.get(w)).filter(Boolean);extra=d.extra||0;hinted=d.hinted||0;gaveUp=!!d.gave;done=d.done!==false}}
   else if(gift){ans=gift;gift=null;giftOn=true}
   else{giftOn=false;const pool=ALL.filter(x=>picked.has(x.lv));ans=pool[Math.random()*pool.length|0];store.set('dt-levels',[...picked])}
-  $('modeName').textContent=giftOn&&mode!=='daily'?'🎯 Đề bạn gửi':mode==='daily'?'📅 Đề hôm nay · '+today().split('-').reverse().join('/'):'🎲 Chơi tự do · HSK '+[...picked].sort().join(', ');
+  $('modeName').innerHTML=giftOn&&mode!=='daily'?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#bia></use></svg> Đề bạn gửi':mode==='daily'?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#lich></use></svg> Đề hôm nay · '+today().split('-').reverse().join('/'):'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#xuc-xac></use></svg> Chơi tự do · HSK '+[...picked].sort().join(', ');
   $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);showRescue(false);resetGive();
-  $('hints').innerHTML='<div>🎁 <b>Gợi ý mở đầu:</b> từ '+(ans.lv==='7'?'HSK 7–9':'HSK '+ans.lv)+', đọc theo '+ans.s.map(x=>x.tone?'thanh '+x.tone:'thanh nhẹ').join(' + ')+'</div>';
+  $('hints').innerHTML='<div><svg class=lli aria-hidden=true><use href=/chung/ic.svg#qua></use></svg> <b>Gợi ý mở đầu:</b> từ '+(ans.lv==='7'?'HSK 7–9':'HSK '+ans.lv)+', đọc theo '+ans.s.map(x=>x.tone?'thanh '+x.tone:'thanh nhẹ').join(' + ')+'</div>';
   for(let i=1;i<=hinted;i++)$('hints').insertAdjacentHTML('beforeend',hintHTML(i));
   if(done){over=true;render();return finish(false)}
   render();
@@ -293,7 +294,7 @@ function tileHTML(x,sc){
 function render(){
   let h='';for(let r=0;r<maxT();r++){const g=rows[r];const sc=g&&score(g);
     h+='<div class="guess'+(r===rows.length&&!over?' now':'')+'"><span class="no">'+(r+1)+'</span><div class="row">'+[0,1].map(i=>tileHTML(g&&g.s[i],sc&&sc[i])).join('')+'</div></div>'}
-  $('grid').innerHTML=h;$('hintBtn').disabled=over||hinted>=2;$('giveBtn').disabled=over;$('sosBtn').hidden=over||!rows.length;{const l=maxT()-rows.length;$('sosBtn').classList.toggle('urgent',l<=2);$('sosBtn').textContent=l<=0?'📣 Sắp chìm! Gọi đồng đội gấp':l<=2?'📣 Nguy to! Gọi đồng đội':'📣 Cầu cứu bạn bè'}
+  $('grid').innerHTML=h;$('hintBtn').disabled=over||hinted>=2;$('giveBtn').disabled=over;$('sosBtn').hidden=over||!rows.length;{const l=maxT()-rows.length;$('sosBtn').classList.toggle('urgent',l<=2);$('sosBtn').innerHTML=l<=0?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa-to></use></svg> Sắp chìm! Gọi đồng đội gấp':l<=2?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa-to></use></svg> Nguy to! Gọi đồng đội':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa-to></use></svg> Cầu cứu bạn bè'}
   $('hintLeft').textContent=hinted>=2?'hết gợi ý rồi':'còn '+(2-hinted)+' lần';
 }
 function guess(g){
@@ -320,10 +321,10 @@ $('typer').addEventListener('submit',e=>{e.preventDefault();if(composing||over)r
 $('hintBtn').onclick=()=>{if(over||hinted>=2)return;hinted++;
   $('hints').insertAdjacentHTML('beforeend',hintHTML(hinted));saveDaily(false);render()};
 $('moreBtn').onclick=()=>{if(over)return;extra=EXTRA;showRescue(false);saveDaily(false);render();
-  $('msg').innerHTML='🛟 Bám chắc phao nhé! Còn <b>2</b> lượt cứu nguy';$('ans').focus()};
+  $('msg').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Bám chắc phao nhé! Còn <b>2</b> lượt cứu nguy';$('ans').focus()};
 $('noMoreBtn').onclick=()=>{showRescue(false);finish(false)};
 // chịu thua: bấm 2 lần cho chắc, tránh lỡ tay
-let giveT;function resetGive(){clearTimeout(giveT);$('giveBtn').classList.remove('sure');$('giveBtn').textContent='🏳️ Chịu thua, xem đáp án'}
+let giveT;function resetGive(){clearTimeout(giveT);$('giveBtn').classList.remove('sure');$('giveBtn').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#co></use></svg> Chịu thua, xem đáp án'}
 $('giveBtn').onclick=()=>{if(over)return;const b=$('giveBtn');
   if(!b.classList.contains('sure')){b.classList.add('sure');b.textContent=any(FUN.sure);clearTimeout(giveT);giveT=setTimeout(resetGive,3500);return}
   resetGive();gaveUp=true;finish(false)};
@@ -339,23 +340,23 @@ function finish(win){
   const won=rows.length&&rows[rows.length-1].w===ans.w,saved=won&&rows.length>TRIES;
   setTimeout(()=>{
     $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
-    $('overEyebrow').textContent=won?'答对了！':gaveUp?'🏳️ 白旗':'下次加油！';
+    $('overEyebrow').innerHTML=won?'答对了！':gaveUp?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#co></use></svg> 白旗':'下次加油！';
     const n=rows.length,rk=!won?any(gaveUp?FUN.give:FUN.lose):saved?['好险！','Nhờ phao cứu sinh mới qua!']:n<=2?['神了！','Thần đoán!']:n<=4?['厉害！','Giỏi lắm!']:['好险！','Suýt nữa thì thua!'];
     $('rank').innerHTML='<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1];
     $('ansShow').innerHTML=ans.w+' '+TTS.btn(ans.w)+'<small>'+ans.p+'</small>';
-    $('emoji').textContent=rows.map(r=>score(r).map(s=>({g:'🟩',y:'🟨',x:'⬜'})[s.c]).join('')).join('\n');
+    $('emoji').innerHTML=rows.map(r=>'<div>'+score(r).map(s=>'<i class="sq '+s.c+'"></i>').join('')+'</div>').join('');  // ô màu vẽ bằng CSS (không dùng emoji)
     $('finalInfo').textContent=(won?'Đoán đúng sau '+n+'/6 lượt'+(saved?' (nhờ cứu nguy)':''):n>=maxT()?'Hết '+n+' lượt':(gaveUp?'Giơ cờ trắng sau ':'Dừng sau ')+n+' lượt')+(hinted?' · dùng '+hinted+' gợi ý':'')+' · '+(ans.lv==='7'?'HSK 7–9':'HSK '+ans.lv);
-    $('againBtn').hidden=mode==='daily';$('shareBtn').textContent=won?'🏆 Khoe chiến tích':'😭 Kể khổ với bạn bè';$('freeBtn').hidden=$('tomorrow').hidden=mode!=='daily';
+    $('againBtn').hidden=mode==='daily';$('shareBtn').innerHTML=won?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg> Khoe chiến tích':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat-khoc></use></svg> Kể khổ với bạn bè';$('freeBtn').hidden=$('tomorrow').hidden=mode!=='daily';
     study();TTS.say(ans.w);showStat();
   },already?0:900);
 }
 // ===== chia sẻ: ảnh "lầy" để cầu cứu (đang chơi) hoặc khoe / kể khổ (sau ván). Ảnh không bao giờ lộ đáp án =====
 const URL_GAME='https://lyulaoshi.com/tro-choi/doan-tu/',URL_SHORT='lyulaoshi.com/tro-choi/doan-tu';
 const deLink=()=>URL_GAME+'?de='+QRANH.id(ans.w); // bạn mở link / quét mã là chơi đúng từ này (kể cả khi đã sang ngày khác)
-const THEMES={sos:[['truyna','📜 Truy nã'],['bien','🌊 Sắp chìm'],['tin','📺 Tin nóng']],
-  win:[['cup','🏆 Cúp vàng'],['thach','😏 Thách đấu'],['tin','📺 Tin nóng']],
-  lose:[['khoc','😭 Kể khổ'],['thach','😏 Thách đấu'],['tin','📺 Tin nóng']]};
-const SH_TITLE={sos:'📣 Gọi đồng đội! Chọn kiểu ảnh thật “lầy” rồi gửi đi',win:'🏆 Khoe chiến tích cho cả lớp lác mắt!',lose:'😭 Kể khổ, rủ bạn bè trả thù giúp!'};
+const THEMES={sos:[['truyna','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuon-giay></use></svg> Truy nã'],['bien','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#song></use></svg> Sắp chìm'],['tin','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#tv></use></svg> Tin nóng']],
+  win:[['cup','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg> Cúp vàng'],['thach','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat-nhech></use></svg> Thách đấu'],['tin','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#tv></use></svg> Tin nóng']],
+  lose:[['khoc','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat-khoc></use></svg> Kể khổ'],['thach','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat-nhech></use></svg> Thách đấu'],['tin','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#tv></use></svg> Tin nóng']]};
+const SH_TITLE={sos:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa-to></use></svg> Gọi đồng đội! Chọn kiểu ảnh thật “lầy” rồi gửi đi',win:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg> Khoe chiến tích cho cả lớp lác mắt!',lose:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat-khoc></use></svg> Kể khổ, rủ bạn bè trả thù giúp!'};
 const SOS_TXT=['🆘 Cứu mình với! Kẹt từ này rồi 😭','🆘 SOS! Ai giỏi tiếng Trung vào cứu mình với 🙏','🆘 Bó tay rồi! Bạn đoán ra từ này không? 🤔','🆘 Cao nhân phương nào ra tay tương trợ 🙇'];
 const SQ={g:'🟩',y:'🟨',x:'⬜'};
 let shKind='sos',shTheme='truyna',shBlob=null,shUrl='';
@@ -374,6 +375,11 @@ const RR=(x,y,w,h,r)=>{C.beginPath();C.roundRect?C.roundRect(x,y,w,h,r):C.rect(x
 const TXT=(s,x,y,font,col,align,stroke)=>{C.font=font;
   if(align!=='left'){let px=parseFloat(font.match(/([\d.]+)px/)[1]);while(px>12&&C.measureText(s).width>W-110){px*=.94;C.font=font.replace(/[\d.]+px/,px+'px')}} // tự thu nhỏ cho vừa khung
   C.textAlign=align||'center';C.textBaseline='middle';if(stroke){C.lineJoin='round';C.lineWidth=stroke[1];C.strokeStyle=stroke[0];C.strokeText(s,x,y)}C.fillStyle=col;C.fillText(s,x,y)};
+  // icon tự vẽ trên ảnh (bộ /chung/ic-ve.js): ICO vẽ 1 icon; TI vẽ icon + chữ (icon đứng trước); TI2 đặt icon hai bên chữ
+  const ICO=(n,x,y,s,col)=>{if(window.LLI)LLI.ve(C,n,x,y,s,col)};
+  const TI=(n,s,x,y,font,col,align,stroke,z)=>{C.font=font;const px=parseFloat(font.match(/([\d.]+)px/)[1]);z=z||px*.95;const g=px*.3,w=Math.min(C.measureText(s).width,W-160-z);
+    const x0=align==='left'?x:x-(w+z+g)/2;ICO(n,x0+z/2,y,z,col);TXT(s,x0+z+g,y,font,col,'left',stroke)};
+  const TI2=(n,s,x,y,font,col,stroke,z)=>{TXT(s,x,y,font,col,'center',stroke);const px=parseFloat(C.font.match(/([\d.]+)px/)[1]);z=z||px;const w=C.measureText(s).width;ICO(n,x-w/2-z*.75,y,z,col);ICO(n,x+w/2+z*.75,y,z,col)};
 function wrap(s,x,y,maxW,font,col,lh){C.font=font;const ws=s.split(' '),ls=[];let cur='';ws.forEach(w=>{const t=cur?cur+' '+w:w;if(C.measureText(t).width>maxW&&cur){ls.push(cur);cur=w}else cur=t});ls.push(cur);
   ls.forEach((l,i)=>TXT(l,x,y+i*lh-(ls.length-1)*lh/2,font,col));}
 const COL={g:'#2E9E73',y:'#D9A21B',x:'#9A9CB0'},BG={g:'#DDF1E8',y:'#F8EDD0',x:'#E6E6EE'};
@@ -393,7 +399,7 @@ function squares(cx,y0,h){ // chỉ ô màu, dùng cho ảnh khoe (không lộ c
   rows.forEach((r,i)=>score(r).forEach((sc,j)=>{RR(cx-s-g/2+j*(s+g),Y0+i*(s+g),s,s,s*.18);C.fillStyle=COL[sc.c];C.fill()}));
 }
 const confetti=(n,cols)=>{for(let i=0;i<n;i++){C.save();C.translate(Math.random()*W,Math.random()*H);C.rotate(Math.random()*6.3);C.fillStyle=cols[i%cols.length];C.globalAlpha=.55;C.fillRect(-9,-14,18,28);C.restore()}};
-const footer=(y,col)=>TXT('👉 '+URL_SHORT+' · 吕老师汉语盒',W/2,y,'700 34px '+VI,col);
+const footer=(y,col)=>TI('sau',URL_SHORT+' · 吕老师汉语盒',W/2,y,'700 34px '+VI,col);
 async function draw(){
   const cv=document.createElement('canvas');cv.width=W;cv.height=H;C=cv.getContext('2d');
   KAI=getComputedStyle(document.body).getPropertyValue('--kai');VI=getComputedStyle(document.body).getPropertyValue('--vi');
@@ -408,22 +414,22 @@ async function draw(){
     TXT('？？',W/2,420,'170px '+KAI,'#5A3413');TXT(lvTxt()+' · '+toneTxt(),W/2,530,'700 32px '+VI,'#7A4A1E');
     TXT('Dấu vết để lại:',W/2,615,'italic 700 38px Georgia,serif','#5A3413');
     board(110,640,W-220,470,'rgba(255,250,235,.75)');
-    TXT('💰 TIỀN THƯỞNG: 1 ly trà sữa 🧋',W/2,1150,'900 54px '+VI,'#B3261E');
+    TI('tui-tien','TIỀN THƯỞNG: 1 ly trà sữa',W/2,1150,'900 54px '+VI,'#B3261E');
     TXT((nm?'Ai thấy từ này báo ngay cho '+nm+'!':'Ai thấy từ này báo ngay cho mình!')+(left?' · còn '+left+' lượt':''),W/2,1210,'700 34px '+VI,'#5A3413');
     footer(1256,'#7A4A1E');
   }else if(T==='bien'){ // sắp chìm giữa biển chữ Hán
     const sky=C.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#7FCBF0');sky.addColorStop(.7,'#DDF4FF');C.fillStyle=sky;C.fillRect(0,0,W,H);
-    TXT('☁️',150,110,'110px serif','#fff');TXT('☁️',930,80,'90px serif','#fff');
-    TXT('🆘 CỨU VỚI!!!',W/2,150,'900 120px '+VI,'#fff',null,['#1C4E80',18]);
-    TXT((nm||'Mình')+' sắp chìm trong biển chữ Hán 🌊',W/2,255,'800 42px '+VI,'#1C4E80');
+    ICO('may',150,110,140,'#fff');ICO('may',930,80,110,'#fff');
+    TI('cuu','CỨU VỚI!!!',W/2,150,'900 120px '+VI,'#fff',null,['#1C4E80',18]);
+    TXT((nm||'Mình')+' sắp chìm trong biển chữ Hán',W/2,255,'800 42px '+VI,'#1C4E80');
     board(80,300,W-160,700,'#FFFFFF');
     const wave=(y,col,a)=>{C.beginPath();C.moveTo(0,H);for(let x=0;x<=W;x+=10)C.lineTo(x,y+Math.sin(x/70+a)*18);C.lineTo(W,H);C.closePath();C.fillStyle=col;C.fill()};
-    wave(1050,'#3B87D6',0);TXT('🙋',330,1070,'150px serif','#000');TXT('🛟',780,1080,'120px serif','#000');wave(1100,'#2C6DB3',2);
+    wave(1050,'#3B87D6',0);ICO('gio-tay',330,1050,150,'#fff');ICO('cuu',780,1070,120,'#E0302F');wave(1100,'#2C6DB3',2);
     TXT(left?'Còn '+left+' lượt · ném phao giúp mình với!':'Hết lượt rồi · ném phao gấp!!!',W/2,1200,'900 48px '+VI,'#fff');
     footer(1285,'#DDF4FF');
   }else if(T==='tin'){ // bản tin nóng
     C.fillStyle='#0F1E45';C.fillRect(0,0,W,H);
-    C.fillStyle='#E0302F';C.fillRect(0,60,W,100);TXT('🔴 TIN NÓNG · BREAKING NEWS',60,110,'900 50px '+VI,'#fff','left');
+    C.fillStyle='#E0302F';C.fillRect(0,60,W,100);TI('diem','TIN NÓNG · BREAKING NEWS',60,110,'900 50px '+VI,'#fff','left',null,34);
     RR(W-190,82,130,56,10);C.fillStyle='#fff';C.fill();TXT('LIVE',W-125,111,'900 34px '+VI,'#E0302F');
     const who=nm||'Một học sinh',hl=shKind==='sos'?who+' bó tay trước một từ 2 chữ tiếng Trung!':shKind==='win'?who+' phá đảo 汉兜 chỉ sau '+n+' lượt!':who+' bị một từ 2 chữ hạ gục sau '+n+' lượt!';
     wrap(hl,W/2,290,W-140,'900 68px '+VI,'#fff',84);
@@ -433,35 +439,35 @@ async function draw(){
     TXT(tk,W/2,1205,'800 36px '+VI,'#0F1E45');footer(1295,'#AFC3EE');
   }else if(T==='cup'){ // cúp vàng
     const g=C.createLinearGradient(0,0,0,H);g.addColorStop(0,'#FFE58A');g.addColorStop(1,'#FFB36B');C.fillStyle=g;C.fillRect(0,0,W,H);confetti(90,['#E0545F','#3B87D6','#2E9E73','#7C6BD6','#fff']);
-    TXT('🏆',W/2,200,'200px serif','#000');
-    const rk=rows.length>TRIES?['好险！','Nhờ phao mới qua 😅']:n<=2?['神了！','Thần đoán!']:n<=4?['厉害！','Giỏi lắm!']:['好险！','Suýt nữa thì thua!'];
+    ICO('cup',W/2,200,200,'#C98A0B');
+    const rk=rows.length>TRIES?['好险！','Nhờ phao mới qua']:n<=2?['神了！','Thần đoán!']:n<=4?['厉害！','Giỏi lắm!']:['好险！','Suýt nữa thì thua!'];
     TXT(rk[0],W/2,390,'120px '+KAI,'#8A3B12');TXT((nm?nm+' · ':'')+rk[1],W/2,485,'900 52px '+VI,'#8A3B12');
     TXT('Đoán ra trong '+n+'/6 lượt · '+dayTxt(),W/2,560,'700 36px '+VI,'#8A3B12');
     squares(W/2,610,500);
-    TXT('Bạn dám thử không? 😏',W/2,1180,'900 60px '+VI,'#B3261E');footer(1270,'#8A3B12');
+    TXT('Bạn dám thử không?',W/2,1180,'900 60px '+VI,'#B3261E');footer(1270,'#8A3B12');
   }else if(T==='thach'){ // thách đấu
     const g=C.createLinearGradient(0,0,W,H);g.addColorStop(0,'#7C6BD6');g.addColorStop(1,'#D24E86');C.fillStyle=g;C.fillRect(0,0,W,H);
     C.save();C.globalAlpha=.12;for(let i=0;i<14;i++)TXT('挑战',Math.random()*W,Math.random()*H,'140px '+KAI,'#fff');C.restore();
-    TXT('😏 THÁCH ĐẤU!',W/2,160,'900 110px '+VI,'#fff',null,['#3D2A7A',16]);
+    TI('kiem','THÁCH ĐẤU!',W/2,160,'900 110px '+VI,'#fff',null,['#3D2A7A',16]);
     TXT(won?(nm||'Mình')+' đoán ra trong '+n+'/6 lượt':(nm||'Mình')+' thua rồi… bạn thì sao?',W/2,280,'800 50px '+VI,'#fff');
     RR(290,340,500,720,34);C.fillStyle='rgba(255,255,255,.95)';C.fill();squares(W/2,360,680);
     TXT(won?'Bạn làm được không?':'Bạn giỏi hơn mình không?',W/2,1150,'900 64px '+VI,'#FFE58A',null,['#3D2A7A',12]);footer(1265,'#fff');
   }else{ // khoc: kể khổ dưới mưa
     C.fillStyle='#AFC0D6';C.fillRect(0,0,W,H);C.strokeStyle='rgba(255,255,255,.55)';C.lineWidth=4;
     for(let i=0;i<120;i++){const x=Math.random()*W,y=Math.random()*H;C.beginPath();C.moveTo(x,y);C.lineTo(x-14,y+46);C.stroke()}
-    TXT('🌧️',W/2,120,'120px serif','#000');TXT('😭',W/2,280,'190px serif','#000');
+    ICO('mua',W/2,120,120,'#1F2F4A');ICO('mat-khoc',W/2,280,190,'#1F2F4A');
     TXT('Từ này đã hạ gục '+(nm||'mình')+'!',W/2,440,'900 62px '+VI,'#1F2F4A');
-    TXT(n+' lượt'+(hinted?' · '+hinted+' gợi ý':'')+(gaveUp?' · 🏳️ giơ cờ trắng':'')+' · '+dayTxt(),W/2,515,'700 34px '+VI,'#1F2F4A');
+    TXT(n+' lượt'+(hinted?' · '+hinted+' gợi ý':'')+(gaveUp?' · giơ cờ trắng':'')+' · '+dayTxt(),W/2,515,'700 34px '+VI,'#1F2F4A');
     RR(290,560,500,540,34);C.fillStyle='rgba(255,255,255,.85)';C.fill();squares(W/2,580,500);
-    TXT('Ai trả thù giúp mình với 🥲',W/2,1175,'900 58px '+VI,'#1F2F4A');footer(1270,'#1F2F4A');
+    TXT('Ai trả thù giúp mình với',W/2,1175,'900 58px '+VI,'#1F2F4A');footer(1270,'#1F2F4A');
   }
-  const out=window.QRANH?await QRANH.frame(cv,deLink(),shKind==='sos'?'Vào đoán giúp đúng từ này 🦸':'Thử sức với đúng từ này 😏'):cv; // dải mã QR
+  const out=window.QRANH?await QRANH.frame(cv,deLink(),shKind==='sos'?'Vào đoán giúp đúng từ này':'Thử sức với đúng từ này'):cv; // dải mã QR
   return new Promise(res=>out.toBlob(res,'image/png'));
 }
 async function redraw(){shBlob=await draw();if(shUrl)URL.revokeObjectURL(shUrl);shUrl=URL.createObjectURL(shBlob);$('shImg').src=shUrl;$('shSave').href=shUrl;
-  $('shCopyImg').textContent='🖼️ Chép ảnh';$('shCopyTxt').textContent='📋 Chép lời nhắn'}
+  $('shCopyImg').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#anh></use></svg> Chép ảnh';$('shCopyTxt').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#chep></use></svg> Chép lời nhắn'}
 function openShare(kind){shKind=kind;const th=THEMES[kind];if(!th.some(t=>t[0]===shTheme))shTheme=th[0][0];
-  $('shTitle').textContent=SH_TITLE[kind];$('shName').value=nameOf();
+  $('shTitle').innerHTML=SH_TITLE[kind];$('shName').value=nameOf();
   $('shThemes').innerHTML=th.map(([id,l])=>'<button type="button" class="chip" data-t="'+id+'" aria-pressed="'+(id===shTheme)+'">'+l+'</button>').join('');
   $('shThemes').querySelectorAll('.chip').forEach(c=>c.onclick=()=>{shTheme=c.dataset.t;$('shThemes').querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));redraw()});
   $('shFb').href='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(deLink());
@@ -472,8 +478,8 @@ const closeShare=()=>{$('shModal').hidden=true;document.body.style.overflow=''};
 let nmT;$('shName').addEventListener('input',()=>{try{localStorage.setItem('dt-name',$('shName').value.trim())}catch(e){}clearTimeout(nmT);nmT=setTimeout(redraw,300)});
 $('shSend').onclick=async()=>{if(!shBlob)return;const file=new File([shBlob],'doan-tu-'+shTheme+'.png',{type:'image/png'});
   try{await navigator.share({files:[file],text:shText(),title:'Đoán từ 汉兜'})}catch(e){}};
-$('shCopyImg').onclick=()=>navigator.clipboard.write([new ClipboardItem({'image/png':shBlob})]).then(()=>$('shCopyImg').textContent='✓ Đã chép ảnh',()=>$('shCopyImg').hidden=true);
-$('shCopyTxt').onclick=()=>{const t=shText();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>$('shCopyTxt').textContent='✓ Đã chép',()=>prompt('Chép đoạn này:',t))};
+$('shCopyImg').onclick=()=>navigator.clipboard.write([new ClipboardItem({'image/png':shBlob})]).then(()=>$('shCopyImg').innerHTML='<svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg#tick></use></svg> Đã chép ảnh',()=>$('shCopyImg').hidden=true);
+$('shCopyTxt').onclick=()=>{const t=shText();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>$('shCopyTxt').innerHTML='<svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg#tick></use></svg> Đã chép',()=>prompt('Chép đoạn này:',t))};
 $('shClose').onclick=closeShare;$('shModal').addEventListener('click',e=>{if(e.target===$('shModal'))closeShare()});
 addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('shModal').hidden)closeShare()});
 $('sosBtn').onclick=()=>{if(!over&&rows.length)openShare('sos')};

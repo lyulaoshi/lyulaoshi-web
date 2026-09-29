@@ -7,7 +7,7 @@
 <meta name="description" content="Trò chơi Nối từ (词语接龙): từ sau phải bắt đầu bằng chữ cuối của từ trước. Luyện từ vựng HSK 1–6.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
-<link rel="stylesheet" href="../game.css?v=3">
+<link rel="stylesheet" href="../game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 [hidden]{display:none!important}
@@ -76,7 +76,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap">
@@ -89,8 +89,8 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="chips" id="lvChips"></div>
       <h2>2. Chế độ</h2>
       <div class="chips" id="modeChips">
-        <button class="chip" type="button" data-mode="pick" aria-pressed="true">🔗 Chọn từ nối<small>chọn 1 trong 4 từ, 10 giây mỗi lượt</small></button>
-        <button class="chip" type="button" data-mode="type" aria-pressed="false">⌨️ Tự nối<small>khó: tự nghĩ từ, gõ pinyin, 20 giây mỗi lượt</small></button>
+        <button class="chip" type="button" data-mode="pick" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#link></use></svg> Chọn từ nối<small>chọn 1 trong 4 từ, 10 giây mỗi lượt</small></button>
+        <button class="chip" type="button" data-mode="type" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#ban-phim></use></svg> Tự nối<small>khó: tự nghĩ từ, gõ pinyin, 20 giây mỗi lượt</small></button>
       </div>
       <ul class="how">
         <li><b>Chọn từ nối:</b> trong 4 từ chỉ có 1 từ nối đúng. Cẩn thận các từ “bẫy” bắt đầu bằng chữ <b>đồng âm</b> (师 / 诗 / 时) hoặc chữ <b>trông giống</b>!</li>
@@ -98,7 +98,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
         <li>Chọn sai hoặc hết giờ là <b>đứt chuỗi</b>, ván kết thúc. Mỗi từ chỉ được dùng một lần.</li>
         <li>Chơi <b>Tự nối</b> thì dùng bộ gõ tiếng Trung hoặc bàn phím tiếng Anh. Đừng dùng bộ gõ tiếng Việt (Telex, VNI), vì pinyin sẽ bị biến thành chữ có dấu.</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu ▶</button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -108,7 +108,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <span>Điểm <b id="score">0</b></span>
       <span id="hintLeft"></span>
       <span class="sp"></span>
-      <button type="button" id="quitBtn">✕ Dừng</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg> Dừng</button>
     </div>
     <div class="timer"><i id="timer"></i></div>
     <div class="chain" id="chain" aria-label="Chuỗi đã nối"></div>
@@ -117,7 +117,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <form class="typer" id="typer" autocomplete="off" hidden>
       <input id="ans" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="gõ chữ Hán hoặc pinyin không dấu, rồi Enter…" aria-label="Gõ pinyin từ nối tiếp">
       <button class="btn pri" type="submit">Nối</button>
-      <button class="btn sec" type="button" id="hintBtn">💡</button>
+      <button class="btn sec" type="button" id="hintBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#den></use></svg></button>
     </form>
     <div class="fb" id="fb" aria-live="polite"></div>
   </section>
@@ -129,22 +129,22 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
       <div class="missBox" id="missBox"></div>
       <div><h2>Chuỗi em đã nối</h2><ul class="review" id="review"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại ↻</button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
     </div>
   </section>
 </main>
 
-<footer class="wrap">Từ vựng và pinyin theo 《国际中文教育中文水平等级标准》(GF 0025—2021) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+<footer class="wrap">Từ vựng và pinyin theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../hsk-words.js"></script>
-<script src="../tts.js?v=1"></script>
-<script src="../vui.js?v=3"></script>
+<script src="../tts.js?v=2"></script>
+<script src="../vui.js?v=4"></script>
 <script src="../nhom-chu.js?v=1"></script>
 <script src="../hsk79-words.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -185,7 +185,7 @@ function start(){
   const inLv=x=>+x.lv<=+upTo,starts=shuffle(POOL.filter(x=>alive2(x)&&x.lv===upTo)).concat(shuffle(POOL.filter(x=>alive2(x)&&inLv(x))));
   setWord(starts[0]);
   $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);
-  $('opts').hidden=mode!=='pick';$('typer').hidden=mode!=='type';$('hintLeft').textContent=mode==='type'?'💡 '+hints:'';
+  $('opts').hidden=mode!=='pick';$('typer').hidden=mode!=='type';$('hintLeft').innerHTML=mode==='type'?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#den></use></svg> '+hints:'';
   turn();
 }
 function setWord(x){curW=x;used.add(x.w);chain.push(x)}
@@ -248,7 +248,7 @@ function tryType(){
 }
 let composing=false;$('ans').addEventListener('compositionstart',()=>composing=true);$('ans').addEventListener('compositionend',()=>setTimeout(()=>composing=false,0));
 $('typer').addEventListener('submit',e=>{e.preventDefault();if(!locked&&!composing)tryType()});
-$('hintBtn').onclick=()=>{if(locked||hints<=0)return;hints--;$('hintLeft').textContent='💡 '+hints;
+$('hintBtn').onclick=()=>{if(locked||hints<=0)return;hints--;$('hintLeft').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#den></use></svg> '+hints;
   const nx=nextsOf(curW),mine=nx.filter(z=>+z.lv<=+upTo),y=shuffle(mine.filter(alive2))[0]||shuffle(mine)[0]||shuffle(nx)[0];
   $('fb').innerHTML='<span class="note">Gợi ý: <span class="zh" lang="zh">'+y.w+'</span> ('+y.p.replace(/(\S)\S*/g,(m,a)=>a+'…')+')</span>';$('ans').focus()};
 $('quitBtn').onclick=()=>{if(alive){clearInterval(timerId);missed=null;end('quit')}};

@@ -46,6 +46,19 @@ practice:[
  {t:"C. Đổi sang phủ định", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {ask:"Phủ định", q:"他吃早饭了。", vi:"Anh ấy ăn sáng rồi.", a:"他没吃早饭。"},
   {ask:"Phủ định", q:"雨小了。", vi:"Mưa nhỏ rồi.", a:"雨没小。"},
-  {ask:"Hỏi", q:"你吃饭了。", vi:"Bạn ăn cơm rồi.", a:"你吃饭了吗？/ 你吃饭了没有？"}]}],
+  {ask:"Hỏi", q:"你吃饭了。", vi:"Bạn ăn cơm rồi.", a:"你吃饭了吗？/ 你吃饭了没有？"}]},
+ {t:"D. Đúng hay sai?", sub:"câu này đúng hay sai — sai thì sửa thế nào?", type:"choice", items:[
+  {q:"天冷了。", vi:"Trời lạnh rồi.", o:["Đúng","Sai"], a:0, why:"Tính từ + 了: có thay đổi."},
+  {q:"我没吃饭了。", vi:"Tôi chưa ăn cơm.", o:["Đúng","Sai"], a:1, why:"没 không đi với 了 cuối câu: 我没吃饭。"},
+  {q:"他十八岁了。", vi:"Cậu ấy mười tám tuổi rồi.", o:["Đúng","Sai"], a:0, why:"Số tuổi + 了: đã đạt tới."},
+  {q:"我明天不去学校了。", vi:"Mai tôi không đến trường nữa.", o:["Đúng","Sai"], a:0, why:"不……了: thay đổi dự định."}]},
+ {t:"E. Chọn câu đúng nghĩa", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Tôi không hút thuốc nữa (trước kia có hút).", o:["我不抽烟。", "我不抽烟了。"], a:1, why:"“nữa” (thay đổi) → 不……了."},
+  {q:"Tôi không hút thuốc (xưa nay vẫn thế).", o:["我不抽烟。", "我不抽烟了。"], a:0, why:"Không có thay đổi → không dùng 了."},
+  {q:"Anh ấy là sinh viên rồi (trước kia chưa phải).", o:["他是大学生。", "他是大学生了。"], a:1, why:"Trạng thái mới → 了."}]},
+ {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
+  {q:"Tôi biết lái xe rồi.", a:"我会开车了。"},
+  {q:"Cô ấy không đến nữa.", a:"她不来了。"},
+  {q:"Bây giờ 9 giờ rồi.", a:"现在九点了。"}]}],
 rel:["一22","一41","一21","二81"]
 };
