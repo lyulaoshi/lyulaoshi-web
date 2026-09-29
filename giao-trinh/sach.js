@@ -16,7 +16,7 @@ window.GT_SACH=[
  {id:"ledu",c:"c-sky",seal:"乐",dim:[62,214],spine:"乐读 1",zh:"乐读 1",vi:"Giáo trình môn đọc hiểu tiếng Trung 1",short:"乐读",total:10,
   t:{1:["横、竖、撇、捺、点、提","Các nét cơ bản"],2:["一二三，三二一，一二三四五六七","Chữ số"],3:["象形字","Chữ tượng hình"],4:["木上末，木下本","Chữ chỉ sự · từ về thời gian"],5:["二人土上坐，一月日边明","Chữ hội ý"]}},
  {id:"yuedu",c:"c-mint",seal:"阅",dim:[72,246],spine:"汉语阅读教程",zh:"汉语阅读教程",vi:"Giáo trình Đọc hiểu Hán ngữ Tập 1",short:"阅读教程",from:16,total:25,   // học phần dạy Bài 16–25
-  t:{19:["","Chọn quần áo"],20:["","Sinh nhật · 12 con giáp"]}},
+  t:{}},   // mục lục chỉ ghi 第N课 (cô bỏ tên tiếng Việt 29/09/2026)
  {id:"boya",c:"c-lav",seal:"博",dim:[68,226],spine:"博雅汉语",zh:"博雅汉语",vi:"Giáo trình BOYA sơ cấp 1",short:"博雅",total:10,   // sách 30 bài, học phần dạy 10 bài đầu
   t:{1:["你好","Chào hỏi · hỏi tên"],2:["你是哪国人","Bạn là người nước nào?"],3:["那是你的书吗","Kia là sách của bạn à?"],4:["图书馆在哪儿","Thư viện ở đâu?"],5:["在北京大学的东边","Ở phía đông của Đại học Bắc Kinh"]}},
  {id:"301",c:"c-peach",seal:"会",dim:[76,256],spine:"汉语会话301句",zh:"汉语会话301句",vi:"Giáo trình 301 câu đàm thoại tiếng Hoa",short:"301 câu",from:11,total:20,   // học phần dạy Bài 11–20 + 2 bài ôn (như sách: 复习 sau mỗi 5 bài)

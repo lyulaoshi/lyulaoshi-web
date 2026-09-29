@@ -6,9 +6,10 @@ const H=window.HSK_NP||{}, BAI=window.NP_BAI||[], READY=window.NP_READY||{}, BOO
 // Cấp hiển thị = cấp theo ĐỀ CƯƠNG THI HSK MỚI 2025 (NP_LV25); mã bài 【三54】 vẫn theo danh mục 2021
 const N25=window.HSK_NP25||{}, LV25=(window.NP_LV25||{})[L.code];
 const CN="一二三四五六七八九", lv21=L.code?CN.indexOf(L.code[0])+1:0, lv=LV25&&LV25!=="?"?+LV25:lv21;
-const lvTxt=LV25==="?"?"ngoài đề cương mới":"HSK "+lv, lvHash=LV25&&(LV25==="?"||+LV25>3)?"khac":lv;
+const THEM=(window.NP_THEM||{})[L.code];   // bài đề cương 2025 không ghi → xếp bổ sung ở cấp gần nhất
+const lvTxt=LV25==="?"?(THEM?"HSK "+THEM+" · bổ sung":"ngoài đề cương mới"):"HSK "+lv, lvHash=LV25==="?"?(THEM||"all"):lv;
 const P25=[];Object.keys(N25).forEach(k=>N25[k].ds.forEach(d=>{if(d[4].includes(L.code))P25.push(d)}));  // các điểm đề cương mới có bài này
-const LC=(window.NP_LVCOLOR||{})[lv>6?"7":lv]; if(LC)document.documentElement.style.cssText=`--c:var(--${LC});--cs:var(--${LC}-s)`;
+const LC=(window.NP_LVCOLOR||{})[THEM&&LV25==="?"?THEM:(lv>6?"7":lv)]; if(LC)document.documentElement.style.cssText=`--c:var(--${LC});--cs:var(--${LC}-s)`;
 const GLY=(window.NP_GLYPH||{})[L.code];
 const OFF={}; Object.values(H).forEach(x=>x.ds.forEach(d=>OFF[d[0]]=d));
 Object.values(N25).forEach(x=>x.ds.forEach(d=>OFF["新"+d[0]]=["新"+d[0],d[2],d[1],d[3]]));   // bài chỉ có trong đề cương 2025
@@ -40,7 +41,7 @@ let html=`<div class="np-bar"><nav class="np-crumb"><a href="../"><span class="z
  <div class="np-tools" role="group" aria-label="Hiện hoặc ẩn pinyin, nghĩa"><span class="lb">Hiện</span><button class="tg" id="pyBtn" type="button" aria-pressed="true" title="Bật / tắt pinyin dưới câu ví dụ">Pinyin</button><button class="tg" id="viBtn" type="button" aria-pressed="true" title="Bật / tắt nghĩa tiếng Việt dưới câu ví dụ">Nghĩa</button></div>`;
 html+=`<section class="sec cover" id="m0"><div>${GLY?`<div class="gly n${Math.min(Array.from(GLY).length,4)}" aria-hidden="true">${esc(GLY)}</div>`:""}<div class="code"><b>${esc(lvTxt)}</b><span class="zh">${esc(L.tag||off[2])}</span> · 【${esc(L.code)}】</div>
   <h1>${esc(L.title).replace(/(“|”)/g,'<span class="qm">$1</span>')}</h1><div class="vi">${esc(L.vi)}</div>
-  <p class="d25">${P25.length?`Đề thi HSK mới: ${P25.map(d=>`<a href="../#hsk-${d[0].split(".")[0]}"><b>HSK ${d[0]}</b> ${esc(d[3].split(" — ")[0])}</a>`).join(" · ")}`:`Đề thi HSK mới (2025): ${LV25==="?"?"đề cương không ghi điểm này":"thuộc HSK "+esc(LV25)+" — chưa yêu cầu ở HSK 1–3"}`}</p></div>
+  <p class="d25">${P25.length?`Đề thi HSK mới: ${P25.map(d=>`<a href="../#hsk-${d[0].split(".")[0]}"><b>HSK ${d[0]}</b> ${esc(d[3].split(" — ")[0])}</a>`).join(" · ")}`:`Đề thi HSK mới (2025): ${LV25==="?"?"đề cương không ghi điểm này"+(THEM?" — xếp bổ sung ở HSK "+THEM:""):"thuộc HSK "+esc(LV25)}`}</p></div>
   <div class="goal"><h3>Mục tiêu</h3><ul>${(L.goals||[]).map(g=>`<li>${g}</li>`).join('')}</ul></div></section>`;
 
 if(L.rules) html+=sec("lav","语法规则","Công thức & cách dùng",(L.intro?`<p>${L.intro}</p>`:"")+L.rules.map((r,i)=>`<div class="rule"><h3>${L.rules.length>1?`<span style="color:var(--sc)">${i+1}.</span>`:""}${esc(r.t)}${r.sub?`<small>${esc(r.sub)}</small>`:""}</h3>
