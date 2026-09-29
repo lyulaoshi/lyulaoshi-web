@@ -15,6 +15,7 @@ rules:[
   ex:[["我家有四[口]人。","Wǒ jiā yǒu sì kǒu rén.","Nhà tôi có bốn người."],
       ["请看第十[页]。","Qǐng kàn dì shí yè.","Mời xem trang 10."]]}],
 notes:[
+ {t:"Học mà chơi", html:"Bài tổng hợp mọi lượng từ HSK 1–3 theo hình dạng, kèm 2 trò chơi Xếp hàng vào hộp và Tiệm tạp hoá: <a href='/ngu-phap/luong-tu/'>Lượng từ 量词 →</a>"},
  {t:"口 chỉ dùng khi đếm người trong nhà", html:"<span class='zh'>你家有几口人？</span> Còn đếm người nói chung dùng <span class='zh'>个</span>: <span class='zh'>教室里有二十个人。</span>"}],
 cmp:[
  {vn:"ba quyển sách", zh:"三[本]书", py:"sān běn shū", ok:true, why:"Giống tiếng Việt: số + loại từ + danh từ."},

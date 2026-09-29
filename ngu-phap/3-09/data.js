@@ -12,6 +12,8 @@ rules:[
       ["一[群]学生　两[束]花　一[双]球鞋","yì qún xuésheng　liǎng shù huā　yì shuāng qiúxié","một nhóm học sinh　hai bó hoa　một đôi giày thể thao","等级标准"],
       ["两[台]电脑　一[张]桌子　一[支]笔","liǎng tái diànnǎo　yì zhāng zhuōzi　yì zhī bǐ","hai cái máy tính　một cái bàn　một cây bút","等级标准"],
       ["三[只]鸡　两[种]颜色","sān zhī jī　liǎng zhǒng yánsè","ba con gà　hai màu","等级标准"]]}],
+notes:[
+ {t:"Học mà chơi", html:"Bài tổng hợp mọi lượng từ HSK 1–3 theo hình dạng, kèm 2 trò chơi Xếp hàng vào hộp và Tiệm tạp hoá: <a href='/ngu-phap/luong-tu/'>Lượng từ 量词 →</a>"}],
 cmp:[
  {vn:"một vé", zh:"一[张]票", py:"yì zhāng piào", ok:true, why:"Tiếng Việt “một cái vé”; vé là vật phẳng → 张."},
  {vn:"một đôi đũa", zh:"一[双]筷子", py:"yì shuāng kuàizi", ok:true, why:"“đôi” = 双."}],

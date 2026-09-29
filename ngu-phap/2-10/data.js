@@ -11,6 +11,7 @@ rules:[
   ex:[["两[层]楼　一[封]信　一[件]衣服","liǎng céng lóu　yì fēng xìn　yí jiàn yīfu","nhà hai tầng　một bức thư　một chiếc áo","等级标准"],
       ["一[条]河　一[位]老师","yì tiáo hé　yí wèi lǎoshī","một con sông　một vị giáo viên","等级标准"]]}],
 notes:[
+ {t:"Học mà chơi", html:"Bài tổng hợp mọi lượng từ HSK 1–3 theo hình dạng, kèm 2 trò chơi Xếp hàng vào hộp và Tiệm tạp hoá: <a href='/ngu-phap/luong-tu/'>Lượng từ 量词 →</a>"},
  {t:"件 cho “việc”", html:"<span class='zh'>一件事</span> = một việc, một chuyện."},
  {t:"位 lịch sự", html:"<span class='zh'>几位？</span> (Mấy vị ạ? — nhân viên nhà hàng hỏi khách). Không dùng 位 cho bản thân."}],
 cmp:[

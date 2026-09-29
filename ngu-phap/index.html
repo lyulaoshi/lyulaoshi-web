@@ -22,6 +22,16 @@
 .stat b{display:block;font-size:30px;font-weight:800;line-height:1;color:var(--c)}
 .stat span{font-size:12.5px;color:var(--muted)}
 
+/* Chuyên đề */
+.cdz-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:12px;margin-top:14px}
+.lvtab.cdtab{--c:var(--coral);--cs:var(--coral-s)}
+.cdz-c{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:22px;background:linear-gradient(120deg,var(--cs),var(--card) 70%);box-shadow:var(--shadow);text-decoration:none;color:var(--ink);border:2px solid transparent;transition:transform .15s,border-color .15s}
+.cdz-c:hover,.cdz-c:focus-visible{transform:translateY(-2px);border-color:var(--c)}
+.cdz-g{flex:none;width:76px;height:76px;border-radius:20px;background:var(--c);color:#fff;display:grid;place-items:center;font-family:var(--hz);font-size:30px;transform:rotate(-4deg)}
+.cdz-b{display:grid;gap:2px;min-width:0}.cdz-b b{font-size:18px}.cdz-b span{font-size:14px;color:var(--muted)}
+.cdz-t i{font-style:normal;font-weight:700;color:var(--peach)}
+.cdz-go{margin-left:auto;font-weight:800;color:var(--c);white-space:nowrap}
+@media (max-width:560px){.cdz-c{flex-wrap:wrap}.cdz-go{margin-left:0}}
 /* Thanh chọn */
 .tools{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--ground) 88%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:14px 0 10px;margin-top:10px}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
@@ -178,6 +188,9 @@ const OFF={}; Object.values(H).forEach(L=>L.ds.forEach(d=>OFF[d[0]]=d));
 Object.values(N).forEach(L=>L.ds.forEach(d=>OFF["新"+d[0]]=["新"+d[0],d[2],d[1],d[3]]));   // bài chỉ có trong đề cương 2025
 const byCode={}; BAI.forEach(p=>p.h.forEach(c=>(byCode[c]=byCode[c]||[]).push(p)));
 const S={view:"hsk",lv:"1",q:""};
+// Chuyên đề 专题: bài tổng hợp nhiều cấp, học như chơi (thư mục tên chữ). Thêm chuyên đề mới vào đây.
+const CDZ=[{href:"luong-tu/",g:"量词",vi:"Lượng từ",zh:"量词",lv:"HSK 1–3",d:"33 lượng từ theo hình dạng · máy ghép cụm số lượng · cặp dễ nhầm · lỗi người Việt · thử tài 10 câu",
+  games:"Kèm 2 trò: Xếp hàng vào hộp · Tiệm tạp hoá",codes:["一08","二10","三09","二11","三11"]}];
 const GL=window.NP_GLYPH||{}, HARD=new Set(window.NP_HARD||[]);
 const lvVars=k=>{const n=(window.NP_LVCOLOR||{})[k]||"teal";return `--c:var(--${n});--cs:var(--${n}-s)`};
 const LVS=["1","2","3","4","5"], THEM=window.NP_THEM||{};
@@ -186,8 +199,8 @@ const lvName=c=>{const v=LV25[c];return v==="?"?((window.NP_THEM||{})[c]?"HSK "+
 const inNew=new Set(Object.keys(THEM)); LVS.forEach(k=>(N[k]?.ds||[]).forEach(d=>d[4].forEach(c=>inNew.add(c))));
 const OTHER=Object.keys(OFF).filter(c=>READY[c]&&!inNew.has(c));
 try{Object.assign(S,JSON.parse(sessionStorage.getItem('np-state3')||'{}'))}catch(e){}
-function readHash(){const h=decodeURIComponent(location.hash.slice(1));let m=h.match(/^hsk-?(\d|all|khac)$/);if(m){S.view="hsk";S.lv=m[1]}if(/^bai/.test(h))S.view="bai"}
-readHash(); if(!["all","khac"].includes(S.lv)&&!N[S.lv])S.lv="1";
+function readHash(){const h=decodeURIComponent(location.hash.slice(1));let m=h.match(/^hsk-?(\d|all|khac)$/);if(h==='chuyen-de'){S.view="hsk";S.lv="cd"}if(m){S.view="hsk";S.lv=m[1]}if(/^bai/.test(h))S.view="bai"}
+readHash(); if(!["all","khac","cd"].includes(S.lv)&&!N[S.lv])S.lv="1";
 function norm(s){return String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d')}
 function hit(...xs){if(!S.q)return true;const q=norm(S.q);return xs.some(x=>norm(x).includes(q))}
 function hl(t){t=esc(t);if(!S.q)return t;const q=esc(S.q).replace(/[.*+?^${}()|[\]\\]/g,'\\$&');return t.replace(new RegExp(q,'gi'),'<mark>$&</mark>')}
@@ -201,7 +214,8 @@ $('stat').innerHTML=`<div><b>${Object.keys(READY).length}</b><span>bài giảng<
 function buildRows(){
   $('lvRow').innerHTML=`<button class="tab lvtab all" type="button" data-lv="all" aria-pressed="${S.lv==='all'}">Tất cả <small>${all}</small></button>`
     +LVS.map(k=>`<button class="tab lvtab" type="button" data-lv="${k}" style="${lvVars(k)}" aria-pressed="${S.lv==k}">HSK ${k} <small>${N[k].ds.length}</small></button>`).join('')
-    +(OTHER.length?`<button class="tab lvtab" type="button" data-lv="khac" aria-pressed="${S.lv==='khac'}">Khác <small>${OTHER.length}</small></button>`:"");
+    +(OTHER.length?`<button class="tab lvtab" type="button" data-lv="khac" aria-pressed="${S.lv==='khac'}">Khác <small>${OTHER.length}</small></button>`:"")
+    +`<button class="tab lvtab cdtab" type="button" data-lv="cd" aria-pressed="${S.lv==='cd'}">Chuyên đề <small>${CDZ.length}</small></button>`;
   $('lvRow').hidden=S.view!=="hsk";
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===S.view));
 }
@@ -219,8 +233,9 @@ function card(d,lv){ // d = [mã 2025, nhóm, nội dung, tên Việt, [bài]]
              :`<div class="pc soon">${inner}${chips}</div>`;
 }
 function renderHSK(){
-  if(S.lv==="all")return LVS.map(renderLv).join('')+renderOther();
+  if(S.lv==="all")return LVS.map(renderLv).join('')+renderOther()+renderCD();
   if(S.lv==="khac")return renderOther();
+  if(S.lv==="cd")return renderCD();
   return renderLv(S.lv);
 }
 function renderLv(lv){
@@ -239,6 +254,12 @@ function renderLv(lv){
 }
 function cardO(c){const o=OFF[c]||[c,c,"",""],g=GL[c]||"",gn=Array.from(g).length;
     return `<div class="pc ready" style="cursor:pointer"><a href="${READY[c]}/" style="position:absolute;inset:0;border-radius:20px" aria-label="Học ${esc(o[3]||o[1])}"></a><div class="gl${gn>1?" n"+Math.min(gn,4):""}" aria-hidden="true">${esc(g)}</div><div class="bd"><div class="cd"><b>${esc(lvName(c))}</b><span class="st ok">Bài giảng</span></div>${HARD.has(c)?`<span class="hd"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#sao"/></svg> Luyện thêm</span>`:""}<div class="vn">${hl(o[3]||"")}</div><div class="nm">${hl(o[1].split("：")[0])}</div></div></div>`}
+function renderCD(){
+  const cs=CDZ.filter(c=>hit(c.vi,c.zh,c.d,c.games,...c.codes));
+  if(!cs.length)return "";
+  return `<section class="lvl" id="chuyen-de" style="--c:var(--coral);--cs:var(--coral-s)"><div class="lvl-h"><div><h2>Chuyên đề<span class="zh">专题</span></h2><p>Gom một mảng ngữ pháp của nhiều cấp vào một bài, học như chơi</p></div></div>
+    <div class="cdz-list">${cs.map(c=>`<a class="cdz-c" href="${c.href}"><span class="cdz-g">${esc(c.g)}</span><span class="cdz-b"><b>${hl(c.vi)} <small style="font-weight:700;color:var(--c)">${esc(c.lv)}</small></b><span>${hl(c.d)}</span><span class="cdz-t"><i>${esc(c.games)}</i></span></span><span class="cdz-go">Vào học →</span></a>`).join('')}</div></section>`;
+}
 function renderOther(){ // bài đã soạn nhưng chưa xếp vào cấp nào (bình thường không còn)
   const cs=OTHER.filter(c=>hit(c,(OFF[c]||[])[1]||"",(OFF[c]||[])[3]||""));
   if(!cs.length)return "";
@@ -261,7 +282,7 @@ function renderBai(){
   return html;
 }
 function render(){
-  document.documentElement.style.cssText=S.view==="hsk"&&LVS.includes(S.lv)?lvVars(S.lv):"";
+  document.documentElement.style.cssText=S.view!=="hsk"?"":LVS.includes(S.lv)?lvVars(S.lv):S.lv==="cd"?"--c:var(--coral);--cs:var(--coral-s)":"";
   buildRows();
   const html=S.view==="hsk"?renderHSK():renderBai();
   $('out').innerHTML=html||`<div class="empty">Không tìm thấy điểm ngữ pháp nào${S.q?` với “${esc(S.q)}”`:""}.</div>`;

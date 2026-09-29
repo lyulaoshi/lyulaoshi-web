@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tiệm tạp hoá 小卖部 – Trò chơi 吕老师汉语盒</title>
+<meta name="description" content="Trò chơi lượng từ tiếng Trung: khách gọi hàng, ghép số + lượng từ + danh từ (两杯咖啡, 这把伞…) cho đúng rồi đưa hàng trước khi khách hết kiên nhẫn. HSK 1–3 đề cương 2025.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+[hidden]{display:none!important}
+.screen{padding:26px 0}
+.eyebrow{font-family:var(--hz);color:var(--peach);font-size:22px}
+h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4px}
+.lead{color:var(--muted);max-width:40em;margin:10px 0 0}
+.panel{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:20px;margin-top:20px;display:grid;gap:14px}
+.panel h2{font-size:16px;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--ground);color:var(--ink);font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;text-align:left}
+.chip[aria-pressed="true"]{border-color:var(--peach);background:var(--peach-s);color:var(--peach)}
+.chip small{font-weight:400;color:var(--muted);margin-left:4px}
+.how{margin:0;padding-left:20px;color:var(--muted);font-size:14.5px}
+.how b{color:var(--ink)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.muted{color:var(--muted);font-size:14px}
+.learn{font-size:14.5px;color:var(--muted)}.learn a{color:var(--peach);font-weight:700}
+/* chơi */
+#play{padding:12px 0 20px}
+.hud{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700;font-size:15px}
+.hud b{font-size:20px;font-variant-numeric:tabular-nums}
+.hud .money{color:var(--butter)}
+.hud .hearts{color:var(--coral);font-size:20px}
+.hud .sp{margin-left:auto}
+.hud button{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer}
+.shop{position:relative;margin-top:12px;border-radius:24px;overflow:hidden;background:linear-gradient(180deg,#FFF3E4 0%,#FDEBDD 100%);min-height:230px;display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 14px;align-items:end;padding:44px 16px 0}
+:root[data-theme="dark"] .shop{background:linear-gradient(180deg,#3A3140 0%,#40301F 100%)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .shop{background:linear-gradient(180deg,#3A3140 0%,#40301F 100%)}}
+.awning{position:absolute;left:0;right:0;top:0;height:34px;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='40'><rect width='40' height='20' fill='%23E7823A'/><rect x='40' width='40' height='20' fill='%23FFF8F0'/><circle cx='20' cy='20' r='20' fill='%23E7823A'/><circle cx='60' cy='20' r='20' fill='%23FFF8F0'/></svg>") repeat-x 0 -6px/80px 40px;filter:drop-shadow(0 3px 2px rgba(0,0,0,.12))}
+.shelf{position:absolute;right:14px;top:40px;width:180px;opacity:.55;pointer-events:none}
+.cust{position:relative;width:150px;height:180px;align-self:end}
+.cust svg{width:100%;height:100%;display:block;overflow:visible}
+.cust.enter{animation:enter .5s ease-out}
+.cust.leave{animation:leave .5s ease-in forwards}
+@keyframes enter{from{transform:translateX(-120%);opacity:0}}
+@keyframes leave{to{transform:translateX(-140%);opacity:0}}
+.bubble{position:relative;align-self:center;background:var(--card);border-radius:20px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:26px;max-width:520px}
+.bubble::before{content:"";position:absolute;left:-10px;bottom:22px;border:10px solid transparent;border-right-color:var(--card);border-left:0}
+.bubble .say{font-size:clamp(18px,2.6vw,22px);font-weight:700;line-height:1.35}
+.bubble .say .zh{font-family:var(--kai);font-weight:400;font-size:1.25em}
+.bubble .sub{font-size:13.5px;color:var(--muted);margin-top:4px;display:flex;align-items:center;gap:8px}
+.bubble .spk{width:40px;height:40px}
+.pat{height:8px;border-radius:99px;background:var(--ground2);margin-top:10px;overflow:hidden}
+.pat i{display:block;height:100%;width:100%;background:var(--mint);transform-origin:left;border-radius:99px}
+.pat.mid i{background:var(--butter)}.pat.low i{background:var(--coral)}
+.counter{height:22px;grid-column:1/-1;margin:0 -16px;background:linear-gradient(#C98A4B,#B07435);box-shadow:0 -3px 0 #E2AC70 inset}
+.tray{display:flex;justify-content:center;align-items:stretch;gap:8px;margin-top:14px;flex-wrap:wrap}
+.slot{min-width:84px;min-height:84px;border-radius:18px;border:3px dashed var(--line);background:var(--card);display:grid;place-items:center;align-content:center;padding:4px 10px;cursor:pointer;font:inherit;color:var(--ink)}
+.slot .zh{font-family:var(--kai);font-size:40px;line-height:1.1}
+.slot .zh.s{font-size:30px}
+.slot small{font-size:11.5px;font-weight:700;color:var(--muted)}
+.slot.full{border-style:solid;border-color:var(--c)}
+.slot.s0{--c:var(--sky)}.slot.s1{--c:var(--teal)}.slot.s2{--c:var(--peach)}
+.slot.full.pop{animation:pop .3s}
+@keyframes pop{50%{transform:scale(1.12)}}
+.give{align-self:center}
+.give:disabled{opacity:.45;cursor:not-allowed}
+.rows{display:grid;gap:10px;margin-top:14px}
+.row{display:grid;grid-template-columns:78px 1fr;gap:10px;align-items:center}
+.row>b{font-size:13.5px;color:var(--muted);text-align:right}
+.tiles{display:flex;flex-wrap:wrap;gap:8px}
+.tile{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:14px;padding:4px 12px;cursor:pointer;font:inherit;display:grid;justify-items:center;line-height:1.15;min-width:58px;box-shadow:0 2px 0 var(--line)}
+.tile .zh{font-family:var(--kai);font-size:28px}
+.tile small{font-size:11.5px;color:var(--muted);font-weight:600}
+.tile[aria-pressed="true"]{border-color:var(--c);background:color-mix(in srgb,var(--c) 14%,var(--card))}
+.r0 .tile{--c:var(--sky)}.r1 .tile{--c:var(--teal)}.r2 .tile{--c:var(--peach)}
+.msg{min-height:56px;text-align:center;font-weight:700;margin-top:12px}
+.msg .ok{color:var(--mint)}.msg .bad{color:var(--coral)}
+.msg .zh{font-family:var(--kai);font-size:22px;font-weight:400}
+.msg .tip{display:block;font-weight:500;font-size:14px;color:var(--muted)}
+.coin{position:absolute;font-weight:800;color:#B7860B;font-size:22px;pointer-events:none;animation:up 1s ease-out forwards;z-index:4}
+@keyframes up{to{transform:translateY(-60px);opacity:0}}
+.paused{position:absolute;inset:0;display:grid;place-items:center;background:rgba(255,255,255,.65);font-weight:800;font-size:20px;color:#2B2E45;z-index:10}
+/* kết thúc */
+.big{font-size:56px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.rank{font-weight:800;font-size:20px;color:var(--peach)}
+.rank .zh{font-family:var(--hz);font-weight:400;font-size:24px;margin-right:8px}
+.review{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.review li{background:var(--ground);border-radius:12px;padding:8px 12px;display:grid}
+.review .zh{font-family:var(--kai);font-size:24px;line-height:1.2}
+.review .py{color:var(--peach);font-weight:700;font-size:13.5px}
+.review .no{color:var(--coral);font-size:13px}
+@media (max-width:640px){.shop{grid-template-columns:96px minmax(0,1fr);padding-top:40px}.cust{width:96px;height:124px}.shelf{display:none}.bubble{margin-bottom:14px}
+  .row{grid-template-columns:1fr}.row>b{text-align:left}.slot{min-width:68px;min-height:72px}.slot .zh{font-size:32px}.tile .zh{font-size:24px}.big{font-size:44px}}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="screen" id="setup">
+    <div class="eyebrow">小卖部</div>
+    <h1>Tiệm tạp hoá</h1>
+    <p class="lead">Hôm nay em trông tiệm! Khách vào gọi “cho tôi hai cốc cà phê”, em phải ghép đúng <b>số + lượng từ + món hàng</b> (<span lang="zh" style="font-family:var(--kai)">两杯咖啡</span>) rồi bấm <b>Đưa hàng</b> trước khi khách hết kiên nhẫn. Nhầm <span lang="zh" style="font-family:var(--kai)">二</span> với <span lang="zh" style="font-family:var(--kai)">两</span> là khách bỏ về đấy!</p>
+    <div class="panel">
+      <h2>1. Chọn cấp</h2>
+      <div class="chips" id="lvChips"></div>
+      <h2>2. Khách gọi hàng bằng</h2>
+      <div class="chips" id="modeChips">
+        <button class="chip" type="button" data-mode="vi" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tin-nhan></use></svg> Tiếng Việt<small>dịch sang tiếng Trung</small></button>
+        <button class="chip" type="button" data-mode="zh" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tai-nghe></use></svg> Tiếng Trung (nghe)<small>nghe khách nói rồi ghép lại</small></button>
+      </div>
+      <ul class="how">
+        <li>Một ngày bán <b>10 khách</b>. Bấm ô chữ ở 3 hàng <b>Số · Lượng từ · Hàng</b> để ghép, bấm vào ô đã ghép để bỏ ra.</li>
+        <li>Đưa đúng được tiền; đưa nhanh được <b>thêm tiền boa</b>. Đưa sai hoặc để khách chờ quá lâu là khách bỏ về, mất 1 <svg class=lli-do aria-hidden=true><use href=/chung/ic.svg#tim></use></svg>. Mất 3 khách là tiệm đóng cửa.</li>
+        <li>Nhớ: “cái ô <b>này</b>” là <span lang="zh" style="font-family:var(--kai)">这把伞</span> — 这 / 那 đứng đầu cụm.</li>
+      </ul>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Mở cửa tiệm <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
+      <p class="learn">Chưa chắc lượng từ? <a href="../../ngu-phap/luong-tu/">Xem bài học Lượng từ 量词 →</a></p>
+    </div>
+  </section>
+
+  <section id="play" hidden>
+    <div class="hud">
+      <span>Khách <b id="nCust">1</b>/10</span>
+      <span class="money"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tui-tien></use></svg> <b id="money">0</b> 块</span>
+      <span class="hearts" id="hearts"></span>
+      <span class="sp"></span>
+      <button type="button" id="pauseBtn" aria-label="Tạm dừng"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tam-dung></use></svg></button>
+      <button type="button" id="quitBtn" aria-label="Đóng cửa"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg></button>
+    </div>
+    <div class="shop" id="shop">
+      <div class="awning"></div>
+      <svg class="shelf" viewBox="0 0 180 120" aria-hidden="true"><rect x="0" y="36" width="180" height="6" fill="#B07435"/><rect x="0" y="96" width="180" height="6" fill="#B07435"/><rect x="10" y="8" width="22" height="28" rx="3" fill="#7C6BD6"/><rect x="34" y="14" width="18" height="22" rx="3" fill="#3B87D6"/><circle cx="68" cy="26" r="10" fill="#E0545F"/><rect x="86" y="4" width="14" height="32" rx="6" fill="#2E9E73"/><rect x="104" y="12" width="30" height="24" rx="4" fill="#C99A14"/><path d="M140 36l10-26 10 26z" fill="#E7823A"/><rect x="12" y="66" width="40" height="30" rx="4" fill="#E7823A"/><rect x="58" y="72" width="26" height="24" rx="12" fill="#16949E"/><rect x="92" y="60" width="16" height="36" rx="4" fill="#D24E86"/><rect x="114" y="70" width="52" height="26" rx="4" fill="#3B87D6"/></svg>
+      <div class="cust" id="cust"></div>
+      <div class="bubble" id="bubble"><div class="say" id="say"></div><div class="sub" id="sub"></div><div class="pat" id="pat"><i id="patBar"></i></div></div>
+      <div class="counter"></div>
+    </div>
+    <div class="tray" id="tray"></div>
+    <div class="rows" id="rows"></div>
+    <div class="msg" id="msg" aria-live="polite"></div>
+  </section>
+
+  <section class="screen" id="over" hidden>
+    <div class="eyebrow">关门</div>
+    <h1 id="overTitle">Hết ngày, đóng cửa!</h1>
+    <div class="panel">
+      <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
+      <div id="missBox"><h2>Những đơn giao nhầm, xem lại nhé</h2><ul class="review" id="missed"></ul></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Mở cửa ngày mới <svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button><a class="btn sec" href="../../ngu-phap/luong-tu/">Bài học Lượng từ</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">Lượng từ và từ vựng theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../tts.js?v=2"></script>
+<script src="../vui.js?v=5"></script>
+<script src="../luong-tu.js?v=1"></script>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
+
+(function(){
+const $=id=>document.getElementById(id),{MW,N,NUM,NVI}=LT,DAY=10,PATIENCE=30;
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const any=a=>a[Math.random()*a.length|0],shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const ICO=(n,c)=>'<svg class='+(c||'lli')+' aria-hidden=true><use href=/chung/ic.svg#'+n+'></use></svg>';
+let lv=+(store.get('th-lv')||1),mode=store.get('th-mode')||'vi';
+
+// ---- màn chọn
+[[1,'HSK 1'],[2,'HSK 1–2'],[3,'HSK 1–3']].forEach(([v,t])=>{const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.lv=v;
+  b.innerHTML=t+'<small>'+N.filter(x=>x.shop&&x.lv<=v).length+' món hàng</small>';b.onclick=()=>{lv=v;store.set('th-lv',v);paintSetup()};$('lvChips').appendChild(b)});
+document.querySelectorAll('#modeChips .chip').forEach(c=>c.onclick=()=>{mode=c.dataset.mode;store.set('th-mode',mode);paintSetup()});
+const bestKey=()=>'th-best-'+lv+'-'+mode;
+function paintSetup(){
+  document.querySelectorAll('#lvChips .chip').forEach(c=>c.setAttribute('aria-pressed',+c.dataset.lv===lv));
+  document.querySelectorAll('#modeChips .chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.mode===mode));
+  const b=store.get(bestKey());$('bestSetup').textContent=b?'Kỷ lục: '+b+' 块 một ngày':'';
+}
+paintSetup();
+setTimeout(()=>{if(!TTS.ready()){const z=document.querySelector('#modeChips [data-mode=zh]');z.hidden=true;if(mode==='zh'){mode='vi';paintSetup()}}},1500);
+
+// ---- khách hàng vẽ tay: tóc, da, áo ngẫu nhiên; nét mặt theo tâm trạng
+const SKIN=['#F6D2B0','#EDC09A','#E3AE84','#D39A6E'],HAIR=['#2B2E45','#4A3426','#6B4A2E','#1F1F2B','#8A5A3A'],SHIRT=['#3B87D6','#E0545F','#2E9E73','#7C6BD6','#16949E','#D24E86','#C99A14'];
+function face(c,mood){
+  const eyes=mood==='angry'?'<path d="M60 70l10 4M100 74l10-4" stroke="#2B2E45" stroke-width="4" stroke-linecap="round"/>':'';
+  const mouth={ok:'<path d="M72 96q13 12 26 0" stroke="#2B2E45" stroke-width="4" fill="none" stroke-linecap="round"/>',
+    happy:'<path d="M70 92q15 20 30 0z" fill="#B3261E"/>',
+    huh:'<circle cx="85" cy="98" r="5" fill="#2B2E45"/>',
+    angry:'<path d="M72 102q13-10 26 0" stroke="#2B2E45" stroke-width="4" fill="none" stroke-linecap="round"/>'}[mood];
+  const hair=[
+    '<path d="M44 74c-4-34 22-48 42-48s44 12 40 48c-4-14-10-22-18-24-12 8-34 10-54 6-4 4-8 10-10 18z" fill="'+c.h+'"/>',
+    '<circle cx="85" cy="24" r="14" fill="'+c.h+'"/><path d="M44 76c-4-34 20-50 42-50s46 14 40 50c-8-16-22-26-42-26s-32 10-40 26z" fill="'+c.h+'"/>',
+    '<path d="M42 120c-10-60 8-94 44-94s54 34 42 94c-4-30-4-44-10-54-14 8-44 8-62 0-8 12-10 28-14 54z" fill="'+c.h+'"/>',
+    '<path d="M46 70c0-30 18-42 40-42s40 12 40 42c-6-8-18-14-40-14s-34 6-40 14z" fill="'+c.h+'"/><rect x="42" y="58" width="88" height="10" rx="5" fill="'+c.s+'"/>'][c.k];
+  return '<svg viewBox="0 0 170 200" aria-hidden="true"><path d="M20 200c0-46 28-68 65-68s65 22 65 68z" fill="'+c.s+'"/><path d="M70 132l15 18 15-18" fill="#fff" opacity=".8"/>'
+    +'<rect x="74" y="112" width="22" height="24" rx="8" fill="'+c.f+'"/><ellipse cx="85" cy="80" rx="40" ry="44" fill="'+c.f+'"/>'
+    +'<circle cx="68" cy="82" r="4.5" fill="#2B2E45"/><circle cx="102" cy="82" r="4.5" fill="#2B2E45"/>'+eyes
+    +'<circle cx="58" cy="96" r="7" fill="#F2667A" opacity=".25"/><circle cx="112" cy="96" r="7" fill="#F2667A" opacity=".25"/>'+mouth+hair
+    +(mood==='huh'?'<text x="136" y="50" font-size="34" font-weight="800" fill="#E7823A" font-family="Be Vietnam Pro,sans-serif">?</text>':'')
+    +(mood==='happy'?'<path d="M140 40l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#E0A800"/>':'')+'</svg>';
+}
+
+// ---- đơn hàng
+const TPL_VI=['Cho tôi {x}.','Bán cho tôi {x} nhé!','Tôi muốn mua {x}.','Lấy giúp tôi {x} với!'],
+      TPL_VI_ZHE=['Tôi lấy {x} này.','Cho tôi {x} này nhé!'],TPL_VI_NA=['Cho tôi xem {x} kia.','Tôi muốn {x} kia.'],
+      TPL_ZH=['我要{c}。','请给我{c}。','我想买{c}。'],TPL_ZH_NA=['我想看看{c}。','我要{c}。'];
+let pool,custs,idx,money,lives,served,missed,order,pick,patience,alive,paused,locked,raf,last,look;
+function makeOrder(){
+  const x=any(pool),r=Math.random();let n=r<.35?2:r<.55?1:r<.8?any([3,4,5]):any(['这','那']);
+  if(x.m==='公斤'&&typeof n!=='number')n=2;   // đơn vị cân không đi với 这 / 那 trong câu gọi hàng
+  const c=LT.cum(n,x.m,x);
+  let vi;if(n==='这')vi=any(TPL_VI_ZHE).replace('{x}',x.vc);else if(n==='那')vi=any(TPL_VI_NA).replace('{x}',x.vc);
+  else vi=any(TPL_VI).replace('{x}',NVI[n]+' '+x.vc);
+  const zh=(n==='那'?any(TPL_ZH_NA):any(TPL_ZH)).replace('{c}',c.zh);
+  // ô chọn: số (luôn có bẫy 二 khi cần 两), lượng từ (chính + 3 sai), hàng (đúng + 1 cùng lượng từ + 2 khác)
+  const nzh=typeof n==='number'?NUM[n]:n;
+  let nums=[nzh];if(n===2)nums.push('二');if(n==='这')nums.push('那');if(n==='那')nums.push('这');
+  shuffle(['一','两','三','四','五','这','那','二']).forEach(t=>{if(nums.length<4&&!nums.includes(t))nums.push(t)});
+  const badMw=shuffle(LT.mws(lv).filter(k=>!['种','元','下','次','遍','页'].includes(k)&&!x.ok.includes(k))).slice(0,3);
+  const same=shuffle(pool.filter(y=>y!==x&&y.m===x.m)).slice(0,1),other=shuffle(pool.filter(y=>y!==x&&!same.includes(y)&&y.zh!==x.zh)).slice(0,3-same.length);
+  return{x,n,nzh,c,vi,zh,price:(typeof n==='number'?n:1)*(3+(x.zh.length+MW[x.m][1])*2),
+    tiles:[shuffle(nums),shuffle([x.m,...badMw]),shuffle([x,...same,...other])]};
+}
+function start(){
+  pool=N.filter(x=>x.shop&&x.lv<=lv);
+  idx=0;money=0;lives=3;served=0;missed=[];alive=true;paused=false;
+  $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);$('msg').innerHTML='';
+  hud();next();last=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(tick);
+}
+function hud(){$('nCust').textContent=Math.min(idx,DAY);$('money').textContent=money;
+  $('hearts').innerHTML=ICO('tim','lli-do').repeat(lives)+ICO('tim-rong').repeat(3-lives)}
+function next(){
+  if(!alive)return;if(idx>=DAY||lives<=0)return end();
+  idx++;order=makeOrder();pick=[null,null,null];locked=false;patience=PATIENCE;
+  look={f:any(SKIN),h:any(HAIR),s:any(SHIRT),k:Math.random()*4|0};
+  const cu=$('cust');cu.className='cust';void cu.offsetWidth;cu.className='cust enter';cu.innerHTML=face(look,'ok');
+  if(mode==='vi'){$('say').innerHTML=esc(order.vi);$('sub').innerHTML='Ghép sang tiếng Trung: số · lượng từ · hàng'}
+  else{$('say').innerHTML='<span class="zh" lang="zh">'+order.zh.replace(order.c.zh,'……')+'</span>';
+    $('sub').innerHTML='<button type="button" class="spk" id="again" aria-label="Nghe khách nói lại">'+ICO('loa')+'</button> Nghe khách nói rồi ghép lại';
+    $('again').onclick=()=>TTS.say(order.zh);setTimeout(()=>TTS.say(order.zh),450)}
+  hud();paintTray();paintRows();
+}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function paintTray(){
+  const lab=['Số','Lượng từ','Hàng'];
+  $('tray').innerHTML=pick.map((p,i)=>{const t=p==null?'':i===2?p.zh:p;
+    return '<button type="button" class="slot s'+i+(p!=null?' full':'')+'" data-i="'+i+'">'+(p!=null?'<span class="zh'+(t.length>1?' s':'')+'" lang="zh">'+t+'</span>':'<span class="zh" style="color:var(--line)">？</span>')+'<small>'+lab[i]+'</small></button>'}).join('')
+    +'<button type="button" class="btn hot give" id="give"'+(pick.some(p=>p==null)?' disabled':'')+'>Đưa hàng '+ICO('gui')+'</button>';
+  $('tray').querySelectorAll('.slot').forEach(s=>s.onclick=()=>{if(locked)return;pick[+s.dataset.i]=null;paintTray();paintRows()});
+  $('give').onclick=give;
+}
+function paintRows(){
+  const T=order.tiles,lab=['Số','Lượng từ','Hàng'];
+  $('rows').innerHTML=T.map((ts,i)=>'<div class="row r'+i+'"><b>'+lab[i]+'</b><div class="tiles">'+ts.map((t,j)=>{
+    const zh=i===2?t.zh:t,sm=i===0?({'一':'yī','两':'liǎng','二':'èr','三':'sān','四':'sì','五':'wǔ','这':'zhè','那':'nà'}[t]):i===1?MW[t][0]:t.py;
+    return '<button type="button" class="tile" data-i="'+i+'" data-j="'+j+'" aria-pressed="'+(pick[i]===t)+'"><span class="zh" lang="zh">'+zh+'</span><small>'+sm+'</small></button>'}).join('')+'</div></div>').join('');
+  $('rows').querySelectorAll('.tile').forEach(b=>b.onclick=()=>{if(locked||paused)return;const i=+b.dataset.i;pick[i]=order.tiles[i][+b.dataset.j];paintTray();paintRows();
+    const s=$('tray').querySelector('.slot[data-i="'+i+'"]');s.classList.add('pop')});
+}
+function give(){
+  if(locked||paused||pick.some(p=>p==null))return;locked=true;
+  const o=order,okN=pick[0]===o.nzh,okM=o.x.ok.includes(pick[1]),okX=pick[2]===o.x,said=pick[0]+pick[1]+pick[2].zh;
+  if(okN&&okM&&okX){
+    const tip=Math.round(o.price*.5*patience/PATIENCE),earn=o.price+tip;money+=earn;served++;
+    $('cust').innerHTML=face(look,'happy');coin('+'+earn+' 块');
+    const also=pick[1]!==o.x.m?'<span class="tip">Đúng! Người ta hay nói <b lang="zh">'+o.c.zh+'</b> hơn.</span>':'';
+    $('msg').innerHTML='<span class="ok">'+VUI.khen()+' '+(tip>0?'(boa '+tip+' 块)':'')+'</span> <span class="zh" lang="zh">'+said+'</span> '+o.c.py+also;
+    TTS.say(said+'，给您。');hud();leave(1800);
+  }else{
+    lives--;$('cust').innerHTML=face(look,'huh');
+    const why=!okN?(pick[0]==='二'&&o.n===2?'Số 2 trước lượng từ phải là <b lang="zh">两</b>, không dùng 二.':'Số / 这 / 那 chưa đúng: khách cần <b lang="zh">'+o.nzh+'</b>.')
+      :!okM?'<b lang="zh">'+o.x.zh+'</b> dùng lượng từ <b lang="zh">'+o.x.m+'</b>: '+esc(MW[o.x.m][4])
+      :'Khách gọi <b>'+esc(o.x.vi)+'</b> là <b lang="zh">'+o.x.zh+'</b> chứ không phải '+pick[2].zh+' ('+esc(pick[2].vi)+').';
+    missed.push({o,said});
+    $('msg').innerHTML='<span class="bad">'+VUI.treu()+' · '+VUI.mang(lives)+'</span> Phải là <span class="zh" lang="zh">'+o.c.zh+'</span> '+o.c.py+'<span class="tip">'+why+'</span>';
+    TTS.say(o.c.zh);hud();leave(3600,true);
+  }
+}
+function coin(t){const s=$('shop'),p=document.createElement('span');p.className='coin';p.textContent=t;p.style.left='120px';p.style.top='70px';s.appendChild(p);setTimeout(()=>p.remove(),1000)}
+function leave(ms,angry){setTimeout(()=>{if(!alive)return;if(angry)$('cust').innerHTML=face(look,'angry');const cu=$('cust');cu.className='cust leave';
+  setTimeout(()=>{$('msg').innerHTML='';next()},520)},ms)}
+function timeout(){locked=true;lives--;$('cust').innerHTML=face(look,'angry');missed.push({o:order,said:'(hết giờ)'});
+  $('msg').innerHTML='<span class="bad">'+VUI.hetgio()+' Khách bỏ về rồi!</span> Đáp án: <span class="zh" lang="zh">'+order.c.zh+'</span> '+order.c.py;
+  hud();leave(2600)}
+function tick(now){
+  if(!alive)return;const dt=Math.min(.1,(now-last)/1000);last=now;
+  if(!paused&&!locked){patience-=dt;if(patience<=0){patience=0;timeout()}}
+  const f=patience/PATIENCE;$('patBar').style.transform='scaleX('+Math.max(0,f)+')';$('pat').className='pat'+(f<.25?' low':f<.55?' mid':'');
+  raf=requestAnimationFrame(tick);
+}
+function setPause(p){if(!alive)return;paused=p;$('pauseBtn').innerHTML=ICO(p?'phat':'tam-dung');let o=$('shop').querySelector('.paused');
+  if(p&&!o){o=document.createElement('div');o.className='paused';o.textContent='Tạm dừng · 暂停';$('shop').appendChild(o)}if(!p&&o){o.remove();last=performance.now()}}
+$('pauseBtn').onclick=()=>setPause(!paused);
+$('quitBtn').onclick=()=>{if(alive)end()};
+document.addEventListener('visibilitychange',()=>{if(document.hidden)setPause(true)});
+function end(){
+  alive=false;cancelAnimationFrame(raf);
+  $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
+  const k=bestKey(),best=store.get(k)||0,rec=money>best;if(rec)store.set(k,money);
+  $('overTitle').textContent=lives<=0?'Mất 3 khách, tiệm đóng cửa sớm!':'Hết ngày, đóng cửa!';
+  $('finalScore').textContent=money+' 块';
+  const tier=served>=10?3:served>=8?2:served>=5?1:0,rk=tier===3?['金牌店长','Chủ tiệm vàng!']:VUI.rank(tier);
+  $('rank').innerHTML=VUI.rankHTML(rk,tier);
+  $('finalInfo').textContent=(rec&&money>0?'Kỷ lục mới! · ':'Kỷ lục: '+Math.max(best,money)+' 块 · ')+'Phục vụ đúng '+served+'/'+Math.min(idx,DAY)+' khách · '+(lv===1?'HSK 1':'HSK 1–'+lv);
+  $('missed').innerHTML=missed.map(({o,said})=>'<li><span class="zh" lang="zh">'+o.c.zh+' '+TTS.btn(o.c.zh)+'</span><span class="py">'+o.c.py+'</span><span class="no">em đưa: '+esc(said)+'</span></li>').join('');
+  $('missBox').hidden=!missed.length;paintSetup();
+}
+$('startBtn').onclick=start;$('againBtn').onclick=start;
+$('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
+})();
+</script>
+</body>
+</html>

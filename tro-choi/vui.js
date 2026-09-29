@@ -38,6 +38,10 @@ window.VUI=(function(){
       ['Bóng bay lên trời gặp ông trăng rồi','Bắn trượt, bóng cười khẩy','Bóng này giả dạng giỏi ghê','Phi tiêu bay đi đâu rồi?','Nghe kỹ lại nha']],
     'do-chu':[['Thông minh ghê','Thám tử chữ Hán','猜对了！','Giải đố như thần','Đầu óc nhanh nhạy ghê','Nhìn thấu chữ Hán luôn'],
       ['Câu đố xoắn não thật','Nghĩ thêm chút nữa, gần ra rồi','Thử tách từng bộ phận xem','Chữ Hán đang chơi trốn tìm','Đọc lại câu đố từng chữ nha']],
+    'xep-hop':[['Xếp gọn gàng ghê!','Hàng về đúng hộp','Thủ kho chuyên nghiệp','Nhanh tay xếp hàng','放对了！','Kho hàng ngăn nắp quá'],
+      ['Nhầm hộp rồi, hàng khóc kìa','Hộp này không vừa đâu','Món này lạc kho rồi','Nhìn hình dạng món hàng xem','Thủ kho hơi buồn ngủ hả?']],
+    'tap-hoa':[['Khách khen nức nở','Bán hàng có duyên ghê','欢迎再来！','Tiền vô như nước','Khách quen từ nay rồi','Chủ tiệm đỉnh của chóp'],
+      ['Khách ngơ ngác luôn','Giao nhầm hàng rồi','Khách hỏi lại lần nữa kìa','Ơ, tôi đâu có gọi món này','Nhớ 两 với 二 nha chủ tiệm']],
     'tim-tu':[['Tinh mắt ghê!','好眼力！','Mắt đại bàng','Soi đâu ra đó','Tìm nhanh như chớp'],
       ['Từ này trốn kỹ lắm','Kính lúp đâu rồi?','Đọc kỹ từng chữ nha','Chữ nhiễu lừa em rồi','Khoanh nhầm rồi, không sao']]};
   const TRO=(location.pathname.match(/tro-choi\/([^/]+)\//)||[])[1],MINE=RIENG[TRO];
