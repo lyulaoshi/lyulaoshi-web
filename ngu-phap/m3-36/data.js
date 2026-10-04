@@ -14,7 +14,7 @@ rules:[
   ex:[["这个饭店的菜[不怎么样]。","Zhège fàndiàn de cài bù zěnmeyàng.","Món ở nhà hàng này chẳng ra sao."],
       ["他的汉字写得[不怎么样]。","Tā de Hànzì xiě de bù zěnmeyàng.","Chữ Hán anh ấy viết không đẹp lắm."]]}],
 cmp:[
- {vn:"Bộ phim đó chẳng hay lắm.", zh:"那个电影[不怎么样]。", py:"Nàge diànyǐng bù zěnmeyàng.", ok:true, why:"Không nói ✗ 不怎么好看样; 不怎么样 là một cụm cố định."}],
+ {vn:"Bộ phim đó chẳng hay lắm.", zh:"那个电影[不怎么样]。", py:"Nàge diànyǐng bù zěnmeyàng.", ok:true, why:"Không nói × 不怎么好看样; 不怎么样 là một cụm cố định."}],
 ex:[
  ["[一般来说]，周末人比较多。","Yìbān lái shuō, zhōumò rén bǐjiào duō.","Nói chung cuối tuần người khá đông."],
  ["——这件衣服怎么样？——[不怎么样]，太贵了。","— Zhè jiàn yīfu zěnmeyàng? — Bù zěnmeyàng, tài guì le.","— Chiếc áo này thế nào? — Chẳng ra sao, đắt quá."]],

@@ -12,7 +12,7 @@ rules:[
       ["你[想一想]这个字的意思。","Nǐ xiǎng yi xiǎng zhège zì de yìsi.","Bạn nghĩ thử nghĩa của chữ này xem.","等级标准"]]},
  {t:"Đã làm (nhanh, nhẹ): A了A", sub:"A了A", fx:[["A",null],["了",null],["A",null]], mean:"Hành động ngắn đã xảy ra.",
   ex:[["他[看了看]我，没说话。","Tā kàn le kàn wǒ, méi shuō huà.","Anh ấy nhìn tôi một cái, không nói gì.","等级标准"]]},
- {t:"Động từ hai âm tiết: ABAB", sub:"ABAB", fx:[["AB",null],["AB",null]], mean:"介绍介绍、休息休息、学习学习 (không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 介介绍绍).",
+ {t:"Động từ hai âm tiết: ABAB", sub:"ABAB", fx:[["AB",null],["AB",null]], mean:"介绍介绍、休息休息、学习学习 (không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 介介绍绍).",
   ex:[["请[介绍介绍]你的朋友。","Qǐng jièshào jièshào nǐ de péngyou.","Hãy giới thiệu bạn của bạn một chút.","等级标准"],
       ["累了吧？[休息休息]！","Lèi le ba? Xiūxi xiūxi!","Mệt rồi à? Nghỉ một lát đi!"]]}],
 notes:[

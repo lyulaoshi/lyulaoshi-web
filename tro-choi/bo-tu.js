@@ -25,7 +25,7 @@
     const h=row.previousElementSibling;   // "1. Chọn cấp HSK …" -> "1. Bộ từ"
     if(h&&/^H\d$/.test(h.tagName))h.textContent=(h.textContent.match(/^\s*\d+\.\s*/)||[''])[0]+'Bộ từ';
     const p=document.createElement('p');p.className='bo-tu';
-    p.innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#the-bai></use></svg> Đang chơi bộ từ <b lang="zh"></b><span class="bo-vi"></span> ('+w.length+' từ) · <a href="../../tu-vung/#'+back+'">Về thẻ từ</a> · <a href="./">Chơi theo HSK</a>';
+    p.innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#the-bai></use></svg> Đang chơi bộ từ <b lang="zh"></b><span class="bo-vi"></span> ('+w.length+' từ) · <a href="../../tu-vung/#'+back+'">Về thẻ từ</a> · <a href="./">Chơi theo HSK</a>';
     const k=name.indexOf(' · ');p.querySelector('b').textContent=k<0?name:name.slice(0,k);p.querySelector('.bo-vi').textContent=k<0?'':' ·'+name.slice(k+2);
     row.after(p);   // phần tiếng Việt (.bo-vi) không dùng phông KuaiLe vì phông này thiếu chữ có dấu
   });

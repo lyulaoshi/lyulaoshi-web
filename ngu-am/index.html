@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
 <link rel="stylesheet" href="../tro-choi/game.css?v=4">
-<link rel="stylesheet" href="/chung/hero.css?v=2">
+<link rel="stylesheet" href="/chung/hero.css?v=a26ea8bd">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 body{background-image:radial-gradient(circle at 12% 8%,var(--sky-s) 0,transparent 32%),radial-gradient(circle at 92% 18%,var(--coral-s) 0,transparent 30%)}
@@ -42,7 +42,7 @@ body{background-image:radial-gradient(circle at 12% 8%,var(--sky-s) 0,transparen
 <!-- 拼音盒 · trang mục lục ngữ âm (làm lại theo phong cách chung 29/09/2026; 4 bài phan-1..4 giữ nguyên từ site cũ) -->
 <header class="top"><div class="wrap">
   <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><img src="../img/logo-hallo-128.png" alt=""><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="../tro-choi/thanh-dieu/" class="hide-s">Săn thanh điệu</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☾</button></nav>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="../tro-choi/thanh-dieu/" class="hide-s">Săn thanh điệu</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#trang"></use></svg></button></nav>
 </div></header>
 <main class="wrap">
 <section class="lh" style="--c:var(--sky);--c2:var(--coral);--cs:var(--sky-s)">
@@ -76,7 +76,7 @@ body{background-image:radial-gradient(circle at 12% 8%,var(--sky-s) 0,transparen
 <div class="wrap"><footer>Lyu Laoshi Chinese Box · 吕老师汉语盒 — ThS. Lã Thị Thuỳ Phương</footer></div>
 <script>(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();</script>
 </body>
 </html>

@@ -20,7 +20,7 @@ rules:[
       ["哥哥昨天比前天[晚]睡半个小时。","Gēge zuótiān bǐ qiántiān wǎn shuì bàn ge xiǎoshí.","Hôm qua anh trai ngủ muộn hơn hôm kia nửa tiếng.","等级标准"]]}],
 cmp:[
  {vn:"Tôi đến sớm hơn anh ấy 10 phút.", zh:"我比他[早]来十分钟。", py:"Wǒ bǐ tā zǎo lái shí fēnzhōng.", ok:true, why:"“sớm hơn” = 早 đứng trước động từ; số lượng sau động từ."},
- {vn:"Tôi chạy nhanh hơn anh ấy.", zh:"我跑得[比他]快。", py:"Wǒ pǎo de bǐ tā kuài.", ok:true, why:"Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 我跑快比他."}],
+ {vn:"Tôi chạy nhanh hơn anh ấy.", zh:"我跑得[比他]快。", py:"Wǒ pǎo de bǐ tā kuài.", ok:true, why:"Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 我跑快比他."}],
 ex:[
  ["他比我少买一个苹果。","Tā bǐ wǒ shǎo mǎi yí ge píngguǒ.","Anh ấy mua ít hơn tôi một quả táo.","等级标准"],
  ["她唱歌唱得比我好。","Tā chàng gē chàng de bǐ wǒ hǎo.","Cô ấy hát hay hơn tôi."]],

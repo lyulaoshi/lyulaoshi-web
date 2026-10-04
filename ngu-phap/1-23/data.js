@@ -17,7 +17,7 @@ notes:[
  {t:"包 và 块", html:"<span class='zh'>包</span> = gói, túi (一包茶); <span class='zh'>块</span> = miếng (一块面包) hoặc đồng tiền (五块钱) 【一43】."}],
 cmp:[
  {vn:"Tôi muốn ba cái.", zh:"我要[三个]。", py:"Wǒ yào sān ge.", ok:true, why:"Giống tiếng Việt: có thể bỏ danh từ, giữ số + lượng từ."},
- {vn:"Cho tôi hai cốc.", zh:"给我[两杯]。", py:"Gěi wǒ liǎng bēi.", ok:true, why:"Không được bỏ lượng từ: <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 给我两."}],
+ {vn:"Cho tôi hai cốc.", zh:"给我[两杯]。", py:"Gěi wǒ liǎng bēi.", ok:true, why:"Không được bỏ lượng từ: <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 给我两."}],
 ex:[
  ["我买了[四包]茶。","Wǒ mǎi le sì bāo chá.","Tôi mua bốn gói trà."],
  ["这个[五块]钱。","Zhège wǔ kuài qián.","Cái này năm đồng."],

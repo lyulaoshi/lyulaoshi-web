@@ -32,16 +32,17 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 .hud b{font-size:20px;font-variant-numeric:tabular-nums}
 .hud .sp{margin-left:auto}
 .hud button{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;padding:6px 12px;border-radius:999px;cursor:pointer}
-.board{display:grid;gap:10px;margin-top:14px;grid-template-columns:repeat(var(--cols,4),1fr)}
-.card{position:relative;aspect-ratio:4/5;border:0;padding:0;background:none;cursor:pointer;perspective:800px;font:inherit}
+.board{display:grid;gap:var(--gap,10px);margin-top:12px;justify-content:center;grid-template-columns:repeat(var(--cols,4),var(--cw,1fr));grid-auto-rows:var(--ch,auto)}
+.card{position:relative;border:0;padding:0;background:none;cursor:pointer;perspective:800px;font:inherit}
 .card .in{position:absolute;inset:0;transition:transform .45s cubic-bezier(.3,1.3,.5,1);transform-style:preserve-3d}
 .card.up .in,.card.done .in{transform:rotateY(180deg)}
 .card .f,.card .b{position:absolute;inset:0;border-radius:16px;display:grid;place-items:center;backface-visibility:hidden;box-shadow:var(--shadow);padding:4px}
 .card .b{background:#FFF8EE;border:3px solid var(--mint);background-image:radial-gradient(circle at 50% 50%,#fff 0,transparent 62%)}
 .card .b svg{width:62%;max-width:92px;height:auto}
 .card .f{transform:rotateY(180deg);background:var(--card);color:var(--ink);text-align:center}
-.card .f .hz{font-family:var(--kai);font-size:clamp(26px,6vw,42px);line-height:1.1}
-.card .f .py{font-weight:800;font-size:clamp(14px,3.4vw,20px);color:var(--sky);word-break:break-word}
+.card .f .hz{font-family:var(--kai);font-size:clamp(16px,calc(var(--cs,90px)*.4),46px);line-height:1.1}
+.card .f .hz.l3{font-size:clamp(14px,calc(var(--cs,90px)*.29),40px);white-space:nowrap}
+.card .f .py{font-weight:800;font-size:max(10px,min(21px,calc(var(--cs,90px)*.18),calc((var(--cw,90px) - 14px) / (var(--len,6) * .62))));color:var(--sky);white-space:nowrap;line-height:1.15}
 .card.done .f{background:var(--mint-s);box-shadow:0 0 0 3px var(--mint)}
 .card.miss .f{box-shadow:0 0 0 3px var(--coral)}
 .card.done{cursor:default}
@@ -94,7 +95,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
         <li>Ghép đúng một đôi, máy <b>đọc từ đó</b> cho em nghe.</li>
         <li>Ghép hết bàn với càng ít lượt càng được nhiều sao. Chiếu lên máy chiếu để cả lớp thi xem nhóm nào ít lượt nhất nhé!</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -102,10 +103,10 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="hud">
       <span>Lượt <b id="moves">0</b></span>
       <span>Đã ghép <b id="pairs">0</b><span id="pairsOf"></span></span>
-      <span><svg class=lli aria-hidden=true><use href=/chung/ic.svg#dong-ho></use></svg> <b id="clock">0:00</b></span>
+      <span><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#dong-ho></use></svg> <b id="clock">0:00</b></span>
       <span class="sp"></span>
-      <button type="button" id="newBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg> Bàn mới</button>
-      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg></button>
+      <button type="button" id="newBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#lai></use></svg> Bàn mới</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sai></use></svg></button>
     </div>
     <div class="board" id="board"></div>
   </section>
@@ -115,8 +116,8 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <h1>Ghép xong cả bàn!</h1>
     <div class="panel">
       <div class="acts"><span class="big" id="stars"></span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
-      <div><h2>Các từ vừa ghép, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa></use></svg> để nghe lại</h2><ul class="review" id="review"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Bàn mới <svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cỡ bàn</button></div>
+      <div><h2>Các từ vừa ghép, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#loa></use></svg> để nghe lại</h2><ul class="review" id="review"></ul></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Bàn mới <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cỡ bàn</button></div>
     </div>
   </section>
 </main>
@@ -128,11 +129,11 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script src="../../tu-vung/chu-de.js"></script>
 <script src="../bo-tu.js?v=4"></script>
 <script src="../tts.js?v=2"></script>
-<script src="../vui.js?v=4"></script>
+<script src="../vui.js?v=20261004"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -158,18 +159,29 @@ function pickWords(){ // N từ khác nhau, pinyin không trùng nhau, từ ng�
   for(const [w,p] of pool){const k=p.toLowerCase();if(hz.has(w)||py.has(k))continue;hz.add(w);py.add(k);out.push([w,p]);if(out.length===N)break}
   return out;
 }
-function cols(){const n=N*2,w=innerWidth;if(w<520)return n===12?3:4;return n===12?4:n===16?4:5}
+// bàn thẻ vừa khít một màn hình, không phải cuộn: thử mọi số cột, chọn cách cho thẻ to nhất
+// (thẻ cao 0,8–1,25 lần bề ngang), chữ trên thẻ to nhỏ theo cỡ thẻ
+function layout(){
+  const b=$('board'),n=N*2,W=b.clientWidth,vh=window.visualViewport?visualViewport.height:innerHeight;
+  const H=Math.max(180,vh-b.getBoundingClientRect().top-12),gap=W<520?6:10;let best=null;
+  for(let c=2;c<=n;c++){const r=Math.ceil(n/c);let cw=(W-gap*(c-1))/c;const chMax=(H-gap*(r-1))/r;
+    let ch=Math.min(cw*1.25,chMax);if(ch<cw*.8)cw=ch/.8;
+    if(!best||cw*ch>best.cw*best.ch)best={c,cw,ch}}
+  b.style.setProperty('--gap',gap+'px');b.style.setProperty('--cols',best.c);
+  b.style.setProperty('--cw',Math.floor(best.cw)+'px');b.style.setProperty('--ch',Math.floor(best.ch)+'px');
+  b.style.setProperty('--cs',Math.floor(Math.min(best.cw,best.ch))+'px');
+}
 function start(){
   words=pickWords();open=[];moves=0;done=0;lock=false;
   const cards=shuffle(words.flatMap((w,i)=>[{i,t:'hz',v:w[0]},{i,t:'py',v:w[1]}]));
-  const board=$('board');board.style.setProperty('--cols',cols());board.innerHTML='';
+  const board=$('board');board.innerHTML='';
   cards.forEach(c=>{const b=document.createElement('button');b.type='button';b.className='card';b.dataset.i=c.i;
     b.setAttribute('aria-label','Thẻ úp');
-    b.innerHTML='<span class="in"><span class="b" aria-hidden="true"><svg viewBox="16 12 168 180"><use href="#logo"/></svg></span><span class="f">'+(c.t==='hz'?'<span class="hz" lang="zh">'+c.v+'</span>':'<span class="py">'+c.v+'</span>')+'</span></span>';
+    b.innerHTML='<span class="in"><span class="b" aria-hidden="true"><svg viewBox="16 12 168 180"><use href="#logo"/></svg></span><span class="f">'+(c.t==='hz'?'<span class="hz'+(c.v.length>2?' l3':'')+'" lang="zh">'+c.v+'</span>':'<span class="py" style="--len:'+c.v.length+'">'+c.v+'</span>')+'</span></span>';
     b.onclick=()=>flip(b,c);board.appendChild(b)});
   $('pairsOf').textContent='/'+N;hud();
   clearInterval(tick);t0=0;$('clock').textContent='0:00';
-  $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);
+  $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);layout();
 }
 const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
 function hud(){$('moves').textContent=moves;$('pairs').textContent=done}
@@ -202,7 +214,8 @@ $('startBtn').onclick=()=>{store.set('lt-levels',[...picked]);start()};
 $('newBtn').onclick=start;$('againBtn').onclick=start;
 $('quitBtn').onclick=()=>{clearInterval(tick);$('play').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
 $('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
-addEventListener('resize',()=>{if(!$('play').hidden)$('board').style.setProperty('--cols',cols())});
+addEventListener('resize',()=>{if(!$('play').hidden)layout()});
+if(window.visualViewport)visualViewport.addEventListener('resize',()=>{if(!$('play').hidden)layout()});
 })();
 </script>
 </body>

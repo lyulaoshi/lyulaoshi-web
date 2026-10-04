@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
 <link rel="stylesheet" href="../tro-choi/game.css?v=4">
-<link rel="stylesheet" href="/chung/ic.css">
+<link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 @font-face{font-family:"LyuKai";font-display:swap;src:url(kai.woff?v=85eadf93) format("woff")}
@@ -204,7 +204,7 @@ div.line{cursor:default}
 </main>
 
 <main class="wrap" id="play" hidden>
-  <a class="back" href="#"><svg class="ic lli" aria-hidden="true"><use href="/chung/ic.svg#truoc"/></svg> Mục lục 听说盒</a>
+  <a class="back" href="#"><svg class="ic lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#truoc"/></svg> Mục lục 听说盒</a>
   <div class="p-sach" id="pSach"></div>
   <h1 id="pTen"></h1>
   <nav class="pdoan" id="pDoan" aria-label="Chọn đoạn"></nav>
@@ -218,7 +218,7 @@ div.line{cursor:default}
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 </script>
 </body>

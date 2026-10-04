@@ -7,7 +7,7 @@ goals:[
  "Biết những chỗ tiếng Việt không dùng loại từ nhưng tiếng Trung bắt buộc có."],
 intro:"Giống tiếng Việt (“ba <b>quyển</b> sách”), giữa số và danh từ phải có <b>lượng từ</b>. Mỗi danh từ có lượng từ quen dùng; 个 là lượng từ chung.",
 rules:[
- {t:"Số + lượng từ + danh từ", sub:"数词 + 量词 + 名词", fx:[["Số / 这 / 那 / 几",""],["Lượng từ",null],["Danh từ",""]], mean:"Không bỏ lượng từ: <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 三书 → 三本书.",
+ {t:"Số + lượng từ + danh từ", sub:"数词 + 量词 + 名词", fx:[["Số / 这 / 那 / 几",""],["Lượng từ",null],["Danh từ",""]], mean:"Không bỏ lượng từ: <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 三书 → 三本书.",
   ex:[["两[杯]牛奶　三[本]书　四[个]学生","liǎng bēi niúnǎi　sān běn shū　sì ge xuésheng","hai cốc sữa　ba quyển sách　bốn học sinh","等级标准"],
       ["五[家]商店　六[间]房子","wǔ jiā shāngdiàn　liù jiān fángzi","năm cửa hàng　sáu gian phòng","等级标准"],
       ["三[口]人　七[块]面包","sān kǒu rén　qī kuài miànbāo","(nhà) ba người　bảy miếng bánh mì","等级标准"]]},

@@ -4,7 +4,7 @@ code:"三05", title:"动宾式离合词", vi:"Động từ ly hợp kiểu độ
 goals:[
  "Nhận biết động từ ly hợp: <b>帮忙、点头、放假、干杯、见面、结婚、看病、睡觉、洗澡、理发、说话</b>.",
  "Chèn <b>了 / 过 / số lượng / tân ngữ phụ</b> vào <b>giữa</b> hai chữ: 帮我的忙, 见过一次面.",
- "Không thêm tân ngữ sau cả từ: <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 见面他 → <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg#tick'/></svg> 跟他见面."],
+ "Không thêm tân ngữ sau cả từ: <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 见面他 → <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#tick'/></svg> 跟他见面."],
 intro:"Động từ ly hợp gồm <b>động từ + danh từ</b> (帮 + 忙, 见 + 面). Vì phần sau đã là tân ngữ, nên người / số lần phải <b>chen vào giữa</b> hoặc đưa lên trước bằng giới từ.",
 rules:[
  {t:"Chèn thành phần vào giữa", sub:"离合", fx:[["V",""],["(了 / 过 / 一下儿 / 的…)",null],["N",""]], mean:"帮 + 我的 + 忙；见 + 过一次 + 面；点 + 了一下儿 + 头.",

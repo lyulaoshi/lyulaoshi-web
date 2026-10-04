@@ -10,7 +10,7 @@ rules:[
   ex:[["我们[一方面]要看到他们的优点，[另一方面]也要指出他们的缺点。","Wǒmen yì fāngmiàn yào kàndào tāmen de yōudiǎn, lìng yì fāngmiàn yě yào zhǐchū tāmen de quēdiǎn.","Một mặt chúng ta phải thấy ưu điểm của họ, mặt khác cũng phải chỉ ra khuyết điểm.","等级标准"],
       ["他们在实习中[一方面]可以增加工作经验，[另一方面]可以学习新的知识。","Tāmen zài shíxí zhōng yì fāngmiàn kěyǐ zēngjiā gōngzuò jīngyàn, lìng yì fāngmiàn kěyǐ xuéxí xīn de zhīshi.","Khi thực tập, một mặt họ tăng thêm kinh nghiệm làm việc, mặt khác học được kiến thức mới.","等级标准"]]}],
 cmp:[
- {vn:"Mặt khác, …", zh:"[另一方面]……", py:"lìng yì fāngmiàn……", ok:true, why:"Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 别的方面; nhớ có 另."}],
+ {vn:"Mặt khác, …", zh:"[另一方面]……", py:"lìng yì fāngmiàn……", ok:true, why:"Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 别的方面; nhớ có 另."}],
 ex:[
  ["学中文[一方面]要多听，[另一方面]也要多说。","Xué Zhōngwén yì fāngmiàn yào duō tīng, lìng yì fāngmiàn yě yào duō shuō.","Học tiếng Trung, một mặt phải nghe nhiều, mặt khác cũng phải nói nhiều."]],
 errs:[

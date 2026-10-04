@@ -99,7 +99,7 @@
 .play a span{font-family:var(--hz);font-weight:400;margin-right:4px}
 .sbar .game{margin-left:4px;text-decoration:none;font-size:13px;font-weight:700;color:var(--peach);background:var(--peach-s);padding:6px 12px;border-radius:999px}
 .sync details summary{cursor:pointer;font-weight:800;font-size:17px;list-style:none}.sync details summary::-webkit-details-marker{display:none}
-.sync details summary::after{content:" ▾";color:var(--muted)}.sync details[open] summary::after{content:" ▴"}
+.sync details summary::after{content:"";display:inline-block;margin-left:7px;border:5px solid transparent;border-top-color:var(--muted);border-bottom:0;vertical-align:middle}.sync details[open] summary::after{border-top:0;border-bottom:5px solid var(--muted)}
 .sync-acts{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
 .sync textarea{width:100%;margin-top:12px;font:13px/1.4 ui-monospace,Menlo,monospace;color:var(--ink);background:var(--ground);border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;resize:vertical;word-break:break-all}
 #syncMsg{font-size:14px;font-weight:600;color:var(--mint)}#syncMsg.err{color:var(--coral)}
@@ -124,8 +124,8 @@
 @media (hover:none){.keys{display:none}}
 @media (prefers-reduced-motion:reduce){.card .in,.pack,.goal i{transition:none}}
 </style>
-<link rel="stylesheet" href="/chung/ic.css">
-<link rel="stylesheet" href="/chung/hero.css?v=2">
+<link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
+<link rel="stylesheet" href="/chung/hero.css?v=a26ea8bd">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
 </head>
 <body>
@@ -150,7 +150,7 @@
       <div class="nums">
         <div class="num"><b id="nDue">0</b><span>thẻ đến hạn</span></div>
         <div class="num"><b id="nNew">0</b><span>thẻ mới</span></div>
-        <div class="num fire"><b id="nStreak">0</b><span>ngày liên tiếp <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#lua"/></svg></span></div>
+        <div class="num fire"><b id="nStreak">0</b><span>ngày liên tiếp <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#lua"/></svg></span></div>
       </div>
       <div class="goal" role="progressbar" aria-label="Mục tiêu hôm nay" aria-valuemin="0" aria-valuemax="20" id="goal"><i></i></div>
       <button class="btn hot" id="startToday" type="button">Ôn hôm nay</button>
@@ -205,7 +205,7 @@
     <div class="sbar">
       <button class="btn sec" type="button" id="quit">← Về kệ</button>
       <b id="deckName"></b>
-      <a class="game" id="gameLink" href="#" hidden title="Mở 游戏盒 với bộ từ này"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#choi"/></svg> Chơi bộ này</a>
+      <a class="game" id="gameLink" href="#" hidden title="Mở 游戏盒 với bộ từ này"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#choi"/></svg> Chơi bộ này</a>
       <span class="prog" id="prog"></span>
     </div>
     <div class="modes" role="group" aria-label="Kiểu thẻ">
@@ -221,8 +221,8 @@
       </div>
     </div>
     <div class="judge">
-      <button class="btn no" type="button" id="bNo" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#sai"/></svg> Chưa nhớ</button>
-      <button class="btn yes" type="button" id="bYes" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#tick"/></svg> Nhớ rồi</button>
+      <button class="btn no" type="button" id="bNo" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#sai"/></svg> Chưa nhớ</button>
+      <button class="btn yes" type="button" id="bYes" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#tick"/></svg> Nhớ rồi</button>
     </div>
     <p class="keys">Phím tắt: Space lật thẻ · ← chưa nhớ · → nhớ rồi · S nghe đọc</p>
   </div>
@@ -239,7 +239,7 @@
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -289,7 +289,7 @@ function stats(cards){const n=cards.length,seen=cards.filter(c=>box(c)>0).length
 function packBtn(id,title,sub,words,st,ic){
   const done=st.n&&st.ok===st.n;
   return '<button class="pack'+(done?' done':'')+'" type="button" data-deck="'+id+'">'+(ic?'<span class="ic" lang="zh">'+esc(ic)+'</span>':'')+
-    '<span class="t">'+title+'<span>'+(done?'Đã thuộc <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#tick"/></svg>':st.seen?st.seen+'/'+st.n+' đã học':st.n+' từ')+'</span></span>'+
+    '<span class="t">'+title+'<span>'+(done?'Đã thuộc <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#tick"/></svg>':st.seen?st.seen+'/'+st.n+' đã học':st.n+' từ')+'</span></span>'+
     (sub?'<span class="s">'+sub+'</span>':'')+
     '<span class="w" lang="zh">'+words.slice(0,6).map(esc).join(' ')+'</span><span class="bar"><i style="width:'+(st.n?st.seen/st.n*100:0)+'%"></i></span></button>';
 }
@@ -357,7 +357,7 @@ function start(list,nm,id){
 }
 const BOXN=['Thẻ mới','Hộp 一','Hộp 二','Hộp 三','Hộp 熟'];
 function exHtml(c){ // câu ví dụ trong bài giảng, tô đậm từ đang học
-  if(!c.ex)return'';const [z,py,vi]=c.ex,sp=TTS.can(z)?'<button type="button" class="spk" data-say="'+esc(z)+'" aria-label="Nghe câu ví dụ"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#loa"/></svg></button>':'';
+  if(!c.ex)return'';const [z,py,vi]=c.ex,sp=TTS.can(z)?'<button type="button" class="spk" data-say="'+esc(z)+'" aria-label="Nghe câu ví dụ"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#loa"/></svg></button>':'';
   return '<div class="ex"><span class="z" lang="zh">'+esc(z).split(esc(c.w)).join('<b>'+esc(c.w)+'</b>')+sp+'</span><small>'+esc(py)+'</small>'+(vi?'<small>'+esc(vi)+'</small>':'')+'</div>';
 }
 function face(c,part){
@@ -366,7 +366,7 @@ function face(c,part){
   if(part==='back')return tag+spk+'<div class="hz" lang="zh">'+esc(c.w)+'</div><div class="py">'+esc(c.p)+'</div>'+
     (m?'<div class="vi">'+esc(m)+'</div>':'<div class="vi none">Nghĩa tiếng Việt của cấp này đang được bổ sung.</div>')+exHtml(c);
   let f;
-  if(S.mode==='nghe'&&TTS.can(c.w))f='<div class="hz" aria-hidden="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#loa"/></svg></div><div class="vi none">Nghe rồi đoán chữ</div>';
+  if(S.mode==='nghe'&&TTS.can(c.w))f='<div class="hz" aria-hidden="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#loa"/></svg></div><div class="vi none">Nghe rồi đoán chữ</div>';
   else if(S.mode==='vi'&&m)f='<div class="vi" style="font-size:26px">'+esc(m)+'</div><div class="vi none">Chữ Hán là gì?</div>';
   else f='<div class="hz'+(c.w.length>4?' long':'')+'" lang="zh">'+esc(c.w)+'</div>';
   return tag+(S.mode==='hz'?'':spk)+f+'<span class="hint">Bấm vào thẻ để lật</span>';

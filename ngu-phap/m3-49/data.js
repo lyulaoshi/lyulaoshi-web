@@ -18,7 +18,7 @@ rules:[
  {t:"V + 下去 / 下来: tiếp tục", sub:"（3）持续", fx:[["V",""],["下去 / 下来",null]], mean:"下去: tiếp tục (từ nay về sau) · 下来: kéo dài đến bây giờ, giữ lại được.",
   ex:[["你[说下去]，我在听。","Nǐ shuō xiaqu, wǒ zài tīng.","Bạn nói tiếp đi, tôi đang nghe."],
       ["他每天跑步，[坚持下来]了。","Tā měi tiān pǎobù, jiānchí xialai le.","Ngày nào anh ấy cũng chạy bộ, đã kiên trì được đến giờ."]]}],
-notes:[{t:"Tân ngữ với 起来", html:"Tân ngữ chen giữa 起 và 来: <span class='zh'>下起雨来、唱起歌来</span> (không nói ✗ 下雨起来)."}],
+notes:[{t:"Tân ngữ với 起来", html:"Tân ngữ chen giữa 起 và 来: <span class='zh'>下起雨来、唱起歌来</span> (không nói × 下雨起来)."}],
 cmp:[
  {vn:"Tôi nhớ ra rồi!", zh:"我[想起来]了！", py:"Wǒ xiǎng qilai le!", ok:true, why:"“nhớ ra” = 想起来 — 起来 ở đây không phải “đứng dậy”."},
  {vn:"Trời bắt đầu mưa.", zh:"天[下起雨来]了。", py:"Tiān xià qǐ yǔ lai le.", ok:false, tag:"(tân ngữ chen giữa)", why:"“bắt đầu” = V + 起 + tân ngữ + 来."}],

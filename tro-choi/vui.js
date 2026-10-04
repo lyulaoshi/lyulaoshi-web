@@ -1,6 +1,7 @@
 // Câu khen / trêu dí dỏm dùng chung cho mọi trò trong 游戏盒. Sửa câu ở đây là đổi cho tất cả các trò.
 // VUI.dung(chuỗi) · VUI.sai(chuỗi trước khi sai) · VUI.hetgio() · VUI.mang(số mạng còn) · VUI.combo(n)
 // VUI.rank(bậc 0–3) → [zh, vi] · VUI.rankHTML([zh,vi], bậc) · VUI.pop(chữ, phần tử, 'good'|'bad')
+// Câu trả về là HTML có icon tự vẽ đứng trước (bộ /chung/ic.svg, không emoji) — chèn bằng innerHTML.
 // Mỗi trò có thêm kho câu riêng (RIENG, theo tên thư mục của trò); câu khen / trêu lấy nửa từ kho riêng, nửa từ kho chung.
 window.VUI=(function(){
   const any=a=>a[Math.random()*a.length|0];
@@ -45,7 +46,15 @@ window.VUI=(function(){
     'tim-tu':[['Tinh mắt ghê!','好眼力！','Mắt đại bàng','Soi đâu ra đó','Tìm nhanh như chớp'],
       ['Từ này trốn kỹ lắm','Kính lúp đâu rồi?','Đọc kỹ từng chữ nha','Chữ nhiễu lừa em rồi','Khoanh nhầm rồi, không sao']]};
   const TRO=(location.pathname.match(/tro-choi\/([^/]+)\//)||[])[1],MINE=RIENG[TRO];
-  const khen=()=>MINE&&Math.random()<.5?any(MINE[0]):any(KHEN),treu=()=>MINE&&Math.random()<.5?any(MINE[1]):any(TREU);
+  // icon đứng trước câu: I(tên, màu) — màu: vang / do / xanh / xanhla, bỏ trống = theo màu chữ
+  const I=(n,c)=>'<svg class='+(c?'lli-'+c:'lli')+' aria-hidden=true><use href=/chung/ic.svg?v=893338cb#'+n+'></use></svg> ';
+  // icon khen riêng hợp cách chơi của từng trò (nửa số câu khen của trò dùng icon này)
+  const IC_TRO={'mua-chu':'mua','bay-chu':'kinh-lup','thanh-dieu':'tai','dap-chuot':'bua','lat-the':'the-bai','ghep-bo':'manh-ghep','viet-chu':'but',
+    'noi-tu':'link','ran-san-chu':'nhanh','bong-bay':'no','do-chu':'den','xep-hop':'qua','tap-hoa':'tui-tien','tim-tu':'kinh-lup'};
+  const icKhen=()=>I(IC_TRO[TRO]&&Math.random()<.5?IC_TRO[TRO]:any(['sao','lap-lanh']),'vang');
+  const icTreu=()=>I(any(['mat-nhech','mat-choang']));
+  const khen=()=>icKhen()+(MINE&&Math.random()<.5?any(MINE[0]):any(KHEN)),treu=()=>icTreu()+(MINE&&Math.random()<.5?any(MINE[1]):any(TREU));
+  const icCombo=n=>n>=30?I('cup','vang'):n>=20?I('vuong-mien','vang'):n>=10?I('ten-lua','do'):I('lua','do');
   const DUT=['Ối, chuỗi đứt mất rồi','Tiếc ghê, đang chuỗi đẹp mà','Chuỗi đẹp thế mà… thôi làm lại'];
   const HETGIO=['Hết giờ! Đồng hồ không chờ ai','Tích tắc… hết giờ mất rồi','Nghĩ lâu quá, câu hỏi bỏ chạy rồi','Hết giờ! Đang ngủ gật hả?'];
   const MANG={2:['Mất một mạng còn 2, bình tĩnh!','Ui da còn 2 mạng thôi nha'],1:['Còn đúng 1 mạng! Cẩn thận từng chữ','Mạng cuối rồi, dồn hết nội công']};
@@ -70,18 +79,18 @@ window.VUI=(function(){
   function pop(text,el,kind){
     let x=innerWidth/2,y=innerHeight*.3;
     if(el&&el.getBoundingClientRect){const r=el.getBoundingClientRect();x=Math.min(Math.max(r.left+r.width/2,120),innerWidth-120);y=Math.max(r.top-10,70)}
-    const d=document.createElement('div');d.className='vui-pop '+(kind||'good');d.textContent=text;d.style.left=x+'px';d.style.top=y+'px';
+    const d=document.createElement('div');d.className='vui-pop '+(kind||'good');d.innerHTML=text;d.style.left=x+'px';d.style.top=y+'px';
     document.body.appendChild(d);setTimeout(()=>d.remove(),1600);
   }
   return{
     any,pop,
     khen,treu,
-    combo:n=>COMBO[n]?any(COMBO[n]):null,
-    dung:n=>(COMBO[n]&&any(COMBO[n]))||khen(),
-    sai:was=>was>=3?any(DUT):treu(),
-    hetgio:()=>any(HETGIO),
-    mang:(n,pre)=>MANG[n]?(pre||'')+any(MANG[n]):'',
+    combo:n=>COMBO[n]?icCombo(n)+any(COMBO[n]):null,
+    dung:n=>(COMBO[n]&&icCombo(n)+any(COMBO[n]))||khen(),
+    sai:was=>was>=3?I('tim-vo','do')+any(DUT):treu(),
+    hetgio:()=>I('dong-ho')+any(HETGIO),
+    mang:(n,pre)=>MANG[n]?(pre||'')+I(n<=1?'tim-vo':'tim','do')+any(MANG[n]):'',
     rank:t=>any(RANK[Math.max(0,Math.min(3,t))]),
-    rankHTML:(rk,t)=>'<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1]+'<span class="vui-quip">'+any(QUIP[Math.max(0,Math.min(3,t))])+'</span>'
+    rankHTML:(rk,t)=>{t=Math.max(0,Math.min(3,t));return I(['tim','sao','huy-chuong','vuong-mien'][t],t?'vang':'do')+'<span class="zh" lang="zh">'+rk[0]+'</span>'+rk[1]+'<span class="vui-quip">'+I('mat-cuoi')+any(QUIP[t])+'</span>'}
   };
 })();

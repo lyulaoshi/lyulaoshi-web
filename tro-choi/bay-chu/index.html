@@ -87,15 +87,15 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="chips" id="lvChips"></div>
       <h2>2. Chế độ</h2>
       <div class="chips" id="modeChips">
-        <button class="chip" type="button" data-mode="practice" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sach></use></svg> Luyện tập<small>20 câu, không tính giờ</small></button>
-        <button class="chip" type="button" data-mode="challenge" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#lua></use></svg> Thử thách<small>6 giây mỗi câu, 3 mạng</small></button>
+        <button class="chip" type="button" data-mode="practice" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sach></use></svg> Luyện tập<small>20 câu, không tính giờ</small></button>
+        <button class="chip" type="button" data-mode="challenge" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#lua></use></svg> Thử thách<small>6 giây mỗi câu, 3 mạng</small></button>
       </div>
       <ul class="how">
         <li>Mỗi câu là một từ HSK bị <b>khuyết một chữ</b>, có pinyin gợi ý. Chọn chữ đúng trong 2–4 chữ trông gần giống nhau.</li>
         <li>Đúng liên tiếp để lên <b>chuỗi</b>, điểm được nhân lên. Chế độ Thử thách trả lời càng nhanh càng nhiều điểm.</li>
         <li>Chọn sai, cô sẽ chỉ ra chữ đúng và pinyin của từng chữ để em phân biệt.</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -107,7 +107,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <span class="streak" id="streak"></span>
       <span class="hearts" id="hearts"></span>
       <span class="sp"></span>
-      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg> Dừng</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sai></use></svg> Dừng</button>
     </div>
     <div class="timer" id="timerBox"><i id="timer"></i></div>
     <div class="q"><div class="word" id="word" lang="zh"></div><div class="py" id="py"></div><div class="ask">Chữ nào còn thiếu?</div></div>
@@ -122,7 +122,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="panel">
       <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
       <div id="revBox"><h2>Những chữ em bị dính bẫy, ôn lại nhé</h2><ul class="review" id="review"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
     </div>
   </section>
 </main>
@@ -131,12 +131,12 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 
 <script src="../hsk-words.js"></script>
 <script src="../tts.js?v=2"></script>
-<script src="../vui.js?v=4"></script>
+<script src="../vui.js?v=20261004"></script>
 <script src="../nhom-chu.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -181,7 +181,7 @@ function start(){
   next();
 }
 function hud(){$('qNo').textContent=qi;$('score').textContent=score;$('streak').textContent=streak>1?'chuỗi ×'+streak:'';
-  $('hearts').innerHTML=mode==='challenge'?'<svg class=lli-do aria-hidden=true><use href=/chung/ic.svg#tim></use></svg>'.repeat(lives)+'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#tim-rong></use></svg>'.repeat(3-lives):''}
+  $('hearts').innerHTML=mode==='challenge'?'<svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim></use></svg>'.repeat(lives)+'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim-rong></use></svg>'.repeat(3-lives):''}
 function next(){
   if(!alive)return;
   if((mode==='practice'&&qi>=TOTAL)||(mode==='challenge'&&lives<=0)||qi>=deck.length)return end();

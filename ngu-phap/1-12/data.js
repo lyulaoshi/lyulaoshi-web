@@ -14,7 +14,7 @@ rules:[
   ex:[["今天的电影太好看了，我们明天[再]去看吧。","Jīntiān de diànyǐng tài hǎokàn le, wǒmen míngtiān zài qù kàn ba.","Phim hôm nay hay quá, mai chúng mình lại đi xem nữa nhé.","等级标准"],
       ["请您[再]说一遍。","Qǐng nín zài shuō yí biàn.","Xin thầy nói lại một lần nữa."]]}],
 notes:[
- {t:"Phủ định", html:"<span class='zh'>不常</span> = không hay (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> <span class='zh'>不常常</span>): <span class='zh'>我不常喝咖啡。</span>"},
+ {t:"Phủ định", html:"<span class='zh'>不常</span> = không hay (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> <span class='zh'>不常常</span>): <span class='zh'>我不常喝咖啡。</span>"},
  {t:"再 hay 又?", html:"Chưa xảy ra → <b>再</b>: <span class='zh'>明天再来。</span> Đã xảy ra → <b>又</b> 【二16】: <span class='zh'>他昨天又来了。</span>"}],
 cmp:[
  {vn:"Tôi hay uống trà.", zh:"我[常常]喝茶。", py:"Wǒ chángcháng hē chá.", ok:true, why:"“hay / thường” đứng trước động từ — giống tiếng Việt."},

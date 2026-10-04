@@ -218,8 +218,8 @@ body.has-bar{padding-bottom:96px}
 @media (max-width:560px){.brand .t b{display:none}.crumb .hide-s{display:none}}
 footer{padding:18px 0 32px;margin-top:32px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
 </style>
-<link rel="stylesheet" href="/chung/ic.css">
-<link rel="stylesheet" href="/chung/hero.css?v=2">
+<link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
+<link rel="stylesheet" href="/chung/hero.css?v=a26ea8bd">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -369,7 +369,7 @@ books();panel();resume();
 addEventListener("pageshow",e=>{if(e.persisted){books();panel();resume()}});
 (function(){const r=document.documentElement,b=$("#themeBtn");
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 </script>
 </body>

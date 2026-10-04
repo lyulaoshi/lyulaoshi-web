@@ -9,6 +9,7 @@
 <symbol id="dung" viewBox="0 0 24 24"><path d="M9.0 6.5h6.0a2.5 2.5 0 0 1 2.5 2.5v6.0a2.5 2.5 0 0 1 -2.5 2.5h-6.0a2.5 2.5 0 0 1 -2.5 -2.5v-6.0a2.5 2.5 0 0 1 2.5 -2.5z" fill="currentColor" stroke="none"/></symbol>
 <symbol id="tam-dung" viewBox="0 0 24 24"><path d="M7.7 5.5h1.2000000000000002a1.2 1.2 0 0 1 1.2 1.2v10.6a1.2 1.2 0 0 1 -1.2 1.2h-1.2000000000000002a1.2 1.2 0 0 1 -1.2 -1.2v-10.6a1.2 1.2 0 0 1 1.2 -1.2zM15.1 5.5h1.2000000000000002a1.2 1.2 0 0 1 1.2 1.2v10.6a1.2 1.2 0 0 1 -1.2 1.2h-1.2000000000000002a1.2 1.2 0 0 1 -1.2 -1.2v-10.6a1.2 1.2 0 0 1 1.2 -1.2z" fill="currentColor" stroke="none"/></symbol>
 <symbol id="lai" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.3-5.4M4.5 4v4.5H9"/></symbol>
+<symbol id="thanh-dieu" viewBox="0 0 24 24"><path d="M3 18c2.5 0 3-11 6-11s2.5 7 5 7 3-8 7-8"/><path d="M1.6 18a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0zM19.6 6a1.4 1.4 0 1 0 2.8 0a1.4 1.4 0 1 0 -2.8 0z" fill="currentColor" stroke="none"/></symbol>
 <symbol id="so" viewBox="0 0 24 24"><path d="M4 8.5h14M14.5 5l3.5 3.5-3.5 3.5M20 15.5H6M9.5 12 6 15.5 9.5 19"/></symbol>
 <symbol id="dong-ho" viewBox="0 0 24 24"><path d="M4.5 13.5a7.5 7.5 0 1 0 15.0 0a7.5 7.5 0 1 0 -15.0 0zM12 13.5V9.5M10 2.5h4M18.3 6.7l1.6-1.6"/></symbol>
 <symbol id="cham" viewBox="0 0 24 24"><path d="M3 18.5h12.5a4.5 4.5 0 0 0 4.5-4.5v-2M5.5 12.5a5 5 0 1 0 10 0a5 5 0 1 0 -10 0zM10.5 12.5a1.7 1.7 0 1 1 1.7 1.7M19 11.5 17.8 7.8M21 12l1.5-3.3"/><path d="M16.8 7.2a0.9 0.9 0 1 0 1.8 0a0.9 0.9 0 1 0 -1.8 0zM21.8 8.4a0.9 0.9 0 1 0 1.8 0a0.9 0.9 0 1 0 -1.8 0z" fill="currentColor" stroke="none"/></symbol>
@@ -76,6 +77,8 @@
 <symbol id="mu" viewBox="0 0 24 24"><path d="M2 9l10-4.5L22 9l-10 4.5zM6.5 11v5c0 1.5 2.5 3 5.5 3s5.5-1.5 5.5-3v-5M21 9v5"/></symbol>
 <symbol id="lich" viewBox="0 0 24 24"><path d="M6 5.5h12a2 2 0 0 1 2 2v11a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2zM4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol>
 <symbol id="tv" viewBox="0 0 24 24"><path d="M5 6.5h14a2 2 0 0 1 2 2v8.5a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-8.5a2 2 0 0 1 2 -2zM8.5 2.5 12 6l3.5-3.5"/></symbol>
+<symbol id="khoa" viewBox="0 0 24 24"><path d="M7.5 10.5h9.0a2.5 2.5 0 0 1 2.5 2.5v5.5a2.5 2.5 0 0 1 -2.5 2.5h-9.0a2.5 2.5 0 0 1 -2.5 -2.5v-5.5a2.5 2.5 0 0 1 2.5 -2.5zM8 10.5V7.5a4 4 0 0 1 8 0v3M12 14.5v2.5"/></symbol>
+<symbol id="dien-thoai" viewBox="0 0 24 24"><path d="M9.0 2.5h6.0a2.5 2.5 0 0 1 2.5 2.5v14.0a2.5 2.5 0 0 1 -2.5 2.5h-6.0a2.5 2.5 0 0 1 -2.5 -2.5v-14.0a2.5 2.5 0 0 1 2.5 -2.5zM10.5 18h3"/></symbol>
 <symbol id="tin-nhan" viewBox="0 0 24 24"><path d="M4.5 5h15a1 1 0 0 1 1 1v9.5a1 1 0 0 1-1 1H9.5L5 20v-3.5h-.5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></symbol>
 <symbol id="thu" viewBox="0 0 24 24"><path d="M5 5.5h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2zM3.5 6.5 12 13l8.5-6.5"/></symbol>
 <symbol id="trang" viewBox="0 0 24 24"><path d="M19.5 14.5A8 8 0 0 1 9.5 4.5a8 8 0 1 0 10 10z"/></symbol>

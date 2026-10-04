@@ -20,7 +20,7 @@ const mk=s=>esc(s).replace(/\[([^\]]+)\]/g,'<mark>$1</mark>')          // [是] 
 const zhw=s=>esc(s).replace(/([\u3400-\u9fff＿“”，。？！、…（）]+)/g,'<span class="zh">$1</span>');
 const qvi=it=>it.vi?`<div class="qvi">${esc(it.vi)}</div>`:"";   // nghĩa tiếng Việt của đề bài (ẩn khi tắt nút Nghĩa)
 const plain=s=>String(s).replace(/\{\d\|/g,'').replace(/[\[\]{}]/g,'');
-const say=s=>{const t=plain(s).replace(/——/g,'，');return window.TTS&&("speechSynthesis" in window)?`<button type="button" class="spk" data-say="${esc(t)}" aria-label="Nghe câu này"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#loa"/></svg></button>`:""};
+const say=s=>{const t=plain(s).replace(/——/g,'，');return window.TTS&&("speechSynthesis" in window)?`<button type="button" class="spk" data-say="${esc(t)}" aria-label="Nghe câu này"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#loa"/></svg></button>`:""};
 const folder=c=>READY[c];
 const $=s=>document.querySelector(s);
 
@@ -49,7 +49,7 @@ if(L.rules) html+=sec("lav","语法规则","Công thức & cách dùng",(L.intro
   +(L.notes||[]).map(n=>`<div class="note"><b class="t">${esc(n.t)}:</b> ${n.html}</div>`).join(''));
 
 if(L.cmp) html+=sec("butter","汉越对比","So với tiếng Việt",`<div class="cmp">${L.cmp.map(c=>`<div class="row"><div class="vn">${esc(c.vn)}</div><div class="ar">→</div>
-  <div class="cn"><span class="z">${mk(c.zh)}</span> ${c.ok===false?`<span class="no">${esc(c.tag||"")}</span>`:c.ok?'<span class="ok"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#tick"/></svg></span>':""}<div style="font-size:14px;color:var(--sc)">${esc(c.py||"")}</div></div>${c.why?`<div class="why">${c.why}</div>`:""}</div>`).join('')}</div>`);
+  <div class="cn"><span class="z">${mk(c.zh)}</span> ${c.ok===false?`<span class="no">${esc(c.tag||"")}</span>`:c.ok?'<span class="ok"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#tick"/></svg></span>':""}<div style="font-size:14px;color:var(--sc)">${esc(c.py||"")}</div></div>${c.why?`<div class="why">${c.why}</div>`:""}</div>`).join('')}</div>`);
 
 if(L.ex) html+=sec("sky","例句","Câu ví dụ",L.ex.map((e,i)=>sent(e,i)).join('')+`<p style="font-size:13px;color:var(--muted);margin-top:10px">“等级标准”: câu ví dụ trong 《国际中文教育中文水平等级标准·应用解读本》; còn lại do cô bổ sung.</p>`);
 
@@ -116,11 +116,11 @@ function checkTyped(qd,it){
   if(!raw){fb.className="fb no";fb.innerHTML="Em gõ câu trả lời vào ô trước nhé.";return}
   if(!/[\u3400-\u9fff]/.test(raw)){fb.className="fb no";fb.innerHTML="<b>Chưa có chữ Hán.</b> Em bật bộ gõ tiếng Trung (pinyin) rồi gõ lại — nếu đang để Telex thì máy sẽ ra chữ Việt.";return}
   const u=norm(raw), acc=accepted(it.a);
-  if(acc.includes(u)){fb.className="fb ok";fb.innerHTML="<b><svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg#tick\"/></svg> Chính xác!</b>";inp.classList.add('ok');qd.querySelector('.ans').hidden=false;
+  if(acc.includes(u)){fb.className="fb ok";fb.innerHTML="<b><svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=893338cb#tick\"/></svg> Chính xác!</b>";inp.classList.add('ok');qd.querySelector('.ans').hidden=false;
     const b=qd.querySelector('[data-act=show]');if(b)b.textContent="Ẩn đáp án";return}
   let best={h:esc(u),score:-1};acc.forEach(a=>{const r=lcsMark(u,a);if(r.score>best.score)best=r});
   inp.classList.remove('ok');fb.className="fb no";
-  fb.innerHTML=`<b><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#sai"/></svg> Chưa khớp đáp án mẫu.</b> Câu của em: <span class="zh tw">${best.h}</span>`
+  fb.innerHTML=`<b><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#sai"/></svg> Chưa khớp đáp án mẫu.</b> Câu của em: <span class="zh tw">${best.h}</span>`
     +(/<mark/.test(best.h)?" — chữ tô đỏ không có trong đáp án.":" — câu còn thiếu chữ.")
     +`<div class="hint">Có thể em diễn đạt cách khác mà vẫn đúng: bấm “Xem đáp án” để so, chưa chắc thì hỏi cô nhé.</div>`;}
 
@@ -133,7 +133,7 @@ document.addEventListener('click',e=>{
   if(qd.dataset.type==="choice"){const b=e.target.closest('.opt'); if(!b)return;
     const k=+b.dataset.k, ok=k===it.a; b.classList.add(ok?"right":"wrong");
     if(ok) qd.querySelectorAll('.opt').forEach(o=>o.disabled=true);
-    fb.hidden=false; fb.className="fb "+(ok?"ok":"no"); fb.innerHTML=ok?`<b><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#tick"/></svg> Đúng rồi!</b> ${it.why||""}`:`<b><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#sai"/></svg> Chưa đúng.</b> Thử lại nhé.`; return;}
+    fb.hidden=false; fb.className="fb "+(ok?"ok":"no"); fb.innerHTML=ok?`<b><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#tick"/></svg> Đúng rồi!</b> ${it.why||""}`:`<b><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#sai"/></svg> Chưa đúng.</b> Thử lại nhé.`; return;}
   const act=e.target.closest('[data-act]')?.dataset.act, line=qd.querySelector('.line'), pool=qd.querySelector('.pool');
   if(qd.dataset.type==="order"){
     const c=e.target.closest('.chip');
@@ -143,7 +143,7 @@ document.addEventListener('click',e=>{
     if(act==="check"){const strip=s=>s.replace(/[，。？！、,.?!\s]/g,'');
       const got=strip([...line.children].map(x=>x.textContent).join('')), ok=[it.a].concat(it.alt||[]).some(a=>strip(a)===got);
       fb.hidden=false; fb.className="fb "+(ok?"ok":"no");
-      fb.innerHTML=ok?"<b><svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg#tick\"/></svg> Chính xác!</b>":(pool.querySelector('.chip:not(.used)')?"<b>Chưa xong</b> — còn thẻ chưa dùng.":"<b><svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg#sai\"/></svg> Chưa đúng.</b> Bấm vào thẻ ở dòng trên để đưa về, rồi xếp lại."); return;}
+      fb.innerHTML=ok?"<b><svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=893338cb#tick\"/></svg> Chính xác!</b>":(pool.querySelector('.chip:not(.used)')?"<b>Chưa xong</b> — còn thẻ chưa dùng.":"<b><svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=893338cb#sai\"/></svg> Chưa đúng.</b> Bấm vào thẻ ở dòng trên để đưa về, rồi xếp lại."); return;}
   }
   if(act==="type"){checkTyped(qd,it);return;}
   if(act==="show"){ans.hidden=!ans.hidden; const b=e.target.closest('[data-act]'); if(qd.dataset.type==="show")b.textContent=ans.hidden?"Xem đáp án":"Ẩn đáp án";}
@@ -188,14 +188,14 @@ function doPrint(kind){
     h+=`<h2>Công thức</h2>`+(L.rules||[]).map((r,i)=>`<div class="pr-rule"><div class="rt">${L.rules.length>1?(i+1)+". ":""}${esc(r.t)}</div><div class="pfx">${fxT(r.fx)}</div>${r.mean?`<div class="mn">${r.mean}</div>`:""}
       <ul>${(r.ex||[]).slice(0,2).map(e=>`<li>${Z(e[0])} <i>${esc(e[1]||"")}</i> — ${esc(e[2]||"")}</li>`).join('')}</ul></div>`).join('')
       +(L.notes||[]).map(n=>`<div class="mn"><b>${esc(n.t)}:</b> ${n.html}</div>`).join('');
-    if(L.errs)h+=`<h2>Lỗi hay gặp</h2><ul class="perr">${L.errs.map(e=>`<li><s><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#sai"/></svg> ${Z(e.bad)}</s> → <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#tick"/></svg> ${Z(e.good)} <span class="mn">${e.why}</span></li>`).join('')}</ul>`;
+    if(L.errs)h+=`<h2>Lỗi hay gặp</h2><ul class="perr">${L.errs.map(e=>`<li><s><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#sai"/></svg> ${Z(e.bad)}</s> → <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#tick"/></svg> ${Z(e.good)} <span class="mn">${e.why}</span></li>`).join('')}</ul>`;
   }else{
     const ans=[];
     (L.practice||[]).forEach((g,gi)=>{h+=`<h2>${esc(g.t)}</h2><ol class="pq">`;const aa=[];
       g.items.forEach((it,ii)=>{
         const vi=it.vi&&/[㐀-鿿]/.test(it.q||"")?`<div class="pv">${esc(it.vi)}</div>`:"";
         if(g.type==="choice"){const ds=it.o.length===2&&it.o[0]==="Đúng";
-          h+=`<li><div class="qq">${/[㐀-鿿]/.test(it.q)&&!/[a-zà-ỹ]{3}/i.test(it.q)?Z(it.q):zhw(it.q)}</div>${vi}`+(ds?`<div class="po">☐ Đúng　　☐ Sai　　Sửa lại: <span class="wl-i"></span></div>`
+          h+=`<li><div class="qq">${/[㐀-鿿]/.test(it.q)&&!/[a-zà-ỹ]{3}/i.test(it.q)?Z(it.q):zhw(it.q)}</div>${vi}`+(ds?`<div class="po"><i class="o"></i> Đúng　　<i class="o"></i> Sai　　Sửa lại: <span class="wl-i"></span></div>`
             :`<div class="po">${it.o.map((o,k)=>`<span>${ABC[k]}. ${Z(o)}</span>`).join('')}</div>`)+`</li>`;
           aa.push(ds?(it.a===0?"Đúng":"Sai — "+esc(it.why||"")):`${ABC[it.a]}. ${Z(it.o[it.a])}`);}
         else if(g.type==="order"){h+=`<li><div class="qq">${esc(it.vi||"Sắp xếp thành câu đúng")}</div><div class="chips">${shuf(it,gi,ii).map(x=>`<span>${P(x)}</span>`).join('')}</div><div class="wl"></div></li>`;aa.push(Z(it.a));}
@@ -230,5 +230,5 @@ document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement
 // Theme sáng/tối như các hộp khác
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');if(!b)return;
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();

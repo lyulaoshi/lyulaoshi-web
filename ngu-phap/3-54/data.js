@@ -19,7 +19,7 @@ rules:[
       ["{1|孩子们}{2|把}{3|手}{4|洗得干干净净的}。","Háizimen bǎ shǒu xǐ de gāngānjìngjìng de.","Bọn trẻ rửa tay sạch sẽ tinh tươm.","等级标准"]]}],
 notes:[{t:"Phủ định, năng nguyện", html:"đặt trước 把: <span class='zh'>我没把书放在桌子上。你应该把作业交给老师。</span>"}],
 cmp:[
- {vn:"Tôi để điện thoại trên bàn.", zh:"{1|我}{2|把}{3|手机}{4|放在}{5|桌子上}。", py:"Wǒ bǎ shǒujī fàng zài zhuōzi shang.", ok:false, tag:"(phải dùng 把)", why:"Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 我放手机在桌子上."}],
+ {vn:"Tôi để điện thoại trên bàn.", zh:"{1|我}{2|把}{3|手机}{4|放在}{5|桌子上}。", py:"Wǒ bǎ shǒujī fàng zài zhuōzi shang.", ok:false, tag:"(phải dùng 把)", why:"Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 我放手机在桌子上."}],
 ex:[
  ["请{2|把}{3|门}{4|关上}。","Qǐng bǎ mén guānshang.","Làm ơn đóng cửa lại."],
  ["{1|我}{2|把}{3|作业}{4|做完}了。","Wǒ bǎ zuòyè zuòwán le.","Tôi làm xong bài tập rồi."],

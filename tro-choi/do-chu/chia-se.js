@@ -3,10 +3,10 @@
 window.CHIASE=(function(){
   const $=id=>document.getElementById(id),any=a=>a[Math.random()*a.length|0];
   // kiểu ảnh riêng của Đố chữ (khác trò Đoán từ): đèn lồng đố chữ, hồ sơ mật, bồ câu, khoa thi, bảng vàng, bục trao giải
-  const THEMES={thach:[['chienthu','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuon-giay></use></svg> Chiến thư'],['vodai','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#gang-tay></use></svg> Võ đài'],['trangnguyen','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#mu></use></svg> Khoa thi']],
-    sos:[['denlong','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#den-long></use></svg> Đèn đố chữ'],['homat','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#kinh-lup></use></svg> Hồ sơ mật'],['bocau','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#bo-cau></use></svg> Bồ câu đưa thư']],
-    ketqua:[['kimbang','<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuon-giay></use></svg> Bảng vàng'],['bucvinh','<svg class=lli-vang aria-hidden=true><use href=/chung/ic.svg#huy-chuong></use></svg> Bục trao giải']]};
-  const TITLE={thach:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#kiem></use></svg> Gửi chiến thư! Chọn kiểu ảnh thật “lầy”',sos:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cuu></use></svg> Gọi đồng đội! Chọn kiểu ảnh cầu cứu',ketqua:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#cup></use></svg> Khoe kết quả trận đấu'};
+  const THEMES={thach:[['chienthu','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#cuon-giay></use></svg> Chiến thư'],['vodai','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#gang-tay></use></svg> Võ đài'],['trangnguyen','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#mu></use></svg> Khoa thi']],
+    sos:[['denlong','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#den-long></use></svg> Đèn đố chữ'],['homat','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#kinh-lup></use></svg> Hồ sơ mật'],['bocau','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#bo-cau></use></svg> Bồ câu đưa thư']],
+    ketqua:[['kimbang','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#cuon-giay></use></svg> Bảng vàng'],['bucvinh','<svg class=lli-vang aria-hidden=true><use href=/chung/ic.svg?v=893338cb#huy-chuong></use></svg> Bục trao giải']]};
+  const TITLE={thach:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#kiem></use></svg> Gửi chiến thư! Chọn kiểu ảnh thật “lầy”',sos:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#cuu></use></svg> Gọi đồng đội! Chọn kiểu ảnh cầu cứu',ketqua:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#cup></use></svg> Khoe kết quả trận đấu'};
   let o=null,theme='',blob=null,url='',sent=false;
   // ---- khung (tạo một lần) ----
   const st=document.createElement('style');
@@ -20,10 +20,10 @@ window.CHIASE=(function(){
     '.shx{position:absolute;top:10px;right:10px;border:0;background:var(--ground2);color:var(--ink);width:36px;height:36px;border-radius:50%;font-size:16px;cursor:pointer}';
   document.head.appendChild(st);
   const box=document.createElement('div');box.className='shm';box.id='shModal';box.hidden=true;box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');
-  box.innerHTML='<div class="shc"><button class="shx" type="button" id="shClose" aria-label="Đóng"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg></button><h2 id="shTitle"></h2><div class="chips" id="shThemes"></div>'+
+  box.innerHTML='<div class="shc"><button class="shx" type="button" id="shClose" aria-label="Đóng"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sai></use></svg></button><h2 id="shTitle"></h2><div class="chips" id="shThemes"></div>'+
     '<input id="shName" type="text" maxlength="20" autocomplete="off" placeholder="Tên em để in lên ảnh (không bắt buộc)" aria-label="Tên in lên ảnh">'+
     '<img id="shImg" alt="Ảnh để chia sẻ"><p class="muted">Ảnh không có đáp án đâu, yên tâm gửi!</p>'+
-    '<div class="acts"><button class="btn hot" type="button" id="shSend"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#gui></use></svg> Gửi ngay</button><button class="btn sec" type="button" id="shCopyImg"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#anh></use></svg> Chép ảnh</button><a class="btn sec" id="shSave" download="do-chu.png"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tai-ve></use></svg> Lưu ảnh</a><button class="btn sec" type="button" id="shCopyTxt"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#chep></use></svg> Chép lời nhắn + link</button></div></div>';
+    '<div class="acts"><button class="btn hot" type="button" id="shSend"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#gui></use></svg> Gửi ngay</button><button class="btn sec" type="button" id="shCopyImg"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#anh></use></svg> Chép ảnh</button><a class="btn sec" id="shSave" download="do-chu.png"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tai-ve></use></svg> Lưu ảnh</a><button class="btn sec" type="button" id="shCopyTxt"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#chep></use></svg> Chép lời nhắn + link</button></div></div>';
   document.body.appendChild(box);
   // ---- vẽ ----
   let C,KAI,VI;const W=1080,H=1350;
@@ -31,7 +31,7 @@ window.CHIASE=(function(){
   function TXT(s,x,y,font,col,align,stroke,maxW){C.font=font;
     if(align!=='left'){let px=parseFloat(font.match(/([\d.]+)px/)[1]);while(px>12&&C.measureText(s).width>(maxW||W-110)){px*=.94;C.font=font.replace(/[\d.]+px/,px+'px')}}
     C.textAlign=align||'center';C.textBaseline='middle';if(stroke){C.lineJoin='round';C.lineWidth=stroke[1];C.strokeStyle=stroke[0];C.strokeText(s,x,y)}C.fillStyle=col;C.fillText(s,x,y)}
-  // icon tự vẽ trên ảnh (bộ /chung/ic-ve.js): ICO vẽ 1 icon; TI vẽ icon + chữ (icon đứng trước); TI2 đặt icon hai bên chữ
+  // icon tự vẽ trên ảnh (bộ /chung/ic-ve.js?v=e6b0f952): ICO vẽ 1 icon; TI vẽ icon + chữ (icon đứng trước); TI2 đặt icon hai bên chữ
   const ICO=(n,x,y,s,col)=>{if(window.LLI)LLI.ve(C,n,x,y,s,col)};
   const TI=(n,s,x,y,font,col,align,stroke,z)=>{C.font=font;const px=parseFloat(font.match(/([\d.]+)px/)[1]);z=z||px*.95;const g=px*.3,w=Math.min(C.measureText(s).width,W-160-z);
     const x0=align==='left'?x:x-(w+z+g)/2;ICO(n,x0+z/2,y,z,col);TXT(s,x0+z+g,y,font,col,'left',stroke)};
@@ -81,7 +81,7 @@ window.CHIASE=(function(){
       TXT('Lên đài không?',W/2,1040,'900 62px '+VI,'#fff');
       if(ch)TI('lua',ch,W/2,1120,'700 30px '+VI,'#FFD23F');
       footer(1250,'#B7B3E0');
-    }else if(T==='denlong'){ // 🏮 đèn đố chữ (猜灯谜): câu đố viết trên dải giấy treo dưới đèn lồng
+    }else if(T==='denlong'){ // đèn đố chữ (猜灯谜): câu đố viết trên dải giấy treo dưới đèn lồng
       const sky=C.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#1B1036');sky.addColorStop(1,'#5A1424');C.fillStyle=sky;C.fillRect(0,0,W,H);
       for(let i=0;i<60;i++){C.fillStyle='rgba(255,230,160,'+(Math.random()*.6+.2)+')';C.beginPath();C.arc(Math.random()*W,Math.random()*520,Math.random()*2.5+1,0,7);C.fill()}
       C.strokeStyle='#C99A14';C.lineWidth=4;C.beginPath();C.moveTo(0,70);C.quadraticCurveTo(W/2,150,W,70);C.stroke();
@@ -101,7 +101,7 @@ window.CHIASE=(function(){
       TXT('Ai gỡ được đèn này?',W/2,1140,'900 56px '+VI,'#FFD23F');
       if(ch)TI('lua',ch,W/2,1210,'700 30px '+VI,'#FFC7A8');
       footer(1290,'#FFC7A8');
-    }else if(T==='homat'){ // 🕵️ hồ sơ tuyệt mật: câu đố là mật mã cần giải
+    }else if(T==='homat'){ // hồ sơ tuyệt mật: câu đố là mật mã cần giải
       C.fillStyle='#2B2A33';C.fillRect(0,0,W,H);
       RR(80,140,W-160,1080,24);C.fillStyle='#D8B47A';C.fill();RR(80,90,360,80,20);C.fill();
       RR(120,200,W-240,980,14);C.fillStyle='#FBF6EA';C.fill();
@@ -117,7 +117,7 @@ window.CHIASE=(function(){
       TXT('Cần thám tử giải mã gấp!',W/2,1070,'900 54px '+VI,'#2B2A33');
       if(ch)TI('lua',ch,W/2,1135,'700 28px '+VI,'#5A4A2A');
       footer(1285,'#D8B47A');
-    }else if(T==='bocau'){ // 🕊️ bồ câu đưa thư khẩn
+    }else if(T==='bocau'){ // bồ câu đưa thư khẩn
       const sky=C.createLinearGradient(0,0,0,H);sky.addColorStop(0,'#FFD9A8');sky.addColorStop(.6,'#BFE3FF');sky.addColorStop(1,'#8FC8F5');C.fillStyle=sky;C.fillRect(0,0,W,H);
       ICO('may',140,140,150,'#fff');ICO('may',W-150,300,120,'#fff');ICO('may',W-300,90,95,'#fff');
       ICO('bo-cau',W/2-40,190,190,'#1C4E80');
@@ -132,7 +132,7 @@ window.CHIASE=(function(){
       TXT('Bồ câu bay mỏi cánh rồi, hồi âm nhanh nha!',W/2,1120,'900 42px '+VI,'#1C4E80');
       if(ch)TI('lua',ch,W/2,1190,'700 30px '+VI,'#1C4E80');
       footer(1285,'#1C4E80');
-    }else if(T==='trangnguyen'){ // 🎓 khoa thi chữ Hán: ai đỗ Trạng nguyên?
+    }else if(T==='trangnguyen'){ // khoa thi chữ Hán: ai đỗ Trạng nguyên?
       C.fillStyle='#8B1E1E';C.fillRect(0,0,W,H);
       C.strokeStyle='#E8B830';C.lineWidth=12;C.strokeRect(36,36,W-72,H-72);C.lineWidth=3;C.strokeRect(60,60,W-120,H-120);
       TXT('科举',W/2,150,'96px '+KAI,'#FFD970');
@@ -144,7 +144,7 @@ window.CHIASE=(function(){
       TXT('Ai dám ứng thí, tranh ngôi Trạng nguyên?',W/2,1030,'900 44px '+VI,'#fff','center',null,W-180);
       if(ch)TI('lua',ch,W/2,1110,'700 30px '+VI,'#FFC7A8');
       footer(1250,'#FFD970');
-    }else if(T==='kimbang'){ // 📜 bảng vàng 金榜: Trạng nguyên / Bảng nhãn
+    }else if(T==='kimbang'){ // bảng vàng 金榜: Trạng nguyên / Bảng nhãn
       C.fillStyle='#5A1010';C.fillRect(0,0,W,H);
       const g=C.createLinearGradient(0,0,0,H);g.addColorStop(0,'#C8342A');g.addColorStop(1,'#9A1E1E');RR(70,60,W-140,H-120,20);C.fillStyle=g;C.fill();
       C.strokeStyle='#E8B830';C.lineWidth=10;C.stroke();
@@ -157,7 +157,7 @@ window.CHIASE=(function(){
         TXT(r.ok?r.t+' giây':'bó tay',W-180,y+50,'900 44px '+VI,'#3A1010','right');TXT(r.ok?r.p+' điểm':'0 điểm',W-180,y+112,'800 34px '+VI,'#8B1E1E','right')});
       TXT(o.win===0&&!me.ok?'Cả hai cùng trượt, câu này khó thật!':'Chúc mừng tân khoa! Bạn có dám dự khoa sau?',W/2,1080,'900 40px '+VI,'#FFE9A8','center',null,W-200);
       footer(1210,'#FFD970');
-    }else{ // 🥇 bục trao giải
+    }else{ // bục trao giải
       const g=C.createLinearGradient(0,0,0,H);g.addColorStop(0,'#2A1F5C');g.addColorStop(1,'#7C6BD6');C.fillStyle=g;C.fillRect(0,0,W,H);
       [[250,'rgba(255,255,255,.08)'],[W-250,'rgba(255,255,255,.08)']].forEach(([x,c])=>{C.fillStyle=c;C.beginPath();C.moveTo(x,0);C.lineTo(x-200,H);C.lineTo(x+200,H);C.closePath();C.fill()});
       confetti(90,['#FFD23F','#E0545F','#2E9E73','#3B87D6','#fff']);
@@ -176,7 +176,7 @@ window.CHIASE=(function(){
     return new Promise(res=>out.toBlob(res,'image/png'));
   }
   async function redraw(){blob=await draw();if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(blob);$('shImg').src=url;$('shSave').href=url;
-    $('shCopyImg').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#anh></use></svg> Chép ảnh';$('shCopyTxt').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg#chep></use></svg> Chép lời nhắn + link'}
+    $('shCopyImg').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#anh></use></svg> Chép ảnh';$('shCopyTxt').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#chep></use></svg> Chép lời nhắn + link'}
   const done=()=>{if(!sent){sent=true;o.onSent&&o.onSent()}};
   function open(opts){o=opts;sent=false;const th=THEMES[o.kind];theme=th[0][0];
     $('shTitle').innerHTML=TITLE[o.kind];$('shName').value=o.name();
@@ -189,9 +189,9 @@ window.CHIASE=(function(){
   let nmT;$('shName').addEventListener('input',()=>{o.onName($('shName').value);clearTimeout(nmT);nmT=setTimeout(redraw,300)});
   $('shSend').onclick=async()=>{if(!blob)return;const file=new File([blob],'do-chu-'+theme+'.png',{type:'image/png'});
     try{await navigator.share({files:[file],text:o.text()});done()}catch(e){}};
-  $('shCopyImg').onclick=()=>navigator.clipboard.write([new ClipboardItem({'image/png':blob})]).then(()=>{$('shCopyImg').innerHTML='<svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg#tick></use></svg> Đã chép ảnh';done()},()=>$('shCopyImg').hidden=true);
+  $('shCopyImg').onclick=()=>navigator.clipboard.write([new ClipboardItem({'image/png':blob})]).then(()=>{$('shCopyImg').innerHTML='<svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tick></use></svg> Đã chép ảnh';done()},()=>$('shCopyImg').hidden=true);
   $('shSave').addEventListener('click',done);
-  $('shCopyTxt').onclick=()=>{const t=o.text();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$('shCopyTxt').innerHTML='<svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg#tick></use></svg> Đã chép, dán gửi bạn nhé';done()},()=>{prompt('Chép đoạn này gửi bạn:',t);done()})};
+  $('shCopyTxt').onclick=()=>{const t=o.text();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$('shCopyTxt').innerHTML='<svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tick></use></svg> Đã chép, dán gửi bạn nhé';done()},()=>{prompt('Chép đoạn này gửi bạn:',t);done()})};
   $('shClose').onclick=close;box.addEventListener('click',e=>{if(e.target===box)close()});
   addEventListener('keydown',e=>{if(e.key==='Escape'&&!box.hidden)close()});
   return{open,close,any};

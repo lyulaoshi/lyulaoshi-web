@@ -270,6 +270,7 @@ a.rl b{color:var(--ink)}
 .feat>div:nth-child(even) h4 span{color:var(--coral)}
 .feat p{margin:4px 0 0;font-size:14.5px;color:var(--muted)}
 </style>
+<link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
 </head>
 <body>
 
@@ -279,7 +280,7 @@ a.rl b{color:var(--ink)}
     <span class="t"><b>Giáo trình BOYA sơ cấp 1</b><span>博雅汉语 · 初级起步篇</span></span>
   </a>
   <nav class="menu" aria-label="Menu">
-    <a href="#bai-hoc">Bài học</a><a href="#lo-trinh">Lộ trình</a><a href="#co-gi">Trong hộp có gì</a><a class="cta" href="/">← Trang chủ</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☀︎</button>
+    <a href="#bai-hoc">Bài học</a><a href="#lo-trinh">Lộ trình</a><a href="#co-gi">Trong hộp có gì</a><a class="cta" href="/">← Trang chủ</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#trang"></use></svg></button>
   </nav>
 </div></header>
 
@@ -370,7 +371,7 @@ a.rl b{color:var(--ink)}
      <div class="zh" style="font-size:clamp(34px,4vw,46px);margin-top:22px">现在几点</div>
      <div class="vi">Bây giờ mấy giờ rồi?</div>
      <p class="desc">Bài giảng đang được biên soạn.</p>
-     <span class="lock">🔒 Sắp ra mắt</span>
+     <span class="lock"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#khoa"></use></svg> Sắp ra mắt</span>
     </div>
   </section>
 
@@ -429,10 +430,10 @@ a.rl b{color:var(--ink)}
 <footer class="wrap"><span>© Bài giảng được biên soạn bởi ThS. Lã Thị Thuỳ Phương.</span><span><a href="/">lyulaoshi.com</a> · 博雅汉语</span></footer>
 
 <script>
-// Giao diện sáng / tối: mặc định theo máy, nút ☀︎/☾ để đổi (dùng chung lựa chọn với trang chủ)
+// Giao diện sáng / tối: mặc định theo máy, nút mặt trời / mặt trăng để đổi (dùng chung lựa chọn với trang chủ)
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾';};
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>';};
  try{const t=localStorage.getItem('cb-theme');if(t)r.dataset.theme=t;}catch(e){}
  paint();b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint();});})();
 

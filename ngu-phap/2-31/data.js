@@ -10,7 +10,7 @@ rules:[
  {t:"V + 得 + (很 / 不) + Adj", sub:"得", fx:[["Chủ ngữ",""],["Động từ",""],["得",null],["(很 / 不) + tính từ",""]], mean:"Phủ định: V + 得 + 不 + Adj.",
   ex:[["他走[得]有点儿快。","Tā zǒu de yǒudiǎnr kuài.","Anh ấy đi hơi nhanh.","等级标准"],
       ["她篮球打[得]很不错。","Tā lánqiú dǎ de hěn búcuò.","Cô ấy chơi bóng rổ khá giỏi.","等级标准"]]},
- {t:"Có tân ngữ: lặp động từ hoặc đảo tân ngữ", sub:"V + O + V + 得", fx:[["(V) + tân ngữ",""],["V",""],["得",null],["Tính từ",""]], mean:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 他说中文得很好 → <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg#tick'/></svg> 他说中文说得很好 / 他中文说得很好.",
+ {t:"Có tân ngữ: lặp động từ hoặc đảo tân ngữ", sub:"V + O + V + 得", fx:[["(V) + tân ngữ",""],["V",""],["得",null],["Tính từ",""]], mean:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 他说中文得很好 → <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#tick'/></svg> 他说中文说得很好 / 他中文说得很好.",
   ex:[["他说中文说[得]很流利。","Tā shuō Zhōngwén shuō de hěn liúlì.","Anh ấy nói tiếng Trung rất lưu loát."]]}],
 notes:[
  {t:"的 · 地 · 得", html:"<span class='zh'>漂亮的衣服</span> (trước danh từ) · <span class='zh'>认真地学习</span> (trước động từ) · <span class='zh'>学得很认真</span> (sau động từ). Chi tiết bổ ngữ trạng thái: 【二51】."}],

@@ -4,7 +4,7 @@ code:"三71", title:"因果复句：（由于）……，所以/因此……", v
 goals:[
  "Nêu nguyên nhân – kết quả bằng <b>由于……，所以……</b> hoặc <b>……，因此……</b>.",
  "Biết 由于, 因此 trang trọng hơn 因为, 所以.",
- "Không ghép <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 由于……，因为…… hay <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 因为……，因此…… lẫn lộn tùy tiện: 由于 đi được với 所以 / 因此; 因为 thường đi với 所以."],
+ "Không ghép <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 由于……，因为…… hay <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 因为……，因此…… lẫn lộn tùy tiện: 由于 đi được với 所以 / 因此; 因为 thường đi với 所以."],
 intro:"Mở rộng 【二68】 因为……，所以……: thêm cặp <b>由于</b> (do) và <b>因此</b> (vì vậy), hay dùng khi viết.",
 rules:[
  {t:"由于 + nguyên nhân，所以 / 因此 + kết quả", sub:"因果", fx:[["(由于)",null],["nguyên nhân",""],["·",""],["所以 / 因此",null],["kết quả",""]], mean:"Có thể chỉ dùng một từ ở một vế.",

@@ -25,5 +25,5 @@ window.NP_GLYPH={
 };
 // Màu của từng cấp (dùng chung cho mục lục và bài giảng)
 window.NP_LVCOLOR={"1":"teal","2":"peach","3":"lav","4":"sky","5":"rose","6":"mint","7":"coral"};
-// Điểm khó với người Việt: có thêm nhóm luyện D (Đúng hay sai) · E · F (Dịch thêm); thẻ mục lục gắn nhãn "★ Luyện thêm"
+// Điểm khó với người Việt: có thêm nhóm luyện D (Đúng hay sai) · E · F (Dịch thêm); thẻ mục lục gắn nhãn "Luyện thêm" (có icon sao)
 window.NP_HARD=["一14","一21","一38","一40","二20","二32","二33","二49","二50","二51","二52","二53","二58","二60","二69","三46","三47","三48","三49","三50","三51","三52","三54","三55","三58","三59","二56","二61","二63","二64","二65","二67","二68","三56","三57","三66","三70","三71"];

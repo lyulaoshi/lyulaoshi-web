@@ -17,7 +17,7 @@ rules:[
   ex:[["你[别]进来。","Nǐ bié jìnlai.","Bạn đừng vào.","等级标准"],
       ["[别]说了！","Bié shuō le!","Đừng nói nữa!"]]}],
 notes:[
- {t:"Không dùng 没 với 是", html:"<span class='zh'>他不是老师。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 没是)"},
+ {t:"Không dùng 没 với 是", html:"<span class='zh'>他不是老师。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 没是)"},
  {t:"不 biến điệu", html:"trước thanh 4 đọc <b>bú</b>: <span class='zh'>不是 bú shì、不去 bú qù</span>."}],
 cmp:[
  {vn:"Mai tôi không đi.", zh:"我明天[不]去。", py:"Wǒ míngtiān bú qù.", ok:true, why:"Tương lai → 不."},

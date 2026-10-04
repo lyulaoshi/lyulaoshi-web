@@ -19,7 +19,7 @@ rules:[
       ["车开[进]学校了，我们快[过]去吧。","Chē kāijìn xuéxiào le, wǒmen kuài guòqu ba.","Xe chạy vào trường rồi, mình mau qua đó đi.","等级标准"],
       ["你打[开]包让我看看。","Nǐ dǎkāi bāo ràng wǒ kànkan.","Bạn mở túi ra cho tôi xem."]]}],
 notes:[
- {t:"Nơi chốn + 来 / 去", html:"<span class='zh'>他进教室来了。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg#sai'/></svg> 他进来教室了) — nơi chốn chen giữa. Bổ ngữ xu hướng kép (走进来、拿出去…) học ở 【三47】."}],
+ {t:"Nơi chốn + 来 / 去", html:"<span class='zh'>他进教室来了。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 他进来教室了) — nơi chốn chen giữa. Bổ ngữ xu hướng kép (走进来、拿出去…) học ở 【三47】."}],
 cmp:[
  {vn:"Anh ấy đi vào lớp.", zh:"他走[进]教室。", py:"Tā zǒujìn jiàoshì.", ok:true, why:"“vào” sau động từ — giống tiếng Việt."},
  {vn:"Mang sách đến đây.", zh:"带书[来]。", py:"Dài shū lái.", ok:true, why:"来 = về phía người nói."}],

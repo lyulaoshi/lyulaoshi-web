@@ -75,22 +75,22 @@ canvas{display:block;width:100%;height:auto;border-radius:18px;background:var(--
       <div class="chips" id="lvChips"></div>
       <h2>2. Gợi ý đề bài</h2>
       <div class="chips" id="modeChips">
-        <button class="chip" type="button" data-mode="py" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#mat></use></svg> Xem pinyin<small>đề bài hiện pinyin, máy đọc từ</small></button>
-        <button class="chip" type="button" data-mode="ear" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tai-nghe></use></svg> Chỉ nghe<small>khó: chỉ nghe máy đọc, không có pinyin</small></button>
+        <button class="chip" type="button" data-mode="py" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#mat></use></svg> Xem pinyin<small>đề bài hiện pinyin, máy đọc từ</small></button>
+        <button class="chip" type="button" data-mode="ear" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tai-nghe></use></svg> Chỉ nghe<small>khó: chỉ nghe máy đọc, không có pinyin</small></button>
       </div>
       <h2>3. Tốc độ rắn</h2>
       <div class="chips" id="spChips">
-        <button class="chip" type="button" data-sp="slow" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#cham></use></svg> Chậm<small>cho người mới</small></button>
-        <button class="chip" type="button" data-sp="mid" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tho></use></svg> Vừa</button>
-        <button class="chip" type="button" data-sp="fast" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#ten-lua></use></svg> Nhanh</button>
-        <button class="chip" type="button" data-sp="fixed" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#deu></use></svg> Không tăng tốc<small>giữ chậm suốt ván</small></button>
+        <button class="chip" type="button" data-sp="slow" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#cham></use></svg> Chậm<small>cho người mới</small></button>
+        <button class="chip" type="button" data-sp="mid" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tho></use></svg> Vừa</button>
+        <button class="chip" type="button" data-sp="fast" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#ten-lua></use></svg> Nhanh</button>
+        <button class="chip" type="button" data-sp="fixed" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#deu></use></svg> Không tăng tốc<small>giữ chậm suốt ván</small></button>
       </div>
       <ul class="how">
         <li>Điều khiển: <b>phím mũi tên</b> hoặc W A S D trên máy tính; <b>vuốt</b> trên bàn chơi hoặc bấm <b>nút mũi tên</b> trên điện thoại.</li>
         <li>Ăn đúng chữ tiếp theo thì rắn dài thêm. Ăn nhầm chữ (chữ bẫy, hoặc đúng chữ nhưng sai thứ tự) thì mất 1 mạng. Có 3 mạng.</li>
         <li>Chữ bẫy là những chữ <b>trông giống</b> hoặc <b>đọc giống</b> chữ cần ăn. Ghép xong càng nhiều từ, rắn chạy càng nhanh!</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -98,16 +98,16 @@ canvas{display:block;width:100%;height:auto;border-radius:18px;background:var(--
     <div class="hud">
       <span>Từ <b id="words">0</b></span>
       <span>Điểm <b id="score">0</b></span>
-      <span class="hearts" id="hearts"><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg#tim></use></svg><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg#tim></use></svg><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg#tim></use></svg></span>
+      <span class="hearts" id="hearts"><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim></use></svg><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim></use></svg><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim></use></svg></span>
       <span class="sp"></span>
-      <button type="button" id="spkBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#loa></use></svg></button>
-      <button type="button" id="pauseBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tam-dung></use></svg></button>
-      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#sai></use></svg></button>
+      <button type="button" id="spkBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#loa></use></svg></button>
+      <button type="button" id="pauseBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tam-dung></use></svg></button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sai></use></svg></button>
     </div>
     <div class="target"><div class="slots" id="slots" lang="zh"></div><span class="py" id="py"></span></div>
     <div class="board"><canvas id="cv" width="520" height="520" aria-label="Bàn chơi rắn săn chữ"></canvas><div class="over" id="overlay" hidden></div></div>
     <div class="msg" id="msg" aria-live="polite"></div>
-    <div class="pad" aria-label="Nút điều khiển"><button class="u" data-d="up" aria-label="Lên"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tg-len></use></svg></button><button class="l" data-d="left" aria-label="Trái"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tg-trai></use></svg></button><button class="d" data-d="down" aria-label="Xuống"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#tg-xuong></use></svg></button><button class="r" data-d="right" aria-label="Phải"><svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg></button></div>
+    <div class="pad" aria-label="Nút điều khiển"><button class="u" data-d="up" aria-label="Lên"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tg-len></use></svg></button><button class="l" data-d="left" aria-label="Trái"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tg-trai></use></svg></button><button class="d" data-d="down" aria-label="Xuống"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tg-xuong></use></svg></button><button class="r" data-d="right" aria-label="Phải"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#phat></use></svg></button></div>
   </section>
 
   <section class="screen" id="over" hidden>
@@ -116,7 +116,7 @@ canvas{display:block;width:100%;height:auto;border-radius:18px;background:var(--
     <div class="panel">
       <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
       <div id="revBox"><h2>Các từ rắn đã ăn</h2><ul class="review" id="review"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
     </div>
   </section>
 </main>
@@ -125,12 +125,12 @@ canvas{display:block;width:100%;height:auto;border-radius:18px;background:var(--
 
 <script src="../hsk-words.js"></script>
 <script src="../tts.js?v=2"></script>
-<script src="../vui.js?v=4"></script>
+<script src="../vui.js?v=20261004"></script>
 <script src="../nhom-chu.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -195,7 +195,7 @@ function start(){
   clearInterval(timer);timer=setInterval(step,speed);
   $('msg').innerHTML='Ăn chữ <b>thứ nhất</b> trước nhé!';
 }
-function hud(){$('words').textContent=done.length;$('score').textContent=score;$('hearts').innerHTML='<svg class=lli-do aria-hidden=true><use href=/chung/ic.svg#tim></use></svg>'.repeat(lives)+'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#tim-rong></use></svg>'.repeat(3-lives)}
+function hud(){$('words').textContent=done.length;$('score').textContent=score;$('hearts').innerHTML='<svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim></use></svg>'.repeat(lives)+'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim-rong></use></svg>'.repeat(3-lives)}
 function turn(d){const [dx,dy]=DIR[d],[cx,cy]=DIR[dir];if(dx===-cx&&dy===-cy)return;nextDir=d}
 function step(){
   if(!alive||paused)return;
@@ -243,7 +243,7 @@ function end(){
   $('review').innerHTML=done.map(([w,p])=>'<li><span class="zh" lang="zh">'+w+' '+TTS.btn(w)+'</span><span class="py">'+p+'</span></li>').join('');
   $('revBox').hidden=!done.length;showBest();
 }
-function setPause(p){if(!alive)return;paused=p;$('pauseBtn').innerHTML=p?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#phat></use></svg>':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg#tam-dung></use></svg>';$('overlay').textContent='Tạm dừng · 暂停';$('overlay').hidden=!p}
+function setPause(p){if(!alive)return;paused=p;$('pauseBtn').innerHTML=p?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#phat></use></svg>':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tam-dung></use></svg>';$('overlay').textContent='Tạm dừng · 暂停';$('overlay').hidden=!p}
 $('pauseBtn').onclick=()=>setPause(!paused);
 $('quitBtn').onclick=()=>{if(alive){alive=false;clearInterval(timer);end()}};
 $('spkBtn').onclick=()=>word&&TTS.say(word[0]);

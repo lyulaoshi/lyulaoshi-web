@@ -232,6 +232,8 @@ body.present .pnav{display:flex}
 .typ + .fb .hint{font-size:13px;color:var(--muted);margin-top:4px}
 body.present .tin{font-size:calc(24px*var(--z,1.25))}
 
-/* icon tự vẽ dùng chung (/chung/ic.svg) */
+/* icon tự vẽ dùng chung (/chung/ic.svg?v=893338cb) */
 .lli{display:inline-block;width:1.2em;height:1.2em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-.22em;overflow:visible}
 .themebtn{display:inline-grid;place-items:center}.themebtn .lli{width:19px;height:19px}
+
+.po .o{display:inline-block;width:.85em;height:.85em;border:1.5px solid currentColor;border-radius:2px;vertical-align:-.08em;font-style:normal}
