@@ -38,9 +38,19 @@
 .doan .so{flex:none;width:30px;height:30px;border-radius:10px;background:var(--c);color:#fff;display:grid;place-items:center;font-weight:800}
 .doan .t{display:grid;min-width:0;flex:1;line-height:1.3}.doan .t b{font-size:18px;font-weight:400}.doan .t small{color:var(--muted);font-size:12.5px}
 .dots{display:flex;gap:4px;flex:none}.dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--mint)}
-.sap{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:12px}
-.sap div{background:var(--card);border:2px dashed var(--line);border-radius:18px;padding:14px;color:var(--muted)}
-.sap b{display:block;color:var(--ink);font-size:18px;font-weight:400}
+.th-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:12px;margin:4px 0 20px}
+.th-card{border:0;border-radius:18px;background:var(--card);box-shadow:var(--shadow);padding:16px 14px;text-align:left;cursor:pointer;display:grid;gap:3px;border-top:4px solid var(--c);transition:transform .15s}
+.th-card:hover{transform:translateY(-2px)}
+.th-card.soon{border-top-color:var(--line);opacity:.55;cursor:default}
+.th-ic{width:26px;height:26px;margin-bottom:4px}
+.th-card .zh{font-family:var(--hz);font-size:24px;font-weight:400;line-height:1.2}
+.th-card .t{font-size:13.5px;font-weight:700;color:var(--ink)}
+.th-card .cnt{font-size:12px;font-weight:700;background:var(--cs);color:var(--c);display:inline-block;padding:2px 8px;border-radius:999px;margin-top:4px;width:fit-content}
+.th-card.soon .cnt{background:var(--ground2);color:var(--muted)}
+.back-th{border:0;background:none;font:inherit;font-weight:700;font-size:14px;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:4px;padding:0 0 14px;margin:0}
+.back-th .ic{width:1em;height:1em}
+.th-title{font-size:clamp(22px,3.5vw,30px);font-weight:400;margin:0 0 16px}
+.th-title .zh{font-size:inherit}
 
 /* trang luyện */
 .back{display:inline-block;margin:20px 0 4px;color:var(--muted);font-weight:700;text-decoration:none;font-size:14px}
@@ -172,7 +182,7 @@ div.line{cursor:default}
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="#">听说盒</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="#">听说盒 Nghe – nói</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap" id="home">
@@ -193,12 +203,7 @@ div.line{cursor:default}
   </div>
   <section data-pane="gt"><div class="bais" id="dsBai"></div></section>
   <section data-pane="th" hidden>
-    <div class="sap">
-      <div><b class="zh">问路</b>Hỏi đường · sắp có</div>
-      <div><b class="zh">点菜</b>Gọi món · sắp có</div>
-      <div><b class="zh">认识新朋友</b>Làm quen · sắp có</div>
-      <div><b class="zh">打电话</b>Gọi điện thoại · sắp có</div>
-    </div>
+    <div id="dsTh"></div>
   </section>
   <footer>Giọng đọc là giọng máy có sẵn trong trình duyệt. Bản ghi âm của em chỉ lưu tạm trên máy em, không gửi đi đâu.</footer>
 </main>
@@ -213,8 +218,8 @@ div.line{cursor:default}
   <footer>Giọng đọc là giọng máy có sẵn trong trình duyệt. Bản ghi âm của em chỉ lưu tạm trên máy em, không gửi đi đâu.</footer>
 </main>
 
-<script src="data.js"></script>
-<script src="nn.js"></script>
+<script src="data.js?v=2"></script>
+<script src="nn.js?v=2"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');

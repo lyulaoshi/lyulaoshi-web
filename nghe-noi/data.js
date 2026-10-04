@@ -4,7 +4,7 @@
 //   viet (chỉ số câu dùng cho nghe – viết; đáp án nhiều cách "A / B", phần có thể bỏ trong （）).
 window.NN_BAI=window.NN_BAI||[];
 NN_BAI.push({
-  id:"301/bai-11", sach:"301", sachTen:"汉语会话301句", bai:11, ten:"我要买橘子", tenVi:"Tôi muốn mua quýt", hsk:"1–3",  // cấp theo từ vựng đề cương thi HSK 2025 (斤 毛 种 尝 别的 = HSK 3; 橘子 = HSK 5)
+  id:"301/bai-11", sach:"301", sachTen:"汉语会话301句", bai:11, ten:"我要买橘子", tenVi:"Tôi muốn mua quýt", hsk:"1–3", th:"mua-sam",  // cấp theo từ vựng đề cương thi HSK 2025 (斤 毛 种 尝 别的 = HSK 3; 橘子 = HSK 5)
   doan:[
     {ten:"大卫买苹果", tenVi:"Đại Vệ mua táo",
      vai:{A:["售货员","Người bán hàng"],B:["大卫","Đại Vệ"]},

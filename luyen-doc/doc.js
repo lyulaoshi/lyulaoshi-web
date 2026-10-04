@@ -21,23 +21,59 @@ const laSo=w=>/^[零一二三四五六七八九十百两]+$/.test(w)||/^星期[�
 function tach(B){return B.cau.map(([zh,py,vi,np],ci)=>{const a=zh.split(/\s+/),p=py.split(/\s+/);let j=0;
   const tu=a.map(w=>{if(PUNC.test(w)){if(PUNC.test(p[j]||""))j++;return{w,dau:1}}const r={w,py:p[j]||""};j++;return r});
   return{ci,tu,vi,np:np||[],zh:a.join(""),py:p.filter(x=>!PUNC.test(x)).join(" ")}})}
-const moi=(B,w)=>!laSo(w)&&!(B.rieng||[]).includes(w)&&(LV[w]==null||LV[w]>B.cap);
+const ghep=(w,cap)=>w.length>1&&[...Array(w.length-1)].some((_,i)=>(LV[w.slice(0,i+1)]||9)<=cap&&(LV[w.slice(i+1)]||9)<=cap);   // từ ghép từ 2 từ đúng cấp (没有, 每天, 吃到…)
+const moi=(B,w)=>!laSo(w)&&!(B.rieng||[]).includes(w)&&(LV[w]==null?!ghep(w,B.cap):LV[w]>B.cap);
 const soChu=B=>B.cau.reduce((n,c)=>n+c[0].replace(/[\s，。？！、：；“”（）…]/g,"").length,0);
 
 /* ============ MỤC LỤC ============ */
+// Chủ đề: dùng chung danh sách của 词汇盒 (../tu-vung/chu-de.js) + vài chủ đề riêng của hộp đọc
+const CD_THEM=[{id:"ban-be",zh:"朋友",vi:"Bạn bè"},{id:"truyen",zh:"故事",vi:"Truyện kể – ngụ ngôn"}];
+const CDS=[...(window.CHUDE||[]).map(c=>({id:c.id,zh:c.zh,vi:c.vi,on:1})),...CD_THEM];
+const cdOf=id=>CDS.find(c=>c.id===id)||{id,zh:"",vi:id||"Khác"};
+const ML=store.get("ml",{tab:"cap",cap:null,cd:""});
+function theBai(b,xong){const x=xong[b.id],c=cdOf(b.cd);
+  return`<a class="the" href="#${b.id}"><span class="t-cap">HSK ${b.cap}</span><span class="t-ten zh">${esc(b.ten)}</span><span class="t-vi">${esc(b.tenVi)}</span>
+    <span class="t-meta">${soChu(b)} chữ · ${esc(c.vi)}${x?` · <b class="xong">${IC("tick")}đã đọc${x.cpm?` · ${x.cpm} chữ/phút`:""}</b>`:""}</span></a>`}
 function mucLuc(){
   const xong=store.get("xong",{}),doDo=store.get("do",null);
   $("#stBai").textContent=DS.length;$("#stXong").textContent=DS.filter(b=>xong[b.id]).length;
   const best=Math.max(0,...Object.values(xong).map(x=>x.cpm||0));$("#stTd").textContent=best||"—";
   const go=$("#lhGo");const tiep=doDo&&DS.find(b=>b.id===doDo)||DS.find(b=>!xong[b.id])||DS[0];if(tiep){go.href="#"+tiep.id;go.innerHTML=(doDo&&!xong[doDo]?"Đọc tiếp: ":"Đọc ngay: ")+`<span class="zh">${esc(tiep.ten)}</span> `+IC("sau")}
-  const caps=[...new Set(DS.map(b=>b.cap))].sort();
-  $("#ke").innerHTML=caps.map(c=>`<h2 class="kh">HSK ${c}</h2><div class="the-ds">${DS.filter(b=>b.cap===c).map(b=>{const x=xong[b.id];
-    return`<a class="the" href="#${b.id}"><span class="t-cap">HSK ${b.cap}</span><span class="t-ten zh">${esc(b.ten)}</span><span class="t-vi">${esc(b.tenVi)}</span>
-      <span class="t-meta">${soChu(b)} chữ · ${esc(b.chude)}${x?` · <b class="xong">${IC("tick")}đã đọc${x.cpm?` · ${x.cpm} chữ/phút`:""}</b>`:""}</span></a>`}).join("")}</div>`).join("");
+  document.querySelectorAll("#mlTab [data-tab]").forEach(t=>t.setAttribute("aria-pressed",t.dataset.tab===ML.tab));
+  const K=$("#ke");
+  if(ML.tab==="cap"){
+    const caps=[1,2,3,4,5,6],co=c=>DS.filter(b=>b.cap===c).length;
+    if(!ML.cap||!co(ML.cap))ML.cap=caps.find(co)||1;
+    const ds=DS.filter(b=>b.cap===ML.cap),cdCo=[...new Set(ds.map(b=>b.cd))];if(ML.cd&&!cdCo.includes(ML.cd))ML.cd="";
+    K.innerHTML=`<div class="ml-cap">${caps.map(c=>`<button type="button" class="lv" data-cap="${c}" aria-pressed="${c===ML.cap}" ${co(c)?"":"disabled"}>HSK ${c}<small>${co(c)?co(c)+" bài":"sắp có"}</small></button>`).join("")}</div>
+      ${cdCo.length>1?`<div class="ml-loc"><span>Chủ đề:</span><button type="button" data-cd="" aria-pressed="${!ML.cd}">Tất cả</button>${cdCo.map(id=>`<button type="button" data-cd="${id}" aria-pressed="${ML.cd===id}">${esc(cdOf(id).vi)}</button>`).join("")}</div>`:""}
+      <div class="the-ds">${ds.filter(b=>!ML.cd||b.cd===ML.cd).map(b=>theBai(b,xong)).join("")}</div>`;
+  }else if(ML.tab==="cd"){
+    const ids=[...new Set(DS.map(b=>b.cd))].sort((x,y)=>CDS.findIndex(c=>c.id===x)-CDS.findIndex(c=>c.id===y));
+    K.innerHTML=ids.map(id=>{const c=cdOf(id),ds=DS.filter(b=>b.cd===id).sort((x,y)=>x.cap-y.cap);
+      return`<div class="ml-cd"><h2 class="kh"><span class="zh">${esc(c.zh)}</span> ${esc(c.vi)} <small>${ds.length} bài · HSK ${[...new Set(ds.map(b=>b.cap))].join(", ")}</small>
+        ${c.on?`<a class="ml-on" href="../tu-vung/#chu-de/${id}">${IC("the-bai")}Ôn từ chủ đề này</a>`:""}</h2><div class="the-ds">${ds.map(b=>theBai(b,xong)).join("")}</div></div>`}).join("")
+      +`<p class="muted ml-sap">Sắp có thêm: ${CDS.filter(c=>!ids.includes(c.id)).map(c=>esc(c.vi)).join(" · ")}</p>`;
+  }else{
+    const SA=window.GT_SACH||[];
+    K.innerHTML=`<p class="muted">Bài khoá trong các giáo trình cô dạy trên lớp, đọc với <b>giọng thật</b> của giáo trình: chữ chạy theo file nghe gốc.</p>
+      <div class="ml-sach">${SA.map(x=>{const ds=DS.filter(b=>b.sach===x.id);return`<div class="sach-o ${x.c||""}"><span class="sach-dau zh">${esc(x.seal||"")}</span><span class="sach-t"><b class="zh">${esc(x.zh)}</b><small>${esc(x.vi)}</small>
+        <em>${ds.length?ds.length+" bài khoá":"Sắp có"}</em></span></div>${ds.length?`<div class="the-ds">${ds.map(b=>theBai(b,xong)).join("")}</div>`:""}`}).join("")}</div>
+      <h2 class="kh">Bài đọc trên lớp</h2>
+      <a class="lop" href="mot-ngay-cua-toi/"><span class="zh" style="font-size:30px;color:var(--c)">读</span><span><b class="zh">我的一天</b><small>Một ngày của tôi · bài cô dạy trên lớp</small></span></a>`;
+  }
+  store.set("ml",ML);
 }
+document.addEventListener("click",e=>{
+  const t=e.target.closest("#mlTab [data-tab]");if(t){ML.tab=t.dataset.tab;mucLuc();return}
+  const c=e.target.closest("#ke [data-cap]");if(c){ML.cap=+c.dataset.cap;ML.cd="";mucLuc();return}
+  const d=e.target.closest("#ke [data-cd]");if(d){ML.cd=d.dataset.cd;mucLuc()}
+});
 
 /* ============ TRANG ĐỌC ============ */
-let B,C,T0,tDoc=0,phat=null,chon=null;
+let B,C,tDoc=0,phat=null,chon=null;
+// bấm giờ đọc: t0 = lúc bấm “Bắt đầu đọc” (hoặc bắt đầu ghi âm); het = số giây đã chốt (khi dừng ghi âm). Chưa bấm thì không tính tốc độ.
+const TG={t0:null,het:null,tm:null};
 const OPT=store.get("opt",{py:false,vi:false,co:1,toc:.85});
 function moBai(id){
   B=DS.find(b=>b.id===id);if(!B){location.hash="";return}
@@ -46,11 +82,15 @@ function moBai(id){
   $("#home").hidden=true;$("#doc").hidden=false;document.body.classList.add("dang-doc");
   $("#dTen").innerHTML=`<span class="zh">${esc(B.ten)}</span> <small>${esc(B.tenVi)}</small>`;
   $("#dMeta").textContent=`HSK ${B.cap} · ${soChu(B)} chữ · khoảng ${Math.max(1,Math.round(soChu(B)/60))} phút`;
+  // thành ngữ hiện ngay đầu bài; nghĩa ẩn, bấm "Xem nghĩa" (để học sinh tự đoán trước)
+  $("#dTn").hidden=!B.tn;if(B.tn)$("#dTn").innerHTML=`<span class="tn-nhan">成语 Thành ngữ</span><b class="zh">${esc(B.tn.zh)}</b><span class="tn-py">${pyMau(B.tn.py)}</span>
+    <button type="button" id="tnXem" aria-expanded="false">Xem nghĩa</button><span class="tn-vi" hidden>${esc(B.tn.vi)}</span>`;
   $("#van").innerHTML=C.map(c=>`<p class="cau" data-c="${c.ci}"><span class="zhc">${c.tu.map((t,k)=>t.dau?`<span class="dau">${esc(t.w)}</span>`:
     `<span class="w${moi(B,t.w)?" moi":""}" data-k="${k}"><ruby>${esc(t.w)}<rt>${pyMau(t.py)}</rt></ruby></span>`).join("")}</span><span class="vic">${esc(c.vi)}</span></p>`).join("");
   $("#ketThuc").innerHTML=`<button class="btn hot" type="button" id="xongBtn">${IC("tick")}Đọc xong</button><p class="muted">Bấm khi em đọc hết bài, máy tính tốc độ đọc cho em.</p>`;
   $("#xongBtn").onclick=docXong;
-  apOpt();T0=performance.now();tDoc=0;scrollTo({top:0});dongThe();
+  apOpt();tDoc=0;scrollTo({top:0});dongThe();
+  dungGio();TG.t0=null;TG.het=null;$("#batDau").hidden=false;
   if(GHI.rec)dungGhi();anKq();GHI.seg=null;GHI.blob=null;
 }
 function apOpt(){const d=$("#doc");d.classList.toggle("co-py",OPT.py);d.classList.toggle("co-vi",OPT.vi);d.style.setProperty("--co",OPT.co);
@@ -116,7 +156,7 @@ async function nghe(){
   }
   if(phat===me)dungNghe(true);
 }
-function dungNghe(het){if(!phat)return;tDoc+=0;const d=performance.now()-phat.t;T0+=d;phat=null;if("speechSynthesis" in window)speechSynthesis.cancel();
+function dungNghe(het){if(!phat)return;tDoc+=0;const d=performance.now()-phat.t;if(TG.t0&&TG.het==null)TG.t0+=d;phat=null;if("speechSynthesis" in window)speechSynthesis.cancel();
   document.querySelectorAll("#van .da").forEach(x=>x.classList.remove("da"));if(het)document.querySelectorAll("#van .dang").forEach(x=>x.classList.remove("dang"));
   $("#bNghe").innerHTML='<span class="nghe-o">'+IC("phat")+"</span><span>Nghe</span>";$("#bNghe").setAttribute("aria-pressed","false");$("#tocBar").hidden=true}
 $("#bNghe").onclick=nghe;
@@ -135,14 +175,15 @@ async function batDauGhi(){
   const ac=new (window.AudioContext||window.webkitAudioContext)(),an=ac.createAnalyser();an.fftSize=1024;ac.createMediaStreamSource(st).connect(an);
   const buf=new Float32Array(an.fftSize),env=[],ch=[],rec=new MediaRecorder(st);rec.ondataavailable=e=>ch.push(e.data);
   const t0=performance.now();rec.start();
+  if(!TG.t0||TG.het!=null){TG.t0=t0;TG.het=null}$("#batDau").hidden=true;clearInterval(TG.tm);$("#gioBar").hidden=true;
   const tm=setInterval(()=>{an.getFloatTimeDomainData(buf);let r=0;for(const v of buf)r+=v*v;env.push(Math.sqrt(r/buf.length));$("#ghiGio").textContent=mmss((performance.now()-t0)/1000)},50);
   GHI.rec={rec,st,ac,tm,env,ch,t0};
   $("#bDoc").setAttribute("aria-pressed","true");$("#bDoc").querySelector("span:last-child").textContent="Dừng";$("#ghiBar").hidden=false;$("#ghiGio").textContent="0:00";
 }
 function dungGhi(){
-  const g=GHI.rec;if(!g)return;GHI.rec=null;clearInterval(g.tm);
+  const g=GHI.rec;if(!g)return;GHI.rec=null;if(KA){KA=null;GHI.lich=null;sang(null);xoaChay()}clearInterval(g.tm);
   g.rec.onstop=()=>{GHI.blob=new Blob(g.ch,{type:g.rec.mimeType||"audio/webm"});if(GHI.url)URL.revokeObjectURL(GHI.url);GHI.url=URL.createObjectURL(GHI.blob);
-    GHI.dai=(performance.now()-g.t0)/1000;GHI.seg=tachCau(g.env,C.map(c=>c.zh.replace(/[，。？！、：；“”（）…]/g,"").length));hienKq()};
+    GHI.dai=(performance.now()-g.t0)/1000;TG.het=GHI.dai;GHI.seg=(GHI.lich&&GHI.lich.length===C.length)?GHI.lich:tachCau(g.env,C.map(c=>c.zh.replace(/[，。？！、：；“”（）…]/g,"").length));GHI.lich=null;hienKq()};
   g.rec.stop();g.st.getTracks().forEach(t=>t.stop());g.ac.close();
   $("#bDoc").setAttribute("aria-pressed","false");$("#bDoc").querySelector("span:last-child").textContent="Ghi âm";$("#ghiBar").hidden=true;
 }
@@ -158,8 +199,8 @@ function tachCau(env,soChu){
   return seg.map(([x,y])=>[Math.max(0,x-.12),y+.15]);
 }
 const AU=new Audio();let choi=0;
-function phatDoan(x,y){return new Promise(r=>{const me=++choi;AU.src=GHI.url;const go=()=>{AU.currentTime=x;AU.play().catch(r);
-  const k=setInterval(()=>{if(me!==choi||AU.currentTime>=y||AU.ended){clearInterval(k);if(me===choi)AU.pause();r()}},40)};
+function phatDoan(x,y,tien){return new Promise(r=>{const me=++choi;AU.src=GHI.url;const go=()=>{AU.currentTime=x;AU.play().catch(r);
+  const k=setInterval(()=>{if(tien)tien(Math.max(0,Math.min(1,(AU.currentTime-x)/Math.max(.1,y-x))));if(me!==choi||AU.currentTime>=y||AU.ended){clearInterval(k);if(me===choi)AU.pause();r()}},40)};
   if(AU.readyState>=1)go();else AU.onloadedmetadata=()=>{AU.onloadedmetadata=null;go()}})}
 const sang=ci=>{document.querySelectorAll("#van .dang").forEach(x=>x.classList.remove("dang"));if(ci==null)return;const p=document.querySelector(`#van .cau[data-c="${ci}"]`);if(p){p.classList.add("dang");p.scrollIntoView({block:"center",behavior:"smooth"})}};
 let dangSo=0;
@@ -180,25 +221,78 @@ function hienKq(){
 function anKq(){dungPhat();$("#ghiKq").classList.remove("mo")}
 $("#ghiKq").addEventListener("click",async e=>{const b=e.target.closest("[data-g]");if(!b)return;const g=b.dataset.g;
   if(g==="x"){anKq();return}
-  if(g==="lai"){anKq();batDauGhi();return}
+  if(g==="lai"){anKq();if(KA_LAST)chayKaraoke(KA_LAST);else batDauGhi();return}
   dungPhat();const me=dangSo;
-  if(g==="minh"){const seg=GHI.seg||[[0,GHI.dai]];for(let i=0;i<seg.length&&me===dangSo;i++){sang(GHI.seg?i:null);await phatDoan(seg[i][0],seg[i][1])}if(me===dangSo)sang(null)}
+  if(g==="minh"){const seg=GHI.seg||[[0,GHI.dai]];for(let i=0;i<seg.length&&me===dangSo;i++){sang(GHI.seg?i:null);await phatDoan(seg[i][0],seg[i][1],GHI.seg?f=>toChay(i,f):null)}if(me===dangSo){sang(null);xoaChay()}}
   if(g==="so"&&GHI.seg){for(let i=0;i<C.length&&me===dangSo;i++){await soCau(i,me);await new Promise(r=>setTimeout(r,400))}if(me===dangSo)sang(null)}
 });
 $("#bDoc").onclick=batDauGhi;$("#ghiDung").onclick=dungGhi;
 window.LD_GHI=()=>({seg:GHI.seg,dai:GHI.dai});   // xem số liệu khi kiểm tra
 if(!(navigator.mediaDevices&&window.MediaRecorder))$("#bDoc").hidden=true;
 
+
+/* ============ ĐỌC KARAOKE: chữ sáng dần theo nhịp → học sinh đọc theo → máy ghi âm cùng lúc ============ */
+// Nhịp = giây/chữ. Thời điểm từng câu do chữ chạy quyết định → đối chiếu từng câu chính xác, không phải đoán chỗ ngừng.
+const NHIP={cham:.62,vua:.46,nhanh:.34},TOC_MAU={cham:.6,vua:.85,nhanh:1.05};
+let KA=null,KA_LAST=null;
+const soChuCau=c=>c.zh.replace(/[，。？！、：；“”（）…]/g,"").length;
+function toChay(ci,f){const p=document.querySelector(`#van .cau[data-c="${ci}"]`);if(!p)return;const ws=[...p.querySelectorAll(".w,.dau")],c=C[ci],n=c.zh.length;let k=0;
+  ws.forEach((x,i)=>{const pos=c.tu.slice(0,i).reduce((a,t)=>a+t.w.length,0);x.classList.toggle("da",pos<f*n)})}
+function xoaChay(){document.querySelectorAll("#van .da").forEach(x=>x.classList.remove("da"));$("#doc").classList.remove("hat")}
+function moKaraoke(){dongThe();anKq();const o=store.get("ka",{nhip:"vua",mau:false});
+  $("#kaBox").innerHTML=`<div class="gk-dau"><b>${IC("lap-lanh")}Đọc karaoke</b><button class="th-x" type="button" data-k="x" aria-label="Đóng">${IC("sai")}</button></div>
+    <p class="ka-mo">Chữ sáng dần theo nhịp, em đọc theo chữ sáng, máy ghi âm giọng em. Đọc hết bài, em nghe lại giọng mình cùng chữ chạy.</p>
+    <div class="ka-chon"><span>Nhịp</span><div class="ka-seg">${[["cham","Chậm"],["vua","Vừa"],["nhanh","Nhanh"]].map(([k,t])=>`<button type="button" data-nhip="${k}" aria-pressed="${o.nhip===k}">${t}</button>`).join("")}</div></div>
+    <label class="ka-mau"><input type="checkbox" id="kaMau" ${o.mau?"checked":""}> Có giọng mẫu đọc cùng <small>(nên đeo tai nghe để máy chỉ ghi giọng em)</small></label>
+    <div class="gk-nut"><button type="button" class="chinh" data-k="go">${IC("mic")}Bắt đầu</button></div>`;
+  $("#kaBox").classList.add("mo")}
+$("#kaBox").addEventListener("click",e=>{const n=e.target.closest("[data-nhip]");
+  if(n){$("#kaBox").querySelectorAll("[data-nhip]").forEach(x=>x.setAttribute("aria-pressed",x===n));return}
+  const k=e.target.closest("[data-k]");if(!k)return;
+  if(k.dataset.k==="x"){$("#kaBox").classList.remove("mo");return}
+  const o={nhip:($("#kaBox [data-nhip][aria-pressed=true]")||{dataset:{nhip:"vua"}}).dataset.nhip,mau:$("#kaMau").checked};store.set("ka",o);
+  $("#kaBox").classList.remove("mo");chayKaraoke(o)});
+function demNguoc(){return new Promise(r=>{const d=$("#demNguoc");d.hidden=false;let n=3;const f=()=>{if(n===0){d.hidden=true;r();return}d.textContent=n;d.classList.remove("nay");void d.offsetWidth;d.classList.add("nay");n--;setTimeout(f,800)};f()})}
+async function chayKaraoke(o){
+  KA_LAST=o;dungNghe(true);dongThe();anKq();$("#batDau").hidden=true;
+  scrollTo({top:Math.max(0,$("#van").getBoundingClientRect().top+scrollY-120),behavior:"smooth"});
+  await demNguoc();
+  await batDauGhi();if(!GHI.rec)return;
+  const me=KA={},t0=GHI.rec.t0,lich=[];$("#doc").classList.add("hat");
+  for(let ci=0;ci<C.length&&KA===me;ci++){
+    const c=C[ci];sang(ci);toChay(ci,0);const bd=(performance.now()-t0)/1000;
+    if(o.mau){let coBd=false,f0=performance.now();const dur=soChuCau(c)*NHIP[o.nhip]*1000;
+      const tm=setInterval(()=>{if(!coBd)toChay(ci,Math.min(1,(performance.now()-f0)/dur))},60);
+      await noi(c.zh,TOC_MAU[o.nhip],e=>{coBd=true;toChay(ci,(e.charIndex+1)/c.zh.length)});clearInterval(tm)}
+    else{const dur=soChuCau(c)*NHIP[o.nhip]*1000+250,f0=performance.now();
+      await new Promise(r=>{const tm=setInterval(()=>{const f=(performance.now()-f0)/dur;toChay(ci,f);if(f>=1||KA!==me){clearInterval(tm);r()}},50)})}
+    toChay(ci,1.01);lich.push([Math.max(0,bd-.15),(performance.now()-t0)/1000+.3]);
+    await new Promise(r=>setTimeout(r,450));
+  }
+  if(KA!==me)return;   // em bấm Dừng giữa chừng → dungGhi đã chạy, tách câu theo chỗ ngừng
+  KA=null;GHI.lich=lich;sang(null);xoaChay();dungGhi();
+}
+
+
+document.addEventListener("click",e=>{const b=e.target.closest("#tnXem");if(!b)return;const v=$("#dTn .tn-vi"),mo=v.hidden;v.hidden=!mo;b.setAttribute("aria-expanded",mo);b.textContent=mo?"Ẩn nghĩa":"Xem nghĩa"});
+/* ============ BẤM GIỜ ĐỌC ============ */
+function batDauGio(){if(TG.t0)return;TG.t0=performance.now();TG.het=null;$("#batDau").hidden=true;hienGio()}
+function hienGio(){$("#gioBar").hidden=false;clearInterval(TG.tm);const f=()=>{$("#gioGio").textContent=mmss((performance.now()-TG.t0)/1000)};f();TG.tm=setInterval(f,250)}
+function dungGio(){clearInterval(TG.tm);TG.tm=null;$("#gioBar").hidden=true}
+$("#bdGio").onclick=batDauGio;$("#bdKa").onclick=moKaraoke;$("#bdGhi").onclick=()=>batDauGhi();$("#gioXong").onclick=()=>docXong();
+
 // ---- đọc xong
 function docXong(){
   dungNghe(true);dongThe();if(GHI.rec)dungGhi();anKq();
-  const phut=(performance.now()-T0)/60000,cpm=Math.round(soChu(B)/Math.max(phut,.1));
-  const xong=store.get("xong",{}),cu=xong[B.id],voi=cpm>350;   // > 350 chữ/phút: chắc chưa đọc hết, không ghi kỷ lục
+  const giay=TG.het!=null?TG.het:TG.t0?(performance.now()-TG.t0)/1000:null;dungGio();
+  const cpm=giay?Math.round(soChu(B)/Math.max(giay/60,.05)):0;
+  const xong=store.get("xong",{}),cu=xong[B.id],voi=!giay||cpm>350;   // > 350 chữ/phút: chắc chưa đọc hết, không ghi kỷ lục
   xong[B.id]={cpm:voi?(cu&&cu.cpm||0):Math.max(cpm,cu&&cu.cpm||0),lan:(cu&&cu.lan||0)+1};store.set("xong",xong);
   const tuMoi=[...new Set(C.flatMap(c=>c.tu.filter(t=>!t.dau&&moi(B,t.w)).map(t=>t.w)))],luu=store.get("luu",[]).filter(w=>C.some(c=>c.tu.some(t=>t.w===w)));
   const on=[...new Set([...tuMoi,...luu])],np=[...new Set(C.flatMap(c=>c.np))];
   const i=DS.indexOf(B),sau=DS[i+1]||DS.find(b=>!xong[b.id]&&b!==B);
-  $("#ketThuc").innerHTML=`<div class="kt-td"><b>${cpm}</b> chữ/phút<span>${voi?"Nhanh quá! Em đã đọc hết bài chưa? Lần này máy không ghi kỷ lục.":cu&&cu.cpm?(cpm>cu.cpm?`Nhanh hơn lần trước (${cu.cpm} chữ/phút)!`:`Lần tốt nhất: ${cu.cpm} chữ/phút`):"Lần đầu đọc bài này"}</span></div>
+  $("#ketThuc").innerHTML=(!giay?`<div class="kt-td kt-chua">${IC("dong-ho")}<span>Lần này em chưa bấm giờ. Lần sau bấm <b>Bắt đầu đọc</b> ở đầu bài để biết tốc độ đọc của mình nhé.</span></div>`:"")+`<div class="kt-td"${giay?"":" hidden"}><b>${cpm}</b> chữ/phút · ${giay?mmss(giay):""}<span>${voi?"Nhanh quá! Em đã đọc hết bài chưa? Lần này máy không ghi kỷ lục.":cu&&cu.cpm?(cpm>cu.cpm?`Nhanh hơn lần trước (${cu.cpm} chữ/phút)!`:`Lần tốt nhất: ${cu.cpm} chữ/phút`):"Lần đầu đọc bài này"}</span></div>
+    ${B.tn||B.y?`<div class="yn">${B.tn?`<div class="yn-tn"><b class="zh">${esc(B.tn.zh)}</b><span class="yn-py">${pyMau(B.tn.py)}</span><span>Thành ngữ: ${esc(B.tn.vi)}</span></div>`:""}${B.y?`<p><b>${IC("den")}Ý nghĩa câu chuyện</b>${esc(B.y)}</p>`:""}</div>`:""}
     <h3>${IC("de")}Em hiểu bài chưa?</h3><ol class="hoi">${B.hoi.map((q,k)=>`<li data-q="${k}"><div class="q zh">${esc(q.q)}</div><div class="qvi">${esc(q.vi)}</div>
       <div class="opts">${q.opts.map((o,j)=>`<button type="button" data-o="${j}" class="zh">${esc(o)}</button>`).join("")}</div></li>`).join("")}</ol>
     ${on.length?`<h3>${IC("the-bai")}Từ mới trong bài</h3><div class="tumoi">${on.map(w=>`<span><b class="zh">${esc(w)}</b>${esc(B.tu[w]||"")}</span>`).join("")}</div>
@@ -211,6 +305,6 @@ function docXong(){
 }
 /* ============ điều hướng ============ */
 function route(){const id=decodeURIComponent(location.hash.slice(1));dungNghe(true);
-  if(id&&DS.some(b=>b.id===id))moBai(id);else{$("#home").hidden=false;$("#doc").hidden=true;document.body.classList.remove("dang-doc");document.title="阅读盒 · Luyện đọc – 吕老师汉语盒";dongThe();mucLuc()}}
+  if(id&&DS.some(b=>b.id===id))moBai(id);else{dungGio();$("#home").hidden=false;$("#doc").hidden=true;document.body.classList.remove("dang-doc");document.title="阅读盒 · Luyện đọc – 吕老师汉语盒";dongThe();mucLuc()}}
 addEventListener("hashchange",route);route();
 })();

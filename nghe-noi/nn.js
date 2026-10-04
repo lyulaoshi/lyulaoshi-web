@@ -57,14 +57,46 @@ function dapAn(s){      // "A / B", phần trong （） có thể bỏ → danh 
 
 /* ================= MỤC LỤC ================= */
 const DS=window.NN_BAI||[];
-function veMucLuc(){
-  $("#dsBai").innerHTML=DS.map(b=>`<article class="bai">
+const TH_LIST=[
+  {id:"chao-hoi",  zh:"打招呼",   vi:"Chào hỏi",       ic2:"bat-tay"},
+  {id:"lam-quen",  zh:"结交朋友", vi:"Làm quen",        ic2:"tim"},
+  {id:"mua-sam",   zh:"购物",     vi:"Mua sắm",         ic2:"tui-tien"},
+  {id:"an-uong",   zh:"饮食",     vi:"Ăn uống",         ic2:"tra-sua"},
+  {id:"hoi-duong", zh:"问路",     vi:"Hỏi đường",       ic2:"tg-phai"},
+  {id:"di-lai",    zh:"交通",     vi:"Đi lại",          ic2:"may"},
+  {id:"goi-dien",  zh:"打电话",   vi:"Gọi điện thoại",  ic2:"dien-thoai"},
+  {id:"hoc-tap",   zh:"学习",     vi:"Học tập",         ic2:"sach"},
+  {id:"kham-benh", zh:"看病",     vi:"Khám bệnh",       ic2:"cuu"},
+];
+let TH_SEL=null;
+
+function veBaiHTML(ds){return ds.map(b=>`<article class="bai">
     <div class="bai-h"><span class="sach">${esc(b.sachTen)} · Bài ${b.bai}</span><span class="hsk">HSK ${b.hsk}</span></div>
     <h3><span class="zh">${esc(b.ten)}</span> <small>${esc(b.tenVi)}</small></h3>
     <div class="doans">${b.doan.map((d,i)=>{const k=b.id+"/"+(i+1),n=BUOC.filter(x=>xong(k,x[0])).length;
       return`<a class="doan" href="#${k}"><span class="so">${i+1}</span><span class="t"><b class="zh">${esc(d.ten)}</b><small>${esc(d.tenVi)} · ${d.cau.length} câu</small></span>
       <span class="dots" aria-label="Xong ${n}/4 bước">${BUOC.map(x=>`<i class="${xong(k,x[0])?"on":""}"></i>`).join("")}</span></a>`}).join("")}</div>
-  </article>`).join("");
+  </article>`).join("")}
+function veMucLuc(){$("#dsBai").innerHTML=veBaiHTML(DS)}
+
+function veThList(){
+  const el=$("#dsTh");if(!el)return;
+  if(TH_SEL){
+    const th=TH_LIST.find(t=>t.id===TH_SEL),ds=DS.filter(b=>b.th===TH_SEL);
+    el.innerHTML=`<button type="button" class="back-th" id="backTh">${ic("truoc")} Tất cả tình huống</button>
+      <h2 class="th-title"><span class="zh">${esc(th.zh)}</span> · ${esc(th.vi)}</h2>
+      <div class="bais">${veBaiHTML(ds)}</div>`;
+    $("#backTh").onclick=()=>{TH_SEL=null;veThList()};
+  }else{
+    el.innerHTML=`<div class="th-grid">${TH_LIST.map(t=>{
+      const n=DS.filter(b=>b.th===t.id).length;
+      return`<button type="button" class="th-card${n?"":" soon"}" data-th="${t.id}" ${n?"":"disabled"}>
+        ${ic(t.ic2,"th-ic")}<span class="zh">${esc(t.zh)}</span>
+        <span class="t">${esc(t.vi)}</span>
+        <span class="cnt">${n?n+(n>1?" bài":" bài"):"Sắp có"}</span>
+      </button>`}).join("")}</div>`;
+    el.querySelectorAll("[data-th]").forEach(b=>b.onclick=()=>{TH_SEL=b.dataset.th;veThList()});
+  }
 }
 
 /* ================= TRANG LUYỆN ================= */
@@ -260,7 +292,8 @@ function Viet(){
 /* ---------- chung ---------- */
 document.addEventListener("click",e=>{const b=e.target.closest("[data-noi]");if(b){e.preventDefault();dung();noi(b.dataset.noi,b.dataset.rate?{rate:+b.dataset.rate}:{})}});
 document.querySelectorAll(".tab[data-tab]").forEach(t=>t.onclick=()=>{document.querySelectorAll(".tab[data-tab]").forEach(x=>x.setAttribute("aria-pressed",x===t));
-  document.querySelectorAll("[data-pane]").forEach(p=>p.hidden=p.dataset.pane!==t.dataset.tab)});
+  document.querySelectorAll("[data-pane]").forEach(p=>p.hidden=p.dataset.pane!==t.dataset.tab);
+  if(t.dataset.tab==="th")veThList();});
 if(!TTS_OK)document.body.classList.add("no-tts");
 addEventListener("hashchange",mo);mo();
 })();

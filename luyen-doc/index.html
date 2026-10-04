@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/chung/hero.css?v=a26ea8bd">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
-@font-face{font-family:"LyuKai";font-display:swap;src:url(kai.woff?v=03deeffe) format("woff")}
+@font-face{font-family:"LyuKai";font-display:swap;src:url(kai.woff?v=594f1276) format("woff")}
 :root{--c:var(--mint);--cs:var(--mint-s);--kai:"LyuKai","STKaiti","KaiTi","Kaiti SC",serif;--giay:#FBF8F1}
 :root[data-theme="dark"]{--giay:#23242F}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--giay:#23242F}}
@@ -29,6 +29,28 @@
 .t-meta .xong{color:var(--mint);font-weight:700}
 .lop{display:flex;align-items:center;gap:14px;text-decoration:none;background:var(--card);border-radius:18px;padding:14px 18px;box-shadow:var(--shadow);max-width:560px}
 .lop b{font-size:22px;font-weight:400}.lop small{display:block;color:var(--muted);font-size:13px}
+/* ---- mục lục 3 tab */
+.ml-tab{display:flex;gap:6px;flex-wrap:wrap;margin:30px 0 16px;padding:5px;background:var(--ground2);border-radius:999px;width:max-content;max-width:100%}
+.ml-tab button{display:inline-flex;align-items:center;gap:7px;border:0;background:none;color:var(--muted);font:inherit;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;cursor:pointer}
+.ml-tab button[aria-pressed="true"]{background:var(--card);color:var(--c);box-shadow:var(--shadow)}
+.ml-cap{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.ml-cap .lv{display:grid;justify-items:center;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:800;font-size:15px;padding:8px 14px;border-radius:16px;cursor:pointer;min-width:74px;line-height:1.2}
+.ml-cap .lv small{font-size:11px;font-weight:600;color:var(--muted)}
+.ml-cap .lv[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}.ml-cap .lv[aria-pressed="true"] small{color:#fff}
+.ml-cap .lv:disabled{opacity:.45;cursor:default}
+.ml-loc{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:14px;font-size:13px;color:var(--muted);font-weight:700}
+.ml-loc button{border:1.5px solid var(--line);background:none;color:var(--ink);font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;cursor:pointer}
+.ml-loc button[aria-pressed="true"]{border-color:var(--c);background:var(--cs);color:var(--c)}
+.ml-cd .kh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}.ml-cd .kh .zh{font-weight:400;color:var(--c)}.ml-cd .kh small{font-size:13px;color:var(--muted);font-weight:600}
+.ml-on{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--lav);text-decoration:none}
+.ml-sap{margin-top:24px}
+.ml-sach{display:grid;gap:12px;margin-top:14px}
+.sach-o{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:18px;padding:12px 16px;box-shadow:var(--shadow);border-left:8px solid var(--coral)}
+.sach-o.c-sky{border-left-color:var(--sky)}.sach-o.c-mint{border-left-color:var(--mint)}.sach-o.c-lav{border-left-color:var(--lav)}.sach-o.c-peach{border-left-color:var(--peach)}
+.sach-dau{flex:none;width:42px;height:42px;border-radius:10px;display:grid;place-items:center;font-size:24px;background:var(--ground2);color:var(--ink)}
+.sach-t{display:grid;min-width:0;flex:1}.sach-t b{font-size:19px;font-weight:400}.sach-t small{color:var(--muted);font-size:12.5px}
+.sach-t em{font-style:normal;font-size:12px;font-weight:700;color:var(--c)}
+@media (max-width:560px){.ml-tab{width:100%}.ml-tab button{flex:1;justify-content:center;padding:9px 6px;font-size:13px}}
 /* ---- trang đọc */
 body.dang-doc{background:var(--giay);background-image:none}
 body.dang-doc footer{display:none}
@@ -37,6 +59,16 @@ body.dang-doc footer{display:none}
 .d-dau a{font-size:14px;font-weight:700;color:var(--muted);text-decoration:none}
 #dTen{font-size:clamp(30px,6vw,44px);font-weight:400;margin:10px 0 2px;line-height:1.2}#dTen small{font-family:var(--vi);font-size:16px;color:var(--muted);font-weight:600}
 #dMeta{color:var(--muted);font-size:14px}
+#dTn{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;margin-top:12px;background:color-mix(in srgb,var(--peach) 9%,var(--card));border:1px solid color-mix(in srgb,var(--peach) 30%,transparent);border-radius:16px;padding:10px 14px}
+#dTn .tn-nhan{font-size:12px;font-weight:800;color:var(--peach);letter-spacing:.02em}
+#dTn b{font-size:24px;font-weight:400;color:var(--peach)}
+#dTn .tn-py{font-weight:700;font-size:15px}#dTn .tn-py i{font-style:normal}
+#tnXem{display:inline-flex;align-items:center;gap:4px;border:1px dashed color-mix(in srgb,var(--peach) 60%,transparent);background:none;color:var(--peach);font:inherit;font-size:12.5px;font-weight:700;padding:2px 10px;border-radius:999px;cursor:pointer;transition:background .15s}
+#tnXem:hover,#tnXem[aria-expanded="true"]{background:color-mix(in srgb,var(--peach) 12%,transparent)}
+#tnXem::after{content:"";width:6px;height:6px;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+#tnXem[aria-expanded="true"]::after{transform:translateY(1px) rotate(-135deg)}
+#dTn .tn-vi{flex-basis:100%;font-size:14.5px;color:var(--ink)}
+
 #van{--co:1;font-family:var(--kai);font-size:calc(28px*var(--co));line-height:1.9}
 .cau{margin:0 0 .35em;border-radius:12px;padding:2px 6px;transition:background .2s}
 .cau .vic{display:none;font-family:var(--vi);font-size:15px;line-height:1.5;color:var(--muted);margin:-2px 0 10px}
@@ -85,6 +117,37 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 #the button{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--ground2);color:var(--ink);font:inherit;font-size:13.5px;font-weight:700;padding:8px 12px;border-radius:12px;cursor:pointer}
 #the button[aria-pressed="true"]{color:#C99A14}
 .th-np a{font-size:13.5px;font-weight:700;color:var(--teal);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+/* bắt đầu đọc + đồng hồ đọc thầm */
+.bd{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:-6px 0 22px}
+.bd button{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:14px;font-weight:700;padding:9px 15px;border-radius:999px;cursor:pointer;transition:transform .12s}
+.bd button:active{transform:scale(.95)}
+.bd .bd-chinh{background:var(--c);border-color:var(--c);color:#fff;box-shadow:0 4px 12px color-mix(in srgb,var(--c) 30%,transparent)}
+.bd span{flex-basis:100%;font-size:12.5px;color:var(--muted)}
+#gioBar{position:fixed;left:50%;bottom:calc(max(14px,env(safe-area-inset-bottom)) + 66px);transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:9px;background:var(--card);border-radius:999px;padding:6px 6px 6px 14px;box-shadow:var(--shadow);font-size:13.5px;font-weight:700;color:var(--c);white-space:nowrap}
+#gioBar>span{color:var(--muted)}
+#gioBar b{font-size:20px;color:var(--ink);font-variant-numeric:tabular-nums;min-width:3.2em}
+#gioXong{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--c);color:#fff;font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer}
+.kt-chua b{font-size:inherit!important;line-height:inherit!important;color:var(--c)!important}.kt-chua{display:flex!important;align-items:flex-start;gap:10px;margin-bottom:12px}.kt-chua .lli{width:26px;height:26px;color:var(--c);flex:none}.kt-chua span{margin:0!important;color:var(--ink)!important;font-size:14.5px!important}
+/* đọc karaoke */
+.bd .bd-ka{border-color:color-mix(in srgb,var(--coral) 45%,var(--line));color:var(--coral)}
+#kaBox{position:fixed;left:50%;bottom:calc(max(14px,env(safe-area-inset-bottom)) + 66px);transform:translate(-50%,20px);width:min(460px,calc(100% - 24px));z-index:31;background:var(--card);border-radius:22px;padding:14px 16px;box-shadow:0 14px 40px rgba(43,46,69,.25);opacity:0;pointer-events:none;transition:.18s}
+#kaBox.mo{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
+#kaBox .gk-dau b{display:inline-flex;align-items:center;gap:7px}#kaBox .gk-dau b .lli{color:var(--coral)}
+.ka-mo{font-size:13.5px;color:var(--muted);margin:6px 0 12px}
+.ka-chon{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:700;margin-bottom:10px}
+.ka-seg{display:inline-flex;background:var(--ground2);border-radius:999px;padding:3px}
+.ka-seg button{border:0;background:none;font:inherit;font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;color:var(--muted);cursor:pointer}
+.ka-seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+.ka-mau{display:block;font-size:13.5px;margin-bottom:12px;padding-left:24px;text-indent:-24px}.ka-mau input{margin:0 8px 0 0;vertical-align:-2px;accent-color:var(--c)}.ka-mau small{display:block;text-indent:0;color:var(--muted);font-size:12px}
+#kaBox .gk-nut button{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--coral);color:#fff;font:inherit;font-size:14px;font-weight:700;padding:10px 18px;border-radius:999px;cursor:pointer}
+#demNguoc{position:fixed;inset:0;z-index:40;display:grid;place-items:center;font:800 min(40vw,220px)/1 var(--vi);color:var(--coral);background:color-mix(in srgb,var(--giay) 70%,transparent);pointer-events:none}
+#demNguoc.nay{animation:dn .8s ease-out}@keyframes dn{0%{transform:scale(1.4);opacity:0}30%{opacity:1}100%{transform:scale(.9);opacity:.2}}
+/* khi đang hát: câu đang đọc nổi bật, chữ chưa tới mờ, chữ đã tới sáng màu */
+.hat .cau{opacity:.45;transition:opacity .25s}
+.hat .cau.dang{opacity:1;background:color-mix(in srgb,var(--coral) 8%,transparent)}
+.hat .cau.dang .w,.hat .cau.dang .dau{color:var(--faint);transition:color .12s}
+.hat .cau.dang .w.da,.hat .cau.dang .dau.da{color:var(--coral)}
+.cau.dang .dau.da{color:var(--c)}
 /* đọc to: đồng hồ ghi âm + bảng kết quả */
 .thanh-cu #bDoc[aria-pressed="true"]{background:var(--coral-s);color:var(--coral)}
 #ghiBar{position:fixed;left:50%;bottom:calc(max(14px,env(safe-area-inset-bottom)) + 66px);transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:10px;background:var(--card);border-radius:999px;padding:6px 6px 6px 16px;box-shadow:var(--shadow);font-size:13.5px;font-weight:700;color:var(--muted);white-space:nowrap}
@@ -105,6 +168,9 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 #ketThuc h3{display:flex;align-items:center;gap:8px;font-size:18px;margin:26px 0 10px}
 .kt-td{display:grid;justify-items:start;background:var(--card);border-radius:20px;padding:18px 20px;box-shadow:var(--shadow)}
 .kt-td b{font-size:44px;line-height:1;color:var(--c)}.kt-td span{color:var(--muted);font-size:14px;margin-top:4px}
+.yn{margin-top:16px;background:var(--card);border-radius:20px;padding:16px 18px;box-shadow:var(--shadow);border-left:6px solid var(--peach)}
+.yn-tn{display:grid;gap:2px;margin-bottom:10px}.yn-tn b{font-size:30px;font-weight:400;color:var(--peach)}.yn-py{font-weight:700}.yn-py i{font-style:normal}.yn-tn span:last-child{font-size:14.5px;color:var(--muted)}
+.yn p{margin:0;font-size:15px;line-height:1.6}.yn p b{display:flex;align-items:center;gap:6px;color:var(--ink);margin-bottom:4px}.yn p b .lli{color:var(--peach)}
 .hoi{margin:0;padding-left:22px;display:grid;gap:14px}.hoi .q{font-size:22px}.qvi{color:var(--muted);font-size:14px}
 .opts{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
 .opts button{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-size:19px;padding:6px 14px;border-radius:12px;cursor:pointer}
@@ -123,7 +189,7 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
-  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="#">阅读盒</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="#">阅读盒 Luyện đọc</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
 <main class="wrap" id="home">
@@ -145,23 +211,34 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
   </svg><span class="lh-pop a">书</span><span class="lh-pop b py">dú</span><span class="lh-pop c">读</span><span class="lh-pop d">文</span></div>
 </section>
 
-<section id="ke-bai"><div id="ke"></div>
-  <h2 class="kh">Bài đọc trên lớp</h2>
-  <a class="lop" href="mot-ngay-cua-toi/"><span class="zh" style="font-size:30px;color:var(--c)">读</span><span><b class="zh">我的一天</b><small>Một ngày của tôi · bài cô dạy trên lớp</small></span></a>
+<section id="ke-bai">
+  <div class="ml-tab" id="mlTab" role="group" aria-label="Xem bài đọc theo">
+    <button type="button" data-tab="cap" aria-pressed="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#sach"></use></svg>Theo cấp HSK</button>
+    <button type="button" data-tab="cd" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#manh-ghep"></use></svg>Theo chủ đề</button>
+    <button type="button" data-tab="gt" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#cuon-giay"></use></svg>Theo giáo trình</button>
+  </div>
+  <div id="ke"></div>
 </section>
 <footer>Giọng đọc là giọng máy có sẵn trong trình duyệt. Luyện thanh điệu xử lý giọng em ngay trên máy, không gửi đi đâu.</footer>
 </main>
 
 <main id="doc" hidden>
   <div class="d-dau"><a href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#truoc"></use></svg> Mục lục 阅读盒</a>
-    <h1 id="dTen"></h1><div id="dMeta"></div></div>
+    <h1 id="dTen"></h1><div id="dMeta"></div><div id="dTn" hidden></div></div>
+  <div id="batDau" class="bd"><button type="button" id="bdGio" class="bd-chinh"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dong-ho"></use></svg>Bắt đầu đọc</button>
+    <button type="button" id="bdKa" class="bd-ka"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#lap-lanh"></use></svg>Đọc karaoke</button>
+    <button type="button" id="bdGhi"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#mic"></use></svg>Đọc to và ghi âm</button>
+    <span>Bắt đầu đọc: máy bấm giờ khi em đọc thầm. Đọc karaoke: chữ sáng dần, em đọc theo, máy ghi âm.</span></div>
   <div id="van" lang="zh-CN"></div>
   <div id="ketThuc"></div>
 </main>
 
 <div id="the" role="dialog" aria-label="Thẻ từ"></div>
+<div id="gioBar" hidden role="timer"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dong-ho"></use></svg><span>Đang đọc</span><b id="gioGio">0:00</b><button type="button" id="gioXong"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#tick"></use></svg>Đọc xong</button></div>
 <div id="ghiBar" hidden role="status"><i class="cham-do"></i><span>Đang ghi âm</span><b id="ghiGio">0:00</b><button type="button" id="ghiDung"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dung"></use></svg>Dừng</button></div>
 <div id="ghiKq" role="dialog" aria-label="Bản đọc của em"></div>
+<div id="kaBox" role="dialog" aria-label="Đọc karaoke"></div>
+<div id="demNguoc" hidden aria-live="assertive"></div>
 <div id="tocBar" hidden role="group" aria-label="Tốc độ đọc"><button type="button" data-toc=".6">Chậm</button><button type="button" data-toc=".85" aria-pressed="true">Vừa</button><button type="button" data-toc="1.05">Nhanh</button></div>
 <nav class="thanh-cu" aria-label="Công cụ đọc">
   <button type="button" id="bPy" aria-pressed="false" title="Hiện pinyin trên chữ"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true"><text x="15" y="20" text-anchor="middle" font-size="17" font-weight="700" fill="currentColor" style="font-family:var(--vi)">a</text><path d="M9.5 5.5h11" stroke="#E0545F" stroke-width="2.2" stroke-linecap="round"/></svg><span>Pinyin</span></button>
@@ -180,8 +257,10 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 <script src="../tro-choi/hsk-words.js"></script>
 <script src="../ngu-phap/hsk-ngu-phap.js"></script>
 <script src="/chung/thanh-dieu.js?v=e0cd5c49"></script>
-<script src="bai-doc.js?v=7"></script>
-<script src="doc.js?v=7"></script>
+<script src="../tu-vung/chu-de.js"></script>
+<script src="../giao-trinh/sach.js"></script>
+<script src="bai-doc.js?v=6"></script>
+<script src="doc.js?v=14"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');

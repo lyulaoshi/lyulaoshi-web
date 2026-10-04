@@ -147,6 +147,7 @@ nav.menu a.cta{white-space:nowrap}
 /* new lessons */
 .news{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 @media (max-width:720px){.news{grid-template-columns:1fr}}
+.news .nl:nth-child(n+7){display:none} /* chỉ hiện 6 bài mới nhất (bài mới thêm lên đầu danh sách) */
 .nl{display:flex;gap:14px;align-items:center;padding:14px;border-radius:18px;background:var(--card);box-shadow:var(--shadow);text-decoration:none}
 .nl .ic{flex:none;width:58px;height:58px;border-radius:14px;display:grid;place-items:center;font-family:var(--hz);font-size:26px;background:var(--coral-s);color:var(--coral)}
 .nl.sky .ic{background:var(--sky-s);color:var(--sky)}
@@ -270,7 +271,6 @@ a.rl b{color:var(--ink)}
 .feat>div:nth-child(even) h4 span{color:var(--coral)}
 .feat p{margin:4px 0 0;font-size:14.5px;color:var(--muted)}
 </style>
-<link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
 </head>
 <body>
 
@@ -280,7 +280,7 @@ a.rl b{color:var(--ink)}
     <span class="t"><b>Giáo trình BOYA sơ cấp 1</b><span>博雅汉语 · 初级起步篇</span></span>
   </a>
   <nav class="menu" aria-label="Menu">
-    <a href="#bai-hoc">Bài học</a><a href="#lo-trinh">Lộ trình</a><a href="#co-gi">Trong hộp có gì</a><a class="cta" href="/">← Trang chủ</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#trang"></use></svg></button>
+    <a href="#bai-hoc">Bài học</a><a href="#lo-trinh">Lộ trình</a><a href="#co-gi">Trong hộp có gì</a><a class="cta" href="/">← Trang chủ</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối">☀︎</button>
   </nav>
 </div></header>
 
@@ -290,8 +290,8 @@ a.rl b{color:var(--ink)}
       <span class="eyebrow">Bài giảng tương tác · ThS. Lã Thị Thuỳ Phương</span>
       <h1><span class="zh big"><i>博雅</i><u>汉语</u></span>Giáo trình Hán ngữ BOYA<br>sơ cấp 1</h1>
       <p class="lead">Bài giảng theo <b>Giáo trình Hán ngữ BOYA sơ cấp 1</b>: nghe phát âm từng từ, xem chữ Hán tự viết từng nét, nghe bài khoá, làm bài tập có đáp án và luyện nghe – viết. Trên lớp bật toàn màn hình để trình chiếu, ở nhà mở điện thoại là học.</p>
-      <div class="acts"><a class="btn pri" href="bai-5/">Học Bài 5 · 在北京大学的东边 →</a><a class="btn sec" href="#bai-hoc">Xem các bài ↓</a></div>
-      <div class="stats"><div><b>5</b>bài đã mở</div><div><b>83</b>từ mới có bút thuận</div><div><b>10</b>bài khoá có audio</div><div><b>30</b>bài cả giáo trình</div></div>
+      <div class="acts"><a class="btn pri" href="bai-6/">Học Bài 6 · 现在几点 →</a><a class="btn sec" href="#bai-hoc">Xem các bài ↓</a></div>
+      <div class="stats"><div><b>6</b>bài đã mở</div><div><b>108</b>từ mới có bút thuận</div><div><b>12</b>bài khoá có audio</div><div><b>30</b>bài cả giáo trình</div></div>
     </div>
     <div class="art" aria-hidden="true">
       <svg viewBox="0 0 400 420" class="book">
@@ -357,7 +357,7 @@ a.rl b{color:var(--ink)}
      <div class="go">Vào học <span class="ar">→</span></div>
     </a>
     <a class="card c-peach" href="bai-5/">
-     <span class="new">MỚI</span><span class="wm" aria-hidden="true">边</span>
+     <span class="wm" aria-hidden="true">边</span>
      <span class="num"><i>5</i>BÀI 5 · 第五课</span>
      <div class="zh" style="font-size:clamp(40px,4.4vw,52px);margin-top:20px">在北京大学的东边</div>
      <div class="vi">Ở phía đông của Đại học Bắc Kinh</div>
@@ -365,13 +365,22 @@ a.rl b{color:var(--ink)}
      <div class="chips"><span class="chip">20 từ mới</span><span class="chip">2 bài khoá</span><span class="chip">Ngữ pháp</span><span class="chip">听写</span></div>
      <div class="go">Vào học <span class="ar">→</span></div>
     </a>
+    <a class="card c-lav" href="bai-6/">
+     <span class="new">MỚI</span><span class="wm" aria-hidden="true">点</span>
+     <span class="num"><i>6</i>BÀI 6 · 第六课</span>
+     <div class="zh">现在几点</div>
+     <div class="vi">Bây giờ mấy giờ?</div>
+     <p class="desc">Hỏi & trả lời giờ giấc · 几点 · 半 · 一刻 · 差 · 太……了 · số đếm 0–100</p>
+     <div class="chips"><span class="chip">25 từ mới</span><span class="chip">2 bài khoá</span><span class="chip">Ngữ pháp</span><span class="chip">听写</span></div>
+     <div class="go">Vào học <span class="ar">→</span></div>
+    </a>
     <div class="card soon c-mint">
      <span class="wm" aria-hidden="true">雅</span>
-     <span class="num"><i>6</i>BÀI 6 · 第六课</span>
-     <div class="zh" style="font-size:clamp(34px,4vw,46px);margin-top:22px">现在几点</div>
-     <div class="vi">Bây giờ mấy giờ rồi?</div>
+     <span class="num"><i>7</i>BÀI 7 · 第七课</span>
+     <div class="zh" style="font-size:clamp(34px,4vw,46px);margin-top:22px">明天你有课吗</div>
+     <div class="vi">Ngày mai bạn có lên lớp không?</div>
      <p class="desc">Bài giảng đang được biên soạn.</p>
-     <span class="lock"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#khoa"></use></svg> Sắp ra mắt</span>
+     <span class="lock">🔒 Sắp ra mắt</span>
     </div>
   </section>
 
@@ -383,7 +392,7 @@ a.rl b{color:var(--ink)}
       <a class="rl" href="bai-3/"><i>3</i><b>那是你的书吗</b><span>Kia là sách của bạn phải không?</span></a>
       <a class="rl" href="bai-4/"><i>4</i><b>图书馆在哪儿</b><span>Thư viện ở đâu?</span></a>
       <a class="rl" href="bai-5/"><i>5</i><b>在北京大学的东边</b><span>Ở phía đông của Đại học Bắc Kinh</span></a>
-      <div class="rl"><i>6</i><b>现在几点</b><span>Bây giờ mấy giờ rồi?</span></div>
+      <a class="rl" href="bai-6/"><i>6</i><b>现在几点</b><span>Bây giờ mấy giờ rồi?</span></a>
       <div class="rl"><i>7</i><b>明天你有课吗</b><span>Ngày mai bạn có lên lớp không?</span></div>
       <div class="rl"><i>8</i><b>你的电话号码是多少</b><span>Số điện thoại của bạn là bao nhiêu?</span></div>
       <div class="rl"><i>9</i><b>多少钱一瓶</b><span>Bao nhiêu tiền một chai?</span></div>
@@ -430,10 +439,10 @@ a.rl b{color:var(--ink)}
 <footer class="wrap"><span>© Bài giảng được biên soạn bởi ThS. Lã Thị Thuỳ Phương.</span><span><a href="/">lyulaoshi.com</a> · 博雅汉语</span></footer>
 
 <script>
-// Giao diện sáng / tối: mặc định theo máy, nút mặt trời / mặt trăng để đổi (dùng chung lựa chọn với trang chủ)
+// Giao diện sáng / tối: mặc định theo máy, nút ☀︎/☾ để đổi (dùng chung lựa chọn với trang chủ)
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>';};
+ const paint=()=>{b.textContent=cur()==='dark'?'☀︎':'☾';};
  try{const t=localStorage.getItem('cb-theme');if(t)r.dataset.theme=t;}catch(e){}
  paint();b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint();});})();
 
