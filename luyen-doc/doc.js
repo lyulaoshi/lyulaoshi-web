@@ -34,6 +34,24 @@ const ML=store.get("ml",{tab:"cap",cap:null,cd:""});
 function theBai(b,xong){const x=xong[b.id],c=cdOf(b.cd);
   return`<a class="the" href="#${b.id}"><span class="t-cap">HSK ${b.cap}</span><span class="t-ten zh">${esc(b.ten)}</span><span class="t-vi">${esc(b.tenVi)}</span>
     <span class="t-meta">${soChu(b)} chữ · ${esc(c.vi)}${x?` · <b class="xong">${IC("tick")}đã đọc${x.cpm?` · ${x.cpm} chữ/phút`:""}</b>`:""}</span></a>`}
+const MANG={v:store.get("mang","doc")};
+function mucLucDoc(){
+  document.querySelectorAll("#mlMang [data-mang]").forEach(t=>t.setAttribute("aria-pressed",t.dataset.mang===MANG.v));
+  $("#mlTab").hidden=MANG.v!=="doc";
+  if(MANG.v==="doc"){mucLuc();return}
+  // 朗读 · Đọc thành tiếng: 3 chế độ cho mỗi bài + Góc podcast của em
+  const xong=store.get("xong",{}),caps=[...new Set(DS.map(b=>b.cap))].sort();
+  $("#ke").innerHTML=`<div class="ld-che">
+      <div><b>${IC("lap-lanh")}跟读 · Đọc theo</b><span>Chữ sáng dần theo nhịp, em đọc theo, máy ghi âm.</span></div>
+      <div><b>${IC("mic")}录音 · Thu âm</b><span>Tự đọc cả bài, nghe lại, đối chiếu từng câu với giọng mẫu.</span></div>
+      <div><b>${IC("loa-to")}播客 · Làm podcast</b><span>Đọc như người dẫn podcast, có nhạc, ảnh bìa đăng TikTok.</span></div></div>
+    ${caps.map(c=>`<h2 class="kh">HSK ${c}</h2><div class="ld-ds">${DS.filter(b=>b.cap===c).map(b=>`<div class="ld-bai"><a class="ld-ten" href="#${b.id}"><b class="zh">${esc(b.ten)}</b><small>${esc(b.tenVi)} · ${soChu(b)} chữ</small></a>
+      <div class="ld-nut"><a href="#${b.id}/doc-theo">${IC("lap-lanh")}Đọc theo</a><a href="#${b.id}/thu-am">${IC("mic")}Thu âm</a><a class="pod" href="#${b.id}/podcast">${IC("loa-to")}Podcast</a></div></div>`).join("")}</div>`).join("")}
+    <h2 class="kh" id="gocPod">我的播客 · Góc podcast của em</h2><div id="gocDs"><p class="muted">Đang mở…</p></div>`;
+  if(window.LD_POD)LD_POD.goc($("#gocDs"));else $("#gocDs").innerHTML='<p class="muted">Chưa có tập nào.</p>';
+  store.set("mang",MANG.v);
+}
+document.addEventListener("click",e=>{const m=e.target.closest("#mlMang [data-mang]");if(m){MANG.v=m.dataset.mang;mucLucDoc()}});
 function mucLuc(){
   const xong=store.get("xong",{}),doDo=store.get("do",null);
   $("#stBai").textContent=DS.length;$("#stXong").textContent=DS.filter(b=>xong[b.id]).length;
@@ -90,7 +108,7 @@ function moBai(id){
   $("#ketThuc").innerHTML=`<button class="btn hot" type="button" id="xongBtn">${IC("tick")}Đọc xong</button><p class="muted">Bấm khi em đọc hết bài, máy tính tốc độ đọc cho em.</p>`;
   $("#xongBtn").onclick=docXong;
   apOpt();tDoc=0;scrollTo({top:0});dongThe();
-  dungGio();TG.t0=null;TG.het=null;$("#batDau").hidden=false;
+  dungGio();TG.t0=null;TG.het=null;$("#batDau").hidden=false;$("#bdPod").href="#"+B.id+"/podcast";
   if(GHI.rec)dungGhi();anKq();GHI.seg=null;GHI.blob=null;
 }
 function apOpt(){const d=$("#doc");d.classList.toggle("co-py",OPT.py);d.classList.toggle("co-vi",OPT.vi);d.style.setProperty("--co",OPT.co);
@@ -240,7 +258,7 @@ function toChay(ci,f){const p=document.querySelector(`#van .cau[data-c="${ci}"]`
   ws.forEach((x,i)=>{const pos=c.tu.slice(0,i).reduce((a,t)=>a+t.w.length,0);x.classList.toggle("da",pos<f*n)})}
 function xoaChay(){document.querySelectorAll("#van .da").forEach(x=>x.classList.remove("da"));$("#doc").classList.remove("hat")}
 function moKaraoke(){dongThe();anKq();const o=store.get("ka",{nhip:"vua",mau:false});
-  $("#kaBox").innerHTML=`<div class="gk-dau"><b>${IC("lap-lanh")}Đọc karaoke</b><button class="th-x" type="button" data-k="x" aria-label="Đóng">${IC("sai")}</button></div>
+  $("#kaBox").innerHTML=`<div class="gk-dau"><b>${IC("lap-lanh")}跟读 · Đọc theo</b><button class="th-x" type="button" data-k="x" aria-label="Đóng">${IC("sai")}</button></div>
     <p class="ka-mo">Chữ sáng dần theo nhịp, em đọc theo chữ sáng, máy ghi âm giọng em. Đọc hết bài, em nghe lại giọng mình cùng chữ chạy.</p>
     <div class="ka-chon"><span>Nhịp</span><div class="ka-seg">${[["cham","Chậm"],["vua","Vừa"],["nhanh","Nhanh"]].map(([k,t])=>`<button type="button" data-nhip="${k}" aria-pressed="${o.nhip===k}">${t}</button>`).join("")}</div></div>
     <label class="ka-mau"><input type="checkbox" id="kaMau" ${o.mau?"checked":""}> Có giọng mẫu đọc cùng <small>(nên đeo tai nghe để máy chỉ ghi giọng em)</small></label>
@@ -304,7 +322,14 @@ function docXong(){
   $("#ketThuc").scrollIntoView({behavior:"smooth"});
 }
 /* ============ điều hướng ============ */
-function route(){const id=decodeURIComponent(location.hash.slice(1));dungNghe(true);
-  if(id&&DS.some(b=>b.id===id))moBai(id);else{dungGio();$("#home").hidden=false;$("#doc").hidden=true;document.body.classList.remove("dang-doc");document.title="阅读盒 · Luyện đọc – 吕老师汉语盒";dongThe();mucLuc()}}
+function route(){const [id,sub]=decodeURIComponent(location.hash.slice(1)).split("/");dungNghe(true);
+  if(window.LD_POD)LD_POD.dong();$("#pod").hidden=true;
+  if(id&&DS.some(b=>b.id===id)&&sub==="podcast"&&window.LD_POD){$("#home").hidden=true;$("#doc").hidden=true;document.body.classList.remove("dang-doc");$("#pod").hidden=false;LD_POD.mo(DS.find(b=>b.id===id));return}
+  if(id&&DS.some(b=>b.id===id)){moBai(id);
+    if(sub==="doc-theo")setTimeout(moKaraoke,200);
+    if(sub==="thu-am")setTimeout(()=>{const b=$("#bdGhi");b.scrollIntoView({block:"center",behavior:"smooth"});b.classList.add("nhac");setTimeout(()=>b.classList.remove("nhac"),2400)},200);
+    return}
+  {dungGio();$("#home").hidden=false;$("#doc").hidden=true;document.body.classList.remove("dang-doc");document.title="阅读盒 · Luyện đọc – 吕老师汉语盒";dongThe();mucLucDoc()}}
+window.LD={$,esc,IC,pyMau,store,tach,soChu,DS,NHIP,mmss,noi,demNguoc};
 addEventListener("hashchange",route);route();
 })();

@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/chung/hero.css?v=a26ea8bd">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
-@font-face{font-family:"LyuKai";font-display:swap;src:url(kai.woff?v=594f1276) format("woff")}
+@font-face{font-family:"LyuKai";font-display:swap;src:url(kai.woff?v=13cd6b66) format("woff")}
 :root{--c:var(--mint);--cs:var(--mint-s);--kai:"LyuKai","STKaiti","KaiTi","Kaiti SC",serif;--giay:#FBF8F1}
 :root[data-theme="dark"]{--giay:#23242F}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--giay:#23242F}}
@@ -51,6 +51,74 @@
 .sach-t{display:grid;min-width:0;flex:1}.sach-t b{font-size:19px;font-weight:400}.sach-t small{color:var(--muted);font-size:12.5px}
 .sach-t em{font-style:normal;font-size:12px;font-weight:700;color:var(--c)}
 @media (max-width:560px){.ml-tab{width:100%}.ml-tab button{flex:1;justify-content:center;padding:9px 6px;font-size:13px}}
+/* ---- 阅读 / 朗读 */
+.ml-mang{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:30px 0 4px;max-width:560px}
+.ml-mang button{display:grid;justify-items:start;gap:2px;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;padding:12px 18px;border-radius:20px;cursor:pointer;text-align:left}
+.ml-mang b{font-size:30px;font-weight:400;line-height:1.1}.ml-mang span{font-size:13px;font-weight:700;color:var(--muted)}
+.ml-mang button[aria-pressed="true"]{border-color:var(--c);background:var(--cs)}.ml-mang button[aria-pressed="true"] b{color:var(--c)}
+.ml-mang [data-mang="lang"][aria-pressed="true"]{border-color:var(--coral);background:var(--coral-s)}.ml-mang [data-mang="lang"][aria-pressed="true"] b{color:var(--coral)}
+.ld-che{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px;margin:18px 0 6px}
+.ld-che div{background:var(--card);border-radius:18px;padding:14px 16px;box-shadow:var(--shadow);display:grid;gap:4px}
+.ld-che b{display:flex;align-items:center;gap:7px;font-size:15px}.ld-che b .lli{color:var(--coral)}.ld-che span{font-size:13px;color:var(--muted)}
+.ld-ds{display:grid;gap:8px}
+.ld-bai{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--card);border-radius:16px;padding:10px 14px;box-shadow:var(--shadow)}
+.ld-ten{display:grid;text-decoration:none;flex:1;min-width:150px}.ld-ten b{font-size:22px;font-weight:400}.ld-ten small{font-size:12.5px;color:var(--muted)}
+.ld-nut{display:flex;gap:6px;flex-wrap:wrap}
+.ld-nut a{display:inline-flex;align-items:center;gap:5px;text-decoration:none;font-size:13px;font-weight:700;padding:7px 12px;border-radius:999px;border:1.5px solid var(--line);color:var(--ink)}
+.ld-nut a.pod{border-color:var(--coral);background:var(--coral);color:#fff}
+.bd .bd-pod{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:14px;font-weight:700;padding:9px 15px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.bd button.nhac{animation:nhacb .6s 4}@keyframes nhacb{50%{box-shadow:0 0 0 6px var(--coral-s);border-color:var(--coral)}}
+/* ---- trang làm podcast */
+.pod{max-width:760px;margin:0 auto;padding-bottom:60px}
+.pd-h{display:flex;align-items:center;gap:14px;margin:12px 0 0;font-weight:400}.pd-h>.lli{width:46px;height:46px;color:var(--coral);flex:none}
+.pd-h small{display:block;font-family:var(--vi);font-size:13px;font-weight:800;color:var(--coral);letter-spacing:.04em}.pd-h .zh{font-size:clamp(30px,6vw,42px)}.pd-h em{font-style:normal;font-family:var(--vi);font-size:15px;font-weight:600;color:var(--muted)}
+.pd-buoc{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:16px}
+.pd-buoc>li{background:var(--card);border-radius:22px;padding:16px 18px;box-shadow:var(--shadow)}
+.pd-buoc h2{display:flex;align-items:center;gap:10px;font-size:17px;margin:0 0 12px}.pd-buoc h2 b{width:28px;height:28px;border-radius:50%;background:var(--coral);color:#fff;display:grid;place-items:center;font-size:14px}
+.pd-ten input{width:100%;font:inherit;font-size:17px;padding:10px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--ground);color:var(--ink)}.pd-ten small{display:block;font-size:12.5px;color:var(--muted);margin-top:6px}
+.pd-nhip{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13.5px;font-weight:700;margin-bottom:10px}.pd-nhip span{margin-right:4px}
+.pd-nhip button{border:1.5px solid var(--line);background:none;color:var(--ink);font:inherit;font-size:13px;padding:5px 13px;border-radius:999px;cursor:pointer}.pd-nhip button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--ground)}
+#pdPhan{display:grid;gap:10px}
+.pd-p{border:1.5px solid var(--line);border-radius:18px;padding:12px 14px;display:grid;gap:8px}.pd-p.co{border-color:var(--mint);background:var(--mint-s)}
+.pd-pd b{font-size:15px}.pd-pd b .zh{color:var(--coral);font-weight:400;font-size:18px}.pd-pd small{display:block;font-size:12.5px;color:var(--muted)}
+.pd-kb p{margin:0 0 4px;display:grid}.pd-kb .zh{font-size:19px}.pd-kb i{font-style:normal;font-size:12.5px;color:var(--muted)}
+.pd-pn{display:flex;gap:6px;flex-wrap:wrap}
+.pd-pn button{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--ground2);color:var(--ink);font:inherit;font-size:13.5px;font-weight:700;padding:8px 13px;border-radius:12px;cursor:pointer}
+.pd-pn .pd-thu{background:var(--coral);color:#fff}.pd-pn button:disabled{opacity:.45;cursor:default}
+.pd-nhac{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.pd-nhac button{display:grid;gap:2px;justify-items:start;text-align:left;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;padding:10px 12px;border-radius:16px;cursor:pointer}
+.pd-nhac button b{font-size:14.5px}.pd-nhac button small{font-size:12px;color:var(--muted)}.pd-nhac button[aria-pressed="true"]{border-color:var(--m);background:var(--ms)}.pd-nhac button[aria-pressed="true"] b{color:var(--m)}
+.pd-vol{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px;font-size:13.5px;font-weight:700;color:var(--muted)}
+.pd-vol button{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;font-size:13.5px;padding:8px 13px;border-radius:12px;cursor:pointer}.pd-vol input{accent-color:var(--coral);vertical-align:middle}
+#pdGhep:disabled{opacity:.45}
+.pk{margin-top:14px;display:grid;gap:12px}
+.pk-tren{display:flex;gap:14px;align-items:center;flex-wrap:wrap}.pk-tren img{width:110px;height:110px;border-radius:16px;box-shadow:var(--shadow)}.pk-tren>div{flex:1;min-width:200px;display:grid;gap:4px}
+.pk-tren b{font-size:24px;font-weight:400}.pk-tren small{font-size:12.5px;color:var(--muted)}.pk-tren audio{width:100%}
+.pk-pd{background:var(--ground);border-radius:16px;padding:12px 16px;text-align:center;min-height:96px;display:grid;align-content:center}
+.pk-pd p{margin:0}.pk-pd .zh{font-size:24px}.pk-pd .py{font-size:14px;font-weight:600}.pk-pd .py i{font-style:normal}.pk-pd .vi{font-size:13px;color:var(--muted)}
+.pk-nut{display:flex;gap:8px;flex-wrap:wrap}.pk-nut .btn{padding:10px 14px;font-size:14px}
+.pk-tik summary{cursor:pointer;font-weight:700;display:inline-flex;align-items:center;gap:6px}.pk-tik img{display:block;width:min(270px,70%);margin:10px auto;border-radius:16px;box-shadow:var(--shadow)}
+.pk-tik pre{white-space:pre-wrap;font:inherit;font-size:13.5px;background:var(--ground);padding:10px 12px;border-radius:12px}
+.pk-mau b{display:flex;align-items:center;gap:6px;font-size:14.5px;margin-bottom:8px}
+.pk-mds{display:flex;gap:10px;overflow-x:auto;padding:4px 2px 8px;scroll-snap-type:x mandatory}
+.pk-mds button{flex:none;display:grid;justify-items:center;gap:5px;border:2px solid transparent;background:none;padding:4px;border-radius:14px;cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;color:var(--muted);scroll-snap-align:start}
+.pk-mds img{width:84px;height:149px;border-radius:10px;background:var(--ground2);box-shadow:var(--shadow);object-fit:cover}
+.pk-mds button[aria-pressed="true"]{border-color:var(--coral);color:var(--coral)}
+.pk-vid{border-top:1px dashed var(--line);padding-top:12px;display:grid;gap:8px;justify-items:start}
+.pk-vid video{width:min(280px,100%);border-radius:16px;box-shadow:var(--shadow);background:#000}
+.pk-thanh{width:100%;height:10px;border-radius:5px;background:var(--ground2);overflow:hidden}.pk-thanh i{display:block;height:100%;width:0;background:var(--coral);transition:width .3s}
+.goc{display:grid;gap:10px}.goc-t{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:center;background:var(--card);border-radius:16px;padding:10px;box-shadow:var(--shadow)}
+.goc-t img{width:72px;height:72px;border-radius:12px}.goc-i b{font-size:20px;font-weight:400}.goc-i small{display:block;font-size:12.5px;color:var(--muted)}
+.goc-n{display:flex;gap:6px;margin-top:4px}.goc-n button{display:inline-flex;align-items:center;gap:5px;border:0;background:var(--ground2);color:var(--ink);font:inherit;font-size:13px;font-weight:700;padding:6px 11px;border-radius:10px;cursor:pointer}
+.goc-kq{grid-column:1/-1}.goc-kq:empty{display:none}
+/* màn nhắc chữ (teleprompter) */
+.pd-tele{position:fixed;inset:0;z-index:39;background:var(--giay);display:grid;grid-template-rows:auto 1fr auto;padding:16px max(16px,4vw)}
+.pt-tren{display:flex;align-items:center;gap:12px;font-size:13.5px;font-weight:700;color:var(--muted)}.pt-tren b{margin-left:auto;font-size:20px;color:var(--coral);font-variant-numeric:tabular-nums}
+.pt-tren button{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--coral);color:#fff;font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer}
+.pt-cau{align-self:center;text-align:center}.pt-zh{font-family:var(--kai);font-size:clamp(34px,8vw,64px);line-height:1.4;margin:0}.pt-zh span{color:var(--faint);transition:color .12s}.pt-zh span.da{color:var(--coral)}
+.pt-py{font-size:clamp(16px,3vw,22px);font-weight:600;margin:10px 0 0}.pt-py i{font-style:normal}
+.pt-sau{text-align:center;font-size:20px;color:var(--muted);opacity:.7;padding-bottom:20px}.pt-sau .zh{font-size:24px}
+body.pd-mo .thanh-cu{display:none}
 /* ---- trang đọc */
 body.dang-doc{background:var(--giay);background-image:none}
 body.dang-doc footer{display:none}
@@ -212,6 +280,10 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 </section>
 
 <section id="ke-bai">
+  <div class="ml-mang" id="mlMang" role="group" aria-label="Chọn kiểu luyện">
+    <button type="button" data-mang="doc" aria-pressed="true"><b class="zh">阅读</b><span>Đọc hiểu</span></button>
+    <button type="button" data-mang="lang" aria-pressed="false"><b class="zh">朗读</b><span>Đọc thành tiếng</span></button>
+  </div>
   <div class="ml-tab" id="mlTab" role="group" aria-label="Xem bài đọc theo">
     <button type="button" data-tab="cap" aria-pressed="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#sach"></use></svg>Theo cấp HSK</button>
     <button type="button" data-tab="cd" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#manh-ghep"></use></svg>Theo chủ đề</button>
@@ -226,18 +298,21 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
   <div class="d-dau"><a href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#truoc"></use></svg> Mục lục 阅读盒</a>
     <h1 id="dTen"></h1><div id="dMeta"></div><div id="dTn" hidden></div></div>
   <div id="batDau" class="bd"><button type="button" id="bdGio" class="bd-chinh"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dong-ho"></use></svg>Bắt đầu đọc</button>
-    <button type="button" id="bdKa" class="bd-ka"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#lap-lanh"></use></svg>Đọc karaoke</button>
+    <button type="button" id="bdKa" class="bd-ka"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#lap-lanh"></use></svg>跟读 Đọc theo</button>
     <button type="button" id="bdGhi"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#mic"></use></svg>Đọc to và ghi âm</button>
-    <span>Bắt đầu đọc: máy bấm giờ khi em đọc thầm. Đọc karaoke: chữ sáng dần, em đọc theo, máy ghi âm.</span></div>
+    <a id="bdPod" class="bd-pod" href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#loa-to"></use></svg>播客 Làm podcast</a>
+    <span>Bắt đầu đọc: máy bấm giờ khi em đọc thầm. Đọc theo: chữ sáng dần, em đọc theo, máy ghi âm. Làm podcast: em đọc như người dẫn, có nhạc và ảnh bìa.</span></div>
   <div id="van" lang="zh-CN"></div>
   <div id="ketThuc"></div>
 </main>
 
+<main id="pod" class="pod" hidden></main>
+<div id="pdTele" class="pd-tele" hidden></div>
 <div id="the" role="dialog" aria-label="Thẻ từ"></div>
 <div id="gioBar" hidden role="timer"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dong-ho"></use></svg><span>Đang đọc</span><b id="gioGio">0:00</b><button type="button" id="gioXong"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#tick"></use></svg>Đọc xong</button></div>
 <div id="ghiBar" hidden role="status"><i class="cham-do"></i><span>Đang ghi âm</span><b id="ghiGio">0:00</b><button type="button" id="ghiDung"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dung"></use></svg>Dừng</button></div>
 <div id="ghiKq" role="dialog" aria-label="Bản đọc của em"></div>
-<div id="kaBox" role="dialog" aria-label="Đọc karaoke"></div>
+<div id="kaBox" role="dialog" aria-label="Đọc theo"></div>
 <div id="demNguoc" hidden aria-live="assertive"></div>
 <div id="tocBar" hidden role="group" aria-label="Tốc độ đọc"><button type="button" data-toc=".6">Chậm</button><button type="button" data-toc=".85" aria-pressed="true">Vừa</button><button type="button" data-toc="1.05">Nhanh</button></div>
 <nav class="thanh-cu" aria-label="Công cụ đọc">
@@ -257,10 +332,12 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 <script src="../tro-choi/hsk-words.js"></script>
 <script src="../ngu-phap/hsk-ngu-phap.js"></script>
 <script src="/chung/thanh-dieu.js?v=e0cd5c49"></script>
+<script src="/chung/ic-ve.js?v=e6b0f952"></script>
 <script src="../tu-vung/chu-de.js"></script>
 <script src="../giao-trinh/sach.js"></script>
 <script src="bai-doc.js?v=6"></script>
-<script src="doc.js?v=14"></script>
+<script src="podcast.js?v=3"></script>
+<script src="doc.js?v=15"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
