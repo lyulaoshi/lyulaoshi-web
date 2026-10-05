@@ -68,20 +68,6 @@
 .ld-nut a.pod{border-color:var(--coral);background:var(--coral);color:#fff}
 .bd .bd-pod{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:14px;font-weight:700;padding:9px 15px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
 .bd button.nhac{animation:nhacb .6s 4}@keyframes nhacb{50%{box-shadow:0 0 0 6px var(--coral-s);border-color:var(--coral)}}
-/* nhạc nền */
-#bNhac[aria-pressed="true"]{color:var(--coral)}
-.nhac-panel{position:fixed;bottom:66px;right:12px;width:min(310px,calc(100vw - 24px));background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:14px 16px;box-shadow:0 4px 24px rgba(0,0,0,.14);z-index:120}
-.nhac-panel h3{margin:0 0 10px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:7px}
-.nhac-track{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;cursor:pointer;border:1.5px solid transparent;transition:background .1s}
-.nhac-track:hover{background:var(--ground2)}
-.nhac-track.dang{border-color:var(--coral);background:var(--coral-s)}
-.nhac-track .lli{width:20px;height:20px;flex:none;color:var(--muted)}
-.nhac-track.dang .lli{color:var(--coral)}
-.nhac-track b{font-size:13.5px;font-weight:700;flex:1;min-width:0}
-.nhac-track small{font-size:12px;color:var(--muted);white-space:nowrap}
-.nhac-vol{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
-.nhac-vol .lli{width:18px;height:18px;flex:none;color:var(--muted)}
-.nhac-vol input{flex:1;accent-color:var(--coral);height:4px}
 /* chế độ đọc hiểu: ẩn nút nói */
 .che-doc #bdKa,.che-doc #bdGhi,.che-doc #bdPod{display:none}
 .che-doc #batDau span{display:none}
@@ -105,9 +91,31 @@
 .pd-p{border:1.5px solid var(--line);border-radius:18px;padding:12px 14px;display:grid;gap:8px}.pd-p.co{border-color:var(--mint);background:var(--mint-s)}
 .pd-pd b{font-size:15px}.pd-pd b .zh{color:var(--coral);font-weight:400;font-size:18px}.pd-pd small{display:block;font-size:12.5px;color:var(--muted)}
 .pd-kb p{margin:0 0 4px;display:grid}.pd-kb .zh{font-size:19px}.pd-kb i{font-style:normal;font-size:12.5px;color:var(--muted)}
-.pd-pn{display:flex;gap:6px;flex-wrap:wrap}
+.pd-pn{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .pd-pn button{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--ground2);color:var(--ink);font:inherit;font-size:13.5px;font-weight:700;padding:8px 13px;border-radius:12px;cursor:pointer}
 .pd-pn .pd-thu{background:var(--coral);color:#fff}.pd-pn button:disabled{opacity:.45;cursor:default}
+.pd-xemanh{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.pd-xemanh button{display:flex;flex-direction:column;align-items:center;gap:5px;border:2.5px solid var(--line);border-radius:12px;background:var(--card);padding:6px 6px 8px;cursor:pointer;transition:border-color .15s}
+.pd-xemanh button[aria-pressed="true"]{border-color:var(--coral)}
+.pd-xemanh canvas{border-radius:6px;display:block}
+.pd-xemanh span{font-size:11.5px;font-weight:700;color:var(--muted)}
+.pd-xemanh button[aria-pressed="true"] span{color:var(--coral)}
+.pd-chedon{display:flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;margin-right:4px}
+.pd-chedon button{border-radius:0;border:0;background:transparent;font-size:12.5px;font-weight:600;padding:6px 11px;color:var(--muted)}
+.pd-chedon button[aria-pressed="true"]{background:var(--ground2);color:var(--ink)}
+.pt-tu{overflow-y:auto;padding:8px 0 24px}
+.pt-tu p{margin:0 0 14px;text-align:center}.pt-tu .zh{font-family:var(--kai);font-size:clamp(26px,6vw,46px);display:block;line-height:1.45}
+.pt-tu em{display:block;font-style:normal;font-size:clamp(13px,2.5vw,17px);color:var(--muted);margin-top:2px}
+.pt-dd{display:flex;flex-direction:column;gap:12px;overflow:hidden;min-height:0}
+.pt-hd{background:var(--ground2);border-radius:14px;padding:14px 18px;font-size:14px;line-height:1.6}
+.pt-hd b{display:block;margin-bottom:8px;font-size:15px}
+.pt-hd ol{margin:4px 0 8px;padding-left:20px}.pt-hd ol li{margin-bottom:6px}
+.pt-ds{overflow-y:auto;flex:1;padding:4px 0}
+.pt-ds p{margin:0;padding:9px 0;text-align:center;font-family:var(--kai);font-size:clamp(16px,3.5vw,24px);color:var(--faint);line-height:1.4;transition:all .18s}
+.pt-ds p.hien{font-size:clamp(26px,6vw,44px);color:var(--ink);font-weight:700;padding:14px 0}
+.pt-ds p.da{font-size:clamp(13px,2.5vw,18px);color:var(--line)}
+.pd-bam-to{flex-shrink:0;width:100%;margin-top:10px;padding:18px;border:0;border-radius:16px;background:var(--coral);color:#fff;font:800 17px/1 inherit;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.pd-danh{background:var(--ground2);color:var(--muted);border:1.5px solid var(--line);border-radius:999px;font:600 12.5px/1 inherit;padding:7px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
 .pd-nhac{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
 .pd-nhac button{display:grid;gap:2px;justify-items:start;text-align:left;border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;padding:10px 12px;border-radius:16px;cursor:pointer}
 .pd-nhac button b{font-size:14.5px}.pd-nhac button small{font-size:12px;color:var(--muted)}.pd-nhac button[aria-pressed="true"]{border-color:var(--m);background:var(--ms)}.pd-nhac button[aria-pressed="true"] b{color:var(--m)}
@@ -151,7 +159,7 @@ body.pd-mo .thanh-cu{display:none}
 /* ---- trang đọc */
 body.dang-doc{background:var(--giay);background-image:none}
 body.dang-doc footer{display:none}
-#doc{max-width:760px;margin:0 auto;padding-bottom:120px}
+#doc{--co:1;max-width:760px;margin:0 auto;padding-bottom:120px}
 .d-dau{padding:22px 0 8px;border-bottom:1px solid var(--line);margin-bottom:22px}
 .d-dau a{font-size:14px;font-weight:700;color:var(--muted);text-decoration:none}
 #dTen{font-size:clamp(30px,6vw,44px);font-weight:400;margin:10px 0 2px;line-height:1.2}#dTen small{font-family:var(--vi);font-size:16px;color:var(--muted);font-weight:600}
@@ -166,7 +174,7 @@ body.dang-doc footer{display:none}
 #tnXem[aria-expanded="true"]::after{transform:translateY(1px) rotate(-135deg)}
 #dTn .tn-vi{flex-basis:100%;font-size:14.5px;color:var(--ink)}
 
-#van{--co:1;font-family:var(--kai);font-size:calc(28px*var(--co));line-height:1.9}
+#van{font-family:var(--kai);font-size:calc(28px*var(--co));line-height:1.9}
 .cau{margin:0 0 .35em;border-radius:12px;padding:2px 6px;transition:background .2s}
 .cau .vic{display:none;font-family:var(--vi);font-size:15px;line-height:1.5;color:var(--muted);margin:-2px 0 10px}
 .co-vi .cau .vic{display:block}
@@ -351,12 +359,11 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
   <button type="button" id="bNghe" aria-pressed="false" title="Nghe máy đọc (dùng trong chế độ Đọc karaoke)"><span class="nghe-o"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#phat"></use></svg></span><span>Nghe</span></button>
   <button type="button" id="bDoc" aria-pressed="false" title="Ghi âm cả bài và tính giờ"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true">
     <rect x="11.5" y="2.5" width="7" height="12" rx="3.5" class="vt"/><path class="vt" d="M8 11.5a7 7 0 0 0 14 0M15 18.5v3"/><circle cx="23.5" cy="4.5" r="2.4" fill="#E0545F"/></svg><span>Ghi âm</span></button>
-  <button type="button" id="bNhac" aria-pressed="false" title="Nhạc nền khi đọc"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#nhac"></use></svg><span>Nhạc</span></button>
   <span class="gach" aria-hidden="true"></span>
   <button type="button" id="bCo" title="Đổi cỡ chữ"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true">
     <text x="9" y="19" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" style="font-family:var(--vi)">A</text>
     <text x="20" y="19.5" text-anchor="middle" font-size="17" font-weight="700" fill="currentColor" style="font-family:var(--vi)">A</text></svg>
-    <span class="cham" id="coCham" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Cỡ chữ</span></button>
+    <span class="cham" id="coCham" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><span>Cỡ chữ</span></button>
 </nav>
 
 <script src="../tro-choi/hsk-words.js"></script>
@@ -366,8 +373,8 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 <script src="../tu-vung/chu-de.js"></script>
 <script src="../giao-trinh/sach.js"></script>
 <script src="bai-doc.js?v=6"></script>
-<script src="podcast.js?v=6"></script>
-<script src="doc.js?v=20"></script>
+<script src="podcast.js?v=13"></script>
+<script src="doc.js?v=25"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');

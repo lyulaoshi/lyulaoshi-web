@@ -21,9 +21,9 @@ const YZH={
   "cao-va-nho":["得不到的东西，不要说它不好。","dé bu dào de dōngxi, búyào shuō tā bù hǎo."],
   "meo-con-cau-ca":["做事情要一心一意。","zuò shìqing yào yìxīn-yíyì."]
 };
-const NHAC={nhe:["Nhẹ nhàng","piano chậm","#2E9E73","#E3F4EC"],vui:["Vui tươi","tiết tấu nhanh","#E7823A","#FDEBDD"],cotich:["Cổ tích","âm hưởng ngũ cung","#C8342A","#FBE6DF"],khong:["Không nhạc","chỉ giọng đọc","#6B6E86","#EFEBF7"]};
+const NHAC={nhe:["Nhẹ nhàng","piano êm, nhịp khoan thai","#2E9E73","#E3F4EC"],trutam:["Trữ tình","piano sâu lắng, giọng thứ","#4A6FA5","#E8EEF8"],cotich:["Cổ phong","nhạc cổ phong ngũ cung","#C8342A","#FBE6DF"],khong:["Không nhạc","chỉ giọng đọc","#6B6E86","#EFEBF7"]};
 // file CC0 cho từng phong cách — đặt vào courses/luyen-doc/music/
-const NHAC_FILE={nhe:"music/nhe-nhang.mp3",vui:"music/vui-tuoi.mp3",cotich:"music/co-tich.mp3"};
+const NHAC_FILE={nhe:"music/nhe-nhang.mp3",trutam:"music/tru-tinh.mp3",cotich:"music/co-tich.mp3"};
 // thư viện nhạc bổ sung — thêm file vào luyen-doc/music/ rồi khai báo ở đây
 const NHAC_TV=[
   // {id:"sang", ten:"Sáng trong", mo:"piano nhẹ nhàng", f:"music/sang-trong.mp3"},
@@ -52,18 +52,19 @@ const soChu=s=>s.replace(/[\s，。？！、：；“”（）《》…,.!?:]/g,
 /* ============ GIAO DIỆN ============ */
 function mo(B){
   const {$,esc,IC}=L();
-  P={B,ten:st("ten",""),nhac:st("pnhac","nhe"),vol:st("pvol",.5),nhip:st("pnhip","vua"),nhacFile:null,nhacCC0:null,parts:{},kq:null};
+  P={B,ten:st("ten",""),nhac:st("pnhac","nhe"),vol:st("pvol",.5),nhip:st("pnhip","vua"),nhacFile:null,nhacCC0:null,parts:{},kq:null,tudoK:{},mau:st("pmau","pastel")};
   loadNhacCC0(P.nhac).then(cc0=>{if(cc0&&P&&!P.nhacFile)P.nhacCC0=cc0});
   document.title=B.ten+" · 播客 · 阅读盒 – 吕老师汉语盒";
   $("#pod").innerHTML=`<div class="d-dau"><a href="#">${IC("truoc")} Mục lục 阅读盒</a>
       <h1 class="pd-h">${IC("loa-to")}<span><small>播客 · Làm podcast</small><span class="zh">${esc(B.ten)}</span> <em>${esc(B.tenVi)}</em></span></h1></div>
     <ol class="pd-buoc">
-      <li><h2><b>1</b>Tên người dẫn</h2><div class="pd-ten"><input id="pdTen" maxlength="20" placeholder="Tên em (vd. 阿明 hoặc Minh)" value="${esc(P.ten)}"><small>Tên này đọc ở câu “我是…” và in trên ảnh bìa.</small></div></li>
+      <li><h2><b>1</b>Tên người dẫn & ảnh bìa</h2><div class="pd-ten"><input id="pdTen" maxlength="20" placeholder="Tên em (vd. 阿明 hoặc Minh)" value="${esc(P.ten)}"><small>Tên này đọc ở câu “我是…” và in trên ảnh bìa.</small></div>
+        <div id="pdXemAnh" class="pd-xemanh">${Object.entries(MAU).map(([id,m])=>`<button type="button" data-mautr="${id}" aria-pressed="${P.mau===id}"><canvas width="81" height="144"></canvas><span>${m.ten}</span></button>`).join("")}</div></li>
       <li><h2><b>2</b>Thu âm từng phần</h2>
         <div class="pd-nhip"><span>Nhịp chữ chạy</span>${[["cham","Chậm"],["vua","Vừa"],["nhanh","Nhanh"]].map(([k,t])=>`<button type="button" data-nhip="${k}" aria-pressed="${P.nhip===k}">${t}</button>`).join("")}</div>
         <div id="pdPhan"></div></li>
       <li><h2><b>3</b>Nhạc nền</h2><div class="pd-nhac">${Object.entries(NHAC).map(([k,v])=>`<button type="button" data-nhac="${k}" aria-pressed="${P.nhac===k}" style="--m:${v[2]};--ms:${v[3]}"><b>${v[0]}</b><small>${v[1]}</small></button>`).join("")}</div>
-        <div class="pd-vol"><button type="button" id="pdNghe">${IC("phat")}Nghe thử</button><label>Nhạc <input type="range" id="pdVol" min="0" max="1" step=".05" value="${P.vol}"> to</label></div>
+        <div class="pd-vol"><label>Nhạc <input type="range" id="pdVol" min="0" max="1" step=".05" value="${P.vol}"> to</label></div>
         <div class="pd-nhac-em">
           <div class="pd-sep"><span>hoặc dùng nhạc của em</span></div>
           ${NHAC_TV.length?`<div class="pd-tv"><b>Thư viện nhạc</b><div class="pd-tvds">${NHAC_TV.map(n=>`<button type="button" data-tv="${n.id}" aria-pressed="false"><b>${esc(n.ten)}</b><small>${esc(n.mo)}</small></button>`).join("")}</div></div>`:""}
@@ -73,8 +74,8 @@ function mo(B){
         </div></li>
       <li><h2><b>4</b>Ghép thành tập podcast</h2><button type="button" class="btn hot" id="pdGhep" disabled>${IC("loa-to")}Tạo tập podcast</button><p class="muted" id="pdGhepNote">Thu đủ 3 phần để tạo tập.</p><div id="pdKq"></div></li>
     </ol>`;
-  vePhan();
-  $("#pdTen").oninput=e=>{P.ten=e.target.value.trim();ss("ten",P.ten);vePhan()};
+  vePhan();vePreview();
+  $("#pdTen").oninput=e=>{P.ten=e.target.value.trim();ss("ten",P.ten);vePhan();vePreview()};
   $("#pod").onclick=onClick;
   $("#pdVol").oninput=e=>{P.vol=+e.target.value;ss("pvol",P.vol)};
   const fi=$("#pdNhacFile");if(fi)fi.onchange=async e=>{const f=e.target.files[0];if(!f)return;const ab=await f.arrayBuffer();P.nhacFile={ten:f.name,ab};$("#pod").querySelectorAll("[data-tv]").forEach(x=>x.setAttribute("aria-pressed","false"));veNhacFile()};
@@ -90,8 +91,17 @@ function vePhan(){
   $("#pdPhan").innerHTML=PHAN.map(([k,vi,zh])=>{const pt=P.parts[k],cau=K[k];
     return`<div class="pd-p ${pt?"co":""}"><div class="pd-pd"><b><span class="zh">${zh}</span> ${vi}</b><small>${cau.length} câu · ${soChu(cau.map(c=>c[0]).join(""))} chữ${pt?` · đã thu ${mmss(pt.dur)}`:""}</small></div>
       <div class="pd-kb">${cau.slice(0,k==="chinh"?2:9).map(c=>`<p><span class="zh">${esc(c[0])}</span><i>${esc(c[2])}</i></p>`).join("")}${k==="chinh"&&cau.length>2?`<p class="muted">… và ${cau.length-2} câu nữa của bài</p>`:""}</div>
-      <div class="pd-pn"><button type="button" class="pd-thu" data-thu="${k}" ${!P.ten&&k==="mo"?"disabled":""}>${IC("mic")}${pt?"Thu lại":"Thu phần này"}</button>${pt?`<button type="button" data-nghe="${k}">${IC("phat")}Nghe</button>`:""}</div></div>`}).join("");
+      <div class="pd-pn"><div class="pd-chedon"><button type="button" data-chedon="${k}" data-v="nhac" aria-pressed="${!P.tudoK[k]}">Nhắc chữ</button><button type="button" data-chedon="${k}" data-v="tu" aria-pressed="${!!P.tudoK[k]}">Tự đọc</button></div><button type="button" class="pd-thu" data-thu="${k}" ${!P.ten&&k==="mo"?"disabled":""}>${IC("mic")}${pt?"Thu lại":"Thu phần này"}</button>${pt?`<button type="button" data-nghe="${k}">${IC("phat")}Nghe</button>`:""}${P.tudoK[k]&&pt?`<button type="button" data-danh="${k}" class="pd-danh">${IC("but")}${pt.lich.length?"Đánh dấu lại":"Đánh dấu phụ đề"}</button>`:""}</div></div>`}).join("");
   const du=PHAN.every(([k])=>P.parts[k]);$("#pdGhep").disabled=!du;$("#pdGhepNote").textContent=du?"Đã đủ 3 phần. Bấm để ghép nhạc và tạo tập.":"Thu đủ 3 phần để tạo tập."+(P.ten?"":" (Nhập tên em trước.)");
+}
+function vePreview(){
+  const {$}=L(),el=$("#pdXemAnh");if(!el)return;
+  const pK={ten:P.B.ten,tenVi:P.B.tenVi,cap:P.B.cap,so:1,nhac:P.nhac,hocVien:P.ten||"…",dur:0,nhacTen:null,tnPy:P.B.tn&&P.B.tn.zh===P.B.ten?P.B.tn.py:null,mo2:[],mau:"pastel"};
+  el.querySelectorAll("[data-mautr]").forEach(async btn=>{
+    const cv=await veMau(pK,81,144,btn.dataset.mautr);
+    const c=btn.querySelector("canvas");if(!c)return;
+    c.getContext("2d").drawImage(cv,0,0);
+  });
 }
 async function onClick(e){
   const {$}=L();
@@ -99,12 +109,15 @@ async function onClick(e){
   const tv=e.target.closest("[data-tv]");if(tv){const id=tv.dataset.tv,item=NHAC_TV.find(n=>n.id===id);if(!item)return;
     const ab=await fetch(item.f).then(r=>r.arrayBuffer());P.nhacFile={ten:item.ten,ab};
     $("#pod").querySelectorAll("[data-tv]").forEach(x=>x.setAttribute("aria-pressed",x===tv));veNhacFile();return}
+  const cd=e.target.closest("[data-chedon]");if(cd){P.tudoK[cd.dataset.chedon]=cd.dataset.v==="tu";vePhan();return}
+  const mt=e.target.closest("[data-mautr]");if(mt){P.mau=mt.dataset.mautr;ss("pmau",P.mau);$("#pdXemAnh").querySelectorAll("[data-mautr]").forEach(x=>x.setAttribute("aria-pressed",x===mt));return}
   const n=e.target.closest("[data-nhip]");if(n){P.nhip=n.dataset.nhip;ss("pnhip",P.nhip);$("#pod").querySelectorAll("[data-nhip]").forEach(x=>x.setAttribute("aria-pressed",x===n));return}
   const m=e.target.closest("[data-nhac]");if(m){P.nhac=m.dataset.nhac;ss("pnhac",P.nhac);$("#pod").querySelectorAll("[data-nhac]").forEach(x=>x.setAttribute("aria-pressed",x===m));
-    P.nhacCC0=null;loadNhacCC0(P.nhac).then(cc0=>{if(cc0&&P&&!P.nhacFile)P.nhacCC0=cc0});return}
+    if(ngheCtx){ngheCtx.close();ngheCtx=null}
+    P.nhacCC0=null;loadNhacCC0(P.nhac).then(cc0=>{if(cc0&&P&&!P.nhacFile)P.nhacCC0=cc0;if(P.nhac!=="khong")ngheThu()});return}
   const t=e.target.closest("[data-thu]");if(t){thu(t.dataset.thu);return}
   const g=e.target.closest("[data-nghe]");if(g){new Audio(P.parts[g.dataset.nghe].url).play();return}
-  if(e.target.closest("#pdNghe")){ngheThu();return}
+  const dn=e.target.closest("[data-danh]");if(dn){danhDau(dn.dataset.danh);return}
   if(e.target.closest("#pdGhep")){ghep();return}
 }
 
@@ -113,6 +126,22 @@ async function thu(k){
   const {$,esc,IC,pyMau,NHIP,demNguoc}=L(),cau=kichBan(P.B,P.ten||"___")[k];
   let stm;try{stm=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true}})}
   catch(x){alert("Chưa dùng được micro. Em bấm biểu tượng ổ khoá cạnh thanh địa chỉ, cho phép micro rồi thử lại nhé.");return}
+  // ——— CHẾ ĐỘ TỰ ĐỌC ———
+  if(P.tudoK&&P.tudoK[k]){
+    const T=$("#pdTele");T.hidden=false;document.body.classList.add("pd-mo");
+    T.innerHTML=`<div class="pt-tren"><span>${esc(PHAN.find(p=>p[0]===k)[1])}</span><b id="ptGio">0:00</b><button type="button" id="ptDung">${IC("dung")}Xong</button></div>
+      <div class="pt-tu">${cau.map(c=>`<p><span class="zh">${esc(c[0])}</span><em>${pyMau(c[1])}</em></p>`).join("")}</div>`;
+    const rec=new MediaRecorder(stm),ch=[];rec.ondataavailable=e=>ch.push(e.data);const t0=performance.now();
+    await demNguoc();
+    rec.start();
+    const tmGio=setInterval(()=>{const g=$("#ptGio");if(g)g.textContent=L().mmss((performance.now()-t0)/1000)},500);
+    await new Promise(r=>{$("#ptDung").onclick=()=>{clearInterval(tmGio);r()}});
+    rec.onstop=()=>{stm.getTracks().forEach(x=>x.stop());T.hidden=true;document.body.classList.remove("pd-mo");
+      const blob=new Blob(ch,{type:rec.mimeType||"audio/webm"});if(P.parts[k])URL.revokeObjectURL(P.parts[k].url);
+      P.parts[k]={blob,url:URL.createObjectURL(blob),dur:(performance.now()-t0)/1000,lich:[],cau};P.kq=null;$("#pdKq").innerHTML="";vePhan()};
+    rec.stop();return;
+  }
+  // ——— CHẾ ĐỘ NHẮC CHỮ ———
   const T=$("#pdTele");T.hidden=false;document.body.classList.add("pd-mo");
   const ve=(i,f)=>{const c=cau[i];T.innerHTML=`<div class="pt-tren"><span>${esc(PHAN.find(p=>p[0]===k)[1])} · câu ${i+1}/${cau.length}</span><b id="ptGio">●</b><button type="button" id="ptDung">${IC("dung")}Dừng</button></div>
     <div class="pt-cau"><p class="pt-zh">${[...c[0]].map((ch,j)=>`<span class="${j<f*c[0].length?"da":""}">${esc(ch)}</span>`).join("")}</p><p class="pt-py">${pyMau(c[1])}</p></div>
@@ -134,6 +163,67 @@ async function thu(k){
     const blob=new Blob(ch,{type:rec.mimeType||"audio/webm"});if(P.parts[k])URL.revokeObjectURL(P.parts[k].url);
     P.parts[k]={blob,url:URL.createObjectURL(blob),dur:(performance.now()-t0)/1000,lich,cau};P.kq=null;$("#pdKq").innerHTML="";vePhan()};
   rec.stop();
+}
+
+/* ============ ĐÁNH DẤU PHỤ ĐỀ (cho chế độ Tự đọc) ============ */
+async function danhDau(k){
+  const {$,esc,IC,pyMau,mmss}=L();
+  const p=P.parts[k],cau=p.cau,n=cau.length,phanTen=PHAN.find(q=>q[0]===k)[1];
+  const T=$("#pdTele");T.hidden=false;document.body.classList.add("pd-mo");
+  // Màn hướng dẫn
+  T.innerHTML=`<div class="pt-tren"><span>${esc(phanTen)} · ${n} câu</span><b></b>
+    <button type="button" id="ptThoat">${IC("dong")} Thoát</button></div>
+    <div class="pt-dd">
+      <div class="pt-hd"><b>Cách đánh dấu phụ đề</b>
+        <ol><li>Bấm nút bên dưới để phát lại giọng em.</li>
+          <li>Nghe thật kỹ — mỗi khi em nghe thấy mình <b>bắt đầu đọc câu mới</b>, bấm ngay <b>phím cách</b> (máy tính) hoặc nút lớn bên dưới.</li>
+          <li>Bấm theo từng câu cho đến hết, rồi bấm Lưu phụ đề.</li></ol>
+        <p class="muted">Chưa ưng có thể đánh dấu lại sau.</p></div>
+      <div class="pt-ds" id="ptDs">${cau.map((c,i)=>`<p class="${i===0?"hien":""}">${esc(c[0])}</p>`).join("")}</div>
+    </div>
+    <button class="pd-bam-to" id="ptBam">${IC("phat")} Phát và bắt đầu đánh dấu</button>`;
+  const batDau=await new Promise(r=>{$("#ptBam").onclick=()=>r(true);$("#ptThoat").onclick=()=>r(false)});
+  if(!batDau){T.hidden=true;document.body.classList.remove("pd-mo");return}
+  // Phát lại + đánh dấu
+  const au=new Audio(p.url);au.play();
+  const lichMoi=[];let cur=0;
+  const veDs=()=>{const ds=T.querySelector("#ptDs");if(ds)ds.innerHTML=cau.map((c,i)=>`<p class="${i<cur?"da":i===cur?"hien":""}">${esc(c[0])}</p>`).join("");
+    const hien=T.querySelector("#ptDs .hien");if(hien)hien.scrollIntoView({block:"center",behavior:"smooth"})};
+  const veBam=()=>{const b=T.querySelector("#ptBam");if(!b)return;
+    b.innerHTML=cur<n?`${IC("mic")} Câu ${cur+1} bắt đầu (Space)`:cur===n?`${IC("ok")} Lưu phụ đề`:""};
+  T.innerHTML=`<div class="pt-tren"><span id="ptTren">${esc(phanTen)} · 0/${n}</span>
+    <b id="ptGio">0:00</b><button type="button" id="ptThoat">${IC("dong")} Thoát</button></div>
+    <div class="pt-dd">
+      <div class="pt-hd"><p>Bấm khi em nghe thấy mình <b>bắt đầu đọc câu tiếp theo</b>.<br><span class="muted">Phím cách hoặc nút bên dưới.</span></p></div>
+      <div class="pt-ds" id="ptDs"></div>
+    </div>
+    <button class="pd-bam-to" id="ptBam"></button>`;
+  veDs();veBam();
+  const tmGio=setInterval(()=>{const g=T.querySelector("#ptGio");if(g)g.textContent=mmss(au.currentTime);const tren=T.querySelector("#ptTren");if(tren)tren.textContent=`${phanTen} · ${cur}/${n}`;},200);
+  const ket=await new Promise(res=>{
+    const bam=()=>{
+      if(cur>=n)return;
+      const t=au.currentTime;
+      if(lichMoi.length>0&&lichMoi[cur-1]&&lichMoi[cur-1].length<2)lichMoi[cur-1].push(t);
+      lichMoi.push([t]);cur++;veDs();veBam();
+      if(cur>=n){// đã bấm đủ câu — chờ xác nhận
+        const b=T.querySelector("#ptBam");if(b){b.onclick=()=>{clearInterval(tmGio);res("ok")}}
+        const onKey2=e=>{if(e.code==="Space"&&!e.repeat){e.preventDefault();clearInterval(tmGio);document.removeEventListener("keydown",onKey2);res("ok")}};
+        document.addEventListener("keydown",onKey2)}
+    };
+    const onKey=e=>{if(e.code==="Space"&&!e.repeat&&cur<n){e.preventDefault();bam()}};
+    document.addEventListener("keydown",onKey);
+    T.querySelector("#ptBam").onclick=bam;
+    T.querySelector("#ptThoat").onclick=()=>{document.removeEventListener("keydown",onKey);clearInterval(tmGio);res("thoat")};
+    au.onended=()=>{
+      if(cur<n){while(cur<n){const s=au.duration*cur/n;lichMoi.push([s,au.duration*(cur+1)/n]);cur++}}
+      if(lichMoi.length>0&&lichMoi[lichMoi.length-1].length<2)lichMoi[lichMoi.length-1].push(au.duration);
+      document.removeEventListener("keydown",onKey);clearInterval(tmGio);res("ok")}
+  });
+  au.pause();T.hidden=true;document.body.classList.remove("pd-mo");
+  if(ket==="ok"&&lichMoi.length>0){
+    if(lichMoi[lichMoi.length-1].length<2)lichMoi[lichMoi.length-1].push(p.dur);
+    p.lich=lichMoi;P.kq=null;vePhan()}
 }
 
 /* ============ NHẠC TỰ TẠO (Web Audio) ============ */
@@ -170,14 +260,14 @@ function not(ctx,out,midi,t,dur,vol,kieu){
 function nhac(ctx,out,style,kind,t0,t1){
   if(style==="khong")return 0;
   let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
-  // Nhẹ nhàng: I-V-vi-IV trong C, 72bpm; Vui tươi: 110bpm trống+chord; Cổ tích: ngũ cung
+  // Nhẹ nhàng: I-V-vi-IV trong C, 72bpm; Trữ tình: Am-F-C-G 66bpm piano; Cổ tích: ngũ cung
   const S={
     nhe:{bpm:72,ch:[[48,60,64,67],[43,55,59,62],[45,57,60,64],[41,53,57,60]]},
-    vui:{bpm:110,ch:[[60,64,67],[65,69,72],[67,71,74],[60,64,67]]},
+    trutam:{bpm:66,ch:[[45,57,60,64],[41,53,57,60],[48,60,64,67],[43,55,59,62]]},
     cotich:{bpm:78,ch:[[60,62,64,67,69],[60,62,64,67,69],[57,60,62,64,67],[55,57,60,62,64]]}
   }[style];
   const b=60/S.bpm;
-  const rv=mkRev(ctx,out,style==="cotich"?.42:style==="nhe"?.28:.1);
+  const rv=mkRev(ctx,out,style==="cotich"?.42:style==="trutam"?.38:style==="nhe"?.28:.1);
 
   if(kind==="vao"||kind==="ra"){
     const c=S.ch[0];
@@ -197,15 +287,12 @@ function nhac(ctx,out,style,kind,t0,t1){
   }
 
   let t=t0,i=0;
-  if(style==="vui"){
-    const gd=ctx.createGain();gd.gain.value=.9;gd.connect(out);
-    const loop=Math.ceil((t1-t0)/(b*4));
-    for(let n=0;n<loop;n++){const tb=t0+n*b*4;
-      drum(ctx,gd,tb,"kick");drum(ctx,gd,tb+b,"oh");drum(ctx,gd,tb+b*2,"kick");drum(ctx,gd,tb+b*3,"oh");
-      [0,.5,1,1.5,2,2.5,3,3.5].forEach(k=>drum(ctx,gd,tb+k*b,"hihat"));}
+  if(style==="trutam"){
     while(t<t1){const c=S.ch[i%S.ch.length];
-      [c[0]-12,c[0],c[1],c[2]].forEach((m,k)=>not(ctx,rv,m,t+k*.018,b*.65,.2,"sine"));
-      not(ctx,rv,c[1],t+b*2,b*.65,.18,"sine");not(ctx,rv,c[2],t+b*2+.02,b*.65,.17,"sine");
+      not(ctx,rv,c[0],t,b*4.5,.32,"sine");
+      not(ctx,rv,c[0]+12,t+b*.5,b*3,.22,"sine");
+      c.slice(1).forEach((m,k)=>not(ctx,rv,m,t+b*.75+k*.06,b*2.8,.18,"sine"));
+      not(ctx,rv,c[1]+12,t+b*2.2,b*1.8,.14,"sine");
       t+=b*4;i++}
   } else if(style==="cotich"){
     while(t<t1){const c=S.ch[i%S.ch.length];
@@ -271,7 +358,7 @@ async function ghep(){
     const so=(await dsTap()).length+1;
     P.kq={id:Date.now(),baiId:P.B.id,ten:P.B.ten,tenVi:P.B.tenVi,cap:P.B.cap,tnPy:P.B.tn&&P.B.tn.zh===P.B.ten?P.B.tn.py:null,mo2:L().tach(P.B).slice(0,2).map(x=>x.zh),
       hocVien:P.ten,ngay:new Date().toISOString(),dur:out.duration,nhac:P.nhacFile?"file":P.nhac,nhacTen:P.nhacFile?P.nhacFile.ten.replace(/\.[^.]+$/,""):null,so,wav,cues};
-    await taoAnh(P.kq,st("pmau","pastel"));
+    await taoAnh(P.kq,P.mau||"pastel");
     await luuTap(P.kq);
     veKq(P.kq,$("#pdKq"));$("#pdGhepNote").textContent="Xong! Tập podcast đã lưu vào Góc podcast của em.";
   }catch(x){$("#pdGhepNote").textContent="Chưa ghép được: "+x.message+". Em thử thu lại hoặc dùng Chrome nhé."}
