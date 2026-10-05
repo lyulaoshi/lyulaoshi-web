@@ -79,13 +79,13 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="chips" id="lvChips"></div>
       <h2>2. Chế độ</h2>
       <div class="chips" id="modeChips">
-        <button class="chip" type="button" data-mode="trace" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#but></use></svg> Tô theo nét mờ<small>có chữ mờ để tô, hợp người mới</small></button>
-        <button class="chip" type="button" data-mode="blind" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#mat-nham></use></svg> Viết mù<small>không có chữ mẫu, sai 3 lần mới gợi ý</small></button>
+        <button class="chip" type="button" data-mode="trace" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#but></use></svg> Tô theo nét mờ<small>có chữ mờ để tô, hợp người mới</small></button>
+        <button class="chip" type="button" data-mode="blind" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#mat-nham></use></svg> Viết mù<small>không có chữ mẫu, sai 3 lần mới gợi ý</small></button>
       </div>
       <h2>3. Chấm nét</h2>
       <div class="chips" id="strictChips">
-        <button class="chip" type="button" data-st="de" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#mat-cuoi></use></svg> Dễ tính<small>nét hơi ngắn, hơi lệch vẫn tính đúng</small></button>
-        <button class="chip" type="button" data-st="chuan" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#bia></use></svg> Chuẩn<small>nét phải đủ dài, đúng vị trí</small></button>
+        <button class="chip" type="button" data-st="de" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#mat-cuoi></use></svg> Dễ tính<small>nét hơi ngắn, hơi lệch vẫn tính đúng</small></button>
+        <button class="chip" type="button" data-st="chuan" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#bia></use></svg> Chuẩn<small>nét phải đủ dài, đúng vị trí</small></button>
       </div>
       <ul class="how">
         <li>Mỗi ván <b>10 chữ</b>. Dùng ngón tay (điện thoại) hoặc chuột (máy tính) viết từng nét vào ô.</li>
@@ -93,7 +93,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
         <li>Không sai nét nào được 3 sao, sai ít được 2 sao. Bấm <b>Xem cách viết</b> để xem mẫu thứ tự nét (chữ đó chỉ được 1 sao).</li>
         <li>Cần có mạng để tải nét chữ.</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -102,13 +102,13 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <span>Chữ <b id="qNo">1</b>/<span id="qOf">10</span></span>
       <span>Sao <b id="starSum">0</b></span>
       <span class="sp"></span>
-      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sai></use></svg> Dừng</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sai></use></svg> Dừng</button>
     </div>
     <div class="stage">
       <div class="ctx" id="ctx" lang="zh"></div>
       <div class="pad" id="pad"></div>
       <div class="info" id="info" aria-live="polite"></div>
-      <div class="acts tools"><button type="button" id="spkBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#loa></use></svg> Nghe</button><button type="button" id="hintBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#mat></use></svg> Xem cách viết</button><button type="button" id="skipBtn">Bỏ qua →</button></div>
+      <div class="acts tools"><button type="button" id="spkBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#loa></use></svg> Nghe</button><button type="button" id="hintBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#mat></use></svg> Xem cách viết</button><button type="button" id="skipBtn">Bỏ qua →</button></div>
     </div>
   </section>
 
@@ -118,7 +118,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="panel">
       <div class="acts" style="justify-content:flex-start"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
       <div><h2>Các chữ vừa viết</h2><ul class="review" id="review"></ul></div>
-      <div class="acts" style="justify-content:flex-start"><button class="btn hot" id="againBtn" type="button">Ván mới <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
+      <div class="acts" style="justify-content:flex-start"><button class="btn hot" id="againBtn" type="button">Ván mới <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
     </div>
   </section>
 </main>
@@ -133,7 +133,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -196,7 +196,7 @@ function next(){
 function quiz(){
   writer.quiz({leniency:LENI[strict]||1,
     onMistake:d=>{mistakes++;$('info').innerHTML='<span class="bad">Sai nét '+(d.strokeNum+1)+'</span> · viết lại nét này'+(mistakes===3?' · '+VUI.treu():'')},
-    onCorrectStroke:d=>{$('info').innerHTML='Nét '+(d.strokeNum+1)+'/'+(d.strokeNum+1+d.strokesRemaining)+' <span class="ok"><svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tick></use></svg></span>'},
+    onCorrectStroke:d=>{$('info').innerHTML='Nét '+(d.strokeNum+1)+'/'+(d.strokeNum+1+d.strokesRemaining)+' <span class="ok"><svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tick></use></svg></span>'},
     onComplete:()=>finish(false)
   });
 }
@@ -205,7 +205,7 @@ function finish(skipped){
   if(done)return;done=true;
   const st=skipped?0:starsFor();results.push({x:cur,st,m:mistakes});
   $('starSum').textContent=results.reduce((s,r)=>s+r.st,0);
-  $('info').innerHTML=skipped?'Đã bỏ qua chữ này':'<span class="ok">'+(st===3?VUI.any(['Đẹp như in!','Nét chữ nết người, quá đẹp','Thư pháp gia tương lai đây rồi','好！写得漂亮！']):st===2?VUI.khen():VUI.any(['Hơi run tay xíu, không sao','Nét hơi “bay bổng” nhưng vẫn ra chữ','Chữ này hơi khó ở nhỉ']))+'</span> '+'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sao></use></svg>'.repeat(st)+(mistakes?' · sai '+mistakes+' nét':' · không sai nét nào');
+  $('info').innerHTML=skipped?'Đã bỏ qua chữ này':'<span class="ok">'+(st===3?VUI.any(['Đẹp như in!','Nét chữ nết người, quá đẹp','Thư pháp gia tương lai đây rồi','好！写得漂亮！']):st===2?VUI.khen():VUI.any(['Hơi run tay xíu, không sao','Nét hơi “bay bổng” nhưng vẫn ra chữ','Chữ này hơi khó ở nhỉ']))+'</span> '+'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sao></use></svg>'.repeat(st)+(mistakes?' · sai '+mistakes+' nét':' · không sai nét nào');
   writer.showCharacter();TTS.say(cur.c.length?cur.ctx[0]:cur.c);
   $('hintBtn').disabled=true;$('skipBtn').textContent='Chữ tiếp →';
 }
@@ -221,12 +221,12 @@ function end(){
   $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   const total=results.reduce((s,r)=>s+r.st,0),k=bestKey(),best=store.get(k)||0,rec=results.length>=N&&total>best;if(rec)store.set(k,total);
   store.set('vc-levels',[...picked]);
-  $('finalScore').innerHTML=total+' <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sao></use></svg>';
+  $('finalScore').innerHTML=total+' <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sao></use></svg>';
   const pct=results.length?total/(results.length*3):0;
   const tier=pct>=.95?3:pct>=.75?2:pct>=.5?1:0,rk=tier===3?['笔走龙蛇','Chữ đẹp như thư pháp!']:VUI.rank(tier);
   $('rank').innerHTML=VUI.rankHTML(rk,tier);
   $('finalInfo').textContent=results.length+' chữ · '+(mode==='blind'?'Viết mù':'Tô nét mờ')+(strict==='chuan'?' · chấm chuẩn':' · chấm dễ tính')+(rec?' · Kỷ lục mới!':best?' · Kỷ lục: '+best+'/30 sao':'')+' · HSK '+[...picked].sort().join(', ');
-  $('review').innerHTML=results.map(r=>'<li><span class="zh" lang="zh">'+r.x.c+' '+TTS.btn(r.x.ctx[0])+'</span><span class="py">'+r.x.ctx[0]+' · '+r.x.ctx[1]+'</span><span class="n">'+(r.st?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sao></use></svg>'.repeat(r.st):'bỏ qua')+(r.m?' · sai '+r.m+' nét':'')+'</span></li>').join('');
+  $('review').innerHTML=results.map(r=>'<li><span class="zh" lang="zh">'+r.x.c+' '+TTS.btn(r.x.ctx[0])+'</span><span class="py">'+r.x.ctx[0]+' · '+r.x.ctx[1]+'</span><span class="n">'+(r.st?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sao></use></svg>'.repeat(r.st):'bỏ qua')+(r.m?' · sai '+r.m+' nét':'')+'</span></li>').join('');
   $('overTitle').textContent=results.length>=N?'Viết xong rồi!':'Kết thúc!';showBest();
 }
 $('startBtn').onclick=()=>{if(!window.HanziWriter){alert('Chưa tải được bộ nét chữ. Em kiểm tra mạng rồi tải lại trang nhé.');return}store.set('vc-levels',[...picked]);start()};

@@ -3,7 +3,7 @@ window.NP_LESSON={
 code:"二22", title:"介词：往", vi:"Giới từ 往 — “về phía, hướng về”", tag:"词类 · 介词 · 引出方向、路径",
 goals:[
  "Chỉ đường bằng <b>往 + phương hướng + 走 / 拐</b>.",
- "Đặt 往…… <b>trước động từ</b> (không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 走往左).",
+ "Đặt 往…… <b>trước động từ</b> (không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sai'/></svg> 走往左).",
  "Dùng khung chỉ đường: 往前走……就到了."],
 intro:"往 dẫn ra <b>hướng di chuyển</b>. Cụm “往 + hướng” đứng <b>trước động từ</b> — ngược với “đi <b>về phía trước</b>” của tiếng Việt.",
 rules:[

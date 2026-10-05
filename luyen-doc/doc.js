@@ -4,7 +4,7 @@
 (function(){
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const IC=(n,c)=>`<svg class="lli${c?" "+c:""}" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#${n}"></use></svg>`;
+const IC=(n,c)=>`<svg class="lli${c?" "+c:""}" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#${n}"></use></svg>`;
 const DS=window.LD_BAI||[];
 const PUNC=/^[，。？！、：；“”（）…]+$/;
 const T1="āēīōūǖ",T2="áéíóúǘ",T3="ǎěǐǒǔǚ",T4="àèìòùǜ";
@@ -35,21 +35,44 @@ function theBai(b,xong){const x=xong[b.id],c=cdOf(b.cd);
   return`<a class="the" href="#${b.id}"><span class="t-cap">HSK ${b.cap}</span><span class="t-ten zh">${esc(b.ten)}</span><span class="t-vi">${esc(b.tenVi)}</span>
     <span class="t-meta">${soChu(b)} chữ · ${esc(c.vi)}${x?` · <b class="xong">${IC("tick")}đã đọc${x.cpm?` · ${x.cpm} chữ/phút`:""}</b>`:""}</span></a>`}
 const MANG={v:store.get("mang","doc")};
+function theBaiLang(b){
+  return`<div class="ld-bai"><a class="ld-ten" href="#${b.id}/lang"><b class="zh">${esc(b.ten)}</b><small>${esc(b.tenVi)} · ${soChu(b)} chữ</small></a>
+    <div class="ld-nut"><a href="#${b.id}/doc-theo">${IC("lap-lanh")}Đọc karaoke</a><a href="#${b.id}/thu-am">${IC("mic")}Thu âm</a><a class="pod" href="#${b.id}/podcast">${IC("loa-to")}Podcast</a></div></div>`
+}
 function mucLucDoc(){
   document.querySelectorAll("#mlMang [data-mang]").forEach(t=>t.setAttribute("aria-pressed",t.dataset.mang===MANG.v));
-  $("#mlTab").hidden=MANG.v!=="doc";
+  $("#mlTab").hidden=false;
   if(MANG.v==="doc"){mucLuc();return}
-  // 朗读 · Đọc thành tiếng: 3 chế độ cho mỗi bài + Góc podcast của em
-  const xong=store.get("xong",{}),caps=[...new Set(DS.map(b=>b.cap))].sort();
-  $("#ke").innerHTML=`<div class="ld-che">
-      <div><b>${IC("lap-lanh")}Đọc karaoke</b><span>Chữ sáng dần theo nhịp, em đọc theo, máy ghi âm.</span></div>
-      <div><b>${IC("mic")}录音 · Thu âm</b><span>Tự đọc cả bài, nghe lại, đối chiếu từng câu với giọng mẫu.</span></div>
-      <div><b>${IC("loa-to")}播客 · Làm podcast</b><span>Đọc như người dẫn podcast, có nhạc, ảnh bìa đăng TikTok.</span></div></div>
-    ${caps.map(c=>`<h2 class="kh">HSK ${c}</h2><div class="ld-ds">${DS.filter(b=>b.cap===c).map(b=>`<div class="ld-bai"><a class="ld-ten" href="#${b.id}"><b class="zh">${esc(b.ten)}</b><small>${esc(b.tenVi)} · ${soChu(b)} chữ</small></a>
-      <div class="ld-nut"><a href="#${b.id}/doc-theo">${IC("lap-lanh")}Đọc karaoke</a><a href="#${b.id}/thu-am">${IC("mic")}Thu âm</a><a class="pod" href="#${b.id}/podcast">${IC("loa-to")}Podcast</a></div></div>`).join("")}</div>`).join("")}
-    <h2 class="kh" id="gocPod">我的播客 · Góc podcast của em</h2><div id="gocDs"><p class="muted">Đang mở…</p></div>`;
+  // 朗读 · Đọc thành tiếng — cùng bộ lọc với 阅读
+  document.querySelectorAll("#mlTab [data-tab]").forEach(t=>t.setAttribute("aria-pressed",t.dataset.tab===ML.tab));
+  const K=$("#ke");
+  const che=`<div class="ld-che">
+    <div><b>${IC("lap-lanh")}Đọc karaoke</b><span>Chữ sáng dần theo nhịp, em đọc theo, máy ghi âm.</span></div>
+    <div><b>${IC("mic")}录音 · Thu âm</b><span>Tự đọc cả bài, nghe lại, đối chiếu từng câu với giọng mẫu.</span></div>
+    <div><b>${IC("loa-to")}播客 · Làm podcast</b><span>Đọc như người dẫn podcast, có nhạc, ảnh bìa đăng TikTok.</span></div></div>`;
+  if(ML.tab==="cap"){
+    const caps=[1,2,3,4,5,6],co=c=>DS.filter(b=>b.cap===c).length;
+    if(!ML.cap||!co(ML.cap))ML.cap=caps.find(co)||1;
+    const ds=DS.filter(b=>b.cap===ML.cap),cdCo=[...new Set(ds.map(b=>b.cd))];if(ML.cd&&!cdCo.includes(ML.cd))ML.cd="";
+    K.innerHTML=che+`<div class="ml-cap">${caps.map(c=>`<button type="button" class="lv" data-cap="${c}" aria-pressed="${c===ML.cap}" ${co(c)?"":"disabled"}>HSK ${c}<small>${co(c)?co(c)+" bài":"sắp có"}</small></button>`).join("")}</div>
+      ${cdCo.length>1?`<div class="ml-loc"><span>Chủ đề:</span><button type="button" data-cd="" aria-pressed="${!ML.cd}">Tất cả</button>${cdCo.map(id=>`<button type="button" data-cd="${id}" aria-pressed="${ML.cd===id}">${esc(cdOf(id).vi)}</button>`).join("")}</div>`:""}
+      <div class="ld-ds">${ds.filter(b=>!ML.cd||b.cd===ML.cd).map(theBaiLang).join("")}</div>`;
+  }else if(ML.tab==="cd"){
+    const ids=[...new Set(DS.map(b=>b.cd))].sort((x,y)=>CDS.findIndex(c=>c.id===x)-CDS.findIndex(c=>c.id===y));
+    K.innerHTML=che+ids.map(id=>{const c=cdOf(id),ds=DS.filter(b=>b.cd===id).sort((x,y)=>x.cap-y.cap);
+      return`<div class="ml-cd"><h2 class="kh"><span class="zh">${esc(c.zh)}</span> ${esc(c.vi)} <small>${ds.length} bài · HSK ${[...new Set(ds.map(b=>b.cap))].join(", ")}</small></h2>
+        <div class="ld-ds">${ds.map(theBaiLang).join("")}</div></div>`}).join("")
+      +`<p class="muted ml-sap">Sắp có thêm: ${CDS.filter(c=>!ids.includes(c.id)).map(c=>esc(c.vi)).join(" · ")}</p>`;
+  }else{
+    const SA=window.GT_SACH||[];
+    K.innerHTML=che+`<div class="ml-sach">${SA.map(x=>{const ds=DS.filter(b=>b.sach===x.id);return`<div class="sach-o ${x.c||""}"><span class="sach-dau zh">${esc(x.seal||"")}</span><span class="sach-t"><b class="zh">${esc(x.zh)}</b><small>${esc(x.vi)}</small>
+      <em>${ds.length?ds.length+" bài khoá":"Sắp có"}</em></span></div>${ds.length?`<div class="ld-ds">${ds.map(theBaiLang).join("")}</div>`:""}`}).join("")}</div>
+      <h2 class="kh">Bài đọc trên lớp</h2>
+      <a class="lop" href="mot-ngay-cua-toi/"><span class="zh" style="font-size:30px;color:var(--c)">读</span><span><b class="zh">我的一天</b><small>Một ngày của tôi · bài cô dạy trên lớp</small></span></a>`;
+  }
+  K.innerHTML+=`<h2 class="kh" id="gocPod">我的播客 · Góc podcast của em</h2><div id="gocDs"><p class="muted">Đang mở…</p></div>`;
   if(window.LD_POD)LD_POD.goc($("#gocDs"));else $("#gocDs").innerHTML='<p class="muted">Chưa có tập nào.</p>';
-  store.set("mang",MANG.v);
+  store.set("mang",MANG.v);store.set("ml",ML);
 }
 document.addEventListener("click",e=>{const m=e.target.closest("#mlMang [data-mang]");if(m){MANG.v=m.dataset.mang;mucLucDoc()}});
 function mucLuc(){
@@ -83,9 +106,9 @@ function mucLuc(){
   store.set("ml",ML);
 }
 document.addEventListener("click",e=>{
-  const t=e.target.closest("#mlTab [data-tab]");if(t){ML.tab=t.dataset.tab;mucLuc();return}
-  const c=e.target.closest("#ke [data-cap]");if(c){ML.cap=+c.dataset.cap;ML.cd="";mucLuc();return}
-  const d=e.target.closest("#ke [data-cd]");if(d){ML.cd=d.dataset.cd;mucLuc()}
+  const t=e.target.closest("#mlTab [data-tab]");if(t){ML.tab=t.dataset.tab;mucLucDoc();return}
+  const c=e.target.closest("#ke [data-cap]");if(c){ML.cap=+c.dataset.cap;ML.cd="";mucLucDoc();return}
+  const d=e.target.closest("#ke [data-cd]");if(d){ML.cd=d.dataset.cd;mucLucDoc()}
 });
 
 /* ============ TRANG ĐỌC ============ */
@@ -187,7 +210,7 @@ const GHI={rec:null,blob:null,url:null,seg:null,dai:0,chay:null};
 const mmss=t=>{t=Math.round(t);return Math.floor(t/60)+":"+String(t%60).padStart(2,"0")};
 async function batDauGhi(){
   if(GHI.rec){dungGhi();return}
-  dungNghe(true);dongThe();anKq();
+  dungNghe(true);dongThe();anKq();nhacTamDung();
   let st;try{st=await navigator.mediaDevices.getUserMedia({audio:true})}
   catch(e){alert("Chưa dùng được micro. Em bấm biểu tượng ổ khoá cạnh thanh địa chỉ, cho phép micro rồi thử lại nhé.");return}
   const ac=new (window.AudioContext||window.webkitAudioContext)(),an=ac.createAnalyser();an.fftSize=1024;ac.createMediaStreamSource(st).connect(an);
@@ -204,6 +227,7 @@ function dungGhi(){
     GHI.dai=(performance.now()-g.t0)/1000;TG.het=GHI.dai;GHI.seg=(GHI.lich&&GHI.lich.length===C.length)?GHI.lich:tachCau(g.env,C.map(c=>c.zh.replace(/[，。？！、：；“”（）…]/g,"").length));GHI.lich=null;hienKq()};
   g.rec.stop();g.st.getTracks().forEach(t=>t.stop());g.ac.close();
   $("#bDoc").setAttribute("aria-pressed","false");$("#bDoc").querySelector("span:last-child").textContent="Ghi âm";$("#ghiBar").hidden=true;
+  nhacTiepTuc();
 }
 // env: độ to từng khung 50 ms; soChu: số chữ từng câu → [[bắt đầu, kết thúc] giây] cho mỗi câu
 function tachCau(env,soChu){
@@ -316,20 +340,124 @@ function docXong(){
     ${on.length?`<h3>${IC("the-bai")}Từ mới trong bài</h3><div class="tumoi">${on.map(w=>`<span><b class="zh">${esc(w)}</b>${esc(B.tu[w]||"")}</span>`).join("")}</div>
       <a class="btn sec" href="../tu-vung/#tu/${encodeURIComponent(on.join(","))}">${IC("the-bai")}Ôn ${on.length} từ bằng flashcard</a>`:""}
     ${np.length?`<h3>${IC("sach")}Ngữ pháp trong bài</h3><div class="npds">${np.map(m=>`<a href="../ngu-phap/${npDir(m)}/"><b>【${m}】</b>${esc(NPN[m]||"")}${IC("sau")}</a>`).join("")}</div>`:""}
+    ${document.body.classList.contains("che-doc")?`<div class="kt-lang"><b>${IC("lap-lanh")}Luyện đọc thành tiếng?</b><div class="kt-lang-nut"><a href="#${B.id}/doc-theo">${IC("lap-lanh")}Đọc karaoke</a><a href="#${B.id}/thu-am">${IC("mic")}Thu âm</a><a class="pod" href="#${B.id}/podcast">${IC("loa-to")}Podcast</a></div></div>`:""}
     <div class="kt-nut">${sau?`<a class="btn hot" href="#${sau.id}">Đọc bài tiếp: <span class="zh">${esc(sau.ten)}</span>${IC("sau")}</a>`:""}<a class="btn sec" href="#">Về mục lục</a></div>`;
   $("#ketThuc").querySelectorAll(".hoi li").forEach(li=>li.onclick=e=>{const o=e.target.closest("[data-o]");if(!o||li.classList.contains("xong"))return;
     const q=B.hoi[+li.dataset.q];if(+o.dataset.o===q.dap){o.classList.add("dung");li.classList.add("xong")}else{o.classList.add("sai");o.disabled=true}});
   $("#ketThuc").scrollIntoView({behavior:"smooth"});
 }
+/* ============ NHẠC NỀN ============ */
+const NHAC_DS=[
+  {id:"mua",ten:"Tiếng mưa",sub:"Mưa nhẹ, thiên nhiên",file:"nhac/mua.mp3"},
+  {id:"lofi",ten:"Lofi Study",sub:"Nhẹ nhàng, học bài",file:"nhac/lofi.mp3"},
+  {id:"cafe",ten:"Café Buổi Sáng",sub:"Nhạc cà phê yên tĩnh",file:"nhac/cafe.mp3"},
+  {id:"guzheng",ten:"Đàn tranh",sub:"Âm nhạc truyền thống Trung Hoa",file:"nhac/guzheng.mp3"},
+  {id:"piano",ten:"Piano Nhẹ",sub:"Piano không lời",file:"nhac/piano.mp3"},
+];
+const NHAC={audio:null,id:null,vol:store.get("nhac-vol",.22)};
+function moNhacPanel(){
+  let p=document.getElementById("nhacPanel");
+  if(p){p.remove();return}
+  p=document.createElement("div");p.id="nhacPanel";p.className="nhac-panel";
+  p.innerHTML=`<h3>${IC("nhac")}Nhạc nền khi đọc</h3>`+
+    NHAC_DS.map(t=>`<div class="nhac-track${NHAC.id===t.id?" dang":""}" data-nhac="${t.id}">
+      <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#${NHAC.id===t.id?"phat":"nhac"}"></use></svg>
+      <b>${esc(t.ten)}</b><small>${esc(t.sub)}</small></div>`).join("")+
+    `<div class="nhac-vol"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#loa"></use></svg><input type="range" id="nhacVol" min="0" max="1" step="0.05" value="${NHAC.vol}"></div>`;
+  document.body.appendChild(p);
+  p.querySelector("#nhacVol").oninput=e=>{NHAC.vol=+e.target.value;if(NHAC.audio)NHAC.audio.volume=NHAC.vol;if(NHAC.synth)NHAC.synth.master.gain.value=NHAC.vol;store.set("nhac-vol",NHAC.vol)};
+  p.addEventListener("click",e=>{
+    const t=e.target.closest("[data-nhac]");if(!t)return;
+    const id=t.dataset.nhac;
+    if(NHAC.id===id){dungNhac();$("#bNhac").setAttribute("aria-pressed","true");moNhacPanel();return}
+    phatNhac(id);
+    p.querySelectorAll(".nhac-track").forEach(x=>{const on=x.dataset.nhac===id;x.classList.toggle("dang",on);x.querySelector("use").setAttribute("href",`/chung/ic.svg?v=c0a8a094#${on?"phat":"nhac"}`)});
+  });
+  document.addEventListener("click",dongNhacPanel,{capture:true,once:false});
+}
+function dongNhacPanel(e){if(!e.target.closest("#nhacPanel,#bNhac")){const p=document.getElementById("nhacPanel");if(p)p.remove();document.removeEventListener("click",dongNhacPanel,{capture:true})}}
+function nhacSynth(id){
+  const ctx=new(window.AudioContext||window.webkitAudioContext)();
+  const master=ctx.createGain();master.gain.value=NHAC.vol;master.connect(ctx.destination);
+  if(id==="mua"){
+    // mưa: white noise + bộ lọc
+    const len=ctx.sampleRate*3,buf=ctx.createBuffer(2,len,ctx.sampleRate);
+    for(let ch=0;ch<2;ch++){const d=buf.getChannelData(ch);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*.7}
+    const src=ctx.createBufferSource();src.buffer=buf;src.loop=true;
+    const f1=ctx.createBiquadFilter();f1.type="lowpass";f1.frequency.value=1400;
+    const f2=ctx.createBiquadFilter();f2.type="highpass";f2.frequency.value=350;
+    src.connect(f1);f1.connect(f2);f2.connect(master);src.start();
+    return{ctx,master,stop:()=>{try{src.stop()}catch(e){}ctx.close()}};
+  }
+  // nhạc: chuỗi hợp âm nhẹ nhàng
+  const NHIP_MAP={lofi:900,cafe:700,guzheng:500,piano:1100};
+  const SCALE_MAP={
+    guzheng:[261.6,293.7,349.2,392,440,523.2,587.3], // pentatonic Trung Hoa
+    piano:[261.6,329.6,392,440,523.2],
+    cafe:[220,261.6,329.6,392],
+    lofi:[130.8,174.6,196,261.6,293.7],
+  };
+  const scale=SCALE_MAP[id]||SCALE_MAP.lofi,nhip=NHIP_MAP[id]||800;
+  const type=id==="guzheng"?"triangle":"sine";
+  const oscs=scale.map(freq=>{
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.type=type;o.frequency.value=freq;g.gain.value=0;
+    o.connect(g);g.connect(master);o.start();return{o,g};
+  });
+  let step=0;
+  const pat=id==="guzheng"?[0,2,4,3,1,4,2,0]:[0,1,2,1,2,3,2,1];
+  const tm=setInterval(()=>{
+    const i=pat[step%pat.length]%oscs.length;
+    oscs.forEach((x,j)=>{
+      const v=j===i?(.06+Math.random()*.02):0;
+      x.g.gain.cancelScheduledValues(ctx.currentTime);
+      x.g.gain.setValueAtTime(x.g.gain.value,ctx.currentTime);
+      x.g.gain.linearRampToValueAtTime(v,ctx.currentTime+.08);
+      if(j===i)x.g.gain.linearRampToValueAtTime(0,ctx.currentTime+nhip/1000*.85);
+    });
+    step++;
+  },nhip);
+  return{ctx,master,stop:()=>{clearInterval(tm);oscs.forEach(x=>{try{x.o.stop()}catch(e){}});ctx.close()}};
+}
+function phatNhac(id){
+  const t=NHAC_DS.find(x=>x.id===id);if(!t)return;
+  if(NHAC.audio){NHAC.audio.pause();NHAC.audio=null}
+  if(NHAC.synth){NHAC.synth.stop();NHAC.synth=null}
+  NHAC.id=id;
+  const audio=new Audio(t.file);audio.loop=true;audio.volume=NHAC.vol;
+  audio.play().then(()=>{NHAC.audio=audio}).catch(()=>{
+    // file chưa có → Web Audio synthesis
+    NHAC.synth=nhacSynth(id);
+  });
+  store.set("nhac-id",id);$("#bNhac").setAttribute("aria-pressed","true");
+}
+function dungNhac(){
+  if(NHAC.audio){NHAC.audio.pause();NHAC.audio=null}
+  if(NHAC.synth){NHAC.synth.stop();NHAC.synth=null}
+  NHAC.id=null;store.set("nhac-id",null);$("#bNhac").setAttribute("aria-pressed","false");
+}
+function nhacTamDung(){
+  if(NHAC.audio&&!NHAC.audio.paused){NHAC.audio.pause();NHAC._tam=true}
+  if(NHAC.synth){const g=NHAC.synth.master.gain;g.cancelScheduledValues(NHAC.synth.ctx.currentTime);g.setTargetAtTime(0,NHAC.synth.ctx.currentTime,.15);NHAC._tam=true}
+}
+function nhacTiepTuc(){
+  if(!NHAC._tam)return;NHAC._tam=false;
+  if(NHAC.audio&&NHAC.id)NHAC.audio.play().catch(()=>{});
+  if(NHAC.synth){const g=NHAC.synth.master.gain;g.setTargetAtTime(NHAC.vol,NHAC.synth.ctx.currentTime,.2)}
+}
+document.getElementById("bNhac").onclick=()=>{const p=document.getElementById("nhacPanel");if(p){p.remove();document.removeEventListener("click",dongNhacPanel,{capture:true})}else moNhacPanel()};
 /* ============ điều hướng ============ */
 function route(){const [id,sub]=decodeURIComponent(location.hash.slice(1)).split("/");dungNghe(true);
   if(window.LD_POD)LD_POD.dong();$("#pod").hidden=true;
-  if(id&&DS.some(b=>b.id===id)&&sub==="podcast"&&window.LD_POD){$("#home").hidden=true;$("#doc").hidden=true;document.body.classList.remove("dang-doc");$("#pod").hidden=false;LD_POD.mo(DS.find(b=>b.id===id));return}
-  if(id&&DS.some(b=>b.id===id)){moBai(id);
+  if(id&&DS.some(b=>b.id===id)&&sub==="podcast"&&window.LD_POD){document.body.classList.remove("che-doc");$("#home").hidden=true;$("#doc").hidden=true;document.body.classList.remove("dang-doc");$("#pod").hidden=false;LD_POD.mo(DS.find(b=>b.id===id));return}
+  if(id&&DS.some(b=>b.id===id)){
+    // sub có giá trị (lang/doc-theo/thu-am) → chế độ nói; không có sub → chế độ đọc hiểu
+    document.body.classList.toggle("che-doc",!sub);
+    moBai(id);
     if(sub==="doc-theo")setTimeout(moKaraoke,200);
     if(sub==="thu-am")setTimeout(()=>{const b=$("#bdGhi");b.scrollIntoView({block:"center",behavior:"smooth"});b.classList.add("nhac");setTimeout(()=>b.classList.remove("nhac"),2400)},200);
     return}
-  {dungGio();$("#home").hidden=false;$("#doc").hidden=true;document.body.classList.remove("dang-doc");document.title="阅读盒 · Luyện đọc – 吕老师汉语盒";dongThe();mucLucDoc()}}
+  {dungGio();document.body.classList.remove("che-doc");$("#home").hidden=false;$("#doc").hidden=true;document.body.classList.remove("dang-doc");document.title="阅读盒 · Luyện đọc – 吕老师汉语盒";dongThe();mucLucDoc()}}
 window.LD={$,esc,IC,pyMau,store,tach,soChu,DS,NHIP,mmss,noi,demNguoc};
 addEventListener("hashchange",route);route();
 })();

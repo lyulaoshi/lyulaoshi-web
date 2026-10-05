@@ -21,7 +21,7 @@ window.TTS=(function(){
       speechSynthesis.speak(u);
     },
     // nút loa nhỏ: <button class="spk" data-say="你好">(icon loa)</button>
-    btn:w=>window.TTS.can(w)?'<button type="button" class="spk" data-say="'+w+'" aria-label="Nghe đọc '+w+'"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#loa"/></svg></button>':''
+    btn:w=>window.TTS.can(w)?'<button type="button" class="spk" data-say="'+w+'" aria-label="Nghe đọc '+w+'"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#loa"/></svg></button>':''
   };
 })();
 document.addEventListener('click',e=>{const b=e.target.closest('.spk');if(b){e.preventDefault();TTS.say(b.dataset.say)}});

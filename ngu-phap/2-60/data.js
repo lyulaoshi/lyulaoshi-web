@@ -14,7 +14,7 @@ rules:[
       ["这件事[是]老师告诉我[的]。","Zhè jiàn shì shì lǎoshī gàosu wǒ de.","Chuyện này (là) thầy giáo nói cho tôi.","等级标准"]]}],
 notes:[
  {t:"Phủ định", html:"<span class='zh'>我不是昨天到的，是前天到的。</span>"},
- {t:"Chỉ dùng cho việc đã xảy ra", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> <span class='zh'>我是明天去的。</span>"}],
+ {t:"Chỉ dùng cho việc đã xảy ra", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sai'/></svg> <span class='zh'>我是明天去的。</span>"}],
 cmp:[
  {vn:"Bạn đến lúc nào? — Tôi đến hôm qua.", zh:"你[是]什么时候来[的]？——我是昨天来的。", py:"Nǐ shì shénme shíhou lái de? —— Wǒ shì zuótiān lái de.", ok:true, why:"Việc “đến” đã biết; hỏi / nhấn mạnh thời gian → 是……的."}],
 ex:[

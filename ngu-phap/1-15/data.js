@@ -4,7 +4,7 @@ code:"一15", title:"介词：从", vi:"Giới từ 从 — “từ” (nơi ch�
 goals:[
  "Dùng <b>从 + nơi chốn / thời gian</b> để nói điểm bắt đầu.",
  "Dùng khung <b>从……到……</b> (từ … đến …).",
- "Đặt cụm 从… <b>trước động từ</b>: 从越南来, không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 来从越南."],
+ "Đặt cụm 从… <b>trước động từ</b>: 从越南来, không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sai'/></svg> 来从越南."],
 intro:"从 là giới từ: 从 + từ chỉ nơi chốn / thời gian tạo thành cụm giới từ, đứng <b>trước động từ</b> chính.",
 rules:[
  {t:"从 + nơi chốn + động từ", sub:"处所起点", fx:[["Chủ ngữ",""],["从",null],["Nơi chốn",""],["来 / 去 / 回…",""]], mean:"Từ đâu đến, từ đâu đi.",

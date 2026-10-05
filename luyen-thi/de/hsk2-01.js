@@ -85,7 +85,7 @@
   {cn:"这个房间怎么样？",py:"Zhège fángjiān zěnmeyàng?",vi:"Căn phòng này thế nào?",ans:1,np:["一13"],w:[["房间","fángjiān"],["漂亮","piàoliang"]]},
   {cn:"你什么时候回来？",py:"Nǐ shénme shíhou huílai?",vi:"Khi nào bạn về?",ans:3,np:["二76"],w:[["回来","huílai"],["时候","shíhou"]]}]},
 
- {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sao'/></svg>.",q:[
+ {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sao'/></svg>.",q:[
   {cn:"我哥哥比我大三岁，今年二十五岁。",py:"Wǒ gēge bǐ wǒ dà sān suì, jīnnián èrshíwǔ suì.",vi:"Anh trai tôi hơn tôi ba tuổi, năm nay 25 tuổi.",
    star:"“我”今年：",spy:"“Wǒ” jīnnián:",svi:"“Tôi” năm nay:",opts:[{t:"二十二岁",py:"èrshí'èr suì"},{t:"二十五岁",py:"èrshíwǔ suì"},{t:"二十八岁",py:"èrshíbā suì"}],ans:0,np:["二58"],w:[["比","bǐ"],["岁","suì"]],
    why:"A 比 B 大三岁 = A hơn B ba tuổi. Anh 25 tuổi → tôi 25 − 3 = 22."},

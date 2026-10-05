@@ -3,10 +3,10 @@
 window.CHIASE=(function(){
   const $=id=>document.getElementById(id),any=a=>a[Math.random()*a.length|0];
   // kiểu ảnh riêng của Đố chữ (khác trò Đoán từ): đèn lồng đố chữ, hồ sơ mật, bồ câu, khoa thi, bảng vàng, bục trao giải
-  const THEMES={thach:[['chienthu','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#cuon-giay></use></svg> Chiến thư'],['vodai','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#gang-tay></use></svg> Võ đài'],['trangnguyen','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#mu></use></svg> Khoa thi']],
-    sos:[['denlong','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#den-long></use></svg> Đèn đố chữ'],['homat','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#kinh-lup></use></svg> Hồ sơ mật'],['bocau','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#bo-cau></use></svg> Bồ câu đưa thư']],
-    ketqua:[['kimbang','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#cuon-giay></use></svg> Bảng vàng'],['bucvinh','<svg class=lli-vang aria-hidden=true><use href=/chung/ic.svg?v=893338cb#huy-chuong></use></svg> Bục trao giải']]};
-  const TITLE={thach:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#kiem></use></svg> Gửi chiến thư! Chọn kiểu ảnh thật “lầy”',sos:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#cuu></use></svg> Gọi đồng đội! Chọn kiểu ảnh cầu cứu',ketqua:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#cup></use></svg> Khoe kết quả trận đấu'};
+  const THEMES={thach:[['chienthu','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#cuon-giay></use></svg> Chiến thư'],['vodai','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#gang-tay></use></svg> Võ đài'],['trangnguyen','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#mu></use></svg> Khoa thi']],
+    sos:[['denlong','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#den-long></use></svg> Đèn đố chữ'],['homat','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#kinh-lup></use></svg> Hồ sơ mật'],['bocau','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#bo-cau></use></svg> Bồ câu đưa thư']],
+    ketqua:[['kimbang','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#cuon-giay></use></svg> Bảng vàng'],['bucvinh','<svg class=lli-vang aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#huy-chuong></use></svg> Bục trao giải']]};
+  const TITLE={thach:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#kiem></use></svg> Gửi chiến thư! Chọn kiểu ảnh thật “lầy”',sos:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#cuu></use></svg> Gọi đồng đội! Chọn kiểu ảnh cầu cứu',ketqua:'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#cup></use></svg> Khoe kết quả trận đấu'};
   let o=null,theme='',blob=null,url='',sent=false;
   // ---- khung (tạo một lần) ----
   const st=document.createElement('style');
@@ -20,10 +20,10 @@ window.CHIASE=(function(){
     '.shx{position:absolute;top:10px;right:10px;border:0;background:var(--ground2);color:var(--ink);width:36px;height:36px;border-radius:50%;font-size:16px;cursor:pointer}';
   document.head.appendChild(st);
   const box=document.createElement('div');box.className='shm';box.id='shModal';box.hidden=true;box.setAttribute('role','dialog');box.setAttribute('aria-modal','true');
-  box.innerHTML='<div class="shc"><button class="shx" type="button" id="shClose" aria-label="Đóng"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sai></use></svg></button><h2 id="shTitle"></h2><div class="chips" id="shThemes"></div>'+
+  box.innerHTML='<div class="shc"><button class="shx" type="button" id="shClose" aria-label="Đóng"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sai></use></svg></button><h2 id="shTitle"></h2><div class="chips" id="shThemes"></div>'+
     '<input id="shName" type="text" maxlength="20" autocomplete="off" placeholder="Tên em để in lên ảnh (không bắt buộc)" aria-label="Tên in lên ảnh">'+
     '<img id="shImg" alt="Ảnh để chia sẻ"><p class="muted">Ảnh không có đáp án đâu, yên tâm gửi!</p>'+
-    '<div class="acts"><button class="btn hot" type="button" id="shSend"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#gui></use></svg> Gửi ngay</button><button class="btn sec" type="button" id="shCopyImg"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#anh></use></svg> Chép ảnh</button><a class="btn sec" id="shSave" download="do-chu.png"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tai-ve></use></svg> Lưu ảnh</a><button class="btn sec" type="button" id="shCopyTxt"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#chep></use></svg> Chép lời nhắn + link</button></div></div>';
+    '<div class="acts"><button class="btn hot" type="button" id="shSend"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#gui></use></svg> Gửi ngay</button><button class="btn sec" type="button" id="shCopyImg"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#anh></use></svg> Chép ảnh</button><a class="btn sec" id="shSave" download="do-chu.png"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tai-ve></use></svg> Lưu ảnh</a><button class="btn sec" type="button" id="shCopyTxt"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#chep></use></svg> Chép lời nhắn + link</button></div></div>';
   document.body.appendChild(box);
   // ---- vẽ ----
   let C,KAI,VI;const W=1080,H=1350;
@@ -31,7 +31,7 @@ window.CHIASE=(function(){
   function TXT(s,x,y,font,col,align,stroke,maxW){C.font=font;
     if(align!=='left'){let px=parseFloat(font.match(/([\d.]+)px/)[1]);while(px>12&&C.measureText(s).width>(maxW||W-110)){px*=.94;C.font=font.replace(/[\d.]+px/,px+'px')}}
     C.textAlign=align||'center';C.textBaseline='middle';if(stroke){C.lineJoin='round';C.lineWidth=stroke[1];C.strokeStyle=stroke[0];C.strokeText(s,x,y)}C.fillStyle=col;C.fillText(s,x,y)}
-  // icon tự vẽ trên ảnh (bộ /chung/ic-ve.js?v=e6b0f952): ICO vẽ 1 icon; TI vẽ icon + chữ (icon đứng trước); TI2 đặt icon hai bên chữ
+  // icon tự vẽ trên ảnh (bộ /chung/ic-ve.js?v=fc590457): ICO vẽ 1 icon; TI vẽ icon + chữ (icon đứng trước); TI2 đặt icon hai bên chữ
   const ICO=(n,x,y,s,col)=>{if(window.LLI)LLI.ve(C,n,x,y,s,col)};
   const TI=(n,s,x,y,font,col,align,stroke,z)=>{C.font=font;const px=parseFloat(font.match(/([\d.]+)px/)[1]);z=z||px*.95;const g=px*.3,w=Math.min(C.measureText(s).width,W-160-z);
     const x0=align==='left'?x:x-(w+z+g)/2;ICO(n,x0+z/2,y,z,col);TXT(s,x0+z+g,y,font,col,'left',stroke)};
@@ -176,7 +176,7 @@ window.CHIASE=(function(){
     return new Promise(res=>out.toBlob(res,'image/png'));
   }
   async function redraw(){blob=await draw();if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(blob);$('shImg').src=url;$('shSave').href=url;
-    $('shCopyImg').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#anh></use></svg> Chép ảnh';$('shCopyTxt').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#chep></use></svg> Chép lời nhắn + link'}
+    $('shCopyImg').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#anh></use></svg> Chép ảnh';$('shCopyTxt').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#chep></use></svg> Chép lời nhắn + link'}
   const done=()=>{if(!sent){sent=true;o.onSent&&o.onSent()}};
   function open(opts){o=opts;sent=false;const th=THEMES[o.kind];theme=th[0][0];
     $('shTitle').innerHTML=TITLE[o.kind];$('shName').value=o.name();
@@ -189,9 +189,9 @@ window.CHIASE=(function(){
   let nmT;$('shName').addEventListener('input',()=>{o.onName($('shName').value);clearTimeout(nmT);nmT=setTimeout(redraw,300)});
   $('shSend').onclick=async()=>{if(!blob)return;const file=new File([blob],'do-chu-'+theme+'.png',{type:'image/png'});
     try{await navigator.share({files:[file],text:o.text()});done()}catch(e){}};
-  $('shCopyImg').onclick=()=>navigator.clipboard.write([new ClipboardItem({'image/png':blob})]).then(()=>{$('shCopyImg').innerHTML='<svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tick></use></svg> Đã chép ảnh';done()},()=>$('shCopyImg').hidden=true);
+  $('shCopyImg').onclick=()=>navigator.clipboard.write([new ClipboardItem({'image/png':blob})]).then(()=>{$('shCopyImg').innerHTML='<svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tick></use></svg> Đã chép ảnh';done()},()=>$('shCopyImg').hidden=true);
   $('shSave').addEventListener('click',done);
-  $('shCopyTxt').onclick=()=>{const t=o.text();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$('shCopyTxt').innerHTML='<svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tick></use></svg> Đã chép, dán gửi bạn nhé';done()},()=>{prompt('Chép đoạn này gửi bạn:',t);done()})};
+  $('shCopyTxt').onclick=()=>{const t=o.text();(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$('shCopyTxt').innerHTML='<svg class=lli-xanhla aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tick></use></svg> Đã chép, dán gửi bạn nhé';done()},()=>{prompt('Chép đoạn này gửi bạn:',t);done()})};
   $('shClose').onclick=close;box.addEventListener('click',e=>{if(e.target===box)close()});
   addEventListener('keydown',e=>{if(e.key==='Escape'&&!box.hidden)close()});
   return{open,close,any};

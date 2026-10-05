@@ -150,7 +150,7 @@
       <div class="nums">
         <div class="num"><b id="nDue">0</b><span>thẻ đến hạn</span></div>
         <div class="num"><b id="nNew">0</b><span>thẻ mới</span></div>
-        <div class="num fire"><b id="nStreak">0</b><span>ngày liên tiếp <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#lua"/></svg></span></div>
+        <div class="num fire"><b id="nStreak">0</b><span>ngày liên tiếp <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#lua"/></svg></span></div>
       </div>
       <div class="goal" role="progressbar" aria-label="Mục tiêu hôm nay" aria-valuemin="0" aria-valuemax="20" id="goal"><i></i></div>
       <button class="btn hot" id="startToday" type="button">Ôn hôm nay</button>
@@ -205,7 +205,7 @@
     <div class="sbar">
       <button class="btn sec" type="button" id="quit">← Về kệ</button>
       <b id="deckName"></b>
-      <a class="game" id="gameLink" href="#" hidden title="Mở 游戏盒 với bộ từ này"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#choi"/></svg> Chơi bộ này</a>
+      <a class="game" id="gameLink" href="#" hidden title="Mở 游戏盒 với bộ từ này"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#choi"/></svg> Chơi bộ này</a>
       <span class="prog" id="prog"></span>
     </div>
     <div class="modes" role="group" aria-label="Kiểu thẻ">
@@ -221,8 +221,8 @@
       </div>
     </div>
     <div class="judge">
-      <button class="btn no" type="button" id="bNo" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#sai"/></svg> Chưa nhớ</button>
-      <button class="btn yes" type="button" id="bYes" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#tick"/></svg> Nhớ rồi</button>
+      <button class="btn no" type="button" id="bNo" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#sai"/></svg> Chưa nhớ</button>
+      <button class="btn yes" type="button" id="bYes" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#tick"/></svg> Nhớ rồi</button>
     </div>
     <p class="keys">Phím tắt: Space lật thẻ · ← chưa nhớ · → nhớ rồi · S nghe đọc</p>
   </div>
@@ -239,7 +239,7 @@
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -289,7 +289,7 @@ function stats(cards){const n=cards.length,seen=cards.filter(c=>box(c)>0).length
 function packBtn(id,title,sub,words,st,ic){
   const done=st.n&&st.ok===st.n;
   return '<button class="pack'+(done?' done':'')+'" type="button" data-deck="'+id+'">'+(ic?'<span class="ic" lang="zh">'+esc(ic)+'</span>':'')+
-    '<span class="t">'+title+'<span>'+(done?'Đã thuộc <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#tick"/></svg>':st.seen?st.seen+'/'+st.n+' đã học':st.n+' từ')+'</span></span>'+
+    '<span class="t">'+title+'<span>'+(done?'Đã thuộc <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#tick"/></svg>':st.seen?st.seen+'/'+st.n+' đã học':st.n+' từ')+'</span></span>'+
     (sub?'<span class="s">'+sub+'</span>':'')+
     '<span class="w" lang="zh">'+words.slice(0,6).map(esc).join(' ')+'</span><span class="bar"><i style="width:'+(st.n?st.seen/st.n*100:0)+'%"></i></span></button>';
 }
@@ -357,7 +357,7 @@ function start(list,nm,id){
 }
 const BOXN=['Thẻ mới','Hộp 一','Hộp 二','Hộp 三','Hộp 熟'];
 function exHtml(c){ // câu ví dụ trong bài giảng, tô đậm từ đang học
-  if(!c.ex)return'';const [z,py,vi]=c.ex,sp=TTS.can(z)?'<button type="button" class="spk" data-say="'+esc(z)+'" aria-label="Nghe câu ví dụ"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#loa"/></svg></button>':'';
+  if(!c.ex)return'';const [z,py,vi]=c.ex,sp=TTS.can(z)?'<button type="button" class="spk" data-say="'+esc(z)+'" aria-label="Nghe câu ví dụ"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#loa"/></svg></button>':'';
   return '<div class="ex"><span class="z" lang="zh">'+esc(z).split(esc(c.w)).join('<b>'+esc(c.w)+'</b>')+sp+'</span><small>'+esc(py)+'</small>'+(vi?'<small>'+esc(vi)+'</small>':'')+'</div>';
 }
 function face(c,part){
@@ -366,7 +366,7 @@ function face(c,part){
   if(part==='back')return tag+spk+'<div class="hz" lang="zh">'+esc(c.w)+'</div><div class="py">'+esc(c.p)+'</div>'+
     (m?'<div class="vi">'+esc(m)+'</div>':'<div class="vi none">Nghĩa tiếng Việt của cấp này đang được bổ sung.</div>')+exHtml(c);
   let f;
-  if(S.mode==='nghe'&&TTS.can(c.w))f='<div class="hz" aria-hidden="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#loa"/></svg></div><div class="vi none">Nghe rồi đoán chữ</div>';
+  if(S.mode==='nghe'&&TTS.can(c.w))f='<div class="hz" aria-hidden="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#loa"/></svg></div><div class="vi none">Nghe rồi đoán chữ</div>';
   else if(S.mode==='vi'&&m)f='<div class="vi" style="font-size:26px">'+esc(m)+'</div><div class="vi none">Chữ Hán là gì?</div>';
   else f='<div class="hz'+(c.w.length>4?' long':'')+'" lang="zh">'+esc(c.w)+'</div>';
   return tag+(S.mode==='hz'?'':spk)+f+'<span class="hint">Bấm vào thẻ để lật</span>';

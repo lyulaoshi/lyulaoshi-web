@@ -4,7 +4,7 @@ code:"一33", title:"疑问句", vi:"Câu nghi vấn — 4 kiểu câu hỏi", t
 goals:[
  "Nhận ra và đặt được 4 kiểu câu hỏi: <b>是非问、特指问、选择问、正反问</b>.",
  "Chọn đúng dấu hiệu hỏi: <b>吗</b> / <b>từ để hỏi</b> / <b>还是</b> / <b>V 不 V</b>.",
- "Không ghép hai dấu hiệu hỏi trong một câu (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 还是……吗)."],
+ "Không ghép hai dấu hiệu hỏi trong một câu (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sai'/></svg> 还是……吗)."],
 intro:"Tiếng Trung có 4 kiểu câu hỏi. Mỗi câu chỉ dùng <b>một</b> dấu hiệu hỏi. Chi tiết từng kiểu ở 【一45】–【一48】.",
 rules:[
  {t:"Câu hỏi có / không: … 吗？", sub:"是非问句", fx:[["Câu trần thuật",""],["吗",null],["？",""]], mean:"Trả lời 是 / 不是, 对 / 不对, hoặc lặp lại động từ.",

@@ -3,7 +3,7 @@ window.NP_LESSON={
 code:"一31", title:"非主谓句", vi:"Câu không chủ ngữ — 下雨了！车！", tag:"句子的类型 · 句型 · 单句",
 goals:[
  "Nhận ra câu <b>không có chủ ngữ</b>: nói hiện tượng tự nhiên, cảnh báo, gọi, cảm thán.",
- "Nói hiện tượng thời tiết đúng: <b>下雨了</b> (không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> 雨下了 / 它下雨了).",
+ "Nói hiện tượng thời tiết đúng: <b>下雨了</b> (không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sai'/></svg> 雨下了 / 它下雨了).",
  "Dùng câu một từ để cảnh báo, gọi: <b>车！小心！</b>"],
 intro:"Không phải câu nào cũng có chủ ngữ. Có những câu chỉ gồm <b>một động từ / cụm động từ</b> hoặc <b>một danh từ</b> mà vẫn trọn nghĩa.",
 rules:[

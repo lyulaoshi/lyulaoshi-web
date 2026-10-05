@@ -204,12 +204,12 @@
 <!-- 2 -->
 <section class="sec" id="may-ghep">
   <div class="sh"><span class="no">二</span><h2>Máy ghép cụm số lượng</h2><span class="zh">组装机</span></div>
-  <p class="sub">Chọn một con số và một danh từ, máy sẽ thả đúng lượng từ vào giữa và giải thích vì sao. Bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#loa></use></svg> để nghe đọc.</p>
+  <p class="sub">Chọn một con số và một danh từ, máy sẽ thả đúng lượng từ vào giữa và giải thích vì sao. Bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#loa></use></svg> để nghe đọc.</p>
   <div class="mach">
     <div class="card">
       <h3>① Chọn số hoặc 这 / 那 / 几</h3><div class="pick" id="pNum"></div>
       <h3 style="margin-top:16px">② Chọn danh từ</h3><div class="pick" id="pNoun"></div>
-      <button class="pick-more" type="button" id="moreN"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#lai></use></svg> Đổi danh từ khác</button>
+      <button class="pick-more" type="button" id="moreN"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg> Đổi danh từ khác</button>
     </div>
     <div class="out" id="out" aria-live="polite"></div>
   </div>
@@ -268,7 +268,7 @@
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -276,7 +276,7 @@ const $=id=>document.getElementById(id),{MW,N,G}=LT;
 const any=a=>a[Math.random()*a.length|0],shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const spk=(w,cls)=>TTS.btn(w).replace('class="spk"','class="spk'+(cls?' '+cls:'')+'"');
-const ICO='<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#';
+const ICO='<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#';
 let LV=3;try{LV=+(localStorage.getItem('lt-lv')||3)||3}catch(e){}
 $('stMw').textContent=Object.keys(MW).length;$('stN').textContent=N.length;
 
@@ -389,7 +389,7 @@ function answer(b){
 }
 function endQuiz(){
   const st=qok>=9?3:qok>=7?2:qok>=4?1:0;
-  $('quiz').innerHTML='<div class="qend"><div class="stars">'+[0,1,2].map(i=>'<svg class="lli'+(i<st?'':' off')+'" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#sao"></use></svg>').join('')+'</div>'
+  $('quiz').innerHTML='<div class="qend"><div class="stars">'+[0,1,2].map(i=>'<svg class="lli'+(i<st?'':' off')+'" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#sao"></use></svg>').join('')+'</div>'
     +'<div class="big">'+qok+'/10</div><div>'+VUI.rankHTML(VUI.rank(st),st)+'</div>'
     +'<div class="acts"><button class="btn sec" type="button" id="qAgain">Làm bộ khác '+ICO+'lai></use></svg></button><a class="btn hot" href="../../tro-choi/xep-hop/">Vào chơi Xếp hàng vào hộp '+ICO+'phat></use></svg></a></div></div>';
   $('qAgain').onclick=newQuiz;

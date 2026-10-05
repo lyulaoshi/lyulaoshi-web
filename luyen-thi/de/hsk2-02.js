@@ -79,7 +79,7 @@
   {cn:"你怎么这么累？",py:"Nǐ zěnme zhème lèi?",vi:"Sao bạn mệt thế?",ans:0,np:["二07","二49"],w:[["这么","zhème"],["累","lèi"]]},
   {cn:"您想吃点儿什么？",py:"Nín xiǎng chī diǎnr shénme?",vi:"Anh/chị muốn ăn gì ạ?",ans:2,np:["一03"],w:[["米饭","mǐfàn"],["鱼","yú"]]}]},
 
- {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sao'/></svg>.",q:[
+ {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sao'/></svg>.",q:[
   {cn:"我姐姐在医院工作，已经工作五年了。",py:"Wǒ jiějie zài yīyuàn gōngzuò, yǐjīng gōngzuò wǔ nián le.",vi:"Chị tôi làm ở bệnh viện, đã làm được năm năm rồi.",
    star:"我姐姐：",spy:"Wǒ jiějie:",svi:"Chị gái tôi:",opts:[{t:"是学生",py:"shì xuésheng"},{t:"在医院工作",py:"zài yīyuàn gōngzuò"},{t:"工作一年了",py:"gōngzuò yì nián le"}],ans:1,np:["二15","二12"],w:[["医院","yīyuàn"],["已经","yǐjīng"]]},
   {cn:"今天早上我六点就起床了，因为七点要去机场。",py:"Jīntiān zǎoshang wǒ liù diǎn jiù qǐchuáng le, yīnwèi qī diǎn yào qù jīchǎng.",vi:"Sáng nay 6 giờ tôi đã dậy rồi, vì 7 giờ phải ra sân bay.",

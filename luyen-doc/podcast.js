@@ -1,7 +1,7 @@
 // 播客 · Làm podcast (阅读盒 → 朗读) — 05/10/2026.
 // Học viên làm người dẫn: kịch bản (mở đầu · bài · kết) → máy nhắc chữ + thu từng phần → nhạc tự tạo (Web Audio, không dùng nhạc có bản quyền)
 // → ghép thành 1 file WAV có phụ đề → ảnh bìa TikTok 9:16 + ảnh vuông + lời giới thiệu có hashtag → lưu “Góc podcast của em” (IndexedDB, chỉ trên máy).
-// Cần window.LD (doc.js) và LLI (/chung/ic-ve.js?v=e6b0f952). Mở bằng #<id bài>/podcast.
+// Cần window.LD (doc.js) và LLI (/chung/ic-ve.js?v=fc590457). Mở bằng #<id bài>/podcast.
 window.LD_POD=(function(){
 const L=()=>window.LD;
 // câu kết “这个故事告诉我们：…” của từng truyện [chữ Hán, pinyin]
@@ -22,10 +22,17 @@ const YZH={
   "meo-con-cau-ca":["做事情要一心一意。","zuò shìqing yào yìxīn-yíyì."]
 };
 const NHAC={nhe:["Nhẹ nhàng","piano chậm","#2E9E73","#E3F4EC"],vui:["Vui tươi","tiết tấu nhanh","#E7823A","#FDEBDD"],cotich:["Cổ tích","âm hưởng ngũ cung","#C8342A","#FBE6DF"],khong:["Không nhạc","chỉ giọng đọc","#6B6E86","#EFEBF7"]};
-// thư viện nhạc CC0 — thêm file vào luyen-doc/music/ rồi khai báo ở đây
+// file CC0 cho từng phong cách — đặt vào courses/luyen-doc/music/
+const NHAC_FILE={nhe:"music/nhe-nhang.mp3",vui:"music/vui-tuoi.mp3",cotich:"music/co-tich.mp3"};
+// thư viện nhạc bổ sung — thêm file vào luyen-doc/music/ rồi khai báo ở đây
 const NHAC_TV=[
   // {id:"sang", ten:"Sáng trong", mo:"piano nhẹ nhàng", f:"music/sang-trong.mp3"},
 ];
+async function loadNhacCC0(style){
+  const f=NHAC_FILE[style];if(!f||!style||style==="khong")return null;
+  try{const r=await fetch(f);if(!r.ok)return null;const ab=await r.arrayBuffer();return{ten:NHAC[style][0],ab}}
+  catch(e){return null}
+}
 const PHAN=[["mo","Mở đầu","开场"],["chinh","Bài đọc","正文"],["ket","Kết","结尾"]];
 let P=null;
 const st=(k,d)=>L().store.get(k,d),ss=(k,v)=>L().store.set(k,v);
@@ -45,7 +52,8 @@ const soChu=s=>s.replace(/[\s，。？！、：；“”（）《》…,.!?:]/g,
 /* ============ GIAO DIỆN ============ */
 function mo(B){
   const {$,esc,IC}=L();
-  P={B,ten:st("ten",""),nhac:st("pnhac","nhe"),vol:st("pvol",.5),nhip:st("pnhip","vua"),nhacFile:null,parts:{},kq:null};
+  P={B,ten:st("ten",""),nhac:st("pnhac","nhe"),vol:st("pvol",.5),nhip:st("pnhip","vua"),nhacFile:null,nhacCC0:null,parts:{},kq:null};
+  loadNhacCC0(P.nhac).then(cc0=>{if(cc0&&P&&!P.nhacFile)P.nhacCC0=cc0});
   document.title=B.ten+" · 播客 · 阅读盒 – 吕老师汉语盒";
   $("#pod").innerHTML=`<div class="d-dau"><a href="#">${IC("truoc")} Mục lục 阅读盒</a>
       <h1 class="pd-h">${IC("loa-to")}<span><small>播客 · Làm podcast</small><span class="zh">${esc(B.ten)}</span> <em>${esc(B.tenVi)}</em></span></h1></div>
@@ -92,7 +100,8 @@ async function onClick(e){
     const ab=await fetch(item.f).then(r=>r.arrayBuffer());P.nhacFile={ten:item.ten,ab};
     $("#pod").querySelectorAll("[data-tv]").forEach(x=>x.setAttribute("aria-pressed",x===tv));veNhacFile();return}
   const n=e.target.closest("[data-nhip]");if(n){P.nhip=n.dataset.nhip;ss("pnhip",P.nhip);$("#pod").querySelectorAll("[data-nhip]").forEach(x=>x.setAttribute("aria-pressed",x===n));return}
-  const m=e.target.closest("[data-nhac]");if(m){P.nhac=m.dataset.nhac;ss("pnhac",P.nhac);$("#pod").querySelectorAll("[data-nhac]").forEach(x=>x.setAttribute("aria-pressed",x===m));return}
+  const m=e.target.closest("[data-nhac]");if(m){P.nhac=m.dataset.nhac;ss("pnhac",P.nhac);$("#pod").querySelectorAll("[data-nhac]").forEach(x=>x.setAttribute("aria-pressed",x===m));
+    P.nhacCC0=null;loadNhacCC0(P.nhac).then(cc0=>{if(cc0&&P&&!P.nhacFile)P.nhacCC0=cc0});return}
   const t=e.target.closest("[data-thu]");if(t){thu(t.dataset.thu);return}
   const g=e.target.closest("[data-nghe]");if(g){new Audio(P.parts[g.dataset.nghe].url).play();return}
   if(e.target.closest("#pdNghe")){ngheThu();return}
@@ -128,42 +137,98 @@ async function thu(k){
 }
 
 /* ============ NHẠC TỰ TẠO (Web Audio) ============ */
-const F=n=>440*Math.pow(2,(n-69)/12);   // số MIDI → Hz
-function not(ctx,out,midi,t,dur,vol,kieu){
-  const o=ctx.createOscillator(),o2=ctx.createOscillator(),g=ctx.createGain();
-  o.type=kieu==="dan"?"triangle":"sine";o2.type="triangle";o.frequency.value=F(midi);o2.frequency.value=F(midi)*2.001;
-  const g2=ctx.createGain();g2.gain.value=kieu==="dan"?.25:.12;o2.connect(g2);g2.connect(g);o.connect(g);g.connect(out);
-  g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(vol,t+.012);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
-  o.start(t);o2.start(t);o.stop(t+dur+.05);o2.stop(t+dur+.05);
+const F=n=>440*Math.pow(2,(n-69)/12);
+// Delay-feedback reverb — trả node đầu vào
+function mkRev(ctx,out,wet){
+  if(!wet)return out;
+  const d=ctx.createDelay(.4),fb=ctx.createGain(),hp=ctx.createBiquadFilter(),gin=ctx.createGain();
+  d.delayTime.value=.088;fb.gain.value=.5;hp.type="highpass";hp.frequency.value=300;
+  d.connect(fb);fb.connect(hp);hp.connect(d);d.connect(out);
+  gin.gain.value=wet;gin.connect(d);return gin;
 }
-// kind: "vao" (nhạc hiệu mở), "nen" (nhạc nền từ t0 tới t1), "ra" (nhạc hiệu kết)
+// Trống: kick hoặc hihat
+function drum(ctx,out,t,k){
+  if(k==="kick"){const o=ctx.createOscillator(),g=ctx.createGain();o.frequency.setValueAtTime(120,t);o.frequency.exponentialRampToValueAtTime(38,t+.1);g.gain.setValueAtTime(.5,t);g.gain.exponentialRampToValueAtTime(.0001,t+.13);o.connect(g);g.connect(out);o.start(t);o.stop(t+.14)}
+  else{const SR=ctx.sampleRate||22050,len=Math.ceil(SR*.048),b=ctx.createBuffer(1,len,SR),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=Math.random()*2-1;
+    const src=ctx.createBufferSource(),hp=ctx.createBiquadFilter(),g=ctx.createGain();hp.type="highpass";hp.frequency.value=9000;
+    g.gain.setValueAtTime(k==="oh"?.09:.055,t);g.gain.exponentialRampToValueAtTime(.0001,t+(k==="oh"?.072:.026));
+    src.buffer=b;src.connect(hp);hp.connect(g);g.connect(out);src.start(t)}
+}
+// Nốt nhạc: 3 harmonics, envelope piano/đàn tranh
+function not(ctx,out,midi,t,dur,vol,kieu){
+  const f=F(midi),g=ctx.createGain();g.connect(out);
+  const atk=kieu==="dan"?.009:.004;
+  g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(vol,t+atk);
+  g.gain.exponentialRampToValueAtTime(vol*.46,t+Math.min(dur*.13,.12));
+  g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+  (kieu==="dan"?[[1,1],[2,.52],[3,.22],[4.01,.07]]:[[1,1],[2,.3],[3,.09]]).forEach(([h,hv])=>{
+    const o=ctx.createOscillator(),hg=ctx.createGain();
+    o.type=kieu==="dan"?"triangle":"sine";o.frequency.value=f*h;hg.gain.value=hv;
+    o.connect(hg);hg.connect(g);o.start(t);o.stop(t+dur+.05)});
+}
+// kind: "vao" (nhạc hiệu mở), "nen" (nhạc nền từ t0→t1), "ra" (nhạc hiệu kết)
 function nhac(ctx,out,style,kind,t0,t1){
   if(style==="khong")return 0;
   let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
-  const S={nhe:{bpm:70,ch:[[60,64,67],[55,59,62],[57,60,64],[53,57,60]],k:"piano"},
-           vui:{bpm:112,ch:[[60,64,67],[65,69,72],[67,71,74],[60,64,67]],k:"piano"},
-           cotich:{bpm:80,ch:[[60,62,64,67,69],[60,62,64,67,69],[57,60,62,64,67],[55,57,60,62,64]],k:"dan"}}[style];
+  // Nhẹ nhàng: I-V-vi-IV trong C, 72bpm; Vui tươi: 110bpm trống+chord; Cổ tích: ngũ cung
+  const S={
+    nhe:{bpm:72,ch:[[48,60,64,67],[43,55,59,62],[45,57,60,64],[41,53,57,60]]},
+    vui:{bpm:110,ch:[[60,64,67],[65,69,72],[67,71,74],[60,64,67]]},
+    cotich:{bpm:78,ch:[[60,62,64,67,69],[60,62,64,67,69],[57,60,62,64,67],[55,57,60,62,64]]}
+  }[style];
   const b=60/S.bpm;
+  const rv=mkRev(ctx,out,style==="cotich"?.42:style==="nhe"?.28:.1);
+
   if(kind==="vao"||kind==="ra"){
-    const c=S.ch[0],seq=kind==="vao"?[c[0],c[1],c[2],c[0]+12]:[c[0]+12,c[2],c[1],c[0]];
-    seq.forEach((m,i)=>not(ctx,out,m+12,t0+i*b*.5,b*1.6,.5,S.k));
-    const tc=t0+seq.length*b*.5;S.ch[0].slice(0,3).forEach(m=>not(ctx,out,m+12,tc,b*3,.32,S.k));not(ctx,out,S.ch[0][0]-12,tc,b*3.5,.35,S.k);
-    return tc+b*3-t0;
+    const c=S.ch[0];
+    if(style==="cotich"){
+      const pn=[c[0]+12,c[1]+12,c[2]+12,c[3]+12,c[4]+12];
+      const seq=kind==="vao"?pn:pn.slice().reverse();
+      seq.forEach((m,i)=>not(ctx,rv,m,t0+i*b*.55,b*2,.38,"dan"));
+      const tc=t0+seq.length*b*.55;
+      [c[0]+12,c[2]+12,c[4]+12].forEach((m,i)=>not(ctx,rv,m,tc+i*.04,b*4,.28,"dan"));
+      not(ctx,rv,c[0],tc,b*4.5,.32,"dan");return tc+b*4-t0;
+    }
+    const seq=kind==="vao"?[c[0],c[2],c[3]||c[2],c[0]+12]:[c[0]+12,c[3]||c[2],c[2],c[0]];
+    seq.forEach((m,i)=>not(ctx,rv,m,t0+i*b*.5,b*1.5,.48,"sine"));
+    const tc=t0+seq.length*b*.5;
+    [c[1],c[2],c[3]||c[2]].forEach((m,i)=>not(ctx,rv,m,tc+i*.02,b*3.5,.28,"sine"));
+    not(ctx,rv,c[0]-12,tc,b*4,.32,"sine");return tc+b*3.2-t0;
   }
-  // nhạc nền: vòng hợp âm, mỗi hợp âm 4 phách
+
   let t=t0,i=0;
-  while(t<t1){const c=S.ch[i%S.ch.length];not(ctx,out,c[0]-12,t,b*4,.3,S.k);
-    for(let k=0;k<(style==="vui"?8:4)&&t<t1;k++){const m=style==="cotich"?c[Math.floor(rnd()*c.length)]+12:c[k%c.length]+12;
-      not(ctx,out,m,t,style==="vui"?b*.9:b*2.2,style==="vui"?.22:.25,S.k);t+=style==="vui"?b/2:b}
-    i++}
+  if(style==="vui"){
+    const gd=ctx.createGain();gd.gain.value=.9;gd.connect(out);
+    const loop=Math.ceil((t1-t0)/(b*4));
+    for(let n=0;n<loop;n++){const tb=t0+n*b*4;
+      drum(ctx,gd,tb,"kick");drum(ctx,gd,tb+b,"oh");drum(ctx,gd,tb+b*2,"kick");drum(ctx,gd,tb+b*3,"oh");
+      [0,.5,1,1.5,2,2.5,3,3.5].forEach(k=>drum(ctx,gd,tb+k*b,"hihat"));}
+    while(t<t1){const c=S.ch[i%S.ch.length];
+      [c[0]-12,c[0],c[1],c[2]].forEach((m,k)=>not(ctx,rv,m,t+k*.018,b*.65,.2,"sine"));
+      not(ctx,rv,c[1],t+b*2,b*.65,.18,"sine");not(ctx,rv,c[2],t+b*2+.02,b*.65,.17,"sine");
+      t+=b*4;i++}
+  } else if(style==="cotich"){
+    while(t<t1){const c=S.ch[i%S.ch.length];
+      not(ctx,rv,c[0],t,b*4,.2,"dan");not(ctx,rv,c[0]+12,t+b*.25,b*3.2,.15,"dan");
+      not(ctx,rv,c[1+Math.floor(rnd()*2)]+12,t+b*.8,b*2,.13,"dan");
+      not(ctx,rv,c[3]+12,t+b*1.8+rnd()*b*.5,b*1.6,.11,"dan");
+      not(ctx,rv,c[4]+12,t+b*3+rnd()*b*.3,b*1.2,.1,"dan");
+      t+=b*4;i++}
+  } else {
+    while(t<t1){const c=S.ch[i%S.ch.length];
+      not(ctx,rv,c[0],t,b*4,.28,"sine");
+      c.slice(1).forEach((m,k)=>not(ctx,rv,m,t+k*b,b*2.6,.2,"sine"));
+      t+=b*4;i++}
+  }
   return t1-t0;
 }
 let ngheCtx=null;
 function ngheThu(){
   if(ngheCtx){ngheCtx.close();ngheCtx=null;return}
   const ctx=ngheCtx=new (window.AudioContext||window.webkitAudioContext)(),g=ctx.createGain();g.gain.value=.25+.5*P.vol;g.connect(ctx.destination);
-  if(P.nhacFile){
-    ctx.decodeAudioData(P.nhacFile.ab.slice()).then(buf=>{if(ngheCtx!==ctx)return;
+  const nhacSrc=P.nhacFile||P.nhacCC0;
+  if(nhacSrc){
+    ctx.decodeAudioData(nhacSrc.ab.slice()).then(buf=>{if(ngheCtx!==ctx)return;
       const src=ctx.createBufferSource();src.buffer=buf;src.connect(g);src.start();
       setTimeout(()=>{if(ngheCtx===ctx){try{src.stop()}catch(x){}ctx.close();ngheCtx=null}},8000);
     }).catch(()=>{ctx.close();ngheCtx=null});
@@ -179,7 +244,8 @@ async function ghep(){
   try{
     const dec=new (window.AudioContext||window.webkitAudioContext)(),buf={};
     for(const [k] of PHAN)buf[k]=await dec.decodeAudioData(await P.parts[k].blob.arrayBuffer());
-    const nhacBuf=P.nhacFile?await dec.decodeAudioData(P.nhacFile.ab.slice()):null;
+    const nhacSrc=P.nhacFile||P.nhacCC0;
+    const nhacBuf=nhacSrc?await dec.decodeAudioData(nhacSrc.ab.slice()):null;
     dec.close();
     const useFil=!!nhacBuf;
     const SR=22050,J=useFil?1.2:(P.nhac==="khong"?0.4:3.2),G=.7,tm={mo:J},dn=k=>buf[k].duration;

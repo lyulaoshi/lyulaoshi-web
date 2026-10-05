@@ -1,14 +1,14 @@
 // Biểu đồ thanh điệu dùng chung (lyulaoshi.com/chung/thanh-dieu.js?v=e0cd5c49) — 29/09/2026.
 // THANHDIEU.mo('我很好','wǒ hěn hǎo') mở khung luyện: đường thanh chuẩn (vẽ từ pinyin, có biến điệu 3-3) + ghi âm, máy dò cao độ giọng
 // (YIN, chạy ngay trên máy, không gửi giọng đi đâu) vẽ chồng lên, rồi nhận xét từng âm tiết. Dùng cho TỪ và CÂU NGẮN (≤ 10 âm tiết).
-// Cần: /chung/ic.svg?v=893338cb (icon). Không cần thư viện ngoài.
+// Cần: /chung/ic.svg?v=c0a8a094 (icon). Không cần thư viện ngoài.
 window.THANHDIEU=(function(){
 const T1="āēīōūǖ",T2="áéíóúǘ",T3="ǎěǐǒǔǚ",T4="àèìòùǜ";
 const SYL=/(zh|ch|sh|[bpmfdtnlgkhjqxzcsrwy])?[aeiouüvāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]+(ng(?![aeiouāáǎàēéěèīíǐìōóǒòūúǔù])|n(?![aeiouāáǎàēéěèīíǐìōóǒòūúǔùg])|r(?![aeiouāáǎàēéěèīíǐìōóǒòūúǔù]))?/gi;
 const MAU={1:"#E0545F",2:"#2E9E73",3:"#3B87D6",4:"#7C6BD6",0:"#A3A5B8"};
 const thanh=s=>{for(const c of s){if(T1.includes(c))return 1;if(T2.includes(c))return 2;if(T3.includes(c))return 3;if(T4.includes(c))return 4}return 0};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const IC=n=>`<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#${n}"></use></svg>`;
+const IC=n=>`<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#${n}"></use></svg>`;
 function amTiet(py){return (py.match(SYL)||[]).map(s=>({s,t:thanh(s)}))}
 // đường chuẩn theo thang 5 bậc (Triệu Nguyên Nhậm): mỗi âm tiết là dãy điểm [0..1 → bậc]
 function duongChuan(ds){

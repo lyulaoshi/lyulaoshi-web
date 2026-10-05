@@ -73,7 +73,7 @@
   {cn:"这（　）杯子是谁的？",py:"Zhè (　) bēizi shì shéi de?",vi:"Cái cốc này là của ai?",ans:0,np:["一08","一06"],w:[["杯子","bēizi"],["个","gè"]]},
   {cn:"明天我（　）北京。",py:"Míngtiān wǒ (　) Běijīng.",vi:"Ngày mai tôi đi Bắc Kinh.",ans:2,np:[],w:[["去","qù"],["明天","míngtiān"]]}]},
 
- {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sao'/></svg>.",q:[
+ {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sao'/></svg>.",q:[
   {cn:"我叫李小月，今年十八岁，是大学生。",py:"Wǒ jiào Lǐ Xiǎoyuè, jīnnián shíbā suì, shì dàxuéshēng.",vi:"Tôi tên là Lý Tiểu Nguyệt, năm nay 18 tuổi, là sinh viên.",
    star:"李小月：",spy:"Lǐ Xiǎoyuè:",svi:"Lý Tiểu Nguyệt:",opts:[{t:"是老师",py:"shì lǎoshī"},{t:"十八岁",py:"shíbā suì"},{t:"是医生",py:"shì yīshēng"}],ans:1,np:["一36"],w:[["今年","jīnnián"],["大学生","dàxuéshēng"]]},
   {cn:"今天是星期天，我不去学校，在家看书。",py:"Jīntiān shì xīngqītiān, wǒ bú qù xuéxiào, zài jiā kàn shū.",vi:"Hôm nay là Chủ nhật, tôi không đến trường, ở nhà đọc sách.",

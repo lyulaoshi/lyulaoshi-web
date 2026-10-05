@@ -12,7 +12,7 @@ rules:[
       ["为了记住一个汉字，他[往往]要写很多遍。","Wèile jìzhù yí ge Hànzì, tā wǎngwǎng yào xiě hěn duō biàn.","Để nhớ một chữ Hán, anh ấy thường phải viết rất nhiều lượt.","等级标准"],
       ["我[总]弄不明白什么时候用“把”字句，常常一说就错。","Wǒ zǒng nòng bu míngbai shénme shíhou yòng “bǎ” zì jù, chángcháng yì shuō jiù cuò.","Tôi mãi không hiểu khi nào dùng câu chữ “把”, hay nói là sai.","等级标准"],
       ["他去机场[总是]提前两个小时出发。","Tā qù jīchǎng zǒngshì tíqián liǎng ge xiǎoshí chūfā.","Anh ấy ra sân bay lúc nào cũng xuất phát sớm hai tiếng.","等级标准"]]}],
-notes:[{t:"往往 và 常常", html:"<span class='zh'>我以后会常常来。</span> <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#tick'/></svg> · <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> <span class='zh'>我以后会往往来。</span> — 往往 chỉ nói quy luật đã quan sát được."}],
+notes:[{t:"往往 và 常常", html:"<span class='zh'>我以后会常常来。</span> <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#tick'/></svg> · <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sai'/></svg> <span class='zh'>我以后会往往来。</span> — 往往 chỉ nói quy luật đã quan sát được."}],
 cmp:[
  {vn:"Anh ấy lúc nào cũng đến muộn.", zh:"他[总是]迟到。", py:"Tā zǒngshì chídào.", ok:true, why:"“lúc nào cũng” = 总是."}],
 ex:[

@@ -47,7 +47,7 @@ window.VUI=(function(){
       ['Từ này trốn kỹ lắm','Kính lúp đâu rồi?','Đọc kỹ từng chữ nha','Chữ nhiễu lừa em rồi','Khoanh nhầm rồi, không sao']]};
   const TRO=(location.pathname.match(/tro-choi\/([^/]+)\//)||[])[1],MINE=RIENG[TRO];
   // icon đứng trước câu: I(tên, màu) — màu: vang / do / xanh / xanhla, bỏ trống = theo màu chữ
-  const I=(n,c)=>'<svg class='+(c?'lli-'+c:'lli')+' aria-hidden=true><use href=/chung/ic.svg?v=893338cb#'+n+'></use></svg> ';
+  const I=(n,c)=>'<svg class='+(c?'lli-'+c:'lli')+' aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#'+n+'></use></svg> ';
   // icon khen riêng hợp cách chơi của từng trò (nửa số câu khen của trò dùng icon này)
   const IC_TRO={'mua-chu':'mua','bay-chu':'kinh-lup','thanh-dieu':'tai','dap-chuot':'bua','lat-the':'the-bai','ghep-bo':'manh-ghep','viet-chu':'but',
     'noi-tu':'link','ran-san-chu':'nhanh','bong-bay':'no','do-chu':'den','xep-hop':'qua','tap-hoa':'tui-tien','tim-tu':'kinh-lup'};

@@ -95,7 +95,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
         <li>Ghép đúng một đôi, máy <b>đọc từ đó</b> cho em nghe.</li>
         <li>Ghép hết bàn với càng ít lượt càng được nhiều sao. Chiếu lên máy chiếu để cả lớp thi xem nhóm nào ít lượt nhất nhé!</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -103,10 +103,10 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="hud">
       <span>Lượt <b id="moves">0</b></span>
       <span>Đã ghép <b id="pairs">0</b><span id="pairsOf"></span></span>
-      <span><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#dong-ho></use></svg> <b id="clock">0:00</b></span>
+      <span><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#dong-ho></use></svg> <b id="clock">0:00</b></span>
       <span class="sp"></span>
-      <button type="button" id="newBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#lai></use></svg> Bàn mới</button>
-      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sai></use></svg></button>
+      <button type="button" id="newBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg> Bàn mới</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sai></use></svg></button>
     </div>
     <div class="board" id="board"></div>
   </section>
@@ -116,8 +116,8 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <h1>Ghép xong cả bàn!</h1>
     <div class="panel">
       <div class="acts"><span class="big" id="stars"></span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
-      <div><h2>Các từ vừa ghép, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#loa></use></svg> để nghe lại</h2><ul class="review" id="review"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Bàn mới <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cỡ bàn</button></div>
+      <div><h2>Các từ vừa ghép, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#loa></use></svg> để nghe lại</h2><ul class="review" id="review"></ul></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Bàn mới <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cỡ bàn</button></div>
     </div>
   </section>
 </main>
@@ -133,7 +133,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){

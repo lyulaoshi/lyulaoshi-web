@@ -18,7 +18,7 @@ rules:[
  {t:"已经……了: đã … rồi", sub:"已经", fx:[["Chủ ngữ",""],["已经",null],["Động từ / Adj",""],["了",null]], mean:"Thường có 了 cuối câu.",
   ex:[["校长[已经]下班[了]。","Xiàozhǎng yǐjīng xià bān le.","Hiệu trưởng đã tan làm rồi.","等级标准"]]}],
 notes:[
- {t:"刚 + thời lượng", html:"<span class='zh'>我刚来了两天。</span> <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> → <span class='zh'>我刚来两天。</span> (vừa đến được hai ngày) — câu có 刚 thường không có 了 cuối."}],
+ {t:"刚 + thời lượng", html:"<span class='zh'>我刚来了两天。</span> <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sai'/></svg> → <span class='zh'>我刚来两天。</span> (vừa đến được hai ngày) — câu có 刚 thường không có 了 cuối."}],
 cmp:[
  {vn:"Tôi vừa về đến nhà.", zh:"我[刚]回到家。", py:"Wǒ gāng huídào jiā.", ok:true, why:"“vừa” = 刚 trước động từ."},
  {vn:"Anh ấy đã đi rồi.", zh:"他[已经]走[了]。", py:"Tā yǐjīng zǒu le.", ok:true, why:"“đã … rồi” = 已经……了."},

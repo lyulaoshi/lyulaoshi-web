@@ -72,7 +72,7 @@
   {cn:"这（　）书是我的。",py:"Zhè (　) shū shì wǒ de.",vi:"Quyển sách này là của tôi.",ans:2,np:["一08","一06"],w:[["本","běn"],["书","shū"]],why:"这 / 那 + lượng từ + danh từ: 这本书. Sách dùng lượng từ 本."},
   {cn:"我昨天（　）去学校。",py:"Wǒ zuótiān (　) qù xuéxiào.",vi:"Hôm qua tôi không đi học.",ans:5,np:["一14"],w:[["昨天","zuótiān"],["学校","xuéxiào"]],why:"Việc đã qua (昨天) mà không xảy ra → 没, không dùng 不."}]},
 
- {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sao'/></svg>.",q:[
+ {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sao'/></svg>.",q:[
   {cn:"我明天上午去看朋友，下午回家。",py:"Wǒ míngtiān shàngwǔ qù kàn péngyou, xiàwǔ huí jiā.",vi:"Sáng mai tôi đi thăm bạn, chiều về nhà.",
    star:"他明天下午：",spy:"Tā míngtiān xiàwǔ:",svi:"Chiều mai anh ấy:",opts:[{t:"去看朋友",py:"qù kàn péngyou"},{t:"回家",py:"huí jiā"},{t:"去学校",py:"qù xuéxiào"}],ans:1,np:["一44"],w:[["上午","shàngwǔ"],["下午","xiàwǔ"],["回家","huí jiā"]],
    why:"Câu hỏi về 下午 (chiều) → 下午回家. 去看朋友 là việc buổi sáng (上午)."},

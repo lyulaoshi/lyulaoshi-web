@@ -87,17 +87,17 @@ body.playing .wrap{max-width:900px}
       <div class="chips" id="lvChips"></div>
       <h2>2. Tốc độ</h2>
       <div class="chips" id="spChips">
-        <button class="chip" type="button" data-sp="0.75" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#cham></use></svg> Chậm</button>
-        <button class="chip" type="button" data-sp="1" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tho></use></svg> Vừa</button>
-        <button class="chip" type="button" data-sp="1.4" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#ten-lua></use></svg> Nhanh</button>
+        <button class="chip" type="button" data-sp="0.75" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#cham></use></svg> Chậm</button>
+        <button class="chip" type="button" data-sp="1" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tho></use></svg> Vừa</button>
+        <button class="chip" type="button" data-sp="1.4" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#ten-lua></use></svg> Nhanh</button>
       </div>
       <ul class="how">
         <li>Gõ pinyin <b>không cần dấu</b>: 你好 → <b>nihao</b>. Chữ ü gõ <b>v</b> hoặc <b>u</b> (女 → nv / nu). Chỉ gõ chữ cái, không gõ chữ Hán. Gõ xong bấm <b>Enter</b> để bắn.</li>
         <li>Không nhớ? <b>Chạm vào chữ</b> để xem pinyin, nhưng chữ đó chỉ được nửa điểm.</li>
         <li>Bắn liên tiếp không trượt để lên <b>combo</b>, điểm càng nhân lên. Bấm Enter mà gõ sai thì mất combo.</li>
       </ul>
-      <p class="warn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#ban-phim></use></svg> Trò này là bài <b>luyện gõ pinyin không dấu</b>, như luyện đánh máy: nhìn chữ Hán, gõ pinyin (ví dụ 你好 → <b>nihao</b>, ü gõ bằng <b>v</b> hoặc <b>u</b>). Em dùng <b>bàn phím tiếng Anh</b>, tắt Telex/VNI và bộ gõ tiếng Trung trước khi chơi nhé.</p>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#phat></use></svg></button><span class="best" id="bestSetup"></span></div>
+      <p class="warn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#ban-phim></use></svg> Trò này là bài <b>luyện gõ pinyin không dấu</b>, như luyện đánh máy: nhìn chữ Hán, gõ pinyin (ví dụ 你好 → <b>nihao</b>, ü gõ bằng <b>v</b> hoặc <b>u</b>). Em dùng <b>bàn phím tiếng Anh</b>, tắt Telex/VNI và bộ gõ tiếng Trung trước khi chơi nhé.</p>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="best" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -106,10 +106,10 @@ body.playing .wrap{max-width:900px}
     <div class="hud">
       <span class="sc">Điểm <b id="score">0</b></span>
       <span class="combo" id="combo"></span>
-      <span class="hearts" id="hearts" aria-label="Số mạng"><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim></use></svg><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim></use></svg><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim></use></svg></span>
+      <span class="hearts" id="hearts" aria-label="Số mạng"><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tim></use></svg><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tim></use></svg><svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tim></use></svg></span>
       <span class="spacer"></span>
-      <button type="button" id="pauseBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tam-dung></use></svg> Dừng</button>
-      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sai></use></svg></button>
+      <button type="button" id="pauseBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tam-dung></use></svg> Dừng</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sai></use></svg></button>
     </div>
     <div class="field" id="field"></div>
     <form class="typer" id="typer" autocomplete="off">
@@ -127,7 +127,7 @@ body.playing .wrap{max-width:900px}
     <div class="panel">
       <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="best" id="finalInfo"></span></span></div>
       <div id="missBox"><h2>Những chữ em để lọt, ôn lại nhé</h2><ul class="missed" id="missed"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp</button></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp</button></div>
     </div>
   </section>
 </main>
@@ -143,7 +143,7 @@ body.playing .wrap{max-width:900px}
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -197,7 +197,7 @@ function start(){
   scrollTo(0,0);fit();ans.value='';ans.focus();last=performance.now();raf=requestAnimationFrame(loop);
 }
 function hud(){$('score').textContent=score;$('combo').textContent=combo>1?'combo ×'+combo:'';
-  $('hearts').innerHTML='<svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim></use></svg>'.repeat(lives)+'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tim-rong></use></svg>'.repeat(3-lives)}
+  $('hearts').innerHTML='<svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tim></use></svg>'.repeat(lives)+'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tim-rong></use></svg>'.repeat(3-lives)}
 function loop(now){
   if(!alive)return;
   const dt=Math.min(.05,(now-last)/1000);last=now;
@@ -250,7 +250,7 @@ ans.addEventListener('input',()=>{if(composing)return;
   aim()});
 $('typer').addEventListener('submit',e=>{e.preventDefault();
   if(!tryHit()&&ans.value){combo=0;hud();ans.classList.remove('bad');void ans.offsetWidth;ans.classList.add('bad');ans.select()}});
-function setPause(p){paused=p;$('pauseBtn').innerHTML=p?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#phat></use></svg> Chơi tiếp':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#tam-dung></use></svg> Dừng';
+function setPause(p){paused=p;$('pauseBtn').innerHTML=p?'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg> Chơi tiếp':'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tam-dung></use></svg> Dừng';
   let o=field.querySelector('.paused');
   if(p&&!o){o=document.createElement('div');o.className='paused';o.textContent='Tạm dừng · 暂停';field.appendChild(o)}
   if(!p){o&&o.remove();last=performance.now();ans.focus()}}

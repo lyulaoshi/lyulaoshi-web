@@ -616,23 +616,23 @@ const im=n=>IMG4[n];
 
 // ---- 知识银行: 5 bộ thủ ý phù ----
 const radSects=[
-  {num:"一", han:"亻", title:"亻(人)部 — Bộ người đứng",
+  {num:"一", han:"亻", title:"亻(人)部 — Bộ nhân",
    cn:"古文字“人”像一个直立行走的人形。独立成字时写“人”，在字的左边作偏旁时写成“亻”（单人旁）。含义与人、人的行为有关。",
    vi:"Chữ cổ 人 có hình người đứng thẳng. Khi đứng độc lập viết là 人, khi làm bộ thủ ở bên trái viết thành 亻 (đơn nhân bàng). Ý nghĩa liên quan đến người, hành vi của người.",
    chars:["作","化","信","使"]},
-  {num:"二", han:"口", title:"口部 — Bộ miệng",
+  {num:"二", han:"口", title:"口部 — Bộ khẩu",
    cn:"“口”像人嘴的形状，是一个象形字。含义与嘴巴、说话、饮食有关，是汉字中使用非常频繁的一个部首。",
    vi:"口 có hình dáng miệng người, là chữ tượng hình. Ý nghĩa liên quan đến miệng, nói chuyện, ăn uống; là một trong những bộ thủ xuất hiện rất nhiều trong chữ Hán.",
    chars:["喝","告","唱","吸"]},
-  {num:"三", han:"女", title:"女部 — Bộ phụ nữ",
+  {num:"三", han:"女", title:"女部 — Bộ nữ",
    cn:"“女”像一个端坐的女人的形状。含义与女性、婚姻、家庭关系有关。",
    vi:"女 có hình dáng người phụ nữ đang ngồi. Ý nghĩa liên quan đến phụ nữ, hôn nhân, quan hệ gia đình.",
    chars:["姑","婚","娶","妻"]},
-  {num:"四", han:"氵", title:"氵(水)部 — Bộ nước",
+  {num:"四", han:"氵", title:"氵(水)部 — Bộ thuỷ",
    cn:"古文字“水”像水流的样子。独立成字时写“水”，在字的左边作偏旁时写成“氵”（三点水）。含义与水、液体、河流有关。",
    vi:"Chữ cổ 水 có hình dòng nước chảy. Khi đứng độc lập viết là 水, khi làm bộ thủ ở bên trái viết thành 氵 (tam điểm thủy). Ý nghĩa liên quan đến nước, chất lỏng, sông ngòi.",
    chars:["汁","洗","游","海"]},
-  {num:"五", han:"日", title:"日部 — Bộ mặt trời",
+  {num:"五", han:"日", title:"日部 — Bộ nhật",
    cn:"“日”像太阳的形状，是一个象形字。含义与太阳、光、时间有关。",
    vi:"日 có hình dáng mặt trời, là chữ tượng hình. Ý nghĩa liên quan đến mặt trời, ánh sáng, thời gian.",
    chars:["晚","景","时","星"]}
@@ -649,11 +649,11 @@ const matchSets=[
 
 // ---- Định nghĩa các nhóm mục trong 集中识字 ----
 const sectDefs=[
-  {num:"一", han:"亻", title:"亻(人)部", id:"sect-yi"},
-  {num:"二", han:"口", title:"口部", id:"sect-kou"},
-  {num:"三", han:"女", title:"女部", id:"sect-nv"},
-  {num:"四", han:"氵", title:"氵(水)部", id:"sect-shui"},
-  {num:"五", han:"日", title:"日部", id:"sect-ri"}
+  {num:"一", han:"亻", title:"亻(人)部 — Bộ nhân", id:"sect-yi"},
+  {num:"二", han:"口", title:"口部 — Bộ khẩu", id:"sect-kou"},
+  {num:"三", han:"女", title:"女部 — Bộ nữ", id:"sect-nv"},
+  {num:"四", han:"氵", title:"氵(水)部 — Bộ thuỷ", id:"sect-shui"},
+  {num:"五", han:"日", title:"日部 — Bộ nhật", id:"sect-ri"}
 ];
 
 // ---- 集中识字: 21 chữ, 5 nhóm ----
@@ -972,7 +972,7 @@ function updateMatchStatus(prefix){ const st=window["matchState_"+prefix]; docum
 (function buildMatchGroups(){
   const L=c=>'<div class="cnbody" style="font-size:3.1rem;">'+c.h+'</div><div class="pinyin" style="font-size:1.45rem;">'+c.p+'</div>';
   const groups=matchSets.map((set,k)=>({
-    title:"Nhóm "+(k+1)+" · "+["亻部","口部","女部","氵部","日部"][k]+" — Chữ Hán ↔ nghĩa tiếng Việt",
+    title:"Nhóm "+(k+1)+" · "+["亻部 (bộ nhân)","口部 (bộ khẩu)","女部 (bộ nữ)","氵部 (bộ thuỷ)","日部 (bộ nhật)"][k]+" — Chữ Hán ↔ nghĩa tiếng Việt",
     pairs:set.map(c=>({leftHtml:L(c), rightHtml:'<div style="font-weight:700;">'+c.vi+'</div>', rightLong:true}))
   }));
   document.getElementById("matchGroupsContainer").innerHTML=groups.map((g,i)=>{

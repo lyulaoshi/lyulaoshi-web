@@ -5,8 +5,8 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const BUOC=[["nghe","听","Nghe hiểu"],["nhai","跟读","Shadowing"],["vai","角色","Đóng vai"],["viet","听写","Nghe – viết"]];
 
-/* ---------- icon tự vẽ dùng chung cả web: /chung/ic.svg?v=893338cb (không dùng emoji hệ thống) ---------- */
-const ic=(n,c="")=>`<svg class="ic lli ${c}" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#${n}"/></svg>`;
+/* ---------- icon tự vẽ dùng chung cả web: /chung/ic.svg?v=c0a8a094 (không dùng emoji hệ thống) ---------- */
+const ic=(n,c="")=>`<svg class="ic lli ${c}" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#${n}"/></svg>`;
 
 /* ---------- tiến độ ---------- */
 let TD={};try{TD=JSON.parse(localStorage.getItem("nn-tien-do")||"{}")}catch(e){}

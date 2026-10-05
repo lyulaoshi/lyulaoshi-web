@@ -12,7 +12,7 @@ rules:[
       ["我们[快要]放假[了]。","Wǒmen kuàiyào fàng jià le.","Chúng tôi sắp được nghỉ rồi.","等级标准"],
       ["他们明天[就要]考试[了]。","Tāmen míngtiān jiùyào kǎoshì le.","Mai họ đã thi rồi.","等级标准"]]}],
 notes:[
- {t:"快要 và thời gian", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#sai'/></svg> <span class='zh'>他明天快要走了。</span> → <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg?v=893338cb#tick'/></svg> <span class='zh'>他明天就要走了。</span> (có mốc thời gian dùng 就要)."}],
+ {t:"快要 và thời gian", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#sai'/></svg> <span class='zh'>他明天快要走了。</span> → <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg?v=c0a8a094#tick'/></svg> <span class='zh'>他明天就要走了。</span> (có mốc thời gian dùng 就要)."}],
 cmp:[
  {vn:"Sắp mưa rồi.", zh:"[要]下雨[了]。", py:"Yào xià yǔ le.", ok:true, why:"“sắp … rồi” = 要……了."},
  {vn:"Mai anh ấy đã đi rồi.", zh:"他明天[就要]走[了]。", py:"Tā míngtiān jiùyào zǒu le.", ok:true, why:"Có “mai” → 就要."}],

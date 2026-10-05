@@ -68,6 +68,29 @@
 .ld-nut a.pod{border-color:var(--coral);background:var(--coral);color:#fff}
 .bd .bd-pod{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:14px;font-weight:700;padding:9px 15px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
 .bd button.nhac{animation:nhacb .6s 4}@keyframes nhacb{50%{box-shadow:0 0 0 6px var(--coral-s);border-color:var(--coral)}}
+/* nhạc nền */
+#bNhac[aria-pressed="true"]{color:var(--coral)}
+.nhac-panel{position:fixed;bottom:66px;right:12px;width:min(310px,calc(100vw - 24px));background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:14px 16px;box-shadow:0 4px 24px rgba(0,0,0,.14);z-index:120}
+.nhac-panel h3{margin:0 0 10px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:7px}
+.nhac-track{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;cursor:pointer;border:1.5px solid transparent;transition:background .1s}
+.nhac-track:hover{background:var(--ground2)}
+.nhac-track.dang{border-color:var(--coral);background:var(--coral-s)}
+.nhac-track .lli{width:20px;height:20px;flex:none;color:var(--muted)}
+.nhac-track.dang .lli{color:var(--coral)}
+.nhac-track b{font-size:13.5px;font-weight:700;flex:1;min-width:0}
+.nhac-track small{font-size:12px;color:var(--muted);white-space:nowrap}
+.nhac-vol{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.nhac-vol .lli{width:18px;height:18px;flex:none;color:var(--muted)}
+.nhac-vol input{flex:1;accent-color:var(--coral);height:4px}
+/* chế độ đọc hiểu: ẩn nút nói */
+.che-doc #bdKa,.che-doc #bdGhi,.che-doc #bdPod{display:none}
+.che-doc #batDau span{display:none}
+/* mời luyện nói sau đọc xong */
+.kt-lang{margin:24px 0;padding:16px 18px;border-radius:18px;background:var(--coral-s);border:1.5px solid color-mix(in srgb,var(--coral) 40%,transparent)}
+.kt-lang>b{display:flex;align-items:center;gap:7px;font-size:14.5px;color:var(--coral);margin-bottom:10px}
+.kt-lang-nut{display:flex;gap:8px;flex-wrap:wrap}
+.kt-lang-nut a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-size:13px;font-weight:700;padding:8px 15px;border-radius:999px;border:1.5px solid var(--line);color:var(--ink);background:var(--card)}
+.kt-lang-nut a.pod{background:var(--coral);color:#fff;border-color:var(--coral)}
 /* ---- trang làm podcast */
 .pod{max-width:760px;margin:0 auto;padding-bottom:60px}
 .pd-h{display:flex;align-items:center;gap:14px;margin:12px 0 0;font-weight:400}.pd-h>.lli{width:46px;height:46px;color:var(--coral);flex:none}
@@ -291,9 +314,9 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
     <button type="button" data-mang="lang" aria-pressed="false"><b class="zh">朗读</b><span>Đọc thành tiếng</span></button>
   </div>
   <div class="ml-tab" id="mlTab" role="group" aria-label="Xem bài đọc theo">
-    <button type="button" data-tab="cap" aria-pressed="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#sach"></use></svg>Theo cấp HSK</button>
-    <button type="button" data-tab="cd" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#manh-ghep"></use></svg>Theo chủ đề</button>
-    <button type="button" data-tab="gt" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#cuon-giay"></use></svg>Theo giáo trình</button>
+    <button type="button" data-tab="cap" aria-pressed="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#sach"></use></svg>Theo cấp HSK</button>
+    <button type="button" data-tab="cd" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#manh-ghep"></use></svg>Theo chủ đề</button>
+    <button type="button" data-tab="gt" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#cuon-giay"></use></svg>Theo giáo trình</button>
   </div>
   <div id="ke"></div>
 </section>
@@ -301,12 +324,12 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 </main>
 
 <main id="doc" hidden>
-  <div class="d-dau"><a href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#truoc"></use></svg> Mục lục 阅读盒</a>
+  <div class="d-dau"><a href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#truoc"></use></svg> Mục lục 阅读盒</a>
     <h1 id="dTen"></h1><div id="dMeta"></div><div id="dTn" hidden></div></div>
-  <div id="batDau" class="bd"><button type="button" id="bdGio" class="bd-chinh"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dong-ho"></use></svg>Bắt đầu đọc</button>
-    <button type="button" id="bdKa" class="bd-ka"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#lap-lanh"></use></svg>Đọc karaoke</button>
-    <button type="button" id="bdGhi"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#mic"></use></svg>Đọc to và ghi âm</button>
-    <a id="bdPod" class="bd-pod" href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#loa-to"></use></svg>播客 Làm podcast</a>
+  <div id="batDau" class="bd"><button type="button" id="bdGio" class="bd-chinh"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#dong-ho"></use></svg>Bắt đầu đọc</button>
+    <button type="button" id="bdKa" class="bd-ka"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#lap-lanh"></use></svg>Đọc karaoke</button>
+    <button type="button" id="bdGhi"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#mic"></use></svg>Đọc to và ghi âm</button>
+    <a id="bdPod" class="bd-pod" href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#loa-to"></use></svg>播客 Làm podcast</a>
     <span>Bắt đầu đọc: máy bấm giờ khi em đọc thầm. Đọc karaoke: chữ sáng dần, em đọc theo, máy ghi âm. Làm podcast: em đọc như người dẫn, có nhạc và ảnh bìa.</span></div>
   <div id="van" lang="zh-CN"></div>
   <div id="ketThuc"></div>
@@ -315,8 +338,8 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 <main id="pod" class="pod" hidden></main>
 <div id="pdTele" class="pd-tele" hidden></div>
 <div id="the" role="dialog" aria-label="Thẻ từ"></div>
-<div id="gioBar" hidden role="timer"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dong-ho"></use></svg><span>Đang đọc</span><b id="gioGio">0:00</b><button type="button" id="gioXong"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#tick"></use></svg>Đọc xong</button></div>
-<div id="ghiBar" hidden role="status"><i class="cham-do"></i><span>Đang ghi âm</span><b id="ghiGio">0:00</b><button type="button" id="ghiDung"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dung"></use></svg>Dừng</button></div>
+<div id="gioBar" hidden role="timer"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#dong-ho"></use></svg><span>Đang đọc</span><b id="gioGio">0:00</b><button type="button" id="gioXong"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#tick"></use></svg>Đọc xong</button></div>
+<div id="ghiBar" hidden role="status"><i class="cham-do"></i><span>Đang ghi âm</span><b id="ghiGio">0:00</b><button type="button" id="ghiDung"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#dung"></use></svg>Dừng</button></div>
 <div id="ghiKq" role="dialog" aria-label="Bản đọc của em"></div>
 <div id="kaBox" role="dialog" aria-label="Đọc karaoke"></div>
 <div id="demNguoc" hidden aria-live="assertive"></div>
@@ -325,9 +348,10 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
   <button type="button" id="bPy" aria-pressed="false" title="Hiện pinyin trên chữ"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true"><text x="15" y="20" text-anchor="middle" font-size="17" font-weight="700" fill="currentColor" style="font-family:var(--vi)">a</text><path d="M9.5 5.5h11" stroke="#E0545F" stroke-width="2.2" stroke-linecap="round"/></svg><span>Pinyin</span></button>
   <button type="button" id="bVi" aria-pressed="false" title="Hiện nghĩa tiếng Việt từng câu"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true"><rect x="1.5" y="3" width="11" height="11" rx="3" class="vt"/><text x="7" y="12" text-anchor="middle" font-size="8.5" fill="currentColor">中</text><rect x="17.5" y="10" width="11" height="11" rx="3" fill="currentColor"/><text x="23" y="18.3" text-anchor="middle" font-size="6.6" font-weight="800" fill="var(--card)" style="font-family:var(--vi)">Vi</text><path class="vt" d="M9 17.5c1.5 2.2 3.8 2.8 6.5 2.3M14 18.2l1.6 1.6-1.9 1"/></svg><span>Nghĩa</span></button>
   <span class="gach" aria-hidden="true"></span>
-  <button type="button" id="bNghe" aria-pressed="false" title="Nghe máy đọc (dùng trong chế độ Đọc karaoke)"><span class="nghe-o"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#phat"></use></svg></span><span>Nghe</span></button>
+  <button type="button" id="bNghe" aria-pressed="false" title="Nghe máy đọc (dùng trong chế độ Đọc karaoke)"><span class="nghe-o"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#phat"></use></svg></span><span>Nghe</span></button>
   <button type="button" id="bDoc" aria-pressed="false" title="Ghi âm cả bài và tính giờ"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true">
     <rect x="11.5" y="2.5" width="7" height="12" rx="3.5" class="vt"/><path class="vt" d="M8 11.5a7 7 0 0 0 14 0M15 18.5v3"/><circle cx="23.5" cy="4.5" r="2.4" fill="#E0545F"/></svg><span>Ghi âm</span></button>
+  <button type="button" id="bNhac" aria-pressed="false" title="Nhạc nền khi đọc"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#nhac"></use></svg><span>Nhạc</span></button>
   <span class="gach" aria-hidden="true"></span>
   <button type="button" id="bCo" title="Đổi cỡ chữ"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true">
     <text x="9" y="19" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor" style="font-family:var(--vi)">A</text>
@@ -338,16 +362,16 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 <script src="../tro-choi/hsk-words.js"></script>
 <script src="../ngu-phap/hsk-ngu-phap.js"></script>
 <script src="/chung/thanh-dieu.js?v=e0cd5c49"></script>
-<script src="/chung/ic-ve.js?v=e6b0f952"></script>
+<script src="/chung/ic-ve.js?v=fc590457"></script>
 <script src="../tu-vung/chu-de.js"></script>
 <script src="../giao-trinh/sach.js"></script>
 <script src="bai-doc.js?v=6"></script>
-<script src="podcast.js?v=4"></script>
-<script src="doc.js?v=15"></script>
+<script src="podcast.js?v=6"></script>
+<script src="doc.js?v=20"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});
  // thanh công cụ chỉ hiện khi đang đọc
  const tc=document.querySelector('.thanh-cu');const f=()=>tc.hidden=!document.body.classList.contains('dang-doc');new MutationObserver(f).observe(document.body,{attributes:true});f()})();

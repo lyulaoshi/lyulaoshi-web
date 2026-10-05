@@ -95,16 +95,16 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="chips" id="lvChips"></div>
       <h2>2. Chế độ</h2>
       <div class="chips" id="modeChips">
-        <button class="chip" type="button" data-mode="practice" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sach></use></svg> Luyện tập<small>15 câu, chọn chữ đúng</small></button>
-        <button class="chip" type="button" data-mode="rush" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#nhanh></use></svg> Chạy đua 60 giây<small>càng nhiều càng tốt, sai trừ 5 giây</small></button>
-        <button class="chip" type="button" data-mode="build" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#manh-ghep></use></svg> Tự lắp chữ<small>khó nhất: tự chọn 2 bộ phận</small></button>
+        <button class="chip" type="button" data-mode="practice" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sach></use></svg> Luyện tập<small>15 câu, chọn chữ đúng</small></button>
+        <button class="chip" type="button" data-mode="rush" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#nhanh></use></svg> Chạy đua 60 giây<small>càng nhiều càng tốt, sai trừ 5 giây</small></button>
+        <button class="chip" type="button" data-mode="build" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#manh-ghep></use></svg> Tự lắp chữ<small>khó nhất: tự chọn 2 bộ phận</small></button>
       </div>
       <ul class="how">
         <li><b>Luyện tập / Chạy đua:</b> cho hai bộ phận, chọn chữ ghép đúng. Chữ gây nhiễu là những chữ <b>trông gần giống</b> (清 / 请 / 情 / 晴), nhìn vội là nhầm!</li>
         <li><b>Tự lắp chữ:</b> cho một từ bị khuyết chữ kèm pinyin (ví dụ ？子 háizi). Em tự chọn đúng <b>2 bộ phận theo đúng thứ tự</b> trong 8 mảnh, có cả mảnh “bẫy” như 讠/言, 氵/冫, 扌/才, 木/禾.</li>
         <li>Trả lời xong, em xem được <b>tên bộ thủ</b> (bộ nữ, bộ thuỷ…) và nghe máy đọc chữ.</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -113,9 +113,9 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <span>Câu <b id="qNo">1</b><span id="qOf"></span></span>
       <span>Điểm <b id="score">0</b></span>
       <span class="streak" id="streak"></span>
-      <span class="hearts" id="hearts"></span><span id="clockBox" hidden><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#dong-ho></use></svg> <b id="clock">60</b>s</span>
+      <span class="hearts" id="hearts"></span><span id="clockBox" hidden><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#dong-ho></use></svg> <b id="clock">60</b>s</span>
       <span class="sp"></span>
-      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#sai></use></svg> Dừng</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sai></use></svg> Dừng</button>
     </div>
     <div class="timer" id="timerBox"><i id="timer"></i></div>
     <div class="q"><div class="eq" id="eq"></div><div class="lay" id="lay"></div></div>
@@ -130,7 +130,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="panel">
       <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
       <div id="revBox"><h2>Những chữ em ghép nhầm, ôn lại nhé</h2><ul class="review" id="review"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=893338cb#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / chế độ</button></div>
     </div>
   </section>
 </main>
@@ -144,7 +144,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
