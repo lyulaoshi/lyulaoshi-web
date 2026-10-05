@@ -59,7 +59,7 @@ function mo(B){
       <h1 class="pd-h">${IC("loa-to")}<span><small>播客 · Làm podcast</small><span class="zh">${esc(B.ten)}</span> <em>${esc(B.tenVi)}</em></span></h1></div>
     <ol class="pd-buoc">
       <li><h2><b>1</b>Tên người dẫn & ảnh bìa</h2><div class="pd-ten"><input id="pdTen" maxlength="20" placeholder="Tên em (vd. 阿明 hoặc Minh)" value="${esc(P.ten)}"><small>Tên này đọc ở câu “我是…” và in trên ảnh bìa.</small></div>
-        <div id="pdXemAnh" class="pd-xemanh">${Object.entries(MAU).map(([id,m])=>`<button type="button" data-mautr="${id}" aria-pressed="${P.mau===id}"><canvas width="81" height="144"></canvas><span>${m.ten}</span></button>`).join("")}</div></li>
+        <div id="pdXemAnh" class="pd-xemanh">${Object.entries(MAU).map(([id,m])=>`<button type="button" data-mautr="${id}" aria-pressed="${P.mau===id}"><canvas width="120" height="213"></canvas><span>${m.ten}</span></button>`).join("")}</div></li>
       <li><h2><b>2</b>Thu âm từng phần</h2>
         <div class="pd-nhip"><span>Nhịp chữ chạy</span>${[["cham","Chậm"],["vua","Vừa"],["nhanh","Nhanh"]].map(([k,t])=>`<button type="button" data-nhip="${k}" aria-pressed="${P.nhip===k}">${t}</button>`).join("")}</div>
         <div id="pdPhan"></div></li>
@@ -98,7 +98,7 @@ function vePreview(){
   const {$}=L(),el=$("#pdXemAnh");if(!el)return;
   const pK={ten:P.B.ten,tenVi:P.B.tenVi,cap:P.B.cap,so:1,nhac:P.nhac,hocVien:P.ten||"…",dur:0,nhacTen:null,tnPy:P.B.tn&&P.B.tn.zh===P.B.ten?P.B.tn.py:null,mo2:[],mau:"pastel"};
   el.querySelectorAll("[data-mautr]").forEach(async btn=>{
-    const cv=await veMau(pK,81,144,btn.dataset.mautr);
+    const cv=await veMau(pK,120,213,btn.dataset.mautr);
     const c=btn.querySelector("canvas");if(!c)return;
     c.getContext("2d").drawImage(cv,0,0);
   });
