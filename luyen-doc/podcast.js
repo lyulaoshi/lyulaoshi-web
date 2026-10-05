@@ -132,11 +132,11 @@ async function thu(k){
     T.innerHTML=`<div class="pt-tren"><span>${esc(PHAN.find(p=>p[0]===k)[1])}</span><b id="ptGio">0:00</b><button type="button" id="ptDung">${IC("dung")}Xong</button></div>
       <div class="pt-tu">${cau.map(c=>`<p><span class="zh">${esc(c[0])}</span><em>${pyMau(c[1])}</em></p>`).join("")}</div>`;
     const rec=new MediaRecorder(stm),ch=[];rec.ondataavailable=e=>ch.push(e.data);const t0=performance.now();
-    await demNguoc();
+    await demNguoc();phatNhacThu();
     rec.start();
     const tmGio=setInterval(()=>{const g=$("#ptGio");if(g)g.textContent=L().mmss((performance.now()-t0)/1000)},500);
     await new Promise(r=>{$("#ptDung").onclick=()=>{clearInterval(tmGio);r()}});
-    rec.onstop=()=>{stm.getTracks().forEach(x=>x.stop());T.hidden=true;document.body.classList.remove("pd-mo");
+    rec.onstop=()=>{dungNhacThu();stm.getTracks().forEach(x=>x.stop());T.hidden=true;document.body.classList.remove("pd-mo");
       const blob=new Blob(ch,{type:rec.mimeType||"audio/webm"});if(P.parts[k])URL.revokeObjectURL(P.parts[k].url);
       P.parts[k]={blob,url:URL.createObjectURL(blob),dur:(performance.now()-t0)/1000,lich:[],cau};P.kq=null;$("#pdKq").innerHTML="";vePhan()};
     rec.stop();return;
@@ -147,7 +147,7 @@ async function thu(k){
     <div class="pt-cau"><p class="pt-zh">${[...c[0]].map((ch,j)=>`<span class="${j<f*c[0].length?"da":""}">${esc(ch)}</span>`).join("")}</p><p class="pt-py">${pyMau(c[1])}</p></div>
     <div class="pt-sau">${cau[i+1]?`<span class="zh">${esc(cau[i+1][0])}</span>`:"Hết phần này"}</div>`;$("#ptDung").onclick=()=>{huy=true}};
   let huy=false;ve(0,0);
-  await demNguoc();
+  await demNguoc();phatNhacThu();
   const rec=new MediaRecorder(stm),ch=[];rec.ondataavailable=e=>ch.push(e.data);const t0=performance.now();rec.start();
   const lich=[];
   for(let i=0;i<cau.length&&!huy;i++){
@@ -158,7 +158,7 @@ async function thu(k){
     lich.push([bd,(performance.now()-t0)/1000]);
     await new Promise(r=>setTimeout(r,500));
   }
-  rec.onstop=()=>{stm.getTracks().forEach(x=>x.stop());T.hidden=true;T.dataset.i="";document.body.classList.remove("pd-mo");
+  rec.onstop=()=>{dungNhacThu();stm.getTracks().forEach(x=>x.stop());T.hidden=true;T.dataset.i="";document.body.classList.remove("pd-mo");
     if(huy&&lich.length<cau.length){vePhan();return}   // dừng giữa chừng: bỏ bản thu
     const blob=new Blob(ch,{type:rec.mimeType||"audio/webm"});if(P.parts[k])URL.revokeObjectURL(P.parts[k].url);
     P.parts[k]={blob,url:URL.createObjectURL(blob),dur:(performance.now()-t0)/1000,lich,cau};P.kq=null;$("#pdKq").innerHTML="";vePhan()};
@@ -309,7 +309,20 @@ function nhac(ctx,out,style,kind,t0,t1){
   }
   return t1-t0;
 }
-let ngheCtx=null;
+let ngheCtx=null,thuCtx=null;
+async function phatNhacThu(){
+  if(thuCtx){try{thuCtx.close()}catch(e){}thuCtx=null}
+  if(!P||P.nhac==="khong")return;
+  const ctx=thuCtx=new(window.AudioContext||window.webkitAudioContext)();
+  const g=ctx.createGain();g.gain.value=.08+.18*P.vol;g.connect(ctx.destination);
+  const nhacSrc=P.nhacFile||P.nhacCC0;
+  if(nhacSrc){
+    try{const buf=await ctx.decodeAudioData(nhacSrc.ab.slice());if(thuCtx!==ctx)return;
+      const loop=()=>{if(thuCtx!==ctx)return;const s=ctx.createBufferSource();s.buffer=buf;s.connect(g);s.start();s.onended=loop};loop()
+    }catch(e){try{ctx.close()}catch(x){}if(thuCtx===ctx)thuCtx=null}
+  } else nhac(ctx,g,P.nhac,"nen",ctx.currentTime+.05,ctx.currentTime+300);
+}
+function dungNhacThu(){if(thuCtx){try{thuCtx.close()}catch(e){}thuCtx=null}}
 function ngheThu(){
   if(ngheCtx){ngheCtx.close();ngheCtx=null;return}
   const ctx=ngheCtx=new (window.AudioContext||window.webkitAudioContext)(),g=ctx.createGain();g.gain.value=.25+.5*P.vol;g.connect(ctx.destination);
