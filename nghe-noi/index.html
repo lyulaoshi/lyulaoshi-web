@@ -9,16 +9,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
 <link rel="stylesheet" href="../tro-choi/game.css?v=4">
 <link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
+<link rel="stylesheet" href="/chung/hero.css?v=a26ea8bd">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
 @font-face{font-family:"LyuKai";font-display:swap;src:url(kai.woff?v=85eadf93) format("woff")}
 :root{--c:var(--butter);--cs:var(--butter-s);--kai:"LyuKai","STKaiti","KaiTi","Kaiti SC",serif}
 [hidden]{display:none!important}
 .zh{font-family:var(--kai)}
-.hero{padding:30px 0 6px}
-.hero .eyebrow{font-family:var(--hz);color:var(--c);font-size:20px}
-.hero h1{font-size:clamp(28px,4.4vw,44px);font-weight:800;line-height:1.1;margin-top:6px}
-.hero p{color:var(--muted);max-width:44em;margin:10px 0 0}
 .steps4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 0}
 .steps4 div{background:var(--card);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow);border-top:5px solid var(--c)}
 .steps4 b{font-family:var(--hz);font-size:20px;color:var(--c);font-weight:400}
@@ -186,18 +183,22 @@ div.line{cursor:default}
 </div></header>
 
 <main class="wrap" id="home">
-  <section class="hero">
-    <div class="eyebrow">听说盒</div>
-    <h1>Nghe, nói theo, đóng vai</h1>
-    <p>Mỗi đoạn hội thoại luyện qua 4 bước. Em nghe hiểu trước, rồi nói theo từng câu và ghi âm giọng mình để so với mẫu, sau đó đóng vai nói chuyện với máy, cuối cùng nghe – viết lại. Chấm xanh là bước em đã xong.</p>
-    <div class="steps4">
-      <div><b>听</b><span>1. Nghe hiểu</span><small>Nghe cả đoạn, trả lời câu hỏi</small></div>
-      <div><b>跟读</b><span>2. Shadowing</span><small>Nói theo từng câu, ghi âm, so với mẫu</small></div>
-      <div><b>角色</b><span>3. Đóng vai</span><small>Em một vai, máy một vai, ẩn dần chữ</small></div>
-      <div><b>听写</b><span>4. Nghe – viết</span><small>Nghe rồi gõ lại bằng chữ Hán</small></div>
+  <section class="lh" style="--c:var(--butter);--c2:var(--teal);--cs:var(--butter-s)">
+    <div><span class="lh-eyebrow">Hộp học tiếng Trung của cô Lã</span>
+      <h1><span class="lh-big"><i>听说</i><u>盒</u></span>Nghe, nói theo,<br>đóng vai</h1>
+      <p class="lh-lead">Mỗi đoạn hội thoại luyện qua <b>4 bước</b>: nghe hiểu → shadowing có ghi âm → đóng vai nói chuyện với máy → nghe – viết. Theo giáo trình hoặc theo tình huống giao tiếp thực tế.</p>
+      <div class="lh-acts"><a class="lh-btn pri" href="#tabsNN">Xem bài hội thoại ↓</a><a class="lh-btn sec" href="#tabsNN" onclick="document.querySelector('[data-tab=th]').click()">Theo tình huống ↓</a></div>
+      <div class="lh-stats"><div><b>3</b>bài hội thoại</div><div><b>4</b>bước luyện mỗi bài</div><div><b>9</b>tình huống giao tiếp</div><div><b>HSK 1–3</b>hiện có</div></div>
     </div>
+    <div class="lh-art" aria-hidden="true"><svg viewBox="0 0 400 420"><ellipse cx="200" cy="398" rx="155" ry="13" fill="currentColor" opacity=".09"/><rect x="80" y="40" width="240" height="320" rx="24" fill="#FFF3D4"/><rect x="80" y="40" width="240" height="56" rx="24" fill="#E6B84A"/><rect x="80" y="72" width="240" height="24" fill="#E6B84A"/><text x="200" y="72" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="14" fill="rgba(255,255,255,.9)">汉语会话练习</text><circle cx="108" cy="140" r="18" fill="white"/><text x="108" y="145" text-anchor="middle" font-family="ZCOOL KuaiLe,serif" font-size="15" fill="#E6B84A">A</text><rect x="136" y="124" width="150" height="32" rx="12" fill="white"/><text x="211" y="145" text-anchor="middle" font-family="ZCOOL KuaiLe,STKaiti,serif" font-size="19" fill="#2B2E45">你好，大卫！</text><circle cx="292" cy="196" r="18" fill="#3B9E91"/><text x="292" y="201" text-anchor="middle" font-family="ZCOOL KuaiLe,serif" font-size="15" fill="white">B</text><rect x="124" y="180" width="148" height="32" rx="12" fill="#E6B84A"/><text x="198" y="200" text-anchor="middle" font-family="ZCOOL KuaiLe,STKaiti,serif" font-size="19" fill="white">您好！</text><rect x="100" y="236" width="200" height="58" rx="14" fill="white"/><rect x="112" y="250" width="5" height="16" rx="2.5" fill="#E6B84A" opacity=".5"/><rect x="121" y="245" width="5" height="26" rx="2.5" fill="#E6B84A"/><rect x="130" y="241" width="5" height="34" rx="2.5" fill="#E6B84A"/><rect x="139" y="249" width="5" height="18" rx="2.5" fill="#E6B84A" opacity=".7"/><rect x="148" y="244" width="5" height="28" rx="2.5" fill="#E6B84A"/><line x1="163" y1="248" x2="163" y2="274" stroke="#E3DFEE" stroke-width="1.5"/><rect x="170" y="249" width="5" height="16" rx="2.5" fill="#3B9E91" opacity=".5"/><rect x="179" y="244" width="5" height="26" rx="2.5" fill="#3B9E91"/><rect x="188" y="240" width="5" height="34" rx="2.5" fill="#3B9E91"/><rect x="197" y="248" width="5" height="18" rx="2.5" fill="#3B9E91" opacity=".7"/><rect x="206" y="244" width="5" height="28" rx="2.5" fill="#3B9E91"/><text x="136" y="285" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-size="11" fill="#6B6E86">Mẫu</text><text x="192" y="285" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-size="11" fill="#6B6E86">Em</text><text x="200" y="318" text-anchor="middle" font-family="ZCOOL KuaiLe,serif" font-size="13" fill="#E6B84A" letter-spacing="6">听 跟 角 写</text><text x="200" y="336" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-size="11" fill="#6B6E86">4 bước luyện nói</text></svg><span class="lh-pop a">你好！</span><span class="lh-pop b py">nǐ hǎo</span><span class="lh-pop c">跟读中…</span><span class="lh-pop d py">听写</span></div>
   </section>
-  <div class="tabs" role="group" aria-label="Chọn nguồn bài">
+  <div class="steps4">
+    <div><b>听</b><span>1. Nghe hiểu</span><small>Nghe cả đoạn, trả lời câu hỏi</small></div>
+    <div><b>跟读</b><span>2. Shadowing</span><small>Nói theo từng câu, ghi âm, so với mẫu</small></div>
+    <div><b>角色</b><span>3. Đóng vai</span><small>Em một vai, máy một vai, ẩn dần chữ</small></div>
+    <div><b>听写</b><span>4. Nghe – viết</span><small>Nghe rồi gõ lại bằng chữ Hán</small></div>
+  </div>
+  <div class="tabs" id="tabsNN" role="group" aria-label="Chọn nguồn bài">
     <button class="tab" type="button" data-tab="gt" aria-pressed="true">Theo giáo trình</button>
     <button class="tab" type="button" data-tab="th" aria-pressed="false">Theo tình huống</button>
   </div>

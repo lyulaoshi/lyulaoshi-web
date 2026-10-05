@@ -22,6 +22,10 @@ const YZH={
   "meo-con-cau-ca":["做事情要一心一意。","zuò shìqing yào yìxīn-yíyì."]
 };
 const NHAC={nhe:["Nhẹ nhàng","piano chậm","#2E9E73","#E3F4EC"],vui:["Vui tươi","tiết tấu nhanh","#E7823A","#FDEBDD"],cotich:["Cổ tích","âm hưởng ngũ cung","#C8342A","#FBE6DF"],khong:["Không nhạc","chỉ giọng đọc","#6B6E86","#EFEBF7"]};
+// thư viện nhạc CC0 — thêm file vào luyen-doc/music/ rồi khai báo ở đây
+const NHAC_TV=[
+  // {id:"sang", ten:"Sáng trong", mo:"piano nhẹ nhàng", f:"music/sang-trong.mp3"},
+];
 const PHAN=[["mo","Mở đầu","开场"],["chinh","Bài đọc","正文"],["ket","Kết","结尾"]];
 let P=null;
 const st=(k,d)=>L().store.get(k,d),ss=(k,v)=>L().store.set(k,v);
@@ -41,7 +45,7 @@ const soChu=s=>s.replace(/[\s，。？！、：；“”（）《》…,.!?:]/g,
 /* ============ GIAO DIỆN ============ */
 function mo(B){
   const {$,esc,IC}=L();
-  P={B,ten:st("ten",""),nhac:st("pnhac","nhe"),vol:st("pvol",.5),nhip:st("pnhip","vua"),parts:{},kq:null};
+  P={B,ten:st("ten",""),nhac:st("pnhac","nhe"),vol:st("pvol",.5),nhip:st("pnhip","vua"),nhacFile:null,parts:{},kq:null};
   document.title=B.ten+" · 播客 · 阅读盒 – 吕老师汉语盒";
   $("#pod").innerHTML=`<div class="d-dau"><a href="#">${IC("truoc")} Mục lục 阅读盒</a>
       <h1 class="pd-h">${IC("loa-to")}<span><small>播客 · Làm podcast</small><span class="zh">${esc(B.ten)}</span> <em>${esc(B.tenVi)}</em></span></h1></div>
@@ -50,15 +54,28 @@ function mo(B){
       <li><h2><b>2</b>Thu âm từng phần</h2>
         <div class="pd-nhip"><span>Nhịp chữ chạy</span>${[["cham","Chậm"],["vua","Vừa"],["nhanh","Nhanh"]].map(([k,t])=>`<button type="button" data-nhip="${k}" aria-pressed="${P.nhip===k}">${t}</button>`).join("")}</div>
         <div id="pdPhan"></div></li>
-      <li><h2><b>3</b>Nhạc</h2><div class="pd-nhac">${Object.entries(NHAC).map(([k,v])=>`<button type="button" data-nhac="${k}" aria-pressed="${P.nhac===k}" style="--m:${v[2]};--ms:${v[3]}"><b>${v[0]}</b><small>${v[1]}</small></button>`).join("")}</div>
-        <div class="pd-vol"><button type="button" id="pdNghe">${IC("phat")}Nghe thử nhạc</button><label>Nhạc <input type="range" id="pdVol" min="0" max="1" step=".05" value="${P.vol}"> to</label></div></li>
+      <li><h2><b>3</b>Nhạc nền</h2><div class="pd-nhac">${Object.entries(NHAC).map(([k,v])=>`<button type="button" data-nhac="${k}" aria-pressed="${P.nhac===k}" style="--m:${v[2]};--ms:${v[3]}"><b>${v[0]}</b><small>${v[1]}</small></button>`).join("")}</div>
+        <div class="pd-vol"><button type="button" id="pdNghe">${IC("phat")}Nghe thử</button><label>Nhạc <input type="range" id="pdVol" min="0" max="1" step=".05" value="${P.vol}"> to</label></div>
+        <div class="pd-nhac-em">
+          <div class="pd-sep"><span>hoặc dùng nhạc của em</span></div>
+          ${NHAC_TV.length?`<div class="pd-tv"><b>Thư viện nhạc</b><div class="pd-tvds">${NHAC_TV.map(n=>`<button type="button" data-tv="${n.id}" aria-pressed="false"><b>${esc(n.ten)}</b><small>${esc(n.mo)}</small></button>`).join("")}</div></div>`:""}
+          <label class="pd-tai-nhac" for="pdNhacFile">${IC("gui")} Tải file nhạc lên (.mp3, .m4a…)</label>
+          <input type="file" id="pdNhacFile" accept="audio/*" class="sr-only">
+          <div id="pdNhacFileTen"></div>
+        </div></li>
       <li><h2><b>4</b>Ghép thành tập podcast</h2><button type="button" class="btn hot" id="pdGhep" disabled>${IC("loa-to")}Tạo tập podcast</button><p class="muted" id="pdGhepNote">Thu đủ 3 phần để tạo tập.</p><div id="pdKq"></div></li>
     </ol>`;
   vePhan();
   $("#pdTen").oninput=e=>{P.ten=e.target.value.trim();ss("ten",P.ten);vePhan()};
   $("#pod").onclick=onClick;
   $("#pdVol").oninput=e=>{P.vol=+e.target.value;ss("pvol",P.vol)};
+  const fi=$("#pdNhacFile");if(fi)fi.onchange=async e=>{const f=e.target.files[0];if(!f)return;const ab=await f.arrayBuffer();P.nhacFile={ten:f.name,ab};$("#pod").querySelectorAll("[data-tv]").forEach(x=>x.setAttribute("aria-pressed","false"));veNhacFile()};
   scrollTo({top:0});
+}
+function veNhacFile(){
+  const {$,esc,IC}=L(),el=$("#pdNhacFileTen");if(!el)return;
+  if(P.nhacFile)el.innerHTML=`<div class="nf-ten">${IC("loa")} <b>${esc(P.nhacFile.ten.replace(/\.[^.]+$/,""))}</b> <button type="button" data-bonhac="1">✕ Bỏ</button></div>`;
+  else el.innerHTML="";
 }
 function vePhan(){
   const {$,esc,IC,pyMau,mmss}=L(),K=kichBan(P.B,P.ten||"___");
@@ -70,6 +87,10 @@ function vePhan(){
 }
 async function onClick(e){
   const {$}=L();
+  const bo=e.target.closest("[data-bonhac]");if(bo){P.nhacFile=null;const fi=$("#pdNhacFile");if(fi)fi.value="";veNhacFile();return}
+  const tv=e.target.closest("[data-tv]");if(tv){const id=tv.dataset.tv,item=NHAC_TV.find(n=>n.id===id);if(!item)return;
+    const ab=await fetch(item.f).then(r=>r.arrayBuffer());P.nhacFile={ten:item.ten,ab};
+    $("#pod").querySelectorAll("[data-tv]").forEach(x=>x.setAttribute("aria-pressed",x===tv));veNhacFile();return}
   const n=e.target.closest("[data-nhip]");if(n){P.nhip=n.dataset.nhip;ss("pnhip",P.nhip);$("#pod").querySelectorAll("[data-nhip]").forEach(x=>x.setAttribute("aria-pressed",x===n));return}
   const m=e.target.closest("[data-nhac]");if(m){P.nhac=m.dataset.nhac;ss("pnhac",P.nhac);$("#pod").querySelectorAll("[data-nhac]").forEach(x=>x.setAttribute("aria-pressed",x===m));return}
   const t=e.target.closest("[data-thu]");if(t){thu(t.dataset.thu);return}
@@ -141,8 +162,15 @@ let ngheCtx=null;
 function ngheThu(){
   if(ngheCtx){ngheCtx.close();ngheCtx=null;return}
   const ctx=ngheCtx=new (window.AudioContext||window.webkitAudioContext)(),g=ctx.createGain();g.gain.value=.25+.5*P.vol;g.connect(ctx.destination);
-  const d=nhac(ctx,g,P.nhac,"vao",ctx.currentTime+.05);nhac(ctx,g,P.nhac,"nen",ctx.currentTime+.05+d,ctx.currentTime+d+6);
-  setTimeout(()=>{if(ngheCtx===ctx){ctx.close();ngheCtx=null}},(d+6.5)*1000);
+  if(P.nhacFile){
+    ctx.decodeAudioData(P.nhacFile.ab.slice()).then(buf=>{if(ngheCtx!==ctx)return;
+      const src=ctx.createBufferSource();src.buffer=buf;src.connect(g);src.start();
+      setTimeout(()=>{if(ngheCtx===ctx){try{src.stop()}catch(x){}ctx.close();ngheCtx=null}},8000);
+    }).catch(()=>{ctx.close();ngheCtx=null});
+  } else {
+    const d=nhac(ctx,g,P.nhac,"vao",ctx.currentTime+.05);nhac(ctx,g,P.nhac,"nen",ctx.currentTime+.05+d,ctx.currentTime+d+6);
+    setTimeout(()=>{if(ngheCtx===ctx){ctx.close();ngheCtx=null}},(d+6.5)*1000);
+  }
 }
 
 /* ============ GHÉP TẬP ============ */
@@ -151,13 +179,21 @@ async function ghep(){
   try{
     const dec=new (window.AudioContext||window.webkitAudioContext)(),buf={};
     for(const [k] of PHAN)buf[k]=await dec.decodeAudioData(await P.parts[k].blob.arrayBuffer());
+    const nhacBuf=P.nhacFile?await dec.decodeAudioData(P.nhacFile.ab.slice()):null;
     dec.close();
-    const SR=22050,J=P.nhac==="khong"?0.4:3.2,G=.7,tm={mo:J},dn=k=>buf[k].duration;
-    tm.chinh=tm.mo+dn("mo")+G;tm.ket=tm.chinh+dn("chinh")+G;const het=tm.ket+dn("ket")+.4,tong=het+(P.nhac==="khong"?.3:3.8);
+    const useFil=!!nhacBuf;
+    const SR=22050,J=useFil?1.2:(P.nhac==="khong"?0.4:3.2),G=.7,tm={mo:J},dn=k=>buf[k].duration;
+    tm.chinh=tm.mo+dn("mo")+G;tm.ket=tm.chinh+dn("chinh")+G;const het=tm.ket+dn("ket")+.4,tong=het+(useFil?1.2:(P.nhac==="khong"?.3:3.8));
     const off=new OfflineAudioContext(1,Math.ceil(tong*SR),SR);
     const comp=off.createDynamicsCompressor();comp.threshold.value=-24;comp.ratio.value=4;const gv=off.createGain();gv.gain.value=1.6;comp.connect(gv);gv.connect(off.destination);
     for(const [k] of PHAN){const s=off.createBufferSource();s.buffer=buf[k];s.connect(comp);s.start(tm[k])}
-    if(P.nhac!=="khong"){
+    if(nhacBuf){
+      const gf=off.createGain(),nv=.12+.22*P.vol;
+      gf.gain.setValueAtTime(0.0001,.05);gf.gain.linearRampToValueAtTime(nv,J);
+      gf.gain.setValueAtTime(nv,het-.8);gf.gain.linearRampToValueAtTime(0.0001,het+.4);
+      gf.connect(off.destination);
+      let tn=0;while(tn<het+1){const ns=off.createBufferSource();ns.buffer=nhacBuf;ns.connect(gf);ns.start(tn);tn+=nhacBuf.duration}
+    } else if(P.nhac!=="khong"){
       const gj=off.createGain();gj.gain.value=.18+.3*P.vol;gj.connect(off.destination);
       nhac(off,gj,P.nhac,"vao",.05);nhac(off,gj,P.nhac,"ra",het);
       const gn=off.createGain(),nv=.03+.09*P.vol;gn.gain.setValueAtTime(0.0001,J-.6);gn.gain.linearRampToValueAtTime(nv,J);gn.gain.setValueAtTime(nv,het-.8);gn.gain.linearRampToValueAtTime(0.0001,het);gn.connect(off.destination);
@@ -168,7 +204,7 @@ async function ghep(){
     const cues=[];for(const [k] of PHAN){const p=P.parts[k];p.lich.forEach(([a,b],i)=>cues.push([tm[k]+a,tm[k]+b,p.cau[i][0],p.cau[i][1],p.cau[i][2]]))}
     const so=(await dsTap()).length+1;
     P.kq={id:Date.now(),baiId:P.B.id,ten:P.B.ten,tenVi:P.B.tenVi,cap:P.B.cap,tnPy:P.B.tn&&P.B.tn.zh===P.B.ten?P.B.tn.py:null,mo2:L().tach(P.B).slice(0,2).map(x=>x.zh),
-      hocVien:P.ten,ngay:new Date().toISOString(),dur:out.duration,nhac:P.nhac,so,wav,cues};
+      hocVien:P.ten,ngay:new Date().toISOString(),dur:out.duration,nhac:P.nhacFile?"file":P.nhac,nhacTen:P.nhacFile?P.nhacFile.ten.replace(/\.[^.]+$/,""):null,so,wav,cues};
     await taoAnh(P.kq,st("pmau","pastel"));
     await luuTap(P.kq);
     veKq(P.kq,$("#pdKq"));$("#pdGhepNote").textContent="Xong! Tập podcast đã lưu vào Góc podcast của em.";
@@ -197,7 +233,7 @@ const KAI='"LyuKai","STKaiti","KaiTi",serif',VIF='"Be Vietnam Pro",system-ui,san
 async function veMau(k,W,H,mid,o={}){
   try{await document.fonts.load("120px LyuKai","字")}catch(e){}
   const cv=document.createElement("canvas");cv.width=W;cv.height=H;const C=cv.getContext("2d"),u=W/1080,doc=H>W*1.3;
-  const m=MAU[mid]||MAU.pastel,nh=NHAC[k.nhac==="khong"?"nhe":k.nhac],ac=m.ac||nh[2],txt=m.txt,mut=m.mut;
+  const m=MAU[mid]||MAU.pastel,nh=NHAC[k.nhac==="khong"||k.nhac==="file"?"nhe":k.nhac]||NHAC.nhe,ac=m.ac||nh[2],txt=m.txt,mut=m.mut;
   const T=(s,x,y,f,c,al)=>{C.font=f;C.fillStyle=c;C.textAlign=al||"center";C.textBaseline="middle";C.fillText(s,x,y)};
   const fit=(s,f,max)=>{let px=parseFloat(f.match(/([\d.]+)px/)[1]);C.font=f;while(C.measureText(s).width>max&&px>14){px-=3;C.font=f.replace(/[\d.]+px/,px+"px")}return C.font};
   const RR=(x,y,w,h,r)=>{C.beginPath();C.roundRect(x,y,w,h,r)};
@@ -241,7 +277,7 @@ async function veMau(k,W,H,mid,o={}){
   if(o.video)return cv;
   const hy=(doc?1330:930)*u+(mid==="vo"&&!doc?0:0);
   T(`主播 · Người dẫn: ${k.hocVien||"…"}`,W/2,hy,`800 ${(doc?48:38)*u}px ${VIF}`,txt);
-  T(`${L().mmss(k.dur)} · nhạc ${nh[0].toLowerCase()}`,W/2,hy+(doc?70:56)*u,`600 ${(doc?34:28)*u}px ${VIF}`,mut);
+  T(`${L().mmss(k.dur)} · nhạc ${k.nhacTen||nh[0].toLowerCase()}`,W/2,hy+(doc?70:56)*u,`600 ${(doc?34:28)*u}px ${VIF}`,mut);
   if(doc){C.fillStyle=m.card;RR(90*u,1490*u,W-180*u,230*u,30*u);C.fill();
     (k.mo2||[]).forEach((s,i)=>{C.font=fit(s,`400 ${52*u}px ${KAI}`,W-260*u);C.fillStyle=txt;C.textAlign="center";C.fillText(s,W/2,1560*u+i*90*u)});
     T("lyulaoshi.com/luyen-doc · #学中文 #中文播客",W/2,1810*u,`700 ${32*u}px ${VIF}`,mid==="soi"||mid==="dem"?ac:ac)}
