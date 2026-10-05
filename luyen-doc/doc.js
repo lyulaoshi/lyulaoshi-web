@@ -42,11 +42,11 @@ function mucLucDoc(){
   // 朗读 · Đọc thành tiếng: 3 chế độ cho mỗi bài + Góc podcast của em
   const xong=store.get("xong",{}),caps=[...new Set(DS.map(b=>b.cap))].sort();
   $("#ke").innerHTML=`<div class="ld-che">
-      <div><b>${IC("lap-lanh")}跟读 · Đọc theo</b><span>Chữ sáng dần theo nhịp, em đọc theo, máy ghi âm.</span></div>
+      <div><b>${IC("lap-lanh")}Đọc karaoke</b><span>Chữ sáng dần theo nhịp, em đọc theo, máy ghi âm.</span></div>
       <div><b>${IC("mic")}录音 · Thu âm</b><span>Tự đọc cả bài, nghe lại, đối chiếu từng câu với giọng mẫu.</span></div>
       <div><b>${IC("loa-to")}播客 · Làm podcast</b><span>Đọc như người dẫn podcast, có nhạc, ảnh bìa đăng TikTok.</span></div></div>
     ${caps.map(c=>`<h2 class="kh">HSK ${c}</h2><div class="ld-ds">${DS.filter(b=>b.cap===c).map(b=>`<div class="ld-bai"><a class="ld-ten" href="#${b.id}"><b class="zh">${esc(b.ten)}</b><small>${esc(b.tenVi)} · ${soChu(b)} chữ</small></a>
-      <div class="ld-nut"><a href="#${b.id}/doc-theo">${IC("lap-lanh")}Đọc theo</a><a href="#${b.id}/thu-am">${IC("mic")}Thu âm</a><a class="pod" href="#${b.id}/podcast">${IC("loa-to")}Podcast</a></div></div>`).join("")}</div>`).join("")}
+      <div class="ld-nut"><a href="#${b.id}/doc-theo">${IC("lap-lanh")}Đọc karaoke</a><a href="#${b.id}/thu-am">${IC("mic")}Thu âm</a><a class="pod" href="#${b.id}/podcast">${IC("loa-to")}Podcast</a></div></div>`).join("")}</div>`).join("")}
     <h2 class="kh" id="gocPod">我的播客 · Góc podcast của em</h2><div id="gocDs"><p class="muted">Đang mở…</p></div>`;
   if(window.LD_POD)LD_POD.goc($("#gocDs"));else $("#gocDs").innerHTML='<p class="muted">Chưa có tập nào.</p>';
   store.set("mang",MANG.v);
@@ -258,7 +258,7 @@ function toChay(ci,f){const p=document.querySelector(`#van .cau[data-c="${ci}"]`
   ws.forEach((x,i)=>{const pos=c.tu.slice(0,i).reduce((a,t)=>a+t.w.length,0);x.classList.toggle("da",pos<f*n)})}
 function xoaChay(){document.querySelectorAll("#van .da").forEach(x=>x.classList.remove("da"));$("#doc").classList.remove("hat")}
 function moKaraoke(){dongThe();anKq();const o=store.get("ka",{nhip:"vua",mau:false});
-  $("#kaBox").innerHTML=`<div class="gk-dau"><b>${IC("lap-lanh")}跟读 · Đọc theo</b><button class="th-x" type="button" data-k="x" aria-label="Đóng">${IC("sai")}</button></div>
+  $("#kaBox").innerHTML=`<div class="gk-dau"><b>${IC("lap-lanh")}Đọc karaoke</b><button class="th-x" type="button" data-k="x" aria-label="Đóng">${IC("sai")}</button></div>
     <p class="ka-mo">Chữ sáng dần theo nhịp, em đọc theo chữ sáng, máy ghi âm giọng em. Đọc hết bài, em nghe lại giọng mình cùng chữ chạy.</p>
     <div class="ka-chon"><span>Nhịp</span><div class="ka-seg">${[["cham","Chậm"],["vua","Vừa"],["nhanh","Nhanh"]].map(([k,t])=>`<button type="button" data-nhip="${k}" aria-pressed="${o.nhip===k}">${t}</button>`).join("")}</div></div>
     <label class="ka-mau"><input type="checkbox" id="kaMau" ${o.mau?"checked":""}> Có giọng mẫu đọc cùng <small>(nên đeo tai nghe để máy chỉ ghi giọng em)</small></label>

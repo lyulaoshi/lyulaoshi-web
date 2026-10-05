@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>阅读盒 · Luyện đọc – 吕老师汉语盒</title>
-<meta name="description" content="Bài đọc tiếng Trung theo cấp HSK (đề cương 2025): đọc, chạm từ tra nghĩa, nghe karaoke, luyện thanh điệu, ôn từ mới và ngữ pháp – Lyu Laoshi Chinese Box.">
+<meta name="description" content="Bài đọc tiếng Trung theo cấp HSK (đề cương 2025): đọc, chạm từ tra nghĩa, đọc karaoke, luyện thanh điệu, ôn từ mới và ngữ pháp – Lyu Laoshi Chinese Box.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
 <link rel="stylesheet" href="../tro-choi/game.css?v=4">
@@ -270,7 +270,7 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 <section class="lh" style="--c:var(--mint);--c2:var(--coral);--cs:var(--mint-s)">
   <div><span class="lh-eyebrow">Hộp học tiếng Trung của cô Lã</span>
     <h1><span class="lh-big"><i>阅读</i><u>盒</u></span>Đọc, rồi<br>đọc thêm bài nữa</h1>
-    <p class="lh-lead">Bài đọc ngắn theo cấp HSK đề cương 2025. Mở ra là đọc: chạm vào từ để xem nghĩa, bật pinyin khi cần, nghe máy đọc theo kiểu karaoke, luyện thanh điệu ngay trên câu. Đọc xong ôn từ mới và ngữ pháp của bài.</p>
+    <p class="lh-lead">Bài đọc ngắn theo cấp HSK đề cương 2025. Mở ra là đọc: chạm vào từ để xem nghĩa, bật pinyin khi cần, đọc karaoke theo giọng máy, luyện thanh điệu ngay trên câu. Đọc xong ôn từ mới và ngữ pháp của bài.</p>
     <div class="lh-acts"><a class="lh-btn pri" id="lhGo" href="#">Đọc ngay</a><a class="lh-btn sec" href="#ke-bai">Xem các bài</a></div>
     <div class="lh-stats"><div><b id="stBai">0</b>bài đọc</div><div><b id="stXong">0</b>bài em đã đọc</div><div><b id="stTd">—</b>chữ/phút nhanh nhất</div></div></div>
   <div class="lh-art" aria-hidden="true"><svg viewBox="0 0 400 420">
@@ -304,10 +304,10 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
   <div class="d-dau"><a href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#truoc"></use></svg> Mục lục 阅读盒</a>
     <h1 id="dTen"></h1><div id="dMeta"></div><div id="dTn" hidden></div></div>
   <div id="batDau" class="bd"><button type="button" id="bdGio" class="bd-chinh"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dong-ho"></use></svg>Bắt đầu đọc</button>
-    <button type="button" id="bdKa" class="bd-ka"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#lap-lanh"></use></svg>跟读 Đọc theo</button>
+    <button type="button" id="bdKa" class="bd-ka"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#lap-lanh"></use></svg>Đọc karaoke</button>
     <button type="button" id="bdGhi"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#mic"></use></svg>Đọc to và ghi âm</button>
     <a id="bdPod" class="bd-pod" href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#loa-to"></use></svg>播客 Làm podcast</a>
-    <span>Bắt đầu đọc: máy bấm giờ khi em đọc thầm. Đọc theo: chữ sáng dần, em đọc theo, máy ghi âm. Làm podcast: em đọc như người dẫn, có nhạc và ảnh bìa.</span></div>
+    <span>Bắt đầu đọc: máy bấm giờ khi em đọc thầm. Đọc karaoke: chữ sáng dần, em đọc theo, máy ghi âm. Làm podcast: em đọc như người dẫn, có nhạc và ảnh bìa.</span></div>
   <div id="van" lang="zh-CN"></div>
   <div id="ketThuc"></div>
 </main>
@@ -318,14 +318,14 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 <div id="gioBar" hidden role="timer"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dong-ho"></use></svg><span>Đang đọc</span><b id="gioGio">0:00</b><button type="button" id="gioXong"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#tick"></use></svg>Đọc xong</button></div>
 <div id="ghiBar" hidden role="status"><i class="cham-do"></i><span>Đang ghi âm</span><b id="ghiGio">0:00</b><button type="button" id="ghiDung"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#dung"></use></svg>Dừng</button></div>
 <div id="ghiKq" role="dialog" aria-label="Bản đọc của em"></div>
-<div id="kaBox" role="dialog" aria-label="Đọc theo"></div>
+<div id="kaBox" role="dialog" aria-label="Đọc karaoke"></div>
 <div id="demNguoc" hidden aria-live="assertive"></div>
 <div id="tocBar" hidden role="group" aria-label="Tốc độ đọc"><button type="button" data-toc=".6">Chậm</button><button type="button" data-toc=".85" aria-pressed="true">Vừa</button><button type="button" data-toc="1.05">Nhanh</button></div>
 <nav class="thanh-cu" aria-label="Công cụ đọc">
   <button type="button" id="bPy" aria-pressed="false" title="Hiện pinyin trên chữ"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true"><text x="15" y="20" text-anchor="middle" font-size="17" font-weight="700" fill="currentColor" style="font-family:var(--vi)">a</text><path d="M9.5 5.5h11" stroke="#E0545F" stroke-width="2.2" stroke-linecap="round"/></svg><span>Pinyin</span></button>
   <button type="button" id="bVi" aria-pressed="false" title="Hiện nghĩa tiếng Việt từng câu"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true"><rect x="1.5" y="3" width="11" height="11" rx="3" class="vt"/><text x="7" y="12" text-anchor="middle" font-size="8.5" fill="currentColor">中</text><rect x="17.5" y="10" width="11" height="11" rx="3" fill="currentColor"/><text x="23" y="18.3" text-anchor="middle" font-size="6.6" font-weight="800" fill="var(--card)" style="font-family:var(--vi)">Vi</text><path class="vt" d="M9 17.5c1.5 2.2 3.8 2.8 6.5 2.3M14 18.2l1.6 1.6-1.9 1"/></svg><span>Nghĩa</span></button>
   <span class="gach" aria-hidden="true"></span>
-  <button type="button" id="bNghe" aria-pressed="false" title="Nghe máy đọc theo kiểu karaoke"><span class="nghe-o"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#phat"></use></svg></span><span>Nghe</span></button>
+  <button type="button" id="bNghe" aria-pressed="false" title="Nghe máy đọc (dùng trong chế độ Đọc karaoke)"><span class="nghe-o"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=893338cb#phat"></use></svg></span><span>Nghe</span></button>
   <button type="button" id="bDoc" aria-pressed="false" title="Ghi âm cả bài và tính giờ"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true">
     <rect x="11.5" y="2.5" width="7" height="12" rx="3.5" class="vt"/><path class="vt" d="M8 11.5a7 7 0 0 0 14 0M15 18.5v3"/><circle cx="23.5" cy="4.5" r="2.4" fill="#E0545F"/></svg><span>Ghi âm</span></button>
   <span class="gach" aria-hidden="true"></span>
