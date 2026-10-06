@@ -27,7 +27,7 @@ const soChu=B=>B.cau.reduce((n,c)=>n+c[0].replace(/[\s，。？！、：；“�
 
 /* ============ MỤC LỤC ============ */
 // Chủ đề: dùng chung danh sách của 词汇盒 (../tu-vung/chu-de.js) + vài chủ đề riêng của hộp đọc
-const CD_THEM=[{id:"ban-be",zh:"朋友",vi:"Bạn bè"},{id:"truyen",zh:"故事",vi:"Truyện kể – ngụ ngôn"}];
+const CD_THEM=[{id:"ban-be",zh:"朋友",vi:"Bạn bè"},{id:"truyen",zh:"故事",vi:"Truyện kể – ngụ ngôn"},{id:"thu",zh:"书信",vi:"Thư gửi chính mình"}];
 const CDS=[...(window.CHUDE||[]).map(c=>({id:c.id,zh:c.zh,vi:c.vi,on:1})),...CD_THEM];
 const cdOf=id=>CDS.find(c=>c.id===id)||{id,zh:"",vi:id||"Khác"};
 const ML=store.get("ml",{tab:"cap",cap:null,cd:""});

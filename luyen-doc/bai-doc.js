@@ -423,3 +423,90 @@ LD_BAI.push({
     {q:"最后小猫钓到鱼了吗？",vi:"Cuối cùng mèo con có câu được cá không?",opts:["钓到了","没有钓到","不知道"],dap:0}
   ]
 });
+
+/* ===== 写给自己的信 (bộ thư gửi chính mình; cd:"thu")
+   Bức 2 và 3: trích 《写给自己的999封信》, cô Lã tự dịch tiếng Việt ===== */
+
+LD_BAI.push({
+  id:"thu-01", ten:"给自己的一封信", tenVi:"Gửi một lá thư cho bản thân", cap:3, chude:"Thư gửi chính mình", cd:"thu",
+  cau:[
+    ["给 自己 的 一 封 信 ：","gěi zìjǐ de yì fēng xìn ：","Gửi chính mình:",[]],
+    ["你 今天 好 吗 ？","nǐ jīntiān hǎo ma ？","Hôm nay bạn có ổn không?",[]],
+    ["生活 有时候 不 容易 ， 你 会 很 累 ， 也 会 不 开心 。","shēnghuó yǒushíhòu bù róngyì ， nǐ huì hěn lèi ， yě huì bù kāixīn 。","Cuộc sống đôi khi không dễ dàng, bạn sẽ rất mệt, cũng sẽ không vui.",["一09"]],
+    ["但是 ， 我 想 告诉 你 ： 今天 的 你 ， 已经 很 好 了 。","dànshì ， wǒ xiǎng gàosu nǐ ： jīntiān de nǐ ， yǐjīng hěn hǎo le 。","Nhưng mà, tôi muốn nói với bạn: bạn hôm nay đã rất tốt rồi.",["二15"]],
+    ["太阳 每天 都 会 出来 ， 新 的 一 天 ， 就是 新 的 开始 。","tàiyáng měitiān dōu huì chūlai ， xīn de yì tiān ， jiùshì xīn de kāishǐ 。","Mặt trời mỗi ngày đều sẽ mọc lên — một ngày mới chính là một khởi đầu mới.",[]],
+    ["每天 做 一点点 ， 慢慢 来 ， 你 会 越来越 好 的 。","měitiān zuò yīdiǎndiǎn ， mànmàn lái ， nǐ huì yuèláiyuè hǎo de 。","Mỗi ngày làm một chút, từ từ thôi, bạn sẽ ngày càng tốt hơn.",["二44"]],
+    ["爱 你 的 自己","ài nǐ de zìjǐ","Bạn của chính bạn",[]]
+  ],
+  tu:{
+    "你":"bạn","给":"gửi cho","自己":"bản thân","一":"một","封":"lá, chiếc (lượng từ cho thư)","信":"thư (bức thư)",
+    "今天":"hôm nay","好":"tốt, ổn","吗":"(trợ từ hỏi yes/no)","生活":"cuộc sống",
+    "有时候":"đôi khi","不":"không","容易":"dễ dàng","会":"sẽ","很":"rất","累":"mệt",
+    "也":"cũng","开心":"vui vẻ","但是":"nhưng mà","我":"tôi","想":"muốn","告诉":"nói với, bảo",
+    "的":"của; (trợ từ)","已经":"đã (rồi)","了":"(trợ từ hoàn thành/thay đổi)",
+    "太阳":"mặt trời","每天":"mỗi ngày","都":"đều, cũng","出来":"mọc lên, ra ngoài",
+    "新":"mới","天":"ngày","就是":"chính là, tức là","开始":"khởi đầu; bắt đầu",
+    "做":"làm","一点点":"một chút nhỏ","慢慢":"từ từ, chậm rãi","来":"(trong 慢慢来) thôi, nào",
+    "越来越":"càng ngày càng","爱":"yêu"
+  },
+  hoi:[
+    {q:"这封信想告诉你什么？",vi:"Bức thư muốn nói với bạn điều gì?",opts:["今天的你已经很好了","要更努力学习","生活很容易"],dap:0},
+    {q:"太阳每天出来代表什么？",vi:"Mặt trời mọc mỗi ngày đại diện cho điều gì?",opts:["新的一天、新的开始","天气很热","要快去上班"],dap:0},
+    {q:"怎么才能越来越好？",vi:"Làm thế nào để ngày càng tốt hơn?",opts:["每天做一点点，慢慢来","一次要做很多事","等别人帮你"],dap:0}
+  ]
+});
+
+LD_BAI.push({
+  id:"thu-02", ten:"给自己的第二封信", tenVi:"Bức thư thứ hai gửi chính mình", cap:3, chude:"Thư gửi chính mình", cd:"thu",
+  cau:[
+    ["亲爱 的 自己 ：","qīn'ài de zìjǐ ：","Người thân mến của tôi:",[]],
+    ["人生 ， 总 会 有 不 期 而 遇 的 温暖 ， 和 生生 不息 的 希望 。","rénshēng ， zǒng huì yǒu bù qī ér yù de wēnnuǎn ， hé shēngshēng bùxī de xīwàng 。","Cuộc đời luôn sẽ có những niềm ấm áp bất ngờ, và những hy vọng không ngừng nảy sinh.",["三15"]],
+    ["不管 前方 的 路 有 多 苦 ， 只要 走 的 方向 正确 ， 不管 多么 崎岖 不平 ， 都 比 站 在 原 地 更 接近 幸福 。","bùguǎn qiánfāng de lù yǒu duō kǔ ， zhǐyào zǒu de fāngxiàng zhèngquè ， bùguǎn duōme qíqū bùpíng ， dōu bǐ zhàn zài yuán dì gèng jiējìn xìngfú 。","Dù con đường phía trước có gian khổ đến đâu, chỉ cần hướng đi đúng, dù gồ ghề đến thế nào, cũng vẫn gần hơn với hạnh phúc so với đứng mãi tại chỗ.",["二30","二67","二58"]],
+    ["爱 你 的 自己","ài nǐ de zìjǐ","Bạn của chính bạn",[]]
+  ],
+  tu:{
+    "亲爱":"thân mến, kính yêu","自己":"bản thân","你":"bạn","的":"của; (trợ từ)","和":"và","有":"có","会":"sẽ",
+    "人生":"cuộc đời, nhân sinh","总":"luôn, bao giờ cũng",
+    "不":"không (trong 不期而遇: không hẹn mà gặp)","期":"kỳ, hẹn trước","而":"mà, và (liên từ)","遇":"gặp, gặp gỡ",
+    "温暖":"ấm áp, niềm ấm áp",
+    "生生":"(trong 生生不息) sinh sôi không ngừng","不息":"không ngừng, không dừng lại",
+    "希望":"hy vọng","不管":"dù, bất kể","前方":"phía trước","路":"con đường",
+    "多":"bao nhiêu (trong 有多苦: khổ đến đâu)","苦":"khổ cực, gian nan",
+    "只要":"chỉ cần","走":"đi, bước","方向":"phương hướng","正确":"đúng, chính xác",
+    "多么":"biết bao, thật là","崎岖":"gồ ghề, khúc khuỷu","不平":"không bằng phẳng",
+    "都":"đều, cũng","比":"hơn, so với","站":"đứng","在":"ở",
+    "原":"nguyên, vốn là","地":"đất; hậu tố chỉ địa điểm",
+    "更":"càng, hơn nữa","接近":"gần, tiếp cận","幸福":"hạnh phúc","爱":"yêu"
+  },
+  hoi:[
+    {q:"人生'总会有'什么？",vi:"Cuộc đời 'luôn sẽ có' điều gì?",opts:["温暖和希望","困难和失败","时间和金钱"],dap:0},
+    {q:"怎么做才能更接近幸福？",vi:"Làm thế nào mới gần hơn với hạnh phúc?",opts:["走的方向正确","停下来休息","在原地等待"],dap:0},
+    {q:"'站在原地'在这里是什么意思？",vi:"'Đứng tại chỗ' ở đây có nghĩa là gì?",opts:["不行动、不前进","好好休息","慢慢思考"],dap:0}
+  ]
+});
+
+LD_BAI.push({
+  id:"thu-03", ten:"给自己的第三封信", tenVi:"Bức thư thứ ba gửi chính mình", cap:4, chude:"Thư gửi chính mình", cd:"thu",
+  cau:[
+    ["亲爱 的 自己 ：","qīn'ài de zìjǐ ：","Người thân mến của tôi:",[]],
+    ["如果 有 一 天 ， 当 你 的 努力 配得上 你 的 梦想 ， 那么 ， 你 的 梦想 也 绝对 不 会 辜负 你 的 努力 。","rúguǒ yǒu yì tiān ， dāng nǐ de nǔlì pèidéshàng nǐ de mèngxiǎng ， nàme ， nǐ de mèngxiǎng yě juéduì bú huì gūfù nǐ de nǔlì 。","Nếu có một ngày, khi sự cố gắng của bạn xứng đáng với ước mơ của bạn, thì ước mơ đó cũng tuyệt đối sẽ không phụ lòng bạn.",["二30"]],
+    ["让 自己 尽 可能 变得 优秀 ， 当 你 为 一 件 事情 拼命 努力 的 时候 ， 全 世界 都 会 帮 你 ！","ràng zìjǐ jǐn kěnéng biànde yōuxiù ， dāng nǐ wèi yí jiàn shìqing pīnmìng nǔlì de shíhou ， quán shìjiè dōu huì bāng nǐ ！","Hãy để bản thân ngày càng trở nên xuất sắc hơn — khi bạn dốc sức vì một điều gì đó, cả thế giới sẽ giúp bạn!",[]],
+    ["爱 你 的 自己","ài nǐ de zìjǐ","Bạn của chính bạn",[]]
+  ],
+  tu:{
+    "亲爱":"thân mến, kính yêu","自己":"bản thân","你":"bạn","的":"của; (trợ từ)","不":"không",
+    "也":"cũng","会":"sẽ","有":"có","时候":"lúc, khi","都":"đều, cũng",
+    "如果":"nếu như","一":"một","天":"ngày","当":"khi","努力":"sự cố gắng; cố gắng",
+    "配得上":"xứng đáng với (bổ ngữ khả năng)","梦想":"ước mơ",
+    "那么":"thì, vậy thì","绝对":"tuyệt đối, nhất định","辜负":"phụ lòng, phụ bạc",
+    "让":"để, khiến","尽":"hết sức, tận","可能":"có thể","变得":"trở nên",
+    "优秀":"xuất sắc, giỏi giang","为":"vì, cho","件":"chiếc, cái (lượng từ cho sự việc)",
+    "事情":"việc, sự việc","拼命":"dốc sức, cố hết mình","全":"toàn bộ, cả","世界":"thế giới",
+    "帮":"giúp","爱":"yêu"
+  },
+  hoi:[
+    {q:"努力配得上梦想，梦想会怎样？",vi:"Cố gắng xứng đáng với ước mơ, ước mơ sẽ thế nào?",opts:["不会辜负你的努力","让你更累","变得更难"],dap:0},
+    {q:"让自己'尽可能变得优秀'，需要怎么做？",vi:"Muốn bản thân hết sức trở nên xuất sắc hơn, cần làm gì?",opts:["拼命努力","等待机会","让别人帮你"],dap:0},
+    {q:"当你为一件事情拼命努力，会发生什么？",vi:"Khi bạn dốc sức vì một điều gì đó, điều gì sẽ xảy ra?",opts:["全世界都会帮你","没有人帮你","你会很累"],dap:0}
+  ]
+});
