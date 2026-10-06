@@ -428,7 +428,7 @@ LD_BAI.push({
    Bức 2 và 3: trích 《写给自己的999封信》, cô Lã tự dịch tiếng Việt ===== */
 
 LD_BAI.push({
-  id:"thu-01", ten:"给自己的一封信", tenVi:"Gửi một lá thư cho bản thân", cap:3, chude:"Thư gửi chính mình", cd:"thu",
+  id:"thu-01", ten:"给自己的一封信", tenVi:"Một lá thư gửi chính mình", cap:3, chude:"Thư gửi chính mình", cd:"thu",
   cau:[
     ["给 自己 的 一 封 信 ：","gěi zìjǐ de yì fēng xìn ：","Gửi chính mình:",[]],
     ["你 今天 好 吗 ？","nǐ jīntiān hǎo ma ？","Hôm nay bạn có ổn không?",[]],
