@@ -620,3 +620,116 @@ LD_BAI.push({
     {q:"'走进风雨'是什么意思？",vi:"'Bước vào phong ba' có nghĩa là gì?",opts:["面对困难和挑战","去外面散步","跑步锻炼"],dap:0}
   ]
 });
+
+/* ===== 写给自己的第219–222封信 ===== */
+LD_BAI.push({
+  id:"thu-08", ten:"成长就是告别与舍弃", tenVi:"Trưởng thành là từ biệt và buông bỏ", cap:5, chude:"Thư gửi chính mình", cd:"thu",
+  cau:[
+    ["所谓 成长 ，","suǒwèi chéngzhǎng ，","Cái gọi là trưởng thành,",[]],
+    ["其实 就是 一 个 不断 告别 与 舍弃 的 过程 ，","qíshí jiùshì yí gè búduàn gàobié yǔ shěqì de guòchéng ，","thực ra chỉ là một quá trình liên tục từ biệt và buông bỏ,",[]],
+    ["我们 所 获得 的 一切 ，","wǒmen suǒ huòdé de yīqiè ，","tất cả những gì chúng ta có được,",[]],
+    ["都 必须 以 失去 另 一些 作为 代价 。","dōu bìxū yǐ shīqù lìng yīxiē zuòwéi dàijià 。","đều phải trả bằng cái giá đánh mất một số thứ khác.",[]],
+    ["但 也 只有 懂得 了 放弃 ，","dàn yě zhǐyǒu dǒngde le fàngqì ，","Nhưng cũng chỉ khi biết buông bỏ,",[]],
+    ["才 能 腾出 双手 来 ，","cái néng téngchū shuāngshǒu lái ，","ta mới có thể rảnh đôi tay,",[]],
+    ["紧 握住 对 自己 更加 重要 的 东西 。","jǐn wòzhù duì zìjǐ gèngjiā zhòngyào de dōngxi 。","để nắm chặt những điều quan trọng hơn với bản thân.",[]]
+  ],
+  tu:{
+    "所谓":"cái gọi là","成长":"trưởng thành, lớn lên",
+    "其实":"thực ra, thực chất","就是":"chính là","一":"một","个":"(lượng từ)","不断":"liên tục, không ngừng","告别":"từ biệt, chia tay","与":"và, cùng với","舍弃":"từ bỏ, buông bỏ","的":"của; (trợ từ)","过程":"quá trình",
+    "我们":"chúng ta","所":"(trợ từ trước động từ: những gì được…)","获得":"đạt được, có được","一切":"tất cả, mọi thứ",
+    "都":"đều","必须":"phải, cần phải","以":"lấy... làm, bằng","失去":"mất đi, đánh mất","另":"khác, ngoài ra","一些":"một số","作为":"coi là, lấy... làm","代价":"cái giá phải trả",
+    "但":"nhưng","也":"cũng","只有":"chỉ có... mới","懂得":"hiểu được, biết","了":"(trợ từ hoàn thành)","放弃":"từ bỏ, bỏ cuộc",
+    "才":"mới (kết quả của điều kiện)","能":"có thể","腾出":"làm trống ra, rảnh ra","双手":"đôi tay","来":"(bổ ngữ hướng)",
+    "紧":"chặt","握住":"nắm chặt (bổ ngữ kết quả)","对":"đối với","自己":"bản thân","更加":"càng thêm, hơn nữa","重要":"quan trọng","东西":"thứ, đồ vật"
+  },
+  hoi:[
+    {q:"所谓成长，其实是什么过程？",vi:"Cái gọi là trưởng thành thực ra là quá trình gì?",opts:["不断告别与舍弃的过程","不断学习的过程","不断努力的过程"],dap:0},
+    {q:"我们获得的一切，都必须以什么作为代价？",vi:"Tất cả những gì ta có được đều phải trả bằng điều gì?",opts:["失去另一些","更多的努力","时间和金钱"],dap:0},
+    {q:"懂得了放弃，才能做什么？",vi:"Biết buông bỏ rồi, ta mới có thể làm gì?",opts:["腾出双手，紧握更加重要的东西","让自己休息","帮助别人"],dap:0}
+  ]
+});
+
+LD_BAI.push({
+  id:"thu-09", ten:"感谢中途离开的那个人", tenVi:"Biết ơn người đã bỏ cuộc giữa chừng", cap:5, chude:"Thư gửi chính mình", cd:"thu",
+  cau:[
+    ["有时候 ，","yǒushíhou ，","Đôi khi,",[]],
+    ["我们 真的 应该 感谢 那个 曾 愿意 为之 放弃 一切 、 但 对方 却 中途 退场 的 人 。","wǒmen zhēnde yīnggāi gǎnxiè nàge céng yuànyì wèizhī fàngqì yīqiè 、 dàn duìfāng què zhōngtú tuìchǎng de rén 。","chúng ta thực sự nên cảm ơn người đó — người từng sẵn lòng vì ta mà từ bỏ tất cả, nhưng lại bỏ cuộc giữa chừng.",[]],
+    ["正是 因为 他们 的 离开 ，","zhèngshì yīnwèi tāmen de líkāi ，","Chính vì sự ra đi của họ,",[]],
+    ["才 让 我们 有 机会 及时 看 清楚 自己 ，","cái ràng wǒmen yǒu jīhuì jíshí kàn qīngchǔ zìjǐ ，","mới cho chúng ta cơ hội kịp thời nhìn rõ bản thân,",[]],
+    ["才 更加 明白 自己 应该 坚守住 什么 ，","cái gèngjiā míngbái zìjǐ yīnggāi jiānshǒuzhù shénme ，","mới hiểu hơn bản thân nên kiên định điều gì,",[]],
+    ["应该 将 什么 作为 人生 的 支点 。","yīnggāi jiāng shénme zuòwéi rénshēng de zhīdiǎn 。","nên coi điều gì là điểm tựa của cuộc đời.",[]]
+  ],
+  tu:{
+    "有时候":"đôi khi, thỉnh thoảng",
+    "我们":"chúng ta","真的":"thật sự","应该":"nên, cần","感谢":"cảm ơn, biết ơn","那个":"người đó, cái đó","曾":"từng, đã từng","愿意":"sẵn lòng","为之":"vì điều đó, vì nó","放弃":"từ bỏ, bỏ cuộc","一切":"tất cả","、":"(dấu phẩy liệt kê)","但":"nhưng","对方":"đối phương, phía bên kia","却":"nhưng lại, thế mà","中途":"giữa chừng, nửa chừng","退场":"rút lui, bỏ cuộc","的":"của; (trợ từ)","人":"người",
+    "正是":"chính là, đúng là","因为":"vì, bởi vì","他们":"họ","离开":"rời đi, ra đi",
+    "才":"mới (kết quả điều kiện)","让":"khiến, cho phép","有":"có","机会":"cơ hội","及时":"kịp thời","看":"nhìn, xem","清楚":"rõ ràng","自己":"bản thân",
+    "更加":"càng thêm","明白":"hiểu, hiểu rõ","坚守住":"kiên định giữ vững (bổ ngữ kết quả)","什么":"điều gì, cái gì",
+    "将":"lấy, đem (giới từ)","作为":"coi là, xem như","人生":"cuộc đời","支点":"điểm tựa"
+  },
+  hoi:[
+    {q:"我们应该感谢谁？",vi:"Chúng ta nên cảm ơn ai?",opts:["那个中途退场的人","那个一直陪伴的人","那个帮助过我们的人"],dap:0},
+    {q:"因为他们的离开，我们有了什么机会？",vi:"Vì sự ra đi của họ, ta có được cơ hội gì?",opts:["及时看清楚自己","找到新的朋友","学习新技能"],dap:0},
+    {q:"我们应该将什么作为人生的支点？",vi:"Ta nên coi điều gì là điểm tựa cuộc đời?",opts:["自己应该坚守住的东西","别人的评价","命运的安排"],dap:0}
+  ]
+});
+
+LD_BAI.push({
+  id:"thu-10", ten:"幸福来源于对自己的坚信", tenVi:"Hạnh phúc đến từ niềm tin vào bản thân", cap:5, chude:"Thư gửi chính mình", cd:"thu",
+  cau:[
+    ["在 疼痛 中 我们 学会 珍惜 自己 的 理想 ，","zài téngtòng zhōng wǒmen xuéhuì zhēnxī zìjǐ de lǐxiǎng ，","Trong đau đớn ta học được cách trân trọng lý tưởng của mình,",[]],
+    ["并 朝着 它 再度 出发 ，","bìng cháozhe tā zàidù chūfā ，","và bước tiếp hướng về nó,",[]],
+    ["当 一 个 人 的 幸福感 来源于 对 自己 的 坚信 、 而 并非 是 别人 的 一 句 承诺 或 赞许 时 ，","dāng yí gè rén de xìngfúgǎn láiyuányú duì zìjǐ de jiānxìn 、 ér bìngfēi shì biérén de yí jù chéngnuò huò zànxǔ shí ，","khi hạnh phúc của một người đến từ niềm tin vào bản thân, chứ không phải từ lời hứa hay lời khen ngợi của người khác,",[]],
+    ["这份 幸福 才 可能 长久 与 牢靠 。","zhèfèn xìngfú cái kěnéng chángjiǔ yǔ láokào 。","hạnh phúc đó mới có thể bền lâu và vững chắc.",[]]
+  ],
+  tu:{
+    "在":"trong, ở","疼痛":"đau đớn, đau","中":"trong (giữa)","我们":"chúng ta","学会":"học được, học thành thạo","珍惜":"trân trọng, quý trọng","自己":"bản thân","的":"của; (trợ từ)","理想":"lý tưởng, ước mơ",
+    "并":"và, đồng thời","朝着":"hướng về, nhắm về","它":"nó","再度":"một lần nữa, lại","出发":"khởi hành, bước tiếp",
+    "当":"khi (liên từ)","一":"một","个":"(lượng từ)","人":"người","幸福感":"cảm giác hạnh phúc","来源于":"đến từ, bắt nguồn từ","对":"đối với","坚信":"niềm tin vững chắc","、":"(dấu phẩy liệt kê)","而":"mà, còn","并非":"không phải, chứ không","是":"là","别人":"người khác","句":"(lượng từ cho câu/lời)","承诺":"lời hứa, cam kết","或":"hay, hoặc","赞许":"khen ngợi, tán dương","时":"khi, lúc",
+    "这份":"sự, tình cảm này","幸福":"hạnh phúc","才":"mới","可能":"có thể","长久":"bền lâu, lâu dài","与":"và","牢靠":"vững chắc, đáng tin cậy"
+  },
+  hoi:[
+    {q:"在疼痛中，我们学会了什么？",vi:"Trong đau đớn, ta học được điều gì?",opts:["珍惜自己的理想并再度出发","放弃自己的理想","依靠别人"],dap:0},
+    {q:"一个人的幸福感来源于什么，才可能长久？",vi:"Hạnh phúc của người đó đến từ đâu mới có thể bền lâu?",opts:["对自己的坚信","别人的承诺","别人的赞许"],dap:0},
+    {q:"'这份幸福才可能长久'中，'才'是什么意思？",vi:"Trong câu 'hạnh phúc này mới bền lâu', '才' có nghĩa là gì?",opts:["mới (trong điều kiện đó)","cũng","đã"],dap:0}
+  ]
+});
+
+LD_BAI.push({
+  id:"thu-11", ten:"少一步都无法塑造出今天的你", tenVi:"Thiếu một bước cũng không thể tạo nên bạn hôm nay", cap:5, chude:"Thư gửi chính mình", cd:"thu",
+  cau:[
+    ["伤痛 本 就是 人生 的 一 部分 ，","shāngtòng běn jiùshì rénshēng de yí bùfen ，","Đau thương vốn là một phần của cuộc đời,",[]],
+    ["哪怕 咬着 牙 ，","nǎpà yǎozhe yá ，","dù phải nghiến răng chịu đựng,",[]],
+    ["你 也 要 学会 坦然 接受 这 一切 ，","nǐ yě yào xuéhuì tǎnrán jiēshòu zhè yīqiè ，","bạn cũng phải học cách thản nhiên chấp nhận tất cả,",[]],
+    ["并 继续 前进 。","bìng jìxù qiánjìn 。","và tiếp tục tiến về phía trước.",[]],
+    ["当 有 一 天 ，","dāng yǒu yì tiān ，","Sẽ có một ngày,",[]],
+    ["你 迂迂回回 后 终于 到达 了 想去 的 地方 ，","nǐ yūyūhuíhuí hòu zhōngyú dàodá le xiǎngqù de dìfāng ，","sau bao quanh co vòng vèo, bạn cuối cùng đến được nơi mình muốn,",[]],
+    ["才 会 惊讶 地 发现 ，","cái huì jīngyà de fāxiàn ，","mới ngỡ ngàng nhận ra",[]],
+    ["原来 之前 所 走过 的 一切 ，","yuánlái zhīqián suǒ zǒuguò de yīqiè ，","rằng tất cả những gì đã trải qua trước đây,",[]],
+    ["都 只是 通往 这里 的 必经之路 ，","dōu zhǐshì tōngwǎng zhèlǐ de bìjīngzhīlù ，","đều chỉ là con đường tất yếu dẫn đến đây,",[]],
+    ["少 一 步 都 无法 塑造出 今天 的 你 。","shǎo yí bù dōu wúfǎ sùzàochū jīntiān de nǐ 。","thiếu một bước cũng không thể tạo nên bạn của hôm nay.",[]],
+    ["而 这时 ，","ér zhèshí ，","Lúc ấy,",[]],
+    ["你 定 会 深鞠一躬 ，","nǐ dìng huì shēnjūyīgōng ，","bạn chắc chắn sẽ cúi đầu thật sâu,",[]],
+    ["感谢 那年 那月 ，","gǎnxiè nànián nàyuè ，","cảm ơn từng tháng năm đó,",[]],
+    ["命运 给 你 的 所有 刁难 。","mìngyùn gěi nǐ de suǒyǒu diāonàn 。","cảm ơn những thử thách nghiệt ngã mà số phận đã dành cho bạn.",[]]
+  ],
+  tu:{
+    "伤痛":"đau thương, vết thương","本":"vốn, bản thân","就是":"chính là","人生":"cuộc đời","的":"của; (trợ từ)","一":"một","部分":"phần, bộ phận",
+    "哪怕":"dù, dù cho","咬着":"cắn, nghiến (咬着牙: nghiến răng)","牙":"răng",
+    "你":"bạn","也":"cũng","要":"phải, cần","学会":"học được, biết làm","坦然":"thản nhiên, bình thản","接受":"chấp nhận, tiếp nhận","这":"này","一切":"tất cả, mọi thứ",
+    "并":"và, đồng thời","继续":"tiếp tục","前进":"tiến về phía trước",
+    "当":"khi","有":"có","天":"ngày",
+    "迂迂回回":"quanh co vòng vèo","后":"sau","终于":"cuối cùng","到达":"đến, đạt đến","了":"(trợ từ hoàn thành)","想去":"muốn đến","地方":"nơi, chỗ",
+    "才":"mới","会":"sẽ","惊讶":"ngỡ ngàng, ngạc nhiên","地":"(trợ từ trạng ngữ)","发现":"phát hiện, nhận ra",
+    "原来":"thì ra, hóa ra","之前":"trước đó, trước đây","所":"(trợ từ: những thứ đã...)","走过":"đã đi qua, đã trải qua","都":"đều","只是":"chỉ là","通往":"dẫn đến, hướng đến","这里":"đây, chỗ này","必经之路":"con đường tất yếu phải qua",
+    "少":"thiếu","步":"bước","无法":"không thể","塑造出":"tạo nên, đúc nên","今天":"hôm nay",
+    "而":"và, còn","这时":"lúc này, lúc ấy","定":"nhất định, chắc chắn","深鞠一躬":"cúi đầu thật sâu (kính lễ)",
+    "感谢":"cảm ơn, biết ơn","那年":"năm đó, những năm ấy","那月":"tháng đó, những tháng ấy",
+    "命运":"số phận, vận mệnh","给":"cho, dành cho","所有":"tất cả, mọi","刁难":"gây khó dễ; thử thách nghiệt ngã"
+  },
+  hoi:[
+    {q:"伤痛是人生的什么？",vi:"Đau thương là gì của cuộc đời?",opts:["人生的一部分","人生的全部","人生的终点"],dap:0},
+    {q:"终于到达了地方，才会发现之前走过的一切是什么？",vi:"Khi đến được nơi mình muốn, mới nhận ra tất cả trước đây là gì?",opts:["通往这里的必经之路","错误的选择","浪费的时间"],dap:0},
+    {q:"这时你会'深鞠一躬'感谢什么？",vi:"Lúc ấy bạn sẽ cúi đầu cảm ơn điều gì?",opts:["命运给你的所有刁难","帮助过你的人","那些美好的时光"],dap:0}
+  ]
+});
