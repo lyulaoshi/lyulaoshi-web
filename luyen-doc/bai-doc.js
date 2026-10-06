@@ -510,3 +510,113 @@ LD_BAI.push({
     {q:"当你为一件事情拼命努力，会发生什么？",vi:"Khi bạn dốc sức vì một điều gì đó, điều gì sẽ xảy ra?",opts:["全世界都会帮你","没有人帮你","你会很累"],dap:0}
   ]
 });
+
+/* ===== 辑三–辑六 lời mở chương (cd:"thu") ===== */
+LD_BAI.push({
+  id:"thu-04", ten:"总有一次勇敢，让你瞬间长大", tenVi:"Luôn có một lần dũng cảm khiến bạn lớn lên", cap:5, chude:"Thư gửi chính mình", cd:"thu",
+  cau:[
+    ["辑 三 ：","jí sān ：","Phần ba:",[]],
+    ["这个 世间 真的 有 一 种 勇敢 ，","zhège shìjiān zhēnde yǒu yì zhǒng yǒnggǎn ，","Trên đời này thực sự có một loại can đảm,",[]],
+    ["让 我们 瞬间 长大 ，","ràng wǒmen shùnjiān zhǎngdà ，","khiến chúng ta lớn lên trong thoáng chốc,",[]],
+    ["它 让 我们 变得 坚强 ，","tā ràng wǒmen biànde jiānqiáng ，","Nó khiến chúng ta trở nên mạnh mẽ,",["三15"]],
+    ["让 我们 热泪 盈眶 ，","ràng wǒmen rèlèi yíngkuāng ，","khiến chúng ta rưng rưng nước mắt,",[]],
+    ["让 我们 心底 感受 到 温暖 ，","ràng wǒmen xīndǐ gǎnshòu dào wēnnuǎn ，","khiến ta cảm nhận được hơi ấm tận đáy lòng,",[]],
+    ["让 我们 在 人生 的 路上 鼓起 勇气 ，","ràng wǒmen zài rénshēng de lùshang gǔqǐ yǒngqì ，","khiến chúng ta cất bước can đảm trên đường đời,",[]],
+    ["大步 向前 。","dàbù xiàngqián 。","bước về phía trước.",[]]
+  ],
+  tu:{
+    "辑":"phần, tập (lượng từ cho tập thơ/truyện)","三":"ba",
+    "这个":"cái này, đây","世间":"trên đời, cõi đời","真的":"thật sự","有":"có","一":"một","种":"loại (lượng từ)","勇敢":"dũng cảm, can đảm",
+    "让":"khiến, để","我们":"chúng ta","瞬间":"trong thoáng chốc, lập tức","长大":"trưởng thành, lớn lên",
+    "它":"nó","变得":"trở nên","坚强":"mạnh mẽ, kiên cường",
+    "热泪":"nước mắt nóng (xúc động)","盈眶":"đầy khóe mắt",
+    "心底":"tận đáy lòng","感受":"cảm nhận","到":"(bổ ngữ kết quả: cảm nhận được)","温暖":"ấm áp",
+    "在":"ở","人生":"cuộc đời","的":"của; (trợ từ)","路上":"trên con đường","鼓起":"dốc lòng, phấn chấn (鼓起勇气: lấy dũng khí)","勇气":"dũng khí, can đảm",
+    "大步":"bước lớn, bước dài","向前":"về phía trước"
+  },
+  hoi:[
+    {q:"这种勇敢让我们变得怎样？",vi:"Loại can đảm này khiến chúng ta trở nên thế nào?",opts:["变得坚强","变得软弱","变得伤心"],dap:0},
+    {q:"这种勇敢让我们心底感受到什么？",vi:"Loại can đảm này để ta cảm nhận điều gì tận đáy lòng?",opts:["温暖","冷漠","孤独"],dap:0},
+    {q:"最后，这种勇敢让我们怎样前行？",vi:"Cuối cùng, can đảm đó giúp ta tiến bước thế nào?",opts:["大步向前","慢慢后退","停在原地"],dap:0}
+  ]
+});
+
+LD_BAI.push({
+  id:"thu-05", ten:"最好的爱情是势均力敌", tenVi:"Tình yêu đẹp nhất là khi đôi bên ngang sức", cap:5, chude:"Thư gửi chính mình", cd:"thu",
+  cau:[
+    ["辑 四 ：","jí sì ：","Phần bốn:",[]],
+    ["总有 一 天 ，","zǒngyǒu yì tiān ，","Sẽ có một ngày,",[]],
+    ["你 会 找到 自己 的 幸福 ，","nǐ huì zhǎodào zìjǐ de xìngfú ，","bạn sẽ tìm thấy hạnh phúc của mình,",[]],
+    ["会 对着 过去 的 伤痛 微笑 。","huì duìzhe guòqù de shāngtòng wēixiào 。","sẽ mỉm cười nhìn lại những đau thương quá khứ.",[]],
+    ["你 会 感谢 离开 你 的 那个 人 ，","nǐ huì gǎnxiè líkāi nǐ de nàge rén ，","Bạn sẽ biết ơn người đã rời bỏ bạn,",[]],
+    ["他 配不上 你 的 爱 、 你 的 好 、 你 的 痴心 。","tā pèibúshàng nǐ de ài 、 nǐ de hǎo 、 nǐ de chīxīn 。","Người đó không xứng với tình yêu, tấm lòng và trái tim si tình của bạn.",[]],
+    ["他 终究 不是 命定 的 那个 人 。","tā zhōngjiū búshì mìngdìng de nàge rén 。","Rốt cuộc người đó không phải người định mệnh của bạn.",[]],
+    ["幸好 他 不是 。","xìnghǎo tā búshì 。","May mà người đó không phải.",[]]
+  ],
+  tu:{
+    "辑":"phần, tập","四":"bốn",
+    "总有":"luôn luôn có; sẽ có","一":"một","天":"ngày",
+    "你":"bạn","会":"sẽ","找到":"tìm thấy","自己":"bản thân","的":"của; (trợ từ)","幸福":"hạnh phúc",
+    "对着":"hướng về, nhìn vào","过去":"quá khứ","伤痛":"đau thương, vết thương","微笑":"mỉm cười",
+    "感谢":"cảm ơn, biết ơn","离开":"rời đi, rời bỏ","那个":"người đó, cái đó","人":"người",
+    "他":"anh ấy, người đó","配不上":"không xứng với (bổ ngữ khả năng phủ định)","爱":"tình yêu; yêu","好":"tốt bụng (danh từ hóa)","痴心":"trái tim si tình, tình yêu mù quáng",
+    "终究":"rốt cuộc, xét cho cùng","不是":"không phải","命定":"định mệnh, số phận đã định",
+    "幸好":"may mà, may thay"
+  },
+  hoi:[
+    {q:"总有一天你会找到什么？",vi:"Sẽ có một ngày bạn sẽ tìm thấy điều gì?",opts:["自己的幸福","更多的麻烦","新的工作"],dap:0},
+    {q:"那个人'配不上'什么？",vi:"Người đó 'không xứng' với điều gì?",opts:["你的爱、你的好、你的痴心","你的时间和金钱","你的才能"],dap:0},
+    {q:"为什么说'幸好他不是'？",vi:"Tại sao lại nói 'may mà người đó không phải'?",opts:["因为他不是命定的那个人","因为他很坏","因为他不喜欢你"],dap:0}
+  ]
+});
+
+LD_BAI.push({
+  id:"thu-06", ten:"你真得无须讨好全世界", tenVi:"Bạn thật sự không cần lấy lòng cả thế giới", cap:5, chude:"Thư gửi chính mình", cd:"thu",
+  cau:[
+    ["辑 五 ：","jí wǔ ：","Phần năm:",[]],
+    ["你 永远 无法 满足 全 世界 的 眼光 ，","nǐ yǒngyuǎn wúfǎ mǎnzú quán shìjiè de yǎnguāng ，","Bạn mãi mãi không thể thỏa mãn con mắt của cả thế giới,",[]],
+    ["最好 的 办法 是 谁 不 在乎 你 ，","zuìhǎo de bànfǎ shì shuí bù zàihu nǐ ，","cách tốt nhất là: ai không quan tâm đến bạn,",[]],
+    ["你 也 不必 在乎 他 。","nǐ yě búbì zàihu tā 。","bạn cũng không cần quan tâm đến người đó.",[]],
+    ["不必 为 别人 的 一 两句 话 就 改变 自己 对 自己 的 看法 ，","búbì wèi biérén de yì liǎngjù huà jiù gǎibiàn zìjǐ duì zìjǐ de kànfǎ ，","Không cần vì một hai câu nói của người khác mà thay đổi cái nhìn của bạn về bản thân,",[]],
+    ["自己 是 怎样 继续 怎样 ，","zìjǐ shì zěnyàng jìxù zěnyàng ，","bản thân mình như thế nào thì cứ tiếp tục như vậy,",[]],
+    ["你 的 努力 ，","nǐ de nǔlì ，","Nỗ lực của bạn,",[]],
+    ["只是 为了 自己 和 你 在乎 的 人 。","zhǐshì wèile zìjǐ hé nǐ zàihu de rén 。","chỉ là dành cho bản thân và những người bạn quan tâm.",[]]
+  ],
+  tu:{
+    "辑":"phần, tập","五":"năm",
+    "你":"bạn","永远":"mãi mãi, luôn luôn","无法":"không thể, không có cách nào","满足":"thỏa mãn","全":"toàn, cả","世界":"thế giới","的":"của; (trợ từ)","眼光":"con mắt, nhãn quan, tiêu chuẩn",
+    "最好":"tốt nhất","办法":"cách, biện pháp","是":"là","谁":"ai","不":"không","在乎":"quan tâm, để ý",
+    "也":"cũng","不必":"không cần phải","他":"người đó",
+    "为":"vì, do","别人":"người khác","一":"một","两句":"vài câu, một hai câu","话":"lời nói","就":"thì, liền","改变":"thay đổi","自己":"bản thân","对":"đối với","看法":"cách nhìn, quan điểm",
+    "怎样":"như thế nào, như vậy","继续":"tiếp tục",
+    "努力":"nỗ lực, cố gắng","只是":"chỉ là","为了":"vì (mục đích), để","和":"và","人":"người"
+  },
+  hoi:[
+    {q:"你永远无法做到什么？",vi:"Bạn mãi mãi không thể làm được điều gì?",opts:["满足全世界的眼光","找到自己的幸福","改变别人的看法"],dap:0},
+    {q:"最好的办法是什么？",vi:"Cách tốt nhất là gì?",opts:["谁不在乎你，你也不必在乎他","让所有人都喜欢你","努力讨好每一个人"],dap:0},
+    {q:"你的努力只是为了谁？",vi:"Nỗ lực của bạn chỉ dành cho ai?",opts:["自己和你在乎的人","全世界","别人"],dap:0}
+  ]
+});
+
+LD_BAI.push({
+  id:"thu-07", ten:"真正的友情，不仅是陪伴", tenVi:"Tình bạn thật sự không chỉ là đồng hành", cap:5, chude:"Thư gửi chính mình", cd:"thu",
+  cau:[
+    ["辑 六 ：","jí liù ：","Phần sáu:",[]],
+    ["看穿 了 你 所有 的 软弱 和 不堪 ，","kànchuān le nǐ suǒyǒu de ruǎnruò hé bùkān ，","Dù đã nhìn thấu tất cả sự yếu đuối và bi đát của bạn,",[]],
+    ["我 仍旧 愿意 送 你 一 把 伞 ，","wǒ réngjiù yuànyì sòng nǐ yì bǎ sǎn ，","tôi vẫn sẵn lòng tặng bạn một chiếc ô,",[]],
+    ["我 也 只能 送 你 一 把 伞 ，","wǒ yě zhǐnéng sòng nǐ yì bǎ sǎn ，","tôi cũng chỉ có thể tặng bạn một chiếc ô thôi,",[]],
+    ["因为 你 只能 一 个 人 走进 风雨 。","yīnwèi nǐ zhǐnéng yī gè rén zǒujìn fēngyǔ 。","vì bạn chỉ có thể một mình bước vào phong ba.",[]]
+  ],
+  tu:{
+    "辑":"phần, tập","六":"sáu",
+    "看穿":"nhìn thấu, nhìn thủng","了":"(trợ từ hoàn thành)","你":"bạn","所有":"tất cả, toàn bộ","的":"của; (trợ từ)","软弱":"yếu đuối","和":"và","不堪":"không chịu đựng nổi; tệ, bi đát",
+    "我":"tôi","仍旧":"vẫn còn, vẫn","愿意":"sẵn lòng, sẵn sàng","送":"tặng, đưa cho","一":"một","把":"chiếc, cái (lượng từ cho ô)","伞":"ô, cây dù",
+    "也":"cũng","只能":"chỉ có thể",
+    "因为":"vì, bởi vì","个":"(lượng từ đa dụng; trong 一个人: một mình)","人":"người","走进":"bước vào","风雨":"giông tố, phong ba (ẩn dụ: gian nan)"
+  },
+  hoi:[
+    {q:"我知道你的什么，但仍愿意送你伞？",vi:"Tôi biết điều gì về bạn nhưng vẫn sẵn lòng tặng ô?",opts:["软弱和不堪","快乐和善良","努力和勇敢"],dap:0},
+    {q:"为什么我只能送你一把伞？",vi:"Tại sao tôi chỉ có thể tặng bạn một chiếc ô?",opts:["因为你只能一个人走进风雨","因为伞很贵","因为我只有一把伞"],dap:0},
+    {q:"'走进风雨'是什么意思？",vi:"'Bước vào phong ba' có nghĩa là gì?",opts:["面对困难和挑战","去外面散步","跑步锻炼"],dap:0}
+  ]
+});
