@@ -371,7 +371,7 @@
   .rad-vi{font-size:.98rem; color:var(--muted); line-height:1.6; margin:.15rem 0;}
   .rad-chars{font-family:var(--font-cn-body); font-size:1.2rem; margin-top:.35rem;}
   /* Đầu nhóm trong 集中识字 */
-  .sect-head{display:flex; align-items:center; gap:14px; background:var(--purple); color:#fff; border-radius:14px; padding:.65rem 1.1rem; margin:2rem 0 .8rem; box-shadow:3px 3px 0 var(--ink);}
+  .sect-head{display:flex; align-items:center; gap:14px; background:var(--purple); color:#fff; border-radius:14px; padding:.65rem 1.1rem; margin:2rem 0 .8rem; box-shadow:3px 3px 0 var(--ink); scroll-margin-top:64px;}
   .sect-head-num{font-weight:800; font-size:1rem; opacity:.85;}
   .sect-head-han{font-family:var(--font-cn-body); font-size:3.8rem; font-weight:700; line-height:1;}
   .sect-head-name{font-weight:700; font-size:1.05rem; line-height:1.3;}
@@ -1058,7 +1058,7 @@ function hlText(t, chars){ return Array.from(t).map(c=>c==="|"?"<br>":chars.incl
       prevSect=g.sect;
       curSd=sectDefs[g.sect];
       const sd=curSd;
-      sectHtml='<div class="sect-head" id="'+sd.id+'_head">'+
+      sectHtml='<div class="sect-head" id="'+sd.id+'">'+
         '<div class="sect-head-num">（'+sd.num+'）</div>'+
         '<div class="sect-head-han">'+sd.han+'</div>'+
         '<div class="sect-head-name">'+sd.title+'<br><span class="sect-head-vi">'+sd.vi+'</span></div>'+
