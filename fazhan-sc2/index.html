@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="发展汉语初级综合 II · Phát triển Hán ngữ Sơ cấp 2 — bài giảng tương tác của ThS. Lã Thị Thuỳ Phương: từ mới, bài đọc, ngữ pháp, luyện tập.">
+<title>发展汉语初级综合 II · Phát triển Hán ngữ Sơ cấp 2 · Bài giảng</title>
+<link rel="icon" href="../../img/favicon-48.png" sizes="48x48">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<style>
+:root{
+  --ground:#F7F5FB;--ground2:#EFEBF7;--ink:#2B2E45;--muted:#6B6E86;--faint:#A3A5B8;--line:#E3DFEE;
+  --card:#FFFFFF;
+  --coral:#E0545F;--coral-s:#FDE6E7;--sky:#3B87D6;--sky-s:#E3EFFB;--mint:#2E9E73;--mint-s:#DDF3EA;
+  --butter:#C99A14;--butter-s:#FBF1CF;--lav:#7C6BD6;--lav-s:#ECE8FB;
+  --shadow:0 1px 0 rgba(43,46,69,.04),0 10px 28px rgba(43,46,69,.08);
+  --hz:"ZCOOL KuaiLe","STKaiti","KaiTi","PingFang SC",sans-serif;
+  --vi:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
+  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--butter-s:#3A321A;
+  --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{
+  color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
+  --coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--butter-s:#3A321A;
+  --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--vi);font-size:16px;line-height:1.6;
+  background-image:radial-gradient(circle at 10% 6%,var(--coral-s) 0,transparent 30%),radial-gradient(circle at 90% 16%,var(--sky-s) 0,transparent 28%)}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--ground) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:14px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand img{width:34px;height:34px;border-radius:8px}
+.brand b{font-weight:800;font-size:15px}
+.brand span{font-family:var(--hz);font-size:14px;color:var(--coral);margin-left:4px}
+.back{margin-left:auto;font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:999px;border:1.5px solid var(--line)}
+.back:hover{color:var(--coral);border-color:var(--coral)}
+
+/* hero */
+.hero{padding:clamp(32px,6vh,72px) 0 clamp(24px,4vh,52px)}
+.hero-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center}
+@media(max-width:640px){.hero-inner{grid-template-columns:1fr}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--coral-s);color:var(--coral);border-radius:999px;padding:4px 14px 4px 6px;font-size:13px;font-weight:700;margin-bottom:14px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--coral)}
+.hero h1{font-family:var(--hz);font-size:clamp(28px,4vw,48px);color:var(--coral);line-height:1.1;margin:0 0 6px}
+.hero h1 small{font-family:var(--vi);font-size:.48em;font-weight:600;color:var(--muted);display:block;margin-top:6px}
+.hero-stats{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.stat{background:var(--card);border-radius:999px;padding:5px 14px;font-size:13.5px;font-weight:600;border:1.5px solid var(--line)}
+.stat b{color:var(--coral)}
+.hero-logo{width:clamp(80px,14vw,140px);height:auto;opacity:.9}
+
+/* section head */
+.sh{display:flex;align-items:end;gap:12px;margin:36px 0 18px;flex-wrap:wrap}
+.sh h2{font-size:clamp(20px,2.4vw,28px);font-weight:800;margin:0}
+.sh p{margin:0;color:var(--muted);font-size:15px}
+
+/* lesson grid */
+.lessons{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:16px;padding-bottom:40px}
+.lesson{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;padding:16px;border-radius:20px;background:var(--card);box-shadow:var(--shadow);text-decoration:none;color:var(--ink);align-items:start;transition:transform .2s}
+.lesson:hover{transform:translateY(-3px)}
+.lesson .num{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;font-family:var(--hz);font-size:20px;background:var(--coral-s);color:var(--coral);font-weight:700}
+.lesson .info{display:grid;gap:3px}
+.lesson .tag{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--coral)}
+.lesson .title-zh{font-family:var(--hz);font-size:22px;line-height:1.1;color:var(--ink)}
+.lesson .title-vi{font-weight:700;font-size:14px;color:var(--muted)}
+.lesson .chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.lesson .chip{font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:999px;background:var(--coral-s);color:var(--coral)}
+.lesson.soon{opacity:.55;pointer-events:none}
+.lesson.soon .num{background:var(--ground2);color:var(--faint)}
+.lesson.soon .tag{color:var(--faint)}
+.lesson.soon .chip{background:var(--ground2);color:var(--faint)}
+</style>
+</head>
+<body>
+
+<header class="top">
+<div class="wrap">
+  <a class="brand" href="../../">
+    <img src="../../img/logo-hallo-128.png" alt="Lyu Laoshi">
+    <b>Lyu Laoshi</b><span>吕老师汉语盒</span>
+  </a>
+  <a class="back" href="../../">← Trang chủ</a>
+</div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge"><span class="dot"></span>课本盒 · Giáo trình</div>
+        <h1>发展汉语初级综合 II<small>Phát triển Hán ngữ Sơ cấp 2 · 北京语言大学出版社</small></h1>
+        <div class="hero-stats">
+          <span class="stat"><b>1</b> bài đã mở</span>
+          <span class="stat">Giáo trình <b>HSK 4–5</b></span>
+          <span class="stat">Từ mới · Ngữ pháp · Bài đọc · Luyện tập</span>
+        </div>
+      </div>
+      <img class="hero-logo" src="../../img/logo-hallo-128.png" alt="">
+    </div>
+  </section>
+
+  <div class="sh">
+    <h2>Danh sách bài học</h2>
+    <p>Bấm vào bài để học</p>
+  </div>
+
+  <div class="lessons">
+    <!-- BÀI 1 — đã mở -->
+    <a class="lesson" href="bai-1/">
+      <div class="num">一</div>
+      <div class="info">
+        <span class="tag">Bài 1 · Đã mở</span>
+        <span class="title-zh">入乡随俗</span>
+        <span class="title-vi">Nhập gia tùy tục</span>
+        <div class="chips">
+          <span class="chip">Văn hoá &amp; Phong tục</span>
+          <span class="chip">28 từ mới</span>
+          <span class="chip">3 ngữ pháp</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- BÀI 2–10 — sắp có -->
+    <div class="lesson soon"><div class="num">二</div><div class="info"><span class="tag">Sắp có</span><span class="title-zh">第二课</span></div></div>
+    <div class="lesson soon"><div class="num">三</div><div class="info"><span class="tag">Sắp có</span><span class="title-zh">第三课</span></div></div>
+    <div class="lesson soon"><div class="num">四</div><div class="info"><span class="tag">Sắp có</span><span class="title-zh">第四课</span></div></div>
+    <div class="lesson soon"><div class="num">五</div><div class="info"><span class="tag">Sắp có</span><span class="title-zh">第五课</span></div></div>
+    <div class="lesson soon"><div class="num">六</div><div class="info"><span class="tag">Sắp có</span><span class="title-zh">第六课</span></div></div>
+  </div>
+</main>
+
+</body>
+</html>

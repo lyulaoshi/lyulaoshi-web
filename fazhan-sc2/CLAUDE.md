@@ -20,4 +20,4 @@ Màu accent: ghi vào đây khi cô chọn (TTTC dùng `--c: var(--coral)` = #E0
 
 ## Bài đã có
 
-_(cập nhật khi thêm bài)_
+- `bai-1/` — Bài 1 · 入乡随俗 · Nhập gia tùy tục (28 từ, 3 ngữ pháp)
