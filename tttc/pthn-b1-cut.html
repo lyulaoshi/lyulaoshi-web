@@ -1,0 +1,785 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cắt audio – 入乡随俗 Bài 1</title>
+<style>
+:root{
+  --sky:#3b82f6;--green:#22c55e;--coral:#f87171;--orange:#f59e0b;
+  --ink:#1e293b;--muted:#64748b;--surface:#f8fafc;--surface2:#f1f5f9;
+  --line:#e2e8f0;--line2:#cbd5e1;
+  --hz:"Noto Serif SC","Source Han Serif SC",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--surface);color:var(--ink);height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+/* Drop zone */
+#drop-zone{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;height:100vh}
+#drop-zone h1{font-size:20px}
+.dz-box{border:2.5px dashed var(--line2);border-radius:20px;padding:40px 60px;text-align:center;cursor:pointer;transition:border-color .2s,background .2s}
+.dz-box:hover,.dz-box.over{border-color:var(--sky);background:#eff6ff}
+.dz-icon{width:48px;height:48px;color:var(--sky);margin:0 auto 12px}
+.dz-box p{font-size:15px;color:var(--muted);margin-top:6px}
+.dz-box b{color:var(--sky)}
+#file-input{display:none}
+
+/* Loading */
+#loading{display:none;position:fixed;inset:0;background:rgba(255,255,255,.85);align-items:center;justify-content:center;flex-direction:column;gap:12px;z-index:100}
+#loading p{color:var(--muted);font-size:14px}
+.spinner{width:32px;height:32px;border:3px solid var(--line);border-top-color:var(--sky);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Main */
+#main{display:none;flex:1;overflow:hidden;flex-direction:column}
+
+/* Progress bar */
+#prog-bar{height:4px;background:var(--line2);flex-shrink:0}
+#prog-fill{height:100%;background:var(--green);transition:width .3s;width:0}
+
+/* Layout */
+#layout{display:flex;flex:1;overflow:hidden}
+
+/* Item list */
+#list-panel{width:252px;flex-shrink:0;border-right:1px solid var(--line);overflow-y:auto;background:#fff}
+.list-section{padding:4px 0}
+.list-header{padding:6px 14px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;position:sticky;top:0;background:#fff;z-index:1;border-bottom:1px solid var(--line2)}
+.li{display:flex;align-items:center;gap:8px;padding:6px 14px;cursor:pointer;font-size:14px;border-left:3px solid transparent}
+.li:hover{background:var(--surface2)}
+.li.active{background:#eff6ff;border-left-color:var(--sky)}
+.li .num{font-size:11px;color:var(--muted);width:20px;flex-shrink:0;text-align:right}
+.li .txt{flex:1;font-family:var(--hz);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-none{background:var(--line2)}
+.dot-done{background:var(--green)}
+
+/* Right */
+#right{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+
+/* Waveform */
+#wf-wrap{padding:10px 14px 4px;background:#fff;border-bottom:1px solid var(--line);flex-shrink:0}
+#wf-overview{display:block;width:100%;height:24px;cursor:pointer;border-radius:4px;background:var(--surface2);margin-bottom:4px}
+#wf{display:block;width:100%;height:100px;cursor:crosshair;border-radius:6px;background:var(--surface2)}
+.wf-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:2px;padding:0 1px}
+.wf-zoom-row{display:flex;align-items:center;gap:5px;margin-top:5px;flex-wrap:wrap}
+.zoom-info{font-size:11px;color:var(--muted);flex:1}
+
+/* Controls */
+#ctrl{padding:10px 16px;background:#fff;border-bottom:1px solid var(--line);flex-shrink:0;display:flex;flex-direction:column;gap:8px}
+.time-row{display:flex;align-items:center;gap:10px}
+.big-time{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.02em;color:var(--ink);min-width:90px}
+.io-pair{display:flex;gap:6px;flex:1;align-items:stretch}
+.io-box{flex:1;background:var(--surface2);border-radius:8px;padding:5px 10px}
+.io-box .io-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase}
+.io-box .io-val{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--muted)}
+.io-box.has-in .io-val{color:var(--sky)}
+.io-box.has-out .io-val{color:var(--green)}
+.io-dur{font-size:11px;color:var(--muted);align-self:center;white-space:nowrap}
+.btn-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.btn{border:none;border-radius:999px;padding:6px 13px;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500;transition:opacity .15s}
+.btn:hover{opacity:.85}
+.btn:disabled{opacity:.35;cursor:default}
+.btn-sky{background:var(--sky);color:#fff}
+.btn-green{background:var(--green);color:#fff}
+.btn-ol{background:#fff;border:1.5px solid var(--line2);color:var(--ink)}
+.btn-ol:hover{border-color:var(--sky);color:var(--sky)}
+.btn-sm{padding:4px 10px;font-size:12px}
+.btn-xs{padding:3px 8px;font-size:11px}
+.btn-active{background:var(--sky)!important;color:#fff!important;border-color:var(--sky)!important}
+.kbd{display:inline-block;background:var(--surface2);border:1px solid var(--line2);border-radius:4px;padding:1px 4px;font-size:11px;font-family:monospace;color:var(--muted)}
+.shortcuts{display:flex;flex-wrap:wrap;gap:3px 10px;font-size:11px;color:var(--muted);padding-top:7px;border-top:1px solid var(--line)}
+
+/* Speed row */
+.speed-row{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}
+
+/* Item display */
+#item-pane{padding:14px 16px;flex:1;overflow-y:auto}
+.item-label{font-size:11px;text-transform:uppercase;font-weight:700;color:var(--muted);letter-spacing:.05em;margin-bottom:8px}
+.item-zh{font-family:var(--hz);font-size:22px;color:var(--ink);line-height:1.6;margin-bottom:4px}
+.item-status{font-size:13px;color:var(--muted);margin-bottom:10px}
+.item-nav{display:flex;gap:6px;flex-wrap:wrap}
+
+/* Export */
+#exp-pane{padding:12px 16px;background:var(--surface2);border-top:1px solid var(--line);flex-shrink:0}
+.exp-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.exp-head h3{font-size:13px;font-weight:700}
+.exp-btns{display:flex;gap:5px}
+#exp-box{font-family:monospace;font-size:11px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px;height:80px;overflow-y:auto;white-space:pre;color:var(--ink);line-height:1.5}
+
+/* Toast */
+#toast{position:fixed;bottom:20px;right:20px;background:var(--ink);color:#fff;border-radius:8px;padding:7px 14px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:200}
+#toast.show{opacity:1}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+</head>
+<body>
+
+<div id="drop-zone">
+  <h1>Cắt audio — Bài 1 入乡随俗</h1>
+  <div class="dz-box" id="dz-box" onclick="document.getElementById('file-input').click()">
+    <svg class="dz-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M9 19V6l12-3v13M9 19c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm12 0c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zM9 10l12-3"/>
+    </svg>
+    <b>Kéo thả file MP3</b>
+    <p>hoặc nhấn để chọn · pthn-b1.mp3</p>
+  </div>
+  <input type="file" id="file-input" accept="audio/*">
+</div>
+
+<div id="loading"><div class="spinner"></div><p>Đang phân tích audio…</p></div>
+
+<div id="main">
+  <div id="prog-bar"><div id="prog-fill"></div></div>
+  <div id="layout">
+
+    <!-- Item list -->
+    <div id="list-panel">
+      <div class="list-section">
+        <div class="list-header">生词 · Từ mới (28)</div>
+        <div id="list-vocab"></div>
+      </div>
+      <div class="list-section">
+        <div class="list-header">课文 · Bài đọc (23)</div>
+        <div id="list-reading"></div>
+      </div>
+    </div>
+
+    <!-- Right panel -->
+    <div id="right">
+
+      <!-- Waveform -->
+      <div id="wf-wrap">
+        <!-- Overview (toàn bộ audio) -->
+        <canvas id="wf-overview" title="Nhấp để seek; hiển thị toàn bộ audio"></canvas>
+        <!-- Zoom view -->
+        <canvas id="wf"></canvas>
+        <div class="wf-labels">
+          <span id="wf-t0">0:00</span>
+          <span id="wf-tmid">—</span>
+          <span id="wf-tend">—</span>
+        </div>
+        <div class="wf-zoom-row">
+          <span class="zoom-info" id="zoom-info">Toàn bộ</span>
+          <button class="btn btn-ol btn-xs" onclick="zoomToSegment()" title="V">Zoom đoạn</button>
+          <button class="btn btn-ol btn-xs" onclick="zoomIn()" title="+">Phóng to +</button>
+          <button class="btn btn-ol btn-xs" onclick="zoomOut()" title="-">Thu nhỏ −</button>
+          <button class="btn btn-ol btn-xs" onclick="zoomReset()" title="Esc">Toàn bộ</button>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div id="ctrl">
+        <div class="time-row">
+          <div class="big-time" id="cur-time">0:00.0</div>
+          <div class="io-pair">
+            <div class="io-box" id="io-in">
+              <div class="io-label">IN <span class="kbd">[</span></div>
+              <div class="io-val" id="val-in">—</div>
+            </div>
+            <div class="io-box" id="io-out">
+              <div class="io-label">OUT <span class="kbd">]</span></div>
+              <div class="io-val" id="val-out">—</div>
+            </div>
+            <div class="io-dur" id="io-dur"></div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-sky" id="btn-play" onclick="togglePlay()">▶ Phát</button>
+          <button class="btn btn-ol btn-sm" onclick="seekRel(-0.05)">‹ 0.05s</button>
+          <button class="btn btn-ol btn-sm" onclick="seekRel(0.05)">0.05s ›</button>
+          <button class="btn btn-ol btn-sm" onclick="seekRel(-0.5)">‹ 0.5s</button>
+          <button class="btn btn-ol btn-sm" onclick="seekRel(0.5)">0.5s ›</button>
+          <button class="btn btn-ol btn-sm" onclick="seekRel(-2)">‹‹ 2s</button>
+          <button class="btn btn-ol btn-sm" onclick="seekRel(2)">2s ››</button>
+          <button class="btn btn-ol" onclick="markIn()">[ IN</button>
+          <button class="btn btn-ol" onclick="markOut()">] OUT</button>
+          <button class="btn btn-green" onclick="playSegment()">▶ Nghe đoạn</button>
+        </div>
+        <div class="speed-row">
+          Tốc độ:
+          <button class="btn btn-ol btn-xs" id="sp50" onclick="setSpeed(0.5)">×0.5</button>
+          <button class="btn btn-ol btn-xs" id="sp75" onclick="setSpeed(0.75)">×0.75</button>
+          <button class="btn btn-ol btn-xs btn-active" id="sp100" onclick="setSpeed(1)">×1.0</button>
+          <button class="btn btn-ol btn-xs" id="sp125" onclick="setSpeed(1.25)">×1.25</button>
+        </div>
+        <div class="shortcuts">
+          <span><span class="kbd">Space</span> phát/dừng</span>
+          <span><span class="kbd">← →</span> ±0.05s</span>
+          <span><span class="kbd">Shift+← →</span> ±0.5s</span>
+          <span><span class="kbd">Ctrl+← →</span> ±2s</span>
+          <span><span class="kbd">[</span> IN</span>
+          <span><span class="kbd">]</span> OUT</span>
+          <span><span class="kbd">P</span> nghe đoạn</span>
+          <span><span class="kbd">↑ ↓</span> trước/sau</span>
+          <span><span class="kbd">Enter</span> lưu &amp; tiếp</span>
+          <span><span class="kbd">V</span> zoom đoạn</span>
+          <span><span class="kbd">+ −</span> zoom</span>
+          <span><span class="kbd">Esc</span> toàn bộ</span>
+        </div>
+      </div>
+
+      <!-- Current item -->
+      <div id="item-pane">
+        <div class="item-label" id="item-lbl">Chọn một mục để bắt đầu</div>
+        <div class="item-zh" id="item-zh">—</div>
+        <div class="item-status" id="item-st"></div>
+        <div class="item-nav">
+          <button class="btn btn-ol btn-sm" onclick="prevItem()">↑ Trước</button>
+          <button class="btn btn-ol btn-sm" onclick="nextItem()">↓ Tiếp</button>
+          <button class="btn btn-sky btn-sm" onclick="saveAndNext()">Lưu &amp; tiếp →</button>
+          <button class="btn btn-ol btn-sm" onclick="clearCur()" style="color:var(--coral);border-color:var(--coral)">Xoá</button>
+        </div>
+      </div>
+
+      <!-- Export -->
+      <div id="exp-pane">
+        <div class="exp-head">
+          <h3>Timestamps (<span id="done-count">0</span>/51)</h3>
+          <div class="exp-btns">
+            <button class="btn btn-ol btn-sm" onclick="copyJSON()">JSON</button>
+            <button class="btn btn-sky btn-sm" onclick="copyJS()">Sao chép JS</button>
+          </div>
+        </div>
+        <div id="exp-box"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<audio id="audio" style="display:none"></audio>
+<div id="toast"></div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────
+const VOCAB = [
+  "入乡随俗","渐渐","迟到","着","不好意思","为了","闹钟","懒虫",
+  "该","感谢","打招呼","有些","问好","而","奇怪","下面",
+  "邻居","对话","伞","肯定","却","挺","亲切","熟人",
+  "回答","成语","适应","风俗"
+];
+const READING = [
+  "来中国半年多了，我已经渐渐地习惯了这里的生活。",
+  "刚来中国的时候，最不习惯的是早上八点钟上课。",
+  "因为我是个夜猫子，喜欢晚睡晚起，所以经常迟到。",
+  "你进教室的时候，别人正在上课呢，大家都看着你，真不好意思。",
+  "为了不迟到，我买了一个闹钟。",
+  "每天早上一到七点钟，它就大叫：“懒虫，该起床了！懒虫，该起床了！”",
+  "虽然不好听，我还不能不感谢它。",
+  "因为有了它，我现在已经很少迟到了。",
+  "我还有一件不习惯的事，就是打招呼。",
+  "有些中国人和我见面不是问好，而是问一些奇怪的问题。",
+  "下面就是今天早上我和邻居的对话：",
+  "“早！”",
+  "“早上好！”",
+  "“吃了吗？”",
+  "“吃了。”",
+  "“去上课呀？”",
+  "“是。”",
+  "“外面正下着雨呢，带伞了吗？”",
+  "“谢谢，我带着呢。”",
+  "这要是在半年以前，有人这样跟我打招呼，我肯定生气了。",
+  "可是，现在我却觉得挺亲切的，因为我知道，他们跟熟人才这么打招呼。",
+  "要是你不想回答他们的问题，问好就可以了。",
+  "中国有一个成语叫\"入乡随俗\"，意思是：到了一个新的地方，就要适应那里的风俗习惯。"
+];
+const TOTAL = VOCAB.length + READING.length; // 51
+
+// State
+let tVocab  = Array(VOCAB.length).fill(null);
+let tReading = Array(READING.length).fill(null);
+let curType = 'vocab', curIdx = 0;
+let inPt = null, outPt = null;
+let watching = false; // auto-stop at outPt
+
+const audio = document.getElementById('audio');
+let dur = 0;
+let abuf = null;          // full AudioBuffer (for zoom redraw)
+let wfImg = null;         // ImageData snapshot of zoom waveform
+let wfCtx = null;
+let ovCtx = null;         // overview canvas context
+let ovImg = null;         // ImageData snapshot of overview
+
+// Zoom viewport (in seconds)
+let vStart = 0, vEnd = null; // null means full duration
+
+// ── LOCALSTORAGE ──────────────────────────────────────────────────────────
+function lsLoad(){
+  try{
+    const v=localStorage.getItem('b1cut-v'), r=localStorage.getItem('b1cut-r');
+    if(v) tVocab=JSON.parse(v);
+    if(r) tReading=JSON.parse(r);
+  }catch(e){}
+}
+function lsSave(){
+  try{
+    localStorage.setItem('b1cut-v',JSON.stringify(tVocab));
+    localStorage.setItem('b1cut-r',JSON.stringify(tReading));
+  }catch(e){}
+}
+
+// ── FILE LOADING ──────────────────────────────────────────────────────────
+const dz=document.getElementById('dz-box');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('over')});
+dz.addEventListener('dragleave',()=>dz.classList.remove('over'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('over');loadFile(e.dataTransfer.files[0])});
+document.getElementById('file-input').addEventListener('change',e=>loadFile(e.target.files[0]));
+
+function loadFile(file){
+  if(!file) return;
+  document.getElementById('loading').style.display='flex';
+  audio.src=URL.createObjectURL(file);
+  file.arrayBuffer().then(buf=>{
+    const ac=new AudioContext();
+    return ac.decodeAudioData(buf);
+  }).then(buf=>{
+    abuf=buf; dur=buf.duration;
+    updateTimeLbls();
+    drawOverview();
+    renderWaveform();
+    showMain();
+  }).catch(()=>{
+    audio.onloadedmetadata=()=>{dur=audio.duration;updateTimeLbls();showMain()};
+  });
+}
+
+function showMain(){
+  document.getElementById('loading').style.display='none';
+  document.getElementById('drop-zone').style.display='none';
+  const m=document.getElementById('main');
+  m.style.display='flex';
+  buildList();
+  selectItem('vocab',0);
+  updateExport();
+}
+
+// ── WAVEFORM ──────────────────────────────────────────────────────────────
+// Overview (full audio, thin bar)
+function drawOverview(){
+  const cv=document.getElementById('wf-overview');
+  const W=cv.offsetWidth||800, H=24;
+  cv.width=W; cv.height=H;
+  ovCtx=cv.getContext('2d');
+  if(!abuf){ovCtx.fillStyle='#e2e8f0';ovCtx.fillRect(0,0,W,H);return;}
+  const data=abuf.getChannelData(0);
+  const step=Math.ceil(data.length/W);
+  const amp=H/2;
+  ovCtx.fillStyle='#f1f5f9';ovCtx.fillRect(0,0,W,H);
+  ovCtx.strokeStyle='#94a3b8';ovCtx.lineWidth=1;
+  ovCtx.beginPath();
+  for(let x=0;x<W;x++){
+    let mx=0;
+    for(let i=x*step,e=Math.min((x+1)*step,data.length);i<e;i++) mx=Math.max(mx,Math.abs(data[i]));
+    const h=mx*amp*1.8;
+    ovCtx.moveTo(x+.5,amp-h);ovCtx.lineTo(x+.5,amp+h);
+  }
+  ovCtx.stroke();
+  ovImg=ovCtx.getImageData(0,0,W,H);
+  drawOverviewOverlay(audio.currentTime);
+}
+
+function drawOverviewOverlay(t){
+  if(!ovCtx||!ovImg) return;
+  const cv=document.getElementById('wf-overview');
+  const W=cv.width, H=cv.height;
+  ovCtx.putImageData(ovImg,0,0);
+  if(!dur) return;
+  // Viewport region shading
+  const vs=vStart, ve=vEnd??dur;
+  const x0=vs/dur*W, x1=ve/dur*W;
+  if(x1-x0<W-1){
+    ovCtx.fillStyle='rgba(59,130,246,.12)';
+    ovCtx.fillRect(x0,0,x1-x0,H);
+    ovCtx.strokeStyle='rgba(59,130,246,.5)';ovCtx.lineWidth=1;
+    ovCtx.strokeRect(x0,0,x1-x0,H);
+  }
+  // Playhead
+  const xp=t/dur*W;
+  ovCtx.strokeStyle='#f87171';ovCtx.lineWidth=1.5;
+  ovCtx.beginPath();ovCtx.moveTo(xp,0);ovCtx.lineTo(xp,H);ovCtx.stroke();
+}
+
+// Zoom waveform
+function renderWaveform(){
+  const cv=document.getElementById('wf');
+  const W=cv.offsetWidth||800, H=100;
+  cv.width=W; cv.height=H;
+  wfCtx=cv.getContext('2d');
+
+  wfCtx.fillStyle='#f1f5f9';wfCtx.fillRect(0,0,W,H);
+  if(!abuf){wfImg=wfCtx.getImageData(0,0,W,H);return;}
+
+  const vs=vStart, ve=vEnd??dur;
+  const sr=abuf.sampleRate;
+  const data=abuf.getChannelData(0);
+  const s0=Math.floor(vs*sr), s1=Math.min(Math.ceil(ve*sr),data.length);
+  const totalS=s1-s0;
+  const amp=H/2;
+
+  wfCtx.strokeStyle='#94a3b8';wfCtx.lineWidth=1;
+  wfCtx.beginPath();
+  for(let x=0;x<W;x++){
+    const si=s0+Math.floor(x*totalS/W);
+    const ei=Math.min(s0+Math.floor((x+1)*totalS/W)+1,s1);
+    let mx=0;
+    for(let i=si;i<ei;i++) mx=Math.max(mx,Math.abs(data[i]));
+    const h=mx*amp*1.8;
+    wfCtx.moveTo(x+.5,amp-h);wfCtx.lineTo(x+.5,amp+h);
+  }
+  wfCtx.stroke();
+  wfImg=wfCtx.getImageData(0,0,W,H);
+  updateTimeLbls();
+  drawOverlay(audio.currentTime);
+}
+
+function updateTimeLbls(){
+  const vs=vStart, ve=vEnd??dur;
+  document.getElementById('wf-t0').textContent=fmt(vs);
+  document.getElementById('wf-tmid').textContent=fmt((vs+ve)/2);
+  document.getElementById('wf-tend').textContent=fmt(ve);
+  const zoomed=(vStart>0.01||vEnd!==null);
+  document.getElementById('zoom-info').textContent=
+    zoomed?`Đang xem: ${fmt(vs)} – ${fmt(ve)}  (${fmt(ve-vs)} / ${fmt(dur)})`:'Toàn bộ: '+fmt(dur);
+}
+
+function drawOverlay(t){
+  if(!wfCtx||!wfImg) return;
+  const cv=document.getElementById('wf');
+  const W=cv.width, H=cv.height;
+  const vs=vStart, ve=vEnd??dur, viewDur=ve-vs;
+  const toX=s=>(s-vs)/viewDur*W;
+
+  wfCtx.putImageData(wfImg,0,0);
+  if(!dur) return;
+
+  // IN→OUT fill
+  if(inPt!==null){
+    const x0=toX(inPt);
+    const x1=outPt!==null?toX(outPt):toX(t);
+    const lo=Math.min(x0,x1), hi=Math.max(x0,x1);
+    wfCtx.fillStyle='rgba(59,130,246,.18)';
+    wfCtx.fillRect(Math.max(0,lo),0,Math.min(W,hi)-Math.max(0,lo),H);
+    // IN line
+    if(x0>=-2&&x0<=W+2){
+      wfCtx.strokeStyle='#3b82f6';wfCtx.lineWidth=2;
+      wfCtx.beginPath();wfCtx.moveTo(x0,0);wfCtx.lineTo(x0,H);wfCtx.stroke();
+    }
+  }
+  if(outPt!==null){
+    const x1=toX(outPt);
+    if(x1>=-2&&x1<=W+2){
+      wfCtx.strokeStyle='#22c55e';wfCtx.lineWidth=2;
+      wfCtx.beginPath();wfCtx.moveTo(x1,0);wfCtx.lineTo(x1,H);wfCtx.stroke();
+    }
+  }
+  // Playhead
+  const xp=toX(t);
+  if(xp>=-2&&xp<=W+2){
+    wfCtx.strokeStyle='#f87171';wfCtx.lineWidth=1.5;
+    wfCtx.beginPath();wfCtx.moveTo(xp,0);wfCtx.lineTo(xp,H);wfCtx.stroke();
+  }
+}
+
+// Click zoom canvas → seek
+document.getElementById('wf').addEventListener('click',e=>{
+  if(!dur) return;
+  const r=e.currentTarget.getBoundingClientRect();
+  const ratio=(e.clientX-r.left)/r.width;
+  const vs=vStart, ve=vEnd??dur;
+  audio.currentTime=vs+ratio*(ve-vs);
+});
+// Click overview → seek
+document.getElementById('wf-overview').addEventListener('click',e=>{
+  if(!dur) return;
+  const r=e.currentTarget.getBoundingClientRect();
+  audio.currentTime=(e.clientX-r.left)/r.width*dur;
+});
+
+// ── ZOOM ──────────────────────────────────────────────────────────────────
+function zoomIn(){
+  const vs=vStart, ve=vEnd??dur;
+  const center=Math.max(vs,Math.min(ve,audio.currentTime));
+  const half=(ve-vs)*0.25; // zoom to 50% of current window
+  vStart=Math.max(0,center-half);
+  vEnd=Math.min(dur,center+half);
+  if(vEnd-vStart<0.5){vStart=Math.max(0,center-.25);vEnd=Math.min(dur,center+.25);}
+  renderWaveform(); drawOverviewOverlay(audio.currentTime);
+}
+function zoomOut(){
+  const vs=vStart, ve=vEnd??dur;
+  const center=(vs+ve)/2;
+  const half=(ve-vs);
+  vStart=Math.max(0,center-half);
+  vEnd=Math.min(dur,center+half);
+  if(vStart===0&&vEnd>=dur) vEnd=null;
+  renderWaveform(); drawOverviewOverlay(audio.currentTime);
+}
+function zoomReset(){
+  vStart=0; vEnd=null;
+  renderWaveform(); drawOverviewOverlay(audio.currentTime);
+}
+function zoomToSegment(){
+  if(inPt===null){toast('Chưa đánh IN');return;}
+  const a=inPt, b=outPt??inPt+2;
+  const pad=Math.max(1.5,(b-a)*0.6);
+  vStart=Math.max(0,a-pad);
+  vEnd=Math.min(dur,b+pad);
+  renderWaveform(); drawOverviewOverlay(audio.currentTime);
+}
+
+// ── AUDIO ─────────────────────────────────────────────────────────────────
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  document.getElementById('cur-time').textContent=fmt(t,true);
+  drawOverlay(t); drawOverviewOverlay(t);
+  if(watching&&outPt!==null&&t>=outPt){audio.pause();watching=false;}
+});
+audio.addEventListener('play',()=>document.getElementById('btn-play').textContent='⏸ Dừng');
+audio.addEventListener('pause',()=>document.getElementById('btn-play').textContent='▶ Phát');
+
+function togglePlay(){audio.paused?audio.play():audio.pause();}
+function seekRel(d){audio.currentTime=Math.max(0,Math.min(dur,audio.currentTime+d));}
+
+function markIn(){
+  inPt=audio.currentTime;
+  document.getElementById('val-in').textContent=fmt(inPt,true);
+  document.getElementById('io-in').className='io-box has-in';
+  updateDurLabel();
+  drawOverlay(audio.currentTime);
+}
+function markOut(){
+  outPt=audio.currentTime;
+  document.getElementById('val-out').textContent=fmt(outPt,true);
+  document.getElementById('io-out').className='io-box has-out';
+  updateDurLabel();
+  drawOverlay(audio.currentTime);
+}
+function updateDurLabel(){
+  const el=document.getElementById('io-dur');
+  if(inPt!==null&&outPt!==null){
+    const d=Math.abs(outPt-inPt);
+    el.textContent=d.toFixed(2)+'s';
+  } else { el.textContent=''; }
+}
+function playSegment(){
+  if(inPt===null){toast('Chưa đánh điểm IN');return;}
+  audio.currentTime=inPt;
+  watching=true; audio.play();
+}
+
+// ── SPEED ─────────────────────────────────────────────────────────────────
+function setSpeed(r){
+  audio.playbackRate=r;
+  [0.5,0.75,1,1.25].forEach(s=>{
+    const el=document.getElementById('sp'+String(s).replace('.',''));
+    if(el) el.classList.toggle('btn-active',s===r);
+  });
+}
+
+// ── ITEM LIST ─────────────────────────────────────────────────────────────
+function buildList(){
+  document.getElementById('list-vocab').innerHTML=
+    VOCAB.map((w,i)=>`<div class="li" id="lv${i}" onclick="selectItem('vocab',${i})">
+      <span class="num">${i+1}</span>
+      <span class="txt">${w}</span>
+      <span class="dot dot-none" id="dv${i}"></span>
+    </div>`).join('');
+
+  document.getElementById('list-reading').innerHTML=
+    READING.map((s,i)=>{
+      const p=s.length>14?s.slice(0,14)+'…':s;
+      return `<div class="li" id="lr${i}" onclick="selectItem('reading',${i})">
+        <span class="num">${i+1}</span>
+        <span class="txt">${p}</span>
+        <span class="dot dot-none" id="dr${i}"></span>
+      </div>`;
+    }).join('');
+
+  VOCAB.forEach((_,i)=>refreshDot('vocab',i));
+  READING.forEach((_,i)=>refreshDot('reading',i));
+  updateProgress();
+}
+
+function refreshDot(type,idx){
+  const t=type==='vocab'?tVocab[idx]:tReading[idx];
+  const el=document.getElementById((type==='vocab'?'dv':'dr')+idx);
+  if(el) el.className='dot '+(t?'dot-done':'dot-none');
+}
+
+function selectItem(type,idx){
+  document.querySelector('.li.active')?.classList.remove('active');
+  curType=type; curIdx=idx;
+  document.getElementById((type==='vocab'?'lv':'lr')+idx).classList.add('active');
+
+  // Load marks
+  const t=type==='vocab'?tVocab[idx]:tReading[idx];
+  if(t){
+    inPt=t[0]; outPt=t[1];
+    document.getElementById('val-in').textContent=fmt(inPt,true);
+    document.getElementById('val-out').textContent=fmt(outPt,true);
+    document.getElementById('io-in').className='io-box has-in';
+    document.getElementById('io-out').className='io-box has-out';
+    updateDurLabel();
+    // Seek đến IN, zoom vào đoạn
+    if(dur>0){
+      audio.currentTime=inPt;
+      const pad=Math.max(1.5,(outPt-inPt)*0.6);
+      vStart=Math.max(0,inPt-pad);
+      vEnd=Math.min(dur,outPt+pad);
+      renderWaveform(); drawOverviewOverlay(inPt);
+    }
+  } else {
+    inPt=null; outPt=null;
+    document.getElementById('val-in').textContent='—';
+    document.getElementById('val-out').textContent='—';
+    document.getElementById('io-in').className='io-box';
+    document.getElementById('io-out').className='io-box';
+    document.getElementById('io-dur').textContent='';
+  }
+
+  document.getElementById('item-lbl').textContent=
+    type==='vocab'?`生词 ${idx+1}/${VOCAB.length}`:`课文 câu ${idx+1}/${READING.length}`;
+  document.getElementById('item-zh').textContent=
+    type==='vocab'?VOCAB[idx]:READING[idx];
+  document.getElementById('item-st').textContent=
+    t?`✓ ${fmt(t[0],true)} → ${fmt(t[1],true)}  (${(t[1]-t[0]).toFixed(2)}s)`:'Chưa đánh dấu';
+
+  document.getElementById((type==='vocab'?'lv':'lr')+idx)
+    .scrollIntoView({block:'nearest'});
+  if(!(t&&dur>0)) drawOverlay(audio.currentTime);
+}
+
+function saveAndNext(){
+  if(inPt===null||outPt===null){toast('Cần đánh cả IN và OUT');return;}
+  const arr=curType==='vocab'?tVocab:tReading;
+  const lo=Math.min(inPt,outPt), hi=Math.max(inPt,outPt);
+  arr[curIdx]=[+lo.toFixed(2),+hi.toFixed(2)];
+  lsSave();
+  refreshDot(curType,curIdx);
+  updateProgress(); updateExport();
+  document.getElementById('item-st').textContent=`✓ ${fmt(lo,true)} → ${fmt(hi,true)}  (${(hi-lo).toFixed(2)}s)`;
+  toast('Đã lưu!');
+  nextItem();
+}
+
+function clearCur(){
+  const arr=curType==='vocab'?tVocab:tReading;
+  arr[curIdx]=null;
+  lsSave();
+  inPt=null; outPt=null;
+  document.getElementById('val-in').textContent='—';
+  document.getElementById('val-out').textContent='—';
+  document.getElementById('io-in').className='io-box';
+  document.getElementById('io-out').className='io-box';
+  document.getElementById('io-dur').textContent='';
+  refreshDot(curType,curIdx);
+  updateProgress(); updateExport();
+  document.getElementById('item-st').textContent='Chưa đánh dấu';
+  drawOverlay(audio.currentTime);
+}
+
+function prevItem(){
+  if(curType==='vocab'){
+    if(curIdx>0) selectItem('vocab',curIdx-1);
+  } else {
+    if(curIdx>0) selectItem('reading',curIdx-1);
+    else selectItem('vocab',VOCAB.length-1);
+  }
+}
+function nextItem(){
+  if(curType==='vocab'){
+    if(curIdx<VOCAB.length-1) selectItem('vocab',curIdx+1);
+    else selectItem('reading',0);
+  } else {
+    if(curIdx<READING.length-1) selectItem('reading',curIdx+1);
+    else toast('Đã đánh hết tất cả mục!');
+  }
+}
+
+// ── KEYBOARD ──────────────────────────────────────────────────────────────
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
+  switch(e.key){
+    case ' ':        e.preventDefault(); togglePlay(); break;
+    case 'ArrowLeft':
+      e.preventDefault();
+      if(e.ctrlKey||e.metaKey) seekRel(-2);
+      else if(e.shiftKey) seekRel(-0.5);
+      else seekRel(-0.05); break;
+    case 'ArrowRight':
+      e.preventDefault();
+      if(e.ctrlKey||e.metaKey) seekRel(2);
+      else if(e.shiftKey) seekRel(0.5);
+      else seekRel(0.05); break;
+    case 'ArrowUp':   e.preventDefault(); prevItem(); break;
+    case 'ArrowDown': e.preventDefault(); nextItem(); break;
+    case '[':        markIn(); break;
+    case ']':        markOut(); break;
+    case 'p': case 'P': playSegment(); break;
+    case 'Enter':    e.preventDefault(); saveAndNext(); break;
+    case 'v': case 'V': zoomToSegment(); break;
+    case '+': case '=': e.preventDefault(); zoomIn(); break;
+    case '-':        e.preventDefault(); zoomOut(); break;
+    case 'Escape':   zoomReset(); break;
+  }
+});
+
+// ── EXPORT ────────────────────────────────────────────────────────────────
+function updateProgress(){
+  const d=tVocab.filter(Boolean).length+tReading.filter(Boolean).length;
+  document.getElementById('done-count').textContent=d;
+  document.getElementById('prog-fill').style.width=(d/TOTAL*100)+'%';
+}
+
+function mkJS(){
+  const v=tVocab.map(t=>t?`[${t[0]},${t[1]}]`:'null').join(',');
+  const r=tReading.map(t=>t?`[${t[0]},${t[1]}]`:'null').join(',');
+  return `const T_VOCAB=[${v}];\nconst T_READING=[${r}];`;
+}
+function mkJSON(){
+  return JSON.stringify({vocab:tVocab,reading:tReading},null,2);
+}
+function updateExport(){document.getElementById('exp-box').textContent=mkJS();}
+function copyJS(){navigator.clipboard.writeText(mkJS()).then(()=>toast('Đã sao chép JS!'));}
+function copyJSON(){navigator.clipboard.writeText(mkJSON()).then(()=>toast('Đã sao chép JSON!'));}
+
+// ── UTILS ─────────────────────────────────────────────────────────────────
+function fmt(s,ms=false){
+  const m=Math.floor(s/60), sec=s%60;
+  return ms?`${m}:${sec.toFixed(1).padStart(4,'0')}`:`${m}:${String(Math.floor(sec)).padStart(2,'0')}`;
+}
+function toast(msg){
+  const el=document.getElementById('toast');
+  el.textContent=msg; el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'),2000);
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+lsLoad();
+
+// Tự load audio từ cùng thư mục nếu có
+// Fetch buffer không cần gesture; AudioContext cần gesture → hiện nút bấm
+(async function autoLoad(){
+  const url = 'pthn-b1.mp3';
+  try {
+    const res = await fetch(url, {method:'HEAD'});
+    if(!res.ok) return;
+    document.getElementById('drop-zone').style.display='none';
+    document.getElementById('loading').style.display='flex';
+    audio.src = url;
+    const rawBuf = await fetch(url).then(r=>r.arrayBuffer());
+    // Phải có gesture mới tạo được AudioContext → đổi spinner thành nút
+    const ld = document.getElementById('loading');
+    ld.innerHTML = '<button id="start-btn" style="font-size:17px;padding:14px 36px;border-radius:999px;border:none;background:#3b82f6;color:#fff;cursor:pointer;font-family:inherit;font-weight:600;box-shadow:0 2px 8px rgba(59,130,246,.4)">▶ Bắt đầu cắt audio</button>';
+    document.getElementById('start-btn').onclick = async () => {
+      ld.innerHTML = '<div class="spinner"></div><p style="color:#64748b;font-size:14px">Đang xử lý sóng âm…</p>';
+      const ac = new AudioContext();
+      const decoded = await ac.decodeAudioData(rawBuf);
+      abuf = decoded; dur = decoded.duration;
+      updateTimeLbls(); drawOverview(); renderWaveform(); showMain();
+    };
+  } catch(e) { /* fallback: kéo thả thủ công */ }
+})();
+</script>
+</body>
+</html>
