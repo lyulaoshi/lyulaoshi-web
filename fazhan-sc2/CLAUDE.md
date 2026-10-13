@@ -14,7 +14,8 @@ Màu accent: ghi vào đây khi cô chọn (TTTC dùng `--c: var(--coral)` = #E0
 
 ## Tools
 
-- Soạn bài ở project riêng `Documents/…` → chép sang đây
+- Soạn bài ở project riêng `Documents/Fazhan/` → chép sang đây
+- Công cụ cắt audio: `pthn-b1-cut.html` (trong `Documents/Fazhan/`)
 - Sau khi thêm bài: `shared/python/bin/python3 tools/build_site.py --onedrive`
 - Thêm vào `TEXTBOOKS` trong `tools/build_site.py` nếu chưa có
 
