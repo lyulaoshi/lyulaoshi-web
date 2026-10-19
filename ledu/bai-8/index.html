@@ -469,7 +469,24 @@
   .hv-cap{font-size:.78em; color:var(--muted); font-weight:700;}
   .hv-line{margin:.15rem 0;}
   .hv-line .cnbody{font-size:1.5rem; font-weight:700; color:var(--purple); margin-right:.3rem;}
+  .pc0{color:#0F9D8F!important;}
+  .pc1{color:#E0559A!important;}
+  .picto-pinyin .pc0, .picto-pinyin .pc1{font-weight:800;}
+  .joke-py{display:none; font-family:"Noto Sans",sans-serif; font-size:.95rem; color:var(--muted); line-height:1.5; margin:0 0 .7rem;}
+  .joke-box.show-py .joke-py{display:block;}
+  .picto-head{flex-wrap:wrap;}
+  .picto-hanviet{max-width:none; flex:1 1 260px;}
+  .hv-block{display:flex; gap:10px; align-items:flex-start; margin:0 0 .6rem;}
+  .hv-block + .hv-block{border-top:1px dashed #ddd; padding-top:.5rem;}
+  .hv-han{font-size:2.2rem; font-weight:700; line-height:1.1; min-width:2.4rem; text-align:center;}
+  .hv-rows{font-size:1rem; font-weight:500; line-height:1.5; min-width:0;}
+  .hv-lb{font-weight:800; color:var(--ink);}
+  .hv-rows .cnbody{font-size:1.2rem; font-weight:700;}
+  .hv-rows .hv-nghia{font-weight:600;}
   @media (max-width:640px){
+    .picto-hanviet{max-width:none; font-size:.9rem;}
+    .hv-rows{font-size:.9rem;}
+    .hv-han{font-size:1.8rem; min-width:2rem;}
     .sect-head-han{font-size:2.1rem;}
     .pair-c .cnbody, .poly-head .cnbody{font-size:3rem;}
     .cls-w{font-size:1.7rem;}
@@ -732,6 +749,37 @@ const sectDefs=[
   {num:"三", han:"多音字", sym:"", title:"Chữ đa âm", vi:"một chữ, nhiều cách đọc", id:"sect-duo"}
 ];
 
+
+// ---- Cấu tạo chữ: st = kết cấu, parts = thành phần, ty = kiểu chữ, ex = giải thích, bt = bộ thủ ----
+const CHAR_INFO={
+ "字":{st:"上下结构",parts:"宀 + 子",ty:"会意兼形声",ex:"宀 (mái nhà) + 子 (con): con cái sinh ra trong nhà → sinh sôi; 子 còn gợi âm (zǐ ~ zì)",bt:"宀",btv:"bộ miên (mái nhà)"},
+ "学":{st:"上下结构",parts:"⺍ + 冖 + 子",ty:"会意字",ex:"trẻ con (子) học dưới mái nhà (冖)",bt:"子",btv:"bộ tử (con)"},
+ "高":{st:"上下结构",parts:"亠 + 冂 + 口",ty:"象形字",ex:"giống hình toà lầu cao",bt:"亠",btv:"bộ đầu"},
+ "商":{st:"上下结构",parts:"亠 + 冂 + 丷 + 口",ty:"形声字",ex:"chữ cổ; dạng hiện đại khó tách ý – âm, nhớ theo cả khối",bt:"口",btv:"bộ khẩu (miệng)"},
+ "住":{st:"左右结构",parts:"亻 + 主",ty:"形声字",ex:"亻 (người) gợi nghĩa · 主 (zhǔ) gợi âm",bt:"亻",btv:"bộ nhân đứng (人)"},
+ "往":{st:"左右结构",parts:"彳 + 主",ty:"形声字",ex:"彳 (bước đi) gợi nghĩa · 主 (zhǔ) gợi âm",bt:"彳",btv:"bộ xích (bước chân)"},
+ "休":{st:"左右结构",parts:"亻 + 木",ty:"会意字",ex:"người (亻) dựa vào gốc cây (木) để nghỉ ngơi",bt:"亻",btv:"bộ nhân đứng (人)"},
+ "体":{st:"左右结构",parts:"亻 + 本",ty:"会意字",ex:"người (亻) và gốc rễ (本): thân thể là gốc của con người",bt:"亻",btv:"bộ nhân đứng (人)"},
+ "常":{st:"上下结构",parts:"尚 + 巾",ty:"形声字",ex:"巾 (khăn, vải) gợi nghĩa · 尚 (shàng) gợi âm",bt:"巾",btv:"bộ cân (khăn)"},
+ "堂":{st:"上下结构",parts:"尚 + 土",ty:"形声字",ex:"土 (đất, nền) gợi nghĩa · 尚 (shàng) gợi âm",bt:"土",btv:"bộ thổ (đất)"},
+ "谁":{st:"左右结构",parts:"讠 + 隹",ty:"形声字",ex:"讠 (lời nói) gợi nghĩa · 隹 (zhuī) gợi âm",bt:"讠",btv:"bộ ngôn (言)"},
+ "准":{st:"左右结构",parts:"冫 + 隹",ty:"形声字",ex:"冫 gợi nghĩa · 隹 (zhuī) gợi âm",bt:"冫",btv:"bộ băng (hai chấm thuỷ)"},
+ "工":{st:"独体字",parts:"工",ty:"象形字",ex:"hình dụng cụ của người thợ",bt:"工",btv:"bộ công"},
+ "公":{st:"上下结构",parts:"八 + 厶",ty:"会意字",ex:"chia (八) cái riêng (厶) ra cho mọi người → chung, công",bt:"八",btv:"bộ bát (tám)"},
+ "医":{st:"半包围结构",parts:"匚 + 矢",ty:"会意字",ex:"cất (匚) mũi tên (矢): chữa vết thương → y học",bt:"匚",btv:"bộ phương (cái hộp)"},
+ "衣":{st:"独体字",parts:"衣",ty:"象形字",ex:"hình cổ áo, vạt áo",bt:"衣",btv:"bộ y (áo)"},
+ "飞":{st:"独体字",parts:"飞",ty:"象形字",ex:"hình chim vỗ cánh bay",bt:"飞",btv:"bộ phi (bay)"},
+ "啡":{st:"左右结构",parts:"口 + 非",ty:"形声字",ex:"口 (miệng) gợi nghĩa · 非 (fēi) gợi âm; dùng phiên âm 咖啡",bt:"口",btv:"bộ khẩu (miệng)"},
+ "蓝":{st:"上下结构",parts:"艹 + 监",ty:"形声字",ex:"艹 (cỏ cây, cây chàm) gợi nghĩa · 监 (jiān) gợi âm",bt:"艹",btv:"bộ thảo (cỏ)"},
+ "篮":{st:"上下结构",parts:"⺮ + 监",ty:"形声字",ex:"⺮ (tre) gợi nghĩa: giỏ đan bằng tre · 监 (jiān) gợi âm",bt:"⺮",btv:"bộ trúc (tre)"},
+ "长":{st:"独体字",parts:"长",ty:"象形字",ex:"hình người tóc dài → dài; người lớn lên → trưởng",bt:"长",btv:"bộ trường"},
+ "好":{st:"左右结构",parts:"女 + 子",ty:"会意字",ex:"người phụ nữ (女) có con (子) → tốt đẹp",bt:"女",btv:"bộ nữ"},
+ "觉":{st:"上下结构",parts:"⺍冖 + 见",ty:"形声字",ex:"见 (nhìn thấy, cảm nhận) gợi nghĩa · phần trên gợi âm (từ 学)",bt:"见",btv:"bộ kiến (nhìn)"},
+ "便":{st:"左右结构",parts:"亻 + 更",ty:"会意字",ex:"người (亻) sửa đổi (更) cho thuận tiện",bt:"亻",btv:"bộ nhân đứng (人)"},
+ "乐":{st:"独体字",parts:"乐",ty:"象形字",ex:"hình nhạc cụ có dây (chữ 樂 cổ) → nhạc, vui",bt:"丿",btv:"bộ phiệt (nét phẩy)"},
+ "教":{st:"左右结构",parts:"孝 + 攵",ty:"会意兼形声",ex:"攵 (tay cầm roi) gợi nghĩa dạy bảo · 孝 (xiào) gợi âm",bt:"攵",btv:"bộ phộc (đánh nhẹ)"}
+};
+
 // ---- 36 từ, 17 nhóm. ak = khoá audio (khi trùng chữ) ----
 const vocabGroups=[
   // (一) 形近字
@@ -831,7 +879,7 @@ const vocabGroups=[
   {sect:2, chars:[{h:"长",p:"cháng / zhǎng",hv:"trường · trưởng",nghia:"dài · mọc, lớn lên"}],
    items:[
      {w:"长", ak:"长_cháng", p:"cháng", pos:"Adj", mvi:"dài"},
-     {w:"长", ak:"长_zhǎng", p:"zhǎng", pos:"V", mvi:"mọc, lớn lên"}
+     {w:"长", ak:"长_zhǎng", rd:1, p:"zhǎng", pos:"V", mvi:"mọc, lớn lên"}
    ], audio:"r12", hl:"长",
    ex:"妹妹长高了，头发也长了。",
    exPinyin:"Mèimei zhǎng gāo le, tóufa yě cháng le.",
@@ -840,7 +888,7 @@ const vocabGroups=[
   {sect:2, chars:[{h:"好",p:"hǎo / hào",hv:"hảo · hiếu",nghia:"tốt · ưa thích"}],
    items:[
      {w:"好", p:"hǎo", pos:"Adj", mvi:"tốt, hay, giỏi", star:1},
-     {w:"爱好", p:"àihào", pos:"N", mvi:"sở thích"}
+     {w:"爱好", rd:1, p:"àihào", pos:"N", mvi:"sở thích"}
    ], audio:"r13", hl:"好",
    ex:"我的爱好是游泳。我游泳游得非常好。",
    exPinyin:"Wǒ de àihào shì yóuyǒng. Wǒ yóuyǒng yóu de fēicháng hǎo.",
@@ -848,7 +896,7 @@ const vocabGroups=[
   {sect:2, chars:[{h:"觉",p:"jué / jiào",hv:"giác",nghia:"cảm thấy · giấc ngủ"}],
    items:[
      {w:"觉得", p:"juéde", pos:"V", mvi:"cảm thấy, cho rằng"},
-     {w:"睡懒觉", p:"shuì lǎnjiào", pos:"", mvi:"ngủ nướng"}
+     {w:"睡懒觉", rd:1, p:"shuì lǎnjiào", pos:"", mvi:"ngủ nướng"}
    ], audio:"r14", hl:"觉",
    ex:"我觉得每个人都喜欢睡懒觉，可是爷爷、奶奶从来不¹睡懒觉。他们觉得喜欢睡懒觉的人都很懒。",
    exPinyin:"Wǒ juéde měi ge rén dōu xǐhuan shuì lǎnjiào, kěshì yéye, nǎinai cónglái bù shuì lǎnjiào. Tāmen juéde xǐhuan shuì lǎnjiào de rén dōu hěn lǎn.",
@@ -858,7 +906,7 @@ const vocabGroups=[
    items:[
      {w:"方便", p:"fāngbiàn", pos:"Adj", mvi:"thuận tiện, tiện"},
      {w:"方便面", p:"fāngbiànmiàn", pos:"N", mvi:"mì ăn liền", star:1},
-     {w:"便宜", p:"piányi", pos:"Adj", mvi:"rẻ"}
+     {w:"便宜", rd:1, p:"piányi", pos:"Adj", mvi:"rẻ"}
    ], audio:"r15", hl:"便",
    ex:"我每天中午吃方便面。吃方便面又便宜又方便，可是吃多了对身体不好。",
    exPinyin:"Wǒ měi tiān zhōngwǔ chī fāngbiànmiàn. Chī fāngbiànmiàn yòu piányi yòu fāngbiàn, kěshì chī duō le duì shēntǐ bù hǎo.",
@@ -866,7 +914,7 @@ const vocabGroups=[
   {sect:2, chars:[{h:"乐",p:"lè / yuè",hv:"lạc · nhạc",nghia:"vui · âm nhạc"}],
    items:[
      {w:"快乐", p:"kuàilè", pos:"Adj", mvi:"vui vẻ, hạnh phúc"},
-     {w:"音乐", p:"yīnyuè", pos:"N", mvi:"âm nhạc", star:1}
+     {w:"音乐", rd:1, p:"yīnyuè", pos:"N", mvi:"âm nhạc", star:1}
    ], audio:"r16", hl:"乐",
    ex:"好听的音乐让人快乐，不好听的音乐让人想睡觉。",
    exPinyin:"Hǎotīng de yīnyuè ràng rén kuàilè, bù hǎotīng de yīnyuè ràng rén xiǎng shuìjiào.",
@@ -874,7 +922,7 @@ const vocabGroups=[
   {sect:2, chars:[{h:"教",p:"jiāo / jiào",hv:"giáo",nghia:"dạy · việc dạy học"}],
    items:[
      {w:"教", p:"jiāo", pos:"V", mvi:"dạy"},
-     {w:"教室", p:"jiàoshì", pos:"N", mvi:"lớp học, phòng học"}
+     {w:"教室", rd:1, p:"jiàoshì", pos:"N", mvi:"lớp học, phòng học"}
    ], audio:"r17", hl:"教",
    ex:"老师在教室里教我们唱歌。",
    exPinyin:"Lǎoshī zài jiàoshì lǐ jiāo wǒmen chànggē.",
@@ -936,10 +984,16 @@ const riddles=[
 
 // ---- BT4: truyện cười ----
 const jokes=[
-  {cn:"大卫在北京学习汉语。有一天，他和一个中国朋友一起吃饭，朋友说：“对不起，我去方便一下。”大卫问：“‘方便’是什么意思¹？”朋友告诉他：“‘方便’就是去洗手间的意思。”<br>吃完饭以后，朋友对大卫说：“谢谢你今天请我吃饭，明天你和你女朋友方便不方便？我请你们吃饭。”大卫听了非常不高兴，说：“我们每天都方便，可是我们方便的时候从来不²吃饭！”<br><b>问题：你知道大卫为什么不高兴吗？</b>",
+  {   py:["Dàwèi zài Běijīng xuéxí Hànyǔ. Yǒu yì tiān, tā hé yí ge Zhōngguó péngyou yìqǐ chīfàn, péngyou shuō: “Duìbuqǐ, wǒ qù fāngbiàn yíxià.” Dàwèi wèn: “‘Fāngbiàn’ shì shénme yìsi?” Péngyou gàosu tā: “‘Fāngbiàn’ jiùshì qù xǐshǒujiān de yìsi.”",
+        "Chī wán fàn yǐhòu, péngyou duì Dàwèi shuō: “Xièxie nǐ jīntiān qǐng wǒ chīfàn, míngtiān nǐ hé nǐ nǚpéngyou fāngbiàn bù fāngbiàn? Wǒ qǐng nǐmen chīfàn.” Dàwèi tīng le fēicháng bù gāoxìng, shuō: “Wǒmen měi tiān dōu fāngbiàn, kěshì wǒmen fāngbiàn de shíhou cónglái bù chīfàn!”",
+        "Wèntí: Nǐ zhīdào Dàwèi wèishénme bù gāoxìng ma?"],
+   cn:"大卫在北京学习汉语。有一天，他和一个中国朋友一起吃饭，朋友说：“对不起，我去方便一下。”大卫问：“‘方便’是什么意思¹？”朋友告诉他：“‘方便’就是去洗手间的意思。”<br>吃完饭以后，朋友对大卫说：“谢谢你今天请我吃饭，明天你和你女朋友方便不方便？我请你们吃饭。”大卫听了非常不高兴，说：“我们每天都方便，可是我们方便的时候从来不²吃饭！”<br><b>问题：你知道大卫为什么不高兴吗？</b>",
    vi:"David học tiếng Trung ở Bắc Kinh. Một hôm, anh ăn cơm cùng một người bạn Trung Quốc. Bạn nói: “Xin lỗi, tôi đi “tiện” một chút.” David hỏi: ““方便” nghĩa là gì?” Bạn bảo: ““方便” nghĩa là đi vào nhà vệ sinh.”<br>Ăn xong, người bạn nói với David: “Cảm ơn hôm nay bạn mời tôi ăn cơm. Ngày mai bạn và bạn gái có “tiện” không? Tôi mời hai bạn đi ăn.” David nghe xong rất không vui, nói: “Ngày nào chúng tôi cũng “tiện”, nhưng lúc “tiện” thì chưa bao giờ ăn cơm!”<br><b>Câu hỏi: Bạn có biết vì sao David không vui không?</b> <span class=\"joke-ans\">(Gợi ý: 方便 vừa là “thuận tiện, rảnh”, vừa là cách nói tế nhị “đi vệ sinh”. David hiểu theo nghĩa thứ hai nên tưởng bạn mời mình ăn lúc đang… đi vệ sinh.)</span>",
    note:"¹ <span class=\"cnbody\">意思</span> <span class=\"pyi\">yìsi</span>: (D) ý nghĩa &nbsp;·&nbsp; ² <span class=\"cnbody\">从来不</span> <span class=\"pyi\">cónglái bù</span>: không bao giờ"},
-  {cn:"大卫：“老师，您告诉我中国人很谦虚³。”<br>老师：“对啊！”<br>大卫：“可是我不这么觉得。”<br>老师：“为什么？”<br>大卫：“因为我看见很多楼上都写着‘中国农业很行’‘中国工商很行’‘中国人民很行’‘中国很行’！”<br><b>问题：你知道大卫看见的是什么吗？</b>",
+  {   py:["Dàwèi: “Lǎoshī, nín gàosu wǒ Zhōngguórén hěn qiānxū.”","Lǎoshī: “Duì a!”","Dàwèi: “Kěshì wǒ bú zhème juéde.”","Lǎoshī: “Wèishénme?”",
+        "Dàwèi: “Yīnwèi wǒ kànjiàn hěn duō lóu shàng dōu xiězhe ‘Zhōngguó Nóngyè hěn xíng’ ‘Zhōngguó Gōngshāng hěn xíng’ ‘Zhōngguó Rénmín hěn xíng’ ‘Zhōngguó hěn xíng’!”",
+        "Wèntí: Nǐ zhīdào Dàwèi kànjiàn de shì shénme ma?"],
+   cn:"大卫：“老师，您告诉我中国人很谦虚³。”<br>老师：“对啊！”<br>大卫：“可是我不这么觉得。”<br>老师：“为什么？”<br>大卫：“因为我看见很多楼上都写着‘中国农业很行’‘中国工商很行’‘中国人民很行’‘中国很行’！”<br><b>问题：你知道大卫看见的是什么吗？</b>",
    vi:"David: “Thưa cô, cô bảo người Trung Quốc rất khiêm tốn.”<br>Cô giáo: “Đúng vậy!”<br>David: “Nhưng em không thấy thế.”<br>Cô giáo: “Vì sao?”<br>David: “Vì em thấy rất nhiều toà nhà viết “中国农业很行”, “中国工商很行”, “中国人民很行”, “中国很行” (Trung Quốc rất giỏi)!”<br><b>Câu hỏi: Bạn có biết David đã nhìn thấy gì không?</b> <span class=\"joke-ans\">(Đáp án: đó là 银行 (ngân hàng): 中国农业银行, 中国工商银行, 中国人民银行, 中国银行. David nhìn nhầm chữ 银 thành 很 — hai chữ cận hình — nên đọc thành “Trung Quốc rất giỏi”.)</span>",
    note:"³ <span class=\"cnbody\">谦虚</span> <span class=\"pyi\">qiānxū</span>: (Tt) khiêm tốn"}
 ];
@@ -1088,21 +1142,35 @@ function hlText(t, chars){ return Array.from(t).map(c=>c==="|"?"<br>":chars.incl
         '<div class="sect-head-name">'+sd.title+'<br><span class="sect-head-vi">'+sd.vi+'</span></div>'+
       '</div>';
     }
+    const poly=g.chars.length===1;
     const itemsHtml=g.items.map(it=>{ n++;
       const ak=it.ak||it.w;
+      const ci=poly?(it.rd||0):Math.max(0,g.chars.findIndex(c=>it.w.includes(c.h)));
       return '<div class="vocab-line">'+
         '<span class="hint" style="font-weight:800;">'+n+'.</span>'+
         '<span class="vocab-hanzi">'+it.w+'</span>'+(it.star?'<span class="v-star">*</span>':"")+
         (VAUD[ak]?'<button type="button" class="v-audio-btn no-print" title="Nghe phát âm" data-w="'+ak+'">🔊</button>':"")+
-        '<span class="pinyin">'+it.p+'</span>'+
+        '<span class="pinyin pc'+ci+'">'+it.p+'</span>'+
         (it.pos?'<span class="vocab-pos">'+(POS_VI[it.pos]||it.pos)+'</span>':"")+
         '<span class="vocab-meaning-vi">— '+it.mvi+'</span>'+
         buildStrokeRowHtml(it.w)+
       '</div>';
     }).join("");
-    const chainHtml=g.chars.map(c=>'<span class="picto-pair"><span class="picto-char cnbody">'+c.h+'</span><span class="picto-pinyin">'+c.p+'</span></span>')
-      .join(sd.sym?'<span class="sym">'+sd.sym+'</span>':'');
-    const hvHtml='<div class="hv-cap">Âm Hán Việt · Nghĩa</div>'+g.chars.map(c=>'<div class="hv-line"><span class="cnbody">'+c.h+'</span><b>'+c.hv+'</b> · <span class="hv-nghia">'+c.nghia+'</span></div>').join("");
+    const chainHtml=poly
+      ? '<span class="picto-pair"><span class="picto-char cnbody">'+g.chars[0].h+'</span><span class="picto-pinyin">'+g.chars[0].p.split(" / ").map((s,k)=>'<span class="pc'+k+'">'+s+'</span>').join(' / ')+'</span></span>'
+      : g.chars.map((c,k)=>'<span class="picto-pair"><span class="picto-char cnbody">'+c.h+'</span><span class="picto-pinyin pc'+k+'">'+c.p+'</span></span>').join(sd.sym?'<span class="sym">'+sd.sym+'</span>':'');
+    const ST_VI={"上下结构":"trên – dưới","左右结构":"trái – phải","独体字":"chữ độc thể","半包围结构":"bao nửa"};
+    const TY_VI={"形声字":"hình thanh","会意字":"hội ý","象形字":"tượng hình","会意兼形声":"hội ý kiêm hình thanh"};
+    const hvHtml=g.chars.map((c,k)=>{ const f=CHAR_INFO[c.h]; const cl='pc'+(poly?0:k);
+      const row=(lb,v)=>'<div class="hv-row"><span class="hv-lb">'+lb+':</span> '+v+'</div>';
+      return '<div class="hv-block"><div class="hv-rows">'+
+        row('Âm Hán Việt','<b>'+(poly?c.hv.split(' · ').map((s,i)=>'<span class="pc'+i+'">'+s+'</span>').join(' · '):c.hv)+'</b>')+
+        row('Nghĩa',poly?'<span class="hv-nghia">'+c.nghia.split(' · ').map((s,i)=>'<span class="pc'+i+'">'+s+'</span>').join(' · ')+'</span>':'<span class="hv-nghia">'+c.nghia+'</span>')+
+        (f?row('Cấu tạo',ST_VI[f.st]+(f.parts!==c.h?' · <span class="cnbody">'+f.parts+'</span>':''))+
+           row('Kiểu chữ',TY_VI[f.ty])+
+           row('Bộ thủ','<span class="cnbody">'+f.bt+'</span> '+f.btv)+
+           row('Ghi chú',f.ex):'')+
+      '</div></div>'; }).join("");
     return sectHtml+'<div class="picto-block">'+
       '<div class="picto-head">'+
         '<div class="picto-chain">'+chainHtml+'</div>'+
@@ -1235,15 +1303,18 @@ function toggleRiddleAns(btn){
 /* ============================================================
    BT4: TRUYỆN CƯỜI
    ============================================================ */
-document.getElementById("jokeList").innerHTML=jokes.map((j,i)=>
-  '<div class="joke-box"><div class="riddle-label">笑话 '+(i+1)+'</div>'+
-  '<div class="joke-cn">'+j.cn+'</div>'+
+document.getElementById("jokeList").innerHTML=jokes.map((j,i)=>{
+  const cn=j.cn.split("<br>");
+  return '<div class="joke-box"><div class="riddle-label">笑话 '+(i+1)+'</div>'+
+  cn.map((l,k)=>'<div class="joke-cn">'+l+'</div><div class="joke-py">'+(j.py[k]||"")+'</div>').join("")+
   '<div class="joke-viet">'+j.vi+'</div>'+
   '<p class="foot-note" style="margin-top:.8rem;">'+j.note+'</p>'+
-  '<button class="btn no-print" style="margin-top:.6rem;" onclick="toggleJoke(this)">👀 Hiện nghĩa</button></div>').join("");
+  '<div class="no-print"><button class="btn" style="margin-top:.6rem; margin-right:8px;" data-t="py" onclick="toggleJoke(this)">👀 Hiện phiên âm</button>'+
+  '<button class="btn" style="margin-top:.6rem;" data-t="viet" onclick="toggleJoke(this)">👀 Hiện nghĩa</button></div></div>';
+}).join("");
 function toggleJoke(btn){
-  const box=btn.closest(".joke-box"), on=box.classList.toggle("show-viet");
-  btn.textContent=on?"🙈 Ẩn nghĩa":"👀 Hiện nghĩa";
+  const box=btn.closest(".joke-box"), t=btn.dataset.t, on=box.classList.toggle("show-"+t);
+  btn.textContent=(on?"🙈 Ẩn ":"👀 Hiện ")+(t==="py"?"phiên âm":"nghĩa");
 }
 
 /* ============================================================
