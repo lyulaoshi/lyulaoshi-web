@@ -1009,10 +1009,18 @@ function updateScore(c,t){
 
 // PHÓNG TO CHỮ & TOÀN MÀN HÌNH — tiện trình chiếu trên lớp
 let zoomMultiplier = 1;
-function toggleZoom(){
+/* giữ nguyên vị trí đang đọc khi đổi cỡ chữ (không nhảy trang) */
+function keepPos(fn){
+  const anchor=[...document.querySelectorAll("h1,h2,h3,h4,p,li,.picto-block,.vocab-line,.exercise,.intro-box,.card")].find(e=>{const r=e.getBoundingClientRect(); return r.bottom>60&&r.height<innerHeight*0.7;});
+  const off=anchor?anchor.getBoundingClientRect().top:0;
+  fn();
+  if(anchor){ const de=document.documentElement, sb=de.style.scrollBehavior; de.style.scrollBehavior="auto"; window.scrollBy(0,anchor.getBoundingClientRect().top-off); de.style.scrollBehavior=sb; }
+}
+function _toggleZoom(){
   zoomMultiplier = zoomMultiplier >= 1.3 ? 1 : Math.round((zoomMultiplier + 0.15)*100)/100;
   document.documentElement.style.setProperty("--base-font", (19*zoomMultiplier)+"px");
 }
+function toggleZoom(){ keepPos(_toggleZoom); }
 function toggleFullscreen(){
   if(!document.fullscreenElement){ document.documentElement.requestFullscreen().catch(()=>{}); }
   else{ document.exitFullscreen(); }

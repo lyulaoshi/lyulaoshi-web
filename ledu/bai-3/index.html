@@ -967,10 +967,18 @@ function applyFontStep(){
   document.getElementById("fontLabel").innerText = Math.round(mult*100)+"%";
   try{ localStorage.setItem("ledu_bai3_font", fontStepIdx); }catch(e){}
 }
-function changeFont(dir){
+/* giữ nguyên vị trí đang đọc khi đổi cỡ chữ (không nhảy trang) */
+function keepPos(fn){
+  const anchor=[...document.querySelectorAll("h1,h2,h3,h4,p,li,.picto-block,.vocab-line,.exercise,.intro-box,.card")].find(e=>{const r=e.getBoundingClientRect(); return r.bottom>60&&r.height<innerHeight*0.7;});
+  const off=anchor?anchor.getBoundingClientRect().top:0;
+  fn();
+  if(anchor){ const de=document.documentElement, sb=de.style.scrollBehavior; de.style.scrollBehavior="auto"; window.scrollBy(0,anchor.getBoundingClientRect().top-off); de.style.scrollBehavior=sb; }
+}
+function _changeFont(dir){
   fontStepIdx = Math.min(fontSteps.length-1, Math.max(0, fontStepIdx+dir));
   applyFontStep();
 }
+function changeFont(dir){ keepPos(function(){ _changeFont(dir); }); }
 (function initFont(){
   try{
     const saved = localStorage.getItem("ledu_bai3_font");

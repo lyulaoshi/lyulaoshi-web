@@ -1065,7 +1065,14 @@ function applyFontStep(){
   document.getElementById("fontLabel").innerText=Math.round(mult*100)+"%";
   try{ localStorage.setItem("ledu_bai4_font", fontStepIdx); }catch(e){}
 }
-function changeFont(dir){ fontStepIdx=Math.min(fontSteps.length-1, Math.max(0, fontStepIdx+dir)); applyFontStep(); }
+function changeFont(dir){
+  const ni=Math.min(fontSteps.length-1,Math.max(0,fontStepIdx+dir)); if(ni===fontStepIdx) return;
+  /* giữ nguyên vị trí đang đọc khi đổi cỡ chữ: neo vào phần tử đầu tiên đang thấy trên màn hình */
+  const anchor=[...document.querySelectorAll("h1,h2,h3,p,.picto-block,.vocab-line,.rad-box,.fan,.riddle,.exercise,.intro-box,.sect-head,.rhyme-box,.joke-box,.match-group-title")].find(e=>{const r=e.getBoundingClientRect(); return r.bottom>60&&r.height<innerHeight*0.7;});
+  const off=anchor?anchor.getBoundingClientRect().top:0;
+  fontStepIdx=ni; applyFontStep();
+  if(anchor){ const de=document.documentElement, sb=de.style.scrollBehavior; de.style.scrollBehavior="auto"; window.scrollBy(0,anchor.getBoundingClientRect().top-off); de.style.scrollBehavior=sb; }
+}
 (function initFont(){
   try{ const saved=localStorage.getItem("ledu_bai4_font"); if(saved!==null) fontStepIdx=Math.min(fontSteps.length-1, Math.max(0, parseInt(saved,10)||0)); }catch(e){}
   applyFontStep();
