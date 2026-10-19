@@ -559,7 +559,7 @@
     .vocab-mean{font-size:20px;}
   }
 
-  /* Bài 6 */
+  /* Bài 7 */
   .name-item{flex-wrap:wrap;column-gap:8px;row-gap:2px;}
   .name-item .zh,.name-item .py{white-space:nowrap;}
   .name-item .word-audio-btn{margin:0 2px;}
@@ -579,8 +579,15 @@
   .dlg-group{font-weight:800;font-size:17px;color:var(--jade);margin:18px 0 6px;}
   .dialogue .dia-content .zh{font-size:28px;}
   .dialogue .dia-content .py,.dialogue .dia-content .vi{font-size:18px;}
-  @media (min-width:540px){#exNumbers .cloze-list{column-count:3!important;}}
   .err-wrong{color:var(--red-deep);font-size:18px;margin-bottom:4px;}
+  .formula-row{display:flex;align-items:baseline;gap:8px;background:var(--gold-soft);padding:10px 14px;border-radius:8px;font-size:17px;}
+  .form-label{font-weight:700;color:var(--jade);white-space:nowrap;}
+  .formula{font-size:17px;}
+  .bubble-row{display:flex;margin:6px 0;}
+  .bubble-row.right{justify-content:flex-end;}
+  .bubble{background:var(--gold-soft);border:1px solid var(--line);border-radius:12px;padding:10px 14px;max-width:88%;font-size:20px;}
+  .bubble.b{background:#fff;}
+  .dialog-input{width:auto;min-width:180px;max-width:280px;}
   @media (max-width:640px){.review-table{font-size:15px;}.review-table td.zh{font-size:18px;}.review-table th,.review-table td{padding:8px 5px;}}
 
   /* --- vá chung BOYA --- */
@@ -635,39 +642,6 @@
     .ex-line,.arrow-line{font-size:26px;}
     .hanzi-grid{grid-template-columns:repeat(auto-fill,minmax(150px,230px));}
   }
-  .word-audio-btn svg{width:1.45em;height:1.45em;vertical-align:middle;}
-  .ap-playbtn svg{width:1.15em;height:1.15em;vertical-align:middle;}
-
-  /* Bài 7 */
-  .name-item{flex-wrap:wrap;column-gap:8px;row-gap:2px;}
-  .name-item .zh,.name-item .py{white-space:nowrap;}
-  .name-item .word-audio-btn{margin:0 2px;}
-  .cloze-list li{margin-bottom:10px;}
-  .gram-explain{font-size:19px;color:var(--ink-soft);margin:4px 0 18px;}
-  .gram-explain .zh{font-size:22px;color:var(--ink);}
-  .review-wrap{overflow-x:auto;margin-top:10px;}
-  .review-table{width:100%;border-collapse:collapse;font-size:18px;}
-  .review-table th{background:var(--red-deep);color:#fff8e6;padding:10px 8px;text-align:left;}
-  .review-table td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
-  .review-table tr:nth-child(even) td{background:var(--gold-soft);}
-  .review-table td small{display:block;color:var(--ink-soft);font-size:14px;}
-  .review-table td.zh{font-size:21px;}
-  .review-table th{white-space:nowrap;}
-  .pair-rows{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
-  .pair-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
-  .dlg-group{font-weight:800;font-size:17px;color:var(--jade);margin:18px 0 6px;}
-  .dialogue .dia-content .zh{font-size:28px;}
-  .dialogue .dia-content .py,.dialogue .dia-content .vi{font-size:18px;}
-  .err-wrong{color:var(--red-deep);font-size:18px;margin-bottom:4px;}
-  .formula-row{display:flex;align-items:baseline;gap:8px;background:var(--gold-soft);padding:10px 14px;border-radius:8px;font-size:17px;}
-  .form-label{font-weight:700;color:var(--jade);white-space:nowrap;}
-  .formula{font-size:17px;}
-  .bubble-row{display:flex;margin:6px 0;}
-  .bubble-row.right{justify-content:flex-end;}
-  .bubble{background:var(--gold-soft);border:1px solid var(--line);border-radius:12px;padding:10px 14px;max-width:88%;font-size:20px;}
-  .bubble.b{background:#fff;}
-  .dialog-input{width:auto;min-width:180px;max-width:280px;}
-  @media (max-width:640px){.review-table{font-size:15px;}.review-table td.zh{font-size:18px;}.review-table th,.review-table td{padding:8px 5px;}}
   .word-audio-btn svg{width:1.45em;height:1.45em;vertical-align:middle;}
   .ap-playbtn svg{width:1.15em;height:1.15em;vertical-align:middle;}
 a.tb-btn{text-decoration:none;}
@@ -1654,14 +1628,10 @@ a.tb-btn{text-decoration:none;}
       <footer>© Bài giảng được biên soạn bởi ThS. Lã Thị Thuỳ Phương.</footer>
 
 
-
     </div>
   </div>
 </div>
 
-<script>
-var ICO_SPK='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg>', ICO_STOP='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="1.5"/></svg>', ICO_PLAY='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>', ICO_PAUSE='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
-</script>
 <script>
 var ICO_SPK='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg>', ICO_STOP='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="1.5"/></svg>', ICO_PLAY='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>', ICO_PAUSE='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
 </script>
@@ -2168,6 +2138,9 @@ function hwdLoad(c,ok,err){ if(HWD[c]) ok(HWD[c]); else fetch('https://cdn.jsdel
   // khung SVG co giãn theo ô (không lệch khi phóng to / đổi cỡ màn hình)
   function fitHW(){ document.querySelectorAll('.stroke-box svg, .hanzi-box svg').forEach(sv=>sv.setAttribute('viewBox','0 0 300 300')); }
   fitHW(); setTimeout(fitHW, 300);
+  // fix HanziWriter clip-path khi mở file:// trực tiếp
+  function fixHWClipPaths(){document.querySelectorAll('[clip-path]').forEach(function(el){var v=el.getAttribute('clip-path'),m=v&&v.match(/#([^)"]+)/);if(m)el.setAttribute('clip-path','url(#'+m[1]+')');});}
+  fixHWClipPaths();setTimeout(fixHWClipPaths,300);setTimeout(fixHWClipPaths,1000);
 </script>
 
 <!-- 词汇盒: nút ôn từ vựng, do tools/build_site.py gắn khi ghép -->

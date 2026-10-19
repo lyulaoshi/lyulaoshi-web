@@ -2094,6 +2094,9 @@ function hwdLoad(c,ok,err){ if(HWD[c]) ok(HWD[c]); else fetch('https://cdn.jsdel
   // khung SVG co giãn theo ô (không lệch khi phóng to / đổi cỡ màn hình)
   function fitHW(){ document.querySelectorAll('.stroke-box svg, .hanzi-box svg').forEach(sv=>sv.setAttribute('viewBox','0 0 300 300')); }
   fitHW(); setTimeout(fitHW, 300);
+  // fix HanziWriter clip-path khi mở file:// trực tiếp
+  function fixHWClipPaths(){document.querySelectorAll('[clip-path]').forEach(function(el){var v=el.getAttribute('clip-path'),m=v&&v.match(/#([^)"]+)/);if(m)el.setAttribute('clip-path','url(#'+m[1]+')');});}
+  fixHWClipPaths();setTimeout(fixHWClipPaths,300);setTimeout(fixHWClipPaths,1000);
 </script>
 
 </body>

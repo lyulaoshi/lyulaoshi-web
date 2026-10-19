@@ -34,6 +34,16 @@ select,.sel{font:inherit;padding:9px 12px;border-radius:12px;border:2px solid va
 .type[aria-pressed="true"]{border-color:var(--lav);background:var(--lav-s)}
 .type:disabled{opacity:.45;cursor:not-allowed}
 @media(max-width:760px){.types{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sg{display:grid;gap:8px}.sg+.sg{margin-top:6px}
+.sg h3{font-size:12.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));gap:10px}
+.scard{display:grid;gap:2px;align-content:start;text-align:left;padding:12px 14px;border:2px solid var(--line);background:var(--ground);border-radius:16px;cursor:pointer;position:relative;transition:transform .15s}
+.scard:hover{transform:translateY(-2px)}
+.scard .zh{font-family:var(--hz);font-size:19px;line-height:1.25;color:var(--ink)}
+.scard .vi{font-size:13px;color:var(--muted);line-height:1.35}
+.scard .n{font-size:12px;font-weight:700;color:var(--lav);margin-top:4px}
+.scard[aria-pressed="true"]{border-color:var(--lav);background:var(--lav-s);box-shadow:0 4px 0 var(--lav)}
+.scard[aria-pressed="true"]::after{content:"";position:absolute;right:12px;top:12px;width:10px;height:10px;border-radius:50%;background:var(--lav)}
 .srcnote{font-size:13.5px;color:var(--muted)}
 .count{font-weight:800;color:var(--ink)}
 .warn{background:var(--butter-s);color:var(--ink);border-radius:14px;padding:10px 14px;font-size:14px}
@@ -110,6 +120,38 @@ dialog::backdrop{background:rgba(20,18,40,.55)}
  .lens{width:230px;height:230px}.answer{height:225px}.opt{font-size:clamp(54px,16vw,90px)}.opt.txt{font-size:clamp(18px,5vw,26px)}
  .set label{grid-template-columns:1fr}.toolbar button{flex:1 0 28%}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* gọn & liền mạch */
+.panel.one{gap:0;padding:6px 20px 18px}
+.st{display:grid;gap:10px;padding:14px 0;border-bottom:1px solid var(--line)}
+.st h2{display:flex;align-items:center;gap:8px;font-size:15px}
+.st h2 i{font-style:normal;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--lav);color:#fff;font-size:12px}
+.go{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding-top:16px}
+.row.mini{gap:14px;font-size:13.5px}
+.lnk{border:0;background:none;color:var(--lav);font-weight:700;cursor:pointer;padding:2px 0;text-decoration:underline;text-underline-offset:3px}
+.sg{display:grid;gap:5px}.sg+.sg{margin-top:0}
+.sg h3{font-size:11px}
+.sg+.sg{margin-top:4px}
+.srcnote:empty{display:none}
+#srcpick{display:flex;flex-wrap:wrap;gap:6px}.sg,.cards{display:contents}.sg h3{display:none}
+.cards{display:flex;flex-wrap:wrap;gap:6px}
+.scard{display:flex;align-items:baseline;gap:6px;padding:6px 12px;border-radius:999px;border-width:2px;box-shadow:none!important}
+.scard:hover{transform:none}
+.scard .zh{font-size:15px}.scard .n{margin:0;font-size:11.5px;color:var(--muted)}.scard .vi{display:none}
+.scard[aria-pressed="true"]::after{display:none}
+.scard[aria-pressed="true"] .zh{color:var(--lav)}
+.chips .chip{padding:5px 12px;font-size:14px}
+.types{grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.type{padding:9px 6px;gap:1px;border-radius:14px}
+.type b{font-size:20px}.type strong{font-size:13px}.type small{font-size:11px}
+@media(max-width:620px){.types{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.opts{display:flex;flex-wrap:wrap;gap:12px 22px}
+.og{display:grid;gap:5px}.ol{font-size:11.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--ground2);border-radius:999px;padding:3px;gap:2px}
+.seg button{border:0;background:none;color:var(--ink);font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--lav);color:#fff;box-shadow:0 2px 6px rgba(124,107,214,.35)}
+.seg button:not([aria-pressed="true"]):hover{background:var(--card)}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
 </head>
@@ -126,31 +168,30 @@ dialog::backdrop{background:rgba(20,18,40,.55)}
 
   <div id="loadmsg" class="warn" role="status">Đang nạp kho từ vựng của website…</div>
 
-  <div class="panel">
-    <h2>1. Chọn nguồn từ</h2>
-    <div class="row"><select id="src" aria-label="Nguồn từ vựng"></select><span class="srcnote" id="srcnote"></span></div>
-    <div class="row"><button type="button" class="ghost" id="allBtn">Chọn tất cả</button><button type="button" class="ghost" id="noneBtn">Bỏ chọn</button><span class="muted">Chọn một hoặc nhiều bài / chủ đề:</span></div>
-    <div class="chips" id="items" role="group" aria-label="Bài hoặc chủ đề"></div>
-    <details id="offbox"><summary>Các hộp khác chưa kết nối</summary><ul class="off" id="offlist"></ul></details>
-  </div>
-
-  <div class="panel">
-    <h2>2. Chọn dạng câu hỏi</h2>
-    <div class="types" id="types" role="group" aria-label="Dạng câu hỏi"></div>
-  </div>
-
-  <div class="panel">
-    <h2>3. Số câu và cách chơi</h2>
-    <div class="row">
-      <select id="count" aria-label="Số câu"><option value="all">Tất cả từ đủ điều kiện</option><option value="10">10 câu ngẫu nhiên</option><option value="20">20 câu ngẫu nhiên</option><option value="30">30 câu ngẫu nhiên</option></select>
-      <select id="inputMode" aria-label="Cách chơi"><option value="keys">Bàn phím / chuột</option><option value="camera">Camera nghiêng đầu</option></select>
-      <label><input id="swap" type="checkbox" checked> Đảo trái / phải</label>
-    </div>
-    <p class="count" id="avail" role="status" aria-live="polite"></p>
-    <div id="notes"></div>
-    <details id="review"><summary id="reviewSum"></summary><ul id="reviewList"></ul></details>
-    <div class="row"><button class="cta" id="start" type="button" disabled>Vào sàn đấu</button></div>
-    <p class="muted">Camera chỉ xử lý trên máy, không ghi hình hay gửi ảnh. Camera cần Internet để tải MediaPipe. Phím: ← / → chọn, Space tạm dừng.</p>
+  <div class="panel one">
+    <section class="st"><h2><i>1</i>Nguồn từ</h2>
+      <select id="src" class="hide" aria-hidden="true" tabindex="-1"></select>
+      <div id="srcpick"></div>
+      <p class="srcnote" id="srcnote"></p>
+      <div class="chips" id="items" role="group" aria-label="Bài hoặc chủ đề"></div>
+      <div class="row mini"><button type="button" class="lnk" id="allBtn">Chọn tất cả</button><button type="button" class="lnk" id="noneBtn">Bỏ chọn</button>
+        <details id="offbox"><summary>Hộp khác chưa kết nối</summary><ul class="off" id="offlist"></ul></details></div>
+    </section>
+    <section class="st"><h2><i>2</i>Dạng câu hỏi</h2><div class="types" id="types" role="group" aria-label="Dạng câu hỏi"></div></section>
+    <section class="st"><h2><i>3</i>Cách chơi</h2>
+      <div class="opts">
+        <div class="og"><span class="ol">Số câu</span><div class="seg" id="segCount" role="group" aria-label="Số câu"></div></div>
+        <div class="og"><span class="ol">Điều khiển</span><div class="seg" id="segMode" role="group" aria-label="Cách chơi"></div></div>
+        <div class="og"><span class="ol">Thẻ đáp án</span><div class="seg" id="segSwap" role="group" aria-label="Vị trí thẻ"></div></div>
+      </div>
+      <select id="count" class="hide" aria-hidden="true" tabindex="-1"><option value="all">Tất cả</option><option value="10">10 câu</option><option value="20">20 câu</option><option value="30">30 câu</option></select>
+      <select id="inputMode" class="hide" aria-hidden="true" tabindex="-1"><option value="keys">Phím / chuột</option><option value="camera">Camera nghiêng đầu</option></select>
+      <input id="swap" type="checkbox" checked class="hide" aria-hidden="true" tabindex="-1">
+      <p class="count" id="avail" role="status" aria-live="polite"></p>
+      <div id="notes"></div>
+      <details id="review"><summary id="reviewSum"></summary><ul id="reviewList"></ul></details>
+    </section>
+    <div class="go"><button class="cta" id="start" type="button" disabled>Vào sàn đấu</button><span class="muted">Camera chỉ xử lý trên máy · ← / → chọn · Space tạm dừng</span></div>
   </div>
 </main>
 
@@ -211,11 +252,11 @@ function buildSources(){
  const S=[];
  if(window.BAI&&BAI.length)BAI.forEach(c=>S.push({id:'bai:'+c.id,grp:'Giáo trình',name:c.zh,sub:c.vi,
    items:c.bai.map(b=>({id:b.id,label:'Bài '+b.n,words:b.w.map(w=>[w[0],w[1],w[2]])}))}));
- if(window.CHUDE&&CHUDE.length)S.push({id:'cd',grp:'Chủ đề (词汇盒)',name:'Từ vựng theo chủ đề',sub:'',
+ if(window.CHUDE&&CHUDE.length)S.push({id:'cd',grp:'Chủ đề 词汇盒',name:'Theo chủ đề',sub:'',
    items:CHUDE.map(c=>({id:c.id,label:c.zh+' '+c.vi,words:c.w.filter(p=>p.length>=3).map(p=>[p[0],p[1],p.slice(2).join('|')])}))});
  if(window.HSK){const nghia=window.NGHIA||{};
    const items=Object.keys(HSK).filter(k=>HSK[k].length).map(k=>({id:'hsk'+k,label:'HSK '+k,words:HSK[k].filter(w=>w[1]).map(w=>[w[0],w[1],nghia[w[0]+'|'+w[1]]||nghia[w[0]]||''])}));
-   if(items.length)S.push({id:'hsk',grp:'Đề cương HSK 2025',name:'Từ vựng HSK (đề cương 2025)',sub:'Cấp nào chưa có nghĩa tiếng Việt thì chỉ chơi dạng chữ Hán ↔ phiên âm.',items});}
+   if(items.length)S.push({id:'hsk',grp:'Đề cương HSK 2025',name:'HSK 2025',sub:'Cấp nào chưa có nghĩa tiếng Việt thì chỉ chơi dạng chữ Hán ↔ phiên âm.',items});}
  if(!S.length){usingSample=true;S.push({id:'mau',grp:'Bộ mẫu nhúng',name:'乐读 1 · Bài 6 (bộ mẫu)',sub:'Kho chung không nạp được; đang dùng bộ mẫu nhúng sẵn trong trang.',items:[{id:'mau',label:'53 từ mẫu',words:SAMPLE}]})}
  return S;
 }
@@ -255,11 +296,20 @@ function renderSources(){
  if(bo){const [t,a,b]=bo.split(':');if(t==='bai'){pre={src:'bai:'+a,items:(b||'').split(/[+ ]/)}}else if(t==='cd'){pre={src:'cd',items:[a]}}}
  let sv=null;try{sv=localStorage.getItem('nd:src')}catch(e){}
  const start=pre&&SOURCES.find(x=>x.id===pre.src)?pre.src:(SOURCES.find(x=>x.id===sv)?sv:SOURCES[0].id);
- s.value=start;pickSource(pre&&pre.src===start?pre.items:null);
+ s.value=start;
+ const pk=$('srcpick');pk.replaceChildren();const gs={};
+ SOURCES.forEach(x=>{let g=gs[x.grp];if(!g){const sec=document.createElement('div');sec.className='sg';sec.innerHTML='<h3></h3><div class="cards"></div>';sec.querySelector('h3').textContent=x.grp;pk.append(sec);g=gs[x.grp]=sec.querySelector('.cards')}
+  const b=document.createElement('button');b.type='button';b.className='scard';b.dataset.id=x.id;
+  const zh=/[\u4e00-\u9fff]/.test(x.name);b.innerHTML='<span class="zh"></span><span class="vi"></span><span class="n"></span>';
+  const z=b.querySelector('.zh');z.textContent=x.name;if(!zh){z.style.fontFamily='var(--vi)';z.style.fontWeight='700';z.style.fontSize='14px'}
+  b.querySelector('.vi').textContent=zh?(x.sub||''):'';
+  b.querySelector('.n').textContent=x.items.length+(x.id==='hsk'?' cấp':x.id==='cd'?' chủ đề':' bài')+' · '+x.items.reduce((a,i)=>a+i.words.length,0)+' từ';
+  b.onclick=()=>{s.value=x.id;pickSource()};g.append(b)});
+ pickSource(pre&&pre.src===start?pre.items:null);
 }
 function pickSource(pre){
  cur=SOURCES.find(x=>x.id===$('src').value);try{localStorage.setItem('nd:src',cur.id)}catch(e){}
- $('srcnote').textContent=cur.sub||'';
+ $('srcnote').textContent=/[\u4e00-\u9fff]/.test(cur.name)?'':(cur.sub||'');document.querySelectorAll('.scard').forEach(b=>b.setAttribute('aria-pressed',b.dataset.id===cur.id));
  sel=new Set(pre&&pre.some(i=>cur.items.some(x=>x.id===i))?pre.filter(i=>cur.items.some(x=>x.id===i)):cur.id==='hsk'?[cur.items[0].id]:cur.items.map(i=>i.id));
  const box=$('items');box.replaceChildren();
  cur.items.forEach(it=>{const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.id=it.id;
@@ -273,7 +323,7 @@ function refresh(){
  [['mixed',{n:'Trộn các dạng',s:'Ôn tổng hợp',ic:'混'}],...TKEYS.map(k=>[k,TYPES[k]])].forEach(([k,t])=>{
   const b=document.createElement('button');b.type='button';b.className='type';b.dataset.t=k;b.disabled=!st[k];
   b.innerHTML='<b lang="zh"></b><strong></strong><small></small>';b.querySelector('b').textContent=t.ic;b.querySelector('strong').textContent=t.n;
-  b.querySelector('small').textContent=st[k]?t.s+' · '+st[k]+' từ':'Chưa đủ dữ liệu';
+  b.querySelector('small').textContent=st[k]?st[k]+' từ':'Chưa đủ dữ liệu';
   b.onclick=()=>{qtype=k;try{localStorage.setItem('nd:type',k)}catch(e){}markTypes()};box.append(b)});
  if(qtype!=='mixed'&&!st[qtype])qtype='mixed';
  markTypes();
@@ -299,7 +349,9 @@ try{const t=localStorage.getItem('nd:type');if(t==='mixed'||TYPES[t])qtype=t}cat
 
 /* ===== tạo câu hỏi từ dữ liệu thực ===== */
 function makeQuestion(t,type){
- const ds=distractors(t,type);if(!ds.length)return null;
+ let ds=distractors(t,type);if(!ds.length)return null;
+ const L=x=>[...x.h].length,gap=d=>Math.abs(L(d)-L(t)),best=Math.min(...ds.map(gap));
+ ds=ds.filter(d=>gap(d)===best);   // đáp án nhiễu cùng số chữ (số âm tiết) với từ đúng, tránh đoán nhờ độ dài
  const d=ds[Math.floor(Math.random()*ds.length)],T=TYPES[type];
  const prompt={meaningToHanzi:'Từ nào có nghĩa là “'+t.m+'”?',hanziToMeaning:'Từ này có nghĩa là gì?',hanziToPinyin:'Chọn phiên âm đúng của từ này',pinyinToHanzi:'Chữ Hán nào có phiên âm “'+t.p+'”?'}[type];
  return {type,target:t,opts:[t,d],prompt,label:T.label,src:t.srcs[0]};
@@ -434,6 +486,13 @@ window.addEventListener('blur',()=>{pressed.clear();if(active)pause(true)});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&active)pause(true)});
 window.addEventListener('pagehide',stopCamera);
 $('count').onchange=refresh;
+/* nhóm nút phân đoạn thay cho ô chọn */
+function seg(box,items,get,set){box.replaceChildren();items.forEach(([v,l])=>{const b=document.createElement('button');b.type='button';b.textContent=l;b.dataset.v=v;b.onclick=()=>{set(v);paintSeg()};box.append(b)});}
+function paintSeg(){[['segCount',()=>$('count').value],['segMode',()=>$('inputMode').value],['segSwap',()=>String($('swap').checked)]].forEach(([id,g])=>document.querySelectorAll('#'+id+' button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===g())))}
+seg($('segCount'),[['all','Tất cả'],['10','10 câu'],['20','20 câu'],['30','30 câu']],0,v=>{$('count').value=v;refresh()});
+seg($('segMode'),[['keys','Phím / chuột'],['camera','Camera nghiêng đầu']],0,v=>{$('inputMode').value=v});
+seg($('segSwap'),[['true','Đảo ngẫu nhiên'],['false','Cố định']],0,v=>{$('swap').checked=v==='true'});
+paintSeg();
 
 /* ===== khởi động: nạp kho chung ===== */
 (async function(){
