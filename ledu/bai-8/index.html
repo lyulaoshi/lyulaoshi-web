@@ -458,6 +458,7 @@
   .cls-w{font-family:var(--font-cn-body); font-size:2rem; font-weight:700; letter-spacing:.06em; flex:1 1 230px; padding-bottom:.25rem;}
   .cls-btns{display:flex; gap:6px; flex-wrap:wrap;}
   .cls-btn{cursor:pointer; padding:.3rem .8rem; border-radius:12px; border:3px solid var(--ink); background:#fff; color:var(--ink); font-weight:800; font-family:var(--font-vi); font-size:.95rem; box-shadow:2px 2px 0 var(--ink);}
+  .cls-btn small{font-size:.78rem; font-weight:600; color:var(--muted); margin-left:.15rem;}
   .cls-btn:hover{background:var(--yellow);}
   .cls-btn.right{background:#DFFBF6; border-color:var(--correct);}
   .cls-btn.wrong{background:#FFE3E3; border-color:var(--wrong);}
@@ -524,9 +525,9 @@
   <a class="toc-sub" href="#kien-3">· （三）多音字 Chữ đa âm</a>
   <a class="toc-sub" href="#luyen-1">· Luyện tập 练习一下</a>
   <a href="#muc-2">2️⃣ Tập trung học chữ</a>
-  <a class="toc-sub" href="#sect-xing">· （一）形近字</a>
-  <a class="toc-sub" href="#sect-tong">· （二）同音字</a>
-  <a class="toc-sub" href="#sect-duo">· （三）多音字</a>
+  <a class="toc-sub" href="#sect-xing">· （一）形近字 Chữ cận hình</a>
+  <a class="toc-sub" href="#sect-tong">· （二）同音字 Chữ đồng âm</a>
+  <a class="toc-sub" href="#sect-duo">· （三）多音字 Chữ đa âm</a>
   <div style="border-top:2px dashed #ddd; margin:.4rem 0;"></div>
   <div class="toc-sub">Thử thách bản thân:</div>
   <a class="toc-sub" href="#bt1">BT1 · Điền từ 选词填空</a>
@@ -741,6 +742,7 @@ const clsItems=[
   {w:["[教]汉语","[教]室"], ans:"C", py:"jiāo – jiào"}
 ];
 const CLS_NAME={A:"形近字",B:"同音字",C:"多音字"};
+const CLS_VI={A:"Chữ cận hình",B:"Chữ đồng âm",C:"Chữ đa âm"};
 
 // ---- 集中识字: 3 phần ----
 const sectDefs=[
@@ -1020,8 +1022,8 @@ const dotHtml=w=>w.replace(/\[([^\]]+)\]/g,'<span class="dotc">$1</span>');
 document.getElementById("clsList").innerHTML=clsItems.map((it,i)=>
   '<div class="cls-q" data-i="'+i+'"><span class="cls-n">'+(i+1)+'.</span>'+
   '<span class="cls-w">'+it.w.map(dotHtml).join("、")+'</span>'+
-  '<span class="cls-btns no-print">'+["A","B","C"].map(k=>'<button type="button" class="cls-btn" data-k="'+k+'">'+k+'. '+CLS_NAME[k]+'</button>').join("")+'</span>'+
-  '<span class="cls-ans">→ '+it.ans+'. '+CLS_NAME[it.ans]+' · '+it.py+'</span></div>').join("");
+  '<span class="cls-btns no-print">'+["A","B","C"].map(k=>'<button type="button" class="cls-btn" data-k="'+k+'">'+k+'. '+CLS_NAME[k]+' <small>'+CLS_VI[k]+'</small></button>').join("")+'</span>'+
+  '<span class="cls-ans">→ '+it.ans+'. '+CLS_NAME[it.ans]+' ('+CLS_VI[it.ans]+') · '+it.py+'</span></div>').join("");
 let clsRight=0;
 document.getElementById("clsList").addEventListener("click",function(e){
   const b=e.target.closest(".cls-btn"); if(!b) return;
