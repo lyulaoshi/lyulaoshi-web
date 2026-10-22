@@ -282,14 +282,21 @@ const OFF=[['ngu-phap','语法盒 Ngữ pháp','chỉ có điểm ngữ pháp v�
 
 /* ===== lựa chọn & kho từ đủ điều kiện ===== */
 let cur=null,sel=new Set(),pool=[],review={missing:[],ambig:[]},qtype='mixed',byH=new Map;
+const CJK=/[\u3400-\u9fff]/;
+function cleanM(m){   // bỏ phần nghĩa có chữ Hán (ví dụ "tên; 名字") để câu hỏi không lộ đáp án
+ m=(m||'').replace(/[（(][^）)]*[\u3400-\u9fff][^）)]*[）)]/g,'').trim();
+ const parts=m.split(/([;,，；])/),out=[];
+ for(let i=0;i<parts.length;i+=2){const t=(parts[i]||'').trim();if(t&&!CJK.test(t))out.push((out.length?(parts[i-1]==='，'?', ':parts[i-1]==='；'?'; ':parts[i-1]+' '):'')+t)}
+ return out.join('').trim();
+}
 function buildPool(){
  const m=new Map(),lst=[];
  if(cur)cur.items.filter(i=>sel.has(i.id)).forEach(it=>it.words.forEach(([h,p,mn])=>{
   h=(h||'').trim();p=(p||'').trim();mn=(mn||'').trim();if(!h||!p)return;
   const k=h+'|'+norm(p)+'|'+norm(mn),lab=(cur.id.startsWith('bai:')?cur.name+' · ':'')+it.label;
-  let e=m.get(k);if(!e){e={h,p,m:mn,srcs:[lab]};m.set(k,e);lst.push(e)}else if(!e.srcs.includes(lab))e.srcs.push(lab)}));
+  let e=m.get(k);if(!e){e={h,p,m:cleanM(mn),mf:mn,srcs:[lab]};m.set(k,e);lst.push(e)}else if(!e.srcs.includes(lab))e.srcs.push(lab)}));
  pool=lst;byH=new Map;pool.forEach(e=>{(byH.get(e.h)||byH.set(e.h,[]).get(e.h)).push(e)});
- review.missing=pool.filter(e=>!e.m);
+ review.missing=pool.filter(e=>!e.m);review.hz=pool.filter(e=>!e.m&&e.mf);
  review.ambig=[];byH.forEach((es,h)=>{if(es.length>1)review.ambig.push(es)});
 }
 function distinct(es,a){const v=[];es.forEach(e=>{if(e[a]&&!v.some(x=>sim(x,e[a])))v.push(e[a])});return v.length}
@@ -349,8 +356,8 @@ function refresh(){
  if(usingSample)note('bad','Không nạp được kho từ vựng chung nên đang chơi bộ mẫu nhúng (53 từ 乐读 1 Bài 6). Tải lại trang để thử nạp lại.');
  if(pool.length&&n<2)note('warn','Chưa đủ từ để tạo câu hỏi với đáp án nhiễu hợp lệ. Hãy chọn thêm bài hoặc đổi dạng câu.');
  if(review.missing.length&&pool.length)note('warn',`${review.missing.length} từ chưa có nghĩa tiếng Việt nên không dùng cho dạng có nghĩa.`);
- const rv=[];review.missing.forEach(e=>rv.push('Thiếu nghĩa: '+e.h+' · '+e.p+' ('+e.srcs.join('; ')+')'));
- review.ambig.forEach(es=>rv.push('Chữ nhiều nghĩa / cách đọc, không hỏi chiều chữ Hán → nghĩa/âm: '+es.map(e=>e.h+' '+e.p+(e.m?' = '+e.m:'')).join('  |  ')));
+ const rv=[];review.missing.forEach(e=>rv.push((e.mf?'Nghĩa chỉ gồm chữ Hán, không dùng làm câu hỏi: ':'Thiếu nghĩa: ')+e.h+' · '+e.p+' ('+e.srcs.join('; ')+')'));
+ review.ambig.forEach(es=>rv.push('Chữ nhiều nghĩa / cách đọc, không hỏi chiều chữ Hán → nghĩa/âm: '+es.map(e=>e.h+' '+e.p+(e.mf?' = '+e.mf:'')).join('  |  ')));
  $('review').hidden=!rv.length;$('reviewSum').textContent=`Mục cần cô rà soát (${rv.length})`;
  $('reviewList').replaceChildren(...rv.slice(0,200).map(t=>{const li=document.createElement('li');li.textContent=t;return li}));
  $('start').disabled=n<2;
@@ -363,10 +370,20 @@ OFF.forEach(([id,n,why])=>{const li=document.createElement('li');li.textContent=
 try{const t=localStorage.getItem('nd:type');if(t==='mixed'||TYPES[t])qtype=t}catch(e){}
 
 /* ===== tạo câu hỏi từ dữ liệu thực ===== */
+const flat=p=>norm(p).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ü/g,'u');
+function lev(a,b){const m=a.length,n=b.length,r=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]);for(let j=1;j<=n;j++)r[0][j]=j;
+ for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)r[i][j]=Math.min(r[i-1][j]+1,r[i][j-1]+1,r[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return r[m][n]}
+function confuse(t,d){const a=flat(t.p),b=flat(d.p);let sc=0;
+ if(a===b)sc+=4;                                   // cùng âm, khác thanh điệu
+ if([...t.h].some(c=>d.h.includes(c)))sc+=3;       // chung một chữ Hán
+ sc+=(1-lev(a,b)/Math.max(a.length,b.length))*2;   // âm đọc gần giống
+ if(a[0]===b[0])sc+=.5;return sc}
 function makeQuestion(t,type){
  let ds=distractors(t,type);if(!ds.length)return null;
  const L=x=>[...x.h].length,gap=d=>Math.abs(L(d)-L(t)),best=Math.min(...ds.map(gap));
  ds=ds.filter(d=>gap(d)===best);   // đáp án nhiễu cùng số chữ (số âm tiết) với từ đúng, tránh đoán nhờ độ dài
+ if(type==='hanziToPinyin'||type==='pinyinToHanzi'){   // đáp án nhiễu dễ nhầm: cùng âm khác thanh, chung chữ, âm gần giống
+  const sc=d=>confuse(t,d);ds=shuffled(ds.slice()).sort((x,y)=>sc(y)-sc(x)).slice(0,3)}
  const d=ds[Math.floor(Math.random()*ds.length)],T=TYPES[type];
  const prompt={meaningToHanzi:'Từ nào có nghĩa là “'+t.m+'”?',hanziToMeaning:'Từ này có nghĩa là gì?',hanziToPinyin:'Chọn phiên âm đúng của từ này',pinyinToHanzi:'Chữ Hán nào có phiên âm “'+t.p+'”?'}[type];
  return {type,target:t,opts:[t,d],prompt,label:T.label,src:t.srcs[0]};
@@ -414,7 +431,7 @@ function answer(i){
  else{run.streak=0;run.wrong.push({q,chosen})}
  run.answers++;
  ['left','right'].forEach((id,j)=>{const o=run.options[j],el=$(id),rv=el.querySelector('.reveal');rv.replaceChildren();
-  const l1=document.createElement('span');l1.textContent=o.h+' · '+o.p;const s=document.createElement('small');s.textContent=o.m||'(chưa có nghĩa tiếng Việt)';rv.append(l1,s);
+  const l1=document.createElement('span');l1.textContent=o.h+' · '+o.p;const s=document.createElement('small');s.textContent=o.mf||'(chưa có nghĩa tiếng Việt)';rv.append(l1,s);
   if(o===q.target){el.classList.add('good');el.querySelector('.mark').textContent='ĐÚNG'}else if(j===i){el.classList.add('bad');el.querySelector('.mark').textContent='SAI'}});
  $('score').textContent=run.score;$('streak').textContent=run.streak>=3?'Chuỗi '+run.streak:'';
  $('feedback').textContent=good?(run.streak>=3?'Tuyệt vời! '+run.streak+' câu liên tiếp!':'Chính xác! +10 điểm'):'Chưa đúng — ghi nhớ thẻ màu xanh nhé!';
@@ -441,7 +458,7 @@ function finish(){
  if(!run.wrong.length)wl.textContent='Không có câu sai. Xuất sắc!';
  run.wrong.forEach(({q,chosen})=>{const d=document.createElement('div');d.className='wr';
   const p=document.createElement('div');p.textContent=q.prompt+(q.type==='hanziToMeaning'||q.type==='hanziToPinyin'?' — '+q.target.h:'');d.append(p);
-  [[q.target,'Đúng: '],[chosen,'Đã chọn: ']].forEach(([o,l])=>{const x=document.createElement('div');x.className='muted';x.textContent=l+o.h+' · '+o.p+' · '+(o.m||'(chưa có nghĩa)')+'  — '+o.srcs.join('; ');d.append(x)});wl.append(d)});
+  [[q.target,'Đúng: '],[chosen,'Đã chọn: ']].forEach(([o,l])=>{const x=document.createElement('div');x.className='muted';x.textContent=l+o.h+' · '+o.p+' · '+(o.mf||'(chưa có nghĩa)')+'  — '+o.srcs.join('; ');d.append(x)});wl.append(d)});
  R.append(h,mt,tb,wl);
 }
 function syncMode(){$('toggleMode').textContent=cfg.mode==='camera'?'Dùng phím':'Dùng camera';$('avatar').classList.toggle('hide',cfg.mode==='camera'&&!!stream);$('calibrate').disabled=cfg.mode!=='camera'||loading;$('toggleMode').disabled=loading;$('sound').textContent=cfg.sound?'Âm thanh bật':'Âm thanh tắt';saveCfg()}
