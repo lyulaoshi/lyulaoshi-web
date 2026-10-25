@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>课本盒 · Giáo trình – 吕老师汉语盒</title>
-<meta name="description" content="Giá sách giáo trình của cô Lã: mục lục từng cuốn, bài giảng tương tác, ôn từ vựng và ngữ pháp theo bài – Lyu Laoshi Chinese Box.">
+<meta name="description" content="Giáo trình của cô Lã: chọn cuốn đang học, xem các bài theo từng đợt ôn tập, học bài, ôn từ vựng, chơi game và ôn gộp nhiều bài – Lyu Laoshi Chinese Box.">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap">
@@ -12,11 +12,10 @@
 <style>
 :root{
   --ground:#F7F5FB;--ground2:#EFEBF7;--ink:#2B2E45;--muted:#6B6E86;--faint:#A3A5B8;--line:#E3DFEE;
-  --card:#FFFFFF;--kraft:#D9B98C;--kraft-d:#B8925F;--tape:rgba(217,185,140,.72);--wood:#C9A677;--wood-d:#9C7A4C;
+  --card:#FFFFFF;--kraft:#D9B98C;--kraft-d:#B8925F;
   --coral:#E0545F;--coral-s:#FDE6E7;--sky:#3B87D6;--sky-s:#E3EFFB;--mint:#2E9E73;--mint-s:#DDF3EA;
   --lav:#7C6BD6;--lav-s:#ECE8FB;--peach:#E7823A;--peach-s:#FDEBDD;
-  --on-c:#FFFFFF;--shelf-top:color-mix(in srgb,#C9A677 22%,#EFEBF7);--rim:rgba(255,255,255,0);--glow:0%;
-  --page:#FFFCF4;--page-ink:#2B2E45;--page-mute:#8A8398;--ribbon:#B8323C;
+  --on-c:#FFFFFF;--ribbon:#B8323C;
   --shadow:0 1px 0 rgba(43,46,69,.04),0 10px 28px rgba(43,46,69,.08);
   --hz:"ZCOOL KuaiLe","STKaiti","KaiTi","Kaiti SC","PingFang SC",sans-serif;
   --kai:"STKaiti","KaiTi","Kaiti SC","LXGW WenKai","PingFang SC",serif;
@@ -24,19 +23,15 @@
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
-  --kraft:#C9A677;--kraft-d:#C9A677;--tape:rgba(201,166,119,.55);--wood:#6E5638;--wood-d:#4F3E28;
+  --kraft:#C9A677;--kraft-d:#C9A677;
   --coral:#F2737C;--sky:#62A8F0;--mint:#43CB96;--lav:#A091F2;--peach:#F59E5B;--on-c:#15161F;
-  --coral-s:#3A2329;--sky-s:#1C2D42;--mint-s:#173A2E;--lav-s:#2A2744;--peach-s:#3B2B1C;
-  --shelf-top:#3A2F24;--rim:rgba(255,255,255,.10);--glow:55%;
-  --page:#2A2A33;--page-ink:#ECE6D8;--page-mute:#A39C8E;--ribbon:#E0505B;
+  --coral-s:#3A2329;--sky-s:#1C2D42;--mint-s:#173A2E;--lav-s:#2A2744;--peach-s:#3B2B1C;--ribbon:#E0505B;
   --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}}
 :root[data-theme="dark"]{
   color-scheme:dark;--ground:#1B1C27;--ground2:#232534;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--card:#262839;
-  --kraft:#C9A677;--kraft-d:#C9A677;--tape:rgba(201,166,119,.55);--wood:#6E5638;--wood-d:#4F3E28;
+  --kraft:#C9A677;--kraft-d:#C9A677;
   --coral:#F2737C;--sky:#62A8F0;--mint:#43CB96;--lav:#A091F2;--peach:#F59E5B;--on-c:#15161F;
-  --coral-s:#3A2329;--sky-s:#1C2D42;--mint-s:#173A2E;--lav-s:#2A2744;--peach-s:#3B2B1C;
-  --shelf-top:#3A2F24;--rim:rgba(255,255,255,.10);--glow:55%;
-  --page:#2A2A33;--page-ink:#ECE6D8;--page-mute:#A39C8E;--ribbon:#E0505B;
+  --coral-s:#3A2329;--sky-s:#1C2D42;--mint-s:#173A2E;--lav-s:#2A2744;--peach-s:#3B2B1C;--ribbon:#E0505B;
   --shadow:0 1px 0 rgba(0,0,0,.2),0 10px 28px rgba(0,0,0,.35)}
 *{box-sizing:border-box}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--vi);font-size:16px;line-height:1.6;padding-inline:16px;padding-block:0 40px;
@@ -44,166 +39,154 @@ body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--vi);fo
 a{color:inherit}
 .wrap{max-width:1080px;margin:0 auto}
 h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
 :focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:8px}
-
-
-
-.head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px 28px;align-items:end;padding-block:18px 8px}
-@media (max-width:720px){.head{grid-template-columns:1fr}}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--kraft-d)}
-.eyebrow::before{content:"";width:26px;height:10px;background:var(--tape);border-radius:2px;transform:rotate(-4deg)}
-.head h1{font-size:clamp(30px,4vw,46px);font-weight:800;letter-spacing:-.02em;line-height:1.08;margin-top:10px}
-.head h1 span{font-family:var(--hz);font-weight:400;color:var(--coral);margin-right:10px}
-.head p{margin:8px 0 0;color:var(--muted);max-width:36em}
+[hidden]{display:none!important}
 
 .resume{margin-top:22px;max-width:420px;display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:18px;background:var(--card);box-shadow:var(--shadow);text-decoration:none;min-width:0}
 .resume .ic{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-family:var(--hz);font-size:20px;background:var(--peach-s);color:var(--peach)}
 .resume small{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .resume b{display:block;font-size:15px}
 .resume .go{margin-left:6px;font-weight:800;color:var(--peach);white-space:nowrap}
-.resume em{font-style:normal;font-size:12px;color:var(--faint)}
 
-/* shelf */
-.shelf{position:relative;margin-top:30px;padding:34px 18px 0;border-radius:22px 22px 0 0;
-  background:linear-gradient(180deg,var(--shelf-top),var(--ground2) 75%)}
-.books{display:flex;align-items:flex-end;justify-content:center;gap:clamp(3px,1vw,8px);min-height:270px}
-.plank{position:relative;height:24px;border-radius:0 0 12px 12px;background:linear-gradient(var(--wood) 0 6px,var(--wood-d) 6px 100%);box-shadow:0 12px 20px rgba(43,46,69,.14)}
-.plank::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,transparent 0 38px,rgba(0,0,0,.06) 38px 40px)}
-
-/* gáy sách: vải bọc, 2 đường nhũ vàng, 题签 giấy dán tên, dấu triện */
-.book{--c:var(--coral);--w:74px;--h:240px;--foil:#F1D79E;--paper:#FBF5E6;
-  position:relative;flex:0 1 var(--w);height:var(--h);min-width:50px;border:0;padding:0;cursor:pointer;font-family:var(--vi);color:var(--ink);
-  border-radius:5px 5px 2px 2px;display:flex;flex-direction:column;align-items:center;
+/* ===== chọn cuốn: bìa sách ===== */
+.pick-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:34px}
+.pick-h h2{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.pick-h span{font-size:13px;color:var(--faint)}
+.covers{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;padding:18px 4px 14px;scroll-margin-top:70px}
+@media (max-width:860px){
+  .covers{display:flex;overflow-x:auto;scroll-snap-type:x proximity;margin-inline:-16px;padding-inline:20px;scrollbar-width:thin}
+  .cv{flex:0 0 138px;scroll-snap-align:center}}
+.cv{--c:var(--coral);--foil:#F1D79E;--paper:#FBF5E6;position:relative;display:flex;flex-direction:column;align-items:stretch;gap:10px;
+  min-height:250px;padding:14px 12px 12px 28px;border:0;border-radius:5px 12px 12px 5px;text-align:left;cursor:pointer;font-family:var(--vi);color:var(--on-c);overflow:hidden;
   background:
     repeating-linear-gradient(0deg,rgba(255,255,255,.05) 0 1px,transparent 1px 3px),
-    repeating-linear-gradient(90deg,rgba(0,0,0,.04) 0 1px,transparent 1px 3px),
-    linear-gradient(90deg,rgba(0,0,0,.30) 0,rgba(0,0,0,.04) 11%,rgba(255,255,255,.22) 28%,rgba(255,255,255,0) 48%,rgba(0,0,0,.05) 80%,rgba(0,0,0,.32) 100%),
+    linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,0) 45%,rgba(0,0,0,.16)),
     var(--c);
-  box-shadow:3px 0 5px rgba(0,0,0,.14),inset 0 1px 0 rgba(255,255,255,.25),0 0 0 1px var(--rim);
-  transition:transform .35s cubic-bezier(.3,1.4,.5,1),box-shadow .35s}
-.book::before,.book::after{content:"";position:absolute;left:0;right:0;height:9px;border-block:2px solid var(--foil);opacity:.9}
-.book::before{top:14px} .book::after{bottom:36px}
-.book .hb{position:absolute;top:-3px;left:4px;right:4px;height:4px;border-radius:3px 3px 0 0;background:repeating-linear-gradient(90deg,var(--foil) 0 3px,rgba(90,40,30,.85) 3px 6px)}
-.book .slip{margin-top:36px;writing-mode:vertical-rl;font-family:var(--kai);font-size:clamp(15px,1.9vw,18px);letter-spacing:.14em;line-height:1.15;white-space:nowrap;
-  background:var(--paper);color:#2B2E45;padding:12px 6px;border-radius:2px;
+  box-shadow:0 6px 12px rgba(43,46,69,.16),inset 0 1px 0 rgba(255,255,255,.25);
+  transition:transform .3s cubic-bezier(.3,1.4,.5,1),box-shadow .3s}
+.cv::before{content:"";position:absolute;inset:0 auto 0 0;width:17px;background:linear-gradient(90deg,rgba(0,0,0,.34),rgba(0,0,0,.05));border-right:2px solid var(--foil)}
+.cv::after{content:"";position:absolute;left:5px;right:auto;top:0;bottom:0;width:2px;background:repeating-linear-gradient(0deg,var(--foil) 0 6px,transparent 6px 12px);opacity:.55}
+.cv:hover{transform:translateY(-5px)}
+.cv[aria-pressed="true"]{transform:translateY(-10px);box-shadow:0 0 0 3px var(--ground),0 0 0 6px var(--c),0 18px 24px rgba(43,46,69,.26)}
+.cv.c-sky{--c:var(--sky)}.cv.c-mint{--c:var(--mint)}.cv.c-lav{--c:var(--lav)}.cv.c-peach{--c:var(--peach)}
+.cv .seal{align-self:flex-start;width:26px;height:26px;display:grid;place-items:center;font-family:var(--kai);font-size:16px;line-height:1;color:#fff;background:#C0303B;border-radius:4px;
+  box-shadow:inset 0 0 0 1.5px #C0303B,inset 0 0 0 2.5px rgba(255,255,255,.8),0 1px 2px rgba(0,0,0,.25);transform:rotate(-4deg)}
+.cv .ttl{display:block;background:var(--paper);color:#2B2E45;font-family:var(--kai);font-size:20px;line-height:1.28;letter-spacing:.04em;padding:9px 8px;border-radius:2px;text-wrap:balance;overflow-wrap:anywhere;
   box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px color-mix(in srgb,var(--c) 70%,#000),0 1px 2px rgba(0,0,0,.25)}
-.book .slip .tcy{text-combine-upright:all;letter-spacing:0}
-.book .seal{margin-top:-6px;width:22px;height:22px;display:grid;place-items:center;font-family:var(--kai);font-size:14px;line-height:1;color:#fff;background:#C0303B;border-radius:3px;
-  box-shadow:inset 0 0 0 1.5px #C0303B,inset 0 0 0 2.5px rgba(255,255,255,.8),0 1px 2px rgba(0,0,0,.25);transform:rotate(-4deg);position:relative;z-index:1}
-.book .n{position:absolute;left:0;right:0;bottom:9px;text-align:center;font-size:11px;font-weight:800;letter-spacing:.02em;color:var(--foil);white-space:nowrap;font-variant-numeric:tabular-nums}
-.book:hover{transform:translateY(-6px)}
-.book[aria-pressed="true"]{transform:translateY(-18px);box-shadow:3px 0 5px rgba(0,0,0,.14),0 18px 22px rgba(43,46,69,.25),inset 0 1px 0 rgba(255,255,255,.25),0 0 26px color-mix(in srgb,var(--c) var(--glow),transparent)}
-.book .n{text-shadow:0 1px 2px rgba(0,0,0,.45)}
-.book[aria-pressed="true"] .hb{height:7px;top:-6px}
-.book.c-sky{--c:var(--sky)}.book.c-mint{--c:var(--mint)}.book.c-lav{--c:var(--lav)}.book.c-peach{--c:var(--peach)}
+.cv .ttl small{display:block;margin-top:6px;padding-top:6px;border-top:1px solid color-mix(in srgb,var(--c) 45%,transparent);font:600 11.5px/1.35 var(--vi);letter-spacing:0;color:#4A4D66;overflow-wrap:normal}
+.cv .meta{margin-top:auto;display:grid;gap:5px;font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.cv .meta b{font-size:13px;font-weight:800}
+.cv .pr{display:block;height:5px;border-radius:3px;background:rgba(0,0,0,.2);overflow:hidden}
+.cv .pr i{display:block;height:100%;background:var(--foil)}
+.cv .meta small{font-size:11.5px;font-weight:600;opacity:.9}
+.cv .rb{position:absolute;top:-3px;right:10px;width:10px;height:44px;background:var(--ribbon);clip-path:polygon(0 0,100% 0,100% 100%,50% calc(100% - 7px),0 100%);transform-origin:50% 0;animation:sway 3.2s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(2deg)}}
+@media (prefers-reduced-motion:reduce){.cv{transition:none}.cv .rb{animation:none}}
 
-/* chặn sách: chiếc hộp giấy kraft của 汉语盒 */
-.bookend{flex:0 0 64px;height:96px;margin-left:clamp(6px,2vw,18px);position:relative;border-radius:6px 6px 4px 4px;background:linear-gradient(90deg,var(--kraft) 0 70%,var(--kraft-d));
-  display:grid;place-items:center;font-family:var(--hz);font-size:26px;color:#fff;box-shadow:3px 0 6px rgba(0,0,0,.12)}
-.bookend::before{content:"";position:absolute;left:-4px;right:-4px;top:-10px;height:16px;border-radius:5px;background:var(--kraft-d)}
-.bookend::after{content:"";position:absolute;left:50%;top:-12px;width:22px;height:30px;margin-left:-11px;background:var(--tape);border-radius:2px}
-@media (prefers-reduced-motion:reduce){.book{transition:none}}
-@media (max-width:480px){.bookend{display:none}.book .n{font-size:10px}.book .seal{width:19px;height:19px;font-size:12px}}
-
-/* panel */
-.panel{--c:var(--coral);--cs:var(--coral-s);background:var(--card);border-radius:0 0 26px 26px;box-shadow:var(--shadow);padding:22px;display:grid;gap:20px}
-.panel.c-sky{--c:var(--sky);--cs:var(--sky-s)}.panel.c-mint{--c:var(--mint);--cs:var(--mint-s)}.panel.c-lav{--c:var(--lav);--cs:var(--lav-s)}.panel.c-peach{--c:var(--peach);--cs:var(--peach-s)}
-.ph{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:10px 20px}
-.ph h2{font-family:var(--kai);font-weight:400;font-size:clamp(24px,3vw,32px);color:var(--c);line-height:1.2}
-.ph p{margin:2px 0 0;font-weight:700}
-.search{display:flex;align-items:center;gap:8px;background:var(--ground);border:1.5px solid var(--line);border-radius:14px;padding:0 12px;max-width:420px}
-.search:focus-within{border-color:var(--c)}
-.search input{flex:1;min-width:0;border:0;background:none;font:inherit;color:var(--ink);padding:10px 0;outline:none}
-.search span{font-family:var(--hz);color:var(--faint)}
-
-.note{font-size:13px;color:var(--muted);margin:0;background:var(--ground2);border-radius:12px;padding:8px 12px}
-
-.lessons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-@media (max-width:760px){.lessons{grid-template-columns:1fr}}
-.ls{display:grid;gap:10px;align-content:start;padding:16px;border-radius:18px;background:var(--cs);scroll-margin-top:20px}
-.ls.flash{outline:3px solid var(--c);outline-offset:2px}
-.ls .no{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
-.ls h3{font-family:var(--kai);font-weight:400;font-size:22px;line-height:1.25}
-.ls .vi{margin:-6px 0 0;color:var(--muted);font-size:14.5px}
-.gp{display:flex;flex-wrap:wrap;gap:6px}
-.gp a,.gp span{font-size:13px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none;border:1.5px solid transparent}
-.gp a:hover{border-color:var(--c)}
-.gp a b{font-weight:800;color:var(--c);margin-right:4px;font-size:11.5px}
-.gp .lbl{background:none;padding-left:0;color:var(--muted);font-weight:700}
-.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
-.acts a{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;padding:8px 14px;border-radius:12px;text-decoration:none}
-.acts .learn{background:var(--c);color:var(--on-c)}
-.acts .sec{background:var(--card);color:var(--ink)}
-.acts .sec i{font-style:normal;font-family:var(--hz);color:var(--c)}
-.empty{color:var(--muted);text-align:center;padding:18px;background:var(--ground2);border-radius:16px;margin:0}
-
-
-/* 目录: trang mục lục trong sách */
-.toc{position:relative;background:var(--page);color:var(--page-ink);border-radius:4px 14px 14px 4px;padding:26px clamp(18px,4vw,40px) 22px clamp(26px,5vw,52px);
-  box-shadow:inset 18px 0 22px -16px rgba(0,0,0,.28),0 1px 0 var(--line),0 8px 20px rgba(43,46,69,.10);
-  background-image:linear-gradient(90deg,transparent calc(100% - 6px),rgba(0,0,0,.04))}
-.toc::before{content:"";position:absolute;inset:8px 8px 8px 16px;border:1px solid color-mix(in srgb,var(--c) 35%,transparent);border-radius:2px 8px 8px 2px;pointer-events:none}
-.toc h4{margin:0 0 4px;text-align:center;font-family:var(--kai);font-weight:400;font-size:34px;letter-spacing:.6em;padding-left:.6em;color:var(--c)}
-.toc .sub{margin:0 0 18px;text-align:center;font-size:14px;color:var(--page-mute);letter-spacing:.04em}
-.toc ol{list-style:none;margin:0;padding:0;columns:2 340px;column-gap:44px}
-.toc li{break-inside:avoid}
-.toc .row{display:flex;align-items:baseline;gap:10px;padding:7px 4px;text-decoration:none;color:inherit;border-radius:6px}
-.toc a.row:hover{background:color-mix(in srgb,var(--c) 12%,transparent)}
-.toc .k{flex:none;font-family:var(--kai);font-size:18px;color:var(--c);min-width:4.6em}
-.toc .ti{font-family:var(--kai);font-size:21px;line-height:1.35;min-width:0}
-.toc .dots{flex:1;min-width:14px;border-bottom:2px dotted color-mix(in srgb,var(--page-ink) 30%,transparent);transform:translateY(-4px)}
-.toc .pg{flex:none;font-size:14.5px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--page-mute)}
-.toc a.row .pg{color:var(--c)}
-.toc .off{opacity:.5}
-.toc .off .k{color:inherit}
-.toc .rv .k{font-weight:700}
-.toc .rv .ti{font-family:var(--vi);font-size:15px;color:var(--page-mute)}
-.toc li:has(.rv){border-block:1px dashed color-mix(in srgb,var(--c) 30%,transparent);margin-block:2px}
-.toc .here{flex:none;font-size:12px;font-weight:800;letter-spacing:.04em;color:#fff;background:var(--ribbon);border-radius:4px;padding:0 6px;align-self:center}
-
-/* 丝带书签: cuốn đang học dở */
-.book .rb{position:absolute;top:-4px;right:9px;width:9px;height:62%;z-index:2;pointer-events:none;
-  background:linear-gradient(90deg,var(--ribbon),color-mix(in srgb,var(--ribbon) 80%,#fff) 45%,var(--ribbon));
-  clip-path:polygon(0 0,100% 0,100% 100%,50% calc(100% - 7px),0 100%);filter:drop-shadow(1px 1px 1px rgba(0,0,0,.3));
-  transform-origin:50% 0;animation:sway 3.2s ease-in-out infinite}
-@keyframes sway{50%{transform:rotate(1.6deg)}}
-@media (prefers-reduced-motion:reduce){.book .rb{animation:none}}
-@media (max-width:480px){.book .rb{right:5px;width:7px}}
-
-/* thông tin tóm tắt cuốn sách */
-.facts{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
-.facts li{display:flex;align-items:baseline;gap:5px;padding:5px 12px;border-radius:10px;background:var(--cs);font-size:13.5px;color:var(--muted)}
+/* ===== cuốn đang xem ===== */
+.pn{--c:var(--coral);--cs:var(--coral-s);margin-top:22px;scroll-margin-top:70px}
+.pn.c-sky{--c:var(--sky);--cs:var(--sky-s)}.pn.c-mint{--c:var(--mint);--cs:var(--mint-s)}.pn.c-lav{--c:var(--lav);--cs:var(--lav-s)}.pn.c-peach{--c:var(--peach);--cs:var(--peach-s)}
+.pn-h{position:relative;overflow:hidden;padding:22px 24px;border-radius:22px;background:var(--cs)}
+.pn-h .wm{position:absolute;right:22px;top:-18px;font-family:var(--hz);font-size:150px;line-height:1;color:color-mix(in srgb,var(--c) 15%,transparent);pointer-events:none;user-select:none}
+.pn-h .no{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.pn-h h2{position:relative;margin-top:2px;font-family:var(--kai);font-weight:400;font-size:clamp(26px,3.4vw,38px);line-height:1.2;color:var(--c)}
+.pn-h .vi{position:relative;margin-top:2px;font-weight:700;color:var(--ink)}
+.facts{position:relative;display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0;padding:0;list-style:none}
+.facts li{display:flex;align-items:baseline;gap:5px;padding:5px 12px;border-radius:10px;background:var(--card);font-size:13.5px;color:var(--muted)}
 .facts b{font-size:18px;font-weight:800;color:var(--c);font-variant-numeric:tabular-nums;line-height:1.2}
 
-/* ôn gộp nhiều bài */
-.pick{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;padding:12px 16px;border-radius:16px;border:1.5px dashed color-mix(in srgb,var(--c) 45%,transparent)}
-.pick p{margin:0;font-size:14px;color:var(--muted)} .pick p b{color:var(--ink)}
-.pick button,.bar button{border:0;font:700 13.5px var(--vi);padding:7px 12px;border-radius:10px;cursor:pointer;background:var(--cs);color:var(--c)}
-.bar button{background:none;color:var(--muted);text-decoration:underline}
-.bar{--bc:var(--coral)}.bar.c-sky{--bc:var(--sky)}.bar.c-mint{--bc:var(--mint)}.bar.c-lav{--bc:var(--lav)}.bar.c-peach{--bc:var(--peach)}
-.ls .top2{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.ls .wc{font-size:12.5px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
-.chk{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;padding:3px 10px 3px 6px;border-radius:999px;background:var(--card)}
-.chk input{appearance:none;-webkit-appearance:none;flex:none;width:18px;height:18px;margin:0;cursor:pointer;border-radius:6px;
-  background:var(--cs) center/12px 12px no-repeat;border:1.5px solid color-mix(in srgb,var(--c) 45%,transparent);transition:background-color .15s,border-color .15s}
-.chk:hover input{border-color:var(--c)}
-.chk input:checked{background-color:var(--c);border-color:var(--c);
+.tb{position:sticky;top:62px;z-index:5;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:14px;padding:10px 12px;border-radius:16px;
+  background:color-mix(in srgb,var(--card) 92%,transparent);backdrop-filter:blur(10px);box-shadow:var(--shadow)}
+.search{flex:1 1 230px;display:flex;align-items:center;gap:8px;background:var(--ground);border:1.5px solid var(--line);border-radius:12px;padding:0 12px;max-width:440px}
+.search:focus-within{border-color:var(--c)}
+.search input{flex:1;min-width:0;border:0;background:none;font:inherit;color:var(--ink);padding:9px 0;outline:none}
+.search span{font-family:var(--hz);color:var(--faint)}
+.tb .hint{flex:1 1 180px;font-size:13px;color:var(--muted)}
+.btn{border:0;font:700 13.5px var(--vi);padding:8px 14px;border-radius:10px;cursor:pointer;background:var(--cs);color:var(--c);white-space:nowrap}
+.btn:hover{background:color-mix(in srgb,var(--c) 18%,var(--cs))}
+@media (max-width:640px){.tb .hint{display:none}.tb{top:58px}}
+
+/* ===== danh sách bài theo đợt ===== */
+.un{margin-top:14px;border-radius:20px;background:var(--card);box-shadow:var(--shadow);overflow:hidden}
+.un>*+*{border-top:1px solid var(--line)}
+.uh{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px;padding:11px 18px;background:linear-gradient(var(--cs),transparent)}
+.uh b{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.uh span{font-size:13.5px;color:var(--muted)}
+.uh .btn{margin-left:auto;padding:6px 12px;font-size:13px}
+
+.lr{display:grid;grid-template-columns:26px 54px minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:14px 18px;scroll-margin-top:130px;transition:background-color .15s}
+.lr.sel{background:color-mix(in srgb,var(--c) 7%,var(--card))}
+.lr.flash{background:color-mix(in srgb,var(--c) 16%,var(--card))}
+.lr .num{text-align:center;line-height:1}
+.lr .num small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.lr .num b{font-family:var(--kai);font-weight:400;font-size:34px;color:var(--c)}
+.lr .tx{min-width:0;display:grid;gap:3px}
+.lr h3{font-family:var(--kai);font-weight:400;font-size:21px;line-height:1.3}
+.lr .vi{font-size:14px;color:var(--muted)}
+.gp{display:flex;flex-wrap:wrap;gap:6px;margin-top:3px}
+.gp a,.gp span{font-size:12.5px;font-weight:600;padding:2px 10px;border-radius:999px;background:var(--ground2);color:var(--ink);text-decoration:none;border:1.5px solid transparent}
+.gp a:hover{border-color:var(--c)}
+.gp a b{font-weight:800;color:var(--c);margin-right:4px;font-size:11px}
+.gp .wc{background:var(--cs);color:var(--c);font-weight:700}
+.ac{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.ac a{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;padding:8px 14px;border-radius:12px;text-decoration:none;white-space:nowrap}
+.ac .go{background:var(--c);color:var(--on-c)}
+.ac .go:hover{filter:brightness(1.06)}
+.ac .s{background:var(--ground2);color:var(--ink)}
+.ac .s:hover{background:var(--cs)}
+.ac .s i{font-style:normal;font-family:var(--hz);color:var(--c)}
+.lr.off{opacity:.5}
+.lr.off .soon{grid-column:4;font-size:12.5px;font-weight:700;color:var(--muted);justify-self:end}
+.lr.off h3{font-size:18px}
+
+.pk{display:grid;place-items:center;width:34px;height:34px;margin:-4px;cursor:pointer}
+.pk input{appearance:none;-webkit-appearance:none;width:22px;height:22px;margin:0;cursor:pointer;border-radius:50%;
+  background:var(--card) center/13px 13px no-repeat;border:2px solid color-mix(in srgb,var(--c) 50%,var(--faint));transition:background-color .15s,border-color .15s}
+.pk:hover input{border-color:var(--c)}
+.pk input:checked{background-color:var(--c);border-color:var(--c);
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 6.2l2.4 2.4 4.6-5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
-.chk input:focus-visible{outline:3px solid var(--c);outline-offset:2px}
-.ls.sel{box-shadow:inset 0 0 0 2px var(--c)}
-.ls.sel .chk{color:var(--c)}
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--card) 94%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(43,46,69,.10)}
+.pk input:focus-visible{outline:3px solid var(--c);outline-offset:2px}
+
+.rvr{display:flex;align-items:center;gap:12px;padding:12px 18px;text-decoration:none;color:inherit;
+  background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--c) 7%,transparent) 0 8px,transparent 8px 16px)}
+a.rvr:hover{background-color:color-mix(in srgb,var(--c) 12%,transparent)}
+.rvr .k{flex:none;font-family:var(--kai);font-size:19px;color:var(--c)}
+.rvr .t{min-width:0;font-size:14px;color:var(--muted)}
+.rvr .g{margin-left:auto;flex:none;font-weight:800;font-size:13.5px;color:var(--c);white-space:nowrap}
+.rvr.off{opacity:.5}
+.more{padding:14px 18px;text-align:center;color:var(--muted);font-size:14px;letter-spacing:.2em}
+.empty{margin-top:14px;padding:22px;text-align:center;color:var(--muted);background:var(--ground2);border-radius:16px}
+
+@media (max-width:640px){
+  .pn-h{padding:18px 16px}.pn-h .wm{font-size:110px;right:10px}
+  .tb{flex-wrap:nowrap}.tb .search{flex:1 1 0;min-width:0}
+  .facts{gap:6px}.facts li{padding:3px 9px;font-size:12.5px}.facts b{font-size:15px}
+  .lr{grid-template-columns:26px 40px minmax(0,1fr);gap:6px 10px;align-items:start;padding:14px 14px}
+  .lr .num{padding-top:3px}.lr .pk{margin-top:0}
+  .lr .num b{font-size:27px}
+  .lr .ac{grid-column:1/-1;justify-content:flex-start}
+  .lr.off .soon{grid-column:1/-1;justify-self:start;margin-left:70px}
+  .uh,.rvr{padding-inline:14px}}
+
+/* ===== thanh ôn gộp ===== */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--card) 94%,transparent);backdrop-filter:blur(10px);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(43,46,69,.12);--bc:var(--coral)}
+.bar.c-sky{--bc:var(--sky)}.bar.c-mint{--bc:var(--mint)}.bar.c-lav{--bc:var(--lav)}.bar.c-peach{--bc:var(--peach)}
 .bar .in{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
-.bar .what{flex:1 1 220px;min-width:0;font-size:14px}
-.bar .what b{font-size:15px}
-.bar .what span{display:block;color:var(--muted);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .what{flex:1 1 260px;min-width:0}
+.bar .what b{display:block;font-size:15px}
+.bar .chips{display:flex;gap:6px;margin-top:4px;overflow-x:auto;scrollbar-width:none}
+.bar .chips::-webkit-scrollbar{display:none}
+.bar .chips button{flex:none;border:0;font:700 12.5px var(--vi);padding:2px 9px;border-radius:999px;cursor:pointer;background:color-mix(in srgb,var(--bc) 14%,transparent);color:var(--bc)}
+.bar .chips button:hover{background:color-mix(in srgb,var(--bc) 26%,transparent)}
+.bar .acts{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .bar a{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;padding:9px 16px;border-radius:12px;text-decoration:none;background:var(--bc);color:var(--on-c)}
 .bar a.alt{background:var(--ground2);color:var(--ink)}
 .bar a i{font-style:normal;font-family:var(--hz)}
-body.has-bar{padding-bottom:96px}
+.bar .clr{border:0;background:none;font:700 13.5px var(--vi);color:var(--muted);text-decoration:underline;cursor:pointer;padding:8px 4px}
+body.has-bar{padding-bottom:120px}
 
-[hidden]{display:none!important}
-/* thanh đầu trang chung của các hộp (như 游戏盒, 词汇盒) */
+/* thanh đầu trang chung của các hộp */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;margin:0 -16px;padding:10px 16px;background:color-mix(in srgb,var(--ground) 86%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;gap:12px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0}
@@ -238,12 +221,10 @@ footer{padding:18px 0 32px;margin-top:32px;color:var(--muted);font-size:13px;bor
   <div class="lh-art" aria-hidden="true"><svg viewBox="0 0 400 420"><defs><linearGradient id="lhsh" x1="0" x2="1"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset=".3" stop-color="#fff" stop-opacity=".2"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></linearGradient></defs><ellipse cx="200" cy="398" rx="170" ry="13" fill="currentColor" opacity=".09"/><rect x="30" y="360" width="340" height="18" rx="4" fill="#B98457"/><rect x="30" y="360" width="340" height="5" fill="#D6AC7C"/><rect x="52" y="130" width="66" height="230" rx="6" fill="#E0545F"/><rect x="52" y="130" width="66" height="230" rx="6" fill="url(#lhsh)"/><path d="M52 146h66M52 152h66M52 344h66" stroke="#F1D79E" stroke-width="2.5"/><rect x="71.0" y="166" width="28" height="108" rx="2" fill="#FBF5E6"/><text x="85.0" y="193" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">强</text><text x="85.0" y="217" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">化</text><text x="85.0" y="241" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">教</text><text x="85.0" y="265" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">程</text><rect x="126" y="164" width="48" height="196" rx="6" fill="#3B87D6"/><rect x="126" y="164" width="48" height="196" rx="6" fill="url(#lhsh)"/><path d="M126 180h48M126 186h48M126 344h48" stroke="#F1D79E" stroke-width="2.5"/><rect x="136.0" y="200" width="28" height="60" rx="2" fill="#FBF5E6"/><text x="150.0" y="227" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">乐</text><text x="150.0" y="251" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">读</text><rect x="182" y="138" width="58" height="222" rx="6" fill="#2E9E73"/><rect x="182" y="138" width="58" height="222" rx="6" fill="url(#lhsh)"/><path d="M182 154h58M182 160h58M182 344h58" stroke="#F1D79E" stroke-width="2.5"/><rect x="197.0" y="174" width="28" height="108" rx="2" fill="#FBF5E6"/><text x="211.0" y="201" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">阅</text><text x="211.0" y="225" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">读</text><text x="211.0" y="249" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">教</text><text x="211.0" y="273" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">程</text><rect x="248" y="154" width="52" height="206" rx="6" fill="#7C6BD6"/><rect x="248" y="154" width="52" height="206" rx="6" fill="url(#lhsh)"/><path d="M248 170h52M248 176h52M248 344h52" stroke="#F1D79E" stroke-width="2.5"/><rect x="260.0" y="190" width="28" height="108" rx="2" fill="#FBF5E6"/><text x="274.0" y="217" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">博</text><text x="274.0" y="241" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">雅</text><text x="274.0" y="265" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">汉</text><text x="274.0" y="289" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">语</text><rect x="308" y="122" width="56" height="238" rx="6" fill="#E7823A"/><rect x="308" y="122" width="56" height="238" rx="6" fill="url(#lhsh)"/><path d="M308 138h56M308 144h56M308 344h56" stroke="#F1D79E" stroke-width="2.5"/><rect x="322.0" y="158" width="28" height="60" rx="2" fill="#FBF5E6"/><text x="336.0" y="185" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">会</text><text x="336.0" y="209" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="19" fill="#2B2E45">话</text><path d="M362 122v64l-6-7-6 7v-64" fill="#B8323C"/></svg><span class="lh-pop a">目录</span><span class="lh-pop b">课本</span><span class="lh-pop c py">Bài 11–14</span><span class="lh-pop d py">mùlù</span></div>
 </section>
 
-  <section class="shelf" id="ke" aria-label="Giá sách">
-    <div class="books" id="books" role="group" aria-label="Chọn giáo trình"></div>
-  </section>
-  <div class="plank"></div>
+  <div class="pick-h"><h2 id="ke-h">Chọn giáo trình</h2><span>Bấm vào bìa sách để xem các bài</span></div>
+  <div class="covers" id="ke" role="group" aria-labelledby="ke-h"></div>
 
-  <section class="panel" id="panel" aria-live="polite"></section>
+  <section class="pn" id="pn" aria-label="Các bài của giáo trình đang chọn"></section>
 </main>
 <div class="wrap"><footer>Lyu Laoshi Chinese Box · 吕老师汉语盒 — ThS. Lã Thị Thuỳ Phương</footer></div>
 <div class="bar" id="bar" hidden role="region" aria-label="Ôn gộp các bài đã chọn"></div>
@@ -261,112 +242,159 @@ BOOKS.forEach(B=>{
   const ns=CO[B.id]||Object.keys(B.t).filter(n=>B.t[n][1]).map(Number);
   B.ls={};ns.forEach(n=>B.ls[n]=B.t[n]||["",""]);B.gram={};
 });
-(window.NP_BAI||[]).forEach(x=>{const B=BOOKS.find(b=>b.id===x.b);if(B)(B.gram[x.l]=B.gram[x.l]||[]).push([x.n.split(" — ")[0],x.h[0]])});
+(window.NP_BAI||[]).forEach(x=>{const B=BOOKS.find(b=>b.id===x.b);if(B)(B.gram[x.l]=B.gram[x.l]||[]).push([x.n.split(" — ")[0],x.h[0]||""])});
 const W={};(window.BAI||[]).forEach(b=>{W[b.id]={};b.bai.forEach(l=>W[b.id][l.n]=l.w.length)});
 const wc=(B,n)=>(W[B.id]||{})[n]||0;
 
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const reduce=()=>matchMedia("(prefers-reduced-motion: reduce)").matches;
 const CN="〇一二三四五六七八九";
 const cn=n=>n<10?CN[n]:n<20?"十"+(n%10?CN[n%10]:""):CN[Math.floor(n/10)]+"十"+(n%10?CN[n%10]:"");
 const nums=B=>Object.keys(B.ls).map(Number).sort((a,b)=>a-b);
-let cur=store.get("gt-book"),q="",sel=new Set();
+const book=()=>BOOKS.find(x=>x.id===cur);
+const SEL={},selOf=B=>SEL[B.id]||(SEL[B.id]=new Set());   // ôn gộp: nhớ riêng từng cuốn
+let cur=store.get("gt-book"),q="",UN=[];
 if(!BOOKS.some(B=>B.id===cur))cur=(BOOKS[0]||{}).id;
 function last(){const r=store.get("gt-last");if(!r)return null;const [b,n]=r.split("|"),B=BOOKS.find(x=>x.id===b);return B&&B.ls[n]?{b,n:+n,B}:null}
 
-function range(B){const n=nums(B);return !n.length?"":n.length===1?`Bài ${n[0]}`:(n[n.length-1]-n[0]+1===n.length?`Bài ${n[0]}–${n[n.length-1]}`:`${n.length} bài`)}
-function books(){
-  const L=last();
-  $("#books").innerHTML=BOOKS.map(B=>`<button type="button" class="book ${B.c}" style="--w:${B.dim[0]}px;--h:${B.dim[1]}px" data-id="${B.id}" aria-pressed="${B.id===cur}" aria-label="${esc(B.zh)} · ${esc(B.vi)}${L&&L.b===B.id?` · đang học Bài ${L.n}`:""}"><span class="hb"></span>${L&&L.b===B.id?`<span class="rb" title="Đang học dở Bài ${L.n}"></span>`:""}<span class="slip">${esc(B.spine).replace(/(\d+)/,'<span class="tcy">$1</span>').replace("|","<br>")}</span><span class="seal">${B.seal}</span><span class="n">${range(B)}</span></button>`).join("")
-    +`<div class="bookend" aria-hidden="true">盒</div>`;
-  $("#books").querySelectorAll(".book").forEach(b=>b.onclick=()=>{cur=b.dataset.id;q="";sel.clear();bar();store.set("gt-book",cur);books();panel()});
-}
+function range(B){const n=nums(B);return !n.length?"Chưa có bài":n.length===1?`Bài ${n[0]}`:(n[n.length-1]-n[0]+1===n.length?`Bài ${n[0]}–${n[n.length-1]}`:`${n.length} bài`)}
+function title(B,n){const t=B.ls[n]||B.t[n]||[];return {zh:t[0]||`第${cn(n)}课`,vi:t[1]||""}}
 function gpLink([n,code]){
   const lv=LV[code[0]];
-  return HAS_NP[lv]?`<a href="${SITE}ngu-phap/${lv}-${code.slice(1)}/" title="Mở bài ngữ pháp 【${code}】"><b>HSK${lv}</b>${esc(n)}</a>`:`<span>${esc(n)}</span>`;
+  return HAS_NP[lv]?`<a href="${SITE}ngu-phap/${lv}-${code.slice(1)}/" title="Mở bài ngữ pháp 【${esc(code)}】"><b>HSK${lv}</b>${esc(n)}</a>`:`<span>${esc(n)}</span>`;
 }
-function title(B,n){const t=B.ls[n]||B.t[n]||[];return {zh:t[0]||`第${cn(n)}课`,vi:t[1]||""}}
+// chia bài thành các đợt: mỗi đợt kết thúc ở bài ôn tập (B.on); sách không có bài ôn là một đợt duy nhất
+function units(B){
+  const ns=nums(B),from=B.from||1,total=B.total||Math.max(0,...ns),U=[];let u=null;
+  for(let i=from;i<=total;i++){
+    if(!u){u={ls:[],rv:null};U.push(u)}
+    u.ls.push(i);
+    const o=(B.on||[]).find(o=>o.sau===i);if(o){u.rv=o;u=null}
+  }
+  return U;
+}
+
+/* ---- bìa sách ---- */
+function covers(){
+  const L=last();
+  $("#ke").innerHTML=BOOKS.map(B=>{
+    const n=nums(B),tot=B.total?B.total-(B.from||1)+1:0,pct=tot?Math.min(100,Math.round(n.length/tot*100)):0;
+    return `<button type="button" class="cv ${B.c}" data-id="${B.id}" aria-pressed="${B.id===cur}" aria-controls="pn" aria-label="${esc(B.zh)} · ${esc(B.vi)}${L&&L.b===B.id?` · đang học dở Bài ${L.n}`:""}">
+      ${L&&L.b===B.id?`<span class="rb" title="Đang học dở Bài ${L.n}"></span>`:""}
+      <span class="seal">${B.seal}</span><span class="ttl">${esc(B.spine).replace("|","<br>")}<small>${esc(B.vi)}</small></span>
+      <span class="meta"><b>${range(B)}</b>${tot?`<span class="pr"><i style="width:${pct}%"></i></span><small>${n.length}/${tot} bài đã lên web</small>`:`<small>${n.length} bài đã lên web</small>`}</span></button>`}).join("");
+  $("#ke").querySelectorAll(".cv").forEach(b=>b.onclick=()=>choose(b.dataset.id,true));
+  centerCover();
+}
+function centerCover(){const c=$("#ke"),b=c.querySelector('[aria-pressed="true"]');if(b&&c.scrollWidth>c.clientWidth)c.scrollLeft=b.offsetLeft-(c.clientWidth-b.offsetWidth)/2}
+function choose(id,scroll){
+  cur=id;q="";store.set("gt-book",cur);
+  $("#ke").querySelectorAll(".cv").forEach(b=>b.setAttribute("aria-pressed",b.dataset.id===cur));
+  panel();bar();
+  if(scroll)$("#pn").scrollIntoView({behavior:reduce()?"auto":"smooth",block:"start"});
+}
+
+/* ---- cuốn đang xem ---- */
 function facts(B){
   const ns=nums(B),words=ns.reduce((s,n)=>s+wc(B,n),0),g=ns.flatMap(n=>B.gram[n]||[]);
-  const lv=[...new Set(g.map(x=>LV[x[1][0]]).filter(Boolean))].sort();
+  const lv=[...new Set(g.map(x=>LV[(x[1]||"")[0]]).filter(Boolean))].sort();
   let li=`<li><b>${ns.length}</b>bài trên web</li>`;
+  if(B.total)li+=`<li><b>${B.total-(B.from||1)+1}</b>bài cả học phần</li>`;
   if(words)li+=`<li><b>${words}</b>từ mới</li>`;
   if(g.length)li+=`<li><b>${g.length}</b>điểm ngữ pháp</li>`;
   if(lv.length)li+=`<li>ngữ pháp <b>HSK ${lv[0]}${lv.length>1?"–"+lv[lv.length-1]:""}</b></li>`;
   return `<ul class="facts">${li}</ul>`;
 }
-function card(B,n){
-  const {zh,vi}=title(B,n),g=B.gram[n]||[],w=wc(B,n);
-  return `<article class="ls${sel.has(n)?" sel":""}" id="${B.id}-${n}">
-    <div class="top2"><span><span class="no">Bài ${n}</span>${w?` <span class="wc">· ${w} từ mới</span>`:""}</span>${w?`<label class="chk"><input type="checkbox" id="pk-${B.id}-${n}" data-n="${n}"${sel.has(n)?" checked":""}>Ôn gộp</label>`:""}</div>
-    <h3>${esc(zh)}</h3>${vi?`<p class="vi">${esc(vi)}</p>`:""}
-    ${g.length?`<div class="gp"><span class="lbl">Ngữ pháp:</span>${g.map(gpLink).join("")}</div>`:""}
-    <div class="acts"><a class="learn" data-r="${B.id}|${n}" href="${SITE}${B.id}/bai-${n}/">Học bài →</a>${w?`<a class="sec" href="${SITE}tu-vung/#${B.id}/bai-${n}"><i>词</i>Ôn từ</a><a class="sec" href="${SITE}tro-choi/?bo=bai:${B.id}:bai-${n}"><i>玩</i>Chơi</a>`:""}</div>
-  </article>`;
-}
 function panel(){
-  const B=BOOKS.find(x=>x.id===cur),P=$("#panel");if(!B)return;
-  P.className="panel "+B.c;
-  const open=nums(B),from=B.from||1,total=B.total||Math.max(0,...open),L=last(),dirs=DIRS[B.id]||[];
-  let rows="";
-  // bài ôn tập (B.on): có thư mục trên web thì mở trang ôn; chưa có thì dòng này mở 词汇盒 ôn gộp từ các bài trong đợt
-  const review=o=>{const k=`<span class="k">${esc(o.zh)}</span>`,ns=[];for(let j=o.tu;j<=o.sau;j++)if(wc(B,j))ns.push(j);
-    if(dirs.includes(o.id))return `<li><a class="row rv" href="${SITE}${B.id}/${o.id}/">${k}<span class="ti">${esc(o.vi)}</span><span class="dots"></span><span class="pg">Ôn tập</span></a></li>`;
-    if(ns.length)return `<li><a class="row rv" href="${SITE}tu-vung/#${B.id}/${ns.map(j=>"bai-"+j).join("+")}" title="Bài ôn chưa lên web — ôn từ vựng các bài này trong 词汇盒">${k}<span class="ti">${esc(o.vi)}</span><span class="dots"></span><span class="pg">ôn từ →</span></a></li>`;
-    return `<li><span class="row off rv">${k}<span class="ti">${esc(o.vi)}</span><span class="dots"></span><span class="pg">sắp mở</span></span></li>`};
-  for(let i=from;i<=total;i++){
-    const k=`第${cn(i)}课`,has=B.ls[i],t=title(B,i);
-    const ti=t.zh!==k?t.zh:(has?t.vi:"");
-    const here=L&&L.b===B.id&&L.n===i?`<span class="here">Đang học</span>`:"";
-    const inner=`<span class="k">${k}</span><span class="ti">${esc(ti)}</span>${here}<span class="dots"></span><span class="pg">${has?"Bài "+i:"sắp mở"}</span>`;
-    rows+=`<li>${has?`<a class="row" href="#${B.id}-${i}" data-n="${i}">${inner}</a>`:`<span class="row off">${inner}</span>`}</li>`;
-    (B.on||[]).filter(o=>o.sau===i).forEach(o=>rows+=review(o));
-  }
-  if(!B.total)rows+=`<li><span class="row off"><span class="k">……</span><span class="dots"></span><span class="pg">còn tiếp</span></span></li>`;
-  const pickable=open.filter(n=>wc(B,n));
-  P.innerHTML=`<div class="ph"><div><h2>${esc(B.zh)}</h2><p>${esc(B.vi)}</p>${facts(B)}</div></div>
-    <div class="toc"><h4>目录</h4><p class="sub">${esc(B.zh)} · ${open.length} bài đã có trên web${B.total?` / ${B.total-from+1} bài${B.on&&B.on.length?` · ${B.on.length} bài ôn`:""}`:""}</p><ol>${rows}</ol></div>
-    <label class="search"><span>找</span><input id="q" type="search" placeholder="Tìm bài: 了, 换钱, sinh nhật…" value="${esc(q)}" aria-label="Tìm bài trong cuốn này"></label>
-    ${pickable.length>1?`<div class="pick"><p><b>Ôn gộp nhiều bài:</b> tích “Ôn gộp” ở các bài muốn ôn cùng lúc, ví dụ trước giờ kiểm tra.</p><button type="button" id="pkAll">Chọn tất cả</button></div>`:""}
-    <div class="lessons" id="lessons"></div>`;
-  const pa=$("#pkAll");if(pa)pa.onclick=()=>{const all=pickable.every(n=>sel.has(n));sel=new Set(all?[]:pickable);list(B);bar()};
+  const B=book(),P=$("#pn");if(!B)return;
+  P.className="pn "+B.c;
+  const pickable=nums(B).filter(n=>wc(B,n));
+  P.innerHTML=`<div class="pn-h"><span class="wm" aria-hidden="true">${B.seal}</span><p class="no">Đang xem</p><h2>${esc(B.zh)}</h2><p class="vi">${esc(B.vi)}</p>${facts(B)}</div>
+    <div class="tb"><label class="search"><span>找</span><input id="q" type="search" placeholder="Tìm bài: 了, 换钱, sinh nhật…" value="${esc(q)}" aria-label="Tìm bài trong cuốn này"></label>
+      ${pickable.length>1?`<p class="hint"><b>Ôn gộp:</b> tích ô tròn đầu mỗi bài để ôn nhiều bài cùng lúc.</p><button type="button" class="btn" id="pkAll"></button>`:""}</div>
+    <div id="lessons"></div>`;
   $("#q").oninput=e=>{q=e.target.value;list(B)};
-  P.querySelectorAll(".toc a.row").forEach(c=>c.onclick=e=>{e.preventDefault();q="";$("#q").value="";list(B);const el=document.getElementById(`${B.id}-${c.dataset.n}`);el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});el.classList.add("flash");setTimeout(()=>el.classList.remove("flash"),1400)});
+  const pa=$("#pkAll");if(pa)pa.onclick=()=>{const S=selOf(B),all=pickable.every(n=>S.has(n));pickable.forEach(n=>all?S.delete(n):S.add(n));syncSel(B)};
+  const L=$("#lessons");
+  L.onchange=e=>{const c=e.target.closest(".pk input");if(!c)return;const S=selOf(B),n=+c.dataset.n;c.checked?S.add(n):S.delete(n);syncSel(B)};
+  L.onclick=e=>{
+    const u=e.target.closest("[data-u]");
+    if(u){const S=selOf(B),p=UN[+u.dataset.u].ls.filter(n=>wc(B,n)),all=p.every(n=>S.has(n));p.forEach(n=>all?S.delete(n):S.add(n));syncSel(B);return}
+    const a=e.target.closest("a.go");if(a)store.set("gt-last",a.dataset.r);
+  };
   list(B);
 }
+function row(B,n){
+  const {zh,vi}=title(B,n),has=B.ls[n],w=wc(B,n),g=B.gram[n]||[],S=selOf(B);
+  if(!has)return `<div class="lr off" id="${B.id}-${n}" data-n="${n}"><span></span><div class="num"><small>Bài</small><b>${n}</b></div><div class="tx"><h3>${esc(zh)}</h3>${vi?`<p class="vi">${esc(vi)}</p>`:""}</div><span class="soon">sắp mở</span></div>`;
+  const chips=(w?`<span class="wc">${w} từ mới</span>`:"")+g.map(gpLink).join("");
+  return `<article class="lr${S.has(n)?" sel":""}" id="${B.id}-${n}" data-n="${n}">
+    ${w?`<label class="pk" title="Chọn để ôn gộp"><input type="checkbox" data-n="${n}" aria-label="Chọn Bài ${n} để ôn gộp"${S.has(n)?" checked":""}></label>`:"<span></span>"}
+    <div class="num"><small>Bài</small><b>${n}</b></div>
+    <div class="tx"><h3>${esc(zh)}</h3>${vi?`<p class="vi">${esc(vi)}</p>`:""}${chips?`<div class="gp">${chips}</div>`:""}</div>
+    <div class="ac"><a class="go" data-r="${B.id}|${n}" href="${SITE}${B.id}/bai-${n}/">Học bài →</a>${w?`<a class="s" href="${SITE}tu-vung/#${B.id}/bai-${n}"><i>词</i>Ôn từ</a><a class="s" href="${SITE}tro-choi/?bo=bai:${B.id}:bai-${n}"><i>玩</i>Chơi</a>`:""}</div>
+  </article>`;
+}
+// bài ôn tập: có thư mục trên web thì mở trang ôn; chưa có thì mở 词汇盒 ôn gộp từ các bài trong đợt
+function review(B,o){
+  const dirs=DIRS[B.id]||[],k=`<span class="k">${esc(o.zh)}</span>`,ns=[];
+  for(let j=o.tu;j<=o.sau;j++)if(wc(B,j))ns.push(j);
+  if(dirs.includes(o.id))return `<a class="rvr" href="${SITE}${B.id}/${o.id}/">${k}<span class="t">${esc(o.vi)}</span><span class="g">Ôn tập →</span></a>`;
+  if(ns.length)return `<a class="rvr" href="${SITE}tu-vung/#${B.id}/${ns.map(j=>"bai-"+j).join("+")}" title="Bài ôn chưa lên web — ôn từ vựng các bài này trong 词汇盒">${k}<span class="t">${esc(o.vi)}</span><span class="g">Ôn từ →</span></a>`;
+  return `<div class="rvr off">${k}<span class="t">${esc(o.vi)}</span><span class="g">sắp mở</span></div>`;
+}
 function list(B){
-  const k=q.trim().toLowerCase();
-  const ns=nums(B).reverse().filter(n=>{if(!k)return true;const t=title(B,n);return [t.zh,t.vi,"bài "+n,...(B.gram[n]||[]).map(g=>g[0])].join(" ").toLowerCase().includes(k)});
-  $("#lessons").innerHTML=ns.length?ns.map(n=>card(B,n)).join(""):`<p class="empty">Không có bài nào khớp “${esc(q)}” trong cuốn này.</p>`;
-  $("#lessons").querySelectorAll(".chk input").forEach(c=>c.onchange=()=>{const n=+c.dataset.n;c.checked?sel.add(n):sel.delete(n);c.closest(".ls").classList.toggle("sel",c.checked);syncAll(B);bar()});
-  syncAll(B);
-  $("#lessons").querySelectorAll("a.learn").forEach(a=>a.addEventListener("click",()=>store.set("gt-last",a.dataset.r)));
+  const k=q.trim().toLowerCase(),multi=(B.on||[]).length>0;
+  const match=n=>{const t=title(B,n);return [t.zh,t.vi,"bài "+n,...(B.gram[n]||[]).map(g=>g[0])].join(" ").toLowerCase().includes(k)};
+  UN=units(B);let h="";
+  UN.forEach((u,i)=>{
+    const ls=k?u.ls.filter(n=>B.ls[n]&&match(n)):u.ls;
+    if(!ls.length)return;
+    const p=u.ls.filter(n=>wc(B,n)),a=u.ls[0],z=u.ls[u.ls.length-1];
+    h+=`<section class="un">${multi?`<div class="uh"><b>Đợt ${i+1}</b><span>Bài ${a}${z>a?"–"+z:""}</span>${p.length>1?`<button type="button" class="btn" data-u="${i}"></button>`:""}</div>`:""}`
+      +ls.map(n=>row(B,n)).join("")+(!k&&u.rv?review(B,u.rv):"")+`</section>`;
+  });
+  if(!B.total&&!k)h+=`<div class="un"><p class="more">……  còn tiếp</p></div>`;
+  $("#lessons").innerHTML=h||`<p class="empty">Không có bài nào khớp “${esc(q)}” trong cuốn này.</p>`;
+  syncSel(B);
 }
-function syncAll(B){const pa=$("#pkAll");if(pa)pa.textContent=nums(B).filter(n=>wc(B,n)).every(n=>sel.has(n))?"Bỏ chọn tất cả":"Chọn tất cả"}
+
+/* ---- ôn gộp ---- */
+function syncSel(B){
+  const S=selOf(B);
+  document.querySelectorAll("#lessons .lr[data-n]").forEach(r=>{const on=S.has(+r.dataset.n);r.classList.toggle("sel",on);const c=r.querySelector("input");if(c)c.checked=on});
+  document.querySelectorAll("#lessons [data-u]").forEach(b=>{const p=UN[+b.dataset.u].ls.filter(n=>wc(B,n));b.textContent=p.every(n=>S.has(n))?"Bỏ chọn đợt":"Chọn cả đợt"});
+  const pa=$("#pkAll");if(pa)pa.textContent=nums(B).filter(n=>wc(B,n)).every(n=>S.has(n))?"Bỏ chọn tất cả":"Chọn tất cả";
+  bar();
+}
 function bar(){
-  const B=BOOKS.find(x=>x.id===cur),el=$("#bar");
-  if(!B||sel.size<2){el.hidden=true;document.body.classList.remove("has-bar");return}
-  const ns=[...sel].sort((a,b)=>a-b),ids=ns.map(n=>"bai-"+n).join("+"),words=ns.reduce((s,n)=>s+wc(B,n),0);
+  const B=book(),el=$("#bar"),S=B&&selOf(B);
+  if(!B||!S.size){el.hidden=true;document.body.classList.remove("has-bar");return}
+  const ns=[...S].sort((a,b)=>a-b),ids=ns.map(n=>"bai-"+n).join("+"),words=ns.reduce((s,n)=>s+wc(B,n),0);
   el.className="bar "+B.c;
-  el.innerHTML=`<div class="in"><div class="what"><b>${esc(B.short)} · ôn gộp ${ns.length} bài${words?` · ${words} từ`:""}</b><span>Bài ${ns.join(", ")}</span></div>
-    <a href="${SITE}tu-vung/#${B.id}/${ids}"><i>词</i>Ôn từ</a><a class="alt" href="${SITE}tro-choi/?bo=${encodeURIComponent('bai:'+B.id+':'+ids)}"><i>玩</i>Chơi</a><button type="button" id="pkClr">Bỏ chọn</button></div>`;
+  el.innerHTML=`<div class="in"><div class="what"><b>${esc(B.short)} · ôn gộp ${ns.length} bài${words?` · ${words} từ`:""}</b>
+      <div class="chips">${ns.map(n=>`<button type="button" data-n="${n}" aria-label="Bỏ Bài ${n} khỏi danh sách ôn gộp">Bài ${n} ×</button>`).join("")}</div></div>
+    <div class="acts"><a href="${SITE}tu-vung/#${B.id}/${ids}"><i>词</i>Ôn từ</a><a class="alt" href="${SITE}tro-choi/?bo=${encodeURIComponent('bai:'+B.id+':'+ids)}"><i>玩</i>Chơi</a><button type="button" class="clr" id="pkClr">Bỏ chọn</button></div></div>`;
   el.hidden=false;document.body.classList.add("has-bar");
-  $("#pkClr").onclick=()=>{sel.clear();list(B);bar()};
+  $("#pkClr").onclick=()=>{S.clear();syncSel(B)};
+  el.querySelectorAll(".chips button").forEach(b=>b.onclick=()=>{S.delete(+b.dataset.n);syncSel(B)});
 }
+
+/* ---- học tiếp & số liệu đầu trang ---- */
 function resume(){
   const L=last();if(!L)return;
   $("#resume").hidden=false;const g=$("#lhGo");if(g){g.href=`${SITE}${L.b}/bai-${L.n}/`;g.textContent=`Học tiếp: ${L.B.short} · Bài ${L.n} →`}$("#resume").href=`${SITE}${L.b}/bai-${L.n}/`;
   const t=title(L.B,L.n);$("#rIc").textContent=(t.zh.startsWith("第")?L.B.seal:t.zh.slice(0,2));
   $("#rT").textContent=`${L.B.short} · Bài ${L.n} · ${t.zh}`;
 }
-books();panel();resume();
-// số liệu đầu trang tự đếm từ dữ liệu giá sách
+covers();panel();bar();resume();
 (function(){const n=(id,v)=>{const e=document.querySelector('#'+id+' b');if(e)e.textContent=v};
  n('stGt',BOOKS.length);n('stWeb',BOOKS.reduce((t,B)=>t+nums(B).length,0));
  n('stHp',BOOKS.reduce((t,B)=>t+(B.total?B.total-(B.from||1)+1:nums(B).length),0));n('stOn',BOOKS.reduce((t,B)=>t+(B.on||[]).length,0));})();
-// giữ dải lụa đúng khi quay lại trang bằng nút Back
-addEventListener("pageshow",e=>{if(e.persisted){books();panel();resume()}});
+// quay lại bằng nút Back: vẽ lại để dải lụa "đang học dở" đúng
+addEventListener("pageshow",e=>{if(e.persisted){covers();panel();bar();resume()}});
 (function(){const r=document.documentElement,b=$("#themeBtn");
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
  const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();

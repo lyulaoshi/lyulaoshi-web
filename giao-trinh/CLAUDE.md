@@ -2,13 +2,16 @@
 
 `courses/giao-trinh/` → `lyulaoshi.com/giao-trinh/`
 
-## Cấu trúc
+## Cấu trúc (thiết kế mới 25/10/2026)
 
-Gáy sách + mục lục 目录 + thẻ bài (ngữ pháp, Ôn từ, Chơi, ôn gộp `bai:<môn>:bai-11+bai-12`).
+Hàng **bìa sách** (6 cuốn, có thanh tiến độ "bài đã lên web / cả học phần", ruy băng ở cuốn đang học dở) → bấm bìa thì cuộn xuống **một danh sách duy nhất** các bài, chia **theo đợt ôn tập** (`on` trong `sach.js`), mỗi dòng bài có sẵn: Học bài, Ôn từ, Chơi, chip ngữ pháp. Không còn trang 目录 riêng + thẻ bài trùng nhau.
 
-- `sach.js` — tên bài, tổng số bài, màu gáy (soạn tay)
+- **Ôn gộp**: ô tròn đầu mỗi dòng, nút "Chọn cả đợt" / "Chọn tất cả"; thanh dưới màn hình hiện từ bài thứ 1 được chọn, có chip bỏ từng bài, nút Ôn từ (词汇盒) và Chơi (游戏盒). Mỗi cuốn nhớ lựa chọn riêng trong phiên.
+- Bản cũ (kệ sách đứng + mục lục trang giấy) lưu ở scratchpad phiên 25/10/2026, không còn trong repo.
+- `sach.js` — tên bài, tổng số bài, màu bìa, bài ôn (soạn tay)
 - `bai-co.js` — bài nào đã có (do `build_site.py` tự dò, chỉ có trong bản ghép)
 - Số từ lấy từ `tu-vung/bai-data.js`, ngữ pháp từ `ngu-phap/bai-data.js`
+- Điểm ngữ pháp chưa có mã HSK (`h` rỗng) vẫn hiện, như nhãn không có link — đừng giả định `x.h[0]` luôn có.
 
 ## Thêm giáo trình mới
 
