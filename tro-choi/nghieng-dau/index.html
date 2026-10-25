@@ -146,6 +146,8 @@ dialog::backdrop{background:rgba(20,18,40,.55)}
 .type b{font-size:20px}.type strong{font-size:13px}.type small{font-size:11px}
 @media(max-width:620px){.types{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
+#custom{display:grid;gap:8px}#custom[hidden]{display:none}
+#customText{width:100%;border:2px solid var(--line);border-radius:14px;background:var(--ground);color:var(--ink);font:inherit;font-family:var(--kai),var(--vi);font-size:15px;padding:10px 12px;resize:vertical}
 .opts{display:flex;flex-wrap:wrap;gap:12px 22px}
 .og{display:grid;gap:5px}.ol{font-size:11.5px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
 .seg{display:inline-flex;flex-wrap:wrap;background:var(--ground2);border-radius:999px;padding:3px;gap:2px}
@@ -188,6 +190,11 @@ dialog::backdrop{background:rgba(20,18,40,.55)}
       <select id="src" class="hide" aria-hidden="true" tabindex="-1"></select>
       <div id="srcpick"></div>
       <p class="srcnote" id="srcnote"></p>
+      <div id="custom" hidden>
+        <textarea id="customText" rows="7" spellcheck="false" aria-label="Danh sách từ tự thêm" placeholder="Chỉ cần chữ Hán, cách nhau bằng dấu cách hoặc xuống dòng:&#10;咖啡 手机 电脑&#10;Từ chưa có trong kho thì ghi đủ: 咖啡 | kāfēi | cà phê"></textarea>
+        <div class="row mini"><button type="button" class="ghost" id="customSave">Lưu và dùng danh sách này</button><button type="button" class="ghost" id="customFile">Nhập từ file .txt / .csv</button><button type="button" class="lnk" id="customClear">Xoá danh sách</button><input type="file" id="customInput" accept=".txt,.csv,text/plain,text/csv" class="hide"></div>
+        <p class="muted" id="customMsg">Danh sách chỉ lưu trên trình duyệt này, không gửi lên web. Chỉ gửi chữ Hán cũng được: web tự tra pinyin và nghĩa từ kho chung (giáo trình, chủ đề, HSK). Từ chưa có trong kho sẽ được báo để cô ghi thêm pinyin, không tự đoán.</p>
+      </div>
       <div class="chips" id="items" role="group" aria-label="Bài hoặc chủ đề"></div>
       <div class="row mini"><button type="button" class="lnk" id="allBtn">Chọn tất cả</button><button type="button" class="lnk" id="noneBtn">Bỏ chọn</button>
         <details id="offbox"><summary>Hộp khác chưa kết nối</summary><ul class="off" id="offlist"></ul></details></div>
@@ -263,6 +270,24 @@ function shuffled(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.rando
 /* ===== nạp kho từ chung ===== */
 function loadJs(src){return new Promise(res=>{const s=document.createElement('script');s.src=src;s.onload=()=>res(true);s.onerror=()=>res(false);document.head.appendChild(s)})}
 let SOURCES=[],usingSample=false;
+const CK='nd:custom';
+function parseCustom(txt,srcs){   // dòng "汉字 | pinyin | nghĩa", hoặc chỉ chữ Hán (tra pinyin + nghĩa từ kho chung)
+ const idx=new Map;(srcs||[]).filter(x=>x.id!=='tu').forEach(x=>x.items.forEach(it=>it.words.forEach(([h,p,m])=>{if(!h||!p)return;const a=idx.get(h)||idx.set(h,[]).get(h);
+  const e=a.find(y=>norm(y.p)===norm(p)||(flat(y.p)===flat(p)&&diac(y.p)!==diac(p)));   // cùng âm, chỉ khác khinh thanh (xuésheng / xuéshēng): coi là một, giữ bản gặp trước
+  if(!e)a.push({p,m:m||''});else if(!e.m&&m)e.m=m})));
+ const words=[],skipped=[],unknown=[],ambig=[];let filled=0;
+ (txt||'').split(/\r?\n/).forEach((l,i)=>{l=l.trim();if(!l||l.startsWith('#'))return;
+  if(!/[|\t]/.test(l)){   // chỉ chữ Hán (có thể nhiều từ một dòng, cách nhau bằng dấu cách hoặc phẩy)
+   l.split(/[\s,，、;；]+/).filter(Boolean).forEach(h=>{if(!CJK.test(h)){skipped.push('Dòng '+(i+1)+': '+h);return}
+    const f=idx.get(h);if(!f){unknown.push(h);return}
+    if(f.length>1){ambig.push(h+' ('+f.map(x=>x.p).join(' / ')+')');return}
+    words.push([h,f[0].p,f[0].m]);filled++});return}
+  const p=l.split(/\||\t/).map(x=>x.trim());
+  if(p.length<2||!p[0]||!p[1]||!CJK.test(p[0])){skipped.push('Dòng '+(i+1)+': '+l);return}
+  let m=p.slice(2).join(' | ');if(!m){const f=(idx.get(p[0])||[]).find(x=>norm(x.p)===norm(p[1]));if(f&&f.m){m=f.m;filled++}}
+  words.push([p[0],p[1],m])});
+ return {words,skipped,unknown,ambig,filled}}
+function customText(){try{return localStorage.getItem(CK)||''}catch(e){return ''}}
 function buildSources(){
  const S=[];
  if(window.BAI&&BAI.length)BAI.forEach(c=>S.push({id:'bai:'+c.id,grp:'Giáo trình',name:c.zh,sub:c.vi,
@@ -272,7 +297,8 @@ function buildSources(){
  if(window.HSK){const nghia=window.NGHIA||{};
    const items=Object.keys(HSK).filter(k=>HSK[k].length).map(k=>({id:'hsk'+k,label:'HSK '+k,words:HSK[k].filter(w=>w[1]).map(w=>[w[0],w[1],nghia[w[0]+'|'+w[1]]||nghia[w[0]]||''])}));
    if(items.length)S.push({id:'hsk',grp:'Đề cương HSK 2025',name:'HSK 2025',sub:'Cấp nào chưa có nghĩa tiếng Việt thì chỉ chơi dạng chữ Hán ↔ phiên âm.',items});}
- if(!S.length){usingSample=true;S.push({id:'mau',grp:'Bộ mẫu nhúng',name:'乐读 1 · Bài 6 (bộ mẫu)',sub:'Kho chung không nạp được; đang dùng bộ mẫu nhúng sẵn trong trang.',items:[{id:'mau',label:'53 từ mẫu',words:SAMPLE}]})}
+ S.push({id:'tu',grp:'Từ của em',name:'Từ tự thêm',sub:'',items:[{id:'tu',label:'Danh sách của em',words:parseCustom(customText(),S).words}]});
+ if(S.length===1){usingSample=true;const cu=S.pop();S.push({id:'mau',grp:'Bộ mẫu nhúng',name:'乐读 1 · Bài 6 (bộ mẫu)',sub:'Kho chung không nạp được; đang dùng bộ mẫu nhúng sẵn trong trang.',items:[{id:'mau',label:'53 từ mẫu',words:SAMPLE}]});S.push(cu)}
  return S;
 }
 const OFF=[['ngu-phap','语法盒 Ngữ pháp','chỉ có điểm ngữ pháp và câu ví dụ, chưa có bảng từ vựng riêng'],
@@ -325,12 +351,13 @@ function renderSources(){
   const zh=/[\u4e00-\u9fff]/.test(x.name);b.innerHTML='<span class="zh"></span><span class="vi"></span><span class="n"></span>';
   const z=b.querySelector('.zh');z.textContent=x.name;if(!zh){z.style.fontFamily='var(--vi)';z.style.fontWeight='700';z.style.fontSize='14px'}
   b.querySelector('.vi').textContent=zh?(x.sub||''):'';
-  b.querySelector('.n').textContent=x.items.length+(x.id==='hsk'?' cấp':x.id==='cd'?' chủ đề':' bài')+' · '+x.items.reduce((a,i)=>a+i.words.length,0)+' từ';
+  b.querySelector('.n').textContent=(x.id==='tu'?'':x.items.length+(x.id==='hsk'?' cấp':x.id==='cd'?' chủ đề':' bài')+' · ')+x.items.reduce((a,i)=>a+i.words.length,0)+' từ';
   b.onclick=()=>{s.value=x.id;pickSource()};g.append(b)});
  pickSource(pre&&pre.src===start?pre.items:null);
 }
 function pickSource(pre){
  cur=SOURCES.find(x=>x.id===$('src').value);try{localStorage.setItem('nd:src',cur.id)}catch(e){}
+ $('custom').hidden=cur.id!=='tu';if(cur.id==='tu'&&!$('customText').dataset.init){$('customText').value=customText();$('customText').dataset.init=1}
  $('srcnote').textContent=/[\u4e00-\u9fff]/.test(cur.name)?'':(cur.sub||'');document.querySelectorAll('.scard').forEach(b=>b.setAttribute('aria-pressed',b.dataset.id===cur.id));
  sel=new Set(pre&&pre.some(i=>cur.items.some(x=>x.id===i))?pre.filter(i=>cur.items.some(x=>x.id===i)):cur.id==='hsk'?[cur.items[0].id]:cur.items.map(i=>i.id));
  const box=$('items');box.replaceChildren();
@@ -370,6 +397,7 @@ OFF.forEach(([id,n,why])=>{const li=document.createElement('li');li.textContent=
 try{const t=localStorage.getItem('nd:type');if(t==='mixed'||TYPES[t])qtype=t}catch(e){}
 
 /* ===== tạo câu hỏi từ dữ liệu thực ===== */
+const diac=p=>(p.normalize('NFD').match(/[\u0300-\u0304\u030c]/g)||[]).length;
 const flat=p=>norm(p).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ü/g,'u');
 function lev(a,b){const m=a.length,n=b.length,r=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]);for(let j=1;j<=n;j++)r[0][j]=j;
  for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)r[i][j]=Math.min(r[i-1][j]+1,r[i][j-1]+1,r[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return r[m][n]}
@@ -517,6 +545,21 @@ document.addEventListener('keyup',e=>pressed.delete(e.code));
 window.addEventListener('blur',()=>{pressed.clear();if(active)pause(true)});
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&active)pause(true)});
 window.addEventListener('pagehide',stopCamera);
+function saveCustom(txt){
+ try{localStorage.setItem(CK,txt)}catch(e){$('customMsg').textContent='Trình duyệt chặn lưu: danh sách chỉ dùng được đến khi đóng trang.'}
+ const r=parseCustom(txt,SOURCES),src=SOURCES.find(x=>x.id==='tu');src.items[0].words=r.words;
+ const card=document.querySelector('.scard[data-id="tu"] .n');if(card)card.textContent=r.words.length+' từ';
+ const chip=document.querySelector('#items .chip small');if(chip)chip.textContent=r.words.length+' từ';
+ sel=new Set(['tu']);refresh();
+ const parts=[r.words.length+' từ hợp lệ'+(r.filled?' (đã tra '+r.filled+' mục từ kho chung)':'')+'.'];
+ if(r.unknown.length)parts.push('Chưa có trong kho, cần thêm pinyin dạng "chữ | pinyin | nghĩa": '+r.unknown.slice(0,15).join(' ')+(r.unknown.length>15?' …':'')+'.');
+ if(r.ambig.length)parts.push('Nhiều cách đọc, cần ghi rõ pinyin: '+r.ambig.slice(0,8).join(' ; ')+'.');
+ if(r.skipped.length)parts.push('Bỏ qua '+r.skipped.length+' dòng không có chữ Hán: '+r.skipped.slice(0,3).join(' ; ')+'.');
+ $('customMsg').textContent=parts.join(' ')}
+$('customSave').onclick=()=>saveCustom($('customText').value);
+$('customClear').onclick=()=>{if(!$('customText').value.trim()||confirm('Xoá toàn bộ danh sách từ tự thêm?')){$('customText').value='';saveCustom('')}};
+$('customFile').onclick=()=>$('customInput').click();
+$('customInput').onchange=async e=>{const f=e.target.files[0];if(!f)return;let t=await f.text();if(f.name.toLowerCase().endsWith('.csv'))t=t.replace(/,/g,'|');$('customText').value=($('customText').value.trim()?$('customText').value.trim()+'\n':'')+t.trim();saveCustom($('customText').value);e.target.value=''};
 $('count').onchange=refresh;
 /* nhóm nút phân đoạn thay cho ô chọn */
 function seg(box,items,get,set){box.replaceChildren();items.forEach(([v,l])=>{const b=document.createElement('button');b.type='button';b.textContent=l;b.dataset.v=v;b.onclick=()=>{set(v);paintSeg()};box.append(b)});}

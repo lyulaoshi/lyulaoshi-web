@@ -20,7 +20,7 @@ window.GT_SACH=[
  {id:"boya",c:"c-lav",seal:"博",dim:[68,226],spine:"博雅汉语",zh:"博雅汉语",vi:"Giáo trình BOYA sơ cấp 1",short:"博雅",total:10,   // sách 30 bài, học phần dạy 10 bài đầu
   t:{1:["你好","Chào hỏi · hỏi tên"],2:["你是哪国人","Bạn là người nước nào?"],3:["那是你的书吗","Kia là sách của bạn à?"],4:["图书馆在哪儿","Thư viện ở đâu?"],5:["在北京大学的东边","Ở phía đông của Đại học Bắc Kinh"]}},
  {id:"fazhan-sc2",c:"",seal:"发",dim:[70,238],spine:"发展汉语|初级综合 II",zh:"发展汉语初级综合 II",vi:"Phát triển Hán ngữ Sơ cấp 2",short:"发展汉语",total:null,
-  t:{1:["入乡随俗","Nhập gia tùy tục"]}},
+  t:{1:["入乡随俗","Nhập gia tùy tục"],2:["儿子要回家","Con trai sắp về nhà"]}},
  {id:"301",c:"c-peach",seal:"会",dim:[76,256],spine:"汉语会话301句",zh:"汉语会话301句",vi:"Giáo trình 301 câu đàm thoại tiếng Hoa",short:"301 câu",from:11,total:20,   // học phần dạy Bài 11–20 + 2 bài ôn (như sách: 复习 sau mỗi 5 bài)
   on:[{sau:15,tu:11,id:"on-tap-3",zh:"复习（三）",vi:"Ôn tập Bài 11–15"},{sau:20,tu:16,id:"on-tap-4",zh:"复习（四）",vi:"Ôn tập Bài 16–20"}],
   // tên bài theo sách (mục lục chỉ dùng Bài 11–20; bài chưa lên web hiện mờ) — cần cô đối chiếu với sách
