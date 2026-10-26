@@ -137,7 +137,7 @@ a.game:hover{transform:translateY(-4px)}
   else if(t==='cd'){const c=(window.CHUDE||[]).find(x=>x.id===a);if(c){name=c.zh+' · '+c.vi;back='chu-de/'+a;n=c.w.length}}
   else if(t==='hsk'){name='HSK '+a+' · Gói '+(+b/20+1);back='hsk/'+a;n=20}
   if(!name)return;
-  const OK=['mua-chu/','lat-the/','bong-bay/'],bar=document.getElementById('boBar');
+  const OK=['mua-chu/','lat-the/','bong-bay/'].concat(t==='bai'||t==='cd'?['nghieng-dau/']:[]),bar=document.getElementById('boBar');
   // chế độ bộ từ: bỏ chia nhóm, xếp trò nhận được bộ từ lên đầu
   const list=document.createElement('section');list.className='games';list.setAttribute('aria-label','Danh sách trò chơi');
 
