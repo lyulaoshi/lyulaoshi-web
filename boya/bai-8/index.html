@@ -559,7 +559,7 @@
     .vocab-mean{font-size:20px;}
   }
 
-  /* Bài 8 */
+  /* Bài 7 */
   .name-item{flex-wrap:wrap;column-gap:8px;row-gap:2px;}
   .name-item .zh,.name-item .py{white-space:nowrap;}
   .name-item .word-audio-btn{margin:0 2px;}
@@ -576,17 +576,17 @@
   .review-table th{white-space:nowrap;}
   .pair-rows{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
   .pair-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
+  .dlg-group{font-weight:800;font-size:17px;color:var(--jade);margin:18px 0 6px;}
   .dialogue .dia-content .zh{font-size:28px;}
   .dialogue .dia-content .py,.dialogue .dia-content .vi{font-size:18px;}
   .err-wrong{color:var(--red-deep);font-size:18px;margin-bottom:4px;}
-  .tx-exercise{margin:14px 0;}
-  .tx-group-lbl{font-size:15px;font-weight:700;color:var(--ink-soft);margin:0 0 8px;}
-  .tx-row{display:flex;flex-wrap:wrap;gap:8px;}
-  .tx-item{background:var(--gold-soft);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:19px;font-family:'KaiTi','楷体',serif;white-space:nowrap;}
-  .tx-blank{display:inline-block;min-width:28px;border-bottom:2px solid var(--red-deep);margin:0 1px;vertical-align:baseline;}
   .formula-row{display:flex;align-items:baseline;gap:8px;background:var(--gold-soft);padding:10px 14px;border-radius:8px;font-size:17px;}
   .form-label{font-weight:700;color:var(--jade);white-space:nowrap;}
   .formula{font-size:17px;}
+  .bubble-row{display:flex;margin:6px 0;}
+  .bubble-row.right{justify-content:flex-end;}
+  .bubble{background:var(--gold-soft);border:1px solid var(--line);border-radius:12px;padding:10px 14px;max-width:88%;font-size:20px;}
+  .bubble.b{background:#fff;}
   .dialog-input{width:auto;min-width:180px;max-width:280px;}
   @media (max-width:640px){.review-table{font-size:15px;}.review-table td.zh{font-size:18px;}.review-table th,.review-table td{padding:8px 5px;}}
 
@@ -642,6 +642,39 @@
     .ex-line,.arrow-line{font-size:26px;}
     .hanzi-grid{grid-template-columns:repeat(auto-fill,minmax(150px,230px));}
   }
+  .word-audio-btn svg{width:1.45em;height:1.45em;vertical-align:middle;}
+  .ap-playbtn svg{width:1.15em;height:1.15em;vertical-align:middle;}
+
+  /* Bài 8 */
+  .name-item{flex-wrap:wrap;column-gap:8px;row-gap:2px;}
+  .name-item .zh,.name-item .py{white-space:nowrap;}
+  .name-item .word-audio-btn{margin:0 2px;}
+  .cloze-list li{margin-bottom:10px;}
+  .gram-explain{font-size:19px;color:var(--ink-soft);margin:4px 0 18px;}
+  .gram-explain .zh{font-size:22px;color:var(--ink);}
+  .review-wrap{overflow-x:auto;margin-top:10px;}
+  .review-table{width:100%;border-collapse:collapse;font-size:18px;}
+  .review-table th{background:var(--red-deep);color:#fff8e6;padding:10px 8px;text-align:left;}
+  .review-table td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+  .review-table tr:nth-child(even) td{background:var(--gold-soft);}
+  .review-table td small{display:block;color:var(--ink-soft);font-size:14px;}
+  .review-table td.zh{font-size:21px;}
+  .review-table th{white-space:nowrap;}
+  .pair-rows{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+  .pair-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
+  .dialogue .dia-content .zh{font-size:28px;}
+  .dialogue .dia-content .py,.dialogue .dia-content .vi{font-size:18px;}
+  .err-wrong{color:var(--red-deep);font-size:18px;margin-bottom:4px;}
+  .tx-exercise{margin:14px 0;}
+  .tx-group-lbl{font-size:15px;font-weight:700;color:var(--ink-soft);margin:0 0 8px;}
+  .tx-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tx-item{background:var(--gold-soft);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:19px;font-family:'KaiTi','楷体',serif;white-space:nowrap;}
+  .tx-blank{display:inline-block;min-width:28px;border-bottom:2px solid var(--red-deep);margin:0 1px;vertical-align:baseline;}
+  .formula-row{display:flex;align-items:baseline;gap:8px;background:var(--gold-soft);padding:10px 14px;border-radius:8px;font-size:17px;}
+  .form-label{font-weight:700;color:var(--jade);white-space:nowrap;}
+  .formula{font-size:17px;}
+  .dialog-input{width:auto;min-width:180px;max-width:280px;}
+  @media (max-width:640px){.review-table{font-size:15px;}.review-table td.zh{font-size:18px;}.review-table th,.review-table td{padding:8px 5px;}}
   .word-audio-btn svg{width:1.45em;height:1.45em;vertical-align:middle;}
   .ap-playbtn svg{width:1.15em;height:1.15em;vertical-align:middle;}
 a.tb-btn{text-decoration:none;}
@@ -1291,7 +1324,7 @@ a.tb-btn{text-decoration:none;}
           </div>
 
           <div class="card corner-frame gram-card" id="gram-ne">
-            <div class="gram-title">2. 【一34】呢 (2) — Trợ từ "呢" cuối câu nghi vấn đặc biệt</div>
+            <div class="gram-title">2. 【一22】呢 (2) — Trợ từ "呢" cuối câu nghi vấn đặc biệt</div>
             <p class="gram-explain">Ví dụ trong bài: <span class="zh">去你们学校怎么走<mark class="gram-key">呢</mark>？</span></p>
             <p class="gram-explain"><b class="zh">呢</b> đặt ở cuối câu nghi vấn đặc biệt (有 chữ hỏi: 什么/哪儿/怎么/多少...) để tăng ngữ khí nghi vấn, câu nghe mềm hơn và tự nhiên hơn trong khẩu ngữ.</p>
             <div class="ex-line ex-ok"><span class="ex-num">①</span><div class="ex-content"><span class="zh">去你们学校怎么走<mark class="gram-key">呢</mark>？</span><span class="ex-py">Qù nǐmen xuéxiào zěnme zǒu ne?</span><span class="ex-vi">Đến trường các bạn đi đường nào nhỉ?</span></div></div>
@@ -1316,7 +1349,7 @@ a.tb-btn{text-decoration:none;}
           </div>
 
           <div class="card corner-frame gram-card" id="gram-ji">
-            <div class="gram-title">4. 【一31】"几" 和 "多少" (1) — Hỏi số lượng</div>
+            <div class="gram-title">4. 【一04】"几" 和 "多少" (1) — Hỏi số lượng</div>
             <p class="gram-explain">Ví dụ trong bài: <span class="zh">你的房间号是多少？ / 你在几号楼？</span></p>
             <div class="review-wrap">
               <table class="review-table">
@@ -1589,10 +1622,14 @@ a.tb-btn{text-decoration:none;}
 </div>
 
 
+
     </div>
   </div>
 </div>
 
+<script>
+var ICO_SPK='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg>', ICO_STOP='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="1.5"/></svg>', ICO_PLAY='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>', ICO_PAUSE='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
+</script>
 <script>
 var ICO_SPK='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg>', ICO_STOP='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="1.5"/></svg>', ICO_PLAY='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>', ICO_PAUSE='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
 </script>
@@ -2122,5 +2159,15 @@ function fit(){b.style.left='';const r=b.getBoundingClientRect();let x=14;
   for(let p=e;p&&p!==document.body;p=p.parentElement){const c=getComputedStyle(p).position;if(c==='fixed'||c==='sticky'){const q=p.getBoundingClientRect();if(q.width<innerWidth*.6)x=Math.max(x,q.right+14);break}}});
  b.style.left=x+'px'}
 addEventListener('load',fit);addEventListener('resize',fit);setTimeout(fit,1500)})();</script>
+<!-- 语法盒: mở điểm ngữ pháp theo #np-…, do tools/build_site.py gắn khi ghép -->
+<style>.lls-np{outline:3px solid #16949E!important;outline-offset:4px;border-radius:14px;transition:outline-color 1.2s}.lls-np.off{outline-color:transparent!important}</style>
+<script>(function(){function show(el){for(var p=el;p&&p!==document.body;p=p.parentElement){
+ if(p.id&&p.offsetParent===null&&getComputedStyle(p).position!=='fixed'){var b=document.querySelector('[data-panel="'+p.id+'"],[onclick*="\''+p.id+'\'"]');if(b)b.click();}}}
+function go(){var h=decodeURIComponent(location.hash);if(h.indexOf('#np-')!==0)return;var t=h.slice(4),el,box;
+ if(t.indexOf('k-')===0){var g=document.querySelector('.gtab[data-k="'+t.slice(2)+'"]');if(!g)return;show(g);g.click();el=g;box=document.getElementById('grammarPanels')||g;}
+ else{el=document.getElementById(t);if(!el)return;show(el);box=el.closest('.grammar-card,.gram-card')||el;}
+ setTimeout(function(){var r=box.getBoundingClientRect(),y=scrollY+r.top-(r.height<innerHeight*.8?(innerHeight-r.height)/2:90);scrollTo({top:Math.max(0,y),behavior:'instant'});box.classList.add('lls-np');
+  setTimeout(function(){box.classList.add('off')},2200);setTimeout(function(){box.classList.remove('lls-np','off')},3600)},700);}
+setTimeout(go,200);addEventListener('load',function(){setTimeout(go,100)});addEventListener('hashchange',go);})();</script>
 </body>
 </html>
