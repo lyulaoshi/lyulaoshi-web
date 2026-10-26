@@ -432,6 +432,8 @@
   .rm-mid{display:flex; flex-direction:column; align-items:center;}
   .rm-c{font-size:3.6rem; font-weight:700; color:var(--teal); line-height:1.1;}
   .rm-plus{font-size:1.6rem; font-weight:800;}
+  .joke-py{display:none; font-family:"Noto Sans",sans-serif; font-size:1.05rem; color:var(--purple); margin-top:.8rem; line-height:1.7;}
+  .joke-box.show-py .joke-py{display:block;}
   .joke-ans{color:var(--correct); font-weight:700;}
   @media (max-width:640px){ .rad-img{width:84px; height:84px;} .rad-modern{font-size:2.6rem;} .fan-c{font-size:2.8rem;} }
 
@@ -583,8 +585,10 @@
 <p class="hint">Đọc truyện cười, chú ý những từ đã học trong bài. Bấm "Hiện nghĩa" để xem bản dịch.</p>
 <div class="joke-box" id="jokeBox">
   <div class="joke-cn" id="jokeCn"></div>
+  <div class="joke-py" id="jokePy"></div>
   <div class="joke-viet" id="jokeViet"></div>
   <p class="foot-note" style="margin-top:.8rem;">¹ <span class="cnbody">简单</span> <span class="pyi">jiǎndān</span>: (Tt) đơn giản, dễ &nbsp;·&nbsp; ² <span class="cnbody">让</span> <span class="pyi">ràng</span>: (Đg) bảo, để cho &nbsp;·&nbsp; ³ <span class="cnbody">请帖</span> <span class="pyi">qǐngtiě</span>: (D) thiệp mời &nbsp;·&nbsp; ⁴ <span class="cnbody">奇怪</span> <span class="pyi">qíguài</span>: (Tt) kỳ lạ</p>
+  <button class="btn no-print" style="margin-top:.6rem;" onclick="toggleJokePy(this)">🔤 Hiện phiên âm</button>
   <button class="btn no-print" style="margin-top:.6rem;" onclick="toggleJoke(this)">👀 Hiện nghĩa</button>
 </div>
 
@@ -1002,6 +1006,7 @@ const riddles=[
 
 // ---- BT4: truyện cười ----
 const jokeCn="很久以前有一个人，他不认识字。他不想儿子跟他一样，就请了一个老师教儿子写字。儿子看老师写“一”就是一画，“二”就是两画，“三”就是三画，觉得很简单¹，就去跟爸爸说：“爸爸，我会写字了，你可以让²老师走了。”爸爸听了很高兴，给了老师很多钱，让老师走了。<br>第二天，这个人想请一个姓万的人来家里吃饭，就让儿子写一张请帖³。儿子从早上写到中午，还没写完。这个人觉得很奇怪⁴，就去了儿子的房间。他看见儿子写了很多“一”，就问儿子为什么写这么多“一”。儿子说：“爸爸，这个人为什么姓万？我从早上到现在只写了500画，还有9500画呢！”<br><b>问题：你知道“万”是什么意思吗？</b>";
+const jokePy="Hěn jiǔ yǐqián yǒu yí ge rén, tā bú rènshi zì. Tā bù xiǎng érzi gēn tā yíyàng, jiù qǐng le yí ge lǎoshī jiāo érzi xiě zì. Érzi kàn lǎoshī xiě “yī” jiù shì yì huà, “èr” jiù shì liǎng huà, “sān” jiù shì sān huà, juéde hěn jiǎndān, jiù qù gēn bàba shuō: “Bàba, wǒ huì xiě zì le, nǐ kěyǐ ràng lǎoshī zǒu le.” Bàba tīng le hěn gāoxìng, gěi le lǎoshī hěn duō qián, ràng lǎoshī zǒu le.<br>Dì-èr tiān, zhège rén xiǎng qǐng yí ge xìng Wàn de rén lái jiā lǐ chīfàn, jiù ràng érzi xiě yì zhāng qǐngtiě. Érzi cóng zǎoshang xiě dào zhōngwǔ, hái méi xiěwán. Zhège rén juéde hěn qíguài, jiù qù le érzi de fángjiān. Tā kànjiàn érzi xiě le hěn duō “yī”, jiù wèn érzi wèishénme xiě zhème duō “yī”. Érzi shuō: “Bàba, zhège rén wèishénme xìng Wàn? Wǒ cóng zǎoshang dào xiànzài zhǐ xiě le wǔbǎi huà, hái yǒu jiǔqiān wǔbǎi huà ne!”<br><b>Wèntí: Nǐ zhīdào “wàn” shì shénme yìsi ma?</b>";
 const jokeViet="Ngày xưa có một người không biết chữ. Ông không muốn con trai giống mình nên thuê một thầy giáo dạy con viết chữ. Cậu con trai thấy thầy viết “一” là một nét, “二” là hai nét, “三” là ba nét, nghĩ là rất đơn giản, bèn nói với bố: “Bố ơi, con biết viết chữ rồi, bố có thể cho thầy đi được rồi.” Người bố nghe xong rất vui, đưa cho thầy nhiều tiền rồi cho thầy đi.<br>Hôm sau, ông muốn mời một người họ Vạn (万) đến nhà ăn cơm, bèn bảo con trai viết một tấm thiệp mời. Cậu con viết từ sáng đến trưa vẫn chưa xong. Ông thấy lạ, vào phòng con. Ông thấy con viết rất nhiều chữ “一”, liền hỏi vì sao viết nhiều chữ “一” như vậy. Cậu con nói: “Bố ơi, sao người này lại họ Vạn? Từ sáng đến giờ con mới viết được 500 nét, còn 9500 nét nữa cơ!”<br><b>Câu hỏi: Bạn có biết “万” nghĩa là gì không?</b> <span class=\"joke-ans\">(Đáp án: 万 = 10 000 — một vạn, nên cậu bé tưởng phải viết 10 000 nét “一”.)</span>";
 
 /* ============================================================
@@ -1340,6 +1345,11 @@ function toggleRiddleAns(btn){
    ============================================================ */
 document.getElementById("jokeCn").innerHTML=jokeCn;
 document.getElementById("jokeViet").innerHTML=jokeViet;
+document.getElementById("jokePy").innerHTML=jokePy;
+function toggleJokePy(btn){
+  const on=document.getElementById("jokeBox").classList.toggle("show-py");
+  btn.textContent=on?"🙈 Ẩn phiên âm":"🔤 Hiện phiên âm";
+}
 function toggleJoke(btn){
   const box=document.getElementById("jokeBox"), on=box.classList.toggle("show-viet");
   btn.textContent=on?"🙈 Ẩn nghĩa":"👀 Hiện nghĩa";
