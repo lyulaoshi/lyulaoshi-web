@@ -14,7 +14,7 @@ window.GT_SACH=[
   on:[{sau:4,tu:1,id:"on-tap-1",zh:"复习（一）",vi:"Ôn tập Bài 1–4"},{sau:8,tu:5,id:"on-tap-2",zh:"复习（二）",vi:"Ôn tập Bài 5–8"},{sau:12,tu:9,id:"on-tap-3",zh:"复习（三）",vi:"Ôn tập Bài 9–12"}],
   t:{1:["你好","Chào hỏi, hỏi tên, quốc tịch"],2:["这是你的手机吗","Đây là điện thoại của bạn à?"],3:["你家有几口人","Nhà bạn có mấy người?"],4:["电影开始了吗","Phim đã bắt đầu chưa?"]}},
  {id:"ledu",c:"c-sky",seal:"乐",dim:[62,214],spine:"乐读 1",zh:"乐读 1",vi:"Giáo trình môn đọc hiểu tiếng Trung 1",short:"乐读",total:10,
-  t:{1:["横、竖、撇、捺、点、提","Các nét cơ bản"],2:["一二三，三二一，一二三四五六七","Chữ số"],3:["象形字","Chữ tượng hình"],4:["木上末，木下本","Chữ chỉ sự · từ về thời gian"],5:["二人土上坐，一月日边明","Chữ hội ý"]}},
+  t:{1:["横、竖、撇、捺、点、提","Các nét cơ bản"],2:["一二三，三二一，一二三四五六七","Chữ số"],3:["象形字","Chữ tượng hình"],4:["木上末，木下本","Chữ chỉ sự · từ về thời gian"],5:["二人土上坐，一月日边明","Chữ hội ý"],6:["江河湖海都是水，吃喝哈哈全用嘴","Chữ hình thanh"],7:["秀才认字读半边","Chữ hình thanh 2"],8:["“中国很行”","Chữ cận hình · đồng âm · đa âm"],9:["见树木，也要见森林","Chữ Hán và từ · họ từ"]}},
  {id:"yuedu",c:"c-mint",seal:"阅",dim:[72,246],spine:"汉语阅读教程",zh:"汉语阅读教程",vi:"Giáo trình Đọc hiểu Hán ngữ Tập 1",short:"阅读教程",from:16,total:25,   // học phần dạy Bài 16–25
   t:{}},   // mục lục chỉ ghi 第N课 (cô bỏ tên tiếng Việt 29/09/2026)
  {id:"boya",c:"c-lav",seal:"博",dim:[68,226],spine:"博雅汉语",zh:"博雅汉语",vi:"Giáo trình BOYA sơ cấp 1",short:"博雅",total:10,   // sách 30 bài, học phần dạy 10 bài đầu
