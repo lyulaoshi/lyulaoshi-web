@@ -559,7 +559,7 @@
     .vocab-mean{font-size:20px;}
   }
 
-  /* Bài 7 */
+  /* Bài 8 */
   .name-item{flex-wrap:wrap;column-gap:8px;row-gap:2px;}
   .name-item .zh,.name-item .py{white-space:nowrap;}
   .name-item .word-audio-btn{margin:0 2px;}
@@ -576,17 +576,17 @@
   .review-table th{white-space:nowrap;}
   .pair-rows{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
   .pair-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
-  .dlg-group{font-weight:800;font-size:17px;color:var(--jade);margin:18px 0 6px;}
   .dialogue .dia-content .zh{font-size:28px;}
   .dialogue .dia-content .py,.dialogue .dia-content .vi{font-size:18px;}
   .err-wrong{color:var(--red-deep);font-size:18px;margin-bottom:4px;}
+  .tx-exercise{margin:14px 0;}
+  .tx-group-lbl{font-size:15px;font-weight:700;color:var(--ink-soft);margin:0 0 8px;}
+  .tx-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .tx-item{background:var(--gold-soft);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:19px;font-family:'KaiTi','楷体',serif;white-space:nowrap;}
+  .tx-blank{display:inline-block;min-width:28px;border-bottom:2px solid var(--red-deep);margin:0 1px;vertical-align:baseline;}
   .formula-row{display:flex;align-items:baseline;gap:8px;background:var(--gold-soft);padding:10px 14px;border-radius:8px;font-size:17px;}
   .form-label{font-weight:700;color:var(--jade);white-space:nowrap;}
   .formula{font-size:17px;}
-  .bubble-row{display:flex;margin:6px 0;}
-  .bubble-row.right{justify-content:flex-end;}
-  .bubble{background:var(--gold-soft);border:1px solid var(--line);border-radius:12px;padding:10px 14px;max-width:88%;font-size:20px;}
-  .bubble.b{background:#fff;}
   .dialog-input{width:auto;min-width:180px;max-width:280px;}
   @media (max-width:640px){.review-table{font-size:15px;}.review-table td.zh{font-size:18px;}.review-table th,.review-table td{padding:8px 5px;}}
 
@@ -642,39 +642,6 @@
     .ex-line,.arrow-line{font-size:26px;}
     .hanzi-grid{grid-template-columns:repeat(auto-fill,minmax(150px,230px));}
   }
-  .word-audio-btn svg{width:1.45em;height:1.45em;vertical-align:middle;}
-  .ap-playbtn svg{width:1.15em;height:1.15em;vertical-align:middle;}
-
-  /* Bài 8 */
-  .name-item{flex-wrap:wrap;column-gap:8px;row-gap:2px;}
-  .name-item .zh,.name-item .py{white-space:nowrap;}
-  .name-item .word-audio-btn{margin:0 2px;}
-  .cloze-list li{margin-bottom:10px;}
-  .gram-explain{font-size:19px;color:var(--ink-soft);margin:4px 0 18px;}
-  .gram-explain .zh{font-size:22px;color:var(--ink);}
-  .review-wrap{overflow-x:auto;margin-top:10px;}
-  .review-table{width:100%;border-collapse:collapse;font-size:18px;}
-  .review-table th{background:var(--red-deep);color:#fff8e6;padding:10px 8px;text-align:left;}
-  .review-table td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
-  .review-table tr:nth-child(even) td{background:var(--gold-soft);}
-  .review-table td small{display:block;color:var(--ink-soft);font-size:14px;}
-  .review-table td.zh{font-size:21px;}
-  .review-table th{white-space:nowrap;}
-  .pair-rows{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
-  .pair-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;}
-  .dialogue .dia-content .zh{font-size:28px;}
-  .dialogue .dia-content .py,.dialogue .dia-content .vi{font-size:18px;}
-  .err-wrong{color:var(--red-deep);font-size:18px;margin-bottom:4px;}
-  .tx-exercise{margin:14px 0;}
-  .tx-group-lbl{font-size:15px;font-weight:700;color:var(--ink-soft);margin:0 0 8px;}
-  .tx-row{display:flex;flex-wrap:wrap;gap:8px;}
-  .tx-item{background:var(--gold-soft);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:19px;font-family:'KaiTi','楷体',serif;white-space:nowrap;}
-  .tx-blank{display:inline-block;min-width:28px;border-bottom:2px solid var(--red-deep);margin:0 1px;vertical-align:baseline;}
-  .formula-row{display:flex;align-items:baseline;gap:8px;background:var(--gold-soft);padding:10px 14px;border-radius:8px;font-size:17px;}
-  .form-label{font-weight:700;color:var(--jade);white-space:nowrap;}
-  .formula{font-size:17px;}
-  .dialog-input{width:auto;min-width:180px;max-width:280px;}
-  @media (max-width:640px){.review-table{font-size:15px;}.review-table td.zh{font-size:18px;}.review-table th,.review-table td{padding:8px 5px;}}
   .word-audio-btn svg{width:1.45em;height:1.45em;vertical-align:middle;}
   .ap-playbtn svg{width:1.15em;height:1.15em;vertical-align:middle;}
 a.tb-btn{text-decoration:none;}
@@ -900,8 +867,8 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">周</b> = 囗(vòng kín) + 土 + 口: đi hết một vòng → "chu" (tuần lễ, chu kỳ)</span>
-                <span class="radical-item"><b class="zh">末</b> = 木(cây) + 一(nét ngang trên đỉnh): ngọn cây → "mạt" (ngọn, cuối); <b class="zh">周末</b> = cuối của tuần = cuối tuần</span>
+                <span class="radical-item"><b class="zh">周</b> = 囗(vi — vòng kín) + 土(thổ — đất) + 口(khẩu — miệng): đi hết một vòng → "chu" (tuần lễ, chu kỳ)</span>
+                <span class="radical-item"><b class="zh">末</b> = 木(mộc — cây) + 一(nhất — nét ngang trên đỉnh): ngọn cây → "mạt" (ngọn, cuối); <b class="zh">周末</b> = cuối của tuần = cuối tuần</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">周末你有空儿吗？</span><span class="py">Zhōumò nǐ yǒu kòngr ma?</span><span class="ex-vi">Cuối tuần bạn có rảnh không?</span></div>
               <div class="stroke-row" data-word="周末"></div>
@@ -914,7 +881,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">啊</b> = 口(miệng) + 阿(a): âm phát ra qua miệng → trợ từ ngữ khí cuối câu</span>
+                <span class="radical-item"><b class="zh">啊</b> = 口(khẩu — miệng) + 阿(a): âm phát ra qua miệng → trợ từ ngữ khí cuối câu</span>
                 <span class="radical-item">Biểu thị cảm xúc vui mừng, tán đồng, hoặc nhấn mạnh: <b class="zh">好啊！</b> = Tốt quá! / Được thôi!</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">好啊！不过，去你们学校怎么走呢？</span><span class="py">Hǎo a! Búguò, qù nǐmen xuéxiào zěnme zǒu ne?</span><span class="ex-vi">Được thôi! Nhưng, đi đến trường các bạn bằng cách nào?</span></div>
@@ -928,7 +895,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">不</b>: phủ định; <b class="zh">过</b> = 辶(đi) + 寸(tấc): vượt qua, quá → "quá"</span>
+                <span class="radical-item"><b class="zh">不</b>: phủ định; <b class="zh">过</b> = 辶(sước — đi) + 寸(thốn — tấc): vượt qua, quá → "quá"</span>
                 <span class="radical-item"><b class="zh">不过</b> = không quá, chỉ vậy thôi → biểu thị chuyển ý nhẹ hơn <b class="zh">但是</b>; dùng nhiều trong khẩu ngữ</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">好啊！不过，去你们学校怎么走呢？</span><span class="py">Hǎo a! Búguò, qù nǐmen xuéxiào zěnme zǒu ne?</span><span class="ex-vi">Được thôi! Nhưng, đi đến trường các bạn bằng cách nào?</span></div>
@@ -942,7 +909,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">怎</b> = 乍(đột nhiên) + 心(lòng): trong lòng chợt thắc mắc → "chẩm" (thế nào, tại sao)</span>
+                <span class="radical-item"><b class="zh">怎</b> = 乍(sạ — đột nhiên) + 心(tâm — lòng): trong lòng chợt thắc mắc → "chẩm" (thế nào, tại sao)</span>
                 <span class="radical-item"><b class="zh">么</b> = âm nhẹ; <b class="zh">怎么</b> hỏi về cách thức: <b class="zh">怎么走？</b> = đi bằng cách nào?</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">去你们学校怎么走呢？</span><span class="py">Qù nǐmen xuéxiào zěnme zǒu ne?</span><span class="ex-vi">Đến trường các bạn đi đường nào?</span></div>
@@ -956,7 +923,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">走</b> = 土(đất) + 止(bàn chân) + 人: hình người đang bước trên đất → "tẩu" (đi, chạy)</span>
+                <span class="radical-item"><b class="zh">走</b> = 土(thổ — đất) + 止(chỉ — bàn chân) + 人(nhân — người): hình người đang bước trên đất → "tẩu" (đi, chạy)</span>
                 <span class="radical-item"><b class="zh">怎么走</b> = đi đường nào; <b class="zh">走路</b> = đi bộ; <b class="zh">走吧</b> = đi thôi</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">去你们学校怎么走？</span><span class="py">Qù nǐmen xuéxiào zěnme zǒu?</span><span class="ex-vi">Đến trường các bạn đi đường nào?</span></div>
@@ -970,7 +937,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">路</b> = 足(chân) + 各(mỗi nơi): đôi chân đặt lên khắp nơi → "lộ" (đường đi)</span>
+                <span class="radical-item"><b class="zh">路</b> = 足(túc — chân) + 各(các — mỗi nơi): đôi chân đặt lên khắp nơi → "lộ" (đường đi)</span>
                 <span class="radical-item"><b class="zh">21路</b> = tuyến xe 21; <b class="zh">走路</b> = đi bộ; <b class="zh">路上</b> = trên đường</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">21路和106路公共汽车都到。</span><span class="py">Èryāo lù hé yāo líng liù lù gōnggòng qìchē dōu dào.</span><span class="ex-vi">Xe buýt tuyến 21 và tuyến 106 đều đến.</span></div>
@@ -984,7 +951,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">和</b> = 禾(lúa) + 口(miệng): ăn cùng nhau nói chuyện hòa thuận → "hòa" (hài hòa, và)</span>
+                <span class="radical-item"><b class="zh">和</b> = 禾(hoà — lúa) + 口(khẩu — miệng): ăn cùng nhau nói chuyện hòa thuận → "hòa" (hài hòa, và)</span>
                 <span class="radical-item"><b class="zh">和</b> nối danh từ: <b class="zh">21路和106路</b> = tuyến 21 và tuyến 106; khác với Việt: không nối mệnh đề</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">21路和106路都到。</span><span class="py">Èryāo lù hé yāo líng liù lù dōu dào.</span><span class="ex-vi">Tuyến 21 và tuyến 106 đều đến.</span></div>
@@ -998,8 +965,8 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">公</b> = 八(chia) + 厶(tư): chia sẻ, không riêng tư → "công" (công cộng); <b class="zh">共</b>: cùng chung</span>
-                <span class="radical-item"><b class="zh">汽</b> = 水(nước) + 气(hơi): hơi nước → "khí" (hơi, dùng cho ô tô); <b class="zh">车</b> = xe; <b class="zh">公共汽车</b> = xe ô tô công cộng</span>
+                <span class="radical-item"><b class="zh">公</b> = 八(bát — chia) + 厶(tư — riêng tư): chia sẻ, không riêng tư → "công" (công cộng); <b class="zh">共</b>: cùng chung</span>
+                <span class="radical-item"><b class="zh">汽</b> = 水(thuỷ — nước) + 气(khí — hơi): hơi nước → "khí" (hơi, dùng cho ô tô); <b class="zh">车</b> = xe; <b class="zh">公共汽车</b> = xe ô tô công cộng</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">坐公共汽车很方便。</span><span class="py">Zuò gōnggòng qìchē hěn fāngbiàn.</span><span class="ex-vi">Đi xe buýt rất tiện.</span></div>
               <div class="stroke-row" data-word="公共汽车"></div>
@@ -1012,7 +979,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">都</b> = 者(người) + 阝(thành phố): nơi tập hợp mọi người → "đô" (đô thị); cũng đọc dū: 首都 thủ đô</span>
+                <span class="radical-item"><b class="zh">都</b> = 者(giả — người) + 阝(ấp — thành phố): nơi tập hợp mọi người → "đô" (đô thị); cũng đọc dū: 首都 thủ đô</span>
                 <span class="radical-item">Khi đọc dōu = đều, tất cả đều: <b class="zh">都到</b> = đều đến; <b class="zh">都有</b> = đều có; đặt trước động từ</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">21路和106路公共汽车都到。</span><span class="py">Èryāo lù hé yāo líng liù lù gōnggòng qìchē dōu dào.</span><span class="ex-vi">Xe buýt tuyến 21 và 106 đều đến.</span></div>
@@ -1026,7 +993,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">到</b> = 至(đến tận) + 刀(dao): đến tận cùng nhanh như dao → "đáo" (đến, đến nơi)</span>
+                <span class="radical-item"><b class="zh">到</b> = 至(chí — đến tận) + 刀(đao — dao): đến tận cùng nhanh như dao → "đáo" (đến, đến nơi)</span>
                 <span class="radical-item"><b class="zh">都到</b> = đều đến; <b class="zh">就到</b> = sắp đến ngay; <b class="zh">到了</b> = đến rồi</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">骑自行车十五分钟就到。</span><span class="py">Qí zìxíngchē shíwǔ fēnzhōng jiù dào.</span><span class="ex-vi">Đạp xe chỉ mười lăm phút là tới.</span></div>
@@ -1040,7 +1007,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">骑</b> = 马(ngựa) + 奇(kỳ lạ): người kỳ tài cưỡi ngựa → "kỵ" (cưỡi)</span>
+                <span class="radical-item"><b class="zh">骑</b> = 马(mã — ngựa) + 奇(kỳ — kỳ lạ): người kỳ tài cưỡi ngựa → "kỵ" (cưỡi)</span>
                 <span class="radical-item"><b class="zh">骑自行车</b> = đạp xe; <b class="zh">骑马</b> = cưỡi ngựa; <b class="zh">骑摩托车</b> = đi xe máy</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">骑自行车也很快。</span><span class="py">Qí zìxíngchē yě hěn kuài.</span><span class="ex-vi">Đạp xe đạp cũng rất nhanh.</span></div>
@@ -1054,7 +1021,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">快</b> = 忄(tâm) + 夬(quyết đoán): quyết đoán dứt khoát → "khoái" (nhanh, vui vẻ)</span>
+                <span class="radical-item"><b class="zh">快</b> = 忄(tâm — lòng, dạng đứng bên trái) + 夬(quyết — quyết đoán): quyết đoán dứt khoát → "khoái" (nhanh, vui vẻ)</span>
                 <span class="radical-item"><b class="zh">很快</b> = rất nhanh; <b class="zh">快点儿</b> = nhanh lên; ↔ <b class="zh">慢</b> màn (chậm)</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">骑自行车也很快，十五分钟就到。</span><span class="py">Qí zìxíngchē yě hěn kuài, shíwǔ fēnzhōng jiù dào.</span><span class="ex-vi">Đạp xe cũng rất nhanh, chỉ 15 phút là tới.</span></div>
@@ -1068,8 +1035,8 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">分</b> = 八(chia) + 刀(dao): chia cắt → "phân" (phần, phút)</span>
-                <span class="radical-item"><b class="zh">钟</b> = 钅(kim loại) + 童(trẻ em): chuông đồng → "chung" (chuông, đồng hồ); <b class="zh">分钟</b> = phút (đơn vị thời gian)</span>
+                <span class="radical-item"><b class="zh">分</b> = 八(bát — chia) + 刀(đao — dao): chia cắt → "phân" (phần, phút)</span>
+                <span class="radical-item"><b class="zh">钟</b> = 钅(kim — kim loại) + 童(đồng — trẻ em): chuông đồng → "chung" (chuông, đồng hồ); <b class="zh">分钟</b> = phút (đơn vị thời gian)</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">十五分钟就到。</span><span class="py">Shíwǔ fēnzhōng jiù dào.</span><span class="ex-vi">Chỉ 15 phút là tới nơi.</span></div>
               <div class="stroke-row" data-word="分钟"></div>
@@ -1082,7 +1049,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">就</b> = 京(kinh đô) + 尤(đặc biệt): nhanh chóng đến kinh đô → "tựu" (ngay lập tức, hoàn thành)</span>
+                <span class="radical-item"><b class="zh">就</b> = 京(kinh — kinh đô) + 尤(vưu — đặc biệt): nhanh chóng đến kinh đô → "tựu" (ngay lập tức, hoàn thành)</span>
                 <span class="radical-item"><b class="zh">就到</b> = ngay là đến; <b class="zh">就是</b> = chính là; <b class="zh">就这样</b> = cứ thế thôi → xem mục 语言点 1</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">十五分钟就到。</span><span class="py">Shíwǔ fēnzhōng jiù dào.</span><span class="ex-vi">Chỉ 15 phút là tới (nhanh hơn bạn nghĩ).</span></div>
@@ -1096,8 +1063,8 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">校</b> = 木(gỗ) + 交(giao thoa): chỗ giao lưu học vấn → "hiệu" (trường học)</span>
-                <span class="radical-item"><b class="zh">园</b> = 囗(vòng rào) + 袁(áo dài): vườn có rào → "viên" (vườn, khuôn viên); <b class="zh">校园</b> = khuôn viên trường</span>
+                <span class="radical-item"><b class="zh">校</b> = 木(mộc — gỗ) + 交(giao — giao thoa): chỗ giao lưu học vấn → "hiệu" (trường học)</span>
+                <span class="radical-item"><b class="zh">园</b> = 囗(vi — vòng rào) + 袁(viên — áo dài): vườn có rào → "viên" (vườn, khuôn viên); <b class="zh">校园</b> = khuôn viên trường</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">在校园的东南边。</span><span class="py">Zài xiàoyuán de dōngnán biān.</span><span class="ex-vi">Ở phía đông nam khuôn viên trường.</span></div>
               <div class="stroke-row" data-word="校园"></div>
@@ -1110,7 +1077,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">东</b> = 日(mặt trời) + 木(cây): mặt trời mọc phía sau cây = hướng đông; <b class="zh">南</b>: hướng về phía ấm → nam</span>
+                <span class="radical-item"><b class="zh">东</b> = 日(nhật — mặt trời) + 木(mộc — cây): mặt trời mọc phía sau cây = hướng đông; <b class="zh">南</b>: hướng về phía ấm → nam</span>
                 <span class="radical-item">4 hướng: <b class="zh">东 · 南 · 西 · 北</b> Đông – Nam – Tây – Bắc; <b class="zh">东南</b> = đông nam; <b class="zh">西北</b> = tây bắc</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">宿舍在校园的东南边。</span><span class="py">Sùshè zài xiàoyuán de dōngnán biān.</span><span class="ex-vi">Ký túc xá ở phía đông nam khuôn viên.</span></div>
@@ -1124,7 +1091,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">东</b> = 日(mặt trời) + 木(cây): giáp cốt văn vẽ mặt trời đang mọc phía cây = hướng đông</span>
+                <span class="radical-item"><b class="zh">东</b> = 日(nhật — mặt trời) + 木(mộc — cây): giáp cốt văn vẽ mặt trời đang mọc phía cây = hướng đông</span>
                 <span class="radical-item"><b class="zh">东5号楼</b> = tòa nhà phía đông, số 5; <b class="zh">东边</b> = phía đông; ↔ <b class="zh">西</b> xī (tây)</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">在校园的东南边，是东5号楼。</span><span class="py">Zài xiàoyuán de dōngnán biān, shì dōng wǔ hào lóu.</span><span class="ex-vi">Ở phía đông nam khuôn viên, đó là tòa nhà Đông 5.</span></div>
@@ -1138,7 +1105,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">号</b> = 口(miệng) + 丂(thổi sáo): tiếng gọi, hiệu lệnh → "hiệu" (số thứ tự, hiệu lệnh)</span>
+                <span class="radical-item"><b class="zh">号</b> = 口(khẩu — miệng) + 丂(khảo — thổi sáo): tiếng gọi, hiệu lệnh → "hiệu" (số thứ tự, hiệu lệnh)</span>
                 <span class="radical-item"><b class="zh">房间号</b> = số phòng; <b class="zh">502号</b> = số 502; <b class="zh">东5号楼</b> = tòa nhà số 5 (phía đông)</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">你的房间号是多少？</span><span class="py">Nǐ de fángjiān hào shì duōshao?</span><span class="ex-vi">Số phòng của bạn là bao nhiêu?</span></div>
@@ -1152,8 +1119,8 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">房</b> = 户(cửa nhà) + 方(vuông, phương): nơi có cửa → "phòng" (nhà, phòng ở)</span>
-                <span class="radical-item"><b class="zh">间</b> = 门(cửa) + 日(nắng): ánh nắng lọt qua khe cửa → "gian" (phòng, gian); <b class="zh">房间</b> = phòng ở</span>
+                <span class="radical-item"><b class="zh">房</b> = 户(hộ — cửa nhà) + 方(phương — vuông, phương): nơi có cửa → "phòng" (nhà, phòng ở)</span>
+                <span class="radical-item"><b class="zh">间</b> = 门(môn — cửa) + 日(nhật — nắng): ánh nắng lọt qua khe cửa → "gian" (phòng, gian); <b class="zh">房间</b> = phòng ở</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">你的房间号是多少？</span><span class="py">Nǐ de fángjiān hào shì duōshao?</span><span class="ex-vi">Số phòng của bạn là bao nhiêu?</span></div>
               <div class="stroke-row" data-word="房间"></div>
@@ -1166,7 +1133,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">多</b> = 夕(chiều tối) × 2: nhiều buổi tối → "đa" (nhiều); <b class="zh">少</b> = 小(nhỏ) + nét chéo: ít → "thiểu"</span>
+                <span class="radical-item"><b class="zh">多</b> = 夕(tịch — chiều tối) × 2: nhiều buổi tối → "đa" (nhiều); <b class="zh">少</b> = 小(tiểu — nhỏ) + nét chéo: ít → "thiểu"</span>
                 <span class="radical-item"><b class="zh">多少</b> = nhiều hay ít → bao nhiêu; hỏi số điện thoại, số phòng: không cần lượng từ → xem mục 语言点 4</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">你的电话号码是多少？</span><span class="py">Nǐ de diànhuà hàomǎ shì duōshao?</span><span class="ex-vi">Số điện thoại của bạn là bao nhiêu?</span></div>
@@ -1180,7 +1147,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">室</b> = 宀(mái nhà) + 至(đến nơi): nơi ta đến để trú ngụ → "thất" (phòng, căn hộ)</span>
+                <span class="radical-item"><b class="zh">室</b> = 宀(miên — mái nhà) + 至(chí — đến nơi): nơi ta đến để trú ngụ → "thất" (phòng, căn hộ)</span>
                 <span class="radical-item"><b class="zh">502室</b> = phòng 502; so sánh: <b class="zh">教室</b> jiàoshì phòng học; <b class="zh">办公室</b> văn phòng</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">我的宿舍是东5号楼502室。</span><span class="py">Wǒ de sùshè shì dōng wǔ hào lóu wǔ líng èr shì.</span><span class="ex-vi">Ký túc xá của tôi là phòng 502, tòa nhà Đông 5.</span></div>
@@ -1194,7 +1161,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">电</b> = 雨(mưa) + 申(sấm sét): tia sét → "điện"; <b class="zh">话</b> = 讠(ngôn) + 舌(lưỡi): lời nói → "thoại"</span>
+                <span class="radical-item"><b class="zh">电</b> = 雨(vũ — mưa) + 申(thân — sấm sét): tia sét → "điện"; <b class="zh">话</b> = 讠(ngôn — lời nói) + 舌(thiệt — lưỡi): lời nói → "thoại"</span>
                 <span class="radical-item"><b class="zh">电话</b> = lời truyền qua điện = điện thoại; <b class="zh">电话号码</b> = số điện thoại; ↔ <b class="zh">手机</b> (di động)</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">你的电话号码是多少？</span><span class="py">Nǐ de diànhuà hàomǎ shì duōshao?</span><span class="ex-vi">Số điện thoại của bạn là bao nhiêu?</span></div>
@@ -1208,7 +1175,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">号</b> = số, hiệu; <b class="zh">码</b> = 石(đá) + 马(mã): đá có đánh dấu → "mã" (mã số, ký hiệu)</span>
+                <span class="radical-item"><b class="zh">号</b> = số, hiệu; <b class="zh">码</b> = 石(thạch — đá) + 马(mã — ngựa): đá có đánh dấu → "mã" (mã số, ký hiệu)</span>
                 <span class="radical-item"><b class="zh">电话号码</b> = số điện thoại; <b class="zh">手机号码</b> = số di động; <b class="zh">房间号码</b> = số phòng</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">号码是多少？</span><span class="py">Hàomǎ shì duōshao?</span><span class="ex-vi">Số là bao nhiêu?</span></div>
@@ -1222,7 +1189,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">手</b> = hình bàn tay (giáp cốt văn) → "thủ" (tay); <b class="zh">机</b> = 木(gỗ) + 几(cái bàn): máy dệt cổ → "cơ" (máy, cơ chế)</span>
+                <span class="radical-item"><b class="zh">手</b> = hình bàn tay (giáp cốt văn) → "thủ" (tay); <b class="zh">机</b> = 木(mộc — gỗ) + 几(kỷ — cái bàn): máy dệt cổ → "cơ" (máy, cơ chế)</span>
                 <span class="radical-item"><b class="zh">手机</b> = máy cầm tay = điện thoại di động; ↔ <b class="zh">电话</b> điện thoại cố định</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">你有手机吗？</span><span class="py">Nǐ yǒu shǒujī ma?</span><span class="ex-vi">Bạn có điện thoại di động không?</span></div>
@@ -1236,7 +1203,7 @@ a.tb-btn{text-decoration:none;}
               </div>
               <div class="vocab-radical">
                 <span class="radical-label">Chiết tự</span>
-                <span class="radical-item"><b class="zh">等</b> = 竹(tre) + 寺(đền thờ đo giờ): ngồi dưới tre trước đền đợi đến giờ → "đẳng" (chờ đợi, đẳng cấp)</span>
+                <span class="radical-item"><b class="zh">等</b> = 竹(trúc — tre) + 寺(tự — đền thờ đo giờ): ngồi dưới tre trước đền đợi đến giờ → "đẳng" (chờ đợi, đẳng cấp)</span>
                 <span class="radical-item"><b class="zh">我等你</b> = tôi đợi bạn; <b class="zh">等一下</b> = chờ một chút; <b class="zh">等等</b> = đợi đợi (khẩu ngữ)</span>
               </div>
               <div class="vocab-example"><span class="ex-label">Ví dụ</span> <span class="zh">好，我等你。</span><span class="py">Hǎo, wǒ děng nǐ.</span><span class="ex-vi">Được, tôi đợi bạn.</span></div>
@@ -1622,14 +1589,10 @@ a.tb-btn{text-decoration:none;}
 </div>
 
 
-
     </div>
   </div>
 </div>
 
-<script>
-var ICO_SPK='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg>', ICO_STOP='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="1.5"/></svg>', ICO_PLAY='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>', ICO_PAUSE='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
-</script>
 <script>
 var ICO_SPK='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/><path d="M19.5 5.5a9 9 0 0 1 0 13"/></svg>', ICO_STOP='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="1.5"/></svg>', ICO_PLAY='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg>', ICO_PAUSE='<svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/></svg>';
 </script>
