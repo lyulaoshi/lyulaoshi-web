@@ -2579,6 +2579,8 @@ function renderMap(){
     wrap.querySelectorAll('.map-chip, .map-box.filled').forEach(el=>{
       el.addEventListener('pointerdown', e=>{
         if(e.button!==undefined && e.button!==0) return;
+        e.preventDefault();   // chặn bôi đen chữ / kéo thả gốc của trình duyệt
+      e.preventDefault();   // chặn bôi đen chữ / kéo thả gốc của trình duyệt
         const label = el.dataset.l, sx = e.clientX, sy = e.clientY;
         let ghost = null, over = null;
         const move = ev=>{
