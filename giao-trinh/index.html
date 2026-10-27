@@ -53,8 +53,8 @@ p{margin:0}
 .pick-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:34px}
 .pick-h h2{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .pick-h span{font-size:13px;color:var(--faint)}
-.covers{--cols:6;display:flex;flex-wrap:wrap;justify-content:center;gap:14px;padding:18px 4px 14px;scroll-margin-top:70px}
-@media (min-width:861px){.covers>.cv{flex:0 0 calc((100% - (var(--cols) - 1)*14px)/var(--cols))}}
+.covers{--cols:6;display:flex;flex-wrap:wrap;justify-content:center;gap:44px 24px;padding:18px 4px 14px;scroll-margin-top:70px}
+@media (min-width:861px){.covers>.cv{flex:0 0 min(calc((100% - (var(--cols) - 1)*24px)/var(--cols)),224px)}}
 @media (max-width:860px){
   .covers{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x proximity;margin-inline:-16px;padding-inline:20px;scrollbar-width:thin}
   .cv{flex:0 0 172px;min-height:0;scroll-snap-align:center}
@@ -409,7 +409,7 @@ function resume(){
   const t=title(L.B,L.n);$("#rIc").textContent=(t.zh.startsWith("第")?L.B.seal:t.zh.slice(0,2));
   $("#rT").textContent=`${L.B.short} · Bài ${L.n} · ${t.zh}`;
 }
-function fit(){const el=$("#ke"),n=BOOKS.length,mx=Math.max(1,Math.min(6,Math.floor((el.clientWidth+14)/184)));el.style.setProperty("--cols",Math.ceil(n/Math.ceil(n/mx)))}
+function fit(){const el=$("#ke"),n=BOOKS.length,mx=Math.max(1,Math.min(8,Math.floor((el.clientWidth+24)/248)));el.style.setProperty("--cols",Math.ceil(n/Math.ceil(n/mx)))}
 fit();new ResizeObserver(fit).observe($("#ke"));
 covers();panel();bar();resume();
 (function(){const n=(id,v)=>{const e=document.querySelector('#'+id+' b');if(e)e.textContent=v};
