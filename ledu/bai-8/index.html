@@ -475,17 +475,24 @@
   .picto-pinyin .pc0, .picto-pinyin .pc1{font-weight:800;}
   .joke-py{display:none; font-family:"Noto Sans",sans-serif; font-size:.95rem; color:var(--muted); line-height:1.5; margin:0 0 .7rem;}
   .joke-box.show-py .joke-py{display:block;}
-  .picto-head{flex-wrap:wrap;}
-  .picto-hanviet{max-width:none; flex:1 1 260px;}
-  .hv-block{display:flex; gap:10px; align-items:flex-start; margin:0 0 .6rem;}
-  .hv-block + .hv-block{border-top:1px dashed #ddd; padding-top:.5rem;}
+  .picto-head.cols{display:grid; grid-template-columns:1fr auto 1fr; gap:20px; align-items:stretch;}
+  .picto-head.cols.one{grid-template-columns:1fr;}
+  .char-col{background:#fff; border:2px dashed #cfcfcf; border-radius:16px; padding:12px 20px 10px; min-width:0;}
+  .cc-top{display:flex; flex-direction:column; align-items:center; border-bottom:2px dashed #e6e6e6; padding-bottom:.4rem; margin-bottom:.6rem;}
+  .sym-mid{align-self:center;}
+  .picto-head.cols .char-col{height:100%;}
+  .sym-mid .sym{font-size:2.4rem; font-weight:800; color:var(--red);}
+  .hv-row{margin:.1rem 0;}
   .hv-han{font-size:2.2rem; font-weight:700; line-height:1.1; min-width:2.4rem; text-align:center;}
   .hv-rows{font-size:1rem; font-weight:500; line-height:1.5; min-width:0;}
   .hv-lb{font-weight:800; color:var(--ink);}
   .hv-rows .cnbody{font-size:1.2rem; font-weight:700;}
   .hv-rows .hv-nghia{font-weight:600;}
   @media (max-width:640px){
-    .picto-hanviet{max-width:none; font-size:.9rem;}
+    .picto-head.cols{grid-template-columns:1fr; gap:8px;}
+    .sym-mid{justify-self:center;}
+    .sym-mid .sym{font-size:1.6rem;}
+    .char-col{padding:8px 12px;}
     .hv-rows{font-size:.9rem;}
     .hv-han{font-size:1.8rem; min-width:2rem;}
     .sect-head-han{font-size:2.1rem;}
@@ -1158,14 +1165,13 @@ function hlText(t, chars){ return Array.from(t).map(c=>c==="|"?"<br>":chars.incl
         buildStrokeRowHtml(it.w)+
       '</div>';
     }).join("");
-    const chainHtml=poly
-      ? '<span class="picto-pair"><span class="picto-char cnbody">'+g.chars[0].h+'</span><span class="picto-pinyin">'+g.chars[0].p.split(" / ").map((s,k)=>'<span class="pc'+k+'">'+s+'</span>').join(' / ')+'</span></span>'
-      : g.chars.map((c,k)=>'<span class="picto-pair"><span class="picto-char cnbody">'+c.h+'</span><span class="picto-pinyin pc'+k+'">'+c.p+'</span></span>').join(sd.sym?'<span class="sym">'+sd.sym+'</span>':'');
     const ST_VI={"上下结构":"trên – dưới","左右结构":"trái – phải","独体字":"chữ độc thể","半包围结构":"bao nửa"};
     const TY_VI={"形声字":"hình thanh","会意字":"hội ý","象形字":"tượng hình","会意兼形声":"hội ý kiêm hình thanh"};
-    const hvHtml=g.chars.map((c,k)=>{ const f=CHAR_INFO[c.h]; const cl='pc'+(poly?0:k);
+    const headHtml=g.chars.map((c,k)=>{ const f=CHAR_INFO[c.h];
       const row=(lb,v)=>'<div class="hv-row"><span class="hv-lb">'+lb+':</span> '+v+'</div>';
-      return '<div class="hv-block"><div class="hv-rows">'+
+      const py=poly?c.p.split(" / ").map((s,i)=>'<span class="pc'+i+'">'+s+'</span>').join(' / '):'<span class="pc'+k+'">'+c.p+'</span>';
+      return (k&&sd.sym?'<div class="sym-mid"><span class="sym">'+sd.sym+'</span></div>':'')+
+        '<div class="char-col"><div class="cc-top"><span class="picto-char cnbody">'+c.h+'</span><span class="picto-pinyin">'+py+'</span></div><div class="hv-rows">'+
         row('Âm Hán Việt','<b>'+(poly?c.hv.split(' · ').map((s,i)=>'<span class="pc'+i+'">'+s+'</span>').join(' · '):c.hv)+'</b>')+
         row('Nghĩa',poly?'<span class="hv-nghia">'+c.nghia.split(' · ').map((s,i)=>'<span class="pc'+i+'">'+s+'</span>').join(' · ')+'</span>':'<span class="hv-nghia">'+c.nghia+'</span>')+
         (f?row('Cấu tạo',ST_VI[f.st]+(f.parts!==c.h?' · <span class="cnbody">'+f.parts+'</span>':''))+
@@ -1174,10 +1180,7 @@ function hlText(t, chars){ return Array.from(t).map(c=>c==="|"?"<br>":chars.incl
            row('Ghi chú',f.ex):'')+
       '</div></div>'; }).join("");
     return sectHtml+'<div class="picto-block">'+
-      '<div class="picto-head">'+
-        '<div class="picto-chain">'+chainHtml+'</div>'+
-        '<div class="picto-hanviet">'+hvHtml+'</div>'+
-      '</div>'+
+      '<div class="picto-head cols'+(poly?' one':'')+'">'+headHtml+'</div>'+
       itemsHtml+
       (g.ex?'<div class="vocab-line ex-box" style="background:#FFF3D6; border-style:solid; border-color:var(--yellow); flex-direction:column; align-items:flex-start;">'+
         '<div class="ex-actions no-print"><button class="ex-pinyin-toggle-mini" type="button" data-t="pinyin">Hiện phiên âm</button><button class="ex-pinyin-toggle-mini" type="button" data-t="viet">Hiện nghĩa</button></div>'+
