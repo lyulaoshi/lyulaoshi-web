@@ -83,6 +83,30 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 .opt:disabled:not(.ok):not(.no){opacity:.35}
 .seeb{margin-top:12px}
 @media (max-width:560px){.opt{font-size:38px}}
+
+.path{display:flex;align-items:center;gap:6px;margin-top:12px}
+.path i{flex:1;height:10px;border-radius:99px;background:var(--ground2);position:relative}
+.path i.on{background:var(--mint)}.path i.now{background:var(--sky)}
+.path i.boss{flex:0 0 34px;height:26px;display:grid;place-items:center;background:var(--coral-s);color:var(--coral);font-style:normal;font-weight:800;font-size:12px}
+.path i.boss.on{background:var(--coral);color:#fff}
+.stars{color:var(--peach);font-weight:800;display:inline-flex;align-items:center;gap:3px}
+.pw{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.pw button{border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.pw button b{background:var(--sky);color:#fff;border-radius:99px;min-width:22px;height:22px;display:grid;place-items:center;font-size:13px}
+.pw button:disabled{opacity:.4;cursor:default}
+.q.boss{box-shadow:0 0 0 3px var(--coral),0 0 28px rgba(255,107,107,.35);animation:glow 1.4s infinite alternate}
+@keyframes glow{to{box-shadow:0 0 0 3px var(--coral),0 0 44px rgba(255,107,107,.6)}}
+.banner{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:14px;padding:5px 14px;border-radius:999px;background:var(--sky-s);color:var(--sky);margin-bottom:8px}
+.q.boss .banner{background:var(--coral);color:#fff}
+.opt.gone{opacity:.12;pointer-events:none;transform:scale(.85)}
+.toast{display:inline-flex;align-items:center;gap:8px;background:var(--peach-s);color:var(--ink);border-radius:999px;padding:8px 16px;font-weight:700;animation:pop .35s both}
+.badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.badges li{display:flex;gap:10px;align-items:center;background:var(--ground);border-radius:14px;padding:8px 12px;font-size:13px}
+.badges li svg{width:28px;height:28px;flex:none;color:var(--peach)}
+.badges li b{display:block;font-size:14px}
+.badges li small{color:var(--muted)}
+.badges li.lock{opacity:.45;filter:grayscale(1)}.badges li.new{box-shadow:0 0 0 2px var(--peach);opacity:1;filter:none;animation:pop .4s both}
+.star3{display:flex;justify-content:center;gap:4px;margin-top:6px}.star3 svg{width:28px;height:28px}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
 </head>
@@ -108,8 +132,11 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <ul class="how">
         <li>Xem hàng chữ khi còn thời gian, <b>bấm "Đã nhớ"</b> nếu em muốn ẩn sớm.</li>
         <li>Chọn lại các chữ trong bảng. Có nhiều <b>chữ giống nhau</b> (已/己, 未/末…) để gài em, nhìn kỹ nét nhé.</li>
-        <li>Có <b>3 mạng</b>. Chọn sai mất 1 mạng. Vòng nào không sai chữ nào được thưởng và tăng chuỗi.</li>
+        <li>Có <b>3 mạng</b>. Chọn sai mất 1 mạng. Vòng không sai chữ nào được thưởng, có <b>1–3 sao</b> và tăng chuỗi.</li>
+        <li>Cứ <b>5 ải</b> gặp một <b>BOSS</b> nhiều chữ hơn, hạ được thì hồi 1 mạng. Có 2 quyền trợ giúp: <b>Xem lại</b> và <b>Lọc nhiễu</b>, kiếm thêm khi đánh BOSS hoặc chuỗi 3.</li>
       </ul>
+      <h2>3. Huy hiệu <span class="muted" id="bdCount"></span></h2>
+      <ul class="badges" id="badgeList"></ul>
       <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
@@ -118,14 +145,17 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="hud">
       <span>Vòng <b id="qNo">1</b></span>
       <span>Điểm <b id="score">0</b></span>
+      <span class="stars" id="stars"></span>
       <span class="streak" id="streak"></span>
       <span class="hearts" id="hearts"></span>
       <span class="sp"></span>
       <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sai></use></svg> Dừng</button>
     </div>
+    <div class="path" id="path" aria-hidden="true"></div>
     <div class="timer" id="timerBox"><i id="timer"></i></div>
-    <div class="q"><div class="rowc" id="row" lang="zh"></div><div class="ask" id="ask"></div>
+    <div class="q" id="qbox"><div class="banner" id="banner"></div><div class="rowc" id="row" lang="zh"></div><div class="ask" id="ask"></div>
       <button class="btn sec seeb" type="button" id="seeBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tick></use></svg> Đã nhớ</button></div>
+    <div class="pw"><button type="button" id="pwLook"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#mat></use></svg> Xem lại <b id="nLook">2</b></button><button type="button" id="pwClean"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#kinh-lup></use></svg> Lọc nhiễu <b id="nClean">2</b></button><button type="button" id="sndBtn" aria-label="Bật / tắt âm thanh"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#loa></use></svg></button></div>
     <div class="opts" id="opts"></div>
     <div class="fb" id="fb" aria-live="polite"></div>
   </section>
@@ -135,6 +165,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <h1 id="overTitle">Kết thúc!</h1>
     <div class="panel">
       <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
+      <div id="newBadge"></div>
       <div id="revBox"><h2>Những chữ em quên, ôn lại nhé</h2><ul class="review" id="review"></ul></div>
       <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cách nhớ</button></div>
     </div>
@@ -147,6 +178,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script src="../../tu-vung/bai-data.js"></script>
 <script src="../../tu-vung/chu-de.js"></script>
 <script src="../bo-tu.js?v=4"></script>
+<script src="../vuot-ai/am.js?v=1"></script>
 <script src="../tts.js?v=2"></script>
 <script src="../vui.js?v=20261004"></script>
 <script src="../nhom-chu.js?v=1"></script>
@@ -180,54 +212,72 @@ const bestKey=()=>'nc-best-'+mode+'-'+[...picked].sort().join('');
 function showBest(){const b=store.get(bestKey());$('bestSetup').textContent=b?'Kỷ lục: '+b+' điểm':''}
 showBest();
 
-const MAXK=8;
-let pool,bag,round,k,target,found,score,streak,lives,roundErr,missed,alive,phase,timerId,roundsOk,bestK;
+const MAXK=8,BOSS_EVERY=5;
+const ICO=(n,c)=>'<svg class='+(c?'lli-'+c:'lli')+' aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#'+n+'></use></svg>';
+const BADGES=[['mat','vang','Mắt tinh','Nhớ đủ 5 chữ trong một vòng không sai'],['sao','vang','Ba sao','Một vòng đạt 3 sao'],['lua','do','Cháy hết mình','Chuỗi 5 vòng hoàn hảo'],
+  ['vuong-mien','vang','Hạ BOSS','Thắng ải BOSS đầu tiên'],['cup','vang','Trí nhớ voi','Nhớ 8 chữ một vòng'],['huy-chuong','vang','Chăm chỉ','Tìm đúng 100 chữ (cộng dồn)']];
+let have=new Set(store.get('nc-badges')||[]),newB=[];
+function showBadges(){const li=$('badgeList');li.innerHTML=BADGES.map((b,i)=>'<li class="'+(have.has(i)?'':'lock')+'">'+ICO(b[0],b[1])+'<span><b>'+b[2]+'</b><small>'+b[3]+'</small></span></li>').join('');
+  $('bdCount').textContent='('+have.size+'/'+BADGES.length+')'}
+showBadges();
+function award(i){if(have.has(i))return;have.add(i);newB.push(i);store.set('nc-badges',[...have]);showBadges();AM.play('clear');toast('Huy hiệu mới: '+BADGES[i][2],BADGES[i][0])}
+function toast(t,ic){const d=document.createElement('span');d.className='toast';d.innerHTML=ICO(ic||'sao','vang')+t;$('fb').appendChild(d)}
+let pool,bag,round,k,target,found,score,streak,lives,roundErr,missed,alive,phase,timerId,roundsOk,bestK,stars,pw,boss,usedPw,bossWins,total;
 const py=c=>charPy[c]||'';
-function pickChars(n){ // lấy n chữ khác nhau, xoay vòng hết kho trước khi lặp
-  const out=[];while(out.length<n){if(!bag.length)bag=shuffle(pool.slice());const c=bag.pop();if(!out.includes(c))out.push(c)}return out}
+function pickChars(n){const out=[];while(out.length<n){if(!bag.length)bag=shuffle(pool.slice());const c=bag.pop();if(!out.includes(c))out.push(c)}return out}
 function start(){
   pool=[...new Set([...picked].flatMap(l=>byLv[l]))];
   if(pool.length<4){$('bestSetup').textContent='Bộ chữ này còn ít quá, chọn thêm cấp nhé.';return}
-  bag=shuffle(pool.slice());round=0;score=0;streak=0;lives=3;missed=new Map();alive=true;roundsOk=0;bestK=0;
+  AM.unlock();bag=shuffle(pool.slice());round=0;score=0;streak=0;lives=3;stars=0;pw={look:2,clean:2};bossWins=0;newB=[];
+  missed=new Map();alive=true;roundsOk=0;bestK=0;total=0;
   store.set('nc-levels',[...picked]);
   $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);
   nextRound();
 }
-function hud(){$('qNo').textContent=round;$('score').textContent=score;$('streak').textContent=streak>1?'chuỗi ×'+streak:'';
-  $('hearts').innerHTML='<svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tim></use></svg>'.repeat(lives)+'<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tim-rong></use></svg>'.repeat(3-lives)}
+function hud(){$('qNo').textContent=round;$('score').textContent=score;$('streak').innerHTML=streak>1?ICO('lua','do')+' ×'+streak:'';
+  $('stars').innerHTML=ICO('sao','vang')+' '+stars;
+  $('hearts').innerHTML=ICO('tim','do').repeat(lives)+ICO('tim-rong').repeat(Math.max(0,3-lives));
+  $('nLook').textContent=pw.look;$('nClean').textContent=pw.clean;
+  $('pwLook').disabled=phase!=='pick'||pw.look<1;$('pwClean').disabled=phase!=='pick'||pw.clean<1;
+  const pos=(round-1)%BOSS_EVERY;$('path').innerHTML=Array.from({length:BOSS_EVERY},(_,i)=>i===BOSS_EVERY-1?'<i class="boss'+(i<pos?' on':'')+'">'+(i===pos?'BOSS':'B')+'</i>':'<i class="'+(i<pos?'on':i===pos?'now':'')+'"></i>').join('')}
 function nextRound(){
   if(!alive)return;
-  round++;k=Math.min(MAXK,2+Math.ceil(round/2),Math.max(2,pool.length-2));   // 3,3,4,4,5,5… chữ
-  target=pickChars(k);found=[];roundErr=0;phase='show';
+  round++;boss=round%BOSS_EVERY===0;
+  const base=Math.min(MAXK,2+Math.ceil(round/2));
+  k=Math.min(boss?base+2:base,Math.max(2,pool.length-2));   // 3,3,4,4,[BOSS]…
+  target=pickChars(k);found=[];roundErr=0;usedPw=false;phase='show';
+  $('qbox').classList.toggle('boss',boss);
+  $('banner').innerHTML=boss?ICO('kiem')+'BOSS · Ải '+round:ICO('co')+'Ải '+round;
   $('row').innerHTML=target.map(c=>'<div class="cd show" style="animation-delay:'+(Math.random()*.25).toFixed(2)+'s">'+c+'</div>').join('');
   $('opts').innerHTML='';$('fb').innerHTML='';$('seeBtn').hidden=false;
-  $('ask').textContent='Nhìn kỹ rồi nhớ nhé…';hud();
-  const T=(k*0.9+0.9)*(round>6?0.85:1)*1000,t0=performance.now(),bar=$('timer');bar.style.transform='scaleX(1)';bar.classList.remove('low');
+  $('ask').textContent=boss?'BOSS xuất hiện! Nhớ thật nhanh…':'Nhìn kỹ rồi nhớ nhé…';hud();AM.play('appear');
+  const T=(k*0.9+0.9)*(round>6?0.85:1)*(boss?0.8:1)*1000,t0=performance.now(),bar=$('timer');bar.style.transform='scaleX(1)';bar.classList.remove('low');
   clearInterval(timerId);timerId=setInterval(()=>{const f=1-(performance.now()-t0)/T;bar.style.transform='scaleX('+Math.max(0,f)+')';
     bar.classList.toggle('low',f<.3);if(f<=0)hide()},40);
 }
+function blanks(){$('row').innerHTML=target.map((c,i)=>i<found.length?'<div class="cd got">'+(mode==='order'?c:found[i])+(py(found[i])?'<small>'+py(found[i])+'</small>':'')+'</div>':'<div class="cd blank">？</div>').join('')}
 function hide(){
   if(phase!=='show')return;phase='pick';clearInterval(timerId);$('seeBtn').hidden=true;
-  $('timer').style.transform='scaleX(0)';
-  $('row').innerHTML=target.map(()=>'<div class="cd blank">？</div>').join('');
+  $('timer').style.transform='scaleX(0)';blanks();
   $('ask').textContent=mode==='order'?'Chọn lại các chữ theo đúng thứ tự, từ trái sang phải':'Chọn lại '+k+' chữ em vừa thấy';
-  // đáp án: k chữ đúng + chữ na ná + chữ cùng cấp cho đủ bảng
   const want=Math.min(Math.max(k*2,k+4),k+8),dec=[];
   target.forEach(c=>shuffle([...(sim[c]||[])]).forEach(o=>{if(dec.length<k&&!target.includes(o)&&!dec.includes(o))dec.push(o)}));
   shuffle(dec);while(dec.length>want-k)dec.pop();
   const rest=shuffle(pool.filter(c=>!target.includes(c)&&!dec.includes(c)));while(dec.length<want-k&&rest.length)dec.push(rest.pop());
   const opts=shuffle([...target,...dec]);
   $('opts').innerHTML='';opts.forEach(o=>{const b=document.createElement('button');b.type='button';b.className='opt';b.lang='zh';b.textContent=o;b.onclick=()=>choose(o,b);$('opts').appendChild(b)});
+  hud();
 }
-function slot(i,c,cls){const s=$('row').children[i];s.className='cd '+cls;s.innerHTML=c+(py(c)?'<small>'+py(c)+'</small>':'')}
 function choose(o,btn){
   if(phase!=='pick')return;
   const ok=mode==='order'?o===target[found.length]:target.includes(o);
   if(ok){
-    btn.disabled=true;btn.classList.add('ok');slot(found.length,o,'got');found.push(o);
+    btn.disabled=true;btn.classList.add('ok');AM.play('ok');total++;
+    const i=found.length;found.push(o);
+    const s=$('row').children[i];s.className='cd got';s.innerHTML=o+(py(o)?'<small>'+py(o)+'</small>':'');
     if(found.length===k)roundDone();
   }else{
-    roundErr++;lives--;streak=0;btn.disabled=true;btn.classList.add('no');
+    roundErr++;lives--;streak=0;btn.disabled=true;btn.classList.add('no');AM.play('hurt');
     target.forEach(c=>{if(!found.includes(c))missed.set(c,1)});
     $('fb').innerHTML='<span class="bad">'+(target.includes(o)?'Đúng chữ nhưng sai thứ tự! ':VUI.sai(0)+' ')+(lives>0?VUI.mang(lives,''):'')+'</span>';
     hud();if(lives<=0)failRound();
@@ -237,27 +287,48 @@ function failRound(){
   phase='over';const rest=target.filter(c=>!found.includes(c));
   rest.forEach((c,j)=>slot(found.length+j,c,'miss'));
   document.querySelectorAll('.opt').forEach(b=>{b.disabled=true;if(target.includes(b.textContent)&&!b.classList.contains('ok'))b.classList.add('ok')});
-  $('fb').innerHTML+='<button class="btn pri" type="button" id="goOn">Xem kết quả →</button>';$('goOn').onclick=end;$('goOn').focus();
+  hud();$('fb').innerHTML+='<button class="btn pri" type="button" id="goOn">Xem kết quả →</button>';$('goOn').onclick=end;$('goOn').focus();
 }
+function slot(i,c,cls){const s=$('row').children[i];s.className='cd '+cls;s.innerHTML=c+(py(c)?'<small>'+py(c)+'</small>':'')}
+const rnd=()=>Math.random()<.5?'look':'clean';
 function roundDone(){
   phase='done';if(k>bestK)bestK=k;
-  const perfect=roundErr===0;if(perfect){streak++;roundsOk++}
-  const pts=Math.round((100*k+(perfect?50*k:0))*(1+Math.min(streak-1,9)*.1)*(perfect?1:.5));score+=pts;
-  $('fb').innerHTML='<span class="good">'+(perfect?VUI.dung(streak):'Xong vòng, nhưng còn sai')+' +'+pts+'</span>';
-  hud();setTimeout(nextRound,perfect?1100:1500);
+  const perfect=roundErr===0,st=perfect?(usedPw?2:3):1;stars+=st;
+  if(perfect){streak++;roundsOk++}
+  let pts=Math.round((100*k+(perfect?50*k:0))*(1+Math.min(streak-1,9)*.1)*(perfect?1:.5));
+  let html='<span class="good">'+(perfect?VUI.dung(streak):'Xong ải, nhưng còn sai')+' +'+pts+'</span><span class="star3">'+ICO('sao','vang').repeat(st).replace(/lli-vang/g,'lli-vang')+ICO('sao-rong').repeat(3-st)+'</span>';
+  if(boss){pts+=300;bossWins++;if(lives<3)lives++;const g=rnd();pw[g]++;html+='<span class="toast">'+ICO('vuong-mien','vang')+'Hạ BOSS! +300, hồi 1 mạng, thêm 1 quyền '+(g==='look'?'Xem lại':'Lọc nhiễu')+'</span>';AM.play('clear');award(3)}
+  else if(perfect&&streak%3===0){const g=rnd();pw[g]++;html+='<span class="toast">'+ICO('qua','vang')+'Chuỗi '+streak+'! Thêm 1 quyền '+(g==='look'?'Xem lại':'Lọc nhiễu')+'</span>';AM.play('coin')}
+  else AM.play('coin');
+  score+=pts;$('fb').innerHTML=html;
+  if(perfect&&k>=5)award(0);if(st===3)award(1);if(streak>=5)award(2);if(k>=8)award(4);
+  const t=(store.get('nc-total')||0)+total;if(t>=100)award(5);
+  hud();setTimeout(nextRound,boss?2200:perfect?1500:1700);
 }
+$('pwLook').onclick=()=>{
+  if(phase!=='pick'||pw.look<1)return;pw.look--;usedPw=true;phase='peek';AM.play('choose');
+  $('row').innerHTML=target.map((c,i)=>'<div class="cd show">'+c+'</div>').join('');hud();
+  setTimeout(()=>{if(phase!=='peek')return;phase='pick';blanks();hud()},1300)};
+$('pwClean').onclick=()=>{
+  if(phase!=='pick'||pw.clean<1)return;pw.clean--;usedPw=true;AM.play('choose');
+  const bad=shuffle([...document.querySelectorAll('.opt:not(:disabled)')].filter(b=>!target.includes(b.textContent)));
+  bad.slice(0,Math.ceil(bad.length/2)).forEach(b=>b.classList.add('gone'));hud()};
+$('sndBtn').onclick=()=>{$('sndBtn').style.opacity=AM.toggle()?1:.4};
 $('seeBtn').onclick=hide;
 $('quitBtn').onclick=()=>{if(alive)end()};
 function end(){
   alive=false;clearInterval(timerId);$('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
+  store.set('nc-total',(store.get('nc-total')||0)+total);if((store.get('nc-total')||0)>=100)award(5);
   const kk=bestKey(),best=store.get(kk)||0,rec=score>best;if(rec)store.set(kk,score);
   $('overTitle').textContent=lives<=0?'Hết mạng rồi!':'Kết thúc!';
   $('finalScore').textContent=score;
   const tier=bestK>=7?3:bestK>=5?2:bestK>=3?1:0,rk=tier===3?['过目不忘','Nhớ lâu như in!']:VUI.rank(tier);
   $('rank').innerHTML=VUI.rankHTML(rk,tier);
-  $('finalInfo').textContent=(rec&&score>0?'Kỷ lục mới! · ':'Kỷ lục: '+Math.max(best,score)+' điểm · ')+'Nhớ nhiều nhất '+bestK+' chữ một vòng · '+roundsOk+' vòng hoàn hảo';
+  $('finalInfo').textContent=(rec&&score>0?'Kỷ lục mới! · ':'Kỷ lục: '+Math.max(best,score)+' điểm · ')+'Đến ải '+round+' · '+stars+' sao · nhớ nhiều nhất '+bestK+' chữ · hạ '+bossWins+' BOSS';
   $('review').innerHTML=[...missed.keys()].map(c=>'<li><span class="zh" lang="zh">'+c+' '+TTS.btn(c)+'</span><span class="py">'+py(c)+'</span></li>').join('');
-  $('revBox').hidden=!missed.size;showBest();
+  $('revBox').hidden=!missed.size;
+  $('newBadge').innerHTML=newB.length?'<h2>Huy hiệu mới</h2><ul class="badges">'+newB.map(i=>'<li class="new">'+ICO(BADGES[i][0],BADGES[i][1])+'<span><b>'+BADGES[i][2]+'</b><small>'+BADGES[i][3]+'</small></span></li>').join('')+'</ul>':'';
+  showBest();
 }
 $('startBtn').onclick=start;
 $('againBtn').onclick=start;
