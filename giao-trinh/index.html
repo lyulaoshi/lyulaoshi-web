@@ -250,6 +250,7 @@ footer{padding:18px 0 32px;margin-top:32px;color:var(--muted);font-size:13px;bor
 
 <script src="sach.js"></script>
 <script src="bai-co.js"></script><!-- tools/build_site.py tạo khi ghép: bài nào đã có trên web -->
+<script src="../tro-choi/vuot-ai/co-de.js"></script>
 <script src="../tu-vung/bai-data.js"></script>
 <script src="../ngu-phap/bai-data.js"></script>
 <script>
@@ -354,7 +355,7 @@ function row(B,n){
     ${w?`<label class="pk" title="Chọn để ôn gộp"><input type="checkbox" data-n="${n}" aria-label="Chọn Bài ${n} để ôn gộp"${S.has(n)?" checked":""}></label>`:"<span></span>"}
     <div class="num"><small>Bài</small><b>${n}</b></div>
     <div class="tx"><h3>${esc(zh)}</h3>${vi?`<p class="vi">${esc(vi)}</p>`:""}${chips?`<div class="gp">${chips}</div>`:""}</div>
-    <div class="ac"><a class="go" data-r="${B.id}|${n}" href="${SITE}${B.id}/bai-${n}/">Học bài →</a>${w?`<a class="s" href="${SITE}tu-vung/#${B.id}/bai-${n}"><i>词</i>Ôn từ</a><a class="s" href="${SITE}tro-choi/?bo=bai:${B.id}:bai-${n}"><i>玩</i>Chơi</a>`:""}</div>
+    <div class="ac"><a class="go" data-r="${B.id}|${n}" href="${SITE}${B.id}/bai-${n}/">Học bài →</a>${w?`<a class="s" href="${SITE}tu-vung/#${B.id}/bai-${n}"><i>词</i>Thẻ từ</a><a class="s" href="${SITE}tro-choi/?bo=bai:${B.id}:bai-${n}&loai=tu"><i>玩</i>Chơi từ</a><a class="s" href="${SITE}tro-choi/?bo=bai:${B.id}:bai-${n}&loai=chu"><i>字</i>Chơi Hán tự</a>`:""}${(window.VA_CO&&VA_CO[B.id]||[]).includes(n)?`<a class="s" href="${SITE}tro-choi/?bo=bai:${B.id}:bai-${n}&loai=cau"><i>句</i>Chơi câu</a>`:""}</div>
   </article>`;
 }
 // bài ôn tập: có thư mục trên web thì mở trang ôn; chưa có thì mở 词汇盒 ôn gộp từ các bài trong đợt
@@ -396,7 +397,7 @@ function bar(){
   el.className="bar "+B.c;
   el.innerHTML=`<div class="in"><div class="what"><b>${esc(B.short)} · ôn gộp ${ns.length} bài${words?` · ${words} từ`:""}</b>
       <div class="chips">${ns.map(n=>`<button type="button" data-n="${n}" aria-label="Bỏ Bài ${n} khỏi danh sách ôn gộp">Bài ${n} ×</button>`).join("")}</div></div>
-    <div class="acts"><a href="${SITE}tu-vung/#${B.id}/${ids}"><i>词</i>Ôn từ</a><a class="alt" href="${SITE}tro-choi/?bo=${encodeURIComponent('bai:'+B.id+':'+ids)}"><i>玩</i>Chơi</a><button type="button" class="clr" id="pkClr">Bỏ chọn</button></div></div>`;
+    <div class="acts"><a href="${SITE}tu-vung/#${B.id}/${ids}"><i>词</i>Thẻ từ</a><a class="alt" href="${SITE}tro-choi/?bo=${encodeURIComponent('bai:'+B.id+':'+ids)}&loai=tu"><i>玩</i>Chơi từ</a><a class="alt" href="${SITE}tro-choi/?bo=${encodeURIComponent('bai:'+B.id+':'+ids)}&loai=chu"><i>字</i>Chơi Hán tự</a>${ns.some(n=>(window.VA_CO&&VA_CO[B.id]||[]).includes(n))?`<a class="alt" href="${SITE}tro-choi/?bo=${encodeURIComponent('bai:'+B.id+':'+ids)}&loai=cau"><i>句</i>Chơi câu</a>`:""}<button type="button" class="clr" id="pkClr">Bỏ chọn</button></div></div>`;
   el.hidden=false;document.body.classList.add("has-bar");
   $("#pkClr").onclick=()=>{S.clear();syncSel(B)};
   el.querySelectorAll(".chips button").forEach(b=>b.onclick=()=>{S.delete(+b.dataset.n);syncSel(B)});

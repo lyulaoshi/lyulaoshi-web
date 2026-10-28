@@ -36,18 +36,21 @@ BAI.forEach(b=>STAGES.forEach(([t])=>b[t].forEach(it=>{if(!it._n){it.id=b.id+'.'
 
 // ---- bản đồ
 // Mở từ nút Chơi của 课本盒 (?bo=bai:tttc:bai-2): chỉ hiện ải của bài đó
-const BO=(()=>{const [t,a,b]=(new URLSearchParams(location.search).get('bo')||'').split(':');return t==='bai'?BAI.find(x=>x.mon===a&&x.id===a+'-'+b&&hasCH(x)):null})();
+// nhiều bài (ôn gộp từ 课本盒): ?bo=bai:301:bai-11+bai-13 → hiện ải của từng bài đó
+const BOS=(()=>{const [t,a,b]=(new URLSearchParams(location.search).get('bo')||'').split(':');return t==='bai'?(b||'').split(/[+ ]/).map(y=>BAI.find(x=>x.mon===a&&x.id===a+'-'+y&&hasCH(x))).filter(Boolean):[]})(),BO=BOS[0]||null;
+// ải gộp: đề của mọi bài đã chọn, mỗi chặng bốc tối đa 12 câu; câu vẫn mang bài gốc (b) nên link bài giảng và điểm ngữ pháp đúng
+const GOP=BOS.length>1?{id:'gop:'+BOS.map(x=>x.id).join('+'),gop:BOS,n:'合',vi:'Ôn gộp '+BOS.length+' bài',zh:'第'+BOS.map(x=>x.n).join('、')+'课'}:null;
 function paintMap(){
   $('ais').innerHTML='';$('boBar').hidden=!BO;
-  if(BO)$('boBar').innerHTML='<span>'+ico('the-bai')+' Bài đang chọn: <b class="zh" lang="zh">'+BO.zh+'</b> · '+BO.vi+'</span><a href="'+BO.lk+'">Về bài giảng</a><a href="./">Chơi tất cả các ải</a>';
+  if(BO)$('boBar').innerHTML=BOS.length>1?'<span>'+ico('the-bai')+' Đang chọn <b>'+BOS.length+' bài</b>: '+BOS.map(x=>x.vi.split(' · ')[0]).join(', ')+'</span><a href="./">Chơi tất cả các ải</a>':'<span>'+ico('the-bai')+' Bài đang chọn: <b class="zh" lang="zh">'+BO.zh+'</b> · '+BO.vi+'</span><a href="'+BO.lk+'">Về bài giảng</a><a href="./">Chơi tất cả các ải</a>';
   const SA=SACH.filter(s=>BAI.some(b=>b.mon===s.id&&hasCH(b)));
   sachId=BO?BO.mon:(sachId||store.get('va-sach')||(SA[0]||{}).id);
   if(!SA.some(s=>s.id===sachId))sachId=(SA[0]||{}).id;
   $('sach').hidden=!!BO||SA.length<2;
   $('sach').innerHTML=SA.map(s=>'<button type="button" class="chip" data-s="'+s.id+'" aria-pressed="'+(s.id===sachId)+'"><span class="zh" lang="zh">'+s.zh+'</span><small>'+s.vi+'</small></button>').join('');
   $('sach').querySelectorAll('.chip').forEach(c=>c.onclick=()=>{sachId=c.dataset.s;store.set('va-sach',sachId);paintMap()});
-  const list=BO?[BO]:BAI.filter(b=>b.mon===sachId&&hasCH(b)).sort((a,b)=>a.n-b.n),got=new Set(store.get('va-huy')||[]);
-  list.forEach(b=>{
+  const list=BO?BOS:BAI.filter(b=>b.mon===sachId&&hasCH(b)).sort((a,b)=>a.n-b.n),got=new Set(store.get('va-huy')||[]);
+  (GOP?[GOP,...list]:list).forEach(b=>{
     const best=store.get('va-sao-'+KB(b))||0,xu=store.get('va-xu-'+KB(b))||0,d=document.createElement('div');d.className='ai on';
     d.innerHTML='<span class="no">'+b.n+'</span><span><b>'+b.vi+'</b><br><span class="zh" lang="zh">'+b.zh+'</span>'+(xu?' <span class="muted">· kỷ lục '+xu+' xu</span>':'')+'</span><span class="st">'+[1,2,3].map(i=>ico(i<=best?'sao':'sao-rong',i<=best?'lli-vang':'')).join('')+'</span><span style="grid-column:2/-1"><button class="btn hot" type="button">'+(best?'Đánh lại':'Vào ải')+' '+ico('phat')+'</button></span>';
     d.querySelector('button').onclick=()=>{bai=b;AM.unlock();start('ai')};$('ais').appendChild(d);
@@ -64,7 +67,7 @@ function paintSnd(){$('sndBtn').innerHTML=ico(AM.on?'loa':'loa-tat')+' '+(AM.on?
 function allItems(){const m={};BAI.forEach(b=>STAGES.forEach(([t])=>b[t].forEach(it=>m[it.id]={t,item:it,b})));return m}
 function start(mode){
   let q=[];
-  if(mode==='ai'){STAGES.forEach(([t],si)=>CH&&t!==CH||shuffle(bai[t].slice()).forEach(it=>q.push({t,item:it,si,b:bai})))}
+  if(mode==='ai'){STAGES.forEach(([t],si)=>CH&&t!==CH||(bai.gop?shuffle(bai.gop.flatMap(b=>b[t].map(it=>({t,item:it,si,b})))).slice(0,12):shuffle(bai[t].slice()).map(it=>({t,item:it,si,b:bai}))).forEach(x=>q.push(x)))}
   else{const m=allItems();q=shuffle([...wrongSet()].filter(id=>m[id]&&(!CH||m[id].t===CH)).map(id=>({t:m[id].t,item:m[id].item,b:m[id].b,si:STAGES.findIndex(s=>s[0]===m[id].t)})))}
   if(!q.length){paintMap();return}
   S={mode,q,i:0,hearts:3,xu:0,ok:0,hints:0,combo:0,perG:{},wrong:[],stage:-1,hp:0,hpMax:1,tl:0,tmax:1,run:false,busy:true,token:0,order:[...new Set(q.map(x=>x.si))].sort()};   // order: các chặng thật sự có câu
@@ -233,7 +236,7 @@ function finish(){
     if(stars>(store.get('va-sao-'+KB(bai))||0))store.set('va-sao-'+KB(bai),stars);
     if(win&&S.xu>(store.get('va-xu-'+KB(bai))||0))store.set('va-xu-'+KB(bai),S.xu);
     const got=new Set(store.get('va-huy')||[]),fresh=[];
-    Object.keys(S.perG).forEach(k=>{const p=S.perG[k];if(!CH&&win&&p.ok===p.all&&!got.has(k)){got.add(k);fresh.push(k)}});
+    Object.keys(S.perG).forEach(k=>{const p=S.perG[k];if(!CH&&!bai.gop&&win&&p.ok===p.all&&!got.has(k)){got.add(k);fresh.push(k)}});
     store.set('va-huy',[...got]);
     nh=fresh.map(k=>'<div class="newhuy">'+ico('huy-chuong','lli-vang')+' Huy hiệu mới: <span class="zh" lang="zh">'+S.perG[k].g.zh+'</span> · '+S.perG[k].g.huy+'</div>').join('');
   }

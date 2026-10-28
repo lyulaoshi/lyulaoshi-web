@@ -155,19 +155,20 @@ a.game:hover{transform:translateY(-4px)}
   else if(t==='cd'){const c=(window.CHUDE||[]).find(x=>x.id===a);if(c){name=c.zh+' · '+c.vi;back='chu-de/'+a;n=c.w.length}}
   else if(t==='hsk'){name='HSK '+a+' · Gói '+(+b/20+1);back='hsk/'+a;n=20}
   if(!name)return;
-  const vaB=t==='bai'&&b&&!/[+ ]/.test(b)?(window.VA_BAI||[]).find(x=>x.mon===a&&x.id===a+'-'+b):null;   // Vượt ải và 4 trò riêng chỉ khi bài này đã có đề ôn (trò riêng: bài phải có chặng đó)
-  const coAi=vaB?['vuot-ai/'].concat([['xep-cau/','sap'],['tra-loi/','hoi'],['dien-cho/','dien'],['dich-cau/','dich']].filter(c=>vaB[c[1]].length).map(c=>c[0])):[];
-  const OK=['mua-chu/','lat-the/','bong-bay/','nho-chu/'].concat(t==='bai'||t==='cd'?['nghieng-dau/']:[],coAi),bar=document.getElementById('boBar');
+  const vaB=t==='bai'&&b?(window.VA_BAI||[]).filter(x=>x.mon===a&&(b||'').split(/[+ ]/).some(y=>x.id===a+'-'+y)):[];   // Vượt ải và 4 trò riêng chỉ khi (một trong) các bài đã có đề ôn (trò riêng: có bài nào có chặng đó)
+  const coAi=vaB.length?['vuot-ai/'].concat([['xep-cau/','sap'],['tra-loi/','hoi'],['dien-cho/','dien'],['dich-cau/','dich']].filter(c=>vaB.some(x=>x[c[1]].length)).map(c=>c[0])):[];
+  const OK=['mua-chu/','lat-the/','bong-bay/','nho-chu/','viet-chu/'].concat(t==='bai'||t==='cd'?['nghieng-dau/']:[],coAi),bar=document.getElementById('boBar');
   // chế độ bộ từ: bỏ chia nhóm, xếp trò nhận được bộ từ lên đầu
   const list=document.createElement('section');list.className='games';list.setAttribute('aria-label','Danh sách trò chơi');
 
   bar.hidden=false;bar.innerHTML='<span><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#the-bai></use></svg> Bộ từ đang chọn: <b lang="zh"></b><span class="bo-vi"></span> ('+n+' từ)</span><a href="../tu-vung/#'+back+'">← Về thẻ từ</a><a href="./">Bỏ chọn, chơi theo HSK</a>';
   {const k=name.indexOf(' · ');bar.querySelector('b').textContent=k<0?name:name.slice(0,k);bar.querySelector('.bo-vi').textContent=k<0?'':' ·'+name.slice(k+2)}  // chữ Hán dùng phông KuaiLe, phần tiếng Việt dùng phông thường (KuaiLe không có chữ có dấu)
-  const games=[...document.querySelectorAll('a.game')],yes=games.filter(g=>OK.includes(g.getAttribute('href'))),no=games.filter(g=>!yes.includes(g));
+  const VAF=['vuot-ai/','xep-cau/','tra-loi/','dien-cho/','dich-cau/'],CHUF=['nho-chu/','viet-chu/','ghep-bo/','bay-chu/','do-chu/'],loai=new URLSearchParams(location.search).get('loai');   // nút ở 课本盒: loai=tu chỉ trò với từ · loai=chu chỉ trò với chữ Hán · loai=cau chỉ trò với câu
+  const games=[...document.querySelectorAll('a.game')].filter(g=>{const h=g.getAttribute('href');return loai==='cau'?VAF.includes(h):loai==='chu'?CHUF.includes(h):loai==='tu'?!VAF.includes(h)&&!CHUF.includes(h):true}),yes=games.filter(g=>OK.includes(g.getAttribute('href'))),no=loai==='cau'?[]:games.filter(g=>!yes.includes(g));
   yes.forEach(g=>{g.href=g.getAttribute('href')+'?bo='+encodeURIComponent(id);g.querySelector('.tag').textContent='Chơi với bộ từ này'});
-  no.forEach(g=>{g.classList.add('nobo');g.querySelector('.tag').textContent=/^(vuot-ai|xep-cau|tra-loi|dien-cho|dich-cau)\//.test(g.getAttribute('href'))?'Bài này chưa có đề':'Chơi theo HSK'});
+  no.forEach(g=>{g.classList.add('nobo');g.querySelector('.tag').textContent=/^(vuot-ai|xep-cau|tra-loi|dien-cho|dich-cau)\//.test(g.getAttribute('href'))?'Bài này chưa có đề':loai==='chu'?'Chơi theo chữ có sẵn':'Chơi theo HSK'});
   const sep=(t)=>{const d=document.createElement('p');d.className='sep';d.textContent=t;return d};
-  list.replaceChildren(sep('Chơi được với bộ từ này'),...yes,sep('Các trò khác (chơi theo cấp HSK)'),...no);
+  list.replaceChildren(sep(loai==='cau'?'Chơi với câu của bài này':loai==='chu'?'Chơi với chữ Hán của bài này':'Chơi được với bộ từ này'),...yes,...(no.length?[sep(loai==='chu'?'Các trò chữ khác (không theo bài)':'Các trò khác (chơi theo cấp HSK)'),...no]:[]));
   document.getElementById('groups').replaceWith(list);document.getElementById('gChips').hidden=true;
 })();
 </script>
