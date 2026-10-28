@@ -107,6 +107,12 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 .badges li small{color:var(--muted)}
 .badges li.lock{opacity:.45;filter:grayscale(1)}.badges li.new{box-shadow:0 0 0 2px var(--peach);opacity:1;filter:none;animation:pop .4s both}
 .star3{display:flex;justify-content:center;gap:4px;margin-top:6px}.star3 svg{width:28px;height:28px}
+.cd.cue{font-family:"Be Vietnam Pro",sans-serif;font-weight:800;font-size:clamp(16px,4.6vw,24px);color:var(--sky);border-color:var(--sky);border-style:dashed}
+.cd.cue.hz{font-family:var(--kai);font-size:clamp(30px,8vw,46px);font-weight:400}
+.cd.cur{background:var(--sky-s);transform:translateY(-4px)}
+.chips.modes .chip{flex:1 1 220px}
+.clock{font-variant-numeric:tabular-nums;color:var(--coral);font-weight:800}
+.shr{margin-top:10px}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
 </head>
@@ -125,11 +131,17 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <h2>1. Chọn cấp HSK <span class="muted">(chọn được nhiều cấp)</span></h2>
       <div class="chips" id="lvChips"></div>
       <h2>2. Cách nhớ</h2>
-      <div class="chips" id="modeChips">
+      <div class="chips modes" id="modeChips">
         <button class="chip" type="button" data-mode="set" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#mat></use></svg> Nhớ chữ<small>tìm đủ các chữ, thứ tự nào cũng được</small></button>
         <button class="chip" type="button" data-mode="order" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lua></use></svg> Nhớ thứ tự<small>chọn đúng từ trái sang phải</small></button>
+        <button class="chip" type="button" data-mode="pair" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#link></use></svg> Chữ và pinyin<small>xem chữ kèm pinyin, rồi nhìn pinyin chọn lại chữ</small></button>
+        <button class="chip" type="button" data-mode="part" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#manh-ghep></use></svg> Chữ khuyết bộ<small>chỉ còn một bộ phận, nhớ lại cả chữ</small></button>
+        <button class="chip" type="button" data-mode="daily" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lich></use></svg> Thử thách ngày<small>cùng một dãy 8 ải cho cả lớp, HSK 1–3</small></button>
+        <button class="chip" type="button" data-mode="forgot" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sotay></use></svg> Ôn chữ đã quên<small>chỉ gồm chữ em từng chọn sai</small></button>
+        <button class="chip" type="button" data-mode="rush" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#nhanh></use></svg> Chạy đua 90 giây<small>không mất mạng, sai bị trừ 5 giây</small></button>
       </div>
       <ul class="how">
+        <li><b>Nhớ chữ / Nhớ thứ tự:</b> chọn lại đúng các chữ vừa thấy. <b>Chữ và pinyin:</b> nhìn pinyin chọn chữ. <b>Chữ khuyết bộ:</b> chỉ thấy một bộ phận. <b>Thử thách ngày:</b> 8 ải giống nhau cho mọi người. <b>Chạy đua:</b> 90 giây, càng nhiều ải càng tốt.</li>
         <li>Xem hàng chữ khi còn thời gian, <b>bấm "Đã nhớ"</b> nếu em muốn ẩn sớm.</li>
         <li>Chọn lại các chữ trong bảng. Có nhiều <b>chữ giống nhau</b> (已/己, 未/末…) để gài em, nhìn kỹ nét nhé.</li>
         <li>Có <b>3 mạng</b>. Chọn sai mất 1 mạng. Vòng không sai chữ nào được thưởng, có <b>1–3 sao</b> và tăng chuỗi.</li>
@@ -167,6 +179,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="acts"><span class="big" id="finalScore">0</span><span><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></span></div>
       <div id="newBadge"></div>
       <div id="revBox"><h2>Những chữ em quên, ôn lại nhé</h2><ul class="review" id="review"></ul></div>
+      <div class="acts" id="shareBox" hidden><button class="btn sec" id="shareBtn" type="button">Chép kết quả để khoe</button><span class="muted" id="shareMsg"></span></div>
       <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cách nhớ</button></div>
     </div>
   </section>
@@ -182,6 +195,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script src="../tts.js?v=2"></script>
 <script src="../vui.js?v=20261004"></script>
 <script src="../nhom-chu.js?v=1"></script>
+<script src="bo-phan.js?v=1"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
@@ -191,7 +205,11 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 (function(){
 const LEVELS=['1','2','3','4','5','6'],$=id=>document.getElementById(id);
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
-const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+let R=Math.random;   // thử thách ngày dùng bộ số ngẫu nhiên theo ngày để mọi người nhận cùng một đề
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=R()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const seeded=str=>{let h=2166136261;for(const c of str){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return()=>{h+=0x6D2B79F5;let t=h;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296}};
+const today=()=>new Date(Date.now()+7*36e5).toISOString().slice(0,10);
+const BP=window.BOPHAN||{};
 const isHan=c=>/[\u4e00-\u9fff]/.test(c);
 const sim={};(window.GROUPS||[]).forEach(g=>[...g].forEach(c=>{sim[c]=sim[c]||new Set();[...g].forEach(o=>o!==c&&sim[c].add(o))}));
 // chữ -> pinyin (lấy từ từ một chữ); chữ của từng cấp (chỉ chữ có pinyin để ôn lại)
@@ -200,6 +218,9 @@ LEVELS.forEach(l=>{byLv[l]=new Set();HSK[l].forEach(([w,p])=>{if(w.length===1&&i
 LEVELS.forEach(l=>{byLv[l]=[...byLv[l]].filter(c=>charPy[c]||window.BO_TU)});
 
 let picked=new Set(store.get('nc-levels')||['1']),mode='set';
+const ORDERED=m=>m==='order'||m==='pair'||m==='part';
+let quen=store.get('nc-quen')||{};const saveQuen=()=>store.set('nc-quen',quen);
+function chipInfo(){const f=document.querySelector('[data-mode=forgot] small');if(f)f.textContent=Object.keys(quen).length?'đang có '+Object.keys(quen).length+' chữ cần ôn':'chưa có chữ nào, chơi vài ván trước đã'}
 const lvChips=$('lvChips');
 LEVELS.forEach(l=>{const b=document.createElement('button');b.type='button';b.className='chip';b.dataset.lv=l;
   b.innerHTML='HSK '+l+'<small>'+byLv[l].length+' chữ</small>';b.setAttribute('aria-pressed',picked.has(l));
@@ -208,79 +229,86 @@ LEVELS.forEach(l=>{const b=document.createElement('button');b.type='button';b.cl
   lvChips.appendChild(b)});
 $('modeChips').querySelectorAll('.chip').forEach(c=>c.onclick=()=>{mode=c.dataset.mode;
   $('modeChips').querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===c));showBest()});
-const bestKey=()=>'nc-best-'+mode+'-'+[...picked].sort().join('');
+const bestKey=()=>'nc-best-'+mode+'-'+(mode==='daily'?today():[...picked].sort().join(''));
 function showBest(){const b=store.get(bestKey());$('bestSetup').textContent=b?'Kỷ lục: '+b+' điểm':''}
-showBest();
+showBest();chipInfo();
 
 const MAXK=8,BOSS_EVERY=5;
 const ICO=(n,c)=>'<svg class='+(c?'lli-'+c:'lli')+' aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#'+n+'></use></svg>';
 const BADGES=[['mat','vang','Mắt tinh','Nhớ đủ 5 chữ trong một vòng không sai'],['sao','vang','Ba sao','Một vòng đạt 3 sao'],['lua','do','Cháy hết mình','Chuỗi 5 vòng hoàn hảo'],
-  ['vuong-mien','vang','Hạ BOSS','Thắng ải BOSS đầu tiên'],['cup','vang','Trí nhớ voi','Nhớ 8 chữ một vòng'],['huy-chuong','vang','Chăm chỉ','Tìm đúng 100 chữ (cộng dồn)']];
+  ['vuong-mien','vang','Hạ BOSS','Thắng ải BOSS đầu tiên'],['cup','vang','Trí nhớ voi','Nhớ 8 chữ một vòng'],['huy-chuong','vang','Chăm chỉ','Tìm đúng 100 chữ (cộng dồn)'],['lich','xanh','Thử thách ngày','Hoàn thành thử thách ngày'],['nhanh','do','Nước rút','Chạy đua: hoàn hảo 6 ải']];
 let have=new Set(store.get('nc-badges')||[]),newB=[];
 function showBadges(){const li=$('badgeList');li.innerHTML=BADGES.map((b,i)=>'<li class="'+(have.has(i)?'':'lock')+'">'+ICO(b[0],b[1])+'<span><b>'+b[2]+'</b><small>'+b[3]+'</small></span></li>').join('');
   $('bdCount').textContent='('+have.size+'/'+BADGES.length+')'}
 showBadges();
 function award(i){if(have.has(i))return;have.add(i);newB.push(i);store.set('nc-badges',[...have]);showBadges();AM.play('clear');toast('Huy hiệu mới: '+BADGES[i][2],BADGES[i][0])}
 function toast(t,ic){const d=document.createElement('span');d.className='toast';d.innerHTML=ICO(ic||'sao','vang')+t;$('fb').appendChild(d)}
-let pool,bag,round,k,target,found,score,streak,lives,roundErr,missed,alive,phase,timerId,roundsOk,bestK,stars,pw,boss,usedPw,bossWins,total;
+let pool,bag,round,k,target,found,score,streak,lives,roundErr,missed,alive,phase,timerId,roundsOk,bestK,stars,pw,boss,usedPw,bossWins,total,timeLeft,clockId,CAP=8;
 const py=c=>charPy[c]||'';
 function pickChars(n){const out=[];while(out.length<n){if(!bag.length)bag=shuffle(pool.slice());const c=bag.pop();if(!out.includes(c))out.push(c)}return out}
 function start(){
-  pool=[...new Set([...picked].flatMap(l=>byLv[l]))];
-  if(pool.length<4){$('bestSetup').textContent='Bộ chữ này còn ít quá, chọn thêm cấp nhé.';return}
+  const ok=c=>mode==='pair'?!!charPy[c]:mode==='part'?!!BP[c]:true;
+  if(mode==='daily'){R=seeded('nho-chu-'+today());pool=[...new Set(['1','2','3'].flatMap(l=>byLv[l]))].filter(c=>charPy[c]).sort()}
+  else{R=Math.random;pool=mode==='forgot'?Object.keys(quen).sort():[...new Set([...picked].flatMap(l=>byLv[l]))].filter(ok)}
+  if(pool.length<(mode==='forgot'?3:4)){$('bestSetup').textContent=mode==='forgot'?'Em chưa có chữ cần ôn (cần ít nhất 3). Chơi vài ván Nhớ chữ trước nhé.':mode==='part'?'Bộ chữ này có ít chữ ghép được bộ phận, chọn thêm cấp nhé.':'Bộ chữ này còn ít quá, chọn thêm cấp nhé.';return}
   AM.unlock();bag=shuffle(pool.slice());round=0;score=0;streak=0;lives=3;stars=0;pw={look:2,clean:2};bossWins=0;newB=[];
-  missed=new Map();alive=true;roundsOk=0;bestK=0;total=0;
+  missed=new Map();alive=true;roundsOk=0;bestK=0;total=0;timeLeft=90;clearInterval(clockId);
+  if(mode==='rush'){const t0=performance.now();clockId=setInterval(()=>{timeLeft=Math.max(0,timeLeft-.1);if(!alive)return;hudClock();if(timeLeft<=0)end()},100)}
   store.set('nc-levels',[...picked]);
   $('setup').hidden=true;$('over').hidden=true;$('play').hidden=false;scrollTo(0,0);
   nextRound();
 }
+function hudClock(){if(mode==='rush')$('hearts').innerHTML='<span class="clock">'+Math.ceil(timeLeft)+' giây</span>'}
 function hud(){$('qNo').textContent=round;$('score').textContent=score;$('streak').innerHTML=streak>1?ICO('lua','do')+' ×'+streak:'';
   $('stars').innerHTML=ICO('sao','vang')+' '+stars;
-  $('hearts').innerHTML=ICO('tim','do').repeat(lives)+ICO('tim-rong').repeat(Math.max(0,3-lives));
+  if(mode==='rush')hudClock();else $('hearts').innerHTML=ICO('tim','do').repeat(lives)+ICO('tim-rong').repeat(Math.max(0,3-lives));
   $('nLook').textContent=pw.look;$('nClean').textContent=pw.clean;
   $('pwLook').disabled=phase!=='pick'||pw.look<1;$('pwClean').disabled=phase!=='pick'||pw.clean<1;
   const pos=(round-1)%BOSS_EVERY;$('path').innerHTML=Array.from({length:BOSS_EVERY},(_,i)=>i===BOSS_EVERY-1?'<i class="boss'+(i<pos?' on':'')+'">'+(i===pos?'BOSS':'B')+'</i>':'<i class="'+(i<pos?'on':i===pos?'now':'')+'"></i>').join('')}
 function nextRound(){
   if(!alive)return;
-  round++;boss=round%BOSS_EVERY===0;
+  round++;boss=mode!=='rush'&&round%BOSS_EVERY===0;
   const base=Math.min(MAXK,2+Math.ceil(round/2));
-  k=Math.min(boss?base+2:base,Math.max(2,pool.length-2));   // 3,3,4,4,[BOSS]…
+  k=Math.min(boss?base+2:base,Math.max(2,pool.length));   // 3,3,4,4,[BOSS]…
   target=pickChars(k);found=[];roundErr=0;usedPw=false;phase='show';
   $('qbox').classList.toggle('boss',boss);
-  $('banner').innerHTML=boss?ICO('kiem')+'BOSS · Ải '+round:ICO('co')+'Ải '+round;
-  $('row').innerHTML=target.map(c=>'<div class="cd show" style="animation-delay:'+(Math.random()*.25).toFixed(2)+'s">'+c+'</div>').join('');
+  $('banner').innerHTML=boss?ICO('kiem')+'BOSS · Ải '+round:ICO('co')+'Ải '+round+(mode==='daily'?' / '+CAP:'');
+  $('row').innerHTML=target.map(c=>'<div class="cd show" style="animation-delay:'+(Math.random()*.25).toFixed(2)+'s">'+c+(mode==='pair'?'<small>'+py(c)+'</small>':'')+'</div>').join('');
   $('opts').innerHTML='';$('fb').innerHTML='';$('seeBtn').hidden=false;
   $('ask').textContent=boss?'BOSS xuất hiện! Nhớ thật nhanh…':'Nhìn kỹ rồi nhớ nhé…';hud();AM.play('appear');
   const T=(k*0.9+0.9)*(round>6?0.85:1)*(boss?0.8:1)*1000,t0=performance.now(),bar=$('timer');bar.style.transform='scaleX(1)';bar.classList.remove('low');
   clearInterval(timerId);timerId=setInterval(()=>{const f=1-(performance.now()-t0)/T;bar.style.transform='scaleX('+Math.max(0,f)+')';
     bar.classList.toggle('low',f<.3);if(f<=0)hide()},40);
 }
-function blanks(){$('row').innerHTML=target.map((c,i)=>i<found.length?'<div class="cd got">'+(mode==='order'?c:found[i])+(py(found[i])?'<small>'+py(found[i])+'</small>':'')+'</div>':'<div class="cd blank">？</div>').join('')}
+function cueOf(c){return mode==='pair'?'<div class="cd blank cue">'+py(c)+'</div>':mode==='part'?'<div class="cd blank cue hz">'+(BP[c]?BP[c][0]:'')+'<span>＋？</span></div>':'<div class="cd blank">？</div>'}
+function blanks(){$('row').innerHTML=target.map((c,i)=>i<found.length?'<div class="cd got">'+found[i]+(py(found[i])?'<small>'+py(found[i])+'</small>':'')+'</div>':cueOf(c).replace('cd blank','cd blank'+(ORDERED(mode)&&i===found.length?' cur':''))).join('')}
 function hide(){
   if(phase!=='show')return;phase='pick';clearInterval(timerId);$('seeBtn').hidden=true;
   $('timer').style.transform='scaleX(0)';blanks();
-  $('ask').textContent=mode==='order'?'Chọn lại các chữ theo đúng thứ tự, từ trái sang phải':'Chọn lại '+k+' chữ em vừa thấy';
+  $('ask').textContent={order:'Chọn lại các chữ theo đúng thứ tự, từ trái sang phải',pair:'Nhìn pinyin, chọn đúng chữ đã đi với nó, từ trái sang phải',part:'Chỉ còn một bộ phận. Chọn đúng chữ đã thấy, từ trái sang phải'}[mode]||'Chọn lại '+k+' chữ em vừa thấy';
   const want=Math.min(Math.max(k*2,k+4),k+8),dec=[];
+  if(mode==='part')target.forEach(c=>shuffle(Object.keys(BP).filter(o=>BP[o][0]===BP[c][0]||BP[o][1]===BP[c][1])).forEach(o=>{if(dec.length<k&&!target.includes(o)&&!dec.includes(o))dec.push(o)}));
   target.forEach(c=>shuffle([...(sim[c]||[])]).forEach(o=>{if(dec.length<k&&!target.includes(o)&&!dec.includes(o))dec.push(o)}));
   shuffle(dec);while(dec.length>want-k)dec.pop();
   const rest=shuffle(pool.filter(c=>!target.includes(c)&&!dec.includes(c)));while(dec.length<want-k&&rest.length)dec.push(rest.pop());
+  const more=shuffle([...everyChar].filter(c=>!target.includes(c)&&!dec.includes(c)&&(mode!=='pair'||charPy[c])&&(mode!=='part'||BP[c])));while(dec.length<want-k&&more.length)dec.push(more.pop());
   const opts=shuffle([...target,...dec]);
   $('opts').innerHTML='';opts.forEach(o=>{const b=document.createElement('button');b.type='button';b.className='opt';b.lang='zh';b.textContent=o;b.onclick=()=>choose(o,b);$('opts').appendChild(b)});
   hud();
 }
 function choose(o,btn){
   if(phase!=='pick')return;
-  const ok=mode==='order'?o===target[found.length]:target.includes(o);
+  const ok=ORDERED(mode)?o===target[found.length]:target.includes(o);
   if(ok){
     btn.disabled=true;btn.classList.add('ok');AM.play('ok');total++;
     const i=found.length;found.push(o);
-    const s=$('row').children[i];s.className='cd got';s.innerHTML=o+(py(o)?'<small>'+py(o)+'</small>':'');
+    const s=$('row').children[i];s.className='cd got';if(ORDERED(mode)&&$('row').children[i+1]&&$('row').children[i+1].classList.contains('blank'))$('row').children[i+1].classList.add('cur');s.innerHTML=o+(py(o)?'<small>'+py(o)+'</small>':'');
     if(found.length===k)roundDone();
   }else{
-    roundErr++;lives--;streak=0;btn.disabled=true;btn.classList.add('no');AM.play('hurt');
+    roundErr++;if(mode==='rush')timeLeft=Math.max(0,timeLeft-5);else lives--;streak=0;btn.disabled=true;btn.classList.add('no');AM.play('hurt');
     target.forEach(c=>{if(!found.includes(c))missed.set(c,1)});
-    $('fb').innerHTML='<span class="bad">'+(target.includes(o)?'Đúng chữ nhưng sai thứ tự! ':VUI.sai(0)+' ')+(lives>0?VUI.mang(lives,''):'')+'</span>';
-    hud();if(lives<=0)failRound();
+    $('fb').innerHTML='<span class="bad">'+(target.includes(o)&&ORDERED(mode)?(mode==='order'?'Đúng chữ nhưng sai thứ tự! ':'Chữ này thuộc chỗ khác! '):VUI.sai(0)+' ')+(mode==='rush'?'−5 giây':lives>0?VUI.mang(lives,''):'')+'</span>';
+    hud();if(mode==='rush'){if(timeLeft<=0)end()}else if(lives<=0)failRound();
   }
 }
 function failRound(){
@@ -290,11 +318,11 @@ function failRound(){
   hud();$('fb').innerHTML+='<button class="btn pri" type="button" id="goOn">Xem kết quả →</button>';$('goOn').onclick=end;$('goOn').focus();
 }
 function slot(i,c,cls){const s=$('row').children[i];s.className='cd '+cls;s.innerHTML=c+(py(c)?'<small>'+py(c)+'</small>':'')}
-const rnd=()=>Math.random()<.5?'look':'clean';
+const rnd=()=>R()<.5?'look':'clean';
 function roundDone(){
   phase='done';if(k>bestK)bestK=k;
   const perfect=roundErr===0,st=perfect?(usedPw?2:3):1;stars+=st;
-  if(perfect){streak++;roundsOk++}
+  if(perfect){streak++;roundsOk++;if(quen[target[0]]!==undefined||mode==='forgot'){target.forEach(c=>{if(quen[c]!==undefined&&--quen[c]<=0)delete quen[c]});saveQuen()}}
   let pts=Math.round((100*k+(perfect?50*k:0))*(1+Math.min(streak-1,9)*.1)*(perfect?1:.5));
   let html='<span class="good">'+(perfect?VUI.dung(streak):'Xong ải, nhưng còn sai')+' +'+pts+'</span><span class="star3">'+ICO('sao','vang').repeat(st).replace(/lli-vang/g,'lli-vang')+ICO('sao-rong').repeat(3-st)+'</span>';
   if(boss){pts+=300;bossWins++;if(lives<3)lives++;const g=rnd();pw[g]++;html+='<span class="toast">'+ICO('vuong-mien','vang')+'Hạ BOSS! +300, hồi 1 mạng, thêm 1 quyền '+(g==='look'?'Xem lại':'Lọc nhiễu')+'</span>';AM.play('clear');award(3)}
@@ -303,7 +331,9 @@ function roundDone(){
   score+=pts;$('fb').innerHTML=html;
   if(perfect&&k>=5)award(0);if(st===3)award(1);if(streak>=5)award(2);if(k>=8)award(4);
   const t=(store.get('nc-total')||0)+total;if(t>=100)award(5);
-  hud();setTimeout(nextRound,boss?2200:perfect?1500:1700);
+  if(mode==='rush'&&roundsOk>=6)award(7);
+  hud();if(mode==='daily'&&round>=CAP)return setTimeout(end,1600);
+  setTimeout(nextRound,mode==='rush'?700:boss?2200:perfect?1500:1700);
 }
 $('pwLook').onclick=()=>{
   if(phase!=='pick'||pw.look<1)return;pw.look--;usedPw=true;phase='peek';AM.play('choose');
@@ -317,19 +347,24 @@ $('sndBtn').onclick=()=>{$('sndBtn').style.opacity=AM.toggle()?1:.4};
 $('seeBtn').onclick=hide;
 $('quitBtn').onclick=()=>{if(alive)end()};
 function end(){
-  alive=false;clearInterval(timerId);$('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
+  if(!alive)return;alive=false;clearInterval(timerId);clearInterval(clockId);$('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   store.set('nc-total',(store.get('nc-total')||0)+total);if((store.get('nc-total')||0)>=100)award(5);
   const kk=bestKey(),best=store.get(kk)||0,rec=score>best;if(rec)store.set(kk,score);
-  $('overTitle').textContent=lives<=0?'Hết mạng rồi!':'Kết thúc!';
+  missed.forEach((v,c)=>{quen[c]=2});saveQuen();chipInfo();
+  const dayOk=mode==='daily'&&lives>0&&round>=CAP;if(dayOk)award(6);
+  $('overTitle').textContent=mode==='rush'?'Hết giờ!':dayOk?'Xong thử thách ngày!':lives<=0?'Hết mạng rồi!':'Kết thúc!';
   $('finalScore').textContent=score;
   const tier=bestK>=7?3:bestK>=5?2:bestK>=3?1:0,rk=tier===3?['过目不忘','Nhớ lâu như in!']:VUI.rank(tier);
   $('rank').innerHTML=VUI.rankHTML(rk,tier);
-  $('finalInfo').textContent=(rec&&score>0?'Kỷ lục mới! · ':'Kỷ lục: '+Math.max(best,score)+' điểm · ')+'Đến ải '+round+' · '+stars+' sao · nhớ nhiều nhất '+bestK+' chữ · hạ '+bossWins+' BOSS';
+  $('finalInfo').textContent=(rec&&score>0?'Kỷ lục mới! · ':'Kỷ lục: '+Math.max(best,score)+' điểm · ')+(mode==='rush'?roundsOk+' ải hoàn hảo':'Đến ải '+round)+' · '+stars+' sao · nhớ nhiều nhất '+bestK+' chữ · hạ '+bossWins+' BOSS';
   $('review').innerHTML=[...missed.keys()].map(c=>'<li><span class="zh" lang="zh">'+c+' '+TTS.btn(c)+'</span><span class="py">'+py(c)+'</span></li>').join('');
   $('revBox').hidden=!missed.size;
   $('newBadge').innerHTML=newB.length?'<h2>Huy hiệu mới</h2><ul class="badges">'+newB.map(i=>'<li class="new">'+ICO(BADGES[i][0],BADGES[i][1])+'<span><b>'+BADGES[i][2]+'</b><small>'+BADGES[i][3]+'</small></span></li>').join('')+'</ul>':'';
+  $('shareBox').hidden=mode!=='daily';$('shareMsg').textContent='';
   showBest();
 }
+$('shareBtn').onclick=()=>{const d=today().split('-').reverse().slice(0,2).join('/'),t='Nhớ chữ Hán 记汉字 · thử thách ngày '+d+': '+stars+' sao, '+score+' điểm, ải '+Math.min(round,CAP)+'/'+CAP+(lives>0?' (xong!)':'')+'. Thử xem em nhớ được bao nhiêu: lyulaoshi.com/tro-choi/nho-chu/';
+  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{$('shareMsg').textContent='Đã chép, dán vào nhóm lớp nhé.'},()=>{$('shareMsg').textContent=t})};
 $('startBtn').onclick=start;
 $('againBtn').onclick=start;
 $('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
