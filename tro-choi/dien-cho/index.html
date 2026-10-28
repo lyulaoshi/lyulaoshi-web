@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Điền chỗ trống 选词填空 – Trò chơi 吕老师汉语盒</title>
+<meta name="description" content="Quái Khuyết Chữ ăn mất một từ trong câu! Chọn từ đúng điền vào chỗ trống để hạ gục nó. Mỗi bài giáo trình có một ải riêng.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="../vuot-ai/va.css?v=1">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap">
+  <section class="screen" id="map">
+    <div class="eyebrow">选词填空</div>
+    <h1>Điền chỗ trống</h1>
+    <p class="lead">Quái Khuyết Chữ đã ăn mất một từ trong câu! Chọn <b>từ đúng</b> điền vào chỗ trống để bắn chữ hạ gục nó, chọn sai hay chậm thì quái đánh lại.</p>
+    <div class="bo-bar" id="boBar" hidden></div>
+    <div class="panel">
+      <h2>Chọn giáo trình và bài</h2>
+      <div class="chips" id="sach"></div>
+      <div id="ais" style="display:grid;gap:10px"></div>
+      <h2>Con quái của trò này</h2>
+      <div class="mons" id="mons"></div>
+      <h2>Huy hiệu ngữ pháp <small class="muted" id="huyCnt"></small></h2>
+      <div class="huys" id="huys"></div>
+      <ul class="how">
+        <li><b>Quái càng lúc càng gần.</b> Hết giờ là quái húc bạn và mất một tim. Có 3 tim.</li>
+        <li><b>Đúng liền tay</b> thì đạn mạnh hơn và được thêm xu. Xem gợi ý pinyin bị trừ 5 giây.</li>
+        <li><b>3 sao</b> khi đúng từ 90% và không xem gợi ý.</li>
+        <li>Bật loa để nghe hiệu ứng. Phím <b>1–3</b> chọn đáp án, <b>Enter</b> để bắn hoặc qua câu tiếp.</li>
+      </ul>
+      <div class="acts"><button class="btn sec" id="soBtn" type="button">Sổ câu sai <b id="soCnt"></b></button></div>
+    </div>
+  </section>
+
+  <section id="play" hidden>
+    <div class="hud">
+      <span class="hearts" id="hearts" aria-label="Tim còn lại"></span>
+      <span class="xu" id="xu"></span>
+      <span class="combo" id="combo"></span>
+      <span class="sp"></span>
+      <button type="button" id="sndBtn" aria-label="Bật / tắt âm thanh"></button>
+      <button type="button" id="quitBtn" aria-label="Thoát về bản đồ"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sai></use></svg></button>
+    </div>
+    <div class="pips" id="pips"><i></i><i></i><i></i><i></i></div>
+    <div class="arena" id="arena" data-st="0">
+      <span class="cl b"></span><span class="cl c"></span><div class="gr"></div>
+      <div class="mhp"><span class="nm" id="mname"></span><div class="bar"><i id="mhpBar"></i></div></div>
+      <div class="hero" id="hero"><div class="hx" id="hx"></div></div>
+      <div class="mon" id="mon"><div class="mx" id="mx"></div></div>
+      <div class="fx" id="fx"></div>
+      <div class="tbar" id="tbar"><i id="tfill"></i></div>
+    </div>
+    <div class="card" id="qbox"></div>
+    <div id="fbbox"></div>
+  </section>
+
+  <section class="screen" id="over" hidden>
+    <div class="eyebrow" id="overZh">通关</div>
+    <h1 id="overTitle"></h1>
+    <div class="panel">
+      <div class="stars" id="overStars"></div>
+      <div class="xuBig" id="overXu"></div>
+      <div><span class="rank" id="rank"></span><br><span class="muted" id="overInfo"></span></div>
+      <div id="newHuy"></div>
+      <div id="missBox"><h2>Câu cần xem lại</h2><ul class="review" id="missed"></ul></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg></button><button class="btn sec" id="soBtn2" type="button">Luyện Sổ câu sai</button><button class="btn sec" id="mapBtn" type="button">Về bản đồ</button></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">Câu lấy từ các bài giảng trên web · bản nháp chờ duyệt · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../tts.js?v=2"></script>
+<script src="../vui.js?v=20261004"></script>
+<script src="../vuot-ai/am.js?v=1"></script>
+<script src="../vuot-ai/de-tttc.js?v=2"></script>
+<script src="../vuot-ai/de-301.js?v=1"></script>
+<script src="../vuot-ai/de-301b.js?v=1"></script>
+<script src="../vuot-ai/de-fazhan.js?v=1"></script>
+<script src="../vuot-ai/de-boya.js?v=1"></script>
+<script src="../vuot-ai/de-yuedu.js?v=1"></script>
+<script src="../vuot-ai/de-ledu.js?v=1"></script>
+<script>window.VA_CHANG="dien"</script>
+<script src="../vuot-ai/engine.js?v=1"></script>
+</body>
+</html>
