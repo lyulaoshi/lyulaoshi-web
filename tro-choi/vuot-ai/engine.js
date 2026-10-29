@@ -22,16 +22,20 @@ const MON={
   2:{zh:'话痨怪',vi:'Quái Lắm Mồm',c:'#E0545F',svg:c=>'<svg viewBox="0 0 120 130"><ellipse cx="60" cy="124" rx="40" ry="6" fill="rgba(0,0,0,.18)"/><ellipse cx="60" cy="74" rx="48" ry="44" fill="'+c+'"/>'+EY(42,48,8)+EY(78,48,8)+'<path d="M24 70q36 40 72 0z" fill="#5b1620"/><path d="M30 72l7 12 7-12M50 74l7 14 7-14M70 74l7 12 7-12" fill="#fff"/><ellipse cx="60" cy="98" rx="16" ry="8" fill="#F08A9A"/></svg>'},
   3:{zh:'缺字怪',vi:'Quái Khuyết Chữ',c:'#16949E',svg:c=>'<svg viewBox="0 0 120 130"><ellipse cx="60" cy="124" rx="38" ry="6" fill="rgba(0,0,0,.18)"/><rect x="14" y="26" width="92" height="92" rx="26" fill="'+c+'"/>'+EY(60,56,17)+'<rect x="40" y="84" width="40" height="26" rx="4" fill="rgba(255,255,255,.9)" stroke="#2B2E45" stroke-width="3" stroke-dasharray="6 5"/><text x="52" y="105" font-size="20" fill="#2B2E45" font-family="serif">?</text><path d="M30 26l-6-16M90 26l6-16" stroke="'+c+'" stroke-width="6" stroke-linecap="round"/></svg>'},
   4:{zh:'翻译龙',vi:'Rồng Dịch Thuật',c:'#E7823A',svg:c=>'<svg viewBox="0 0 140 140"><ellipse cx="70" cy="134" rx="46" ry="7" fill="rgba(0,0,0,.2)"/><path d="M18 60l-14-26 34 14zM122 60l14-26-34 14z" fill="#C0392B"/><path d="M24 106Q10 56 50 34Q104 18 118 70Q126 120 74 126Q32 130 24 106Z" fill="'+c+'"/><path d="M42 36l-6-22 16 14zM98 36l6-22-16 14z" fill="#FBF1CF" stroke="#2B2E45" stroke-width="2"/><path d="M44 58l22 8M100 58l-22 8" stroke="#2B2E45" stroke-width="5" stroke-linecap="round"/>'+EY(52,72,10)+EY(88,72,10)+'<path d="M44 102q26 18 52 0" fill="#5b1620"/><path d="M52 104l5 8 5-8M72 104l5 8 5-8" fill="#fff"/><path d="M60 128l10-10 10 10" fill="#FBF1CF"/></svg>'},
+  6:{zh:'找茬怪',vi:'Quái Bắt Lỗi',c:'#2F9E7A',svg:c=>'<svg viewBox="0 0 120 130"><ellipse cx="60" cy="124" rx="40" ry="6" fill="rgba(0,0,0,.18)"/><path d="M16 96Q8 44 54 28Q106 14 108 66Q110 112 62 118Q24 122 16 96Z" fill="'+c+'"/><circle cx="58" cy="62" r="26" fill="#fff" stroke="#2B2E45" stroke-width="5"/><circle cx="54" cy="62" r="11" fill="#2B2E45"/><path d="M78 82l22 24" stroke="#2B2E45" stroke-width="9" stroke-linecap="round"/><path d="M30 30l-6-16M84 26l8-14" stroke="'+c+'" stroke-width="6" stroke-linecap="round"/></svg>'},
   5:{zh:'错题魔',vi:'Ma Câu Sai',c:'#5b4b9c',svg:c=>MON[1].svg(c)}
 };
-const STAGES=[['sap','连词成句','Xếp câu',1,30],['hoi','回答问题','Trả lời câu hỏi',2,18],['dien','选词填空','Điền chỗ trống',3,12],['dich','翻译','Dịch',4,40]];
+const STAGES=[['sap','连词成句','Xếp câu',1,30],['hoi','回答问题','Trả lời câu hỏi',2,18],['dien','选词填空','Điền chỗ trống',3,12],['dich','翻译','Dịch',4,40],['loi','改错','Tìm lỗi sai',6,25]];
 // CH: trang chơi riêng một chặng (xep-cau / tra-loi / dien-cho / dich-cau) đặt window.VA_CHANG='sap'|'hoi'|'dien'|'dich'
-const CH=window.VA_CHANG||null,CHI=CH?STAGES.findIndex(s=>s[0]===CH):-1,hasCH=b=>!CH||b[CH].length>0,KB=b=>b.id+(CH?'~'+CH:'');
+// 'loi' (Tìm lỗi sai) không phải chặng của Vượt ải: chỉ chơi ở trang riêng tim-loi/ (VA_CHANG='loi'); đề sinh từ chặng Điền
+const CH=window.VA_CHANG||null,use=t=>CH?t===CH:t!=='loi',CHI=CH?STAGES.findIndex(s=>s[0]===CH):-1,hasCH=b=>!CH||b[CH].length>0,KB=b=>b.id+(CH?'~'+CH:'');
 $('hx').innerHTML=HERO;
-$('mons').innerHTML=STAGES.filter(s=>!CH||s[0]===CH).map(s=>'<div>'+MON[s[3]].svg(MON[s[3]].c)+'<br><span class="zh" lang="zh">'+MON[s[3]].zh+'</span><br>'+MON[s[3]].vi+'</div>').join('');
+$('mons').innerHTML=STAGES.filter(s=>use(s[0])).map(s=>'<div>'+MON[s[3]].svg(MON[s[3]].c)+'<br><span class="zh" lang="zh">'+MON[s[3]].zh+'</span><br>'+MON[s[3]].vi+'</div>').join('');
 
 let S=null,bai=BAI[0],raf=0,sachId=null;
 // mã câu hỏi duy nhất theo bài (Sổ câu sai lưu theo mã này)
+// đề Tìm lỗi sai: mỗi câu Điền thành một câu có thể chứa 1 từ sai (từ nhiễu của câu Điền), sinh khi chơi
+BAI.forEach(b=>{if(!b.loi)b.loi=b.dien.filter(d=>d.s.split('_').length===2&&d.o.length>1).map(d=>({id:'l'+d.id,s:d.s,o:d.o,why:d.why,g:d.g}))});
 BAI.forEach(b=>STAGES.forEach(([t])=>b[t].forEach(it=>{if(!it._n){it.id=b.id+'.'+it.id;it._n=1}})));
 
 // ---- bản đồ
@@ -59,7 +63,7 @@ function paintMap(){
   $('huys').innerHTML=list.map(b=>'<div class="hrow"><b>Bài '+b.n+'</b>'+Object.keys(b.gr).map(k=>{const id=b.id+'.'+k,g=got.has(id);tot++;if(g)have++;return '<span class="hb'+(g?' got':'')+'" title="'+b.gr[k].vi+(g?'':' (chưa nhận)')+'">'+ico('huy-chuong')+'<span class="zh" lang="zh">'+b.gr[k].zh+'</span></span>'}).join('')+'</div>').join('');
   $('huyCnt').textContent='('+have+'/'+tot+')';
   if(CH){$('huys').hidden=true;$('huys').previousElementSibling.hidden=true}
-  const m=allItems(),n=[...wrongSet()].filter(id=>m[id]&&(!CH||m[id].t===CH)).length;$('soCnt').textContent=n?'('+n+')':'';$('soBtn').disabled=!n;
+  const m=allItems(),n=[...wrongSet()].filter(id=>m[id]&&use(m[id].t)).length;$('soCnt').textContent=n?'('+n+')':'';$('soBtn').disabled=!n;
 }
 function paintSnd(){$('sndBtn').innerHTML=ico(AM.on?'loa':'loa-tat')+' '+(AM.on?'Bật':'Tắt')}
 
@@ -67,8 +71,8 @@ function paintSnd(){$('sndBtn').innerHTML=ico(AM.on?'loa':'loa-tat')+' '+(AM.on?
 function allItems(){const m={};BAI.forEach(b=>STAGES.forEach(([t])=>b[t].forEach(it=>m[it.id]={t,item:it,b})));return m}
 function start(mode){
   let q=[];
-  if(mode==='ai'){STAGES.forEach(([t],si)=>CH&&t!==CH||(bai.gop?shuffle(bai.gop.flatMap(b=>b[t].map(it=>({t,item:it,si,b})))).slice(0,12):shuffle(bai[t].slice()).map(it=>({t,item:it,si,b:bai}))).forEach(x=>q.push(x)))}
-  else{const m=allItems();q=shuffle([...wrongSet()].filter(id=>m[id]&&(!CH||m[id].t===CH)).map(id=>({t:m[id].t,item:m[id].item,b:m[id].b,si:STAGES.findIndex(s=>s[0]===m[id].t)})))}
+  if(mode==='ai'){STAGES.forEach(([t],si)=>!use(t)||(bai.gop?shuffle(bai.gop.flatMap(b=>b[t].map(it=>({t,item:it,si,b})))).slice(0,12):shuffle(bai[t].slice()).map(it=>({t,item:it,si,b:bai}))).forEach(x=>q.push(x)))}
+  else{const m=allItems();q=shuffle([...wrongSet()].filter(id=>m[id]&&use(m[id].t)).map(id=>({t:m[id].t,item:m[id].item,b:m[id].b,si:STAGES.findIndex(s=>s[0]===m[id].t)})))}
   if(!q.length){paintMap();return}
   S={mode,q,i:0,hearts:3,xu:0,ok:0,hints:0,combo:0,perG:{},wrong:[],stage:-1,hp:0,hpMax:1,tl:0,tmax:1,run:false,busy:true,token:0,order:[...new Set(q.map(x=>x.si))].sort()};   // order: các chặng thật sự có câu
   ['map','over'].forEach(i=>$(i).hidden=true);$('play').hidden=false;scrollTo(0,0);paintSnd();next();
@@ -102,7 +106,7 @@ async function next(){
 const sayBtn=txt=>window.TTS&&TTS.can&&TTS.can(txt)?'<button type="button" class="spk2" data-say="'+txt+'">'+ico('loa')+' Nghe</button>':'';
 function render(st){
   S.busy=false;S.tmax=S.tl=(STAGES[st.si]||STAGES[0])[4]+(st.item.boss?5:0);S.cur=st;
-  ({sap:tiles,dich:tiles,hoi:hoi,dien:dien})[st.t](st);
+  ({sap:tiles,dich:tiles,hoi:hoi,dien:dien,loi:loi})[st.t](st);
   S.last=performance.now();cancelAnimationFrame(raf);S.run=true;raf=requestAnimationFrame(loop);
 }
 
@@ -167,6 +171,30 @@ function dien(st){
     judge(!!(x&&x.ok),st,{zh:it.s.replace('_',it.o[it.ok]),why:it.why},to)};
   document.querySelectorAll('#opts .opt').forEach(b=>b.onclick=()=>{AM.play('choose');pick(+b.dataset.i)});
   S.timeout=()=>pick(-1,true);
+}
+
+// ---- Tìm lỗi sai (chỉ ở trang tim-loi/): câu từ chặng Điền, 3/4 số câu bị thay bằng một từ nhiễu; bấm chỗ sai rồi chọn từ sửa
+function loi(st){
+  const it=st.item,good=it.o[0],bads=it.o.slice(1),wrong=Math.random()<.75,w=wrong?bads[Math.random()*bads.length|0]:null;
+  const [a,b]=it.s.split('_'),text=a+(wrong?w:good)+b,from=[...a].length,to=from+(wrong?[...w].length:0),chars=[...text],fixed=a+good+b;
+  const hit=i=>wrong&&i>=from&&i<to;
+  const sent=cls=>'<div class="sent" id="sent" lang="zh">'+chars.map((c,i)=>/[一-鿿A-Za-z0-9]/.test(c)?'<button type="button" class="tok'+(cls&&hit(i)?' '+cls:'')+'" data-i="'+i+'">'+c+'</button>':'<span class="p">'+c+'</span>').join('')+'</div>';
+  $('qbox').innerHTML='<p class="prompt" id="lp">Quái bắt lỗi! Câu này có một từ dùng sai, hoặc không có lỗi gì. Bấm vào chỗ sai:</p>'+sent('')
+   +'<div id="lstep"><div class="acts"><button class="btn sec" id="okBtn" type="button">Câu này đúng, không có lỗi</button></div></div>';
+  const end=(ok,to,why)=>{lock();$('qbox').querySelectorAll('.tok').forEach(t=>{t.disabled=true;if(hit(+t.dataset.i))t.classList.add(ok?'gd':'bad')});$('lstep').innerHTML='';
+    judge(ok,st,{zh:fixed,why:why||(wrong?'Chỗ sai là “'+w+'”, phải dùng “'+good+'”. ':'Câu này vốn đã đúng. ')+(it.why||'')},to)};
+  const step2=()=>{
+    $('lp').textContent='Đúng chỗ sai rồi! Chọn từ đúng thay cho “'+w+'”:';
+    const o=shuffle([[good,1],...shuffle(bads.filter(x=>x!==w)).slice(0,2).map(x=>[x,0])]);
+    $('lstep').innerHTML='<div class="opts row" id="opts" lang="zh">'+o.map((x,i)=>'<button type="button" class="opt" data-i="'+i+'"><span class="kn">'+(i+1)+'</span>'+x[0]+'</button>').join('')+'</div>';
+    document.querySelectorAll('#opts .opt').forEach(btn=>btn.onclick=()=>{if(S.busy)return;AM.play('choose');const x=o[+btn.dataset.i];
+      document.querySelectorAll('#opts .opt').forEach((y,j)=>{y.disabled=true;if(o[j][1])y.classList.add('ok')});if(!x[1])btn.classList.add('no');
+      end(!!x[1],false,x[1]?'':'Tìm đúng chỗ sai nhưng chọn từ sửa chưa đúng: phải dùng “'+good+'”. '+(it.why||''))})};
+  $('qbox').querySelectorAll('.tok').forEach(t=>t.onclick=()=>{if(S.busy)return;AM.play('choose');
+    if(hit(+t.dataset.i)){$('qbox').querySelectorAll('.tok').forEach(x=>{x.disabled=true;if(hit(+x.dataset.i))x.classList.add('sel')});step2()}
+    else end(false,false,wrong?'Chưa đúng chỗ. Chỗ sai là “'+w+'”, phải dùng “'+good+'”. '+(it.why||''):'Câu này vốn đã đúng, không có lỗi.')});
+  $('okBtn').onclick=()=>{if(S.busy)return;AM.play('choose');end(!wrong,false,wrong?'Câu này có lỗi: “'+w+'” phải là “'+good+'”. '+(it.why||''):'')};
+  S.timeout=()=>end(false,true);
 }
 
 // ---- hiệu ứng trận đấu
@@ -243,7 +271,7 @@ function finish(){
   $('newHuy').innerHTML=nh;
   const m=allItems(),seen=[...new Set(S.wrong)];
   $('missBox').hidden=!seen.length;
-  $('missed').innerHTML=seen.map(id=>{const it=m[id].item,g=m[id].b.gr[it.g],z=it.p?it.p.join('')+puOf(it):it.q||it.s.replace('_',it.o[it.ok]);
+  $('missed').innerHTML=seen.map(id=>{const it=m[id].item,g=m[id].b.gr[it.g],z=it.p?it.p.join('')+puOf(it):it.q||it.s.replace('_',it.o[it.ok||0]);
     return '<li><span class="zh" lang="zh">'+z+'</span>'+(it.py?'<span class="py">'+it.py+'</span>':'')+'<a href="'+m[id].b.lk+(g.s?'#s'+g.s:'')+'">'+g.zh+' · xem bài →</a></li>'}).join('');
   $('againBtn').onclick=()=>start(S.mode);
   $('soBtn2').hidden=!wrongSet().size;
