@@ -1373,6 +1373,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
   window.addEventListener('resize', setVocabListSize);
 });
 </script>
+<!-- Học tiếp: ghi nhớ bài này trên máy học viên, do tools/build_site.py gắn khi ghép -->
+<script>(function(){var m=location.pathname.match(/^\/([^\/]+)\/(bai-\d+)\/$/);if(!m)return;try{var k='llTiep',s=JSON.parse(localStorage.getItem(k)||'{}');s[m[1]]=m[1]+'/'+m[2]+'/';localStorage.setItem(k,JSON.stringify(s))}catch(e){}})();</script>
 <!-- 词汇盒: nút ôn từ vựng, do tools/build_site.py gắn khi ghép -->
 <a class="lls-tv" href="../../tu-vung/#301/bai-13" style="--tv-bg:var(--white,#fff);--tv-c:var(--red,#B4141E);--tv-b:var(--graybg,#E9E4DA)" title="Ôn từ vựng bài này bằng flashcard (词汇盒)" aria-label="Ôn từ vựng bài này"><b>词</b><span>Ôn từ vựng bài này</span></a>
 <style>.lls-tv{position:fixed;left:14px;bottom:14px;z-index:2147483000;display:flex;align-items:center;padding:3px;border-radius:var(--tv-r,999px);

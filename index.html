@@ -131,19 +131,26 @@ nav.menu a.cta{white-space:nowrap}
 .crate{background:var(--card);border-radius:28px;box-shadow:var(--shadow);padding:24px;border:2px solid color-mix(in srgb,var(--kraft) 40%,transparent);position:relative}
 .crate::before,.crate::after{content:"";position:absolute;top:-10px;width:80px;height:22px;background:var(--tape);border-radius:2px}
 .crate::before{left:40px;transform:rotate(-3deg)} .crate::after{right:40px;transform:rotate(3deg)}
-.courses{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
-@media (max-width:1000px){.courses{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:640px){.courses{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:400px){.courses{grid-template-columns:1fr}}
-.course{--c:var(--coral);--cs:var(--coral-s);display:grid;gap:6px;align-content:start;padding:16px;border-radius:18px;background:var(--cs);text-decoration:none;color:var(--ink);border:1.5px solid transparent;transition:transform .2s,border-color .2s}
-.course:hover{transform:translateY(-3px);border-color:var(--c)}
-.course .tag{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
-.course .n{font-family:var(--kai);font-size:22px;line-height:1.2}
-.course .v{font-weight:700;font-size:14.5px}
-.course .meta{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted);margin-top:6px}
-.dots{display:flex;gap:4px}
-.dots i{width:12px;height:12px;border-radius:3px;background:color-mix(in srgb,var(--c) 22%,transparent)}
-.dots i.on{background:var(--c)}
+.courses{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+@media (max-width:1000px){.courses{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.courses{grid-template-columns:1fr}}
+.course{--c:var(--coral);--cs:var(--coral-s);display:flex;flex-direction:column;gap:4px;padding:16px 16px 0;border-radius:18px;background:var(--cs);color:var(--ink);border:1.5px solid transparent;overflow:hidden;transition:transform .2s,border-color .2s}
+.course:hover,.course:focus-within{transform:translateY(-3px);border-color:var(--c)}
+.course .n{font-family:var(--kai);font-size:20px;line-height:1.2;color:var(--ink);text-decoration:none}
+.course .n:hover{color:var(--c)}
+.course .v{font-size:12.5px;color:var(--muted);font-weight:500}
+.course .big{margin-top:auto;padding-top:10px;font-weight:800;font-size:34px;line-height:1;color:var(--c);font-variant-numeric:tabular-nums}
+.course .big small{font-size:13px;font-weight:600;color:var(--muted);margin-left:5px}
+.course .go{display:block;margin:8px 0 12px;padding:8px 14px;border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none;border:1.5px solid color-mix(in srgb,var(--c) 35%,transparent);transition:background .2s,color .2s;min-width:0}
+.course .go:hover{background:var(--c);color:#fff;border-color:var(--c)}
+.course .go i{display:block;font-style:normal;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.course .go b{display:block;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.course .go b::after{content:" →"}
+.course .go.dd{background:var(--c);color:#fff;border-color:var(--c)}
+.course .go i,.course .go:hover i,.course .go.dd i{color:inherit}
+.course .go:not(.dd):not(:hover) i{color:var(--c)}
+.course .line{height:6px;margin:0 -16px;background:color-mix(in srgb,var(--c) 20%,transparent)}
+.course .line b{display:block;height:100%;background:var(--c)}
 .course.c-sky{--c:var(--sky);--cs:var(--sky-s)} .course.c-mint{--c:var(--mint);--cs:var(--mint-s)} .course.c-lav{--c:var(--lav);--cs:var(--lav-s)} .course.c-peach{--c:var(--peach);--cs:var(--peach-s)}
 
 /* new lessons */
@@ -265,17 +272,19 @@ body{margin:0}
       <div class="face"><div class="zh">信箱<small>Hộp thư</small></div><h3>Hộp thư thắc mắc</h3><p>Chỗ nào chưa hiểu, chữ nào quên nét? Để lại tên và câu hỏi, cô sẽ giải đáp.</p><div class="chips"><span class="chip">Hỏi bài</span><span class="chip">Góp ý</span></div><span class="label open">Đang mở</span></div></a>
   </section>
 
-  <div class="sh" id="hoc-phan"><h2>课本盒 · Giáo trình <small>教材</small></h2><p>Mỗi ô vuông nhỏ là một bài. Ô tô màu là bài đã mở. <a href="giao-trinh/" style="color:var(--coral);font-weight:700">Mở giá sách →</a></p></div>
+  <div class="sh" id="hoc-phan"><h2>课本盒 · Giáo trình <small>教材</small></h2><p>Vạch màu cho biết đã mở bao nhiêu bài. Bấm tên sách để xem cả sách, hoặc bấm ô dưới để vào học luôn.</p></div>
   <section class="crate">
-    <div class="courses">
-      <a class="course" href="tttc/"><span class="n">预科汉语强化教程 综合课本</span><span class="v">Giáo trình Tiếng Trung tăng cường giáo trình tổng hợp 1</span><div class="meta"><div class="dots" aria-label="7 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span>7 bài</span></div></a>
-      <a class="course c-sky" href="ledu/"><span class="n">乐读 1</span><span class="v">Giáo trình môn đọc hiểu tiếng Trung 1</span><div class="meta"><div class="dots" aria-label="9 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span>9 bài</span></div></a>
-      <a class="course c-mint" href="yuedu/"><span class="n">汉语阅读教程</span><span class="v">Giáo trình Đọc hiểu Hán ngữ Tập 1</span><div class="meta"><div class="dots" aria-label="10 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span>Bài 16–25</span></div></a>
-      <a class="course c-lav" href="boya/"><span class="n">博雅汉语</span><span class="v">Giáo trình BOYA sơ cấp 1</span><div class="meta"><div class="dots" aria-label="10 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span>10 bài</span></div></a>
-      <a class="course c-peach" href="301/"><span class="n">汉语会话301句</span><span class="v">Giáo trình 301 câu đàm thoại tiếng Hoa</span><div class="meta"><div class="dots" aria-label="10 bài đã mở"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span>Bài 11–20</span></div></a>
-      <a class="course" href="fazhan-sc2/"><span class="n">发展汉语初级综合 II</span><span class="v">Phát triển Hán ngữ Sơ cấp 2</span><div class="meta"><div class="dots" aria-label="2 bài đã mở"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div><span>2 bài</span></div></a>
-      <a class="course c-sky" href="fazhan-tc1/"><span class="n">发展汉语中级综合 I</span><span class="v">Phát triển Hán ngữ Trung cấp 1</span><div class="meta"><div class="dots" aria-label="1 bài đã mở"><i class="on"></i><i></i><i></i><i></i><i></i></div><span>1 bài</span></div></a>
-    </div>
+    <div class="courses"><!--GT--><div class="course " data-k="tttc"><a class="n" href="tttc/">预科汉语强化教程 综合课本</a><span class="v">Giáo trình Tiếng Trung tăng cường tổng hợp 1</span><span class="big">7<small>bài</small></span><a class="go" href="tttc/bai-7/"><i>Bài mới nhất</i><b>Bài 7 · 你喜欢什么运动</b></a><div class="line" role="img" aria-label="7 bài đã mở"><b style="width:88%"></b></div></div>
+      <div class="course c-sky" data-k="ledu"><a class="n" href="ledu/">乐读 1</a><span class="v">Giáo trình môn đọc hiểu tiếng Trung 1</span><span class="big">9<small>bài</small></span><a class="go" href="ledu/bai-9/"><i>Bài mới nhất</i><b>Bài 9 · “见树木，也要见森林”</b></a><div class="line" role="img" aria-label="9 bài đã mở"><b style="width:100%"></b></div></div>
+      <div class="course c-mint" data-k="yuedu"><a class="n" href="yuedu/">汉语阅读教程</a><span class="v">Giáo trình Đọc hiểu Hán ngữ Tập 1</span><span class="big">10<small>bài · Bài 16–25</small></span><a class="go" href="yuedu/bai-25/"><i>Bài mới nhất</i><b>Bài 25</b></a><div class="line" role="img" aria-label="10 bài đã mở"><b style="width:100%"></b></div></div>
+      <div class="course c-lav" data-k="boya"><a class="n" href="boya/">博雅汉语</a><span class="v">Giáo trình BOYA sơ cấp 1</span><span class="big">10<small>bài</small></span><a class="go" href="boya/bai-10/"><i>Bài mới nhất</i><b>Bài 10 · 你家有几口人</b></a><div class="line" role="img" aria-label="10 bài đã mở"><b style="width:100%"></b></div></div>
+      <div class="course c-peach" data-k="301"><a class="n" href="301/">汉语会话301句</a><span class="v">Giáo trình 301 câu đàm thoại tiếng Hoa</span><span class="big">10<small>bài · Bài 11–20</small></span><a class="go" href="301/bai-20/"><i>Bài mới nhất</i><b>Bài 20 · 为我们的友谊干杯！</b></a><div class="line" role="img" aria-label="10 bài đã mở"><b style="width:100%"></b></div></div>
+      <div class="course " data-k="fazhan-sc2"><a class="n" href="fazhan-sc2/">发展汉语初级综合 II</a><span class="v">Phát triển Hán ngữ Sơ cấp 2</span><span class="big">2<small>bài</small></span><a class="go" href="fazhan-sc2/bai-2/"><i>Bài mới nhất</i><b>Bài 2 · 儿子要回家</b></a><div class="line" role="img" aria-label="2 bài đã mở"><b style="width:40%"></b></div></div>
+      <div class="course c-sky" data-k="fazhan-tc1"><a class="n" href="fazhan-tc1/">发展汉语中级综合 I</a><span class="v">Phát triển Hán ngữ Trung cấp 1</span><span class="big">1<small>bài</small></span><a class="go" href="fazhan-tc1/bai-1/"><i>Bài mới nhất</i><b>Bài 1 · 北京的四季</b></a><div class="line" role="img" aria-label="1 bài đã mở"><b style="width:20%"></b></div></div><script>window.LL_NHAN={"tttc/bai-1/":"Bài 1 · 你好","tttc/bai-2/":"Bài 2 · 这是你的手机吗","tttc/bai-3/":"Bài 3 · 你家有几口人","tttc/bai-4/":"Bài 4 · 电影开始了吗","tttc/bai-5/":"Bài 5 · 办公楼在哪儿","tttc/bai-6/":"Bài 6 · 苹果多少钱一斤","tttc/bai-7/":"Bài 7 · 你喜欢什么运动","ledu/bai-1/":"Bài 1 · 横、竖、撇、捺、点、提","ledu/bai-2/":"Bài 2 · 一二三，三二一，一二三四五六七","ledu/bai-3/":"Bài 3 · 大象，大象，你的鼻子怎么那么长？","ledu/bai-4/":"Bài 4 · 木上末，木下本","ledu/bai-5/":"Bài 5 · 二人土上坐，一月日边明","ledu/bai-6/":"Bài 6 · 江河湖海都是水，吃喝哈哈全用嘴","ledu/bai-7/":"Bài 7 · 秀才认字读半边","ledu/bai-8/":"Bài 8 · “中国很行”","ledu/bai-9/":"Bài 9 · “见树木，也要见森林”","yuedu/bai-16/":"Bài 16","yuedu/bai-17/":"Bài 17","yuedu/bai-18/":"Bài 18","yuedu/bai-19/":"Bài 19","yuedu/bai-20/":"Bài 20","yuedu/bai-21/":"Bài 21","yuedu/bai-22/":"Bài 22","yuedu/bai-23/":"Bài 23","yuedu/bai-24/":"Bài 24","yuedu/bai-25/":"Bài 25","boya/bai-1/":"Bài 1 · 你好","boya/bai-2/":"Bài 2 · 你是哪国人","boya/bai-3/":"Bài 3 · 那是你的书吗","boya/bai-4/":"Bài 4 · 图书馆在哪儿","boya/bai-5/":"Bài 5 · 在北京大学的东边","boya/bai-6/":"Bài 6 · 现在几点","boya/bai-7/":"Bài 7 · 明天你有课吗","boya/bai-8/":"Bài 8 · 你的电话号码是多少","boya/bai-9/":"Bài 9 · 多少钱一瓶","boya/bai-10/":"Bài 10 · 你家有几口人","301/bai-11/":"Bài 11 · 我要买橘子","301/bai-12/":"Bài 12 · 我想买件毛衣","301/bai-13/":"Bài 13 · 要换车","301/bai-14/":"Bài 14 · 我要去换钱","301/bai-15/":"Bài 15 · 我要打国际电话","301/bai-16/":"Bài 16 · 你看过京剧吗？","301/bai-17/":"Bài 17 · 去动物园","301/bai-18/":"Bài 18 · 路上辛苦了？","301/bai-19/":"Bài 19 · 欢迎你！","301/bai-20/":"Bài 20 · 为我们的友谊干杯！","fazhan-sc2/bai-1/":"Bài 1 · 入乡随俗","fazhan-sc2/bai-2/":"Bài 2 · 儿子要回家","fazhan-tc1/bai-1/":"Bài 1 · 北京的四季"};
+/* Học tiếp: bài cuối cùng học viên mở trên máy này (do script ghi ở cuối mỗi bài giáo trình, key llTiep) */
+(function(){var st={};try{st=JSON.parse(localStorage.getItem('llTiep')||'{}')}catch(e){}
+document.querySelectorAll('.course[data-k]').forEach(function(el){var h=st[el.dataset.k],g=el.querySelector('.go');if(!h||!LL_NHAN[h])return;
+g.href=h;g.classList.add('dd');g.querySelector('i').textContent='Học tiếp';g.querySelector('b').textContent=LL_NHAN[h]})})();</script><!--/GT--></div>
   </section>
 
   <div class="sh" id="bai-moi"><h2>Mới bỏ vào hộp <small>新鲜事</small></h2><p>Bài giảng, bài đọc, trò chơi, đề thi… hộp nào có gì mới đều hiện ở đây.</p></div>

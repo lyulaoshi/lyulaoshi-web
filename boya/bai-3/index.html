@@ -1942,6 +1942,8 @@ function hwdLoad(c,ok,err){ if(HWD[c]) ok(HWD[c]); else fetch('https://cdn.jsdel
   fixHWClipPaths();setTimeout(fixHWClipPaths,300);setTimeout(fixHWClipPaths,1000);
 </script>
 
+<!-- Học tiếp: ghi nhớ bài này trên máy học viên, do tools/build_site.py gắn khi ghép -->
+<script>(function(){var m=location.pathname.match(/^\/([^\/]+)\/(bai-\d+)\/$/);if(!m)return;try{var k='llTiep',s=JSON.parse(localStorage.getItem(k)||'{}');s[m[1]]=m[1]+'/'+m[2]+'/';localStorage.setItem(k,JSON.stringify(s))}catch(e){}})();</script>
 <!-- 词汇盒: nút ôn từ vựng, do tools/build_site.py gắn khi ghép -->
 <a class="lls-tv" href="../../tu-vung/#boya/bai-3" style="--tv-bg:var(--paper-panel,#fffaf3);--tv-c:var(--red,#b8262c);--tv-b:var(--gold-line,#d9bd7a)" title="Ôn từ vựng bài này bằng flashcard (词汇盒)" aria-label="Ôn từ vựng bài này"><b>词</b><span>Ôn từ vựng bài này</span></a>
 <style>.lls-tv{position:fixed;left:14px;bottom:14px;z-index:2147483000;display:flex;align-items:center;padding:3px;border-radius:var(--tv-r,999px);
