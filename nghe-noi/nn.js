@@ -58,15 +58,13 @@ function dapAn(s){      // "A / B", phần trong （） có thể bỏ → danh 
 /* ================= MỤC LỤC ================= */
 const DS=window.NN_BAI||[];
 const TH_LIST=[
-  {id:"chao-hoi",  zh:"打招呼",   vi:"Chào hỏi",       ic2:"bat-tay"},
-  {id:"lam-quen",  zh:"结交朋友", vi:"Làm quen",        ic2:"tim"},
-  {id:"mua-sam",   zh:"购物",     vi:"Mua sắm",         ic2:"tui-tien"},
-  {id:"an-uong",   zh:"饮食",     vi:"Ăn uống",         ic2:"tra-sua"},
-  {id:"hoi-duong", zh:"问路",     vi:"Hỏi đường",       ic2:"tg-phai"},
-  {id:"di-lai",    zh:"交通",     vi:"Đi lại",          ic2:"may"},
-  {id:"goi-dien",  zh:"打电话",   vi:"Gọi điện thoại",  ic2:"dien-thoai"},
-  {id:"hoc-tap",   zh:"学习",     vi:"Học tập",         ic2:"sach"},
-  {id:"kham-benh", zh:"看病",     vi:"Khám bệnh",       ic2:"cuu"},
+  {id:"chao-hoi",  zh:"打招呼",   vi:"Chào hỏi",   ic2:"bat-tay"},
+  {id:"lam-quen",  zh:"结交朋友", vi:"Làm quen",    ic2:"tim"},
+  {id:"mua-sam",   zh:"购物",     vi:"Mua sắm",     ic2:"tui-tien"},
+  {id:"an-uong",   zh:"饮食",     vi:"Ăn uống",     ic2:"tra-sua"},
+  {id:"di-lai",    zh:"交通",     vi:"Đi lại",      ic2:"may"},
+  {id:"hoc-tap",   zh:"学习",     vi:"Học tập",     ic2:"sach"},
+  {id:"kham-benh", zh:"看病",     vi:"Khám bệnh",   ic2:"cuu"},
 ];
 let TH_SEL=null;
 
