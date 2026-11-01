@@ -30,7 +30,7 @@ function noi(txt,o={}){return new Promise(res=>{
   u.onend=fin;u.onerror=fin;speechSynthesis.speak(u);
 })}
 const PITCH={A:1.12,B:.9};                  // hai vai nghe khác giọng một chút
-function dung(){if(TTS_OK)speechSynthesis.cancel();CHAY++}
+function dung(){if(TTS_OK)speechSynthesis.cancel();if(ACEL){ACEL.pause();ACEL=null}CHAY++}
 let CHAY=0;                                   // mã lượt phát — đổi là các vòng phát cũ tự dừng
 
 /* ---------- pinyin tô màu thanh điệu ---------- */
@@ -98,13 +98,27 @@ function veThList(){
 }
 
 /* ================= TRANG LUYỆN ================= */
-let B,D,K,BU="nghe";
+let B,D,K,BU="nghe",DI=0;
+/* --- phát audio file (fallback về Web Speech) --- */
+let ACEL=null;
+async function noiCau(ci,o={}){
+  if(!B)return;
+  const src=`/nghe-noi/audio/${B.id.replace(/\//g,"-")}-d${DI}-c${ci}.mp3`;
+  return new Promise(res=>{
+    const aud=new Audio(src);ACEL=aud;
+    aud.playbackRate=o.rate||TOC;
+    let used=false;
+    const ok=()=>{if(!used){used=true;ACEL=null;res()}};
+    const fb=()=>{if(!used){used=true;ACEL=null;noi(D.cau[ci][1],o).then(res)}};
+    aud.onended=ok;aud.onerror=fb;aud.play().catch(fb);
+  });
+}
 function mo(){
   const h=decodeURIComponent(location.hash.slice(1)).split("/");
   dung();
   const b=DS.find(x=>x.id===h[0]+"/"+h[1]),d=b&&b.doan[(+h[2]||1)-1];
   if(!d){$("#home").hidden=false;$("#play").hidden=true;veMucLuc();document.title="听说盒 · Nghe – nói – 吕老师汉语盒";return}
-  B=b;D=d;K=b.id+"/"+((+h[2])||1);BU=BUOC.some(x=>x[0]===h[3])?h[3]:"nghe";
+  B=b;D=d;K=b.id+"/"+((+h[2])||1);BU=BUOC.some(x=>x[0]===h[3])?h[3]:"nghe";DI=(+h[2]||1)-1;
   $("#home").hidden=true;$("#play").hidden=false;
   document.title=`${d.ten} · 听说盒 – 吕老师汉语盒`;
   $("#pSach").textContent=`${b.sachTen} · Bài ${b.bai} · ${b.ten}`;
@@ -139,10 +153,10 @@ function Nghe(){
   $("#ngheAll").onclick=async()=>{
     const me=++CHAY;$("#ngheAll").innerHTML=ic("dung")+"Dừng";$("#ngheAll").onclick=()=>{dung();Nghe()};
     for(let i=0;i<D.cau.length&&me===CHAY;i++){const l=chat.children[i];chat.querySelectorAll(".dang").forEach(x=>x.classList.remove("dang"));l.classList.add("dang");
-      l.scrollIntoView({block:"nearest",behavior:"smooth"});await noi(D.cau[i][1],{pitch:PITCH[D.cau[i][0]]});await wait(350)}
+      l.scrollIntoView({block:"nearest",behavior:"smooth"});await noiCau(i,{pitch:PITCH[D.cau[i][0]]});await wait(350)}
     if(me===CHAY){chat.querySelectorAll(".dang").forEach(x=>x.classList.remove("dang"));const b=$("#ngheAll");b.innerHTML=ic("lai")+"Nghe lại";b.onclick=null;b.onclick=()=>{Nghe();$("#ngheAll").click()}}
   };
-  chat.onclick=e=>{const l=e.target.closest(".line");if(l){dung();const c=D.cau[l.dataset.i];noi(c[1],{pitch:PITCH[c[0]]})}};
+  chat.onclick=e=>{const l=e.target.closest(".line");if(l){dung();noiCau(+l.dataset.i,{pitch:PITCH[D.cau[+l.dataset.i][0]]})}};
   const dung_=new Set();
   P.querySelectorAll(".hoi li").forEach(li=>li.addEventListener("click",e=>{const o=e.target.closest("[data-o]");if(!o||li.classList.contains("daxong"))return;
     const q=D.hoi[li.dataset.q];
@@ -189,14 +203,14 @@ function Nhai(){
     const sb=e.target.closest("[data-sao]");
     if(sb){SAO[key(i)]=+sb.dataset.sao;try{localStorage.setItem("nn-sao",JSON.stringify(SAO))}catch(x){};ve();return}
     const a=e.target.closest("[data-a]");if(!a)return;const c=D.cau[i];
-    if(a.dataset.a==="mau"){dung();noi(c[1])}
+    if(a.dataset.a==="mau"){dung();noiCau(i)}
     if(a.dataset.a==="cham"){dung();noi(c[1],{rate:.6})}
     if(a.dataset.a==="ghi"){
       if(rec){const r=rec;rec=null;BAN[key(i)]=await r.dung();ve();return}
       dung();try{rec=await ghi();ve()}catch(x){alert("Chưa ghi âm được: máy chưa cho phép dùng micro. Em bấm vào biểu tượng ổ khoá bên trái thanh địa chỉ để cho phép rồi thử lại nhé.")}
     }
     if(a.dataset.a==="minh")phat(BAN[key(i)]);
-    if(a.dataset.a==="so"){dung();await noi(c[1]);await wait(300);await phat(BAN[key(i)])}
+    if(a.dataset.a==="so"){dung();await noiCau(i);await wait(300);await phat(BAN[key(i)])}
     if(a.dataset.a==="may")mayNghe(c[1],$("#may"),a);
   };
   ve();
@@ -240,7 +254,7 @@ async function chay(){
     l.className=`line ${c[0]} ${cua?"minh":""}`;
     const du=`<span class="hz zh">${esc(c[1])}</span><span class="py">${pyMau(c[2])}</span><span class="vi">${esc(c[3])}</span>`;
     if(!cua){l.innerHTML=`<span class="ai">${esc(D.vai[c[0]][0])}</span><span class="bb">${du}</span>`;chat.append(l);l.scrollIntoView({block:"nearest",behavior:"smooth"});
-      await noi(c[1],{pitch:PITCH[c[0]]});await wait(300);continue}
+      await noiCau(i,{pitch:PITCH[c[0]]});await wait(300);continue}
     const an=[du,`<span class="py">${pyMau(c[2])}</span><span class="vi">${esc(c[3])}</span>`,`<span class="vi">${esc(c[3])}</span>`,`<span class="vi goi" hidden>${esc(c[3])}</span><span class="cham3">Đến lượt em nói…</span>`][MUCi];
     l.innerHTML=`<span class="ai">Em</span><span class="bb">${an}<span class="luot">${MUCi===3?`<button type="button" class="nho" data-g>Gợi ý</button>`:""}<button type="button" class="btn hot nho" data-x>${ic("tick")}Em nói xong</button></span></span>`;
     chat.append(l);l.scrollIntoView({block:"nearest",behavior:"smooth"});
@@ -258,7 +272,7 @@ async function chay(){
     ${Object.keys(ban).length?`<button type="button" class="btn pri" id="ngheLai">${ic("phat")}Nghe lại cả cuộc hội thoại</button> `:""}${tiep()}</div>`;
   const nl=$("#ngheLai");if(nl)nl.onclick=async()=>{const me2=++CHAY;for(let i=0;i<D.cau.length&&me2===CHAY;i++){const c=D.cau[i];
     chat.children[i]&&chat.children[i].classList.add("dang");
-    if(ban[i])await phat(ban[i]);else await noi(c[1],{pitch:PITCH[c[0]]});
+    if(ban[i])await phat(ban[i]);else await noiCau(i,{pitch:PITCH[c[0]]});
     chat.children[i]&&chat.children[i].classList.remove("dang");await wait(250)}};
 }
 
