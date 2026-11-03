@@ -177,7 +177,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "ju"
+    "g": "ju",
+    "vi": "Mary, cậu đi đâu đấy?|Tớ đi thư viện."
    },
    {
     "id": "h2",
@@ -196,7 +197,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "also"
+    "g": "also",
+    "vi": "Cậu đi mượn sách à?|Đúng vậy, mượn sách, và cũng trả sách nữa."
    },
    {
     "id": "h3",
@@ -215,7 +217,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "freq"
+    "g": "freq",
+    "vi": "Cậu có thường đi thư viện không?|Đi thường xuyên chứ. Tớ thường ở đó đọc sách, thỉnh thoảng tra tài liệu. Còn cậu thì sao?"
    },
    {
     "id": "h4",
@@ -234,7 +237,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "freq"
+    "g": "freq",
+    "vi": "Đi thường xuyên chứ. Tớ thường ở đó đọc sách, thỉnh thoảng tra tài liệu. Còn cậu thì sao?|Tớ không thường đi."
    },
    {
     "id": "h5",
@@ -253,7 +257,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "also"
+    "g": "also",
+    "vi": "Hôm nay cậu có muốn đi cùng tớ không?|Được, tớ cũng đi mượn vài quyển sách."
    },
    {
     "id": "h6",
@@ -324,7 +329,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "你_去图书馆吗？",
     "why": "常常 (thường xuyên) đứng trước động từ 去 — hỏi về tần suất.",
-    "g": "freq"
+    "g": "freq",
+    "vi": "Cậu có thường đi thư viện không?"
    },
    {
     "id": "d2",
@@ -348,7 +354,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "这是我_用汉语写文章。",
     "why": "第一次 + V — cấu trúc “lần đầu tiên làm gì”, nhấn mạnh hành động chưa từng xảy ra.",
-    "g": "first"
+    "g": "first",
+    "vi": "Đây là lần đầu tiên tôi viết văn bằng tiếng Trung."
    },
    {
     "id": "d4",
@@ -396,7 +403,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "好，我_去借几本书。",
     "why": "也 (cũng) — 山田 đồng ý hưởng ứng, cũng đi mượn sách.",
-    "g": "also"
+    "g": "also",
+    "vi": "Được, tớ cũng đi mượn vài quyển sách."
    },
    {
     "id": "d8",
@@ -641,7 +649,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "progress"
+    "g": "progress",
+    "vi": "Sơn Điền, cậu đang làm gì đấy?|Tớ đang nghe nhạc. Cậu có việc gì à?"
    },
    {
     "id": "h2",
@@ -660,7 +669,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "progress"
+    "g": "progress",
+    "vi": "Tớ đang nghe nhạc. Cậu có việc gì à?|Chiều nay tớ phải đi cửa hàng mua đồ, cậu đi cùng tớ nhé."
    },
    {
     "id": "h3",
@@ -679,7 +689,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "then"
+    "g": "then",
+    "vi": "Chiều nay tớ có tiết đọc, tan học rồi đi có được không?|Được, chúng ta hẹn 4 giờ gặp nhau ở cổng trường."
    },
    {
     "id": "h4",
@@ -698,7 +709,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "everyday"
+    "g": "everyday",
+    "vi": "Mary, cậu có môn tổng hợp vào ngày nào?|Ngày nào tớ cũng có môn tổng hợp."
    },
    {
     "id": "h5",
@@ -717,7 +729,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "progress"
+    "g": "progress",
+    "vi": "Thế còn môn nghe và môn đọc thì sao?|Thứ Hai và thứ Tư có môn nghe, thứ Ba và thứ Năm có môn đọc."
    },
    {
     "id": "h6",
@@ -736,7 +749,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "ju"
+    "g": "ju",
+    "vi": "Có môn chữ Hán không?|Có, chiều thứ Tư có môn chữ Hán."
    },
    {
     "id": "h7",
@@ -800,7 +814,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "我_有综合课。",
     "why": "每天都 (ngày nào cũng) — 玛丽 khẳng định không ngày nào thiếu môn tổng hợp.",
-    "g": "everyday"
+    "g": "everyday",
+    "vi": "Ngày nào tớ cũng có môn tổng hợp."
    },
    {
     "id": "d3",
@@ -812,7 +827,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "星期一和星期三有听力课，星期二_星期四有阅读课。",
     "why": "和 nối hai mốc thời gian tương đương (星期二 và 星期四), không dùng 跟 vì đây không phải giới từ chỉ đối tượng cùng làm.",
-    "g": "twotime"
+    "g": "twotime",
+    "vi": "Thứ Hai và thứ Tư có môn nghe, thứ Ba và thứ Năm có môn đọc."
    },
    {
     "id": "d4",
@@ -1106,7 +1122,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "ju"
+    "g": "ju",
+    "vi": "Sơn Điền, cậu đi đâu đấy?|Tớ đi thư viện mượn sách."
    },
    {
     "id": "h2",
@@ -1125,7 +1142,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "ti"
+    "g": "ti",
+    "vi": "Cậu trả giúp tớ một quyển sách được không?|Không thành vấn đề. Mary, cậu đi đâu?"
    },
    {
     "id": "h3",
@@ -1144,7 +1162,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "gen"
+    "g": "gen",
+    "vi": "Không thành vấn đề. Mary, cậu đi đâu?|Đi mua vé, ngày mai tớ cùng bạn đi Thượng Hải."
    },
    {
     "id": "h4",
@@ -1163,7 +1182,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "dang"
+    "g": "dang",
+    "vi": "Đi du lịch à?|Không, đi làm việc, làm phiên dịch cho bạn tớ."
    },
    {
     "id": "h5",
@@ -1182,7 +1202,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "haishi"
+    "g": "haishi",
+    "vi": "Các cậu đi bằng gì? Đi máy bay hay đi tàu hỏa?|Đi bằng máy bay."
    },
    {
     "id": "h6",
@@ -1253,7 +1274,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "你_我还一本书，行吗？",
     "why": "替 + người + V — nhờ ai làm thay việc gì.",
-    "g": "ti"
+    "g": "ti",
+    "vi": "Cậu trả giúp tớ một quyển sách được không?"
    },
    {
     "id": "d2",
@@ -1265,7 +1287,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "去买票，明天我_朋友一起去上海。",
     "why": "跟 + người + 一起 + V — cùng ai đó làm gì.",
-    "g": "gen"
+    "g": "gen",
+    "vi": "Đi mua vé, ngày mai tớ cùng bạn đi Thượng Hải."
    },
    {
     "id": "d3",
@@ -1277,7 +1300,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "不，去工作，给我的朋友_翻译。",
     "why": "给 + người + 当 + vai trò — đảm nhận vai trò/nghề nghiệp cho ai.",
-    "g": "dang"
+    "g": "dang",
+    "vi": "Không, đi làm việc, làm phiên dịch cho bạn tớ."
    },
    {
     "id": "d4",
@@ -1289,7 +1313,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "你们怎么去？坐飞机去_坐火车去？",
     "why": "还是 nối 2 phương án trong câu hỏi lựa chọn.",
-    "g": "haishi"
+    "g": "haishi",
+    "vi": "Các cậu đi bằng gì? Đi máy bay hay đi tàu hỏa?"
    },
    {
     "id": "d5",
@@ -1301,7 +1326,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "好，书我替你还，_吧。",
     "why": "放心 (yên tâm) — trấn an người nghe đừng lo lắng.",
-    "g": "ju"
+    "g": "ju",
+    "vi": "Được, sách để tớ trả giúp cậu, yên tâm đi."
    },
    {
     "id": "d6",
@@ -1313,7 +1339,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "马丁_中国学习汉语。",
     "why": "来 + địa điểm — đến một nơi (góc nhìn từ nơi người nói đang ở).",
-    "g": "ju"
+    "g": "ju",
+    "vi": "Martin đến Trung Quốc học tiếng Hán."
    },
    {
     "id": "d7",
@@ -1337,7 +1364,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "他们_坐火车去。",
     "why": "想 + V — muốn làm gì, diễn tả ý định.",
-    "g": "ju"
+    "g": "ju",
+    "vi": "họ muốn đi bằng tàu hỏa."
    }
   ],
   "dich": [
@@ -1571,7 +1599,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "tai"
+    "g": "tai",
+    "vi": "Sơn Điền, cậu xem bộ quần áo này thế nào?|Không đẹp, màu đậm quá."
    },
    {
     "id": "h2",
@@ -1590,7 +1619,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "tai"
+    "g": "tai",
+    "vi": "Cái màu đỏ này thì sao?|Độ dài thì tạm được, có phải đỏ quá không?"
    },
    {
     "id": "h3",
@@ -1609,7 +1639,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "tai"
+    "g": "tai",
+    "vi": "Độ dài thì tạm được, có phải đỏ quá không?|Còn cái màu xanh lá này?"
    },
    {
     "id": "h4",
@@ -1628,7 +1659,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "youdianr"
+    "g": "youdianr",
+    "vi": "Còn cái màu xanh lá này?|Hơi nhỏ."
    },
    {
     "id": "h5",
@@ -1647,7 +1679,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "de"
+    "g": "de",
+    "vi": "Cái màu xanh nhạt này được không?|Được, không dài không ngắn, màu đẹp, kiểu dáng cũng rất đẹp. Mặc cái này đi."
    },
    {
     "id": "h6",
@@ -1718,7 +1751,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "不好，颜色_深了。",
     "why": "太 + Adj + 了 — mức độ vượt quá, ý không hài lòng.",
-    "g": "tai"
+    "g": "tai",
+    "vi": "Không đẹp, màu đậm quá."
    },
    {
     "id": "d2",
@@ -1766,7 +1800,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "这件红色_怎么样？",
     "why": "的字短语 — 红色的 = 红色的衣服 (lược bỏ danh từ trung tâm).",
-    "g": "de"
+    "g": "de",
+    "vi": "Cái màu đỏ này thì sao?"
    },
    {
     "id": "d6",
@@ -1778,7 +1813,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "长短还可以，是不是太红_？",
     "why": "太…了 — 了 đi kèm cuối câu; câu hỏi đã có 是不是 nên không thêm 吗.",
-    "g": "tai"
+    "g": "tai",
+    "vi": "Độ dài thì tạm được, có phải đỏ quá không?"
    },
    {
     "id": "d7",
@@ -2032,7 +2068,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "shide"
+    "g": "shide",
+    "vi": "Mary, sao hôm nay cậu vui thế?|Hôm nay là sinh nhật tớ."
    },
    {
     "id": "h2",
@@ -2051,7 +2088,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "shide"
+    "g": "shide",
+    "vi": "Mary, năm nay cậu bao nhiêu tuổi?|Xin lỗi, đây là bí mật, không thể nói cho cậu biết."
    },
    {
     "id": "h3",
@@ -2070,7 +2108,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "dasuan"
+    "g": "dasuan",
+    "vi": "Cậu định tổ chức sinh nhật thế nào?|Anna và các bạn nói sẽ tổ chức một buổi tiệc sinh nhật, cậu cũng đến dự nhé."
    },
    {
     "id": "h4",
@@ -2089,7 +2128,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "shide"
+    "g": "shide",
+    "vi": "Được. Mấy giờ?|7 giờ tối nay, ở ký túc xá của tớ."
    },
    {
     "id": "h5",
@@ -2160,7 +2200,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "是吗？_你生日快乐！",
     "why": "祝 + người + lời chúc — chúc ai điều gì.",
-    "g": "zhu"
+    "g": "zhu",
+    "vi": "Thế à? Chúc cậu sinh nhật vui vẻ!"
    },
    {
     "id": "d2",
@@ -2172,7 +2213,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "你_怎么过生日呢？",
     "why": "打算 + V — dự định làm gì; 打算怎么……？ hỏi kế hoạch.",
-    "g": "dasuan"
+    "g": "dasuan",
+    "vi": "Cậu định tổ chức sinh nhật thế nào?"
    },
    {
     "id": "d3",
@@ -2208,7 +2250,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "玛丽，你今年多_？",
     "why": "你今年多大？— hỏi tuổi người ngang hàng; trẻ nhỏ hỏi 你几岁？",
-    "g": "ju"
+    "g": "ju",
+    "vi": "Mary, năm nay cậu bao nhiêu tuổi?"
    },
    {
     "id": "d6",
@@ -2220,7 +2263,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "晚会在玛丽的宿舍_。",
     "why": "举行 — tổ chức, cử hành (buổi tiệc, hội nghị).",
-    "g": "ju"
+    "g": "ju",
+    "vi": "Buổi tiệc được tổ chức ở ký túc xá của Mary."
    },
    {
     "id": "d7",
@@ -2232,7 +2276,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "安娜她们说开一个生日晚会，你也_吧。",
     "why": "参加 — tham gia (hoạt động, buổi tiệc).",
-    "g": "ju"
+    "g": "ju",
+    "vi": "Anna và các bạn nói sẽ tổ chức một buổi tiệc sinh nhật, cậu cũng đến dự nhé."
    },
    {
     "id": "d8",
@@ -2473,7 +2518,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "youshihou"
+    "g": "youshihou",
+    "vi": "Mary, cuối tuần cậu thường làm gì?|Sáng thứ Bảy tớ dậy lúc 8 giờ kém 15, 8 giờ rưỡi ăn sáng. Ăn sáng xong tớ đạp xe ra ngoài, có khi đi thăm bạn, có khi đi công viên."
    },
    {
     "id": "h2",
@@ -2492,7 +2538,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "ju"
+    "g": "ju",
+    "vi": "Khi nào cậu về trường?|Buổi chiều về trường. Buổi tối tớ thường cùng bạn ăn tối ở quán."
    },
    {
     "id": "h3",
@@ -2511,7 +2558,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "ju"
+    "g": "ju",
+    "vi": "Thế Chủ nhật cậu làm gì?|Chủ nhật tớ thường ở ký túc xá đọc sách, nghe nhạc, chuẩn bị trước từ mới và ngữ pháp của tuần sau."
    },
    {
     "id": "h4",
@@ -2530,7 +2578,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "youshihou"
+    "g": "youshihou",
+    "vi": "Cậu có hay gọi điện cho bố mẹ không?|Có khi gọi điện, có khi nhắn WeChat."
    },
    {
     "id": "h5",
@@ -2692,7 +2741,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "很多中国人常常早睡早_。",
     "why": "早睡早起 — ngủ sớm dậy sớm.",
-    "g": "ju"
+    "g": "ju",
+    "vi": "Nhiều người Trung Quốc thường ngủ sớm dậy sớm."
    },
    {
     "id": "d8",
@@ -2927,7 +2977,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "ju"
+    "g": "ju",
+    "vi": "Xin hỏi, các bạn làm nghề gì?|Trước khi đến Trung Quốc tôi cũng là một phóng viên."
    },
    {
     "id": "h2",
@@ -2946,7 +2997,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "aihao"
+    "g": "aihao",
+    "vi": "Các bạn có sở thích gì?|Tôi thích viết chữ Hán. Chữ Hán rất khó viết, nhưng rất thú vị."
    },
    {
     "id": "h3",
@@ -2965,7 +3017,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "ju"
+    "g": "ju",
+    "vi": "Thế à? Vậy mời bạn biểu diễn một chút được không?|Bây giờ thì chưa được, để sau nhé."
    },
    {
     "id": "h4",
@@ -3086,7 +3139,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "你们好！我是记者，想跟你们_。",
     "why": "Động từ lặp AA — làm một chút, giọng nhẹ nhàng.",
-    "g": "ju"
+    "g": "ju",
+    "vi": "Chào các bạn! Tôi là phóng viên, muốn nói chuyện với các bạn một chút."
    },
    {
     "id": "d3",
@@ -3110,7 +3164,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "你们有什么_？",
     "why": "爱好 là danh từ — sở thích; 喜欢 là động từ.",
-    "g": "aihao"
+    "g": "aihao",
+    "vi": "Các bạn có sở thích gì?"
    },
    {
     "id": "d5",
@@ -3158,7 +3213,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "我来中国前也是一_记者。",
     "why": "名 — lượng từ chỉ người theo nghề nghiệp (一名记者、一名老师).",
-    "g": "ju"
+    "g": "ju",
+    "vi": "Trước khi đến Trung Quốc tôi cũng là một phóng viên."
    }
   ],
   "dich": [
@@ -3379,7 +3435,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "cunzai"
+    "g": "cunzai",
+    "vi": "Yamada, tớ muốn đi hiệu sách xem chút, trong trường các cậu có hiệu sách không?|Có."
    },
    {
     "id": "h2",
@@ -3398,7 +3455,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "fangwei"
+    "g": "fangwei",
+    "vi": "Hiệu sách cách đây có xa không?|Không xa, ngay phía đông khu ký túc xá."
    },
    {
     "id": "h3",
@@ -3417,7 +3475,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "cunzai"
+    "g": "cunzai",
+    "vi": "Bây giờ mình đi nhé?|Được."
    },
    {
     "id": "h4",
@@ -3436,7 +3495,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "cunzai"
+    "g": "cunzai",
+    "vi": "Yamada, trường các cậu có sân bóng đá không?|Có chứ. Cậu muốn đá bóng à?"
    },
    {
     "id": "h5",
@@ -3455,7 +3515,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "cunzai"
+    "g": "cunzai",
+    "vi": "Có chứ. Cậu muốn đá bóng à?|Ừ. Sân bóng ở đâu?"
    },
    {
     "id": "h6",
@@ -3474,7 +3535,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "fangwei"
+    "g": "fangwei",
+    "vi": "Ừ. Sân bóng ở đâu?|Ở phía tây thư viện. Phía nam thư viện còn có một sân bóng rổ."
    },
    {
     "id": "h7",
@@ -3493,7 +3555,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "xian"
+    "g": "xian",
+    "vi": "Vậy mình đi hiệu sách trước, rồi đi đá bóng nhé?|Được."
    }
   ],
   "dien": [
@@ -3507,7 +3570,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "书店_这儿远吗？",
     "why": "A 离 B 远/近 — A cách B xa/gần.",
-    "g": "li"
+    "g": "li",
+    "vi": "Hiệu sách cách đây có xa không?"
    },
    {
     "id": "d2",
@@ -3519,7 +3583,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "不远，就在宿舍楼的东_。",
     "why": "东边 — phía đông (方位 + 边).",
-    "g": "fangwei"
+    "g": "fangwei",
+    "vi": "Không xa, ngay phía đông khu ký túc xá."
    },
    {
     "id": "d3",
@@ -3543,7 +3608,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "教学楼北边_图书馆。",
     "why": "Nơi chốn + 是 + N — chỗ đó là cái gì.",
-    "g": "cunzai"
+    "g": "cunzai",
+    "vi": "Phía bắc khu giảng đường là thư viện."
    },
    {
     "id": "d5",
@@ -3567,7 +3633,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "那我们_去书店，然后去踢足球，好吗？",
     "why": "先……，然后…… — trước … rồi …",
-    "g": "xian"
+    "g": "xian",
+    "vi": "Vậy mình đi hiệu sách trước, rồi đi đá bóng nhé?"
    },
    {
     "id": "d7",
@@ -3579,7 +3646,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "那我们先去书店，_去踢足球，好吗？",
     "why": "然后 — sau đó (đứng đầu vế sau).",
-    "g": "xian"
+    "g": "xian",
+    "vi": "Vậy mình đi hiệu sách trước, rồi đi đá bóng nhé?"
    },
    {
     "id": "d8",
@@ -3821,7 +3889,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "ju"
+    "g": "ju",
+    "vi": "Yamada, sáng nào cậu cũng làm gì?|Chạy bộ, tập Thái cực quyền."
    },
    {
     "id": "h2",
@@ -3840,7 +3909,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "zenme"
+    "g": "zenme",
+    "vi": "Ai dạy Thái cực quyền?|Thầy Mã. Sao, cậu muốn học à?"
    },
    {
     "id": "h3",
@@ -3859,7 +3929,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "zenme"
+    "g": "zenme",
+    "vi": "Thầy Mã. Sao, cậu muốn học à?|Muốn học. Đăng ký ở đâu?"
    },
    {
     "id": "h4",
@@ -3878,7 +3949,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "ju"
+    "g": "ju",
+    "vi": "Muốn học. Đăng ký ở đâu?|Ở chỗ thầy Mã. Sáng nào thầy cũng dạy bọn tớ lúc 6 giờ rưỡi ở sân tập nhỏ, mai cậu đến nhé."
    },
    {
     "id": "h5",
@@ -3897,7 +3969,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "zenme"
+    "g": "zenme",
+    "vi": "Được. Yamada, người học Thái cực quyền có đông không?|Không ít đâu. Có giáo viên, cũng có lưu học sinh."
    },
    {
     "id": "h6",
@@ -3916,7 +3989,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "zenme"
+    "g": "zenme",
+    "vi": "Có khó học không?|Không khó."
    },
    {
     "id": "h7",
@@ -4280,7 +4354,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "de"
+    "g": "de",
+    "vi": "Cậu đọc bài khoá thế nào?|Đọc trôi chảy lắm, nghe thì càng không có vấn đề gì."
    },
    {
     "id": "h2",
@@ -4299,7 +4374,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "weishenme"
+    "g": "weishenme",
+    "vi": "Tại sao? Tớ nói sai chỗ nào?|Nói đều rất tốt. Nhưng người Trung Quốc không nói như vậy."
    },
    {
     "id": "h3",
@@ -4318,7 +4394,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
       "Câu này không đáp lại câu hỏi."
      ]
     ],
-    "g": "qianxu"
+    "g": "qianxu",
+    "vi": "Thế à? Vậy tớ nên nói thế nào?|Tớ nói “phát âm của cậu thật không tồi”, cậu nên nói “đâu có, đâu có, còn kém xa lắm”."
    },
    {
     "id": "h4",
@@ -4439,7 +4516,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "你课文念得_？",
     "why": "V得怎么样？ — hỏi đánh giá.",
-    "g": "dewen"
+    "g": "dewen",
+    "vi": "Cậu đọc bài khoá thế nào?"
    },
    {
     "id": "d3",
@@ -4475,7 +4553,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "_？我什么地方说得不对？",
     "why": "为什么 — tại sao (hỏi lý do).",
-    "g": "weishenme"
+    "g": "weishenme",
+    "vi": "Tại sao? Tớ nói sai chỗ nào?"
    },
    {
     "id": "d6",
@@ -4487,7 +4566,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "早上，山田起得很_。",
     "why": "起得很早 — dậy rất sớm.",
-    "g": "de"
+    "g": "de",
+    "vi": "Buổi sáng, Yamada dậy rất sớm."
    },
    {
     "id": "d7",
@@ -4499,7 +4579,8 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "ok": 0,
     "s": "他先去大操场跑步，_到小操场打太极拳。",
     "why": "先……，然后…… (Bài 23).",
-    "g": "ju"
+    "g": "ju",
+    "vi": "Cậu ấy ra sân lớn chạy bộ trước, sau đó đến sân nhỏ tập Thái cực quyền."
    },
    {
     "id": "d8",

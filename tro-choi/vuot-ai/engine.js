@@ -38,6 +38,12 @@ let S=null,bai=BAI[0],raf=0,sachId=null;
 BAI.forEach(b=>{if(!b.loi)b.loi=b.dien.filter(d=>d.s.split('_').length===2&&d.o.length>1).map(d=>({id:'l'+d.id,s:d.s,o:d.o,why:d.why,g:d.g}))});
 BAI.forEach(b=>STAGES.forEach(([t])=>b[t].forEach(it=>{if(!it._n){it.id=b.id+'.'+it.id;it._n=1}})));
 
+// ---- nghĩa tiếng Việt để hiện khi làm sai: vi-phu.js (VA_VI[mã câu] — Điền: nghĩa cả câu; Trả lời: 'nghĩa câu hỏi|nghĩa đáp 1|nghĩa đáp 2…'), chưa có thì mượn nghĩa của câu giống hệt ở chặng Xếp câu / Dịch cùng bài
+const nz=s=>(s||'').replace(/[，。？！、,.?!：:“”"\s_]/g,'');
+const KV={};BAI.forEach(b=>{const m=KV[b.id]={};[...(b.sap||[]),...(b.dich||[])].forEach(x=>{const v=x.vi;if(v)m[nz(x.p.join(''))]=v})});
+const viMa=(it,loi)=>((window.VA_VI||{})[loi?it.id.replace('.l','.'):it.id]||it.vi||'').split('|');
+const viCau=(st,zh,k)=>{const a=viMa(st.item,st.t==='loi');return(k!=null&&a[k]&&a[k].trim())||(k==null&&a[0])||(KV[st.b.id]||{})[nz(zh)]||''};
+
 // ---- bản đồ
 // Mở từ nút Chơi của 课本盒 (?bo=bai:tttc:bai-2): chỉ hiện ải của bài đó
 // nhiều bài (ôn gộp từ 课本盒): ?bo=bai:301:bai-11+bai-13 → hiện ải của từng bài đó
@@ -155,7 +161,7 @@ function hoi(st){
   const pick=(i,to)=>{if(S.busy)return;lock();const o=i<0?null:opts[i];
     document.querySelectorAll('#opts .opt').forEach((x,j)=>{x.disabled=true;if(opts[j][2])x.classList.add('ok')});
     if(o&&!o[2])document.querySelectorAll('#opts .opt')[i].classList.add('no');
-    judge(!!(o&&o[2]),st,{zh:good,why:o&&!o[2]?o[1]:'',vi:'Hỏi: '+it.q},to)};
+    judge(!!(o&&o[2]),st,{zh:good,why:o&&!o[2]?o[1]:'',vq:viCau(st,it.q,0),vi:viCau(st,good,1+Math.max(0,it.ok.indexOf(good))),hq:it.q},to)};
   document.querySelectorAll('#opts .opt').forEach(b=>b.onclick=()=>{AM.play('choose');pick(+b.dataset.i)});
   S.timeout=()=>pick(-1,true);
 }
@@ -168,7 +174,7 @@ function dien(st){
   const pick=(i,to)=>{if(S.busy)return;lock();const x=i<0?null:o[i];
     document.querySelectorAll('#opts .opt').forEach((y,j)=>{y.disabled=true;if(o[j].ok)y.classList.add('ok')});
     if(x&&!x.ok)document.querySelectorAll('#opts .opt')[i].classList.add('no');$('bl').textContent=it.o[it.ok];$('bl').style.animation='none';
-    judge(!!(x&&x.ok),st,{zh:it.s.replace('_',it.o[it.ok]),why:it.why},to)};
+    judge(!!(x&&x.ok),st,{zh:it.s.replace('_',it.o[it.ok]),why:it.why,vi:viCau(st,it.s.replace('_',it.o[it.ok]))},to)};
   document.querySelectorAll('#opts .opt').forEach(b=>b.onclick=()=>{AM.play('choose');pick(+b.dataset.i)});
   S.timeout=()=>pick(-1,true);
 }
@@ -182,7 +188,7 @@ function loi(st){
   $('qbox').innerHTML='<p class="prompt" id="lp">Quái bắt lỗi! Câu này có một từ dùng sai, hoặc không có lỗi gì. Bấm vào chỗ sai:</p>'+sent('')
    +'<div id="lstep"><div class="acts"><button class="btn sec" id="okBtn" type="button">Câu này đúng, không có lỗi</button></div></div>';
   const end=(ok,to,why)=>{lock();$('qbox').querySelectorAll('.tok').forEach(t=>{t.disabled=true;if(hit(+t.dataset.i))t.classList.add(ok?'gd':'bad')});$('lstep').innerHTML='';
-    judge(ok,st,{zh:fixed,why:why||(wrong?'Chỗ sai là “'+w+'”, phải dùng “'+good+'”. ':'Câu này vốn đã đúng. ')+(it.why||'')},to)};
+    judge(ok,st,{zh:fixed,vi:viCau(st,fixed),why:why||(wrong?'Chỗ sai là “'+w+'”, phải dùng “'+good+'”. ':'Câu này vốn đã đúng. ')+(it.why||'')},to)};
   const step2=()=>{
     $('lp').textContent='Đúng chỗ sai rồi! Chọn từ đúng thay cho “'+w+'”:';
     const o=shuffle([[good,1],...shuffle(bads.filter(x=>x!==w)).slice(0,2).map(x=>[x,0])]);
@@ -237,7 +243,8 @@ async function judge(ok,st,d,timeout){
   const last=S.hearts<=0||S.i+1>=S.q.length;
   $('fbbox').innerHTML='<div class="fb '+(ok?'ok':'no')+'"><div class="res">'+line+(ok?' · +'+gain+' xu':'')+'</div>'
    +(ok?'':'<div class="muted">Đáp án đúng:</div>')
-   +'<div class="zh" lang="zh">'+d.zh+'</div>'+(d.py?'<div class="py">'+d.py+'</div>':'')+(d.vi&&st.t!=='hoi'?'<div>'+d.vi+'</div>':'')
+   +'<div class="zh" lang="zh">'+d.zh+'</div>'+(d.py?'<div class="py">'+d.py+'</div>':'')+(d.vi?'<div class="vi">'+d.vi+'</div>':'')
+   +(!ok&&st.t==='hoi'?'<div class="muted">Câu hỏi: <span lang="zh">'+d.hq+'</span>'+(d.vq?' — '+d.vq:'')+'</div>':'')
    +(!ok&&d.why?'<div>'+d.why+'</div>':'')
    +'<div class="gr">Điểm ngữ pháp: <b lang="zh">'+g.zh+'</b> · '+g.ct+' <a href="'+st.b.lk+(g.s?'#s'+g.s:'')+'">Xem lại trong bài giảng →</a></div>'
    +'<div class="acts"><button class="btn hot" id="nextBtn" type="button">'+(last?'Xem kết quả':dead?'Quái tiếp theo':'Tiếp')+'</button></div></div>';
