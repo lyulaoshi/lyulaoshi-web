@@ -302,7 +302,7 @@ function setPause(p){if(!alive)return;paused=p;$('pauseBtn').innerHTML=ICO(p?'ph
 $('pauseBtn').onclick=()=>setPause(!paused);
 $('quitBtn').onclick=()=>{if(alive)end()};
 document.addEventListener('visibilitychange',()=>{if(document.hidden)setPause(true)});
-function end(){
+function end(){window.TCX&&TCX.xong();
   alive=false;cancelAnimationFrame(raf);
   $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   const k=bestKey(),best=store.get(k)||0,rec=money>best;if(rec)store.set(k,money);
@@ -318,5 +318,6 @@ $('startBtn').onclick=start;$('againBtn').onclick=start;
 $('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>

@@ -253,7 +253,7 @@ async function judge(ok,st,d,timeout){
 }
 
 // ---- kết quả
-function finish(){
+function finish(){window.TCX&&TCX.xong();
   const win=S.hearts>0,tot=S.q.length,acc=S.ok/tot,ai=S.mode==='ai';
   const stars=!win?0:acc>=.9&&!S.hints?3:acc>=.7?2:1;
   cancelAnimationFrame(raf);S.run=false;

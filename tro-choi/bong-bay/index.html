@@ -247,7 +247,7 @@ $('pauseBtn').onclick=()=>setPause(!paused);
 $('spkBtn').onclick=()=>cur&&TTS.say(cur.w);
 $('quitBtn').onclick=()=>{if(alive)end()};
 document.addEventListener('visibilitychange',()=>{if(document.hidden)setPause(true)});
-function end(){
+function end(){window.TCX&&TCX.xong();
   alive=false;cancelAnimationFrame(raf);setTimeout(()=>{
   $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   const k=bestKey(),best=store.get(k)||0,rec=score>best;if(rec)store.set(k,score);store.set('bb-levels',[...picked]);
@@ -264,5 +264,6 @@ $('againBtn').onclick=start;
 $('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>

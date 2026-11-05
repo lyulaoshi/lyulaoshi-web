@@ -221,7 +221,7 @@ function answer(o,btn){
   }
 }
 $('quitBtn').onclick=()=>{if(alive)end()};
-function end(){
+function end(){window.TCX&&TCX.xong();
   alive=false;clearInterval(timerId);$('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   const asked=qi-(locked?0:1),k=bestKey(),best=store.get(k)||0,rec=score>best;if(rec)store.set(k,score);
   store.set('bc-levels',[...picked]);
@@ -243,5 +243,6 @@ document.addEventListener('keydown',e=>{if(!alive||$('play').hidden)return;
   if(e.key==='Enter'&&$('goOn')&&document.activeElement!==$('goOn'))$('goOn').click()});
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>

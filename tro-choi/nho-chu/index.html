@@ -346,7 +346,7 @@ $('pwClean').onclick=()=>{
 $('sndBtn').onclick=()=>{$('sndBtn').style.opacity=AM.toggle()?1:.4};
 $('seeBtn').onclick=hide;
 $('quitBtn').onclick=()=>{if(alive)end()};
-function end(){
+function end(){window.TCX&&TCX.xong();
   if(!alive)return;alive=false;clearInterval(timerId);clearInterval(clockId);$('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   store.set('nc-total',(store.get('nc-total')||0)+total);if((store.get('nc-total')||0)>=100)award(5);
   const kk=bestKey(),best=store.get(kk)||0,rec=score>best;if(rec)store.set(kk,score);
@@ -373,5 +373,6 @@ document.addEventListener('keydown',e=>{if(!alive||$('play').hidden)return;
   else if(e.key==='Enter'&&$('goOn')&&document.activeElement!==$('goOn'))$('goOn').click()});
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>

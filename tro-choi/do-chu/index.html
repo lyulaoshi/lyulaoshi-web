@@ -336,7 +336,7 @@ function challenge(r){
     onSent:()=>award('sent')});
 }
 // so kết quả: ai giải được thắng; cùng giải được thì nhiều điểm hơn, bằng điểm thì nhanh hơn
-function duelResult(me){
+function duelResult(me){window.TCX&&TCX.xong();
   const a=duel,nm=nameOf()||'Em',win=(!a.ok&&me.ok)?1:(a.ok&&!me.ok)?-1:(!a.ok&&!me.ok)?0:me.p!==a.p?(me.p>a.p?1:-1):me.t!==a.t?(me.t<a.t?1:-1):0;
   const side=(n,r,w)=>'<div class="side'+(w?' win':'')+'"><b>'+esc(n)+(w?' <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#cup></use></svg>':'')+'</b>'+(r.ok?'<span><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#dong-ho></use></svg> '+r.t+' giây</span><span><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#den></use></svg> '+(r.g||'không')+' gợi ý · <svg class=lli-do aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sai-tron></use></svg> sai '+r.s+'</span><span class="pt">'+r.p+' điểm</span>':'<span><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#mat-choang></use></svg> bó tay</span><span class="pt">0 điểm</span>')+'</div>';
   const verdict=win>0?VUI.any(['<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#cup></use></svg> Em thắng '+a.ten+' rồi! Gửi kết quả khoe đi','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#cup></use></svg> Thắng đẹp! '+a.ten+' phải khao trà sữa rồi','<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#cup></use></svg> Quá đỉnh, '+a.ten+' chắc đang ngỡ ngàng']):
@@ -357,7 +357,7 @@ function duelResult(me){
   setTimeout(()=>$('fb').scrollIntoView({block:'nearest',behavior:'smooth'}),60);
 }
 // cứu trợ: giải được thì gửi gợi ý hoặc đáp án cho bạn đang bí; không giải được thì chuyền tiếp lời cầu cứu
-function rescueResult(me){
+function rescueResult(me){window.TCX&&TCX.xong();
   const a=duel,t=esc(a.ten);
   $('fb').innerHTML='<div class="sol">'+solHTML()+(me.ok?
     '<div class="verdict"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sieu-nhan></use></svg> Em giải được rồi! Giờ gửi cứu trợ cho '+t+' nào:</div><div class="acts"><button class="btn sec" type="button" id="hintSend"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#den></use></svg> Chỉ gửi gợi ý</button><button class="btn hot" type="button" id="ansSend"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#bia></use></svg> Gửi đáp án</button></div>'+
@@ -374,7 +374,7 @@ function rescueResult(me){
   setTimeout(()=>$('fb').scrollIntoView({block:'nearest',behavior:'smooth'}),60);
 }
 $('quitBtn').onclick=()=>{if(duel){leaveDuel();return}if(alive)end()};
-function end(){
+function end(){window.TCX&&TCX.xong();
   alive=false;$('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   const n=results.length,right=results.filter(r=>r.ok).length,max=n*100,pct=max?score/max:0;
   const kk=bestKey(),best=store.get(kk)||0,rec=n>=deck.length&&score>best;if(rec)store.set(kk,score);
@@ -394,5 +394,6 @@ $('startBtn').onclick=start;$('againBtn').onclick=start;
 $('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;showBadges();scrollTo(0,0)};
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>

@@ -198,7 +198,7 @@ function flip(b,c){
     setTimeout(()=>{[b1,b2].forEach(x=>{x.classList.remove('up','miss');x.setAttribute('aria-label','Thẻ úp')});lock=false},900)}
 }
 let vuiRun=0;
-function win(){vuiRun=0;
+function win(){window.TCX&&TCX.xong();vuiRun=0;
   clearInterval(tick);const sec=Math.floor((performance.now()-t0)/1000);
   const k=bestKey(),best=store.get(k),rec=!best||moves<best;if(rec)store.set(k,moves);store.set('lt-levels',[...picked]);
   const st=moves<=Math.ceil(N*1.4)?3:moves<=N*2?2:1;
@@ -218,5 +218,6 @@ addEventListener('resize',()=>{if(!$('play').hidden)layout()});
 if(window.visualViewport)visualViewport.addEventListener('resize',()=>{if(!$('play').hidden)layout()});
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>

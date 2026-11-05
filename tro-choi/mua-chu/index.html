@@ -257,7 +257,7 @@ function setPause(p){paused=p;$('pauseBtn').innerHTML=p?'<svg class=lli aria-hid
 $('pauseBtn').onclick=()=>setPause(!paused);
 $('quitBtn').onclick=()=>{if(alive)end()};
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&alive)setPause(true)});
-function end(){
+function end(){window.TCX&&TCX.xong();
   alive=false;cancelAnimationFrame(raf);document.body.classList.remove('playing');
   $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   const k=bestKey(),best=store.get(k)||0,rec=score>best;if(rec)store.set(k,score);
@@ -276,5 +276,6 @@ if(window.visualViewport)visualViewport.addEventListener('resize',()=>{if(alive)
 addEventListener('resize',()=>{if(alive)fit()});
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>

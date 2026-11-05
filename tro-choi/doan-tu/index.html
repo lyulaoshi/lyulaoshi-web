@@ -337,7 +337,7 @@ $('quitBtn').onclick=()=>{
   over=true;showRescue(false);$('play').hidden=true;$('setup').hidden=false;showStat()};
 function finish(win){
   const already=over;over=true;render();
-  if(!already){const st=store.get('dt-stat')||{played:0,won:0,streak:0};st.played++;
+  if(!already){window.TCX&&TCX.xong();const st=store.get('dt-stat')||{played:0,won:0,streak:0};st.played++;
     if(win){st.won++;if(rows.length<=TRIES)st.streak++}else st.streak=0; // thắng nhờ cứu nguy: không cộng chuỗi thắng
     store.set('dt-stat',st);saveDaily(true)}
   const won=rows.length&&rows[rows.length-1].w===ans.w,saved=won&&rows.length>TRIES;
@@ -504,5 +504,6 @@ if(gift){mode='free';$('lvBox').hidden=false;$('modeChips').querySelectorAll('.c
 $('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;showStat();scrollTo(0,0)};
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>

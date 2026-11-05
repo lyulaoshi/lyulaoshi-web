@@ -252,7 +252,7 @@ $('hintBtn').onclick=()=>{if(locked||hints<=0)return;hints--;$('hintLeft').inner
   const nx=nextsOf(curW),mine=nx.filter(z=>+z.lv<=+upTo),y=shuffle(mine.filter(alive2))[0]||shuffle(mine)[0]||shuffle(nx)[0];
   $('fb').innerHTML='<span class="note">Gợi ý: <span class="zh" lang="zh">'+y.w+'</span> ('+y.p.replace(/(\S)\S*/g,(m,a)=>a+'…')+')</span>';$('ans').focus()};
 $('quitBtn').onclick=()=>{if(alive){clearInterval(timerId);missed=null;end('quit')}};
-function end(why){
+function end(why){window.TCX&&TCX.xong();
   alive=false;clearInterval(timerId);$('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   const n=chain.length-1,k=bestKey(),best=store.get(k)||0,rec=n>best;if(rec)store.set(k,n);store.set('nt-upto',upTo);
   $('overTitle').textContent=why==='win'?'Nối hết cả kho từ!':why==='quit'?'Kết thúc!':'Đứt chuỗi rồi!';
@@ -269,5 +269,6 @@ $('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;scrollT
 document.addEventListener('keydown',e=>{if(!alive||$('play').hidden||mode!=='pick')return;const n=+e.key;if(n>=1&&n<=4){const b=document.querySelectorAll('.opt')[n-1];if(b&&!b.disabled)b.click()}});
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>

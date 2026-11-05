@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Đua cùng đề 同题赛 – Trò chơi 吕老师汉语盒</title>
+<meta name="description" content="Trò chơi trên lớp: cả lớp quét mã QR, nhập mã xuất phát rồi cùng đua một đề theo bài học trên điện thoại. Cô nhập mã kết quả để xếp hạng.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+[hidden]{display:none!important}
+/* đường đua ngoài trời: nền sáng cố định ở cả 2 chế độ, rõ trên máy chiếu */
+.dua{--card:#fff;--ground:#EEF8E4;--ground2:#DDF0CB;--ink:#12303B;--muted:#4C6A73;--line:#C6DDBA;--or:#E8590C;--lime:#7FBF1E;--sky:#0B7CC2;--red:#D6303F;--shadow:0 5px 0 rgba(18,48,59,.16),0 12px 26px rgba(18,48,59,.14);
+  color-scheme:light;position:relative;overflow:hidden;color:var(--ink);background:linear-gradient(#9FE2FF,#E9FAFF 46%,#C9EE93 46%,#A7DE66)}
+.co{height:16px;background:repeating-conic-gradient(#12303B 0 25%,#fff 0 50%) 0 0/16px 16px}
+.stagebox{border-radius:24px;padding:clamp(16px,2.6vh,26px) clamp(14px,2.2vw,28px)}
+h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0 0}
+.lg{font-family:var(--hz);color:var(--or);font-size:28px;line-height:1.1}
+.lead{max-width:40em;margin:8px 0 0;font-weight:500}
+.btn.go{background:linear-gradient(180deg,#FF9A3D,var(--or));color:#fff;box-shadow:0 5px 0 #A83E05;font-weight:800;touch-action:manipulation}
+.btn.go:not(:disabled):active{translate:0 3px;box-shadow:0 2px 0 #A83E05}
+.btn.go:disabled{opacity:.5;cursor:not-allowed}
+.sbb{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;padding:7px 14px;border-radius:999px;cursor:pointer}
+.muted{color:var(--muted);font-size:14px}
+.hero{display:grid;grid-template-columns:1fr minmax(160px,270px);gap:18px;align-items:center;margin-top:26px}
+.hero svg{display:block;width:100%;height:auto}
+@media (max-width:700px){.hero{grid-template-columns:1fr}.hero svg{max-width:220px}}
+.panel{background:var(--card);color:var(--ink);border-radius:20px;box-shadow:var(--shadow);padding:18px;margin-top:14px;display:grid;gap:12px}
+.panel h2{font-size:16px;font-weight:800}.panel h2 small{font-weight:600;font-size:13.5px;color:var(--muted)}
+.setup-p{--card:#fff;--ground:#EEF8E4;--ground2:#DDF0CB;--ink:#12303B;--muted:#4C6A73;--line:#C6DDBA;--or:#E8590C;color-scheme:light}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--ground);color:var(--ink);font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{border-color:var(--or);background:#FFE6D3}
+.chip:disabled{opacity:.45;cursor:not-allowed}
+.chip small{font-weight:400;color:var(--muted);margin-left:4px}
+.books{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,195px),1fr));gap:8px}
+.bk{display:grid;gap:1px;text-align:left;padding:8px 12px;border:2px solid var(--line);border-radius:14px;background:var(--ground);color:var(--ink);font:inherit;cursor:pointer}
+.bk b{font-family:var(--hz);font-weight:400;font-size:17px;line-height:1.25}.bk small{color:var(--muted);font-size:12.5px;font-weight:600;line-height:1.3}
+.bk[aria-pressed="true"]{border-color:var(--or);background:#FFE6D3}
+.lessons{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,178px),1fr));gap:7px;max-height:300px;overflow:auto;padding:2px}
+.ls{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 9px;align-items:center;text-align:left;padding:6px 10px 6px 7px;border:0;border-radius:12px;background:var(--ground2);color:var(--ink);font:inherit;cursor:pointer}
+.ls i{grid-row:span 2;display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:#12303B;color:#fff;font-style:normal;font-weight:800;font-size:15px}
+.ls b{font-family:var(--kai);font-weight:400;font-size:17px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ls.all b{font-family:var(--vi);font-weight:800;font-size:14px}.ls small{color:var(--muted);font-size:12px;font-weight:600}
+.ls[aria-pressed="true"]{background:var(--or);color:#fff}.ls[aria-pressed="true"] small{color:#FFE6D3}
+.how{margin:0;padding-left:20px;color:var(--muted);font-size:14.5px}.how b{color:var(--ink)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+/* đường đua */
+.road{position:relative;height:clamp(58px,10vh,92px);background:linear-gradient(#55666C,#3E4D52);border-block:4px solid #fff;overflow:hidden}
+.road::before{content:"";position:absolute;left:0;right:0;top:50%;height:4px;margin-top:-2px;background:repeating-linear-gradient(90deg,#fff 0 22px,transparent 22px 46px)}
+.road::after{content:"";position:absolute;right:0;top:0;bottom:0;width:22px;background:repeating-conic-gradient(#12303B 0 25%,#fff 0 50%) 0 0/14px 14px}
+.car{position:absolute;left:0;top:50%;width:clamp(58px,8vh,84px);translate:0 -50%;transition:left .55s cubic-bezier(.3,1.2,.5,1)}
+.car svg{display:block;width:100%;height:auto}
+.car .fl{opacity:0}.car.nitro .fl{opacity:1;animation:fl .16s linear infinite alternate}
+@keyframes fl{to{transform:scaleX(1.35)}}
+/* cô */
+#host.dua{margin:0 -16px;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.hg{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,1fr);gap:clamp(12px,1.6vw,22px);padding:clamp(10px,1.8vh,18px) clamp(12px,1.8vw,24px)}
+.bigc{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:clamp(12px,2vh,22px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center}
+.bigc .t{font-weight:800;font-size:clamp(17px,2.1vw,27px)}
+.codebig{font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.14em;font-size:clamp(70px,20vh,170px);line-height:1;color:var(--or)}
+.clock{font-weight:800;font-variant-numeric:tabular-nums;font-size:clamp(34px,9vh,76px);line-height:1}
+.clock.low{color:var(--red)}
+.qr{background:#fff;border-radius:14px;padding:10px;width:min(52vh,100%,380px);aspect-ratio:1;display:grid;place-items:center;font-size:14px}
+.qr svg{display:block;width:100%;height:100%}
+.qr.small{width:min(22vh,150px)}
+.hc{display:grid;gap:12px;align-content:start;min-width:0}
+.bd2{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:12px 14px;display:grid;gap:8px}
+.bd2 h2{font-size:16px;font-weight:800}
+.chk{display:flex;gap:8px;flex-wrap:wrap}
+.chk input{flex:1 1 130px;min-width:0;font:inherit;font-weight:800;font-size:19px;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:10px;border:2px solid var(--line);background:var(--ground);color:var(--ink)}
+.res{font-weight:700;font-size:14.5px;min-height:1.4em}.res.no{color:var(--red)}.res.ok{color:#3C7A00}
+.rk{margin:0;padding:0;list-style:none;display:grid;gap:5px;max-height:38vh;overflow:auto}
+.rk li{display:flex;align-items:center;gap:9px;background:var(--ground);border-radius:10px;padding:5px 11px;font-weight:800;font-size:clamp(15px,1.5vw,19px)}
+.rk .n{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#12303B;color:#fff;font-size:13px;flex:none}
+.rk li:nth-child(1) .n{background:#D49A00}.rk li:nth-child(2) .n{background:#8A94A6}.rk li:nth-child(3) .n{background:#B8703A}
+.rk small{margin-left:auto;color:var(--muted);font-weight:700;font-size:.82em;white-space:nowrap}
+.key{margin:0;padding-left:22px;display:grid;gap:7px;font-size:14px;max-height:34vh;overflow:auto}
+.key .z{font-family:var(--kai);font-size:19px;line-height:1.3}.key b{color:#3C7A00;font-family:var(--kai);font-weight:400;font-size:19px}
+@media (max-width:820px){.hg{grid-template-columns:1fr}}
+/* học viên */
+#stu.dua{margin:0 -16px;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.spad{padding:12px 16px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.gate{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:18px;display:grid;gap:10px;text-align:center;justify-items:center;margin:auto 0}
+.gate h2{font-size:21px;font-weight:800}
+.gate input{width:min(100%,220px);text-align:center;font:inherit;font-weight:800;font-size:38px;letter-spacing:.14em;padding:6px;border-radius:14px;border:3px solid var(--line);background:var(--ground);color:var(--ink)}
+.gate input.bad{border-color:var(--red);animation:lac .3s}
+@keyframes lac{25%{translate:-6px 0}75%{translate:6px 0}}
+.hud{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px}
+.hud b{font-size:20px;font-variant-numeric:tabular-nums}.hud .sp{margin-left:auto}
+.hud .low{color:var(--red)}
+.combo{padding:1px 10px;border-radius:99px;background:var(--or);color:#fff;font-size:13.5px}
+.qc{background:var(--card);border-radius:18px;box-shadow:var(--shadow);padding:12px 14px;text-align:center;display:grid;gap:4px}
+.qc small{color:var(--muted);font-weight:700;font-size:13.5px}
+.qc .z{font-family:var(--kai);line-height:1.3;font-size:clamp(23px,7vw,34px)}
+.ops{display:grid;gap:8px}
+.op{border:0;border-radius:14px;background:var(--card);color:var(--ink);font-family:var(--kai);font-size:clamp(20px,5.8vw,27px);line-height:1.25;padding:10px 12px;min-height:56px;cursor:pointer;box-shadow:0 4px 0 #9FB89A;touch-action:manipulation}
+.op.ok{background:#7FBF1E;color:#fff}.op.no{background:var(--red);color:#fff}
+.endc{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:16px;display:grid;gap:6px;justify-items:center;text-align:center}
+.endc .big{font-weight:800;font-size:clamp(38px,11vw,56px);line-height:1;color:var(--or)}
+.endc .rn{font-weight:800;font-size:18px}.endc .rn span{font-family:var(--hz);font-weight:400;color:var(--or);margin-right:6px;font-size:1.2em}
+.mak{font-weight:800;letter-spacing:.1em;font-size:clamp(30px,9vw,42px);padding:2px 16px;border-radius:12px;background:#12303B;color:#fff;font-variant-numeric:tabular-nums}
+.rv{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.rv li{background:var(--card);border-radius:12px;padding:8px 12px;font-size:14px;line-height:1.35;border-left:5px solid #7FBF1E}
+.rv li.sai{border-left-color:var(--red)}
+.rv .z{font-family:var(--kai);font-size:19px;display:block}.rv b{font-family:var(--kai);font-weight:400;font-size:18px;color:#3C7A00}
+.rv i{font-style:normal;color:var(--muted);display:block}
+.confetti{position:fixed;top:-14px;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:30}
+@media (prefers-reduced-motion:reduce){.car{transition:none}.car.nitro .fl{animation:none}.gate input.bad{animation:none}.confetti{display:none}}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap" id="main">
+  <!-- cô: tạo phòng -->
+  <section id="setup" hidden>
+    <div class="hero dua stagebox">
+      <div><div class="lg" lang="zh">同题赛</div><h1>Đua cùng đề</h1>
+        <p class="lead">Cả lớp quét mã, nhập mã xuất phát rồi cùng đua một đề theo bài học trên điện thoại. Về đích nhanh mà đúng nhiều thì đứng đầu bảng.</p></div>
+      <div id="heroCar" aria-hidden="true"></div>
+    </div>
+    <div class="panel setup-p">
+      <h2>1. Giáo trình</h2><div class="books" id="sach"></div>
+      <h2>2. Bài <small>(bấm nhiều bài để ôn gộp)</small></h2><div class="lessons" id="bai"></div>
+      <h2>3. Số câu</h2><div class="chips" id="numChips"></div>
+      <h2>4. Thời gian</h2><div class="chips" id="timeChips"></div>
+      <ul class="how">
+        <li>Cô bấm <b>Xuất phát</b>, màn hình hiện <b>mã 3 số</b>. Các em nhập mã mới vào đua được, nên cả lớp bắt đầu gần như cùng lúc.</li>
+        <li>Cả lớp cùng một đề, nhưng thứ tự câu và đáp án trên mỗi máy khác nhau, nhìn bài bạn cũng không dễ.</li>
+        <li>Về đích, máy báo <b>mã kết quả</b>. Cô nhập mã của các em điểm cao để lên bảng xếp hạng. Đề ôn này chỉ làm được một lần mỗi vòng.</li>
+      </ul>
+      <div class="acts"><button class="btn go" id="createBtn" type="button">Tạo phòng <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
+    </div>
+  </section>
+
+  <!-- cô: điều khiển -->
+  <section class="dua" id="host" hidden>
+    <div class="co"></div>
+    <div class="road" id="roadH"><div class="car" id="carH"></div></div>
+    <div class="hg">
+      <div class="bigc" id="bigc"></div>
+      <div class="hc">
+        <div class="bd2"><h2><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#cup></use></svg> Bảng xếp hạng <span class="muted" id="rdLb"></span></h2>
+          <form class="chk" id="chkF"><input id="chkI" maxlength="8" autocomplete="off" autocapitalize="characters" aria-label="Mã kết quả" placeholder="Mã kết quả"><button class="sbb" type="submit">Thêm</button></form>
+          <div class="res" id="res" aria-live="polite"></div><ol class="rk" id="rk"></ol></div>
+        <div class="bd2" id="keyBox" hidden><h2>Đáp án vòng này</h2><ol class="key" id="key"></ol></div>
+        <div class="acts" id="hAct"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- học viên -->
+  <section class="dua" id="stu" hidden>
+    <div class="co"></div>
+    <div class="road"><div class="car" id="carS"></div></div>
+    <div class="spad" id="spad"></div>
+  </section>
+
+  <section id="bad" hidden style="padding:26px 0"><h1>Link phòng không đúng</h1><p>Em xin cô mã QR mới nhé. <a href="./">Về trang tạo phòng</a></p></section>
+</main>
+
+<footer class="wrap">Câu hỏi lấy từ đề ôn theo bài của trò Vượt ải (bản nháp, chờ cô duyệt) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../vuot-ai/de-tttc.js?v=2"></script>
+<script src="../vuot-ai/de-301.js?v=1"></script>
+<script src="../vuot-ai/de-301b.js?v=1"></script>
+<script src="../vuot-ai/de-fazhan.js?v=1"></script>
+<script src="../vuot-ai/de-boya.js?v=1"></script>
+<script src="../vuot-ai/de-yuedu.js?v=2"></script>
+<script src="../vuot-ai/de-ledu.js?v=1"></script>
+<script src="../vuot-ai/am.js"></script>
+<script src="../qr-anh.js"></script>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
+
+// Web tĩnh, không có máy chủ: đề suy ra từ link phòng + số vòng. Số vòng giấu trong mã xuất phát cô chiếu; mã kết quả gói số thứ tự, số câu đúng, số giây kèm phần kiểm tra.
+(function(){
+const $=id=>document.getElementById(id),BAI=window.VA_BAI||[];
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const FX=!matchMedia('(prefers-reduced-motion:reduce)').matches;
+const hash=s=>{let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imul(h,16777619)>>>0}return h};
+function seeded(a,seed){const out=a.slice();let s=seed>>>0;const rnd=()=>{s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+  for(let i=out.length-1;i>0;i--){const j=rnd()*(i+1)|0;[out[i],out[j]]=[out[j],out[i]]}return out}
+const mk=(t,c,x,lang)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;if(lang)e.lang=lang;return e};
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const show=id=>{['setup','host','stu','bad'].forEach(s=>$(s).hidden=s!==id);scrollTo(0,0)};
+const chrome=on=>{document.querySelector('header.top').hidden=!on;document.querySelector('footer').hidden=!on;$('main').style.maxWidth=on?'':'none'};
+const fmt=s=>Math.floor(s/60)+':'+String(s%60).padStart(2,'0');
+const CAR=c=>'<svg viewBox="0 0 96 46"><g class="fl" style="transform-origin:14px 28px"><path d="M14 22 0 28l14 6z" fill="#FF9A3D"/><path d="M14 25 7 28l7 3z" fill="#FFE14D"/></g><path d="M12 34V24q0-4 5-5l13-1 12-10q2-2 5-2h15q3 0 5 2l9 10 7 2q5 1 5 6v8q0 2-2 2H14q-2 0-2-2Z" fill="'+c+'"/><path d="M36 18l9-8h10v8zM59 10h5l7 8H59z" fill="#D6F2FF"/><circle cx="30" cy="36" r="8" fill="#12303B"/><circle cx="30" cy="36" r="3" fill="#fff"/><circle cx="70" cy="36" r="8" fill="#12303B"/><circle cx="70" cy="36" r="3" fill="#fff"/></svg>';
+function confetti(n){if(!FX)return;const C=['#E8590C','#7FBF1E','#0B7CC2','#FFC93C','#12303B'];
+  for(let i=0;i<n;i++){const e=document.createElement('i');e.className='confetti';e.style.left=Math.random()*100+'vw';e.style.background=C[i%5];document.body.appendChild(e);
+    const h=(window.innerHeight||700)+30,sway=(Math.random()-.5)*120;
+    e.animate({transform:['translate(0,0) rotate(0)','translate('+sway+'px,'+h+'px) rotate('+(360+Math.random()*720)+'deg)']},{duration:1500+Math.random()*1300,delay:Math.random()*500,easing:'cubic-bezier(.3,.5,.6,1)',fill:'backwards'}).onfinish=()=>e.remove()}}
+
+/* ---------- ngân hàng câu: chặng Điền và Trả lời của Vượt ải ---------- */
+function qsOf(b){const out=[];
+  (b.dien||[]).forEach(x=>{const o=x.o||[];if(x.s&&o.length>=3)out.push({id:b.id+'/'+x.id,k:'Chọn từ điền vào chỗ trống',q:x.s.replace(/_+/g,'＿＿＿'),ok:o[x.ok||0],bad:o.filter((_,i)=>i!==(x.ok||0)).slice(0,3),why:x.why||''})});
+  (b.hoi||[]).forEach(x=>{const bad=(x.bad||[]).map(y=>y[0]).filter(Boolean);if(x.q&&x.ok&&x.ok[0]&&bad.length>=2)out.push({id:b.id+'/'+x.id,k:'Chọn câu trả lời đúng',q:x.q,ok:x.ok[0],bad:bad.slice(0,3),why:''})});
+  return out}
+const SACH=(window.VA_SACH||[]).filter(s=>BAI.some(b=>b.mon===s.id&&qsOf(b).length));
+const poolFor=(mon,ids)=>BAI.filter(b=>b.mon===mon&&(!ids.length||ids.includes(b.id))).flatMap(qsOf);
+
+/* ---------- phòng: suy ra từ link ---------- */
+function roomFrom(u){const p=u.get('p'),n=+u.get('n'),t=+u.get('t'),b=u.get('b')||'';
+  if(!/^[a-z0-9]{1,12}$/.test(p||'')||![5,10,15].includes(n)||![60,90,120,180].includes(t))return null;
+  const [mon,rest]=b.split(':'),ids=rest?rest.split('.').map(x=>mon+'-'+x):[];if(!SACH.some(s=>s.id===mon))return null;
+  const pool=poolFor(mon,ids);if(pool.length<5)return null;return{p,n:Math.min(n,pool.length),t,b,pool,key:'dcd-'+p}}
+function linkFor(x,gv){const u=new URLSearchParams();u.set('p',x.p);u.set('n',x.n);u.set('t',x.t);u.set('b',x.b);if(gv)u.set('gv','1');return location.origin+location.pathname+'?'+u.toString().replace(/%3A/g,':')}
+const gateCode=(rm,r)=>hash(rm.p+'@'+r)%900+100;
+const roundOfCode=(rm,c)=>{for(let r=1;r<=40;r++)if(gateCode(rm,r)===c)return r;return 0};
+const examOf=(rm,r)=>seeded(rm.pool,hash(rm.p+'#'+r)).slice(0,rm.n);
+function encode(rm,r,stt,c,t){const v=stt*51*601+c*601+Math.min(t,600),chk=hash(rm.p+'|'+r+'|'+v)%1296,x=(v*1296+chk)^hash(rm.p+'~'+r);return (x>>>0).toString(36).toUpperCase().padStart(7,'0')}
+function decode(rm,r,s){if(!/^[0-9A-Z]{1,8}$/.test(s))return null;const raw=parseInt(s,36);if(!(raw<=4294967295))return null;const x=(raw^hash(rm.p+'~'+r))>>>0,chk=x%1296,v=Math.floor(x/1296);
+  if(hash(rm.p+'|'+r+'|'+v)%1296!==chk)return null;const stt=Math.floor(v/(51*601)),c=Math.floor((v%(51*601))/601),t=v%601;if(stt<1||stt>99||c>rm.n)return null;return{stt,c,t}}
+
+/* ---------- cô: tạo phòng ---------- */
+let pick={s:'',bs:[]},N=10,T=90;
+{const sv=store.get('dcd-pick');if(sv&&SACH.some(s=>s.id===sv.s))pick={s:sv.s,bs:Array.isArray(sv.bs)?sv.bs:[]};else if(SACH[0])pick.s=SACH[0].id;
+ const bo=new URLSearchParams(location.search).get('bo');if(bo&&bo.startsWith('bai:')){const [,a,b]=bo.split(':');if(SACH.some(s=>s.id===a))pick={s:a,bs:(b||'').split(/[+ ]/).map(y=>a+'-'+y).filter(i=>BAI.some(x=>x.id===i))}}}
+function chipRow(el,items,cur,fn){el.innerHTML='';items.forEach(([v,t,off])=>{const b=mk('button','chip',t);b.type='button';b.disabled=!!off;b.setAttribute('aria-pressed',v===cur);b.onclick=()=>{fn(v);paintSetup()};el.append(b)})}
+function paintSetup(){const A=$('sach'),L=$('bai'),top=L.scrollTop;A.innerHTML='';
+  SACH.forEach(x=>{const b=mk('button','bk');b.type='button';b.setAttribute('aria-pressed',x.id===pick.s);b.append(mk('b',null,x.zh,'zh'),mk('small',null,x.vi||''));b.onclick=()=>{pick={s:x.id,bs:[]};paintSetup()};A.append(b)});
+  L.innerHTML='';const all=mk('button','ls all');all.type='button';all.setAttribute('aria-pressed',!pick.bs.length);all.append(mk('i',null,'全','zh'),mk('b',null,'Cả giáo trình'),mk('small',null,poolFor(pick.s,[]).length+' câu'));all.onclick=()=>{pick.bs=[];paintSetup()};L.append(all);
+  BAI.filter(x=>x.mon===pick.s).sort((p,q)=>p.n-q.n).forEach(x=>{const c=qsOf(x).length;if(!c)return;const b=mk('button','ls');b.type='button';b.title='Bài '+x.n+': '+x.zh;b.setAttribute('aria-pressed',pick.bs.includes(x.id));b.append(mk('i',null,x.n),mk('b',null,x.zh,'zh'),mk('small',null,c+' câu'));
+    b.onclick=()=>{pick.bs=pick.bs.includes(x.id)?pick.bs.filter(y=>y!==x.id):pick.bs.concat(x.id);paintSetup()};L.append(b)});L.scrollTop=top;
+  const m=poolFor(pick.s,pick.bs).length;if(N>m&&m>=5)N=m>=10?10:5;
+  chipRow($('numChips'),[5,10,15].map(v=>[v,v+' câu',v>m]),N,v=>N=v);
+  chipRow($('timeChips'),[60,90,120,180].map(v=>[v,fmt(v)]),T,v=>T=v);
+  $('createBtn').disabled=m<5;$('poolInfo').textContent=m<5?'Cần ít nhất 5 câu, cô chọn thêm bài nhé':m+' câu trong ngân hàng'}
+$('createBtn').onclick=()=>{store.set('dcd-pick',pick);const p=(Date.now().toString(36).slice(-3)+Math.random().toString(36).slice(2,5)).toLowerCase();
+  const b=pick.s+':'+pick.bs.map(i=>i.slice(pick.s.length+1)).join('.');location.href=linkFor({p,n:N,t:T,b},true)};
+
+/* ---------- cô: điều khiển ---------- */
+async function paintQR(url,el){try{const q=(await QRANH.load())(0,'M');q.addData(url);q.make();const n=q.getModuleCount();let d='';
+    for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.isDark(r,c))d+='M'+c+' '+r+'h1v1h-1z';
+    el.innerHTML='<svg viewBox="0 0 '+n+' '+n+'" role="img" aria-label="Mã QR vào phòng" shape-rendering="crispEdges"><path d="'+d+'" fill="#111"/></svg>'}
+  catch(e){el.textContent='Không tải được mã QR. Cô gửi link cho lớp nhé.'}}
+function hostScreen(rm){chrome(false);show('host');$('carH').innerHTML=CAR('#E8590C');const k=rm.key+'-gv',url=linkFor(rm,false);
+  let st=store.get(k);if(!st||!(st.r>=0))st={r:0,start:0,board:[]};const save=()=>store.set(k,st);let tick=0,last=-1;
+  function board(){const R=$('rk');R.innerHTML='';$('rdLb').textContent=st.r?'vòng '+st.r:'';[...st.board].sort((a,b)=>b.c-a.c||a.t-b.t).slice(0,10).forEach((x,i)=>{const li=mk('li');li.append(mk('span','n',i+1),document.createTextNode('Số '+x.stt),mk('small',null,x.c+'/'+rm.n+' câu · '+x.t+' giây'));R.append(li)});
+    if(!st.board.length)R.append(mk('li',null,'Chưa có ai về đích.'))}
+  function keyList(){const K=$('key');K.innerHTML='';examOf(rm,st.r).forEach(q=>{const li=mk('li');li.append(mk('span','z',q.q,'zh'),document.createElement('br'),document.createTextNode('Đáp án: '),mk('b',null,q.ok,'zh'));K.append(li)})}
+  function paint(){const B=$('bigc'),A=$('hAct');clearInterval(tick);B.innerHTML='';A.innerHTML='';$('keyBox').hidden=true;$('carH').style.left='0';
+    const add=(t,c,fn)=>{const b=mk('button',c,t);b.type='button';b.onclick=fn;A.append(b)};
+    add('Phòng mới','sbb',()=>{if(confirm('Bỏ phòng này, tạo phòng mới?'))location.href='./'});
+    const left=()=>Math.max(0,rm.t-Math.floor((Date.now()-st.start)/1000));
+    if(!st.start||!st.r){B.append(mk('div','t','Mời cả lớp quét mã, nhập số thứ tự'));const q=mk('div','qr',null);q.textContent='Đang tạo mã QR…';B.append(q);paintQR(url,q);
+      const go=mk('button','btn go','Xuất phát');go.type='button';go.onclick=()=>start();B.append(go);return}
+    B.append(mk('div','t','Mã xuất phát vòng '+st.r),mk('div','codebig',gateCode(rm,st.r)));const c=mk('div','clock');B.append(c);const q=mk('div','qr small');B.append(q);paintQR(url,q);
+    const upd=()=>{const l=left(),done=l<=0;c.textContent=done?'Hết giờ!':fmt(l);c.classList.toggle('low',l<=10);$('carH').style.left='calc('+((1-l/rm.t)*100)+'% - '+((1-l/rm.t)*96)+'px)';
+      if(l!==last&&l>0&&l<=5)AM.play('tick');last=l;if(done&&tick){clearInterval(tick);tick=0;AM.play('time')}
+      if(done&&$('keyBox').hidden){keyList();$('keyBox').hidden=false}};
+    upd();if(left()>0)tick=setInterval(upd,300);
+    add('Vòng mới','sbb',()=>{if(confirm('Sang vòng '+(st.r+1)+' với đề mới?'))start()})}
+  function start(){AM.play('appear');st.r++;st.start=Date.now();st.board=[];save();$('res').textContent='';board();paint()}
+  $('chkF').onsubmit=e=>{e.preventDefault();const s=$('chkI').value.trim().toUpperCase().replace(/[^0-9A-Z]/g,''),R=$('res'),d=st.r?decode(rm,st.r,s):null;
+    if(!d){R.className='res no';R.textContent='Mã chưa đúng, cô xem lại giúp em.';AM.play('no');return}
+    const old=st.board.find(x=>x.stt===d.stt);if(old)Object.assign(old,d);else st.board.push(d);save();$('chkI').value='';R.className='res ok';R.textContent='Số '+d.stt+': '+d.c+'/'+rm.n+' câu, '+d.t+' giây.';AM.play('coin');board()};
+  board();paint()}
+
+/* ---------- học viên ---------- */
+const RANK=[[.9,'冠军','Vô địch'],[.7,'高手','Tay lái lụa'],[.5,'不错','Về đích an toàn'],[0,'加油','Đổ xăng rồi đua lại']];
+function stuScreen(rm){chrome(false);show('stu');const carEl=$('carS');carEl.innerHTML=CAR('#0B7CC2');const P=$('spad');
+  let st=store.get(rm.key);if(!st||typeof st!=='object')st={res:{}};if(!st.res)st.res={};const save=()=>store.set(rm.key,st);
+  const setCar=f=>{carEl.style.left='calc('+(f*100)+'% - '+(f*96)+'px)'};
+  function join(){P.innerHTML='';setCar(0);const g=mk('div','gate');g.append(mk('div','lg','同题赛','zh'),mk('h2',null,'Em là số thứ tự mấy?'));const i=mk('input');i.inputMode='numeric';i.maxLength=2;i.setAttribute('aria-label','Số thứ tự');if(st.stt)i.value=st.stt;const b=mk('button','btn go','Tiếp tục');b.type='button';
+    const go=()=>{const v=+i.value;if(!(v>=1&&v<=99)){i.classList.remove('bad');void i.offsetWidth;i.classList.add('bad');return}st.stt=v;save();gate()};b.onclick=go;i.onkeydown=e=>{if(e.key==='Enter')go()};g.append(i,b);P.append(g)}
+  function gate(){P.innerHTML='';setCar(0);const g=mk('div','gate');g.append(mk('div','muted','Số '+st.stt),mk('h2',null,'Nhập mã xuất phát'),mk('div','muted','Cô bấm Xuất phát thì mã 3 số hiện trên màn hình.'));const i=mk('input');i.inputMode='numeric';i.maxLength=3;i.setAttribute('aria-label','Mã xuất phát');const b=mk('button','btn go','Xuất phát');b.type='button';const c=mk('button','sbb','Đổi số thứ tự');c.type='button';c.onclick=join;
+    const go=()=>{const r=/^\d{3}$/.test(i.value)?roundOfCode(rm,+i.value):0;if(!r){i.classList.remove('bad');void i.offsetWidth;i.classList.add('bad');return}AM.unlock();if(st.res[r])done(r);else race(r)};b.onclick=go;i.onkeydown=e=>{if(e.key==='Enter')go()};g.append(i,b,c);P.append(g);i.focus()}
+  function race(r){const exam=seeded(examOf(rm,r),hash(rm.p+'/'+r+'/'+st.stt)),t0=Date.now();let i=0,good=0,streak=0,lock=false,timer=0;const ans=[];
+    P.innerHTML='';const hud=mk('div','hud'),qc=mk('div','qc'),ops=mk('div','ops');P.append(hud,qc,ops);
+    const secs=()=>Math.floor((Date.now()-t0)/1000);
+    function drawHud(){const l=Math.max(0,rm.t-secs());hud.innerHTML='';hud.append(mk('span',null,'Câu '));hud.lastChild.append(mk('b',null,Math.min(i+1,exam.length)),document.createTextNode('/'+exam.length));if(streak>=3)hud.append(mk('span','combo','连击 ×'+streak,'zh'));const c=mk('span','sp'+(l<=10?' low':''));c.innerHTML=IC('dong-ho')+' <b>'+fmt(l)+'</b>';hud.append(c);if(l<=0)finish()}
+    function finish(){if(lock==='end')return;lock='end';clearInterval(timer);st.res[r]={c:good,t:Math.min(secs(),rm.t),ans};save();done(r,true)}
+    function ask(){if(i>=exam.length){finish();return}const q=exam[i],opts=seeded([q.ok,...q.bad],hash(q.id+'/'+st.stt));lock=false;qc.innerHTML='';qc.append(mk('small',null,q.k),mk('div','z',q.q,'zh'));ops.innerHTML='';
+      opts.forEach(o=>{const b=mk('button','op',o,'zh');b.type='button';b.onclick=()=>{if(lock)return;lock=true;const ok=o===q.ok;b.classList.add(ok?'ok':'no');ans.push({i:q.id,pick:o});
+          if(ok){good++;streak++;if(navigator.vibrate)navigator.vibrate(12)}else{streak=0;[...ops.children].find(x=>x.textContent===q.ok).classList.add('ok');if(navigator.vibrate)navigator.vibrate(60)}
+          i++;setCar(i/exam.length);carEl.classList.toggle('nitro',streak>=3);drawHud();setTimeout(()=>{if(lock!=='end')ask()},ok?420:950)};ops.append(b)});drawHud()}
+    setCar(0);timer=setInterval(drawHud,500);ask()}
+  function done(r,moi){const x=st.res[r],exam=examOf(rm,r),f=x.c/exam.length,rk=RANK.find(y=>f>=y[0]);setCar(f);carEl.classList.remove('nitro');P.innerHTML='';
+    if(moi){if(f>=.7){AM.play('win');confetti(80)}else AM.play('clear')}
+    const e=mk('div','endc'),rn=mk('div','rn');rn.append(mk('span',null,rk[1],'zh'),document.createTextNode(rk[2]));e.append(mk('div','big',x.c+'/'+exam.length),rn,mk('div','muted','Vòng '+r+' · số '+st.stt+' · '+x.t+' giây'),mk('div',null,'Mã kết quả, đọc cho cô:'),mk('div','mak',encode(rm,r,st.stt,x.c,x.t)));
+    const n=mk('button','sbb','Vào vòng tiếp');n.type='button';n.onclick=gate;e.append(n);P.append(e);
+    const ul=mk('ul','rv');exam.forEach(q=>{const a=(x.ans||[]).find(y=>y.i===q.id),ok=a&&a.pick===q.ok,li=mk('li',ok?'':'sai');li.append(mk('span','z',q.q,'zh'));if(!ok){li.append(document.createTextNode(a?'Em chọn: '+a.pick+'. ':'Chưa kịp làm. '))}li.append(document.createTextNode('Đáp án: '),mk('b',null,q.ok,'zh'));if(!ok&&q.why)li.append(mk('i',null,q.why));ul.append(li)});P.append(ul)}
+  st.stt?gate():join()}
+
+/* ---------- vào trang ---------- */
+const u=new URLSearchParams(location.search);
+if(!u.has('p')){show('setup');$('heroCar').innerHTML=CAR('#E8590C');paintSetup()}
+else{const rm=roomFrom(u);if(!rm)show('bad');else if(u.get('gv')==='1')hostScreen(rm);else stuScreen(rm)}
+})();
+</script>
+</body>
+</html>

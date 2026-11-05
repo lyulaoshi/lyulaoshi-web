@@ -299,7 +299,7 @@ $('hintBtn').onclick=()=>{if(hints<=0||!alive)return;const w=list.find(w=>!w.don
 $('newBtn').onclick=start;
 $('quitBtn').onclick=()=>{alive=false;clearInterval(tick);$('play').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
 addEventListener('resize',()=>{if(alive&&!$('play').hidden)redraw()});
-function win(){
+function win(){window.TCX&&TCX.xong();
   alive=false;clearInterval(tick);const sec=Math.floor((performance.now()-t0)/1000),used=3-hints;
   const k=bestKey(),best=store.get(k),rec=!used&&(!best||sec<best);if(rec)store.set(k,sec);
   $('finalTime').innerHTML='<svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#dong-ho></use></svg> '+fmt(sec);
@@ -322,5 +322,6 @@ $('startBtn').onclick=start;$('againBtn').onclick=start;
 $('setupBtn').onclick=()=>{$('over').hidden=true;$('setup').hidden=false;scrollTo(0,0)};
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>

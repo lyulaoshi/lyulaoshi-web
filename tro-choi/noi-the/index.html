@@ -485,7 +485,7 @@ function levelDone(){running=false;
   if(FX)box.firstChild.animate({scale:[.6,1.05,1],opacity:[0,1,1]},{duration:320,easing:'ease-out'});
   box.querySelector('button').focus();
 }
-function finish(won){running=false;clearInterval(tickId);clearTimeout(moodT);clearTimeout(comboT);
+function finish(won){window.TCX&&TCX.xong();running=false;clearInterval(tickId);clearTimeout(moodT);clearTimeout(comboT);
   $('overM').innerHTML=mascotSVG(won?'happy':'sad');if(won)confetti(90);
   const k=bestKey(),best=store.get(k),rec=score>(best||0);if(rec&&score)store.set(k,score);
   store.set('nt-levels',[...picked]);store.set('nt-kind',kind);
@@ -528,5 +528,6 @@ if(window.BO_TU)document.addEventListener('DOMContentLoaded',()=>{picked=new Set
 refresh();
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>

@@ -473,7 +473,7 @@ function start(){
 }
 function pause(v){paused=v;resetHold();needCenter=true;centerMs=0;$('pauseLayer').classList.toggle('hide',!paused);$('pause').textContent=paused?'Tiếp tục':'Tạm dừng'}
 function home(){active=false;pause(false);stopCamera();screen('home')}
-function finish(){
+function finish(){window.TCX&&TCX.xong();
  active=false;stopCamera();sound('end');screen('result');
  const good=run.answers-run.wrong.length,rate=Math.round(good/run.questions.length*100),R=$('result');R.replaceChildren();
  const h=document.createElement('h1');h.textContent=rate>=80?'Bậc thầy chữ Hán!':rate>=50?'Bạn đang tiến bộ!':'Luyện thêm, chinh phục tiếp!';
@@ -582,5 +582,6 @@ paintSeg();
  renderSources();outputs();syncMode();requestAnimationFrame(frame);
 })();
 </script>
+<script src="../tien-do.js?v=1"></script>
 </body>
 </html>
