@@ -71,6 +71,10 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
 .bd2 h2{font-size:16px;font-weight:800}
 .chk{display:flex;gap:8px;flex-wrap:wrap}
 .chk input{flex:1 1 130px;min-width:0;font:inherit;font-weight:800;font-size:19px;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:10px;border:2px solid var(--line);background:var(--ground);color:var(--ink)}
+.ds summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--muted)}
+.ds textarea{width:100%;margin-top:6px;font:inherit;font-size:14.5px;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:var(--ground);color:var(--ink);resize:vertical}
+.gate input.ten{font-size:22px;letter-spacing:0;width:min(100%,300px)}
+.gate label{font-weight:700;font-size:14.5px;color:var(--muted)}
 .res{font-weight:700;font-size:14.5px;min-height:1.4em}.res.no{color:var(--red)}.res.ok{color:#3C7A00}
 .rk{margin:0;padding:0;list-style:none;display:grid;gap:5px;max-height:38vh;overflow:auto}
 .rk li{display:flex;align-items:center;gap:9px;background:var(--ground);border-radius:10px;padding:5px 11px;font-weight:800;font-size:clamp(15px,1.5vw,19px)}
@@ -134,7 +138,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
       <ul class="how">
         <li>Cô bấm <b>Xuất phát</b>, màn hình hiện <b>mã 3 số</b>. Các em nhập mã mới vào đua được, nên cả lớp bắt đầu gần như cùng lúc.</li>
         <li>Cả lớp cùng một đề, nhưng thứ tự câu và đáp án trên mỗi máy khác nhau, nhìn bài bạn cũng không dễ.</li>
-        <li>Về đích, máy báo <b>mã kết quả</b>. Cô nhập mã của các em điểm cao để lên bảng xếp hạng. Đề ôn này chỉ làm được một lần mỗi vòng.</li>
+        <li>Về đích, máy báo <b>mã kết quả</b>. Cô nhập mã (và tên, nếu chưa dán danh sách lớp) của các em điểm cao để lên bảng xếp hạng. Đề ôn này chỉ làm được một lần mỗi vòng.</li>
       </ul>
       <div class="acts"><button class="btn go" id="createBtn" type="button">Tạo phòng <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
     </div>
@@ -148,8 +152,9 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
       <div class="bigc" id="bigc"></div>
       <div class="hc">
         <div class="bd2"><h2><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#cup></use></svg> Bảng xếp hạng <span class="muted" id="rdLb"></span></h2>
-          <form class="chk" id="chkF"><input id="chkI" maxlength="8" autocomplete="off" autocapitalize="characters" aria-label="Mã kết quả" placeholder="Mã kết quả"><button class="sbb" type="submit">Thêm</button></form>
-          <div class="res" id="res" aria-live="polite"></div><ol class="rk" id="rk"></ol></div>
+          <form class="chk" id="chkF"><input id="chkI" maxlength="8" autocomplete="off" autocapitalize="characters" aria-label="Mã kết quả" placeholder="Mã kết quả"><input id="chkN" maxlength="30" autocomplete="off" aria-label="Tên học viên (nếu cần)" placeholder="Tên (nếu cần)" style="letter-spacing:0;text-transform:none;font-weight:700;font-size:16px"><button class="sbb" type="submit">Thêm</button></form>
+          <div class="res" id="res" aria-live="polite"></div><ol class="rk" id="rk"></ol>
+          <details class="ds"><summary>Danh sách lớp: dán tên để bảng hiện tên</summary><textarea id="ds" rows="6" placeholder="Mỗi dòng một tên, ví dụ: Nguyễn Thị Lan"></textarea><span class="muted">Các em gõ cả họ tên hoặc chỉ tên gọi đều khớp, có dấu hay không dấu cũng được. Lưu trên máy này, dùng lại được cho các lần sau.</span></details></div>
         <div class="bd2" id="keyBox" hidden><h2>Đáp án vòng này</h2><ol class="key" id="key"></ol></div>
         <div class="acts" id="hAct"></div>
       </div>
@@ -183,7 +188,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
  const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
-// Web tĩnh, không có máy chủ: đề suy ra từ link phòng + số vòng. Số vòng giấu trong mã xuất phát cô chiếu; mã kết quả gói số thứ tự, số câu đúng, số giây kèm phần kiểm tra.
+// Web tĩnh, không có máy chủ: đề suy ra từ link phòng + số vòng. Số vòng giấu trong mã xuất phát cô chiếu; mã kết quả gói mã của tên, số câu đúng, số giây kèm phần kiểm tra.
 (function(){
 const $=id=>document.getElementById(id),BAI=window.VA_BAI||[];
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
@@ -219,9 +224,12 @@ function linkFor(x,gv){const u=new URLSearchParams();u.set('p',x.p);u.set('n',x.
 const gateCode=(rm,r)=>hash(rm.p+'@'+r)%900+100;
 const roundOfCode=(rm,c)=>{for(let r=1;r<=40;r++)if(gateCode(rm,r)===c)return r;return 0};
 const examOf=(rm,r)=>seeded(rm.pool,hash(rm.p+'#'+r)).slice(0,rm.n);
-function encode(rm,r,stt,c,t){const v=stt*51*601+c*601+Math.min(t,600),chk=hash(rm.p+'|'+r+'|'+v)%1296,x=(v*1296+chk)^hash(rm.p+'~'+r);return (x>>>0).toString(36).toUpperCase().padStart(7,'0')}
-function decode(rm,r,s){if(!/^[0-9A-Z]{1,8}$/.test(s))return null;const raw=parseInt(s,36);if(!(raw<=4294967295))return null;const x=(raw^hash(rm.p+'~'+r))>>>0,chk=x%1296,v=Math.floor(x/1296);
-  if(hash(rm.p+'|'+r+'|'+v)%1296!==chk)return null;const stt=Math.floor(v/(51*601)),c=Math.floor((v%(51*601))/601),t=v%601;if(stt<1||stt>99||c>rm.n)return null;return{stt,c,t}}
+// tên → mã tên 1–3600: bỏ dấu, chữ thường, gộp khoảng trắng; "Lan" và "lan" ra cùng một mã
+const norm=x=>(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[đĐ]/g,'d').toLowerCase().replace(/\s+/g,' ').trim();
+const sid=x=>hash(norm(x))%3600+1;
+function encode(rm,r,id,c,t){const v=id*51*601+c*601+Math.min(t,600),chk=hash(rm.p+'|'+r+'|'+v)%36,x=(v*36+chk)^hash(rm.p+'~'+r);return (x>>>0).toString(36).toUpperCase().padStart(7,'0')}
+function decode(rm,r,s){if(!/^[0-9A-Z]{1,8}$/.test(s))return null;const raw=parseInt(s,36);if(!(raw<=4294967295))return null;const x=(raw^hash(rm.p+'~'+r))>>>0,chk=x%36,v=Math.floor(x/36);
+  if(hash(rm.p+'|'+r+'|'+v)%36!==chk)return null;const id=Math.floor(v/(51*601)),c=Math.floor((v%(51*601))/601),t=v%601;if(id<1||id>3600||c>rm.n)return null;return{id,c,t}}
 
 /* ---------- cô: tạo phòng ---------- */
 let pick={s:'',bs:[]},N=10,T=90;
@@ -247,14 +255,19 @@ async function paintQR(url,el){try{const q=(await QRANH.load())(0,'M');q.addData
   catch(e){el.textContent='Không tải được mã QR. Cô gửi link cho lớp nhé.'}}
 function hostScreen(rm){chrome(false);show('host');$('carH').innerHTML=CAR('#E8590C');const k=rm.key+'-gv',url=linkFor(rm,false);
   let st=store.get(k);if(!st||!(st.r>=0))st={r:0,start:0,board:[]};const save=()=>store.set(k,st);let tick=0,last=-1;
-  function board(){const R=$('rk');R.innerHTML='';$('rdLb').textContent=st.r?'vòng '+st.r:'';[...st.board].sort((a,b)=>b.c-a.c||a.t-b.t).slice(0,10).forEach((x,i)=>{const li=mk('li');li.append(mk('span','n',i+1),document.createTextNode('Số '+x.stt),mk('small',null,x.c+'/'+rm.n+' câu · '+x.t+' giây'));R.append(li)});
+  const DS='dcd-ds';
+  function dsMap(){const m=new Map(),add=(id,n)=>{if(!m.has(id))m.set(id,new Set());m.get(id).add(n)};
+    (store.get(DS)||'').split('\n').map(x=>x.trim()).filter(Boolean).forEach(n=>{add(sid(n),n);const w=norm(n).split(' ').pop();if(w)add(sid(w),n)});return m}
+  $('ds').value=store.get(DS)||'';$('ds').oninput=()=>{store.set(DS,$('ds').value);board()};
+  const nameOf=x=>{if(x.name)return x.name;const s=dsMap().get(x.id);return s?[...s].join(' / '):''};
+  function board(){const R=$('rk');R.innerHTML='';$('rdLb').textContent=st.r?'vòng '+st.r:'';[...st.board].sort((a,b)=>b.c-a.c||a.t-b.t).slice(0,10).forEach((x,i)=>{const li=mk('li');const nm=nameOf(x);li.append(mk('span','n',i+1),document.createTextNode(nm||'Mã '+x.k),mk('small',null,x.c+'/'+rm.n+' câu · '+x.t+' giây'));R.append(li)});
     if(!st.board.length)R.append(mk('li',null,'Chưa có ai về đích.'))}
   function keyList(){const K=$('key');K.innerHTML='';examOf(rm,st.r).forEach(q=>{const li=mk('li');li.append(mk('span','z',q.q,'zh'),document.createElement('br'),document.createTextNode('Đáp án: '),mk('b',null,q.ok,'zh'));K.append(li)})}
   function paint(){const B=$('bigc'),A=$('hAct');clearInterval(tick);B.innerHTML='';A.innerHTML='';$('keyBox').hidden=true;$('carH').style.left='0';
     const add=(t,c,fn)=>{const b=mk('button',c,t);b.type='button';b.onclick=fn;A.append(b)};
     add('Phòng mới','sbb',()=>{if(confirm('Bỏ phòng này, tạo phòng mới?'))location.href='./'});
     const left=()=>Math.max(0,rm.t-Math.floor((Date.now()-st.start)/1000));
-    if(!st.start||!st.r){B.append(mk('div','t','Mời cả lớp quét mã, nhập số thứ tự'));const q=mk('div','qr',null);q.textContent='Đang tạo mã QR…';B.append(q);paintQR(url,q);
+    if(!st.start||!st.r){B.append(mk('div','t','Mời cả lớp quét mã, nhập tên'));const q=mk('div','qr',null);q.textContent='Đang tạo mã QR…';B.append(q);paintQR(url,q);
       const go=mk('button','btn go','Xuất phát');go.type='button';go.onclick=()=>start();B.append(go);return}
     B.append(mk('div','t','Mã xuất phát vòng '+st.r),mk('div','codebig',gateCode(rm,st.r)));const c=mk('div','clock');B.append(c);const q=mk('div','qr small');B.append(q);paintQR(url,q);
     const upd=()=>{const l=left(),done=l<=0;c.textContent=done?'Hết giờ!':fmt(l);c.classList.toggle('low',l<=10);$('carH').style.left='calc('+((1-l/rm.t)*100)+'% - '+((1-l/rm.t)*96)+'px)';
@@ -265,7 +278,7 @@ function hostScreen(rm){chrome(false);show('host');$('carH').innerHTML=CAR('#E85
   function start(){AM.play('appear');st.r++;st.start=Date.now();st.board=[];save();$('res').textContent='';board();paint()}
   $('chkF').onsubmit=e=>{e.preventDefault();const s=$('chkI').value.trim().toUpperCase().replace(/[^0-9A-Z]/g,''),R=$('res'),d=st.r?decode(rm,st.r,s):null;
     if(!d){R.className='res no';R.textContent='Mã chưa đúng, cô xem lại giúp em.';AM.play('no');return}
-    const old=st.board.find(x=>x.stt===d.stt);if(old)Object.assign(old,d);else st.board.push(d);save();$('chkI').value='';R.className='res ok';R.textContent='Số '+d.stt+': '+d.c+'/'+rm.n+' câu, '+d.t+' giây.';AM.play('coin');board()};
+    const nm=$('chkN').value.trim();if(nm)d.name=nm;d.k=s;const old=st.board.find(x=>x.k===s);if(old)Object.assign(old,d);else st.board.push(d);save();$('chkI').value='';$('chkN').value='';R.className='res ok';R.textContent=(nameOf(d)||'Mã '+s)+': '+d.c+'/'+rm.n+' câu, '+d.t+' giây.';AM.play('coin');board()};
   board();paint()}
 
 /* ---------- học viên ---------- */
@@ -273,26 +286,28 @@ const RANK=[[.9,'冠军','Vô địch'],[.7,'高手','Tay lái lụa'],[.5,'不�
 function stuScreen(rm){chrome(false);show('stu');const carEl=$('carS');carEl.innerHTML=CAR('#0B7CC2');const P=$('spad');
   let st=store.get(rm.key);if(!st||typeof st!=='object')st={res:{}};if(!st.res)st.res={};const save=()=>store.set(rm.key,st);
   const setCar=f=>{carEl.style.left='calc('+(f*100)+'% - '+(f*96)+'px)'};
-  function join(){P.innerHTML='';setCar(0);const g=mk('div','gate');g.append(mk('div','lg','同题赛','zh'),mk('h2',null,'Em là số thứ tự mấy?'));const i=mk('input');i.inputMode='numeric';i.maxLength=2;i.setAttribute('aria-label','Số thứ tự');if(st.stt)i.value=st.stt;const b=mk('button','btn go','Tiếp tục');b.type='button';
-    const go=()=>{const v=+i.value;if(!(v>=1&&v<=99)){i.classList.remove('bad');void i.offsetWidth;i.classList.add('bad');return}st.stt=v;save();gate()};b.onclick=go;i.onkeydown=e=>{if(e.key==='Enter')go()};g.append(i,b);P.append(g)}
-  function gate(){P.innerHTML='';setCar(0);const g=mk('div','gate');g.append(mk('div','muted','Số '+st.stt),mk('h2',null,'Nhập mã xuất phát'),mk('div','muted','Cô bấm Xuất phát thì mã 3 số hiện trên màn hình.'));const i=mk('input');i.inputMode='numeric';i.maxLength=3;i.setAttribute('aria-label','Mã xuất phát');const b=mk('button','btn go','Xuất phát');b.type='button';const c=mk('button','sbb','Đổi số thứ tự');c.type='button';c.onclick=join;
+  function join(){P.innerHTML='';setCar(0);const g=mk('div','gate');g.append(mk('div','lg','同题赛','zh'),mk('h2',null,'Tên của em là gì?'));
+    const n=mk('input','ten');n.maxLength=30;n.autocomplete='off';n.setAttribute('aria-label','Tên của em');n.placeholder='Ví dụ: Lan';if(st.ten)n.value=st.ten;const b=mk('button','btn go','Tiếp tục');b.type='button';
+    const go=()=>{const ten=n.value.trim().replace(/\s+/g,' ');if(!ten){n.classList.remove('bad');void n.offsetWidth;n.classList.add('bad');n.focus();return}st.ten=ten;save();gate()};
+    b.onclick=go;n.onkeydown=e=>{if(e.key==='Enter')go()};g.append(n,mk('div','muted','Gõ tên giống trong danh sách lớp của cô.'),b);P.append(g);n.focus()}
+  function gate(){P.innerHTML='';setCar(0);const g=mk('div','gate');g.append(mk('div','muted',st.ten),mk('h2',null,'Nhập mã xuất phát'),mk('div','muted','Cô bấm Xuất phát thì mã 3 số hiện trên màn hình.'));const i=mk('input');i.inputMode='numeric';i.maxLength=3;i.setAttribute('aria-label','Mã xuất phát');const b=mk('button','btn go','Xuất phát');b.type='button';const c=mk('button','sbb','Đổi tên');c.type='button';c.onclick=join;
     const go=()=>{const r=/^\d{3}$/.test(i.value)?roundOfCode(rm,+i.value):0;if(!r){i.classList.remove('bad');void i.offsetWidth;i.classList.add('bad');return}AM.unlock();if(st.res[r])done(r);else race(r)};b.onclick=go;i.onkeydown=e=>{if(e.key==='Enter')go()};g.append(i,b,c);P.append(g);i.focus()}
-  function race(r){const exam=seeded(examOf(rm,r),hash(rm.p+'/'+r+'/'+st.stt)),t0=Date.now();let i=0,good=0,streak=0,lock=false,timer=0;const ans=[];
+  function race(r){const exam=seeded(examOf(rm,r),hash(rm.p+'/'+r+'/'+sid(st.ten))),t0=Date.now();let i=0,good=0,streak=0,lock=false,timer=0;const ans=[];
     P.innerHTML='';const hud=mk('div','hud'),qc=mk('div','qc'),ops=mk('div','ops');P.append(hud,qc,ops);
     const secs=()=>Math.floor((Date.now()-t0)/1000);
     function drawHud(){const l=Math.max(0,rm.t-secs());hud.innerHTML='';hud.append(mk('span',null,'Câu '));hud.lastChild.append(mk('b',null,Math.min(i+1,exam.length)),document.createTextNode('/'+exam.length));if(streak>=3)hud.append(mk('span','combo','连击 ×'+streak,'zh'));const c=mk('span','sp'+(l<=10?' low':''));c.innerHTML=IC('dong-ho')+' <b>'+fmt(l)+'</b>';hud.append(c);if(l<=0)finish()}
     function finish(){if(lock==='end')return;lock='end';clearInterval(timer);st.res[r]={c:good,t:Math.min(secs(),rm.t),ans};save();done(r,true)}
-    function ask(){if(i>=exam.length){finish();return}const q=exam[i],opts=seeded([q.ok,...q.bad],hash(q.id+'/'+st.stt));lock=false;qc.innerHTML='';qc.append(mk('small',null,q.k),mk('div','z',q.q,'zh'));ops.innerHTML='';
+    function ask(){if(i>=exam.length){finish();return}const q=exam[i],opts=seeded([q.ok,...q.bad],hash(q.id+'/'+sid(st.ten)));lock=false;qc.innerHTML='';qc.append(mk('small',null,q.k),mk('div','z',q.q,'zh'));ops.innerHTML='';
       opts.forEach(o=>{const b=mk('button','op',o,'zh');b.type='button';b.onclick=()=>{if(lock)return;lock=true;const ok=o===q.ok;b.classList.add(ok?'ok':'no');ans.push({i:q.id,pick:o});
           if(ok){good++;streak++;if(navigator.vibrate)navigator.vibrate(12)}else{streak=0;[...ops.children].find(x=>x.textContent===q.ok).classList.add('ok');if(navigator.vibrate)navigator.vibrate(60)}
           i++;setCar(i/exam.length);carEl.classList.toggle('nitro',streak>=3);drawHud();setTimeout(()=>{if(lock!=='end')ask()},ok?420:950)};ops.append(b)});drawHud()}
     setCar(0);timer=setInterval(drawHud,500);ask()}
   function done(r,moi){const x=st.res[r],exam=examOf(rm,r),f=x.c/exam.length,rk=RANK.find(y=>f>=y[0]);setCar(f);carEl.classList.remove('nitro');P.innerHTML='';
     if(moi){if(f>=.7){AM.play('win');confetti(80)}else AM.play('clear')}
-    const e=mk('div','endc'),rn=mk('div','rn');rn.append(mk('span',null,rk[1],'zh'),document.createTextNode(rk[2]));e.append(mk('div','big',x.c+'/'+exam.length),rn,mk('div','muted','Vòng '+r+' · số '+st.stt+' · '+x.t+' giây'),mk('div',null,'Mã kết quả, đọc cho cô:'),mk('div','mak',encode(rm,r,st.stt,x.c,x.t)));
+    const e=mk('div','endc'),rn=mk('div','rn');rn.append(mk('span',null,rk[1],'zh'),document.createTextNode(rk[2]));e.append(mk('div','big',x.c+'/'+exam.length),rn,mk('div','muted',st.ten+' · vòng '+r+' · '+x.t+' giây'),mk('div',null,'Mã kết quả, đọc cho cô kèm tên em:'),mk('div','mak',encode(rm,r,sid(st.ten),x.c,x.t)));
     const n=mk('button','sbb','Vào vòng tiếp');n.type='button';n.onclick=gate;e.append(n);P.append(e);
     const ul=mk('ul','rv');exam.forEach(q=>{const a=(x.ans||[]).find(y=>y.i===q.id),ok=a&&a.pick===q.ok,li=mk('li',ok?'':'sai');li.append(mk('span','z',q.q,'zh'));if(!ok){li.append(document.createTextNode(a?'Em chọn: '+a.pick+'. ':'Chưa kịp làm. '))}li.append(document.createTextNode('Đáp án: '),mk('b',null,q.ok,'zh'));if(!ok&&q.why)li.append(mk('i',null,q.why));ul.append(li)});P.append(ul)}
-  st.stt?gate():join()}
+  st.ten?gate():join()}
 
 /* ---------- vào trang ---------- */
 const u=new URLSearchParams(location.search);
