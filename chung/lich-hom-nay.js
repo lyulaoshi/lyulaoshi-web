@@ -1,6 +1,6 @@
 // Lịch hôm nay kiểu cuống vé (trang chủ, mục #hom-nay) — trang lịch vạn niên nhỏ: cuống đỏ (lời chào, ngày, nút xé) + thân vé
 // (ngày tháng đọc bằng tiếng Trung, lịch âm + can chi, ngày lễ, 宜/忌, thông điệp hôm nay). Xé tờ thì hiện trang ngày mai.
-// Cần: /chung/lich-du-lieu.js?v=b26ecbe6 (LICH_YJ, LICH_CHU), /chung/thong-diep.js?v=8d892021 (TD_CHON, TD_CUNG), /tro-choi/tts.js (loa).
+// Cần: /chung/lich-du-lieu.js?v=b26ecbe6 (LICH_YJ, LICH_CHU), /chung/thong-diep.js?v=5452996a (TD_CHON, TD_CUNG), /tro-choi/tts.js (loa).
 (function(){
 const ve=document.querySelector('.lichve');if(!ve)return;
 const YJ=window.LICH_YJ||[['学汉字','học chữ Hán','偷懒','lười biếng']];
@@ -60,6 +60,9 @@ let lanChao=0;try{lanChao=(+localStorage.getItem('llChao')||0)+1;localStorage.se
 
 function veTo(d,lech){
   const a=am(d),l=le(d),y=YJ[mod(dayNo(d),YJ.length)],wk=d.getDay();
+  const soNgay=Math.round((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())-Date.UTC(d.getFullYear(),0,0))/864e5),
+    soNam=y=>(y%4===0&&y%100!==0)||y%400===0?366:365;   // số vé: ngày thứ mấy trong năm
+  ve.dataset.thu=wk;   // màu tờ lịch theo thứ (CSS .lichve[data-thu])
   const gc=CHAO.filter(x=>x[0]<=new Date().getHours()).pop();
   const g=lech?['明天见！','Xem trước ngày mai','Mai ghé lại xé lịch tiếp nha!']:[gc[1],gc[2],gc[3][lanChao%gc[3].length]];
   const ngayZh=d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';
@@ -82,6 +85,7 @@ function veTo(d,lech){
   ve.innerHTML=
     '<div class="cuong"><span class="cz" lang="zh">'+g[0]+'</span><span class="cv">'+g[1]+'</span><span class="cvui">'+g[2]+'</span>'+
       '<b class="so">'+d.getDate()+'</b><span class="thu" lang="zh">星期'+WK[wk]+'</span>'+
+      '<span class="seri">No.'+String(soNgay).padStart(3,'0')+' / '+(soNam(d.getFullYear()))+'</span><i class="nen" lang="zh" aria-hidden="true">'+WK[wk]+'</i>'+
       (lech?'<button type="button" class="ve-lai"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#lai"/></svg>Về hôm nay</button>':'')+
     '</div>'+
     '<div class="than"><span class="tem" lang="zh">'+(lech?'明日':'今日')+'</span>'+
@@ -115,10 +119,34 @@ function veTo(d,lech){
   nut.addEventListener('click',()=>{
     if(window.speechSynthesis)speechSynthesis.cancel();
     const sau=lech?0:1,bot=matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if(sau&&!bot){xeDuongCham();return}
     ve.classList.add(sau?'roi':'mo');
     setTimeout(()=>{veTo(new Date(nay.getFullYear(),nay.getMonth(),nay.getDate()+sau),sau);ve.classList.remove('roi','mo');ve.classList.add('hien');
       setTimeout(()=>ve.classList.remove('hien'),400);(ve.querySelector('.ve-lai')||ve.querySelector('.goc')).focus({preventScroll:true})},bot?0:650);
   });
+}
+// Xé theo đường chấm: vẽ sẵn tờ ngày mai bên dưới, phủ bản sao tờ hôm nay lên trên; thân vé bản sao có mép xé lởm chởm,
+// giật 2 cái rồi nghiêng rơi xuống; cuống cũ mờ đi sau cùng. (Giảm chuyển động: đổi tờ ngay, không hiệu ứng.)
+function rangCua(tren){   // mép xé: tren = cạnh trên (điện thoại, cuống nằm trên), không thì cạnh trái
+  const n=26,p=[];
+  for(let i=0;i<=n;i++){const t=(i/n*100).toFixed(2)+'%',k=((i%2?1.5:6)+Math.random()*3).toFixed(1)+'px';p.push(tren?t+' '+k:k+' '+t)}
+  return 'polygon('+p.join(',')+(tren?',100% 100%,0 100%)':',100% 100%,100% 0)');
+}
+function xeDuongCham(){
+  const cs=getComputedStyle(ve),lop=document.createElement('div'),manh=document.createElement('div');
+  lop.className='xe-lop';lop.setAttribute('aria-hidden','true');lop.inert=true;
+  ['--lv','--lv-s','--lv-d'].forEach(k=>lop.style.setProperty(k,cs.getPropertyValue(k)));   // giữ màu của hôm nay
+  const than=ve.querySelector('.than').cloneNode(true);
+  than.style.clipPath=rangCua(matchMedia('(max-width:600px)').matches);
+  manh.className='manh';manh.appendChild(than);
+  lop.append(ve.querySelector('.cuong').cloneNode(true),manh);
+  veTo(new Date(nay.getFullYear(),nay.getMonth(),nay.getDate()+1),1);
+  ve.appendChild(lop);
+  const cha=ve.parentElement;cha.style.overflowX='clip';   // mảnh vé rơi chệch ra ngoài không làm trang cuộn ngang
+  const xong=()=>{lop.remove();cha.style.overflowX=''};
+  lop.addEventListener('animationend',e=>{if(e.target===lop)xong()});
+  setTimeout(xong,1600);
+  const n=ve.querySelector('.ve-lai');if(n)n.focus({preventScroll:true});
 }
 // nút loa chỉ hiện khi máy có giọng tiếng Trung
 function hienLoa(){if(!window.TTS)return;ve.querySelectorAll('.spk').forEach(b=>b.hidden=!TTS.can(b.dataset.say))}

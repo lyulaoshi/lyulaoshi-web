@@ -185,20 +185,22 @@ body{background:var(--ground)}
 
 <script src="../tro-choi/tts.js"></script>
 <script src="../tro-choi/vuot-ai/am.js"></script>
-<script src="bac-kinh.js?v=3"></script>
+<script src="bac-kinh.js?v=4"></script>
+<script src="tien-do.js?v=1"></script>
 <script>
 (function(){
 const $=s=>document.querySelector(s);
 const ic=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
 const am=n=>{try{window.AM&&AM.play(n)}catch(e){}};
 // điểm đang xem: ?d=gugong | changcheng | tiantan | yiheyuan (dữ liệu ở bac-kinh.js)
-const BJ=window.VH_BJ,ID=(new URLSearchParams(location.search).get('d')||'gugong').replace(/[^a-z]/g,''),D=BJ.tq[ID]||BJ.tq.gugong,DID=BJ.tq[ID]?ID:'gugong';
+const C=VHTD.thanhPho(),BJ=VH_TP[C],S=BJ.sanh,T0=Object.keys(BJ.tq)[0],ID=(new URLSearchParams(location.search).get('d')||T0).replace(/[^a-z]/g,''),D=BJ.tq[ID]||BJ.tq[T0],DID=BJ.tq[ID]?ID:T0;
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const LIC=l=>/CC0/.test(l)?'https://creativecommons.org/publicdomain/zero/1.0/':'https://creativecommons.org/licenses/'+(/SA/.test(l)?'by-sa':'by')+'/'+(l.match(/[\d.]+/)||['4.0'])[0];
 const nguon=(a,ten)=>'Ảnh: '+esc(a[3])+' · <a href="'+LIC(a[2])+'" target="_blank" rel="noopener">'+a[2]+'</a> · <a href="'+a[1]+'" target="_blank" rel="noopener">'+(ten||'Wikimedia')+'</a>';
 document.title=D.zh+' · '+D.vi+' – 文化盒';
-$('#duong').innerHTML='<span class="zh">华北线</span>Tuyến Hoa Bắc'+ic('sau')+'<a href="thu-thanh-pho.html#ban-do" style="color:inherit;text-decoration:none"><span class="zh">北京</span>Bắc Kinh</a>'+ic('sau')+D.zh+' '+D.vi;
-$('#chips').innerHTML=BJ.diem.map(d=>{const co=!!BJ.tq[d.id]||!!(BJ.tn&&BJ.tn[d.id]);return co&&d.id!==DID?'<a href="'+(BJ.tq[d.id]?'?d=':'thu-trai-nghiem.html?d=')+d.id+'"><b>'+d.zh+'</b>'+(d.ngan||d.vi)+'</a>':'<span class="'+(d.id===DID?'nay':'soon')+'"><b>'+d.zh+'</b>'+(d.ngan||d.vi)+'</span>'}).join('');
+$('#duong').innerHTML='<a href="./#tuyen-tau" style="color:inherit;text-decoration:none"><span class="zh">'+S.tuyen[0]+'</span> '+S.tuyen[1]+'</a>'+ic('sau')+'<a href="thu-thanh-pho.html?c='+C+'#ban-do" style="color:inherit;text-decoration:none"><span class="zh">'+S.zh+'</span> '+S.vi+'</a>'+ic('sau')+D.zh+' '+D.vi;
+const moc=document.querySelector('.moc text');if(moc)moc.textContent=S.zh;
+$('#chips').innerHTML=BJ.diem.map(d=>{const l=VHTD.link(C,d);return l&&d.id!==DID?'<a href="'+l+'"><b>'+d.zh+'</b>'+(d.ngan||d.vi)+'</a>':'<span class="'+(d.id===DID?'nay':'soon')+'"><b>'+d.zh+'</b>'+(d.ngan||d.vi)+'</span>'}).join('');
 $('#heroImg').src=D.anh[0];$('#heroImg').alt=D.alt;$('#chuTay').textContent=D.chuTay;$('#heroNguon').innerHTML=nguon(D.anh,'Wikimedia Commons');
 $('#tem').outerHTML='<svg class="tem" viewBox="0 0 80 96" aria-hidden="true"><path d="M4 0h72v96H4z" fill="var(--bt)"/><g fill="var(--ground,#eee)">'+[8,20,32,44,56,68,80,92].map(y=>'<circle cx="4" cy="'+y+'" r="3"/><circle cx="76" cy="'+y+'" r="3"/>').join('')+'</g><rect x="11" y="8" width="58" height="80" fill="#C8423B"/><path d="M18 52q10-1 14-8h16q4 7 14 8z" fill="#F2C14E"/><rect x="24" y="52" width="32" height="12" fill="#8E2A2A"/><path d="M14 64h52v6H14z" fill="#F4EEE2"/><text x="40" y="34" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="'+(D.zh.length>2?12:16)+'" fill="#FBE7A1">'+D.zh+'</text><text x="40" y="82" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="8" fill="#FBE7A1">文化盒</text></svg>';
 $('#ten').innerHTML='<span class="zh">'+D.zh+'</span>'+D.vi;
@@ -244,12 +246,12 @@ function ket(){
   const sao=dung>=5?3:dung>=4?2:dung>=3?1:0;
   am(sao?'win':'lose');
   $('#khung').innerHTML=dauQz()+'<div class="ve-tq">'+(sao?
-    '<svg class="ve-to" viewBox="0 0 320 130" aria-hidden="true"><rect x="2" y="2" width="316" height="126" rx="10" fill="#FBF5E8" stroke="#C8423B" stroke-width="3"/><path d="M226 2v126" stroke="#C8423B" stroke-width="2" stroke-dasharray="5 5"/><text x="20" y="34" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="12" fill="#C8423B">参观券 · VÉ THAM QUAN</text><text x="20" y="84" font-family="STKaiti,KaiTi,serif" font-size="'+(D.zh.length>2?38:46)+'" fill="#2B2E45">'+D.zh+'</text><text x="20" y="110" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="12" fill="#6B6F84">北京 · '+D.vi+' · 景点</text><g transform="translate(272 64) rotate(-14)"><circle r="34" fill="none" stroke="#C8423B" stroke-width="3"/><circle r="27" fill="none" stroke="#C8423B" stroke-width="1.2" stroke-dasharray="3 3"/><text y="7" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="20" fill="#C8423B">已参观</text></g></svg>'+
-    '<h2>Đã tham quan '+D.vi+'!</h2><div class="sao-kq">'+[0,1,2].map(i=>ic(i<sao?'sao':'sao-rong').replace('class="lli"','class="lli'+(i<sao?'':' rong')+'"')).join('')+'</div><p style="color:var(--muted);margin:0">Đúng '+dung+'/'+CAU.length+' câu · đã ghi vào bản đồ Bắc Kinh</p>':
+    '<svg class="ve-to" viewBox="0 0 320 130" aria-hidden="true"><rect x="2" y="2" width="316" height="126" rx="10" fill="#FBF5E8" stroke="#C8423B" stroke-width="3"/><path d="M226 2v126" stroke="#C8423B" stroke-width="2" stroke-dasharray="5 5"/><text x="20" y="34" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="12" fill="#C8423B">参观券 · VÉ THAM QUAN</text><text x="20" y="84" font-family="STKaiti,KaiTi,serif" font-size="'+(D.zh.length>2?38:46)+'" fill="#2B2E45">'+D.zh+'</text><text x="20" y="110" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="12" fill="#6B6F84">'+S.zh+' · '+D.vi+' · 景点</text><g transform="translate(272 64) rotate(-14)"><circle r="34" fill="none" stroke="#C8423B" stroke-width="3"/><circle r="27" fill="none" stroke="#C8423B" stroke-width="1.2" stroke-dasharray="3 3"/><text y="7" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="20" fill="#C8423B">已参观</text></g></svg>'+
+    '<h2>Đã tham quan '+D.vi+'!</h2><div class="sao-kq">'+[0,1,2].map(i=>ic(i<sao?'sao':'sao-rong').replace('class="lli"','class="lli'+(i<sao?'':' rong')+'"')).join('')+'</div><p style="color:var(--muted);margin:0">Đúng '+dung+'/'+CAU.length+' câu · đã ghi vào bản đồ '+S.vi+'</p>':
     '<h2>Chưa qua được rồi</h2><p style="color:var(--muted);margin:0">Đúng '+dung+'/'+CAU.length+' câu. Lật lại Cẩm nang rồi thử lại nhé.</p>')+
     (tui.length?'<div class="tui-kq">'+tui.map(k=>'<span><b>'+k[0]+'</b><small>'+k[1]+' · '+k[2]+'</small></span>').join('')+'</div>':'')+
-    '<div class="hang" style="justify-content:center;margin-top:16px">'+(sao?'<a class="btn m" href="thu-thanh-pho.html#ban-do">'+ic('truoc')+'Về bản đồ Bắc Kinh</a>':'')+'<button class="btn sec" type="button" id="lai">'+ic('lai')+'Chơi lại</button></div></div>';
-  if(sao)try{const x=JSON.parse(localStorage.getItem('vh-thu-diem'))||{};x[DID]=1;localStorage.setItem('vh-thu-diem',JSON.stringify(x))}catch(e){}
+    '<div class="hang" style="justify-content:center;margin-top:16px">'+(sao?'<a class="btn m" href="thu-thanh-pho.html?c='+C+'#ban-do">'+ic('truoc')+'Về bản đồ '+S.vi+'</a>':'')+'<button class="btn sec" type="button" id="lai">'+ic('lai')+'Chơi lại</button></div></div>';
+  if(sao)VHTD.ghi(C,DID);
   $('#lai').onclick=batDau;
 }
 // cẩm nang: lật thẻ, đếm số thẻ đã đọc

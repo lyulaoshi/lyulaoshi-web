@@ -30,6 +30,19 @@
 .moi-bj small{font-size:14px;color:var(--muted);line-height:1.5}
 .moi-bj .nut-bj{justify-self:start;display:inline-flex;align-items:center;gap:6px;margin-top:4px;font-weight:800;color:var(--do)}.moi-bj .nut-bj .lli{width:16px;height:16px}
 @media (max-width:640px){.moi-bj{grid-template-columns:minmax(0,1fr)}.moi-bj .anh-bj{min-height:150px}.moi-bj .chu-bj{padding:14px 16px}}
+/* ---- sơ đồ cả nước (không vẽ đường biên: chỉ thành phố theo kinh độ, vĩ độ + sông, núi) */
+.bd-nuoc-wrap{margin:6px 0 18px}
+.bd-nuoc{position:relative;max-width:860px;margin:0 auto;border-radius:22px;overflow:hidden;background:#F3EAD6;border:6px solid #FFFDF8;outline:1.5px solid #E2CFA6;box-shadow:0 14px 34px rgba(60,40,10,.16)}
+.bd-nuoc svg{display:block;width:100%;height:auto}
+.bd-nuoc .ga{cursor:pointer}
+.bd-nuoc .ga:focus-visible{outline:none}.bd-nuoc .ga:focus-visible circle.cham,.bd-nuoc .ga:hover circle.cham{stroke-width:5}
+.bd-nuoc .ga.khoa{cursor:default;opacity:.55}
+.bd-nuoc .ten-ga{font-family:var(--kai);font-size:17px;fill:#2B2E45;paint-order:stroke;stroke:#F6EEDC;stroke-width:4px;stroke-linejoin:round;pointer-events:none}
+.bd-nuoc .tuyen-dang path.duong{stroke-width:7}
+@media (prefers-reduced-motion:no-preference){.bd-nuoc .nhip{animation:nhipga 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}}
+@keyframes nhipga{50%{transform:scale(1.5);opacity:.2}}
+.bd-chu{max-width:860px;margin:8px auto 0;padding:0 4px;font-size:12.5px;color:var(--muted)}
+@media (max-width:640px){.bd-nuoc{border-width:4px}.bd-nuoc .ten-ga{font-size:26px;stroke-width:6px}}
 /* ---- thanh hộ chiếu */
 .hc-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--card);border-radius:20px;padding:14px 18px;box-shadow:var(--shadow);margin-top:8px}
 .hc-rank{display:flex;align-items:center;gap:12px;flex:1;min-width:220px}
@@ -240,7 +253,8 @@ dialog#hc::backdrop{background:rgba(20,20,30,.55)}
 </div>
 
 <h2 class="kh" id="tuyen-tau"><span class="zh">旅行路线</span>Tuyến tàu</h2>
-<p class="kh-sub">Chọn một tuyến. Mỗi ga 6 câu, có 3 trái tim, sai 3 lần là lỡ chuyến. Đến ga này mới mở được ga sau trong tuyến.</p>
+<p class="kh-sub">Chạm vào một ga trên sơ đồ, hoặc chọn tuyến bên dưới. Mỗi ga 6 câu đố, 3 trái tim; ga có nhãn 城市漫步 thì vào dạo phố. Đến ga này mới mở được ga sau trong tuyến.</p>
+<div class="bd-nuoc-wrap"><div class="bd-nuoc" id="bdNuoc"></div><p class="bd-chu">Chạm vào một ga để lên tàu. Sơ đồ chỉ minh hoạ vị trí tương đối của các thành phố, không thể hiện đường biên giới.</p></div>
 <div class="tab-tuyen" id="tabTuyen" role="group" aria-label="Chọn tuyến tàu"></div>
 <div class="dau-tuyen" id="dauTuyen"></div>
 <div class="tuyen" id="tuyen"></div>
@@ -272,6 +286,8 @@ dialog#hc::backdrop{background:rgba(20,20,30,.55)}
 <script src="du-lich.js?v=4"></script>
 <script src="canh-3d.js?v=2"></script>
 <script src="le-hoi.js?v=2"></script>
+<script src="bac-kinh.js?v=4"></script>
+<script src="tien-do.js?v=1"></script>
 <script>
 (function(){
 const TT=window.VH_TUYEN,BY={},$=s=>document.querySelector(s);window.VH_TRAM.forEach(t=>BY[t.id]=t);
@@ -283,6 +299,11 @@ const am=n=>{try{window.AM&&AM.play(n)}catch(e){}};
 const get=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}};
 const set=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 let SAO=get('vh-sao',{}),TU=get('vh-tu',[]),LS=get('vh-le',{});
+// ga thành phố (có sảnh ga + bản đồ dạo phố, dữ liệu VH_TP): sao tính theo số điểm đã đi (tien-do.js), không chơi 6 câu đố
+const TP=c=>!!(window.VH_TP&&VH_TP[c]&&window.VHTD);
+Object.keys(window.VH_TP||{}).forEach(c=>{if(!TP(c))return;const s=VHTD.sao(c);if(s>(SAO[c]||0)){SAO[c]=s;set('vh-sao',SAO)}});
+const vangTP=c=>TP(c)&&VHTD.dem(c)>=VH_TP[c].diem.length;
+const dauGa=t=>TP(t.id)&&VHTD.sao(t.id)?VHTD.dau(t.zh,vangTP(t.id)):DAU(t);
 
 // Hình bưu thiếp vẽ tay, viewBox 160×100
 const HINH={
@@ -362,14 +383,68 @@ function veTuyen(){
     (u.du?'':'<span class="soan">Tuyến đang soạn: mới có '+u.ga.length+' ga</span>')+(x===u.ga.length&&u.du?'<span class="xongT">'+ic('cup')+'Hoàn thành tuyến</span>':'');
   $('#tuyen').innerHTML=L.map((t,i)=>{
     const m=mo(u,i),s=SAO[t.id]||0;
-    const tt=s?saoHTML(s)+'<span>Đã đến</span>':m?ic('phat')+'Lên tàu':ic('khoa')+'Chưa mở';
+    const tp=TP(t.id),dp=tp?VHTD.dem(t.id)+'/'+VH_TP[t.id].diem.length:'';
+    const tt=s?saoHTML(s)+'<span>'+(tp?'Dạo phố '+dp:'Đã đến')+'</span>':m?ic('phat')+(tp?'Vào ga · dạo phố'+(VHTD.dem(t.id)?' '+dp:''):'Lên tàu'):ic('khoa')+'Chưa mở';
     return '<button type="button" class="ve'+(m?'':' khoa')+(i===ke?' day':'')+'" data-i="'+i+'" style="--m:'+t.mau+'"'+(m?'':' disabled')+' aria-label="Ga '+(i+1)+': '+t.vi+'">'+
       (i===ke?'<svg class="tau" viewBox="0 0 58 34" aria-hidden="true"><rect x="4" y="4" width="44" height="22" rx="8" fill="'+t.mau+'" stroke="#2B2E45" stroke-width="2.5"/><rect x="10" y="9" width="10" height="8" rx="2" fill="#fff"/><rect x="24" y="9" width="10" height="8" rx="2" fill="#fff"/><path d="M48 12h6v10h-6" fill="#E0A800" stroke="#2B2E45" stroke-width="2.5"/><circle cx="16" cy="28" r="4" fill="#2B2E45"/><circle cx="36" cy="28" r="4" fill="#2B2E45"/></svg>':'')+
-      '<span class="anh">'+svg(t.id)+'<span class="so">Ga '+(i+1)+'</span></span>'+
+      '<span class="anh">'+svg(t.id)+'<span class="so">Ga '+(i+1)+(tp?' · 城市漫步':'')+'</span></span>'+
       '<span class="than"><span class="ten"><b class="zh">'+t.zh+'</b><span>'+t.vi+'</span></span><span class="bd">'+t.bd+'</span><span class="tt">'+tt+'</span></span>'+
-      (s?'<span class="dau">'+DAU(t)+'</span>':'')+'</button>'}).join('');
+      (s?'<span class="dau">'+dauGa(t)+'</span>':'')+'</button>'}).join('');
+  veBanDo();
   veLich();
 }
+
+// ---- sơ đồ cả nước: chấm ga đặt theo kinh độ, vĩ độ thật; KHÔNG vẽ đường biên, bờ biển hay vùng biển
+const TOA={bj:[116.4,39.9],tj:[117.2,39.1],cde:[117.94,40.97],py:[112.18,37.2],dt:[113.3,40.08],nmg:[111.75,40.84],
+  sh:[121.47,31.23],sz:[120.6,31.3],wz:[120.49,30.75],hz:[120.15,30.27],sx:[120.58,30.0],nj:[118.8,32.06],
+  heb:[126.65,45.75],qf:[116.99,35.6],xa:[108.94,34.34],cd:[104.06,30.66],yn:[102.71,25.04],gz:[113.26,23.13]};
+const PJ=(lo,la)=>[+((lo-98)*24+10).toFixed(1),+((48-la)*27.6+10).toFixed(1)];
+// nhãn tên ga: [dx, dy, canh lề]; cụm Giang Nam vẽ thêm ở khung phóng to
+const NHAN={bj:[-12,-8,'end'],tj:[12,14,'start'],cde:[12,4,'start'],py:[0,24,'middle'],dt:[0,-14,'middle'],nmg:[0,-14,'middle'],nj:[0,-14,'middle'],heb:[12,6,'start'],qf:[12,6,'start'],xa:[0,24,'middle'],cd:[-12,6,'end'],yn:[0,26,'middle'],gz:[0,26,'middle']};
+const GN=['sh','sz','wz','hz','sx'],GT=[548,482],GK=[668,600],GZ=3.2;   // tâm cụm, tâm khung phóng, độ phóng
+const NHAN_GN={sh:[0,26,'middle'],sz:[0,-14,'middle'],wz:[-12,5,'end'],hz:[-12,8,'end'],sx:[12,8,'start']};
+const DD=(pts)=>'M'+pts.map(p=>PJ(p[0],p[1]).join(' ')).join('L');
+const SONG={'黄河':[[98.5,35],[101.5,35.6],[103.8,36.06],[106.27,38.47],[106.8,39.65],[109.84,40.65],[111.2,40.25],[110.6,37.5],[110.4,35.6],[110.25,34.6],[113.6,34.9],[114.3,34.8],[116.98,36.67],[118.9,37.8]],
+  '长江':[[99,32.5],[99.2,29.5],[100.2,26.9],[101.8,26.5],[104.6,28.8],[106.5,29.56],[108.4,30.8],[110.3,30.9],[112.2,30.3],[114.3,30.6],[116,29.7],[117,30.5],[118.8,32.06],[119.9,32.2],[121.5,31.4]]};
+function veBanDo(){
+  const vt=t=>GN.includes(t)?null:PJ(...TOA[t]);
+  const ga=(u,id,i,x,y,lab,nho)=>{const t=BY[id],m=mo(u,i),s=SAO[id],v=vangTP(id),ke=u===CUR&&keOf(u)===i;
+    return '<g class="ga'+(m?'':' khoa')+'" data-u="'+u.id+'" data-i="'+i+'" tabindex="'+(m?0:-1)+'" role="button" aria-label="'+t.vi+(m?'':' (chưa mở)')+'"><circle cx="'+x+'" cy="'+y+'" r="22" fill="transparent"/>'+
+      (ke?'<circle class="nhip" cx="'+x+'" cy="'+y+'" r="13" fill="'+u.mau+'" opacity=".45"/>':'')+
+      '<circle class="cham" cx="'+x+'" cy="'+y+'" r="'+(nho?8:9)+'" fill="'+(s?u.mau:'#FFFDF8')+'" stroke="'+(v?'#C99A1E':u.mau)+'" stroke-width="'+(v?5:3.5)+'"/>'+
+      (s?'<path d="M'+(x-3.5)+' '+y+'l2.5 2.5 5-5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>':'')+
+      (ke?'<g transform="translate('+(x-14)+' '+(y-34)+')"><rect x="2" y="2" width="22" height="12" rx="4" fill="'+u.mau+'" stroke="#2B2E45" stroke-width="1.6"/><rect x="5" y="5" width="5" height="4" rx="1" fill="#fff"/><rect x="12" y="5" width="5" height="4" rx="1" fill="#fff"/><path d="M24 7h4v5h-4" fill="#E0A800" stroke="#2B2E45" stroke-width="1.4"/><circle cx="8" cy="16" r="2.2" fill="#2B2E45"/><circle cx="19" cy="16" r="2.2" fill="#2B2E45"/></g>':'')+
+      '<text class="ten-ga" x="'+(x+lab[0])+'" y="'+(y+lab[1])+'" text-anchor="'+lab[2]+'">'+t.zh+'</text></g>'};
+  let duong='',cham='',gn='';
+  TT.forEach(u=>{const pts=u.ga.map(id=>PJ(...TOA[id]));
+    duong+='<g class="'+(u===CUR?'tuyen-dang':'')+'"><path class="duong" d="M'+pts.map(p=>p.join(' ')).join('L')+'" stroke="'+u.mau+'" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="'+(u===CUR?1:.55)+'"/></g>';
+    u.ga.forEach((id,i)=>{const p=vt(id);if(p)cham+=ga(u,id,i,p[0],p[1],NHAN[id]||[0,-14,'middle'])});
+    // khung phóng to cụm Giang Nam
+    const gnIds=u.ga.filter(id=>GN.includes(id));
+    if(gnIds.length){const q=id=>{const p=PJ(...TOA[id]);return [+(GK[0]+(p[0]-GT[0])*GZ).toFixed(1),+(GK[1]+(p[1]-GT[1])*GZ).toFixed(1)]};
+      gn+='<path d="M'+gnIds.map(id=>q(id).join(' ')).join('L')+'" stroke="'+u.mau+'" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
+      gnIds.forEach(id=>{const p=q(id);gn+=ga(u,id,u.ga.indexOf(id),p[0],p[1],NHAN_GN[id],1)})}
+  });
+  const nui=(x,y,k)=>'<path d="M'+x+' '+y+'l'+(9*k)+' '+(-14*k)+' '+(9*k)+' '+(14*k)+'z" fill="#B9A586"/><path d="M'+(x+9*k)+' '+(y-14*k)+'l'+(3*k)+' '+(5*k)+'-'+(3*k)+' '+(1.5*k)+'-'+(3*k)+'-'+(1.5*k)+'z" fill="#FFFDF8"/>';
+  const vung=(x,y,t)=>'<text x="'+x+'" y="'+y+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="40" fill="#C9B68E" opacity=".55">'+t+'</text>';
+  $('#bdNuoc').innerHTML='<svg viewBox="0 0 812 800" aria-label="Sơ đồ các ga tàu trên khắp Trung Quốc">'+
+    '<defs><radialGradient id="bnGiay" cx=".45" cy=".45" r=".8"><stop offset="0" stop-color="#FBF5E6"/><stop offset="1" stop-color="#E6D6B4"/></radialGradient><pattern id="bnCham" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#C9B68E" opacity=".4"/></pattern></defs>'+
+    '<rect width="812" height="800" fill="url(#bnGiay)"/><rect width="812" height="800" fill="url(#bnCham)"/>'+
+    vung(690,150,'东北')+vung(430,165,'华北')+vung(170,215,'西北')+vung(650,330,'华东')+vung(110,630,'西南')+vung(470,745,'华南')+
+    '<g opacity=".8">'+nui(40,420,2.2)+nui(80,380,1.8)+nui(60,520,2)+nui(250,420,1.5)+nui(285,428,1.2)+nui(395,300,1.3)+nui(420,280,1.1)+nui(610,180,1.2)+nui(200,640,1.4)+'</g>'+
+    '<g fill="#D9C79A" opacity=".55">'+[[230,150],[270,170],[300,130],[200,190],[330,160]].map(p=>'<circle cx="'+p[0]+'" cy="'+p[1]+'" r="2.4"/>').join('')+'</g><text x="270" y="118" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="11" fill="#B09868">sa mạc · thảo nguyên</text>'+
+    Object.entries(SONG).map(([t,p])=>'<path d="'+DD(p)+'" stroke="#8FC6DA" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>').join('')+
+    '<text x="170" y="322" font-family="STKaiti,KaiTi,serif" font-size="17" fill="#3E7F99">黄河</text><text x="300" y="568" font-family="STKaiti,KaiTi,serif" font-size="17" fill="#3E7F99">长江</text>'+
+    duong+'<rect x="'+(GT[0]-24)+'" y="'+(GT[1]-36)+'" width="56" height="56" rx="10" fill="none" stroke="#8A6B4A" stroke-width="1.5" stroke-dasharray="4 3"/>'+
+    '<path d="M'+(GT[0]+32)+' '+(GT[1]+16)+'L'+(GK[0]-80)+' '+(GK[1]-50)+'" stroke="#8A6B4A" stroke-width="1.5" stroke-dasharray="4 3"/>'+cham+
+    '<circle cx="'+GK[0]+'" cy="'+GK[1]+'" r="104" fill="#FBF5E6" stroke="#8A6B4A" stroke-width="2"/><text x="'+GK[0]+'" y="'+(GK[1]-80)+'" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="11" fill="#8A6B4A">PHÓNG TO · 江南</text>'+gn+
+    '<g transform="translate(60 740)"><circle r="28" fill="#FBF5E6" stroke="#C9B68E" stroke-width="2"/><path d="M0-21L5 0 0 21-5 0z" fill="#C8423B"/><path d="M0 21L5 0-5 0z" fill="#8A7A6A"/><text y="-32" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="15" fill="#C8423B">北</text></g>'+
+    '<g transform="translate(24 22)"><rect width="170" height="46" rx="8" fill="#FBF5E6" stroke="#C8423B" stroke-width="2"/><text x="85" y="26" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="20" fill="#C8423B">旅行路线图</text><text x="85" y="39" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="9" fill="#8A6B4A">SƠ ĐỒ CÁC TUYẾN TÀU</text></g>'+
+    '</svg>';
+}
+const moGa=g=>{if(!g||g.classList.contains('khoa'))return;const u=TT.find(x=>x.id===g.dataset.u);try{AM.unlock()}catch(e){}batDau(u,+g.dataset.i)};
+$('#bdNuoc').addEventListener('click',e=>moGa(e.target.closest('.ga')));
+$('#bdNuoc').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const g=e.target.closest('.ga');if(g){e.preventDefault();moGa(g)}}});
 // ---- lịch lễ hội: lật tờ nào trước cũng được; "sắp tới" đoán theo ngày dương lịch ước chừng
 const sapToi=()=>{const d=new Date(),n=(d.getMonth()+1)*100+d.getDate(),L=LE.slice().sort((a,b)=>a.dl[0]*100+a.dl[1]-b.dl[0]*100-b.dl[1]);return(L.find(f=>f.dl[0]*100+f.dl[1]>=n)||L[0]).id};
 function veLich(){
@@ -404,6 +479,7 @@ function batLe(i){
   $('#xuatPhat').onclick=()=>{G.cau=xaoCau(t.cau);hoi()};
 }
 function batDau(u,i){
+  if(TP(u.ga[i])){if(u!==CUR){CUR=u;set('vh-tuyen',u.id)}am('appear');location.href='thu-thanh-pho.html?c='+u.ga[i];return}
   if(u!==CUR){CUR=u;set('vh-tuyen',u.id)}
   const t=BY[u.ga[i]];G={u,i,t,n:0,tim:3,dung:0,kq:[],nhat:[]};
   moChoi(t.mau,'<span class="zh">'+t.zh+'</span>'+u.vi+' · Ga '+(i+1));veTim();veVach();
@@ -503,7 +579,7 @@ document.addEventListener('click',e=>{const s=e.target.closest('[data-say]');if(
 function moHc(){
   const dau=T.filter(t=>SAO[t.id]).length;
   $('#hcPhu').textContent=dau+'/'+T.length+' dấu · '+Object.values(SAO).reduce((a,b)=>a+b,0)+' sao · '+LE.filter(f=>LS[f.id]).length+'/'+LE.length+' ngày lễ';
-  $('#hcDau').innerHTML=TT.map(u=>'<h4 style="--m:'+u.mau+'"><span class="zh">'+u.zh+'</span>'+u.vi+' · '+xongU(u)+'/'+u.ga.length+'</h4><div class="o-dau">'+gaOf(u).map(t=>'<div title="'+t.vi+'">'+(SAO[t.id]?DAU(t):t.zh)+'</div>').join('')+'</div>').join('')+
+  $('#hcDau').innerHTML=TT.map(u=>'<h4 style="--m:'+u.mau+'"><span class="zh">'+u.zh+'</span>'+u.vi+' · '+xongU(u)+'/'+u.ga.length+'</h4><div class="o-dau">'+gaOf(u).map(t=>'<div title="'+t.vi+'">'+(SAO[t.id]?dauGa(t):t.zh)+'</div>').join('')+'</div>').join('')+
     '<h4 style="--m:var(--do)"><span class="zh">节日年历</span>Lịch lễ hội · '+LE.filter(f=>LS[f.id]).length+'/'+LE.length+'</h4><div class="o-dau">'+LE.map(f=>'<div title="'+f.vi+'">'+(LS[f.id]?DAU(f):f.zh)+'</div>').join('')+'</div>';
   $('#hcTu').innerHTML=TU.length?TU.map(k=>'<p><span class="zh">'+k[0]+'</span><span class="py">'+k[1]+'</span><span class="vi">'+esc(k[2])+'</span>'+(window.TTS&&TTS.can(k[0])?'<button class="spk" type="button" data-say="'+k[0]+'" aria-label="Nghe">'+ic('loa')+'</button>':'')+'</p>').join(''):'<p class="trong">Sổ còn trống. Lên tàu và trả lời đúng để nhặt từ đầu tiên!</p>';
   $('#hc').showModal();
