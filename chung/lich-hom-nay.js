@@ -1,6 +1,6 @@
 // Lịch hôm nay kiểu cuống vé (trang chủ, mục #hom-nay) — trang lịch vạn niên nhỏ: cuống đỏ (lời chào, ngày, nút xé) + thân vé
 // (ngày tháng đọc bằng tiếng Trung, lịch âm + can chi, ngày lễ, 宜/忌, thông điệp hôm nay). Xé tờ thì hiện trang ngày mai.
-// Cần: /chung/lich-du-lieu.js?v=b26ecbe6 (LICH_YJ, LICH_CHU), /chung/thong-diep.js?v=28a842fd (TD_CHON, TD_CUNG), /tro-choi/tts.js (loa).
+// Cần: /chung/lich-du-lieu.js?v=b26ecbe6 (LICH_YJ, LICH_CHU), /chung/thong-diep.js?v=8d892021 (TD_CHON, TD_CUNG), /tro-choi/tts.js (loa).
 (function(){
 const ve=document.querySelector('.lichve');if(!ve)return;
 const YJ=window.LICH_YJ||[['学汉字','học chữ Hán','偷懒','lười biếng']];

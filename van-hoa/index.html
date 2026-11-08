@@ -20,6 +20,16 @@
 .kh{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:22px;font-weight:800;margin:34px 0 6px}
 .kh .zh{color:var(--do);font-size:26px}
 .kh-sub{color:var(--muted);font-size:14.5px;margin:0 0 16px}
+/* ---- lối vào bản thử thành phố Bắc Kinh */
+.moi-bj{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:0;margin:18px 0 6px;border-radius:22px;overflow:hidden;background:var(--card);box-shadow:var(--shadow);color:var(--ink);text-decoration:none;border:2px solid color-mix(in srgb,var(--do) 30%,transparent);transition:transform .2s}
+.moi-bj:hover{transform:translateY(-3px)}
+.moi-bj .anh-bj{position:relative;min-height:170px}.moi-bj img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.15) saturate(1.05)}
+.moi-bj .chu-bj{display:grid;align-content:center;gap:6px;padding:18px 22px}
+.moi-bj em{justify-self:start;font-style:normal;font-size:12px;font-weight:800;color:#fff;background:var(--do);border-radius:99px;padding:2px 10px}
+.moi-bj b{display:flex;align-items:baseline;gap:10px;font-size:20px}.moi-bj b .zh{font-size:34px;color:var(--do);line-height:1}
+.moi-bj small{font-size:14px;color:var(--muted);line-height:1.5}
+.moi-bj .nut-bj{justify-self:start;display:inline-flex;align-items:center;gap:6px;margin-top:4px;font-weight:800;color:var(--do)}.moi-bj .nut-bj .lli{width:16px;height:16px}
+@media (max-width:640px){.moi-bj{grid-template-columns:minmax(0,1fr)}.moi-bj .anh-bj{min-height:150px}.moi-bj .chu-bj{padding:14px 16px}}
 /* ---- thanh hộ chiếu */
 .hc-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--card);border-radius:20px;padding:14px 18px;box-shadow:var(--shadow);margin-top:8px}
 .hc-rank{display:flex;align-items:center;gap:12px;flex:1;min-width:220px}
@@ -218,6 +228,11 @@ dialog#hc::backdrop{background:rgba(20,20,30,.55)}
       <path d="M-28 20l20-22 14 14 12-10 26 18z" fill="#2E8C6A"/><circle cx="34" cy="-10" r="8" fill="#E0A800"/></g>
   </svg><span class="lh-pop a">茶</span><span class="lh-pop b py">wénhuà</span><span class="lh-pop c">福</span><span class="lh-pop d">春节</span></div>
 </section>
+
+<a class="moi-bj" href="thu-thanh-pho.html">
+  <span class="anh-bj"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Jingshan_Farview_of_Beijing_CBD_-_Flickr.jpg/960px-Jingshan_Farview_of_Beijing_CBD_-_Flickr.jpg" alt="Mái đình cổ trên đồi Cảnh Sơn, phía xa là cao ốc Bắc Kinh"></span>
+  <span class="chu-bj"><em>Mới · bản chạy thử</em><b><span class="zh">北京</span>Dạo phố Bắc Kinh</b><small>Sảnh ga, bản đồ dạo phố, 4 điểm tham quan ảnh thật (故宫, 长城, 天坛, 颐和园) và 4 trải nghiệm: gọi món, đi taxi, nhà tứ hợp viện, hội chùa.</small><span class="nut-bj">Vào ga Bắc Kinh <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#sau"></use></svg></span></span>
+</a>
 
 <div class="hc-bar">
   <div class="hc-rank"><span class="huy" id="rkHuy">客</span><div style="flex:1"><b id="rkTen"></b><small id="rkSau"></small><div class="vach"><i id="rkVach"></i></div></div></div>
