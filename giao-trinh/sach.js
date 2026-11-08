@@ -23,7 +23,7 @@ window.GT_SACH=[
  {id:"fazhan-sc2",c:"",seal:"发",dim:[70,238],spine:"发展汉语|初级综合 II",zh:"发展汉语初级综合 II",vi:"Phát triển Hán ngữ Sơ cấp 2",short:"发展汉语",total:null,
   t:{1:["入乡随俗","Nhập gia tùy tục"],2:["儿子要回家","Con trai sắp về nhà"]}},
  {id:"fazhan-tc1",c:"c-sky",seal:"中",dim:[72,242],spine:"发展汉语|中级综合 I",zh:"发展汉语中级综合 I",vi:"Phát triển Hán ngữ Trung cấp 1",short:"发展汉语中级",total:null,
-  t:{1:["北京的四季","Bốn mùa Bắc Kinh"]}},
+  t:{1:["北京的四季","Bốn mùa Bắc Kinh"],2:["租房只要一个条件","Thuê nhà chỉ cần một điều kiện"]}},
  {id:"301",c:"c-peach",seal:"会",dim:[76,256],spine:"汉语会话301句",zh:"汉语会话301句",vi:"Giáo trình 301 câu đàm thoại tiếng Hoa",short:"301 câu",from:11,total:20,   // học phần dạy Bài 11–20 + 2 bài ôn (như sách: 复习 sau mỗi 5 bài)
   on:[{sau:15,tu:11,id:"on-tap-3",zh:"复习（三）",vi:"Ôn tập Bài 11–15"},{sau:20,tu:16,id:"on-tap-4",zh:"复习（四）",vi:"Ôn tập Bài 16–20"}],
   // tên bài theo sách (mục lục chỉ dùng Bài 11–20; bài chưa lên web hiện mờ) — cần cô đối chiếu với sách

@@ -1,0 +1,183 @@
+// 文化盒 · Thành phố 北京 (BẢN THỬ, chờ cô duyệt nội dung).
+// VH_BJ.diem: các điểm trên bản đồ (tq = 景点 tham quan, tn = 体验 trải nghiệm). VH_BJ.tq[id]: dữ liệu trang điểm tham quan.
+// Ảnh: Wikimedia Commons, giấy phép tự do; a = [đường dẫn ảnh, trang ảnh, giấy phép, tác giả]. Đang tải thẳng từ Wikimedia, chưa lưu về máy.
+// Thẻ cẩm nang: c màu, chu chữ to, ten/phu nhãn mặt trước, ic + tieu + p mặt sau, k từ khoá, a ảnh, s style ảnh (object-position, --z phóng, transform-origin).
+// Câu: t c chọn · ds đúng/sai · vt Việt/Trung/cả hai; zh:1 đáp án chữ Hán; anh: vị trí cắt ảnh lớn để quan sát; k từ nhặt vào túi.
+window.VH_BJ={
+diem:[
+ {id:'gugong',loai:'tq',zh:'故宫',vi:'Cố Cung',x:49.5,y:31,ic:'vuong-mien'},
+ {id:'changcheng',loai:'tq',zh:'长城',vi:'Trường Thành',x:16.5,y:6,ic:'khien'},
+ {id:'tiantan',loai:'tq',zh:'天坛',vi:'Thiên Đàn',x:58.5,y:64,ic:'mattroi'},
+ {id:'yiheyuan',loai:'tq',zh:'颐和园',vi:'Di Hoà Viên',x:14.5,y:30,ic:'la'},
+ {id:'chi',loai:'tn',zh:'吃',vi:'Ăn như người Bắc Kinh',ngan:'Ẩm thực',x:68,y:32,ic:'tra-sua'},
+ {id:'shuo',loai:'tn',zh:'说',vi:'Nói tiếng Bắc Kinh',ngan:'Tiếng nói',x:83.5,y:74,ic:'tin-nhan'},
+ {id:'zhu',loai:'tn',zh:'住',vi:'Một ngày trong ngõ',ngan:'Ngõ cổ',x:37,y:20,ic:'mu'},
+ {id:'su',loai:'tn',zh:'俗',vi:'Hội chùa, phong tục',ngan:'Phong tục',x:56.5,y:15,ic:'den-long'}],
+tq:{
+gugong:{zh:'故宫',py:'Gùgōng',vi:'Cố Cung',ten2:'Tử Cấm Thành 紫禁城',chuTay:'太和殿 · 北京故宫',
+ anh:['https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Hall_of_Supreme_Harmony_%2820241127120000%29.jpg/1280px-Hall_of_Supreme_Harmony_%2820241127120000%29.jpg','https://commons.wikimedia.org/wiki/File:Hall_of_Supreme_Harmony_(20241127120000).jpg','CC BY-SA 4.0','N509FZ'],
+ alt:'Điện Thái Hoà trong Cố Cung, Bắc Kinh, dưới trời xanh',
+ gioi:'Hoàng cung của hai triều Minh và Thanh, ngay giữa trung tâm Bắc Kinh. Gần 500 năm, 24 vị hoàng đế đã sống và làm việc ở đây. Ngày nay là Bảo tàng Cố Cung, một trong những cung điện cổ bằng gỗ lớn nhất thế giới.',
+ nhan:[['lich','Xây 1406–1420'],['vuong-mien','Minh – Thanh'],['cup','Di sản UNESCO 1987']],
+ the:[
+  {c:'#6B4FA0',chu:'紫',ten:'Tên gọi',phu:'Toàn cảnh "Tử Cấm Thành"',ic:'sach',tieu:'Tên gọi',p:'紫 là sao Tử Vi, nơi ở của Thiên Đế; hoàng đế là "con trời" nên cung điện cũng mang chữ 紫. 禁 là "cấm": dân thường không được bước vào. Từ năm 1925 nơi đây thành bảo tàng nên gọi là 故宫, "cung điện cũ".',k:['紫禁城','Zǐjìnchéng','Tử Cấm Thành'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/View_from_Jingshan_Park_%286230253295%29.jpg/960px-View_from_Jingshan_Park_%286230253295%29.jpg','https://commons.wikimedia.org/wiki/File:View_from_Jingshan_Park_(6230253295).jpg','CC BY 2.0','Francisco Anzola'],alt:'Toàn cảnh Tử Cấm Thành nhìn từ đồi Cảnh Sơn',s:'object-position:50% 40%'},
+  {c:'#C99A1E',chu:'黄',ten:'Màu sắc',phu:'Biển mái ngói vàng',ic:'vuong-mien',tieu:'Màu sắc',p:'Ngói vàng là màu riêng của hoàng đế, tường đỏ tượng trưng cho may mắn và quyền uy. Ngày xưa dân thường không được dùng màu vàng cho nhà mình.',k:['黄色','huángsè','màu vàng'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/The_Forbidden_City_%28May_2017%29.jpg/960px-The_Forbidden_City_%28May_2017%29.jpg','https://commons.wikimedia.org/wiki/File:The_Forbidden_City_(May_2017).jpg','CC BY-SA 4.0','Windmemories'],alt:'Các lớp mái ngói vàng nối tiếp nhau trong Cố Cung, nhìn từ trên cao',s:'--z:2.1;transform-origin:45% 62%'},
+  {c:'#2F6E78',chu:'殿',ten:'Trong ảnh: 太和殿',phu:'Hàng thú trên góc mái',ic:'anh',tieu:'Điện Thái Hoà',p:'Toà lớn nhất Cố Cung, dùng cho đại lễ như vua lên ngôi. Trên góc mái có hàng tượng thú nhỏ 脊兽 để trấn giữ: ở đây có 10 con, nhiều nhất Trung Quốc. Điện càng quan trọng thì càng nhiều thú.',k:['太和殿','Tàihé Diàn','điện Thái Hoà'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/%E5%A4%AA%E5%92%8C%E6%AE%BF%E7%9A%84%E8%84%8A%E7%8D%B8.JPG/960px-%E5%A4%AA%E5%92%8C%E6%AE%BF%E7%9A%84%E8%84%8A%E7%8D%B8.JPG','https://commons.wikimedia.org/wiki/File:%E5%A4%AA%E5%92%8C%E6%AE%BF%E7%9A%84%E8%84%8A%E7%8D%B8.JPG','CC BY-SA 3.0','Autumn Horizontal Lake (秋水平湖)'],alt:'Hàng tượng thú 脊兽 trên góc mái điện Thái Hoà',s:'object-position:50% 40%'},
+  {c:'#D9692A',chu:'猫',ten:'Mèo Cố Cung',phu:'"Ngôi sao" bốn chân',ic:'mat-cuoi',tieu:'Mèo Cố Cung',p:'Ngày nay Cố Cung có gần 200 chú mèo sống tự do, được nhân viên chăm sóc. Chúng giúp bắt chuột, bảo vệ đồ gỗ cổ, và rất được du khách yêu thích. Người ta gọi vui là 故宫猫.',k:['猫','māo','con mèo'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/%E7%9A%87%E5%B8%9D_%2832011294985%29.jpg/960px-%E7%9A%87%E5%B8%9D_%2832011294985%29.jpg','https://commons.wikimedia.org/wiki/File:%E7%9A%87%E5%B8%9D_(32011294985).jpg','CC BY-SA 2.0','nefasth'],alt:'Chú mèo ngủ trên bồn cây ốp ngói lưu ly trong sân Cố Cung, phía sau là cửa cung điện màu đỏ',s:'object-position:70% 20%;--z:1.35;transform-origin:72% 30%'}],
+ cau:[
+  {t:'c',q:'Điền chữ còn thiếu vào tên khác của Cố Cung: <b class="zh">紫<span class="o-trong"></span>城</b>',o:['禁','金','京','景'],a:0,zh:1,
+   x:'紫禁城 Tử Cấm Thành: 紫 là sao Tử Vi, 禁 là cấm dân thường vào. 金 là vàng, 京 là kinh đô, 景 là cảnh.',k:['紫禁城','Zǐjìnchéng','Tử Cấm Thành']},
+  {t:'c',q:'Mái ngói màu vàng ở Cố Cung tượng trưng cho ai?',o:['Hoàng đế','Hoàng hậu','Quan lại','Nhà sư'],a:0,
+   x:'Màu vàng là màu riêng của hoàng đế. Ngày xưa dân thường dùng màu vàng cho nhà mình là phạm tội.',k:['黄色','huángsè','màu vàng']},
+  {t:'ds',q:'Tương truyền Cố Cung có 9.999 gian rưỡi, vì chỉ Thiên Đình trên trời mới được có 10.000 gian.',a:0,
+   x:'Đúng là có truyền thuyết này. Theo khảo sát thực tế, Cố Cung có khoảng 8.700 gian.',k:['房间','fángjiān','gian phòng']},
+  {t:'c',anh:'50% 38%',khung:'Nhìn kỹ phần mái',q:'Quan sát ảnh: mái của <b class="zh">太和殿</b> có mấy tầng?',o:['2 tầng','1 tầng','3 tầng','4 tầng'],a:0,
+   x:'Mái hai tầng kiểu 重檐庑殿顶 là kiểu mái cao quý nhất thời xưa, chỉ dùng cho điện quan trọng nhất. Trên góc mái còn có hàng tượng thú nhỏ 脊兽: ở đây có 10 con, nhiều nhất Trung Quốc.',k:['屋顶','wūdǐng','mái nhà']},
+  {t:'vt',q:'Có một "Tử Cấm Thành" là nơi vua ở và làm việc.',a:2,
+   x:'Cả hai đều có. Tử Cấm Thành Huế của nhà Nguyễn nằm trong Hoàng thành Huế; Tử Cấm Thành Bắc Kinh của nhà Minh, nhà Thanh.',k:['皇宫','huánggōng','hoàng cung']}]},
+
+changcheng:{zh:'长城',py:'Chángchéng',vi:'Vạn Lý Trường Thành',ten2:'Đoạn ngoại ô Bắc Kinh',chuTay:'万里长城 · 北京',
+ anh:['https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/GreatWall6.jpg/1280px-GreatWall6.jpg','https://commons.wikimedia.org/wiki/File:GreatWall6.jpg','CC BY-SA 2.0','Craig Nagy'],
+ alt:'Trường Thành uốn lượn trên các sống núi xanh',
+ gioi:'Bức tường phòng thủ dài nhất thế giới, chạy qua núi đồi phía bắc Trung Quốc. Các triều đại xây và nối tiếp suốt hơn 2.000 năm; những đoạn đẹp nhất gần Bắc Kinh chủ yếu xây thời Minh. Từ trung tâm thành phố đi xe khoảng 1–2 giờ là tới.',
+ nhan:[['lich','Xây hơn 2.000 năm'],['khien','Chống giặc phương Bắc'],['cup','Di sản UNESCO 1987']],
+ the:[
+  {c:'#8A6B4A',chu:'长',ten:'Dài bao nhiêu?',phu:'"Vạn lý" là hơn 10.000 dặm',ic:'sach',tieu:'Vạn lý trường thành',p:'万里 là "vạn dặm"; ngày nay 1 dặm 里 bằng 500 m, tức khoảng 5.000 km. Thực tế còn dài hơn nhiều: theo khảo sát năm 2012, cộng tất cả các đoạn qua mọi triều đại là hơn 21.000 km.',k:['万里长城','Wànlǐ Chángchéng','Vạn Lý Trường Thành'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Great_Wall_China_01.jpg/960px-Great_Wall_China_01.jpg','https://commons.wikimedia.org/wiki/File:Great_Wall_China_01.jpg','CC BY 4.0','Philip Nalangan'],alt:'Trường Thành kéo dài tít tắp qua nhiều dãy núi',s:'object-position:50% 50%'},
+  {c:'#C8423B',chu:'烽',ten:'Tháp canh',phu:'Lửa báo tin',ic:'lua',tieu:'Tháp lửa báo hiệu',p:'Dọc tường có hàng nghìn tháp canh. Thấy giặc, lính đốt lửa ban đêm, đốt khói ban ngày; tháp bên cạnh nhìn thấy thì đốt tiếp, tin báo truyền đi rất nhanh. Tháp như vậy gọi là 烽火台.',k:['烽火台','fēnghuǒtái','tháp lửa báo hiệu'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/20090529_Great_Wall_8152.jpg/960px-20090529_Great_Wall_8152.jpg','https://commons.wikimedia.org/wiki/File:20090529_Great_Wall_8152.jpg','CC BY-SA 3.0','Jakub Hałun'],alt:'Tháp canh trên Trường Thành dưới trời xanh',s:'object-position:70% 40%'},
+  {c:'#6E7A84',chu:'砖',ten:'Gạch và vữa',phu:'Bí mật gạo nếp',ic:'manh-ghep',tieu:'Gạch và vữa',p:'Đoạn thời Minh xây bằng gạch và đá. Các nhà khoa học phát hiện vữa gắn gạch ở nhiều công trình cổ, trong đó có Trường Thành, được trộn nước cháo gạo nếp với vôi nên rất bền.',k:['砖','zhuān','viên gạch'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/20090529_Great_Wall_Jinshanling_8225.jpg/960px-20090529_Great_Wall_Jinshanling_8225.jpg','https://commons.wikimedia.org/wiki/File:20090529_Great_Wall_Jinshanling_8225.jpg','CC BY-SA 3.0','Jakub Hałun'],alt:'Tường gạch cổ của Trường Thành đoạn Kim Sơn Lĩnh',s:'object-position:50% 50%'},
+  {c:'#2F7FA0',chu:'汉',ten:'Hảo hán',phu:'Câu nói nổi tiếng',ic:'tho',tieu:'Chưa đến chưa là hảo hán',p:'不到长城非好汉: chưa đến Trường Thành chưa phải hảo hán. Nhiều đoạn bậc thang rất dốc, leo tới tháp canh trên đỉnh ai cũng thở dốc, rồi tự hào chụp ảnh "mình là hảo hán rồi".',k:['好汉','hǎohàn','hảo hán, người can đảm'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/20090529_Great_Wall_8248.jpg/960px-20090529_Great_Wall_8248.jpg','https://commons.wikimedia.org/wiki/File:20090529_Great_Wall_8248.jpg','CC BY-SA 3.0','Jakub Hałun'],alt:'Bậc thang dốc dẫn lên tháp canh trên Trường Thành',s:'object-position:40% 60%'}],
+ cau:[
+  {t:'c',q:'Điền chữ còn thiếu: <b class="zh">长<span class="o-trong"></span></b> (Trường Thành)',o:['城','成','程','诚'],a:0,zh:1,
+   x:'城 là tường thành, thành phố. 成, 程, 诚 cũng đọc chéng nhưng nghĩa khác: 成 thành công, 程 hành trình, 诚 thành thật.',k:['城','chéng','tường thành']},
+  {t:'c',anh:'50% 55%',khung:'Nhìn kỹ đường đi của tường',q:'Quan sát ảnh: Trường Thành được xây ở đâu?',o:['Trên sống núi','Dọc bờ biển','Giữa đồng bằng','Trong thành phố'],a:0,
+   x:'Tường chạy theo sống núi, uốn lượn như con rồng: giặc khó trèo lên, còn lính đứng trên cao nhìn được rất xa.',k:['山','shān','núi']},
+  {t:'c',q:'Ngày xưa, lính trên tháp canh báo tin có giặc bằng cách nào?',o:['Đốt lửa và khói','Thả chim bồ câu đưa thư','Đánh trống thật to','Cưỡi ngựa về kinh thành'],a:0,
+   x:'烽火: ban ngày đốt khói, ban đêm đốt lửa. Tháp này thấy thì đốt tiếp, tin truyền đi như chạy tiếp sức.',k:['烽火','fēnghuǒ','lửa báo hiệu']},
+  {t:'ds',q:'Vữa gắn gạch ở một số đoạn Trường Thành có trộn nước cháo gạo nếp.',a:0,
+   x:'Đúng. Nước cháo gạo nếp trộn với vôi làm vữa dẻo và bền hơn, giúp tường đứng vững hàng trăm năm.',k:['糯米','nuòmǐ','gạo nếp']},
+  {t:'c',q:'Câu <b class="zh">不到长城非好汉</b> nghĩa là gì?',o:['Chưa đến Trường Thành chưa phải hảo hán','Trường Thành không có người tốt','Không được leo lên Trường Thành','Hảo hán không cần đến Trường Thành'],a:0,
+   x:'不到 là chưa đến, 非 là không phải, 好汉 là người can đảm. Du khách hay nói đùa câu này khi leo được lên đỉnh.',k:['好汉','hǎohàn','hảo hán']}]},
+
+tiantan:{zh:'天坛',py:'Tiāntán',vi:'Thiên Đàn',ten2:'Đàn tế Trời',chuTay:'祈年殿 · 北京天坛',
+ anh:['https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/20160504_China_5825_crop_Beijing_sRGB_%2829912158331%29.jpg/1280px-20160504_China_5825_crop_Beijing_sRGB_%2829912158331%29.jpg','https://commons.wikimedia.org/wiki/File:20160504_China_5825_crop_Beijing_sRGB_(29912158331).jpg','CC BY-SA 2.0','Dan Lundberg'],
+ alt:'Điện Kỳ Niên mái tròn ba tầng trên nền đá trắng ở Thiên Đàn',
+ gioi:'Nơi các hoàng đế Minh, Thanh đến tế trời, cầu mưa thuận gió hoà, mùa màng bội thu. Thiên Đàn xây cùng năm với Cố Cung (1420) và rộng gần gấp 4 lần Cố Cung. Ngày nay là công viên: sáng sớm người dân đến tập thái cực quyền, hát, chơi đá cầu.',
+ nhan:[['lich','Xây năm 1420'],['mattroi','Nơi vua tế trời'],['cup','Di sản UNESCO 1998']],
+ the:[
+  {c:'#2F5FA0',chu:'祈',ten:'Điện Kỳ Niên',phu:'Cầu mùa màng',ic:'anh',tieu:'Điện Kỳ Niên',p:'祈年殿 cao khoảng 38 m, ba tầng mái tròn. Bên trong có 28 cột: 4 cột lớn ở giữa là 4 mùa, 12 cột vòng trong là 12 tháng, 12 cột vòng ngoài là 12 canh giờ trong ngày.',k:['祈年殿','Qíniándiàn','điện Kỳ Niên'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/20200110_Temple_of_Heaven-11.jpg/960px-20200110_Temple_of_Heaven-11.jpg','https://commons.wikimedia.org/wiki/File:20200110_Temple_of_Heaven-11.jpg','CC0','Balon Greyjoy'],alt:'Cận cảnh điện Kỳ Niên dưới trời xanh',s:'object-position:50% 35%'},
+  {c:'#8A7A6A',chu:'圆',ten:'Trời tròn đất vuông',phu:'Đàn tế 圜丘',ic:'mattroi',tieu:'Trời tròn đất vuông',p:'Người xưa tin 天圆地方: trời tròn, đất vuông. Vì vậy đàn tế trời 圜丘 làm hình tròn ba tầng bằng đá trắng; tường bao Thiên Đàn phía bắc cong tròn, phía nam vuông góc.',k:['天圆地方','tiān yuán dì fāng','trời tròn đất vuông'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Circular_Mound_Altar_1.jpg/960px-Circular_Mound_Altar_1.jpg','https://commons.wikimedia.org/wiki/File:Circular_Mound_Altar_1.jpg','CC BY-SA 4.0','钉钉'],alt:'Cổng đá trắng dẫn vào đàn tế tròn 圜丘',s:'object-position:50% 50%'},
+  {c:'#B0352F',chu:'回',ten:'Tường hồi âm',phu:'Bao quanh điện 皇穹宇',ic:'loa',tieu:'Tường hồi âm',p:'Bao quanh điện 皇穹宇 là bức tường tròn 回音壁. Hai người đứng ở hai đầu, áp sát tường nói nhỏ, người kia vẫn nghe rõ, vì âm thanh chạy men theo vòng tường.',k:['回音壁','huíyīnbì','tường hồi âm'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Temple_of_Heaven_-_Imperial_Vault_of_Heaven_01.jpg/960px-Temple_of_Heaven_-_Imperial_Vault_of_Heaven_01.jpg','https://commons.wikimedia.org/wiki/File:Temple_of_Heaven_-_Imperial_Vault_of_Heaven_01.jpg','CC BY 2.0','xiquinhosilva'],alt:'Điện Hoàng Khung Vũ mái tròn xanh, bên trong vòng tường hồi âm',s:'object-position:50% 40%'},
+  {c:'#2F7FA0',chu:'蓝',ten:'Màu của trời',phu:'Ngói lưu ly xanh lam',ic:'la',tieu:'Màu xanh của trời',p:'Ở Cố Cung ngói vàng dành cho vua, còn ở Thiên Đàn mái lợp ngói lưu ly xanh lam, tượng trưng cho bầu trời. Ngay cả tượng rồng trang trí cũng màu xanh.',k:['蓝色','lánsè','màu xanh lam'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Temple_of_Heaven%2C_tile_dragon.jpg/960px-Temple_of_Heaven%2C_tile_dragon.jpg','https://commons.wikimedia.org/wiki/File:Temple_of_Heaven,_tile_dragon.jpg','CC BY-SA 3.0','Johnaalcock'],alt:'Tượng rồng bằng ngói lưu ly xanh lam ở Thiên Đàn',s:'object-position:40% 45%'}],
+ cau:[
+  {t:'c',q:'Điền chữ còn thiếu: <b class="zh">天<span class="o-trong"></span></b> (Thiên Đàn)',o:['坛','谈','弹','探'],a:0,zh:1,
+   x:'坛 là đàn tế, một nền đất cao để cúng tế. 谈 (nói chuyện) và 弹 (gảy đàn) cũng đọc tán; 探 (thăm dò) đọc tàn.',k:['坛','tán','đàn tế']},
+  {t:'c',anh:'50% 30%',khung:'Nhìn kỹ phần mái',q:'Quan sát ảnh: mái của điện <b class="zh">祈年殿</b> màu gì?',o:['Xanh lam','Vàng','Đỏ','Xanh lá'],a:0,
+   x:'Ba tầng mái lợp ngói lưu ly xanh lam, tượng trưng cho bầu trời; trên đỉnh là chóp mạ vàng.',k:['天空','tiānkōng','bầu trời']},
+  {t:'c',q:'Vua đến Thiên Đàn để làm gì?',o:['Tế trời, cầu mùa màng','Đi săn bắn','Duyệt binh','Nghỉ mát mùa hè'],a:0,
+   x:'Mỗi năm vua đến cầu mưa thuận gió hoà, mùa màng tốt. Ngày Đông chí, vua tế trời ở đàn tròn 圜丘.',k:['祭天','jìtiān','tế trời']},
+  {t:'ds',q:'Ở bức tường <b class="zh">回音壁</b>, nói nhỏ sát tường ở đầu này, người ở đầu kia vẫn nghe được.',a:0,
+   x:'Đúng. Tường xây tròn và rất phẳng, âm thanh chạy men theo vòng tường sang phía bên kia.',k:['声音','shēngyīn','âm thanh']},
+  {t:'vt',q:'Vua tế trời ở một đàn tế có tầng hình tròn.',a:2,
+   x:'Cả hai đều có. Ở Huế có Đàn Nam Giao của nhà Nguyễn: tầng trên hình tròn tượng trưng cho trời, tầng dưới hình vuông tượng trưng cho đất.',k:['天坛','Tiāntán','Thiên Đàn']}]},
+
+yiheyuan:{zh:'颐和园',py:'Yíhéyuán',vi:'Di Hoà Viên',ten2:'Vườn thượng uyển nhà Thanh',chuTay:'佛香阁 · 北京颐和园',
+ anh:['https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/20090530_Beijing_Summer_Palace_8525.jpg/1280px-20090530_Beijing_Summer_Palace_8525.jpg','https://commons.wikimedia.org/wiki/File:20090530_Beijing_Summer_Palace_8525.jpg','CC BY-SA 3.0','Jakub Hałun'],
+ alt:'Đồi Vạn Thọ với lầu Phật Hương, phía trước là thuyền rồng trên hồ Côn Minh',
+ gioi:'Vườn thượng uyển lớn nhất còn lại của nhà Thanh, ở phía tây bắc Bắc Kinh. Hồ Côn Minh chiếm khoảng ba phần tư diện tích; trên đồi Vạn Thọ là lầu Phật Hương. Vua và Từ Hi Thái hậu thường đến đây nghỉ mát mùa hè.',
+ nhan:[['la','Vườn hoàng gia nhà Thanh'],['mattroi','Nơi nghỉ mát mùa hè'],['cup','Di sản UNESCO 1998']],
+ the:[
+  {c:'#2F7FA0',chu:'湖',ten:'Hồ Côn Minh',phu:'Ba phần tư là nước',ic:'song',tieu:'Hồ Côn Minh',p:'昆明湖 chiếm khoảng 3/4 diện tích Di Hoà Viên. Đất đào hồ được đắp lên đồi Vạn Thọ 万寿山. Mùa đông mặt hồ đóng băng, người dân ra trượt băng.',k:['湖','hú','hồ nước'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Kunming_Lake%2C_Summer_Palace.jpg/960px-Kunming_Lake%2C_Summer_Palace.jpg','https://commons.wikimedia.org/wiki/File:Kunming_Lake,_Summer_Palace.jpg','CC BY-SA 4.0','钉钉'],alt:'Mặt hồ Côn Minh xanh, phía xa là đồi Vạn Thọ',s:'object-position:40% 50%'},
+  {c:'#B0352F',chu:'廊',ten:'Trường Lang',phu:'Hành lang dài nhất',ic:'anh',tieu:'Trường Lang',p:'长廊 dài 728 m, có hơn 14.000 bức tranh vẽ trên xà: phong cảnh, hoa chim, cảnh trong Tây Du Ký, Tam Quốc… Đi dọc hành lang như xem một cuốn truyện tranh khổng lồ.',k:['长廊','chángláng','hành lang dài'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Long_Corridor.jpg/960px-Long_Corridor.jpg','https://commons.wikimedia.org/wiki/File:Long_Corridor.jpg','CC BY-SA 4.0','钉钉'],alt:'Hành lang dài có xà vẽ tranh nhiều màu trong Di Hoà Viên',s:'object-position:50% 40%'},
+  {c:'#6E7A84',chu:'舫',ten:'Thuyền đá',phu:'Không bao giờ chạy',ic:'song',tieu:'Thuyền đá Thanh Yến',p:'清晏舫 là chiếc thuyền làm bằng đá cẩm thạch, dài 36 m, nằm yên bên bờ hồ. Tên 清晏 nghĩa là trong sạch, yên bình.',k:['石舫','shífǎng','thuyền đá'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Marble_Boat_3925.jpg/960px-Marble_Boat_3925.jpg','https://commons.wikimedia.org/wiki/File:Marble_Boat_3925.jpg','CC BY-SA 3.0','颐园新居'],alt:'Thuyền đá cẩm thạch hai tầng bên bờ hồ Côn Minh',s:'object-position:50% 50%'},
+  {c:'#C99A1E',chu:'桥',ten:'Cầu 17 nhịp',phu:'Ánh vàng xuyên cầu',ic:'mattroi',tieu:'Cầu Thập Thất Khổng',p:'十七孔桥 dài khoảng 150 m, nối bờ với đảo Nam Hồ. Cuối tháng 11 đến đầu tháng 12, lúc hoàng hôn, nắng chiếu xuyên qua cả 17 lỗ cầu: người ta gọi là 金光穿洞.',k:['桥','qiáo','cây cầu'],
+   a:['https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Bridge_of_Seventeen_Arches.jpg/960px-Bridge_of_Seventeen_Arches.jpg','https://commons.wikimedia.org/wiki/File:Bridge_of_Seventeen_Arches.jpg','CC BY 2.0','Jeremy Rover'],alt:'Cầu 17 nhịp bằng đá trắng lúc hoàng hôn, nắng xuyên qua các lỗ cầu',s:'object-position:50% 50%'}],
+ cau:[
+  {t:'c',q:'Điền chữ còn thiếu: <b class="zh">颐和<span class="o-trong"></span></b> (Di Hoà Viên)',o:['园','元','圆','员'],a:0,zh:1,
+   x:'园 là vườn, như 公园 công viên. 元 (đồng tiền), 圆 (tròn), 员 (người làm việc) cũng đọc yuán.',k:['园','yuán','vườn']},
+  {t:'c',anh:'62% 30%',khung:'Nhìn kỹ toà lầu trên đồi',q:'Quan sát ảnh: toà lầu cao trên đồi tên là gì?',o:['佛香阁','祈年殿','太和殿','天安门'],a:0,zh:1,
+   x:'佛香阁 Lầu Phật Hương cao khoảng 41 m, đứng trên đồi Vạn Thọ, nhìn xuống hồ Côn Minh. 祈年殿 ở Thiên Đàn, 太和殿 ở Cố Cung.',k:['佛香阁','Fóxiānggé','lầu Phật Hương']},
+  {t:'c',q:'Hành lang <b class="zh">长廊</b> trong Di Hoà Viên có gì đặc biệt?',o:['Hơn 14.000 bức tranh vẽ','Làm hoàn toàn bằng vàng','Nằm dưới mặt hồ','Dài tới 10 km'],a:0,
+   x:'长廊 dài 728 m, xà nào cũng vẽ tranh: phong cảnh, hoa chim, nhân vật trong truyện cổ.',k:['画','huà','bức tranh']},
+  {t:'ds',q:'<b class="zh">石舫</b> là một chiếc thuyền làm bằng đá, không thể chạy trên mặt nước.',a:0,
+   x:'Đúng. Thuyền đá cẩm thạch nằm cố định bên bờ hồ, dùng để ngắm cảnh, nghỉ chân.',k:['船','chuán','con thuyền']},
+  {t:'c',q:'Cầu <b class="zh">十七孔桥</b> có bao nhiêu nhịp (lỗ cầu)?',o:['17','7','9','12'],a:0,
+   x:'十七 là 17, 孔 là lỗ. Cuối năm có cảnh 金光穿洞: nắng chiều chiếu xuyên qua cả 17 lỗ cầu.',k:['十七','shíqī','mười bảy']}]}
+}};
+
+// ===== 体验 trải nghiệm: mỗi loại một cách chơi (thu-trai-nghiem.html?d=…)
+window.VH_BJ.tn={
+chi:{loai:'menu',zh:'吃',py:'chī',vi:'Ăn như người Bắc Kinh',ten2:'Quán ăn phố Vương Phủ Tỉnh',chuTay:'王府井小吃街 · 北京',anh:["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/2016-12-17_Wangfujing_Snack_Street_Beijing_04_anagoria.jpg/1280px-2016-12-17_Wangfujing_Snack_Street_Beijing_04_anagoria.jpg", "https://commons.wikimedia.org/wiki/File:2016-12-17_Wangfujing_Snack_Street_Beijing_04_anagoria.jpg", "CC BY 3.0", "Anagoria"],alt:'Phố ăn vặt Vương Phủ Tỉnh với các quầy kẹo hồ lô',
+ gioi:'Bắc Kinh có nhiều món nổi tiếng: vịt quay, mì tương đen, lẩu dê nồi đồng… và cả những món "khó ăn" chỉ người Bắc Kinh mới mê như 豆汁儿. Hôm nay em làm phục vụ ở một quán ăn: đọc yêu cầu của khách rồi chọn đúng món trên thực đơn.',
+ nhan:[['tra-sua','6 món đặc sản'],['but','Đọc thực đơn chữ Hán'],['tin-nhan','6 vị khách']],nut:'Mở quán · 6 vị khách',
+ mon:[
+  {id:'kaoya',zh:'烤鸭',py:'kǎoyā',vi:'vịt quay',gia:168,a:["https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Sliced_Peking_Duck_with_traditional_condiments.jpg/960px-Sliced_Peking_Duck_with_traditional_condiments.jpg", "https://commons.wikimedia.org/wiki/File:Sliced_Peking_Duck_with_traditional_condiments.jpg", "CC BY-SA 4.0", "Daifawei"],mo:'Thịt vịt thái lát, cuộn bánh tráng mỏng 荷叶饼 với hành, dưa leo và tương ngọt.'},
+  {id:'zjm',zh:'炸酱面',py:'zhájiàngmiàn',vi:'mì trộn tương đen',gia:28,a:["https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Zhajiangmian_20180501.jpg/960px-Zhajiangmian_20180501.jpg", "https://commons.wikimedia.org/wiki/File:Zhajiangmian_20180501.jpg", "CC BY-SA 4.0", "Hal_0005"],mo:'Mì trộn tương đen xào thịt băm, ăn kèm dưa leo, giá đỗ, củ cải thái sợi.'},
+  {id:'douzhi',zh:'豆汁儿',py:'dòuzhīr',vi:'nước đậu lên men',gia:5,a:["https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Douzhi_in_Beijing_%2854587295652%29.jpg/960px-Douzhi_in_Beijing_%2854587295652%29.jpg", "https://commons.wikimedia.org/wiki/File:Douzhi_in_Beijing_(54587295652).jpg", "CC BY 2.0", "荧_Lumine"],mo:'Nước đậu xanh lên men, vị chua, mùi hơi khó ngửi. Người Bắc Kinh uống kèm bánh vòng giòn 焦圈儿 và dưa muối.'},
+  {id:'thl',zh:'冰糖葫芦',py:'bīngtáng húlu',vi:'kẹo hồ lô',gia:10,a:["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Glazed_Tomatoes_and_Berries.jpg/960px-Glazed_Tomatoes_and_Berries.jpg", "https://commons.wikimedia.org/wiki/File:Glazed_Tomatoes_and_Berries.jpg", "CC BY-SA 4.0", "Andrewhaimerl"],mo:'Quả sơn tra (hoặc dâu, cà chua bi) xiên que, phủ lớp đường cứng bóng, chua chua ngọt ngọt.'},
+  {id:'shuan',zh:'涮羊肉',py:'shuàn yángròu',vi:'lẩu dê nồi đồng',gia:88,a:["https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Instant-boiled_mutton_hot_pot_at_Yangfang_Shengli_%2820200111153612%29.jpg/960px-Instant-boiled_mutton_hot_pot_at_Yangfang_Shengli_%2820200111153612%29.jpg", "https://commons.wikimedia.org/wiki/File:Instant-boiled_mutton_hot_pot_at_Yangfang_Shengli_(20200111153612).jpg", "CC BY-SA 4.0", "N509FZ"],mo:'Lẩu nồi đồng đốt than: nhúng thịt dê thái mỏng vài giây rồi chấm tương mè.'},
+  {id:'ldg',zh:'驴打滚',py:'lǘdǎgǔn',vi:'bánh "lừa lăn"',gia:15,a:["https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Lyu_Da_Gun.jpg/960px-Lyu_Da_Gun.jpg", "https://commons.wikimedia.org/wiki/File:Lyu_Da_Gun.jpg", "CC BY-SA 4.0", "ZhengZhou"],mo:'Bánh nếp cuộn nhân đậu đỏ, lăn bột đậu nành vàng như con lừa lăn trên đất cát, nên gọi là "lừa lăn".'}],
+ don:[
+  {zh:'我想吃北京最有名的菜！',py:'Wǒ xiǎng chī Běijīng zuì yǒumíng de cài!',vi:'Tôi muốn ăn món nổi tiếng nhất Bắc Kinh!',a:'kaoya',k:['有名','yǒumíng','nổi tiếng']},
+  {zh:'我要一碗面，要北京的。',py:'Wǒ yào yì wǎn miàn, yào Běijīng de.',vi:'Cho tôi một bát mì, kiểu Bắc Kinh.',a:'zjm',k:['碗','wǎn','bát']},
+  {zh:'天太冷了，我们想吃火锅！',py:'Tiān tài lěng le, wǒmen xiǎng chī huǒguō!',vi:'Trời lạnh quá, chúng tôi muốn ăn lẩu!',a:'shuan',k:['火锅','huǒguō','lẩu']},
+  {zh:'给孩子买一串红红的、甜甜的。',py:'Gěi háizi mǎi yí chuàn hónghóng de, tiántián de.',vi:'Mua cho cháu một xiên đỏ đỏ, ngọt ngọt.',a:'thl',k:['串','chuàn','xiên (lượng từ)']},
+  {zh:'有没有甜点？要黄黄的、软软的。',py:'Yǒu méiyǒu tiándiǎn? Yào huánghuáng de, ruǎnruǎn de.',vi:'Có món tráng miệng không? Loại vàng vàng, mềm mềm.',a:'ldg',k:['软','ruǎn','mềm']},
+  {zh:'我想喝老北京的饮料，酸的也没关系。',py:'Wǒ xiǎng hē lǎo Běijīng de yǐnliào, suān de yě méi guānxi.',vi:'Tôi muốn uống thức uống của Bắc Kinh xưa, chua cũng không sao.',a:'douzhi',k:['酸','suān','chua']}]},
+
+shuo:{loai:'chat',zh:'说',py:'shuō',vi:'Nói tiếng Bắc Kinh',ten2:'Đi taxi cùng bác tài',chuTay:'北京出租车',anh:["https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/BU7318_at_Tian%27anmen_%2820200825112228%29.jpg/1280px-BU7318_at_Tian%27anmen_%2820200825112228%29.jpg", "https://commons.wikimedia.org/wiki/File:BU7318_at_Tian%27anmen_(20200825112228).jpg", "CC BY-SA 4.0", "N509FZ"],alt:'Taxi Bắc Kinh màu vàng xanh đỗ trước tường đỏ',
+ gioi:'Người Bắc Kinh nói tiếng phổ thông nhưng có "giọng riêng": nhiều âm 儿, hay dùng 您 cho lịch sự, và các bác tài taxi nói chuyện rất vui. Lên xe đi Cố Cung: nghe bác tài nói, rồi chọn câu đáp cho đúng.',
+ nhan:[['tin-nhan','Hội thoại 5 lượt'],['loa','Nghe giọng bác tài'],['so','Âm 儿 Bắc Kinh']],nut:'Lên xe · 5 lượt nói',
+ luot:[
+  {zh:'您好！去哪儿？',py:'Nín hǎo! Qù nǎr?',vi:'Chào anh/chị! Đi đâu ạ?',hoi:'Chọn câu đáp:',o:['师傅，去故宫。','我是故宫。','故宫好吃吗？'],a:0,
+   x:'Gọi tài xế là 师傅 shīfu cho lịch sự. 哪儿 nǎr là cách nói Bắc Kinh của 哪里: thêm âm 儿 vào cuối.',k:['师傅','shīfu','bác tài (cách gọi lịch sự)']},
+  {zh:'好嘞！您是第一次来北京吧？',py:'Hǎo lei! Nín shì dì-yī cì lái Běijīng ba?',vi:'Được thôi! Anh/chị lần đầu đến Bắc Kinh phải không?',hoi:'Chọn câu đáp:',o:['对，第一次来。','不，我是北京。','我不坐车。'],a:0,
+   x:'好嘞 hǎo lei là "được thôi!", câu cửa miệng rất Bắc Kinh. 您 nín là "ngài", cách xưng hô lịch sự người Bắc Kinh dùng nhiều.',k:['您','nín','ngài (lịch sự)']},
+  {zh:'今儿天儿真好，故宫人肯定多。',py:'Jīnr tiānr zhēn hǎo, Gùgōng rén kěndìng duō.',vi:'Hôm nay trời đẹp thật, Cố Cung chắc đông người lắm.',hoi:'Bác tài nói 今儿. 今儿 nghĩa là gì?',o:['hôm nay','ngày mai','hôm qua'],a:0,
+   x:'今儿 = 今天, 天儿 = 天气. Người Bắc Kinh hay thêm 儿 vào cuối từ: 今儿, 明儿, 这儿, 那儿, 一点儿.',k:['今儿','jīnr','hôm nay (khẩu ngữ)']},
+  {zh:'到了！一共三十五块。',py:'Dào le! Yígòng sānshíwǔ kuài.',vi:'Đến rồi! Tất cả 35 đồng.',hoi:'Chọn câu đáp:',o:['给您四十，不用找了。','三十五块太多了，我不给。','我没有钱，谢谢。'],a:0,
+   x:'块 kuài là cách nói thường ngày của 元. 不用找了 là "không cần thối lại".',k:['块','kuài','đồng (tiền, khẩu ngữ)']},
+  {zh:'好嘞，谢谢您！您慢走！',py:'Hǎo lei, xièxie nín! Nín màn zǒu!',vi:'Được rồi, cảm ơn anh/chị! Đi cẩn thận nhé!',hoi:'您慢走 nghĩa là gì?',o:['Lời chào khi tiễn khách: đi cẩn thận nhé','Bảo khách đi chậm thôi, đừng chạy','Bảo khách đi bộ, đừng đi xe'],a:0,
+   x:'慢走 nghĩa đen là "đi chậm", nhưng thực ra là lời chào khi tiễn khách. Đáp lại: 谢谢师傅，再见！',k:['慢走','mànzǒu','đi cẩn thận (lời tiễn)']}]},
+
+zhu:{loai:'nha',zh:'住',py:'zhù',vi:'Một ngày trong ngõ',ten2:'Ngõ 胡同 và nhà 四合院',chuTay:'胡同 · 北京',anh:["https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Beijing_hutong_area_8.jpg/1280px-Beijing_hutong_area_8.jpg", "https://commons.wikimedia.org/wiki/File:Beijing_hutong_area_8.jpg", "CC BY-SA 2.0", "Geoff McKim"],alt:'Một con ngõ cổ ở Bắc Kinh với người dân đi lại',
+ gioi:'胡同 là những con ngõ nhỏ của Bắc Kinh. Hai bên ngõ là nhà 四合院: bốn dãy nhà quây quanh một cái sân. Đầu tiên chạm vào từng phần của ngôi nhà để khám phá, sau đó trả lời câu hỏi bằng cách chạm vào bản vẽ.',
+ nhan:[['mu','Nhà tứ hợp viện'],['kinh-lup','Khám phá 6 khu'],['tick','5 câu chạm bản vẽ']],nut:'Vào nhà · khám phá',
+ khu:{
+  zhengfang:{zh:'正房',py:'zhèngfáng',vi:'nhà chính',mo:'Dãy phía bắc, quay mặt về hướng nam nên đón nắng tốt nhất. Ông bà, người lớn tuổi nhất trong nhà ở đây.'},
+  xiang:{zh:'厢房',py:'xiāngfáng',vi:'nhà hai bên',mo:'Hai dãy phía đông và phía tây, nhìn vào sân. Con cái trong gia đình thường ở đây.'},
+  daozuo:{zh:'倒座房',py:'dàozuòfáng',vi:'dãy nhà phía nam',mo:'Dãy sát ngõ, quay lưng ra đường: làm phòng khách, phòng học hoặc chỗ ở cho người giúp việc.'},
+  damen:{zh:'大门',py:'dàmén',vi:'cổng',mo:'Cổng thường mở ở góc đông nam. Người xưa tin đó là hướng tốt theo phong thuỷ.'},
+  yingbi:{zh:'影壁',py:'yǐngbì',vi:'tường bình phong',mo:'Bước qua cổng là gặp ngay bức tường chắn: người ngoài ngõ không nhìn thẳng được vào sân, nhà luôn kín đáo.'},
+  yuanzi:{zh:'院子',py:'yuànzi',vi:'sân',mo:'Sân giữa trồng cây hải đường, cây táo, đặt chậu cá vàng. Mùa hè cả nhà ngồi hóng mát, uống trà.'}},
+ cau:[
+  {q:'Ông bà, người lớn tuổi nhất, ở gian nào?',a:['zhengfang'],x:'正房 hướng nam, sáng sủa và ấm nhất: dành cho người lớn tuổi.',k:['正房','zhèngfáng','nhà chính']},
+  {q:'Con cái trong nhà thường ở đâu?',a:['xiang'],x:'厢房 hai bên đông, tây là chỗ của con cái.',k:['厢房','xiāngfáng','nhà hai bên']},
+  {q:'Cổng nhà nằm ở góc nào? Chạm vào cổng.',a:['damen'],x:'大门 mở ở góc đông nam, không mở chính giữa.',k:['大门','dàmén','cổng lớn']},
+  {q:'Vừa bước qua cổng, bức tường che tầm nhìn ở đâu?',a:['yingbi'],x:'影壁 giữ cho sân nhà kín đáo với người đi ngoài ngõ.',k:['影壁','yǐngbì','tường bình phong']},
+  {q:'Mùa hè cả nhà ngồi hóng mát, uống trà ở đâu?',a:['yuanzi'],x:'院子 là trái tim của tứ hợp viện: nơi cả nhà gặp nhau.',k:['院子','yuànzi','sân']}]},
+
+su:{loai:'ghep',zh:'俗',py:'sú',vi:'Hội chùa, phong tục',ten2:'Dạo hội chùa 庙会 ngày Tết',chuTay:'厂甸庙会 · 北京',anh:["https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Liulichang_East_St_during_Changdian_Temple_Fair_%2820240210144753%29.jpg/1280px-Liulichang_East_St_during_Changdian_Temple_Fair_%2820240210144753%29.jpg", "https://commons.wikimedia.org/wiki/File:Liulichang_East_St_during_Changdian_Temple_Fair_(20240210144753).jpg", "CC BY-SA 4.0", "N509FZ"],alt:'Phố Lưu Ly Xưởng đông người trong hội chùa Xưởng Điện dịp Tết',
+ gioi:'Dịp Tết, người Bắc Kinh rủ nhau 逛庙会 dạo hội chùa: ăn quà vặt, xem biểu diễn, mua đồ chơi dân gian. Ở hội chùa có 5 gian hàng: ghép mỗi ảnh với đúng biển tên.',
+ nhan:[['den-long','Hội chùa ngày Tết'],['manh-ghep','Ghép 5 cặp'],['qua','Đồ chơi dân gian']],nut:'Vào hội chùa · ghép 5 cặp',
+ do:[
+  {id:'tuer',zh:'兔儿爷',py:'tù\'éryé',vi:'Thỏ Gia',a:["https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Tu%27er_Ye_on_display_at_Liulichang_East_St_%2820240210145559%29.jpg/960px-Tu%27er_Ye_on_display_at_Liulichang_East_St_%2820240210145559%29.jpg", "https://commons.wikimedia.org/wiki/File:Tu%27er_Ye_on_display_at_Liulichang_East_St_(20240210145559).jpg", "CC BY-SA 4.0", "N509FZ"],mo:'Tượng thỏ mặc giáp, cưỡi thú: đồ chơi Trung thu riêng của Bắc Kinh, gắn với chuyện thỏ ngọc trên cung trăng.'},
+  {id:'kongzhu',zh:'空竹',py:'kōngzhú',vi:'con quay dây',a:["https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/%E5%AD%A6%E7%A9%BA%E7%AB%B9%E7%9A%84%E5%B0%8F%E5%AD%A6%E7%94%9F.JPG/960px-%E5%AD%A6%E7%A9%BA%E7%AB%B9%E7%9A%84%E5%B0%8F%E5%AD%A6%E7%94%9F.JPG", "https://commons.wikimedia.org/wiki/File:%E5%AD%A6%E7%A9%BA%E7%AB%B9%E7%9A%84%E5%B0%8F%E5%AD%A6%E7%94%9F.JPG", "CC BY-SA 4.0", "三猎"],mo:'Con quay giật bằng dây cho kêu vù vù rồi tung hứng. Trò chơi dân gian của Bắc Kinh, nay là di sản văn hoá phi vật thể quốc gia.'},
+  {id:'jingju',zh:'京剧',py:'jīngjù',vi:'Kinh kịch',a:["https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/%E6%B9%96%E5%B9%BF%E4%BC%9A%E9%A6%86%E6%88%8F%E6%A5%BC%E5%86%85%E9%83%A82019_%281%29.jpg/960px-%E6%B9%96%E5%B9%BF%E4%BC%9A%E9%A6%86%E6%88%8F%E6%A5%BC%E5%86%85%E9%83%A82019_%281%29.jpg", "https://commons.wikimedia.org/wiki/File:%E6%B9%96%E5%B9%BF%E4%BC%9A%E9%A6%86%E6%88%8F%E6%A5%BC%E5%86%85%E9%83%A82019_(1).jpg", "CC BY-SA 4.0", "ScareCriterion12"],mo:'Sân khấu Kinh kịch trong Hồ Quảng Hội Quán. Kinh kịch hình thành ở Bắc Kinh hơn 200 năm trước, có hát, múa, võ và vẽ mặt.'},
+  {id:'tanghua',zh:'糖画',py:'tánghuà',vi:'tranh đường',a:["https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Didishenshan9.jpg/960px-Didishenshan9.jpg", "https://commons.wikimedia.org/wiki/File:Didishenshan9.jpg", "CC BY-SA 4.0", "地底深山"],mo:'Nghệ nhân dùng đường nấu chảy "vẽ" con giống, rồng, phượng trên mặt đá, gắn que cho trẻ con cầm ăn.'},
+  {id:'kite',zh:'风筝',py:'fēngzheng',vi:'con diều',a:["https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Beijing_11_%284941029833%29.jpg/960px-Beijing_11_%284941029833%29.jpg", "https://commons.wikimedia.org/wiki/File:Beijing_11_(4941029833).jpg", "CC BY 2.0", "Ronnie Macdonald"],mo:'Thả diều là thú vui của người Bắc Kinh mỗi khi trời lộng gió; diều chim yến 沙燕 là kiểu diều riêng của Bắc Kinh.'}]}
+};

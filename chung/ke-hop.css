@@ -1,0 +1,68 @@
+/* Kệ hộp kiểu "bento" (trang chủ, mục #ke-hop): ô to nhỏ theo độ quan trọng, mỗi ô một màu (--c, nền --cs), chữ Hán lớn làm hình nền,
+   nắp màu có băng dính như kệ cũ — rê chuột thì nắp hộp quà bật thẳng lên, lòng hộp hắt sáng cùng màu hộp, đốm sáng và chữ trong hộp bay ra. Không dùng lại hình logo. */
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(196px,auto);grid-auto-flow:dense;gap:16px;padding:30px 0 8px}
+.o{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:40px 20px 18px;border-radius:12px 12px 24px 24px;
+  background:var(--cs);color:var(--ink);text-decoration:none;outline:none;isolation:isolate;transition:transform .25s ease,box-shadow .25s ease}
+.o.to{grid-column:span 2;grid-row:span 2;padding:48px 28px 24px}
+.o.rong{grid-column:span 2}
+/* nắp: dải màu phía trên + băng dính kraft */
+.o .nap{position:absolute;z-index:3;left:-5px;right:-5px;top:0;height:24px;border-radius:12px 12px 6px 6px;background:var(--c);box-shadow:0 4px 0 rgba(0,0,0,.08);
+  transition:transform .5s cubic-bezier(.3,1.5,.5,1),box-shadow .5s}
+.o .nap::after{content:"";position:absolute;left:50%;top:-4px;width:50px;height:30px;margin-left:-25px;background:var(--tape);border-radius:2px}
+/* lòng hộp hắt sáng cùng tông màu hộp (như mở hộp quà thấy ánh sáng): nằm dưới nắp, đóng thì nắp che kín */
+.o::before{content:"";position:absolute;z-index:1;left:5px;right:5px;top:3px;height:24px;border-radius:9px 9px 4px 4px;
+  background:radial-gradient(ellipse 70% 120% at 50% 100%,color-mix(in srgb,var(--c) 6%,#fff),color-mix(in srgb,var(--c) 22%,#fff) 55%,color-mix(in srgb,var(--c) 45%,#fff));
+  box-shadow:inset 0 5px 7px color-mix(in srgb,var(--c) 35%,transparent);border-bottom:3px solid color-mix(in srgb,var(--c) 40%,var(--cs));transition:box-shadow .4s}
+/* đốm sáng bay ra từ lòng hộp */
+.o .sang{position:absolute;z-index:2;left:50%;top:8px;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:color-mix(in srgb,var(--c) 30%,#fff);box-shadow:0 0 8px 3px color-mix(in srgb,var(--c) 55%,transparent);opacity:0;transition:.5s;pointer-events:none}
+.o .sang:nth-of-type(2){margin-left:-70px;width:5px;height:5px} .o .sang:nth-of-type(3){margin-left:62px;width:4px;height:4px}
+/* chữ trong hộp: nằm trong lòng hộp, mở nắp thì trồi lên */
+.o .peek{position:absolute;z-index:4;left:0;right:0;top:0;display:flex;justify-content:center;gap:8px;pointer-events:none}
+.o .peek span{font:400 20px var(--hz);background:var(--card);color:color-mix(in srgb,var(--c) 85%,#000);border-radius:10px;padding:1px 10px;box-shadow:var(--shadow);opacity:0;transform:translateY(16px) scale(.7);transition:.35s cubic-bezier(.3,1.4,.5,1)}
+.o .peek span:nth-child(2){transition-delay:.06s} .o .peek span:nth-child(3){transition-delay:.12s}
+/* chữ Hán lớn làm hình nền, cắt ở góc dưới phải (khung riêng cắt phần tràn để nắp vẫn bật ra ngoài được) */
+.o .khung{position:absolute;z-index:-1;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+.o .nen-chu{position:absolute;z-index:-1;right:-6px;bottom:-26px;font:400 150px/1 var(--hz);color:var(--c);opacity:.13;pointer-events:none;transition:transform .4s ease,opacity .3s}
+.o.to .nen-chu{font-size:300px;right:-14px;bottom:-60px}
+.o .ten{display:flex;flex-direction:column;font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.o .ten b{font:400 30px/1.1 var(--hz);letter-spacing:.02em;text-transform:none;color:color-mix(in srgb,var(--c) 82%,#000)}
+.o.to .ten b{font-size:46px}
+.o .mt{max-width:28em;font-size:14px;line-height:1.45;color:var(--muted)}
+.o.to .mt{font-size:16px;max-width:24em}
+.o .sach{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;max-width:30em}
+.o .sach i{font:400 15px var(--kai);font-style:normal;padding:3px 10px;border-radius:999px;background:var(--card);color:var(--ink);box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.o .so{margin-top:auto;display:flex;align-items:baseline;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
+.o .so b{font:800 30px/1 var(--vi);color:color-mix(in srgb,var(--c) 82%,#000);font-variant-numeric:tabular-nums}
+.o.to .so b{font-size:54px}
+.o .di{font-size:13px;font-weight:800;color:color-mix(in srgb,var(--c) 82%,#000);opacity:0;transform:translateX(-6px);transition:.25s}
+.o:not(:has(.so)) .di{margin-top:auto}
+.o .so+.di{margin-top:2px}
+/* mở hộp: nắp quà bật thẳng lên lơ lửng (bóng đổ dưới nắp), lòng hộp hắt sáng, đốm sáng + chữ bay ra */
+.o:hover,.o:focus-visible,.o.mo{transform:translateY(-4px);box-shadow:var(--shadow)}
+.o:hover .nap,.o:focus-visible .nap,.o.mo .nap{transform:translateY(-42px) rotate(-5deg);box-shadow:0 22px 14px -10px rgba(0,0,0,.25)}
+.o:hover::before,.o:focus-visible::before,.o.mo::before{box-shadow:inset 0 5px 7px color-mix(in srgb,var(--c) 25%,transparent),0 -8px 22px 4px color-mix(in srgb,var(--c) 35%,transparent)}
+.o:hover .sang,.o:focus-visible .sang,.o.mo .sang{opacity:1;transform:translateY(-34px)}
+.o:hover .sang:nth-of-type(2),.o:focus-visible .sang:nth-of-type(2),.o.mo .sang:nth-of-type(2){transform:translate(-16px,-22px)}
+.o:hover .sang:nth-of-type(3),.o:focus-visible .sang:nth-of-type(3),.o.mo .sang:nth-of-type(3){transform:translate(16px,-28px)}
+.o:hover .peek span,.o:focus-visible .peek span,.o.mo .peek span{opacity:1;transform:translateY(-6px);transition-delay:.15s}
+.o:hover .peek span:nth-child(2),.o:focus-visible .peek span:nth-child(2),.o.mo .peek span:nth-child(2){transition-delay:.18s} .o:hover .peek span:nth-child(3),.o:focus-visible .peek span:nth-child(3){transition-delay:.24s}
+.o:hover .nen-chu,.o:focus-visible .nen-chu,.o.mo .nen-chu{transform:scale(1.06) rotate(-4deg);opacity:.2}
+.o:hover .di,.o:focus-visible .di,.o.mo .di{opacity:1;transform:none}
+.o:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.o,.o *{transition:none!important}}
+
+@media (max-width:1000px){
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(168px,auto)}
+  .o.to{grid-row:span 1}
+}
+@media (max-width:560px){
+  .bento{gap:12px;grid-auto-rows:minmax(150px,auto)}
+  .o{padding:36px 14px 14px}
+  .o.to{padding:40px 18px 18px}
+  .o .ten b{font-size:24px} .o.to .ten b{font-size:34px}
+  .o .mt{display:none} .o.to .mt{display:block;font-size:14px}
+  .o .nen-chu{font-size:110px;bottom:-18px} .o.to .nen-chu{font-size:200px;bottom:-40px}
+  .o .so b{font-size:24px} .o.to .so b{font-size:40px}
+  .o .di{display:none}
+  .o .peek{display:none}
+}
