@@ -220,6 +220,7 @@ body{background:var(--ground)}
 .ghep-tt p b{font-family:var(--kai);font-weight:400;font-size:19px;color:var(--c);margin-right:4px}
 @media (max-width:640px){.ghep-anh{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -261,7 +262,7 @@ body{background:var(--ground)}
 <script>
 (function(){
 const $=s=>document.querySelector(s);
-const ic=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const ic=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+n+'"></use></svg>';
 const am=n=>{try{window.AM&&AM.play(n)}catch(e){}};
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const xao=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};

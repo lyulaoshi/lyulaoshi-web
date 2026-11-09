@@ -100,7 +100,8 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
 .confetti{position:fixed;top:-14px;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:30}
 @media (prefers-reduced-motion:reduce){.hx.can polygon,.hx.moi polygon{animation:none}.hx{transition:none}.confetti{display:none}}
 </style>
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -125,7 +126,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
         <li>Đội đúng chọn <b>một ô sáng viền</b>: ô trống kề lãnh thổ, hoặc ô của đội bạn để cướp. Căn cứ (cờ) không cướp được. Ô <b lang="zh">城</b> đáng 3 điểm, ô thường 1 điểm.</li>
         <li><b>Dấu cách</b> hiện đáp án, <b>N</b> khi không đội nào đúng, <b>Z</b> hoàn tác khi bấm nhầm.</li>
       </ul>
-      <div class="acts"><button class="btn gm" id="startBtn" type="button">Vào bản đồ <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
+      <div class="acts"><button class="btn gm" id="startBtn" type="button">Vào bản đồ <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
     </div>
   </section>
 
@@ -157,7 +158,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -165,7 +166,7 @@ const $=id=>document.getElementById(id),BAI=window.VA_BAI||[];
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const mk=(t,c,x,lang)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;if(lang)e.lang=lang;return e};
-const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+n+'"></use></svg>';
 const FX=!matchMedia('(prefers-reduced-motion:reduce)').matches;
 const TEAM=[['Đội Đỏ','#D6452F'],['Đội Xanh','#2F78C4'],['Đội Lục','#3D9A3A'],['Đội Tím','#8A4FC4']];
 function confetti(n){if(!FX)return;const C=['#F7C948','#D6452F','#2F78C4','#3D9A3A','#8A4FC4'];

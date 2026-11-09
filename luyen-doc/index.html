@@ -289,7 +289,8 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 @media (max-width:560px){.thanh-cu{padding:4px 5px}.thanh-cu button{min-width:44px;padding:6px 5px 5px}.thanh-cu .gach{margin:0}#van{font-size:calc(25px*var(--co))}}
 </style>
 <link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -322,9 +323,9 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
     <button type="button" data-mang="lang" aria-pressed="false"><b class="zh">朗读</b><span>Đọc thành tiếng</span></button>
   </div>
   <div class="ml-tab" id="mlTab" role="group" aria-label="Xem bài đọc theo">
-    <button type="button" data-tab="cap" aria-pressed="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#sach"></use></svg>Theo cấp HSK</button>
-    <button type="button" data-tab="cd" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#manh-ghep"></use></svg>Theo chủ đề</button>
-    <button type="button" data-tab="gt" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#cuon-giay"></use></svg>Theo giáo trình</button>
+    <button type="button" data-tab="cap" aria-pressed="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sach"></use></svg>Theo cấp HSK</button>
+    <button type="button" data-tab="cd" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#manh-ghep"></use></svg>Theo chủ đề</button>
+    <button type="button" data-tab="gt" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#cuon-giay"></use></svg>Theo giáo trình</button>
   </div>
   <div id="ke"></div>
 </section>
@@ -332,12 +333,12 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 </main>
 
 <main id="doc" hidden>
-  <div class="d-dau"><a href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#truoc"></use></svg> Mục lục 阅读盒</a>
+  <div class="d-dau"><a href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#truoc"></use></svg> Mục lục 阅读盒</a>
     <h1 id="dTen"></h1><div id="dMeta"></div><div id="dTn" hidden></div></div>
-  <div id="batDau" class="bd"><button type="button" id="bdGio" class="bd-chinh"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#dong-ho"></use></svg>Bắt đầu đọc</button>
-    <button type="button" id="bdKa" class="bd-ka"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#lap-lanh"></use></svg>Đọc karaoke</button>
-    <button type="button" id="bdGhi"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#mic"></use></svg>Đọc to và ghi âm</button>
-    <a id="bdPod" class="bd-pod" href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#loa-to"></use></svg>播客 Làm podcast</a>
+  <div id="batDau" class="bd"><button type="button" id="bdGio" class="bd-chinh"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#dong-ho"></use></svg>Bắt đầu đọc</button>
+    <button type="button" id="bdKa" class="bd-ka"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#lap-lanh"></use></svg>Đọc karaoke</button>
+    <button type="button" id="bdGhi"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#mic"></use></svg>Đọc to và ghi âm</button>
+    <a id="bdPod" class="bd-pod" href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#loa-to"></use></svg>播客 Làm podcast</a>
     <span>Bắt đầu đọc: máy bấm giờ khi em đọc thầm. Đọc karaoke: chữ sáng dần, em đọc theo, máy ghi âm. Làm podcast: em đọc như người dẫn, có nhạc và ảnh bìa.</span></div>
   <div id="van" lang="zh-CN"></div>
   <div id="ketThuc"></div>
@@ -346,8 +347,8 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 <main id="pod" class="pod" hidden></main>
 <div id="pdTele" class="pd-tele" hidden></div>
 <div id="the" role="dialog" aria-label="Thẻ từ"></div>
-<div id="gioBar" hidden role="timer"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#dong-ho"></use></svg><span>Đang đọc</span><b id="gioGio">0:00</b><button type="button" id="gioXong"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#tick"></use></svg>Đọc xong</button></div>
-<div id="ghiBar" hidden role="status"><i class="cham-do"></i><span>Đang ghi âm</span><b id="ghiGio">0:00</b><button type="button" id="ghiDung"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#dung"></use></svg>Dừng</button></div>
+<div id="gioBar" hidden role="timer"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#dong-ho"></use></svg><span>Đang đọc</span><b id="gioGio">0:00</b><button type="button" id="gioXong"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#tick"></use></svg>Đọc xong</button></div>
+<div id="ghiBar" hidden role="status"><i class="cham-do"></i><span>Đang ghi âm</span><b id="ghiGio">0:00</b><button type="button" id="ghiDung"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#dung"></use></svg>Dừng</button></div>
 <div id="ghiKq" role="dialog" aria-label="Bản đọc của em"></div>
 <div id="kaBox" role="dialog" aria-label="Đọc karaoke"></div>
 <div id="demNguoc" hidden aria-live="assertive"></div>
@@ -356,7 +357,7 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
   <button type="button" id="bPy" aria-pressed="false" title="Hiện pinyin trên chữ"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true"><text x="15" y="20" text-anchor="middle" font-size="17" font-weight="700" fill="currentColor" style="font-family:var(--vi)">a</text><path d="M9.5 5.5h11" stroke="#E0545F" stroke-width="2.2" stroke-linecap="round"/></svg><span>Pinyin</span></button>
   <button type="button" id="bVi" aria-pressed="false" title="Hiện nghĩa tiếng Việt từng câu"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true"><rect x="1.5" y="3" width="11" height="11" rx="3" class="vt"/><text x="7" y="12" text-anchor="middle" font-size="8.5" fill="currentColor">中</text><rect x="17.5" y="10" width="11" height="11" rx="3" fill="currentColor"/><text x="23" y="18.3" text-anchor="middle" font-size="6.6" font-weight="800" fill="var(--card)" style="font-family:var(--vi)">Vi</text><path class="vt" d="M9 17.5c1.5 2.2 3.8 2.8 6.5 2.3M14 18.2l1.6 1.6-1.9 1"/></svg><span>Nghĩa</span></button>
   <span class="gach" aria-hidden="true"></span>
-  <button type="button" id="bNghe" aria-pressed="false" title="Nghe máy đọc (dùng trong chế độ Đọc karaoke)"><span class="nghe-o"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#phat"></use></svg></span><span>Nghe</span></button>
+  <button type="button" id="bNghe" aria-pressed="false" title="Nghe máy đọc (dùng trong chế độ Đọc karaoke)"><span class="nghe-o"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#phat"></use></svg></span><span>Nghe</span></button>
   <button type="button" id="bDoc" aria-pressed="false" title="Ghi âm cả bài và tính giờ"><svg class="ico" viewBox="0 0 30 24" aria-hidden="true">
     <rect x="11.5" y="2.5" width="7" height="12" rx="3.5" class="vt"/><path class="vt" d="M8 11.5a7 7 0 0 0 14 0M15 18.5v3"/><circle cx="23.5" cy="4.5" r="2.4" fill="#E0545F"/></svg><span>Ghi âm</span></button>
   <span class="gach" aria-hidden="true"></span>
@@ -369,7 +370,7 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 <script src="../tro-choi/hsk-words.js"></script>
 <script src="../ngu-phap/hsk-ngu-phap.js"></script>
 <script src="/chung/thanh-dieu.js?v=e0cd5c49"></script>
-<script src="/chung/ic-ve.js?v=fc590457"></script>
+<script src="/chung/ic-ve.js?v=f1fcc71d"></script>
 <script src="../tu-vung/chu-de.js"></script>
 <script src="../giao-trinh/sach.js"></script>
 <script src="bai-doc.js?v=6"></script>
@@ -378,7 +379,7 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});
  // thanh công cụ chỉ hiện khi đang đọc
  const tc=document.querySelector('.thanh-cu');const f=()=>tc.hidden=!document.body.classList.contains('dang-doc');new MutationObserver(f).observe(document.body,{attributes:true});f()})();

@@ -174,7 +174,8 @@ div.line{cursor:default}
   .line .ai{max-width:4em;font-size:12px}
 }
 </style>
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -210,7 +211,7 @@ div.line{cursor:default}
 </main>
 
 <main class="wrap" id="play" hidden>
-  <a class="back" href="#"><svg class="ic lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#truoc"/></svg> Mục lục 听说盒</a>
+  <a class="back" href="#"><svg class="ic lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#truoc"/></svg> Mục lục 听说盒</a>
   <div class="p-sach" id="pSach"></div>
   <h1 id="pTen"></h1>
   <nav class="pdoan" id="pDoan" aria-label="Chọn đoạn"></nav>
@@ -224,7 +225,7 @@ div.line{cursor:default}
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 </script>
 </body>

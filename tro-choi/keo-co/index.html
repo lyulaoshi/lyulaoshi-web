@@ -142,7 +142,8 @@ main.big{max-width:none}
 .over-top>.lli{flex:none;width:clamp(60px,10vw,92px);height:clamp(60px,10vw,92px);color:#FFD84D}
 @media (prefers-reduced-motion:reduce){#rope,.wob{transition:none}.team .wob,.dg,.rays{animation:none!important}}
 </style>
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -189,7 +190,7 @@ main.big{max-width:none}
         <button class="chip" type="button" data-r="5" aria-pressed="false">Thắng 3 trong 5</button>
       </div>
       <ul class="how" id="how"></ul>
-      <div class="acts"><button class="btn gold" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
+      <div class="acts"><button class="btn gold" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
     </div>
   </section>
 
@@ -198,7 +199,7 @@ main.big{max-width:none}
       <span class="tm r"><span class="zh" lang="zh">红队</span> Đội Đỏ <span id="winsR"></span></span>
       <span class="tm b"><span class="zh" lang="zh">蓝队</span> Đội Xanh <span id="winsB"></span></span>
       <span class="mid"><span id="roundInfo"></span>
-        <span class="tools"><button type="button" id="soundBtn" aria-label="Bật / tắt âm thanh"></button><button type="button" id="quitBtn" aria-label="Thoát"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sai></use></svg></button></span>
+        <span class="tools"><button type="button" id="soundBtn" aria-label="Bật / tắt âm thanh"></button><button type="button" id="quitBtn" aria-label="Thoát"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#sai></use></svg></button></span>
       </span>
     </div>
     <div class="arena" id="arena" aria-hidden="true"></div>
@@ -215,21 +216,21 @@ main.big{max-width:none}
   </section>
 
   <section class="fair stagebox" id="over" hidden style="margin-top:20px">
-    <div class="over-top"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#cup"></use></svg><div>
+    <div class="over-top"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#cup"></use></svg><div>
       <div class="logo" id="overZh" lang="zh"></div>
       <h1 id="overTitle"></h1>
       <p class="lead" id="overLine" style="margin:4px 0 0"></p>
     </div></div>
     <div class="panel">
       <div class="cuoc" id="cuoc"></div>
-      <div><h2>Các từ vừa gặp, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#loa></use></svg> để nghe lại</h2><ul class="review" id="review" style="margin-top:8px"></ul></div>
-      <div class="acts"><button class="btn gold" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg></button><a class="btn sec" id="cardsBtn" href="#">Ôn bằng flashcard</a><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cách chơi</button></div>
+      <div><h2>Các từ vừa gặp, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#loa></use></svg> để nghe lại</h2><ul class="review" id="review" style="margin-top:8px"></ul></div>
+      <div class="acts"><button class="btn gold" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#lai></use></svg></button><a class="btn sec" id="cardsBtn" href="#">Ôn bằng flashcard</a><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cách chơi</button></div>
     </div>
   </section>
 </main>
 
 <div class="cdn" id="cdn" hidden aria-live="assertive"><b id="cdnT"></b></div>
-<div class="rd fair" id="rd" hidden><div class="rays"></div><div class="box"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#cup"></use></svg><div class="zh" id="rdZh" lang="zh"></div><h2 id="rdT"></h2><p class="muted" id="rdL" style="margin:0"></p><button class="btn gold" id="rdBtn" type="button">Ván tiếp theo <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button></div></div>
+<div class="rd fair" id="rd" hidden><div class="rays"></div><div class="box"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#cup"></use></svg><div class="zh" id="rdZh" lang="zh"></div><h2 id="rdT"></h2><p class="muted" id="rdL" style="margin:0"></p><button class="btn gold" id="rdBtn" type="button">Ván tiếp theo <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#phat></use></svg></button></div></div>
 
 <footer class="wrap">Từ vựng và pinyin theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
@@ -237,18 +238,18 @@ main.big{max-width:none}
 <script src="../../tu-vung/bai-data.js"></script>
 <script src="../../tu-vung/chu-de.js"></script>
 <script src="../../tu-vung/nghia-hsk1.js"></script>
-<script src="../bo-tu.js?v=4"></script>
-<script src="../tu-lop.js?v=2"></script>
+<script src="../bo-tu.js?v=5"></script>
+<script src="../tu-lop.js?v=4"></script>
 <script src="../tts.js?v=2"></script>
 <script src="../vuot-ai/am.js"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
-const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'],IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'],IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+n+'"></use></svg>';
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const FX=!matchMedia('(prefers-reduced-motion:reduce)').matches,MIN=8;
@@ -300,7 +301,7 @@ function poolFor(k){const all=TULOP.words([...picked].sort());
   return all}
 function refresh(){
   [['vi','viNote'],['zh','zhNote'],['nghe','ngheNote']].forEach(([k,id])=>{const off=poolFor(k).length<MIN,b=document.querySelector('#kindChips [data-kind="'+k+'"]');
-    b.disabled=off;$(id).textContent=off?(k==='nghe'?'máy này chưa có giọng đọc':'cấp này chưa có nghĩa'):''});
+    b.disabled=off;$(id).textContent=off?(k==='nghe'?'máy này chưa có giọng đọc':'chưa đủ từ có nghĩa'):''});
   if(document.querySelector('#kindChips [data-kind="'+kind+'"]').disabled){kind='py';press('kindChips','kind','py')}
   const n=poolFor(kind).length;$('startBtn').disabled=n<MIN;$('poolInfo').textContent=n<MIN?'Cần ít nhất '+MIN+' từ':n+' từ';
   $('how').innerHTML=mode==='duel'

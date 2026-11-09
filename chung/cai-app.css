@@ -1,0 +1,27 @@
+/* Nút "Cài app" + hộp hướng dẫn thêm web vào màn hình chính (website/chung/cai-app.js?v=de2effe9) */
+.appbtn{display:inline-flex;align-items:center;gap:6px;width:auto;padding:0 13px 0 10px;font:600 14px/1 var(--vi,system-ui,sans-serif);white-space:nowrap}
+.appbtn[hidden]{display:none}
+.appbtn .lli{width:18px;height:18px}
+@media (max-width:560px){.appbtn{width:32px;padding:0;justify-content:center}.appbtn span{display:none}}
+.llapp-foot{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:0;font:inherit;color:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.llapp-foot[hidden]{display:none}
+
+.llapp{border:0;padding:0;margin:auto;width:min(420px,calc(100vw - 32px));max-height:calc(100dvh - 32px);border-radius:22px;
+  background:var(--card,#fff);color:var(--ink,#2B2E45);box-shadow:0 24px 60px rgba(20,22,40,.28);font-family:var(--vi,system-ui,sans-serif)}
+.llapp::backdrop{background:rgba(27,28,39,.45);backdrop-filter:blur(3px)}
+.llapp .in{padding:22px 22px 20px;display:grid;gap:14px}
+.llapp .hd{display:flex;align-items:center;gap:12px}
+.llapp .hd img{width:52px;height:52px;border-radius:13px;flex:none;box-shadow:0 0 0 1px var(--line,#E3DFEE)}
+.llapp h2{font-size:17px;line-height:1.3;margin:0}
+.llapp h2 small{display:block;font-weight:500;font-size:13px;color:var(--muted,#6B6E86);margin-top:2px}
+.llapp ol{margin:0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:b}
+.llapp li{counter-increment:b;display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;font-size:14.5px;line-height:1.5}
+.llapp li::before{content:counter(b);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--coral-s,#FDE6E7);color:var(--coral,#E0545F);font-weight:800;font-size:14px}
+.llapp .k{display:inline-flex;align-items:center;gap:4px;padding:1px 8px;border-radius:7px;background:var(--ground2,#EFEBF7);font-weight:700;white-space:nowrap}
+.llapp .k .lli{width:16px;height:16px;color:var(--sky,#3B87D6)}
+.llapp .note{margin:0;font-size:13px;line-height:1.5;color:var(--muted,#6B6E86);background:var(--ground,#F7F5FB);border-radius:12px;padding:10px 12px}
+.llapp .act{display:flex;justify-content:flex-end;gap:8px}
+.llapp .act button{font:700 14px/1 var(--vi,system-ui,sans-serif);border:0;border-radius:999px;padding:11px 18px;cursor:pointer;background:var(--ground2,#EFEBF7);color:var(--ink,#2B2E45)}
+.llapp .act button.chinh{background:var(--coral,#E0545F);color:#fff}
+.llapp-toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:50;background:var(--ink,#2B2E45);color:var(--ground,#fff);
+  padding:10px 16px;border-radius:999px;font:600 14px/1.3 var(--vi,system-ui,sans-serif);box-shadow:0 8px 24px rgba(0,0,0,.2);max-width:calc(100vw - 32px)}

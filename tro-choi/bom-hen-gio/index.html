@@ -81,7 +81,8 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
 .confetti{position:fixed;top:-14px;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:30}
 @media (prefers-reduced-motion:reduce){.bomb svg,.spark{animation:none!important}.confetti,.flash{display:none}}
 </style>
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -109,7 +110,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
         <li>Bí quá thì cô bấm <b>Đề khác</b> (phím <b>N</b>), nhưng bom vẫn cháy. Bom nổ ở tay ai, người đó mất một mạng. Hết mạng thì ra ngoài cổ vũ.</li>
         <li>Còn lại một người cuối cùng là người thắng.</li>
       </ul>
-      <div class="acts"><button class="btn boom" id="startBtn" type="button">Châm ngòi <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
+      <div class="acts"><button class="btn boom" id="startBtn" type="button">Châm ngòi <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
     </div>
   </section>
 
@@ -135,8 +136,8 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
 <script src="../../tu-vung/bai-data.js"></script>
 <script src="../../tu-vung/chu-de.js"></script>
 <script src="../../tu-vung/nghia-hsk1.js"></script>
-<script src="../bo-tu.js?v=4"></script>
-<script src="../tu-lop.js?v=2"></script>
+<script src="../bo-tu.js?v=5"></script>
+<script src="../tu-lop.js?v=4"></script>
 <script src="../vuot-ai/de-tttc.js?v=2"></script>
 <script src="../vuot-ai/de-301.js?v=1"></script>
 <script src="../vuot-ai/de-301b.js?v=1"></script>
@@ -148,7 +149,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -156,7 +157,7 @@ const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'],BAI=win
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const mk=(t,c,x,lang)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;if(lang)e.lang=lang;return e};
-const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+n+'"></use></svg>';
 const FX=!matchMedia('(prefers-reduced-motion:reduce)').matches;
 const BOMB='<svg viewBox="0 0 170 170"><path d="M98 52q20-36 50-30" fill="none" stroke="#8A6A3A" stroke-width="6" stroke-linecap="round"/><g class="spark"><path d="M150 10l4 9 9-3-6 8 8 6-10 0-2 10-4-9-9 4 6-8-8-6 10-1z" fill="#FFC400"/><circle cx="150" cy="22" r="4" fill="#fff"/></g><rect x="78" y="44" width="34" height="20" rx="5" fill="#3B3329" transform="rotate(-20 95 54)"/><circle cx="78" cy="100" r="58" fill="#231A0E"/><ellipse cx="56" cy="76" rx="16" ry="10" fill="#fff" opacity=".35" transform="rotate(-35 56 76)"/><path d="M58 104q20 14 40 0" fill="none" stroke="#FFC400" stroke-width="5" stroke-linecap="round"/><circle cx="60" cy="92" r="5" fill="#FFC400"/><circle cx="96" cy="92" r="5" fill="#FFC400"/></svg>';
 $('heroBomb').innerHTML=BOMB;$('bomb').innerHTML=BOMB;

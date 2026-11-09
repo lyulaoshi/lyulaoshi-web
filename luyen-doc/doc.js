@@ -4,7 +4,7 @@
 (function(){
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const IC=(n,c)=>`<svg class="lli${c?" "+c:""}" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#${n}"></use></svg>`;
+const IC=(n,c)=>`<svg class="lli${c?" "+c:""}" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#${n}"></use></svg>`;
 const DS=window.LD_BAI||[];
 const PUNC=/^[，。？！、：；“”（）…]+$/;
 const T1="āēīōūǖ",T2="áéíóúǘ",T3="ǎěǐǒǔǚ",T4="àèìòùǜ";

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>课本盒 · Giáo trình – 吕老师汉语盒</title>
 <meta name="description" content="Giáo trình của cô Lã: chọn cuốn đang học, xem các bài theo từng đợt ôn tập, học bài, ôn từ vựng, chơi game và ôn gộp nhiều bài – Lyu Laoshi Chinese Box.">
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=ZCOOL+KuaiLe&display=swap">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
@@ -222,6 +222,7 @@ footer{padding:18px 0 32px;margin-top:32px;color:var(--muted);font-size:13px;bor
 </style>
 <link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
 <link rel="stylesheet" href="/chung/hero.css?v=a26ea8bd">
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -420,7 +421,7 @@ covers();panel();bar();resume();
 addEventListener("pageshow",e=>{if(e.persisted){covers();panel();bar();resume()}});
 (function(){const r=document.documentElement,b=$("#themeBtn");
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 </script>
 </body>

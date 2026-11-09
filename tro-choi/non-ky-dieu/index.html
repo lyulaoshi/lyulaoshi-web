@@ -136,7 +136,8 @@ main.big{max-width:none}
 @media (prefers-reduced-motion:reduce){.wh .rot{transition:none}.st::before,.st::after,.bd::before,.bu{animation:none!important}}
 .confetti{position:fixed;top:-14px;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:30}
 </style>
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -172,7 +173,7 @@ main.big{max-width:none}
         <li>Nghĩa tiếng Việt được giấu. Đội có từ 300 điểm có thể <b>Mua nghĩa</b> (phím M), mất 300 điểm và cả lớp cùng thấy.</li>
         <li>Đến lượt mình, đội có thể <b>Giải câu</b> (phím G): đọc to cả câu, đúng thì được 500 điểm và 100 điểm cho mỗi ô còn che. Sai thì mất lượt.</li>
       </ul>
-      <div class="acts"><button class="btn gold" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
+      <div class="acts"><button class="btn gold" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
     </div>
   </section>
 
@@ -190,9 +191,9 @@ main.big{max-width:none}
     <div class="over-c"><div class="logo" lang="zh" id="overZh"></div><h1 id="overT"></h1></div>
     <ol class="podium" id="podium"></ol>
     <div class="panel">
-      <h2>Các câu vừa chơi, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#loa></use></svg> để nghe lại</h2>
+      <h2>Các câu vừa chơi, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#loa></use></svg> để nghe lại</h2>
       <ul class="rev" id="rev"></ul>
-      <div class="acts"><button class="btn gold" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi bài / số đội</button></div>
+      <div class="acts"><button class="btn gold" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi bài / số đội</button></div>
     </div>
   </section>
 </main>
@@ -210,11 +211,11 @@ main.big{max-width:none}
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
-const $=id=>document.getElementById(id),IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const $=id=>document.getElementById(id),IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+n+'"></use></svg>';
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const mk=(t,c,x,lang)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;if(lang)e.lang=lang;return e};

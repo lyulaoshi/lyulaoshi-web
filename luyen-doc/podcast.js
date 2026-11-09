@@ -1,7 +1,7 @@
 // 播客 · Làm podcast (阅读盒 → 朗读) — 05/10/2026.
 // Học viên làm người dẫn: kịch bản (mở đầu · bài · kết) → máy nhắc chữ + thu từng phần → nhạc tự tạo (Web Audio, không dùng nhạc có bản quyền)
 // → ghép thành 1 file WAV có phụ đề → ảnh bìa TikTok 9:16 + ảnh vuông + lời giới thiệu có hashtag → lưu “Góc podcast của em” (IndexedDB, chỉ trên máy).
-// Cần window.LD (doc.js) và LLI (/chung/ic-ve.js?v=fc590457). Mở bằng #<id bài>/podcast.
+// Cần window.LD (doc.js) và LLI (/chung/ic-ve.js?v=f1fcc71d). Mở bằng #<id bài>/podcast.
 window.LD_POD=(function(){
 const L=()=>window.LD;
 // câu kết “这个故事告诉我们：…” của từng truyện [chữ Hán, pinyin]

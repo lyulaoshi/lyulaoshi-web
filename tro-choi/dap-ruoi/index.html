@@ -79,7 +79,8 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
 .confetti{position:fixed;top:-14px;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:30}
 @media (prefers-reduced-motion:reduce){.fly svg,.fly .wg{animation:none}.confetti{display:none}}
 </style>
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -107,7 +108,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
         <li>Máy đọc từ (phím <b>R</b> đọc lại). Bạn nào đập trúng trước, cô bấm <b>1 2 3 4</b> cho đội đó. Con ruồi bị đập bay mất, ruồi mới bay vào.</li>
         <li><b>Dấu cách</b> chỉ ra con ruồi đúng cho cả lớp thấy, <b>N</b> bỏ qua từ, <b>Z</b> hoàn tác khi bấm nhầm. Mỗi lượt mời 2 bạn khác lên.</li>
       </ul>
-      <div class="acts"><button class="btn sw" id="startBtn" type="button">Thả ruồi <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
+      <div class="acts"><button class="btn sw" id="startBtn" type="button">Thả ruồi <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
     </div>
   </section>
 
@@ -131,14 +132,14 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
 <script src="../../tu-vung/bai-data.js"></script>
 <script src="../../tu-vung/chu-de.js"></script>
 <script src="../../tu-vung/nghia-hsk1.js"></script>
-<script src="../bo-tu.js?v=4"></script>
-<script src="../tu-lop.js?v=2"></script>
+<script src="../bo-tu.js?v=5"></script>
+<script src="../tu-lop.js?v=4"></script>
 <script src="../tts.js?v=2"></script>
 <script src="../vuot-ai/am.js"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -146,7 +147,7 @@ const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'];
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const mk=(t,c,x,lang)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;if(lang)e.lang=lang;return e};
-const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+n+'"></use></svg>';
 const FX=!matchMedia('(prefers-reduced-motion:reduce)').matches;
 const TEAM=[['Đội Đỏ','#D2453A'],['Đội Xanh','#2F78C4'],['Đội Lục','#3E8E2A'],['Đội Tím','#8A4FC4']];
 const FLY='<svg viewBox="0 0 70 52"><g class="wg"><ellipse cx="22" cy="16" rx="17" ry="11" fill="#CDE8FF" fill-opacity=".85" stroke="#7DA9CC" stroke-width="1.5" transform="rotate(-25 22 16)"/><ellipse cx="48" cy="16" rx="17" ry="11" fill="#CDE8FF" fill-opacity=".85" stroke="#7DA9CC" stroke-width="1.5" transform="rotate(25 48 16)"/></g><path d="M22 42l-8 8M48 42l8 8M28 44l-3 8M42 44l3 8" stroke="#22301A" stroke-width="2.5" stroke-linecap="round"/><ellipse cx="35" cy="33" rx="15" ry="13" fill="#2E3A28"/><path d="M24 31h22M25 37h20" stroke="#56634B" stroke-width="2"/><circle cx="27" cy="22" r="6" fill="#C9302A"/><circle cx="43" cy="22" r="6" fill="#C9302A"/><circle cx="25.5" cy="20.5" r="1.8" fill="#fff"/><circle cx="41.5" cy="20.5" r="1.8" fill="#fff"/></svg>';
@@ -167,8 +168,8 @@ LEVELS.forEach(l=>{const b=document.createElement('button');b.type='button';b.cl
 TULOP.picker($('pick'));
 function chipRow(el,items,cur,fn){el.innerHTML='';items.forEach(([v,t,sub,off])=>{const b=mk('button','chip',t);b.type='button';if(sub)b.append(mk('small',null,sub));b.disabled=!!off;b.setAttribute('aria-pressed',v===cur);b.onclick=()=>{fn(v);refresh()};el.append(b)})}
 function poolFor(s){const a=TULOP.words([...picked].sort(),4);return s==='vi'?a.filter(x=>x.vi):a}
-function refresh(){const noVi=poolFor('vi').length<20;if(noVi&&SAY==='vi')SAY='nghe';
-  chipRow($('sayChips'),[['nghe','Máy đọc','nghe rồi đập'],['py','Chiếu pinyin'],['vi','Chiếu nghĩa',noVi?'cấp này chưa có nghĩa':'',noVi]],SAY,v=>SAY=v);
+function refresh(){const noVi=poolFor('vi').length<F+4;if(noVi&&SAY==='vi')SAY='nghe';
+  chipRow($('sayChips'),[['nghe','Máy đọc','nghe rồi đập'],['py','Chiếu pinyin'],['vi','Chiếu nghĩa',noVi?'chưa đủ từ có nghĩa':'',noVi]],SAY,v=>SAY=v);
   chipRow($('teamChips'),[[2,'2 đội'],[3,'3 đội'],[4,'4 đội']],T,v=>T=v);
   chipRow($('flyChips'),[[9,'9 con','dễ'],[12,'12 con'],[16,'16 con','khó']],F,v=>F=v);
   chipRow($('numChips'),[[10,'10 lượt'],[15,'15 lượt'],[20,'20 lượt']],N,v=>N=v);

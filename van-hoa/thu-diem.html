@@ -145,6 +145,7 @@ body{background:var(--ground)}
 .tui-kq b{font-family:var(--kai);font-weight:400;font-size:21px;color:var(--do)}.tui-kq small{font-size:11px;color:var(--muted)}
 .nhap{display:inline-block;margin:6px 0 0;font-size:12.5px;font-weight:700;color:#8A5A00;background:#FBF1CF;border-radius:10px;padding:4px 10px}
 </style>
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -169,7 +170,7 @@ body{background:var(--ground)}
     <div class="py" id="py"></div>
     <p id="gioi"></p>
     <div class="the-nho" id="nhan"></div>
-    <button class="btn m" type="button" id="batDau"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#phat"></use></svg>Vào tham quan · 5 câu đố</button>
+    <button class="btn m" type="button" id="batDau"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#phat"></use></svg>Vào tham quan · 5 câu đố</button>
     <div><span class="nhap">Bản thử · ảnh đang tải từ Wikimedia, chưa lưu về máy</span></div>
   </div>
 </section>
@@ -190,7 +191,7 @@ body{background:var(--ground)}
 <script>
 (function(){
 const $=s=>document.querySelector(s);
-const ic=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const ic=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+n+'"></use></svg>';
 const am=n=>{try{window.AM&&AM.play(n)}catch(e){}};
 // điểm đang xem: ?d=gugong | changcheng | tiantan | yiheyuan (dữ liệu ở bac-kinh.js)
 const C=VHTD.thanhPho(),BJ=VH_TP[C],S=BJ.sanh,T0=Object.keys(BJ.tq)[0],ID=(new URLSearchParams(location.search).get('d')||T0).replace(/[^a-z]/g,''),D=BJ.tq[ID]||BJ.tq[T0],DID=BJ.tq[ID]?ID:T0;

@@ -5,7 +5,7 @@
 const ve=document.querySelector('.lichve');if(!ve)return;
 const YJ=window.LICH_YJ||[['学汉字','học chữ Hán','偷懒','lười biếng']];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const loa=(w,nhan)=>'<button type="button" class="spk" data-say="'+esc(w)+'" aria-label="'+esc(nhan||('Nghe đọc '+w))+'" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#loa"/></svg></button>';
+const loa=(w,nhan)=>'<button type="button" class="spk" data-say="'+esc(w)+'" aria-label="'+esc(nhan||('Nghe đọc '+w))+'" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#loa"/></svg></button>';
 const mod=(a,n)=>((a%n)+n)%n,dayNo=d=>Math.round((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())-Date.UTC(2026,0,1))/864e5);
 const SO='〇一二三四五六七八九十',PY=['líng','yī','èr','sān','sì','wǔ','liù','qī','bā','jiǔ','shí'];
 const WK='日一二三四五六',WKPY=['rì','yī','èr','sān','sì','wǔ','liù'],VI=['Chủ Nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'];
@@ -63,7 +63,7 @@ function baiHtml(d,lech){
   const B=window.TD_BAI;if(lech||!B||!B.length)return '';
   const s=B[mod(dayNo(d),B.length)],q=s[0]+' '+s[3].replace(' 作词','');
   return '<a class="nhan bai" href="https://www.youtube.com/results?search_query='+encodeURIComponent(q)+'" target="_blank" rel="noopener" title="Nghe trên YouTube: '+esc(s[0]+' ('+s[2]+') – '+s[3])+'">'+
-    '<span class="ve"><i><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#nhac"/></svg></i><span class="tl" lang="zh">今日一曲</span></span>'+
+    '<span class="ve"><i><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#nhac"/></svg></i><span class="tl" lang="zh">今日一曲</span></span>'+
     '<span class="ve"><b lang="zh">'+s[0]+'</b><span class="ca" lang="zh">'+esc(s[3])+'</span></span></a>';
 }
 function veTo(d,lech){
@@ -86,15 +86,15 @@ function veTo(d,lech){
   if(t){
     const may=t.cung>=0?'<span class="may"><b lang="zh">'+G[t.cung][0]+'</b> · 幸运色 <i style="--m:'+t.mau[3]+'"></i><b lang="zh">'+t.mau[0]+'</b> · 幸运字 <b lang="zh">'+t.chu[0]+'</b></span>':'';
     tdHtml='<div class="tdg'+(lech?' an':'')+'"><p><span class="tz" lang="zh">「'+t.cau[0]+'」</span><span class="tv">'+esc(t.cau[2])+'</span></p>'+
-      '<div class="tdd">'+may+'<button type="button" class="cung" aria-haspopup="true" aria-expanded="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#sao"/></svg>'+
-      (t.cung>=0?'<b lang="zh">'+G[t.cung][0]+'</b>'+G[t.cung][2]:'Chọn cung của bạn')+'<svg class="lli mui" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#xuong"/></svg></button></div>'+
+      '<div class="tdd">'+may+'<button type="button" class="cung" aria-haspopup="true" aria-expanded="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sao"/></svg>'+
+      (t.cung>=0?'<b lang="zh">'+G[t.cung][0]+'</b>'+G[t.cung][2]:'Chọn cung của bạn')+'<svg class="lli mui" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#xuong"/></svg></button></div>'+
       (lech?'<span class="khoa" lang="zh">明天揭晓<small>Mai mới mở</small></span>':'')+'</div>';
   }
   ve.innerHTML=
     '<div class="cuong"><span class="cz" lang="zh">'+g[0]+'</span><span class="cv">'+g[1]+'</span><span class="cvui">'+g[2]+'</span>'+
       '<b class="so">'+d.getDate()+'</b><span class="thu" lang="zh">星期'+WK[wk]+'</span>'+
       '<span class="seri">No.'+String(soNgay).padStart(3,'0')+' / '+(soNam(d.getFullYear()))+'</span><i class="nen" lang="zh" aria-hidden="true">'+WK[wk]+'</i>'+
-      (lech?'<button type="button" class="ve-lai"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#lai"/></svg>Về hôm nay</button>':'')+
+      (lech?'<button type="button" class="ve-lai"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#lai"/></svg>Về hôm nay</button>':'')+
     '</div>'+
     '<div class="than"><span class="tem" lang="zh">'+(lech?'明日':'今日')+'</span>'+
       '<p class="nz" lang="zh">'+ngayZh+' <span>星期'+WK[wk]+'</span>'+loa(ngayZh+'星期'+WK[wk],'Nghe đọc ngày tháng')+'</p>'+

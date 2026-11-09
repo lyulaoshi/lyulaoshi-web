@@ -102,7 +102,8 @@ main.big{max-width:1400px}main.full{max-width:none}
 .confetti{position:fixed;top:-14px;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:30}
 @media (prefers-reduced-motion:reduce){.confetti{display:none}}
 </style>
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -132,7 +133,7 @@ main.big{max-width:1400px}main.full{max-width:none}
         <li>Lần lượt từng em nói <b>một câu tiếng Trung</b> về từ của mình, không được nói thẳng từ đó. Hết một vòng thì cả nhóm cùng chỉ tay bỏ phiếu.</li>
         <li>Em bị nhiều phiếu nhất bấm <b>Em bị loại</b> để lộ vai. Bắt hết gián điệp thì dân thắng. Số gián điệp bằng số dân còn lại thì gián điệp thắng.</li>
       </ul>
-      <div class="acts"><button class="btn gold" id="createBtn" type="button">Tạo phòng <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
+      <div class="acts"><button class="btn gold" id="createBtn" type="button">Tạo phòng <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
     </div>
   </section>
 
@@ -141,15 +142,15 @@ main.big{max-width:1400px}main.full{max-width:none}
     <div class="logo" lang="zh">谁是卧底</div>
     <div class="hostg">
       <div><div class="qr" id="qr">Đang tạo mã QR…</div>
-        <div class="linkbox"><code id="link"></code><button class="sbb" id="copyBtn" type="button"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#chep></use></svg> <span id="copyT">Chép link</span></button></div></div>
+        <div class="linkbox"><code id="link"></code><button class="sbb" id="copyBtn" type="button"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#chep></use></svg> <span id="copyT">Chép link</span></button></div></div>
       <div class="hcol">
-        <div class="card2"><div class="vrow"><span class="vso">Ván <span id="vNo">1</span></span><button class="btn gold" id="nextV" type="button">Sang ván sau <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="vNote"></span></div>
+        <div class="card2"><div class="vrow"><span class="vso">Ván <span id="vNo">1</span></span><button class="btn gold" id="nextV" type="button">Sang ván sau <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#phat></use></svg></button><span class="muted" id="vNote"></span></div>
           <ol class="steps"><li>Giữ tay lên hồ sơ, <b>xem từ của mình</b>, đừng để bạn thấy.</li><li>Lần lượt <b>mỗi em nói một câu</b> về từ của mình.</li><li>Đếm 3-2-1, cả nhóm <b>cùng chỉ tay</b> bỏ phiếu.</li><li>Em nhiều phiếu nhất bấm <b>Em bị loại</b> rồi cho nhóm xem.</li></ol></div>
         <div class="two"><div class="card2"><h2>Giờ nói</h2><div class="tm2"><b id="tmN">30</b><button type="button" data-s="20">20 giây</button><button type="button" data-s="30">30 giây</button><button type="button" id="tmStop">Dừng</button></div></div>
         <div class="card2"><h2>Tỉ số cả lớp</h2><div class="score">
           <div>Dân thắng<i id="scD">0</i><button class="sbb" type="button" id="plusD">+1</button></div>
           <div>Gián điệp thắng<i id="scS">0</i><button class="sbb" type="button" id="plusS">+1</button></div></div></div></div>
-        <div class="card2"><div class="acts"><button class="sbb" id="ansBtn" type="button"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#mat></use></svg> Xem từ các nhóm (đừng chiếu)</button><button class="sbb" id="newBtn" type="button">Phòng mới</button></div><ul class="ansl" id="ans" hidden></ul></div>
+        <div class="card2"><div class="acts"><button class="sbb" id="ansBtn" type="button"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#mat></use></svg> Xem từ các nhóm (đừng chiếu)</button><button class="sbb" id="newBtn" type="button">Phòng mới</button></div><ul class="ansl" id="ans" hidden></ul></div>
       </div>
     </div>
   </section>
@@ -160,7 +161,7 @@ main.big{max-width:1400px}main.full{max-width:none}
     <div class="card2"><h2>Em ở nhóm mấy?</h2><div class="chips" id="jG"></div>
       <h2>Nhóm em có mấy người?</h2><div class="chips" id="jS"></div>
       <h2>Em là số mấy? <span class="muted">(cả nhóm tự đánh số, không trùng nhau)</span></h2><div class="chips" id="jM"></div>
-      <div class="acts" style="margin-top:6px"><button class="btn gold" id="joinBtn" type="button" disabled>Nhận hồ sơ <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button></div></div>
+      <div class="acts" style="margin-top:6px"><button class="btn gold" id="joinBtn" type="button" disabled>Nhận hồ sơ <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#phat></use></svg></button></div></div>
   </section>
 
   <!-- học viên: hồ sơ -->
@@ -168,7 +169,7 @@ main.big{max-width:1400px}main.full{max-width:none}
     <div class="shead"><span class="logo" lang="zh">谁是卧底</span><span class="tag2">Ván <b id="sV"></b></span><span class="tag2">Nhóm <b id="sG"></b> · Số <b id="sM"></b></span></div>
     <div class="shead"><span class="tag2">Mã nhóm <b id="sC"></b></span><span style="font-weight:600;font-size:13.5px">Cả nhóm phải cùng ván và cùng mã này.</span></div>
     <button class="fld" id="fld" type="button" aria-label="Giữ để xem từ bí mật">
-      <span class="shut" id="fShut"><span class="stamp" lang="zh">绝密</span><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#khoa"></use></svg><span>Giữ tay ở đây để xem từ</span></span>
+      <span class="shut" id="fShut"><span class="stamp" lang="zh">绝密</span><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#khoa"></use></svg><span>Giữ tay ở đây để xem từ</span></span>
       <span class="open" id="fOpen" hidden><span class="wd" id="wZ" lang="zh"></span><span class="wpy" id="wP"></span><span class="wvi" id="wV"></span></span>
     </button>
     <div class="card2 hints"><div>Bắt đầu câu của em bằng:</div><div lang="zh"><b>它很……</b><b>我常常……</b><b>我喜欢……</b><b>在……可以看到</b></div></div>
@@ -188,7 +189,7 @@ main.big{max-width:1400px}main.full{max-width:none}
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 // Web tĩnh, không có máy chủ: các máy không nói chuyện với nhau. Từ và vai của từng em suy ra từ link phòng + nhóm + ván + số người + số thứ tự,
@@ -201,7 +202,7 @@ const hash=s=>{let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imu
 function seeded(a,seed){const out=a.slice();let s=seed>>>0;const rnd=()=>{s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
   for(let i=out.length-1;i>0;i--){const j=rnd()*(i+1)|0;[out[i],out[j]]=[out[j],out[i]]}return out}
 const mk=(t,c,x,lang)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;if(lang)e.lang=lang;return e};
-const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+n+'"></use></svg>';
 const show=id=>{['setup','host','join','stu','bad'].forEach(s=>$(s).hidden=s!==id);scrollTo(0,0)};
 const chrome=on=>{document.querySelector('header.top').hidden=!on;document.querySelector('footer').hidden=!on};
 function confetti(n){if(!FX)return;const C=['#FFD84D','#FFF6E0','#E0463F','#7A68E0','#3CC7C2'];

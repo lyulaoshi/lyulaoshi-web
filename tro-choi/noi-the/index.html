@@ -120,7 +120,8 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 .review .vi{color:var(--muted);font-size:13px;line-height:1.3}
 @media (max-width:560px){.tools button{padding:5px 9px;font-size:13.5px}.hud{font-size:13.5px}.tools .lb{display:none}}
 </style>
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -175,7 +176,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
         <li>Nối đúng, máy <b>đọc từ đó</b> và hiện pinyin, nghĩa ngay trên bàn. Nối nhanh liền tay được <b>连击</b> cộng thêm điểm.</li>
         <li>Hết đường nối thì máy tự xáo bàn. Em có thêm <b>Gợi ý</b> và <b>Xáo bàn</b> khi bí.</li>
       </ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -183,14 +184,14 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <div class="hud">
       <span>Ải <b id="lv">1</b>/7 <span class="gv" id="grav"></span></span>
       <span>Điểm <b id="score">0</b></span>
-      <span id="clockWrap"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#dong-ho></use></svg> <b id="clock">0:00</b></span>
+      <span id="clockWrap"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#dong-ho></use></svg> <b id="clock">0:00</b></span>
       <span class="combo" id="combo" hidden></span>
       <span class="sp"></span>
       <span class="tools">
-        <button type="button" id="hintBtn" aria-label="Gợi ý"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#den></use></svg> <span class="lb">Gợi ý</span> <span id="hintN"></span></button>
-        <button type="button" id="shufBtn" aria-label="Xáo bàn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#xuc-xac></use></svg> <span class="lb">Xáo</span> <span id="shufN"></span></button>
+        <button type="button" id="hintBtn" aria-label="Gợi ý"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#den></use></svg> <span class="lb">Gợi ý</span> <span id="hintN"></span></button>
+        <button type="button" id="shufBtn" aria-label="Xáo bàn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#xuc-xac></use></svg> <span class="lb">Xáo</span> <span id="shufN"></span></button>
         <button type="button" id="soundBtn" aria-label="Bật / tắt âm thanh"></button>
-        <button type="button" id="quitBtn" aria-label="Thoát"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sai></use></svg></button>
+        <button type="button" id="quitBtn" aria-label="Thoát"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#sai></use></svg></button>
       </span>
     </div>
     <div class="timebar" id="timebar"><i id="timefill"></i></div>
@@ -203,8 +204,8 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
     <h1 id="overTitle"></h1>
     <div class="panel">
       <div style="display:flex;gap:14px;align-items:center"><span id="overM" aria-hidden="true" style="flex:none;width:62px;height:70px"></span><div><span class="rank" id="rank"></span><br><span class="muted" id="finalInfo"></span></div></div>
-      <div><h2>Các từ vừa gặp, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#loa></use></svg> để nghe lại <span class="muted" id="wrongNote"></span></h2><ul class="review" id="review" style="margin-top:8px"></ul></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg></button><a class="btn sec" id="cardsBtn" href="#">Ôn bằng flashcard</a><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cỡ bàn</button></div>
+      <div><h2>Các từ vừa gặp, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#loa></use></svg> để nghe lại <span class="muted" id="wrongNote"></span></h2><ul class="review" id="review" style="margin-top:8px"></ul></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#lai></use></svg></button><a class="btn sec" id="cardsBtn" href="#">Ôn bằng flashcard</a><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cỡ bàn</button></div>
     </div>
   </section>
 </main>
@@ -217,18 +218,18 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script src="../../tu-vung/bai-data.js"></script>
 <script src="../../tu-vung/chu-de.js"></script>
 <script src="../../tu-vung/nghia-hsk1.js"></script>
-<script src="../bo-tu.js?v=4"></script>
+<script src="../bo-tu.js?v=5"></script>
 <script src="../tts.js?v=2"></script>
 <script src="../vui.js?v=20261004"></script>
 <script src="../vuot-ai/am.js"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
-const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'],IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'],IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+n+'"></use></svg>';
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 // 7 ải: mỗi ải một kiểu thẻ trôi sau khi nối
@@ -275,7 +276,8 @@ $('demoM').innerHTML=MASCOT('happy');
 const NG=new Map();
 if(window.BO_TU){const [t,a]=BO_TU.id.split(':');
   if(t==='bai'){const bk=(window.BAI||[]).find(x=>x.id===a);if(bk)bk.bai.forEach(l=>l.w.forEach(x=>{if(x[2])NG.set(x[0],x[2])}))}
-  if(t==='cd'){const c=(window.CHUDE||[]).find(x=>x.id===a);if(c)c.w.forEach(x=>{if(x[2])NG.set(x[0],x[2])})}}
+  if(t==='cd'){const c=(window.CHUDE||[]).find(x=>x.id===a);if(c)c.w.forEach(x=>{if(x[2])NG.set(x[0],x[2])})}
+  if(window.BO_NGHIA)Object.entries(BO_NGHIA).forEach(([w,v])=>NG.set(w,v));}
 const rawVi=(w,p)=>{const N=window.NGHIA||{};return NG.get(w)||N[w+'|'+p]||N[w]||''};
 // rút nghĩa cho vừa thẻ: bỏ ngoặc, quá dài thì lấy ý đầu tiên
 function shortVi(s){s=s.replace(/\s*[（(][^)）]*[)）]/g,'').trim();

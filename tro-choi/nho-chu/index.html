@@ -114,7 +114,8 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 .clock{font-variant-numeric:tabular-nums;color:var(--coral);font-weight:800}
 .shr{margin-top:10px}
 </style>
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -132,13 +133,13 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div class="chips" id="lvChips"></div>
       <h2>2. Cách nhớ</h2>
       <div class="chips modes" id="modeChips">
-        <button class="chip" type="button" data-mode="set" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#mat></use></svg> Nhớ chữ<small>tìm đủ các chữ, thứ tự nào cũng được</small></button>
-        <button class="chip" type="button" data-mode="order" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lua></use></svg> Nhớ thứ tự<small>chọn đúng từ trái sang phải</small></button>
-        <button class="chip" type="button" data-mode="pair" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#link></use></svg> Chữ và pinyin<small>xem chữ kèm pinyin, rồi nhìn pinyin chọn lại chữ</small></button>
-        <button class="chip" type="button" data-mode="part" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#manh-ghep></use></svg> Chữ khuyết bộ<small>chỉ còn một bộ phận, nhớ lại cả chữ</small></button>
-        <button class="chip" type="button" data-mode="daily" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lich></use></svg> Thử thách ngày<small>cùng một dãy 8 ải cho cả lớp, HSK 1–3</small></button>
-        <button class="chip" type="button" data-mode="forgot" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sotay></use></svg> Ôn chữ đã quên<small>chỉ gồm chữ em từng chọn sai</small></button>
-        <button class="chip" type="button" data-mode="rush" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#nhanh></use></svg> Chạy đua 90 giây<small>không mất mạng, sai bị trừ 5 giây</small></button>
+        <button class="chip" type="button" data-mode="set" aria-pressed="true"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#mat></use></svg> Nhớ chữ<small>tìm đủ các chữ, thứ tự nào cũng được</small></button>
+        <button class="chip" type="button" data-mode="order" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#lua></use></svg> Nhớ thứ tự<small>chọn đúng từ trái sang phải</small></button>
+        <button class="chip" type="button" data-mode="pair" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#link></use></svg> Chữ và pinyin<small>xem chữ kèm pinyin, rồi nhìn pinyin chọn lại chữ</small></button>
+        <button class="chip" type="button" data-mode="part" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#manh-ghep></use></svg> Chữ khuyết bộ<small>chỉ còn một bộ phận, nhớ lại cả chữ</small></button>
+        <button class="chip" type="button" data-mode="daily" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#lich></use></svg> Thử thách ngày<small>cùng một dãy 8 ải cho cả lớp, HSK 1–3</small></button>
+        <button class="chip" type="button" data-mode="forgot" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#sotay></use></svg> Ôn chữ đã quên<small>chỉ gồm chữ em từng chọn sai</small></button>
+        <button class="chip" type="button" data-mode="rush" aria-pressed="false"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#nhanh></use></svg> Chạy đua 90 giây<small>không mất mạng, sai bị trừ 5 giây</small></button>
       </div>
       <ul class="how">
         <li><b>Nhớ chữ / Nhớ thứ tự:</b> chọn lại đúng các chữ vừa thấy. <b>Chữ và pinyin:</b> nhìn pinyin chọn chữ. <b>Chữ khuyết bộ:</b> chỉ thấy một bộ phận. <b>Thử thách ngày:</b> 8 ải giống nhau cho mọi người. <b>Chạy đua:</b> 90 giây, càng nhiều ải càng tốt.</li>
@@ -149,7 +150,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       </ul>
       <h2>3. Huy hiệu <span class="muted" id="bdCount"></span></h2>
       <ul class="badges" id="badgeList"></ul>
-      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
+      <div class="acts"><button class="btn hot" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#phat></use></svg></button><span class="muted" id="bestSetup"></span></div>
     </div>
   </section>
 
@@ -161,13 +162,13 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <span class="streak" id="streak"></span>
       <span class="hearts" id="hearts"></span>
       <span class="sp"></span>
-      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#sai></use></svg> Dừng</button>
+      <button type="button" id="quitBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#sai></use></svg> Dừng</button>
     </div>
     <div class="path" id="path" aria-hidden="true"></div>
     <div class="timer" id="timerBox"><i id="timer"></i></div>
     <div class="q" id="qbox"><div class="banner" id="banner"></div><div class="rowc" id="row" lang="zh"></div><div class="ask" id="ask"></div>
-      <button class="btn sec seeb" type="button" id="seeBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#tick></use></svg> Đã nhớ</button></div>
-    <div class="pw"><button type="button" id="pwLook"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#mat></use></svg> Xem lại <b id="nLook">2</b></button><button type="button" id="pwClean"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#kinh-lup></use></svg> Lọc nhiễu <b id="nClean">2</b></button><button type="button" id="sndBtn" aria-label="Bật / tắt âm thanh"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#loa></use></svg></button></div>
+      <button class="btn sec seeb" type="button" id="seeBtn"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#tick></use></svg> Đã nhớ</button></div>
+    <div class="pw"><button type="button" id="pwLook"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#mat></use></svg> Xem lại <b id="nLook">2</b></button><button type="button" id="pwClean"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#kinh-lup></use></svg> Lọc nhiễu <b id="nClean">2</b></button><button type="button" id="sndBtn" aria-label="Bật / tắt âm thanh"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#loa></use></svg></button></div>
     <div class="opts" id="opts"></div>
     <div class="fb" id="fb" aria-live="polite"></div>
   </section>
@@ -180,7 +181,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
       <div id="newBadge"></div>
       <div id="revBox"><h2>Những chữ em quên, ôn lại nhé</h2><ul class="review" id="review"></ul></div>
       <div class="acts" id="shareBox" hidden><button class="btn sec" id="shareBtn" type="button">Chép kết quả để khoe</button><span class="muted" id="shareMsg"></span></div>
-      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cách nhớ</button></div>
+      <div class="acts"><button class="btn hot" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#lai></use></svg></button><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cách nhớ</button></div>
     </div>
   </section>
 </main>
@@ -190,7 +191,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script src="../hsk-words.js"></script>
 <script src="../../tu-vung/bai-data.js"></script>
 <script src="../../tu-vung/chu-de.js"></script>
-<script src="../bo-tu.js?v=4"></script>
+<script src="../bo-tu.js?v=5"></script>
 <script src="../vuot-ai/am.js?v=1"></script>
 <script src="../tts.js?v=2"></script>
 <script src="../vui.js?v=20261004"></script>
@@ -199,7 +200,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
@@ -234,7 +235,7 @@ function showBest(){const b=store.get(bestKey());$('bestSetup').textContent=b?'K
 showBest();chipInfo();
 
 const MAXK=8,BOSS_EVERY=5;
-const ICO=(n,c)=>'<svg class='+(c?'lli-'+c:'lli')+' aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#'+n+'></use></svg>';
+const ICO=(n,c)=>'<svg class='+(c?'lli-'+c:'lli')+' aria-hidden=true><use href=/chung/ic.svg?v=4faa8901#'+n+'></use></svg>';
 const BADGES=[['mat','vang','Mắt tinh','Nhớ đủ 5 chữ trong một vòng không sai'],['sao','vang','Ba sao','Một vòng đạt 3 sao'],['lua','do','Cháy hết mình','Chuỗi 5 vòng hoàn hảo'],
   ['vuong-mien','vang','Hạ BOSS','Thắng ải BOSS đầu tiên'],['cup','vang','Trí nhớ voi','Nhớ 8 chữ một vòng'],['huy-chuong','vang','Chăm chỉ','Tìm đúng 100 chữ (cộng dồn)'],['lich','xanh','Thử thách ngày','Hoàn thành thử thách ngày'],['nhanh','do','Nước rút','Chạy đua: hoàn hảo 6 ải']];
 let have=new Set(store.get('nc-badges')||[]),newB=[];

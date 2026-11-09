@@ -215,6 +215,7 @@ dialog#hc::backdrop{background:rgba(20,20,30,.55)}
 @media (prefers-reduced-motion:reduce){.p3 .ly,.ve.t3{transform:none!important}}
 .nhap{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:700;color:#8A5A00;background:#FBF1CF;border-radius:10px;padding:4px 10px}
 </style>
+<link rel="manifest" href="/manifest.webmanifest">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -247,12 +248,12 @@ dialog#hc::backdrop{background:rgba(20,20,30,.55)}
 
 <a class="moi-bj" href="thu-thanh-pho.html">
   <span class="anh-bj"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Jingshan_Farview_of_Beijing_CBD_-_Flickr.jpg/960px-Jingshan_Farview_of_Beijing_CBD_-_Flickr.jpg" alt="Mái đình cổ trên đồi Cảnh Sơn, phía xa là cao ốc Bắc Kinh"></span>
-  <span class="chu-bj"><em>Mới · bản chạy thử</em><b><span class="zh">北京</span>Dạo phố Bắc Kinh</b><small>Sảnh ga, bản đồ dạo phố, 4 điểm tham quan ảnh thật (故宫, 长城, 天坛, 颐和园) và 4 trải nghiệm: gọi món, đi taxi, nhà tứ hợp viện, hội chùa.</small><span class="nut-bj">Vào ga Bắc Kinh <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#sau"></use></svg></span></span>
+  <span class="chu-bj"><em>Mới · bản chạy thử</em><b><span class="zh">北京</span>Dạo phố Bắc Kinh</b><small>Sảnh ga, bản đồ dạo phố, 4 điểm tham quan ảnh thật (故宫, 长城, 天坛, 颐和园) và 4 trải nghiệm: gọi món, đi taxi, nhà tứ hợp viện, hội chùa.</small><span class="nut-bj">Vào ga Bắc Kinh <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sau"></use></svg></span></span>
 </a>
 
 <div class="hc-bar">
   <div class="hc-rank"><span class="huy" id="rkHuy">客</span><div style="flex:1"><b id="rkTen"></b><small id="rkSau"></small><div class="vach"><i id="rkVach"></i></div></div></div>
-  <button class="btn sec" type="button" id="hcBtn"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#sotay"></use></svg>Hộ chiếu &amp; Sổ từ</button>
+  <button class="btn sec" type="button" id="hcBtn"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sotay"></use></svg>Hộ chiếu &amp; Sổ từ</button>
 </div>
 
 <h2 class="kh" id="tuyen-tau"><span class="zh">旅行路线</span>Tuyến tàu</h2>
@@ -269,14 +270,14 @@ dialog#hc::backdrop{background:rgba(20,20,30,.55)}
 </main>
 
 <div id="choi" hidden>
-  <div class="dau-c"><button class="nut-tron" id="veBtn" type="button" aria-label="Về tuyến tàu"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#truoc"></use></svg></button>
+  <div class="dau-c"><button class="nut-tron" id="veBtn" type="button" aria-label="Về tuyến tàu"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#truoc"></use></svg></button>
     <div class="ve-ten" id="cTen"></div><div class="tim" id="cTim" aria-label="Số tim còn lại"></div></div>
   <div class="vach-c" id="cVach"></div>
   <div class="khung" id="cKhung" aria-live="polite"></div>
 </div>
 
 <dialog id="hc" aria-label="Hộ chiếu và Sổ từ"><div style="position:relative">
-  <button class="nut-tron hc-dong" type="button" id="hcDong" aria-label="Đóng"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#sai"></use></svg></button>
+  <button class="nut-tron hc-dong" type="button" id="hcDong" aria-label="Đóng"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sai"></use></svg></button>
   <div class="hc-trong">
     <div class="hc-trang"><h3><span class="zh">护照</span>Hộ chiếu</h3><p class="phu" id="hcPhu"></p><div id="hcDau"></div></div>
     <div class="hc-trang"><h3><span class="zh">生词本</span>Sổ từ văn hoá</h3><p class="phu">Trả lời đúng là nhặt được từ khoá của câu.</p><div class="so-tu" id="hcTu"></div></div>
@@ -286,7 +287,7 @@ dialog#hc::backdrop{background:rgba(20,20,30,.55)}
 
 <script src="../tro-choi/tts.js"></script>
 <script src="../tro-choi/vuot-ai/am.js"></script>
-<script src="du-lich.js?v=4"></script>
+<script src="du-lich.js?v=5"></script>
 <script src="canh-3d.js?v=2"></script>
 <script src="le-hoi.js?v=2"></script>
 <script src="bac-kinh.js?v=4"></script>
@@ -296,7 +297,7 @@ dialog#hc::backdrop{background:rgba(20,20,30,.55)}
 const TT=window.VH_TUYEN,BY={},$=s=>document.querySelector(s);window.VH_TRAM.forEach(t=>BY[t.id]=t);
 const T=TT.flatMap(u=>u.ga.map(id=>BY[id]));
 const LE=window.VH_LE;LE.forEach(f=>{f.le=1;BY[f.id]=f});
-const ic=(n,c)=>'<svg class="lli'+(c?' '+c:'')+'" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const ic=(n,c)=>'<svg class="lli'+(c?' '+c:'')+'" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+n+'"></use></svg>';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const am=n=>{try{window.AM&&AM.play(n)}catch(e){}};
 const get=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}};
@@ -327,6 +328,11 @@ sh:'<rect width="160" height="100" fill="#DCE4F5"/><g fill="#9AA8C8"><rect x="8"
 sz:'<rect width="160" height="100" fill="#E1EEEA"/><g><rect x="6" y="40" width="44" height="34" fill="#fff" stroke="#9AA4A8" stroke-width="1"/><path d="M2 42l26-14 26 14z" fill="#3C4A52"/><rect x="18" y="52" width="10" height="12" fill="#4A7F7A"/><rect x="112" y="44" width="44" height="30" fill="#fff" stroke="#9AA4A8" stroke-width="1"/><path d="M108 46l26-12 26 12z" fill="#3C4A52"/><rect x="126" y="54" width="9" height="11" fill="#4A7F7A"/></g><path d="M0 74h160v26H0z" fill="#7DB8B0"/><path d="M50 74q30-34 60 0" fill="none" stroke="#A9A49A" stroke-width="7"/><path d="M50 74q30-34 60 0" fill="none" stroke="#CFC9BD" stroke-width="3"/><path d="M60 74q20-22 40 0" fill="#7DB8B0"/><g stroke="#fff" stroke-width="1.4" opacity=".7" stroke-linecap="round"><path d="M14 88h20M118 92h24"/></g><path d="M34 14q4 10 0 22M38 20l8-4M36 28l-8-3" stroke="#4A7F7A" stroke-width="2" fill="none"/>',
 wz:'<rect width="160" height="100" fill="#DCE9F0"/><g fill="#fff" stroke="#8C979E" stroke-width="1"><rect x="0" y="34" width="40" height="34"/><rect x="40" y="40" width="36" height="28"/><rect x="104" y="36" width="56" height="32"/></g><g fill="#3A434A"><path d="M-4 36l24-12 24 12z"/><path d="M36 42l22-10 22 10z"/><path d="M100 38l30-14 30 14z"/></g><g fill="#2F6F8F"><rect x="12" y="46" width="8" height="10"/><rect x="52" y="50" width="8" height="10"/><rect x="118" y="46" width="8" height="10"/><rect x="138" y="46" width="8" height="10"/></g><path d="M0 68h160v32H0z" fill="#6FA6C0"/><g transform="translate(66 74)"><path d="M0 6h40l-6 8H6z" fill="#3A434A"/><path d="M8 6q12-12 24 0" fill="#2F6F8F"/><path d="M38 0l10 14" stroke="#6B4A2A" stroke-width="2"/></g><g stroke="#fff" stroke-width="1.4" opacity=".7" stroke-linecap="round"><path d="M14 90h18M118 92h26"/></g><g fill="#E0453A"><ellipse cx="88" cy="22" rx="4" ry="5"/><ellipse cx="98" cy="18" rx="4" ry="5"/></g><path d="M80 14q10 4 24 0" stroke="#3A434A" stroke-width="1" fill="none"/>',
 sx:'<rect width="160" height="100" fill="#EFDDE2"/><path d="M0 62h160v38H0z" fill="#7FA9B8"/><g stroke="#fff" stroke-width="1.4" opacity=".7" stroke-linecap="round"><path d="M10 86h20M60 92h18"/></g><g transform="translate(18 52)"><path d="M0 14h70l-8 10H8z" fill="#5A4636"/><path d="M14 14q20-20 40 0z" fill="#2B2E45"/><path d="M18 12q16-12 32 0" fill="none" stroke="#555A6A" stroke-width="1"/><path d="M66 6l14 18" stroke="#6B4A2A" stroke-width="2.4"/></g><g transform="translate(118 26)"><path d="M6 0h16l2 6q8 6 8 22t-10 24H6Q-4 46-4 28T4 6z" fill="#8A3B4A"/><rect x="5" y="-4" width="18" height="6" rx="2" fill="#E8C46A"/><rect x="2" y="16" width="24" height="16" fill="#F3E3C0"/><text x="14" y="28" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="11" fill="#8A3B4A">酒</text></g>',
+ts:'<rect width="160" height="100" fill="#F7DCC4"/><circle cx="122" cy="62" r="16" fill="#F5A04A"/><circle cx="122" cy="62" r="24" fill="#F5B86A" opacity=".35"/><path d="M0 100V70l26-26 18 10 36-46 34 38 18-8 28 26v26z" fill="#8E9A6A"/><path d="M80 8l34 38 18-8 28 26v36H96z" fill="#77845A"/><path d="M72 18l8-10 8 10z" fill="#FFFDF8" opacity=".8"/><path d="M80 98l-6-8 8-6-8-6 8-6-8-6 8-6-6-8 4-8" stroke="#F3E3C8" stroke-width="2.4" fill="none" stroke-dasharray="2 2"/><g transform="translate(70 14)"><rect x="2" y="6" width="16" height="9" fill="#C8423B"/><rect x="7" y="9" width="6" height="6" fill="#5E1E18"/><path d="M-1 7q11-6 22 0l-3-4H2z" fill="#3E4655"/></g><g fill="#6E7F45"><path d="M10 100l6-20 6 20zM20 100l7-24 7 24zM140 100l6-18 6 18z"/></g>',
+jnc:'<rect width="160" height="100" fill="#DDEFEA"/><path d="M0 40q20-14 40-4t40-6 40 4 40-6v14H0z" fill="#A9C9A8"/><rect y="44" width="160" height="56" fill="#8CC7D6"/><g stroke="#fff" stroke-width="1.3" opacity=".7" stroke-linecap="round"><path d="M10 92h18M120 88h22"/></g><g transform="translate(80 70)"><ellipse rx="34" ry="7" fill="#BFE3EC" stroke="#fff" stroke-width="1.4"/><g fill="#fff"><path d="M-14 0q-4-14 0-22q4 8 0 22z"/><path d="M0 0q-5-20 0-30q5 10 0 30z"/><path d="M14 0q-4-14 0-22q4 8 0 22z"/></g><g fill="#E9F7FA"><circle cx="-14" cy="-24" r="3"/><circle cx="0" cy="-32" r="3.5"/><circle cx="14" cy="-24" r="3"/></g></g><g transform="translate(22 44)"><path d="M0 0V-34" stroke="#6B5A3A" stroke-width="2.4"/><g stroke="#7FB25A" stroke-width="1.2" fill="none"><path d="M0-34q-10 10-8 30M0-34q-3 14-2 30M0-34q5 14 4 30M0-34q12 8 11 28"/></g></g><g transform="translate(140 46)"><path d="M0 0V-30" stroke="#6B5A3A" stroke-width="2.4"/><g stroke="#7FB25A" stroke-width="1.2" fill="none"><path d="M0-30q-10 10-8 26M0-30q4 14 3 26M0-30q12 8 10 24"/></g></g><g fill="#E58AA6"><ellipse cx="30" cy="84" rx="6" ry="3" fill="#5E9A55"/><path d="M27 82q3-8 6 0z"/><ellipse cx="128" cy="78" rx="7" ry="3" fill="#5E9A55"/><path d="M125 76q3-8 6 0z"/></g>',
+wf:'<rect width="160" height="100" fill="#D9ECF7"/><g fill="#fff" opacity=".9"><ellipse cx="30" cy="80" rx="22" ry="6"/><ellipse cx="128" cy="86" rx="26" ry="6"/></g><path d="M0 90q80-10 160 0v10H0z" fill="#9CCB7E"/><path d="M60 98Q50 70 52 46M110 98Q120 80 118 60M60 98Q90 60 96 22" stroke="#7A6A5A" stroke-width=".8" fill="none"/><g transform="translate(52 40)"><path d="M0-14l14 14-14 14-14-14z" fill="#E2533A"/><path d="M0-14v28M-14 0h28" stroke="#7A2A1A" stroke-width="1"/><path d="M0 14q-6 8 0 12t0 12" stroke="#E2533A" stroke-width="1.6" fill="none"/></g><g transform="translate(96 22)"><path d="M0-8q-4 6-2 12l-18-6q8-8 20-6zM0-8q4 6 2 12l18-6q-8-8-20-6z" fill="#2B2E45"/><path d="M-2 4q2 10 0 14h4q-2-4 0-14z" fill="#2B2E45"/><circle cy="-6" r="4" fill="#FBE7A1" stroke="#2B2E45" stroke-width="1.2"/><path d="M-14 -2q4-2 8 0M6-2q4-2 8 0" stroke="#E2533A" stroke-width="1.4" fill="none"/></g><g transform="translate(118 60)"><circle cx="0" cy="0" r="3.2" fill="#3A78B5"/><circle cx="6" cy="-3" r="3.2" fill="#E0A800"/><circle cx="12" cy="-3" r="3.2" fill="#3A78B5"/><circle cx="18" cy="0" r="3.2" fill="#E0A800"/><circle cx="24" cy="3" r="3.2" fill="#3A78B5"/><circle cx="30" cy="3" r="3.2" fill="#E0A800"/><circle cx="-4" cy="0" r="4.5" fill="#C8423B"/></g>',
+qd:'<rect width="160" height="100" fill="#D6E8F5"/><rect y="66" width="160" height="34" fill="#6FB3D2"/><g stroke="#fff" stroke-width="1.3" opacity=".7" stroke-linecap="round"><path d="M12 80h18M60 92h22M124 86h18"/></g><g fill="#5E9A55"><circle cx="14" cy="52" r="10"/><circle cx="62" cy="50" r="9"/><circle cx="96" cy="54" r="8"/></g><g><rect x="20" y="40" width="22" height="24" fill="#F5EBDD" stroke="#B8A890" stroke-width=".8"/><path d="M17 41l14-12 14 12z" fill="#C8483A"/><rect x="26" y="48" width="4" height="6" fill="#4A6E8A"/><rect x="34" y="48" width="4" height="6" fill="#4A6E8A"/><rect x="66" y="44" width="20" height="20" fill="#F2E4D0" stroke="#B8A890" stroke-width=".8"/><path d="M63 45l13-10 13 10z" fill="#D2553E"/><rect x="73" y="38" width="5" height="10" fill="#D2553E"/><rect x="70" y="52" width="4" height="6" fill="#4A6E8A"/></g><path d="M86 70h56" stroke="#8C7A68" stroke-width="3"/><g stroke="#8C7A68" stroke-width="1.4"><path d="M92 70v8M104 70v8M116 70v8M128 70v8"/></g><g transform="translate(142 58)"><rect x="-8" y="2" width="16" height="10" fill="#E9D9B8"/><path d="M-12 3l12-8 12 8z" fill="#C8423B"/><path d="M-9-4l9-6 9 6z" fill="#C8423B"/></g><g transform="translate(118 28)"><rect x="-8" y="-12" width="14" height="22" rx="2" fill="#F2B43A" stroke="#8A5A1A" stroke-width="1.2"/><path d="M6-8h4q3 0 3 3v6q0 3-3 3h-4" stroke="#8A5A1A" stroke-width="1.4" fill="none"/><path d="M-9-12q2-6 7-3q3-5 7 0q4-1 3 3z" fill="#fff"/></g>',
+pl:'<rect width="160" height="100" fill="#E3EFEA"/><g fill="#fff" opacity=".9"><ellipse cx="44" cy="16" rx="20" ry="6"/><ellipse cx="124" cy="22" rx="16" ry="5"/></g><g opacity=".22" fill="#7A8C9A"><rect x="104" y="46" width="7" height="12"/><rect x="113" y="40" width="6" height="18"/><path d="M102 48l5-5 6 5zM112 42l4-5 5 5z"/><rect x="121" y="48" width="8" height="10"/></g><rect y="64" width="160" height="36" fill="#7FBFC9"/><g stroke="#fff" stroke-width="1.3" opacity=".7" stroke-linecap="round"><path d="M100 80h20M112 92h16"/></g><path d="M8 100V60q16-14 36-12 22 0 34 14 12 14 14 38z" fill="#9A8466"/><path d="M8 100V70q20-6 40 2t30 28z" fill="#B49C78"/><g transform="translate(36 22)"><rect x="4" y="16" width="26" height="12" fill="#C8423B"/><path d="M-4 18q21-8 42 0l-6-6H2z" fill="#3E4655"/><rect x="9" y="6" width="16" height="7" fill="#C8423B"/><path d="M2 8q15-6 30 0l-5-5H7z" fill="#3E4655"/><path d="M17 0v3" stroke="#3E4655" stroke-width="1.4"/><g fill="#5E1E18"><rect x="9" y="20" width="4" height="8"/><rect x="21" y="20" width="4" height="8"/></g></g><g fill="none" stroke="#C9A55A" stroke-width="1.6" stroke-linecap="round" opacity=".8"><path d="M78 36q6-8 13-3q3-6 10-2"/></g>',
 nj:'<rect width="160" height="100" fill="#E9E0F2"/><g transform="translate(34 24)"><rect x="6" y="20" width="80" height="26" fill="#C8423B"/><path d="M-6 22q52-14 104 0l-10-12H4z" fill="#3E4655"/><rect x="22" y="2" width="48" height="10" fill="#C8423B"/><path d="M14 6q32-10 64 0l-7-8H21z" fill="#3E4655"/><rect x="40" y="28" width="12" height="18" fill="#6E1E18"/><g fill="#F5C04A"><rect x="14" y="28" width="8" height="8"/><rect x="70" y="28" width="8" height="8"/></g></g><path d="M0 72h160v28H0z" fill="#6E8FB8"/><g fill="#F5C04A" opacity=".85"><ellipse cx="44" cy="80" rx="3" ry="6"/><ellipse cx="80" cy="84" rx="3" ry="6"/><ellipse cx="116" cy="80" rx="3" ry="6"/></g><g transform="translate(60 84)"><path d="M0 0h40l-6 7H6z" fill="#5A4636"/><path d="M10 0q10-8 20 0" fill="#C8423B"/></g><g fill="#E35B95"><circle cx="14" cy="18" r="3"/><circle cx="22" cy="12" r="3"/><circle cx="146" cy="16" r="3"/></g><path d="M8 30q10-8 20-20M140 30q6-8 10-18" stroke="#6B4A2A" stroke-width="1.6" fill="none"/>'
 };
 // hình lịch lễ hội (cùng khung 160×100)
@@ -400,11 +406,14 @@ function veTuyen(){
 // ---- sơ đồ cả nước: chấm ga đặt theo kinh độ, vĩ độ thật; KHÔNG vẽ đường biên, bờ biển hay vùng biển
 const TOA={bj:[116.4,39.9],tj:[117.2,39.1],cde:[117.94,40.97],py:[112.18,37.2],dt:[113.3,40.08],nmg:[111.75,40.84],
   sh:[121.47,31.23],sz:[120.6,31.3],wz:[120.49,30.75],hz:[120.15,30.27],sx:[120.58,30.0],nj:[118.8,32.06],
-  heb:[126.65,45.75],qf:[116.99,35.6],xa:[108.94,34.34],cd:[104.06,30.66],yn:[102.71,25.04],gz:[113.26,23.13]};
+  heb:[126.65,45.75],qf:[116.99,35.6],ts:[117.1,36.2],jnc:[117.0,36.67],wf:[119.1,36.7],qd:[120.38,36.07],pl:[120.75,37.8],xa:[108.94,34.34],cd:[104.06,30.66],yn:[102.71,25.04],gz:[113.26,23.13]};
 const PJ=(lo,la)=>[+((lo-98)*24+10).toFixed(1),+((48-la)*27.6+10).toFixed(1)];
 // nhãn tên ga: [dx, dy, canh lề]; cụm Giang Nam vẽ thêm ở khung phóng to
-const NHAN={bj:[-12,-8,'end'],tj:[12,14,'start'],cde:[12,4,'start'],py:[0,24,'middle'],dt:[0,26,'middle'],nmg:[0,-14,'middle'],nj:[0,-14,'middle'],heb:[12,6,'start'],qf:[12,6,'start'],xa:[0,24,'middle'],cd:[-12,6,'end'],yn:[0,26,'middle'],gz:[0,26,'middle']};
+const NHAN={bj:[-12,-8,'end'],tj:[12,14,'start'],cde:[12,4,'start'],py:[0,24,'middle'],dt:[0,26,'middle'],nmg:[0,-14,'middle'],nj:[0,-14,'middle'],heb:[12,6,'start'],xa:[0,24,'middle'],cd:[-12,6,'end'],yn:[0,26,'middle'],gz:[0,26,'middle']};
 const GN=['sh','sz','wz','hz','sx'],GT=[548,482],GK=[668,600],GZ=3.2;   // tâm cụm, tâm khung phóng, độ phóng
+const SD=['qf','ts','jnc','wf','qd','pl'],SK=[705,318];
+const VT_SD={qf:[-50,56],ts:[-28,18],jnc:[-55,-16],wf:[5,-20],qd:[55,16],pl:[35,-50]};
+const NHAN_SD={qf:[13,6,'start'],ts:[13,6,'start'],jnc:[0,-14,'middle'],wf:[0,-14,'middle'],qd:[0,26,'middle'],pl:[0,-14,'middle']};
 const NHAN_GN={sh:[0,26,'middle'],sz:[0,-14,'middle'],wz:[-12,5,'end'],hz:[-12,8,'end'],sx:[12,8,'start']};
 const DD=(pts)=>'M'+pts.map(p=>PJ(p[0],p[1]).join(' ')).join('L');
 const SONG={'黄河':[[98.5,35],[101.5,35.6],[103.8,36.06],[106.27,38.47],[106.8,39.65],[109.84,40.65],[111.2,40.25],[110.6,37.5],[110.4,35.6],[110.25,34.6],[113.6,34.9],[114.3,34.8],[116.98,36.67],[118.9,37.8]],
@@ -424,14 +433,14 @@ const HINHGA={
  tj:[28,30,'<circle r="10" fill="none" stroke="#4B6178" stroke-width="2"/><path d="M-10 0h20M0-10v20M-7-7l14 14M7-7l-14 14" stroke="#4B6178" stroke-width=".9"/><path d="M0 0l-5 13M0 0l5 13" stroke="#4B6178" stroke-width="1.8"/>'],
  nmg:[-34,-6,'<path d="M-11 6v-7h22v7z" fill="#FBF8F1" stroke="#8A7A6A" stroke-width="1"/><path d="M-12-1q12-11 24 0z" fill="#FBF8F1" stroke="#8A7A6A" stroke-width="1"/><path d="M-12-1q12-3 24 0" stroke="#3E7FB8" stroke-width="1.6" fill="none"/><rect x="-2.5" y="0" width="5" height="6" fill="#C8423B"/>'],
  heb:[0,32,'<rect x="-10" y="-1" width="20" height="10" fill="#E6F2FA" stroke="#7FB3D6" stroke-width="1"/><path d="M-6-1q0-8 6-11q6 3 6 11z" fill="#CFE6F5" stroke="#7FB3D6" stroke-width="1"/><path d="M0-12v-4" stroke="#7FB3D6" stroke-width="1.2"/><path d="M-10-1q0-5 3-7q3 2 3 7zM4-1q0-5 3-7q3 2 3 7z" fill="#CFE6F5" stroke="#7FB3D6" stroke-width="1"/>'],
- qf:[0,30,'<rect x="-10" y="-10" width="20" height="20" rx="3" fill="#C8423B"/><text y="6" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="15" fill="#FBE7A1">孔</text>'],
+ qf:[-30,10,'<rect x="-10" y="-10" width="20" height="20" rx="3" fill="#C8423B"/><text y="6" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="15" fill="#FBE7A1">孔</text>'],
  xa:[-30,-8,'<path d="M-7 12v-9q0-6 7-6t7 6v9z" fill="#A9825E"/><circle cy="-6" r="5" fill="#B9926E"/><path d="M-5-10q5-5 10 0" stroke="#7A5A40" stroke-width="2" fill="none"/>'],
  cd:[30,-18,'<circle r="10" fill="#fff" stroke="#2B2E45" stroke-width="1.2"/><circle cx="-8" cy="-8" r="4" fill="#2B2E45"/><circle cx="8" cy="-8" r="4" fill="#2B2E45"/><ellipse cx="-4" cy="-1" rx="2.6" ry="3.2" fill="#2B2E45"/><ellipse cx="4" cy="-1" rx="2.6" ry="3.2" fill="#2B2E45"/><ellipse cy="4" rx="2" ry="1.4" fill="#2B2E45"/>'],
  yn:[32,-10,'<path d="M-12 8q12-6 24 0M-10 3q10-6 20 0M-8-2q8-6 16 0M-5-7q5-5 10 0" stroke="#5E9A45" stroke-width="2.4" fill="none" stroke-linecap="round"/>'],
  gz:[32,-12,'<ellipse cy="5" rx="11" ry="4" fill="#C9A26A"/><rect x="-11" y="-3" width="22" height="8" fill="#D8B57E"/><ellipse cy="-3" rx="11" ry="4" fill="#E8CC96"/><circle cx="-4" cy="-4" r="2.6" fill="#FFF6E6"/><circle cx="3" cy="-4" r="2.6" fill="#FFF6E6"/>'],
  nj:[-30,4,'<g fill="#F2A6BE">'+[0,72,144,216,288].map(a=>'<circle cx="'+(6*Math.cos(a*Math.PI/180)).toFixed(1)+'" cy="'+(6*Math.sin(a*Math.PI/180)).toFixed(1)+'" r="4.5"/>').join('')+'</g><circle r="2.5" fill="#E0A800"/>']};
 function veBanDo(){
-  const vt=t=>GN.includes(t)?null:PJ(...TOA[t]);
+  const vt=t=>GN.includes(t)||SD.includes(t)?null:PJ(...TOA[t]);
   const ga=(u,id,i,x,y,lab,nho)=>{const t=BY[id],m=mo(u,i),s=SAO[id],v=vangTP(id),ke=u===CUR&&keOf(u)===i;
     return '<g class="ga'+(m?'':' khoa')+'" data-u="'+u.id+'" data-i="'+i+'" tabindex="'+(m?0:-1)+'" role="button" aria-label="'+t.vi+(m?'':' (chưa mở)')+'"><circle cx="'+x+'" cy="'+y+'" r="22" fill="transparent"/>'+
       (ke?'<circle class="nhip" cx="'+x+'" cy="'+y+'" r="13" fill="'+u.mau+'" opacity=".45"/>':'')+
@@ -439,7 +448,7 @@ function veBanDo(){
       (s?'<path d="M'+(x-3.5)+' '+y+'l2.5 2.5 5-5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>':'')+
       (ke?'<g transform="translate('+(x-14)+' '+(y-34)+')"><rect x="2" y="2" width="22" height="12" rx="4" fill="'+u.mau+'" stroke="#2B2E45" stroke-width="1.6"/><rect x="5" y="5" width="5" height="4" rx="1" fill="#fff"/><rect x="12" y="5" width="5" height="4" rx="1" fill="#fff"/><path d="M24 7h4v5h-4" fill="#E0A800" stroke="#2B2E45" stroke-width="1.4"/><circle cx="8" cy="16" r="2.2" fill="#2B2E45"/><circle cx="19" cy="16" r="2.2" fill="#2B2E45"/></g>':'')+
       '<text class="ten-ga" x="'+(x+lab[0])+'" y="'+(y+lab[1])+'" text-anchor="'+lab[2]+'">'+t.zh+'</text></g>'};
-  let duong='',cham='',gn='',hinh='';
+  let duong='',cham='',gn='',sd='',hinh='';
   TT.forEach(u=>{const pts=u.ga.map(id=>PJ(...TOA[id]));
     duong+='<g class="'+(u===CUR?'tuyen-dang':'')+'"><path d="M'+pts.map(p=>p.join(' ')).join('L')+'" stroke="#FFFDF8" stroke-width="'+(u===CUR?11:8)+'" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/><path class="duong" d="M'+pts.map(p=>p.join(' ')).join('L')+'" stroke="'+u.mau+'" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="'+(u===CUR?1:.6)+'"/></g>';
     u.ga.forEach((id,i)=>{const p=vt(id);if(p){cham+=ga(u,id,i,p[0],p[1],NHAN[id]||[0,-14,'middle']);const h=HINHGA[id];if(h)hinh+='<g transform="translate('+(p[0]+h[0])+' '+(p[1]+h[1])+')" opacity=".95">'+h[2]+'</g>'}});
@@ -447,6 +456,10 @@ function veBanDo(){
     if(gnIds.length){const q=id=>{const p=PJ(...TOA[id]);return [+(GK[0]+(p[0]-GT[0])*GZ).toFixed(1),+(GK[1]+(p[1]-GT[1])*GZ).toFixed(1)]};
       gn+='<path d="M'+gnIds.map(id=>q(id).join(' ')).join('L')+'" stroke="'+u.mau+'" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
       gnIds.forEach(id=>{const p=q(id);gn+=ga(u,id,u.ga.indexOf(id),p[0],p[1],NHAN_GN[id],1)})}
+    const sdIds=u.ga.filter(id=>SD.includes(id));
+    if(sdIds.length){const q=id=>[SK[0]+VT_SD[id][0],SK[1]+VT_SD[id][1]];
+      sd+='<path d="M'+sdIds.map(id=>q(id).join(' ')).join('L')+'" stroke="'+u.mau+'" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
+      sdIds.forEach(id=>{const p=q(id);sd+=ga(u,id,u.ga.indexOf(id),p[0],p[1],NHAN_SD[id],1)})}
   });
   // núi: rải đỉnh dọc một đường, có tuyết trên đỉnh, tên dãy núi chữ nhỏ
   const dinh=(x,y,k)=>'<path d="M'+(x-9*k)+' '+y+'L'+x+' '+(y-14*k)+'L'+(x+9*k)+' '+y+'z" fill="#B49C78"/><path d="M'+x+' '+(y-14*k)+'L'+(x+9*k)+' '+y+'H'+x+'z" fill="#9C8462" opacity=".6"/><path d="M'+(x-3*k)+' '+(y-9.3*k)+'L'+x+' '+(y-14*k)+'L'+(x+3*k)+' '+(y-9.3*k)+'z" fill="#FFFDF8"/>';
@@ -464,7 +477,7 @@ function veBanDo(){
     '<rect width="812" height="800" fill="url(#bnCham)"/>'+
     // cao nguyên phía tây
     '<path d="M0 300Q60 320 90 380T80 520Q70 600 0 640z" fill="url(#bnGach)"/>'+['青','藏','高','原'].map((c,i)=>'<text x="34" y="'+(420+i*26)+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="20" fill="#8A6B4A" opacity=".7">'+c+'</text>').join('')+
-    vung(690,165,'东北')+vung(430,160,'华北')+vung(300,100,'西北')+vung(660,330,'华东')+vung(205,600,'西南')+vung(500,760,'华南')+
+    vung(690,165,'东北')+vung(430,160,'华北')+vung(300,100,'西北')+vung(758,480,'华东')+vung(205,600,'西南')+vung(500,760,'华南')+
     '<g>'+[[230,150],[270,170],[300,130],[200,190],[330,160],[250,120],[160,160]].map(p=>'<circle cx="'+p[0]+'" cy="'+p[1]+'" r="2.4" fill="#C9A56A" opacity=".6"/>').join('')+'</g>'+
     // lạc đà trên đường tơ lụa
     '<g transform="translate(150 196)" fill="#A07850"><ellipse rx="11" ry="5"/><circle cx="-3" cy="-5" r="3.5"/><circle cx="4" cy="-5" r="3.5"/><path d="M9-2l5-9 3 1-4 9z"/><circle cx="16" cy="-11" r="2.6"/><path d="M-8 3v8M-4 4v7M5 4v7M8 3v8" stroke="#A07850" stroke-width="1.8"/></g><text x="150" y="226" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="12" fill="#8A6B4A">丝绸之路</text>'+
@@ -473,14 +486,25 @@ function veBanDo(){
     HO.map(([lo,la,rx,ry,t])=>{const p=PJ(lo,la);return '<ellipse cx="'+p[0]+'" cy="'+p[1]+'" rx="'+rx*16+'" ry="'+ry*16+'" fill="#9FCFE0" stroke="#7FBBD3" stroke-width="1.5"/><text x="'+p[0]+'" y="'+(p[1]+ry*16+13)+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="11" fill="#3E7F99">'+t+'</text>'}).join('')+
     songNhan.map(([t,ll])=>{const p=PJ(...ll);return '<text x="'+p[0]+'" y="'+p[1]+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="16" fill="#2F6F8C" paint-order="stroke" stroke="#F6EEDC" stroke-width="3">'+t+'</text>'}).join('')+
     // Đại Vận Hà + Trường Thành
-    '<path d="'+DD(VANHA)+'" stroke="#5FA8C6" stroke-width="2.5" fill="none" stroke-dasharray="7 4" stroke-linecap="round"/><text x="'+(PJ(116.2,35.2)[0]-6)+'" y="'+PJ(116.2,35.2)[1]+'" text-anchor="end" font-family="STKaiti,KaiTi,serif" font-size="13" fill="#2F6F8C">大运河</text>'+
+    '<path d="'+DD(VANHA)+'" stroke="#5FA8C6" stroke-width="2.5" fill="none" stroke-dasharray="7 4" stroke-linecap="round"/><text x="'+(PJ(116.9,34.0)[0]-6)+'" y="'+PJ(116.9,34.0)[1]+'" text-anchor="end" font-family="STKaiti,KaiTi,serif" font-size="13" fill="#2F6F8C">大运河</text>'+
     '<path d="'+DD(CHANG)+'" stroke="#8C6440" stroke-width="5" fill="none" stroke-linejoin="round"/><path d="'+DD(CHANG)+'" stroke="#E8D3A8" stroke-width="2.2" fill="none" stroke-dasharray="3 5"/>'+
     '<text x="'+PJ(101,38.6)[0]+'" y="'+(PJ(101,38.6)[1]+22)+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="15" fill="#7A5434" paint-order="stroke" stroke="#F6EEDC" stroke-width="3">万里长城</text>'+
     may(560,36,1)+may(250,770,.9)+may(20,40,.8)+
     // thuyền buồm ở khoảng trống phía đông
-    '<g transform="translate(752 372)"><path d="M-22 6h44l-7 9h-30z" fill="#8C6440"/><path d="M-2 6v-30" stroke="#5A4030" stroke-width="2"/><path d="M0-26q16 4 16 26h-16z" fill="#E4C9A0" stroke="#A07850" stroke-width="1"/><path d="M-4-20q-12 6-12 20h12z" fill="#EFD9B4" stroke="#A07850" stroke-width="1"/><path d="M-30 18q8-4 16 0t16 0 16 0 16 0" stroke="#7FBBD3" stroke-width="2" fill="none"/></g>'+
+    '<g transform="translate(604 214)"><path d="M-22 6h44l-7 9h-30z" fill="#8C6440"/><path d="M-2 6v-30" stroke="#5A4030" stroke-width="2"/><path d="M0-26q16 4 16 26h-16z" fill="#E4C9A0" stroke="#A07850" stroke-width="1"/><path d="M-4-20q-12 6-12 20h12z" fill="#EFD9B4" stroke="#A07850" stroke-width="1"/><path d="M-30 18q8-4 16 0t16 0 16 0 16 0" stroke="#7FBBD3" stroke-width="2" fill="none"/></g>'+
     duong+hinh+'<rect x="'+(GT[0]-24)+'" y="'+(GT[1]-36)+'" width="56" height="56" rx="10" fill="none" stroke="#8A6B4A" stroke-width="1.5" stroke-dasharray="4 3"/>'+
     '<path d="M'+(GT[0]+32)+' '+(GT[1]+16)+'L'+(GK[0]-80)+' '+(GK[1]-50)+'" stroke="#8A6B4A" stroke-width="1.5" stroke-dasharray="4 3"/>'+cham+
+'<rect x="450" y="276" width="120" height="90" rx="12" fill="none" stroke="#8A6B4A" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M570 321L'+(SK[0]-92)+' '+SK[1]+'" stroke="#8A6B4A" stroke-width="1.5" stroke-dasharray="4 3"/>'+
+    '<circle cx="'+SK[0]+'" cy="'+SK[1]+'" r="92" fill="#F7F0E2" stroke="#8A6B4A" stroke-width="2"/>'+
+    // nền vòng Sơn Đông: Hoàng Hà qua Tế Nam, núi Thái Sơn, Lao Sơn
+    '<path d="M'+(SK[0]-88)+' '+(SK[1]-34)+'Q'+(SK[0]-50)+' '+(SK[1]-4)+' '+(SK[0]-20)+' '+(SK[1]-40)+'T'+(SK[0]+30)+' '+(SK[1]-76)+'" stroke="#9FCFE0" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/>'+
+    '<g transform="translate('+(SK[0]-62)+' '+(SK[1]+30)+')"><path d="M-12 0L0-18 12 0z" fill="#B49C78"/><path d="M0-18L12 0H0z" fill="#9C8462" opacity=".6"/><path d="M-4-12L0-18 4-12z" fill="#FFFDF8"/></g>'+
+    '<g transform="translate('+(SK[0]+70)+' '+(SK[1]-12)+')"><path d="M-8 0L0-11 8 0z" fill="#B49C78"/><path d="M0-11L8 0H0z" fill="#9C8462" opacity=".6"/></g><text x="'+(SK[0]+70)+'" y="'+(SK[1]+2)+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="10" fill="#8A6B4A">崂山</text>'+
+    '<g transform="translate('+(SK[0]-50)+' '+(SK[1]+78)+') scale(.75)"><rect x="-10" y="-10" width="20" height="20" rx="3" fill="#C8423B"/><text y="6" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="15" fill="#FBE7A1">孔</text></g>'+
+    '<g transform="translate('+(SK[0]-22)+' '+(SK[1]-46)+')"><path d="M0-8l8 8-8 8-8-8z" fill="#E2533A"/><path d="M0-8v16M-8 0h16" stroke="#7A2A1A" stroke-width=".8"/><path d="M0 8q-4 4 0 7t0 7" stroke="#E2533A" stroke-width="1.2" fill="none"/></g>'+
+    '<g transform="translate('+(SK[0]+76)+' '+(SK[1]+24)+') scale(.85)"><rect x="-6" y="-9" width="11" height="17" rx="2" fill="#F2B43A" stroke="#8A5A1A" stroke-width="1.1"/><path d="M5-6h3q2 0 2 2v5q0 2-2 2h-3" stroke="#8A5A1A" stroke-width="1.2" fill="none"/><path d="M-7-9q2-5 6-2q2-4 6 0q3-1 2 2z" fill="#fff" stroke="#C9B68E" stroke-width=".6"/></g>'+
+    '<g transform="translate('+(SK[0]+62)+' '+(SK[1]-56)+') scale(.85)"><rect x="-7" y="-2" width="14" height="7" fill="#C8423B"/><path d="M-11-1q11-6 22 0l-3-4h-16z" fill="#3E4655"/><path d="M-14 9q6-3 10 0t10 0 10 0" stroke="#C9A55A" stroke-width="1.4" fill="none"/></g>'+
+    '<text x="'+SK[0]+'" y="'+(SK[1]+110)+'" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="11" fill="#8A6B4A">PHÓNG TO · 齐鲁大地</text>'+sd+
     // khung phóng to Giang Nam: nền sông nước, kênh rạch
     '<circle cx="'+GK[0]+'" cy="'+GK[1]+'" r="104" fill="#F6F0DE" stroke="#8A6B4A" stroke-width="2"/><g opacity=".5" stroke="#9FCFE0" stroke-width="3" fill="none" stroke-linecap="round"><path d="M'+(GK[0]-90)+' '+(GK[1]+10)+'q40-20 80 0t90-10"/><path d="M'+(GK[0]-60)+' '+(GK[1]-50)+'q30 40 10 90"/></g><ellipse cx="'+(GK[0]-50)+'" cy="'+(GK[1]-30)+'" rx="26" ry="16" fill="#BFE0EA"/><text x="'+(GK[0]-50)+'" y="'+(GK[1]-26)+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="11" fill="#3E7F99">太湖</text>'+
     '<text x="'+GK[0]+'" y="'+(GK[1]-82)+'" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="11" fill="#8A6B4A">PHÓNG TO · 江南水乡</text>'+gn+
