@@ -18,6 +18,10 @@
   const hien=b=>nut.forEach(n=>n.hidden=!b);
   if(daCai()){hien(false);return}
   hien(true);
+  // nút ở đầu trang gợn sóng gọi chú ý, cho tới khi học viên bấm lần đầu
+  let daBam=false;try{daBam=localStorage.getItem('llAppBam')==='1'}catch(_){}
+  if(!daBam)document.querySelectorAll('.appbtn[data-cai-app]').forEach(n=>n.classList.add('goi'));
+  nut.forEach(n=>n.addEventListener('click',()=>{document.querySelectorAll('.appbtn.goi').forEach(x=>x.classList.remove('goi'));try{localStorage.setItem('llAppBam','1')}catch(_){}}));
 
   let hoan=null;   // sự kiện "có thể cài" của Chrome/Edge, giữ lại để bấm nút mới hiện
   addEventListener('beforeinstallprompt',e=>{e.preventDefault();hoan=e});
