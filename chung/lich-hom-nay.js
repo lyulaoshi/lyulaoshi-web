@@ -1,6 +1,6 @@
 // Lịch hôm nay kiểu cuống vé (trang chủ, mục #hom-nay) — trang lịch vạn niên nhỏ: cuống đỏ (lời chào, ngày, nút xé) + thân vé
 // (ngày tháng đọc bằng tiếng Trung, lịch âm + can chi, ngày lễ, 宜/忌, thông điệp hôm nay). Xé tờ thì hiện trang ngày mai.
-// Cần: /chung/lich-du-lieu.js?v=b26ecbe6 (LICH_YJ, LICH_CHU), /chung/thong-diep.js?v=5452996a (TD_CHON, TD_CUNG), /tro-choi/tts.js (loa).
+// Cần: /chung/lich-du-lieu.js?v=fa326843 (LICH_YJ, LICH_CHU), /chung/thong-diep.js?v=5452996a (TD_CHON, TD_CUNG), /tro-choi/tts.js (loa).
 (function(){
 const ve=document.querySelector('.lichve');if(!ve)return;
 const YJ=window.LICH_YJ||[['学汉字','học chữ Hán','偷懒','lười biếng']];
@@ -91,7 +91,7 @@ function veTo(d,lech){
     '<div class="than"><span class="tem" lang="zh">'+(lech?'明日':'今日')+'</span>'+
       '<p class="nz" lang="zh">'+ngayZh+' <span>星期'+WK[wk]+'</span>'+loa(ngayZh+'星期'+WK[wk],'Nghe đọc ngày tháng')+'</p>'+
       amHtml+
-      '<div class="hang">'+leHtml+'<span class="nhan yj"><i lang="zh">宜</i><b lang="zh">'+y[0]+'</b>'+y[1]+'<span class="vach" aria-hidden="true"></span><i class="ji" lang="zh">忌</i><b lang="zh">'+y[2]+'</b>'+y[3]+'</span></div>'+
+      '<div class="hang">'+leHtml+'<span class="nhan yj"><span class="ve"><i lang="zh">宜</i><b lang="zh">'+y[0]+'</b>'+y[1]+'</span><span class="vach" aria-hidden="true"></span><span class="ve"><i class="ji" lang="zh">忌</i><b lang="zh">'+y[2]+'</b>'+y[3]+'</span></span></div>'+
       tdHtml+
       (lech?'':'<button type="button" class="goc" aria-label="Xé tờ này, xem ngày mai" title="Xé tờ này"></button>')+
     '</div>';

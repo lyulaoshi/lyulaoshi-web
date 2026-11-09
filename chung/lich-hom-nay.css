@@ -48,11 +48,12 @@
 /* dòng 2: nhãn nhỏ */
 .lichve .hang{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 .lichve .nhan{display:inline-flex;align-items:center;gap:5px;padding:3px 10px 3px 4px;border-radius:999px;background:var(--ground2);font-size:12px;color:var(--muted);line-height:1.4}
-.lichve .nhan b{font:400 14px var(--kai);color:var(--ink);font-weight:400}
+.lichve .nhan b{font:400 14px var(--kai);color:var(--ink);font-weight:400;white-space:nowrap;flex:none}
 .lichve .nhan i{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;font:400 12px var(--hz);font-style:normal;color:#fff;background:var(--mint)}
 .lichve .nhan i.ji{background:var(--faint)}
 /* 宜 và 忌 chung một nhãn, không bao giờ tách dòng */
-.lichve .nhan.yj{white-space:nowrap;padding-right:12px}
+.lichve .nhan.yj{flex-wrap:wrap;row-gap:3px;max-width:100%;padding-right:12px}
+.lichve .nhan.yj .ve{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}   /* mỗi vế 宜 / 忌 không bị ngắt giữa chừng */
 .lichve .nhan.yj .vach{width:1px;height:16px;margin:0 6px;background:color-mix(in srgb,var(--muted) 35%,transparent)}
 .lichve .nhan.le{padding-left:10px;background:var(--lv-s)} .lichve .nhan.le b{color:var(--lv-d)}
 .lichve .nhan.le.nay{background:var(--lv);color:#fff} .lichve .nhan.le.nay b{color:#fff}
@@ -150,5 +151,6 @@
   .lichve .than{border-radius:0 0 18px 18px;-webkit-mask:none;mask:none;padding:14px 14px 16px}
   .lichve .than::before{left:14px;right:14px;top:0;bottom:auto;border-left:0;border-top:2px dotted color-mix(in srgb,var(--lv) 45%,transparent)}
   .lichve .tem{top:12px;right:12px}
+  .lichve .nhan.yj{border-radius:14px;column-gap:12px} .lichve .nhan.yj .vach{display:none}   /* hẹp: cặp dài xuống dòng theo từng vế */
   .lichve .nz{font-size:22px;padding-right:44px}
 }

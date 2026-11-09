@@ -39,8 +39,37 @@ window.LICH_CHU=[
 ["多","duō","nhiều","多少","duōshao","bao nhiêu","这个多少钱？","Zhège duōshao qián?","Cái này bao nhiêu tiền?"],
 ["年","nián","năm","新年","xīnnián","năm mới","新年快乐！","Xīnnián kuàilè!","Chúc mừng năm mới!"]
 ];
-// 宜 (nên) · 忌 (kiêng) kiểu lịch vạn niên: [nên, nghĩa, kiêng, nghĩa]
+// 宜 (nên) · 忌 (kiêng) kiểu "lịch vạn niên vui": chủ yếu đời thường, ~1/6 cặp nhẹ nhàng về tiếng Trung (cô dặn bớt chuyện học).
+// 30 cặp, xoay theo ngày. [nên, nghĩa, kiêng, nghĩa] — bản nháp, cô duyệt lại.
 window.LICH_YJ=[
-["背单词","học thuộc từ","熬夜","thức khuya"],["读课文","đọc bài khoá","偷懒","lười biếng"],["练口语","luyện nói","害羞","ngại ngùng"],
-["写汉字","viết chữ Hán","着急","vội vàng"],["听录音","nghe ghi âm","走神","lơ đãng"],["开盒子","mở hộp","拖延","để mai làm"],["问老师","hỏi cô","放弃","bỏ cuộc"]
+["喝茶","uống trà","生气","nổi giận"],
+["散步","đi dạo","熬夜","thức khuya"],
+["见朋友","gặp bạn bè","想太多","nghĩ nhiều"],
+["早睡","ngủ sớm","刷手机","lướt điện thoại"],
+["吃水果","ăn trái cây","挑食","kén ăn"],
+["唱中文歌","hát nhạc Hoa","害羞","ngại ngùng"],
+["晒太阳","phơi nắng","宅在家","ru rú ở nhà"],
+["微笑","mỉm cười","皱眉","cau mày"],
+["运动","vận động","久坐","ngồi lì"],
+["打扫房间","dọn phòng","乱扔东西","bày bừa"],
+["陪家人","ở bên gia đình","发脾气","cáu gắt"],
+["说中文","nói tiếng Trung","怕说错","sợ nói sai"],
+["多喝水","uống nhiều nước","喝奶茶","uống trà sữa"],
+["说谢谢","nói cảm ơn","抱怨","than phiền"],
+["听音乐","nghe nhạc","着急","vội vàng"],
+["看书","đọc sách","拖延","để mai làm"],
+["做饭","nấu ăn","叫外卖","gọi đồ ăn"],
+["看中国电影","xem phim Trung","走神","lơ đãng"],
+["拍照","chụp ảnh","比较","so bì"],
+["早起","dậy sớm","赖床","nằm nướng"],
+["买花","mua hoa","乱花钱","tiêu hoang"],
+["帮助别人","giúp người khác","小气","keo kiệt"],
+["写日记","viết nhật ký","追剧","cày phim"],
+["写汉字","viết chữ Hán","偷懒","lười biếng"],
+["休息","nghỉ ngơi","逞强","cố quá sức"],
+["表白","tỏ tình","犹豫","do dự"],
+["吃早饭","ăn sáng","节食","nhịn ăn"],
+["深呼吸","hít thở sâu","紧张","căng thẳng"],
+["夸自己","khen bản thân","自责","tự trách"],
+["开盒子","mở hộp","放弃","bỏ cuộc"]
 ];

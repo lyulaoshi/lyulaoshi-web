@@ -41,6 +41,9 @@
 .bd-nuoc .tuyen-dang path.duong{stroke-width:7}
 @media (prefers-reduced-motion:no-preference){.bd-nuoc .nhip{animation:nhipga 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}}
 @keyframes nhipga{50%{transform:scale(1.5);opacity:.2}}
+.bd-chu-giai{max-width:860px;margin:10px auto 0;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12.5px;font-weight:700;color:var(--muted)}
+.bd-chu-giai span{display:inline-flex;align-items:center;gap:5px}.bd-chu-giai i{width:18px;height:5px;border-radius:3px;background:var(--m)}.bd-chu-giai b{font-size:15px;color:var(--m)}
+.bd-chu-giai i.vh{background:repeating-linear-gradient(90deg,#5FA8C6 0 6px,transparent 6px 9px)}.bd-chu-giai i.ct{height:6px;background:#8C6440}
 .bd-chu{max-width:860px;margin:8px auto 0;padding:0 4px;font-size:12.5px;color:var(--muted)}
 @media (max-width:640px){.bd-nuoc{border-width:4px}.bd-nuoc .ten-ga{font-size:26px;stroke-width:6px}}
 /* ---- thanh hộ chiếu */
@@ -254,7 +257,7 @@ dialog#hc::backdrop{background:rgba(20,20,30,.55)}
 
 <h2 class="kh" id="tuyen-tau"><span class="zh">旅行路线</span>Tuyến tàu</h2>
 <p class="kh-sub">Chạm vào một ga trên sơ đồ, hoặc chọn tuyến bên dưới. Mỗi ga 6 câu đố, 3 trái tim; ga có nhãn 城市漫步 thì vào dạo phố. Đến ga này mới mở được ga sau trong tuyến.</p>
-<div class="bd-nuoc-wrap"><div class="bd-nuoc" id="bdNuoc"></div><p class="bd-chu">Chạm vào một ga để lên tàu. Sơ đồ chỉ minh hoạ vị trí tương đối của các thành phố, không thể hiện đường biên giới.</p></div>
+<div class="bd-nuoc-wrap"><div class="bd-nuoc" id="bdNuoc"></div><div class="bd-chu-giai" id="bdChuGiai"></div><p class="bd-chu">Chạm vào một ga để lên tàu. Sơ đồ chỉ minh hoạ vị trí tương đối của các thành phố, không thể hiện đường biên giới.</p></div>
 <div class="tab-tuyen" id="tabTuyen" role="group" aria-label="Chọn tuyến tàu"></div>
 <div class="dau-tuyen" id="dauTuyen"></div>
 <div class="tuyen" id="tuyen"></div>
@@ -400,12 +403,33 @@ const TOA={bj:[116.4,39.9],tj:[117.2,39.1],cde:[117.94,40.97],py:[112.18,37.2],d
   heb:[126.65,45.75],qf:[116.99,35.6],xa:[108.94,34.34],cd:[104.06,30.66],yn:[102.71,25.04],gz:[113.26,23.13]};
 const PJ=(lo,la)=>[+((lo-98)*24+10).toFixed(1),+((48-la)*27.6+10).toFixed(1)];
 // nhãn tên ga: [dx, dy, canh lề]; cụm Giang Nam vẽ thêm ở khung phóng to
-const NHAN={bj:[-12,-8,'end'],tj:[12,14,'start'],cde:[12,4,'start'],py:[0,24,'middle'],dt:[0,-14,'middle'],nmg:[0,-14,'middle'],nj:[0,-14,'middle'],heb:[12,6,'start'],qf:[12,6,'start'],xa:[0,24,'middle'],cd:[-12,6,'end'],yn:[0,26,'middle'],gz:[0,26,'middle']};
+const NHAN={bj:[-12,-8,'end'],tj:[12,14,'start'],cde:[12,4,'start'],py:[0,24,'middle'],dt:[0,26,'middle'],nmg:[0,-14,'middle'],nj:[0,-14,'middle'],heb:[12,6,'start'],qf:[12,6,'start'],xa:[0,24,'middle'],cd:[-12,6,'end'],yn:[0,26,'middle'],gz:[0,26,'middle']};
 const GN=['sh','sz','wz','hz','sx'],GT=[548,482],GK=[668,600],GZ=3.2;   // tâm cụm, tâm khung phóng, độ phóng
 const NHAN_GN={sh:[0,26,'middle'],sz:[0,-14,'middle'],wz:[-12,5,'end'],hz:[-12,8,'end'],sx:[12,8,'start']};
 const DD=(pts)=>'M'+pts.map(p=>PJ(p[0],p[1]).join(' ')).join('L');
 const SONG={'黄河':[[98.5,35],[101.5,35.6],[103.8,36.06],[106.27,38.47],[106.8,39.65],[109.84,40.65],[111.2,40.25],[110.6,37.5],[110.4,35.6],[110.25,34.6],[113.6,34.9],[114.3,34.8],[116.98,36.67],[118.9,37.8]],
-  '长江':[[99,32.5],[99.2,29.5],[100.2,26.9],[101.8,26.5],[104.6,28.8],[106.5,29.56],[108.4,30.8],[110.3,30.9],[112.2,30.3],[114.3,30.6],[116,29.7],[117,30.5],[118.8,32.06],[119.9,32.2],[121.5,31.4]]};
+  '长江':[[99,32.5],[99.2,29.5],[100.2,26.9],[101.8,26.5],[104.6,28.8],[106.5,29.56],[108.4,30.8],[110.3,30.9],[112.2,30.3],[114.3,30.6],[116,29.7],[117,30.5],[118.8,32.06],[119.9,32.2],[121.5,31.4]],
+  '珠江':[[104.5,24.8],[106.6,24.1],[108.3,23.4],[110.5,23.4],[112.5,23.1],[113.5,22.5]],
+  '松花江':[[124.8,45.2],[126.6,45.8],[128.5,46.3],[130.5,47.2]]};
+// dấu ấn văn hoá: Trường Thành (thời Minh, từ Gia Dục Quan tới Sơn Hải Quan) và Đại Vận Hà Bắc Kinh – Hàng Châu
+const CHANG=[[98.2,39.8],[100.5,38.9],[103.8,37.5],[106.2,38],[107.5,38.8],[109.7,39.5],[111.5,40.4],[113.8,40.6],[115.8,40.4],[116.6,40.45],[118.5,40.3],[119.8,40]];
+const VANHA=[[116.4,39.9],[117.2,39.1],[116.6,37.5],[116.3,36],[117.3,34.3],[118.3,33.5],[119,32.4],[119.5,32.2],[120.3,31.6],[120.6,31.3],[120.15,30.27]];
+const HO=[[120.2,31.2,1.1,.7,'太湖'],[112.9,29.2,.9,.5,'洞庭湖'],[116.3,29.1,.6,.9,'鄱阳湖'],[100.2,36.9,1.2,.6,'青海湖']];
+// dãy núi: [điểm đầu, điểm cuối, số đỉnh, cỡ, tên]
+const NUI=[[[119.6,47.5],[121.6,43.6],5,1.2,'大兴安岭'],[[128.5,43.2],[127.2,41.6],3,1.3,'长白山'],[[113.8,39.6],[113.2,35.6],4,1.1,'太行山'],[[104.8,33.9],[110.8,33.7],5,1.3,'秦岭'],
+  [[99.6,31.2],[100.4,26.4],5,1.4,'横断山'],[[110.4,25.3],[116,24.8],5,1,'南岭'],[[108.2,41.3],[113,41.1],4,.9,'阴山'],[[116.5,27.5],[118.6,26.2],3,1,'武夷山']];
+// hình nhỏ đặc trưng cạnh ga: [dx, dy, svg vẽ quanh gốc 0,0]
+const HINHGA={
+ bj:[-30,22,'<rect x="-10" y="-2" width="20" height="8" fill="#B0352F"/><path d="M-13-2q6 0 8-5h10q2 5 8 5z" fill="#E3A93A"/><rect x="-6" y="-9" width="12" height="3" fill="#B0352F"/><path d="M-9-8q4 0 5-4h8q1 4 5 4z" fill="#E3A93A"/>'],
+ tj:[28,30,'<circle r="10" fill="none" stroke="#4B6178" stroke-width="2"/><path d="M-10 0h20M0-10v20M-7-7l14 14M7-7l-14 14" stroke="#4B6178" stroke-width=".9"/><path d="M0 0l-5 13M0 0l5 13" stroke="#4B6178" stroke-width="1.8"/>'],
+ nmg:[-34,-6,'<path d="M-11 6v-7h22v7z" fill="#FBF8F1" stroke="#8A7A6A" stroke-width="1"/><path d="M-12-1q12-11 24 0z" fill="#FBF8F1" stroke="#8A7A6A" stroke-width="1"/><path d="M-12-1q12-3 24 0" stroke="#3E7FB8" stroke-width="1.6" fill="none"/><rect x="-2.5" y="0" width="5" height="6" fill="#C8423B"/>'],
+ heb:[0,32,'<rect x="-10" y="-1" width="20" height="10" fill="#E6F2FA" stroke="#7FB3D6" stroke-width="1"/><path d="M-6-1q0-8 6-11q6 3 6 11z" fill="#CFE6F5" stroke="#7FB3D6" stroke-width="1"/><path d="M0-12v-4" stroke="#7FB3D6" stroke-width="1.2"/><path d="M-10-1q0-5 3-7q3 2 3 7zM4-1q0-5 3-7q3 2 3 7z" fill="#CFE6F5" stroke="#7FB3D6" stroke-width="1"/>'],
+ qf:[0,30,'<rect x="-10" y="-10" width="20" height="20" rx="3" fill="#C8423B"/><text y="6" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="15" fill="#FBE7A1">孔</text>'],
+ xa:[-30,-8,'<path d="M-7 12v-9q0-6 7-6t7 6v9z" fill="#A9825E"/><circle cy="-6" r="5" fill="#B9926E"/><path d="M-5-10q5-5 10 0" stroke="#7A5A40" stroke-width="2" fill="none"/>'],
+ cd:[30,-18,'<circle r="10" fill="#fff" stroke="#2B2E45" stroke-width="1.2"/><circle cx="-8" cy="-8" r="4" fill="#2B2E45"/><circle cx="8" cy="-8" r="4" fill="#2B2E45"/><ellipse cx="-4" cy="-1" rx="2.6" ry="3.2" fill="#2B2E45"/><ellipse cx="4" cy="-1" rx="2.6" ry="3.2" fill="#2B2E45"/><ellipse cy="4" rx="2" ry="1.4" fill="#2B2E45"/>'],
+ yn:[32,-10,'<path d="M-12 8q12-6 24 0M-10 3q10-6 20 0M-8-2q8-6 16 0M-5-7q5-5 10 0" stroke="#5E9A45" stroke-width="2.4" fill="none" stroke-linecap="round"/>'],
+ gz:[32,-12,'<ellipse cy="5" rx="11" ry="4" fill="#C9A26A"/><rect x="-11" y="-3" width="22" height="8" fill="#D8B57E"/><ellipse cy="-3" rx="11" ry="4" fill="#E8CC96"/><circle cx="-4" cy="-4" r="2.6" fill="#FFF6E6"/><circle cx="3" cy="-4" r="2.6" fill="#FFF6E6"/>'],
+ nj:[-30,4,'<g fill="#F2A6BE">'+[0,72,144,216,288].map(a=>'<circle cx="'+(6*Math.cos(a*Math.PI/180)).toFixed(1)+'" cy="'+(6*Math.sin(a*Math.PI/180)).toFixed(1)+'" r="4.5"/>').join('')+'</g><circle r="2.5" fill="#E0A800"/>']};
 function veBanDo(){
   const vt=t=>GN.includes(t)?null:PJ(...TOA[t]);
   const ga=(u,id,i,x,y,lab,nho)=>{const t=BY[id],m=mo(u,i),s=SAO[id],v=vangTP(id),ke=u===CUR&&keOf(u)===i;
@@ -415,32 +439,57 @@ function veBanDo(){
       (s?'<path d="M'+(x-3.5)+' '+y+'l2.5 2.5 5-5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/>':'')+
       (ke?'<g transform="translate('+(x-14)+' '+(y-34)+')"><rect x="2" y="2" width="22" height="12" rx="4" fill="'+u.mau+'" stroke="#2B2E45" stroke-width="1.6"/><rect x="5" y="5" width="5" height="4" rx="1" fill="#fff"/><rect x="12" y="5" width="5" height="4" rx="1" fill="#fff"/><path d="M24 7h4v5h-4" fill="#E0A800" stroke="#2B2E45" stroke-width="1.4"/><circle cx="8" cy="16" r="2.2" fill="#2B2E45"/><circle cx="19" cy="16" r="2.2" fill="#2B2E45"/></g>':'')+
       '<text class="ten-ga" x="'+(x+lab[0])+'" y="'+(y+lab[1])+'" text-anchor="'+lab[2]+'">'+t.zh+'</text></g>'};
-  let duong='',cham='',gn='';
+  let duong='',cham='',gn='',hinh='';
   TT.forEach(u=>{const pts=u.ga.map(id=>PJ(...TOA[id]));
-    duong+='<g class="'+(u===CUR?'tuyen-dang':'')+'"><path class="duong" d="M'+pts.map(p=>p.join(' ')).join('L')+'" stroke="'+u.mau+'" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="'+(u===CUR?1:.55)+'"/></g>';
-    u.ga.forEach((id,i)=>{const p=vt(id);if(p)cham+=ga(u,id,i,p[0],p[1],NHAN[id]||[0,-14,'middle'])});
-    // khung phóng to cụm Giang Nam
+    duong+='<g class="'+(u===CUR?'tuyen-dang':'')+'"><path d="M'+pts.map(p=>p.join(' ')).join('L')+'" stroke="#FFFDF8" stroke-width="'+(u===CUR?11:8)+'" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/><path class="duong" d="M'+pts.map(p=>p.join(' ')).join('L')+'" stroke="'+u.mau+'" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="'+(u===CUR?1:.6)+'"/></g>';
+    u.ga.forEach((id,i)=>{const p=vt(id);if(p){cham+=ga(u,id,i,p[0],p[1],NHAN[id]||[0,-14,'middle']);const h=HINHGA[id];if(h)hinh+='<g transform="translate('+(p[0]+h[0])+' '+(p[1]+h[1])+')" opacity=".95">'+h[2]+'</g>'}});
     const gnIds=u.ga.filter(id=>GN.includes(id));
     if(gnIds.length){const q=id=>{const p=PJ(...TOA[id]);return [+(GK[0]+(p[0]-GT[0])*GZ).toFixed(1),+(GK[1]+(p[1]-GT[1])*GZ).toFixed(1)]};
       gn+='<path d="M'+gnIds.map(id=>q(id).join(' ')).join('L')+'" stroke="'+u.mau+'" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
       gnIds.forEach(id=>{const p=q(id);gn+=ga(u,id,u.ga.indexOf(id),p[0],p[1],NHAN_GN[id],1)})}
   });
-  const nui=(x,y,k)=>'<path d="M'+x+' '+y+'l'+(9*k)+' '+(-14*k)+' '+(9*k)+' '+(14*k)+'z" fill="#B9A586"/><path d="M'+(x+9*k)+' '+(y-14*k)+'l'+(3*k)+' '+(5*k)+'-'+(3*k)+' '+(1.5*k)+'-'+(3*k)+'-'+(1.5*k)+'z" fill="#FFFDF8"/>';
-  const vung=(x,y,t)=>'<text x="'+x+'" y="'+y+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="40" fill="#C9B68E" opacity=".55">'+t+'</text>';
+  // núi: rải đỉnh dọc một đường, có tuyết trên đỉnh, tên dãy núi chữ nhỏ
+  const dinh=(x,y,k)=>'<path d="M'+(x-9*k)+' '+y+'L'+x+' '+(y-14*k)+'L'+(x+9*k)+' '+y+'z" fill="#B49C78"/><path d="M'+x+' '+(y-14*k)+'L'+(x+9*k)+' '+y+'H'+x+'z" fill="#9C8462" opacity=".6"/><path d="M'+(x-3*k)+' '+(y-9.3*k)+'L'+x+' '+(y-14*k)+'L'+(x+3*k)+' '+(y-9.3*k)+'z" fill="#FFFDF8"/>';
+  const nui=NUI.map(([a,b,n,k,ten])=>{const A=PJ(...a),B=PJ(...b);let g='';for(let i=0;i<n;i++){const f=n>1?i/(n-1):.5,x=A[0]+(B[0]-A[0])*f,y=A[1]+(B[1]-A[1])*f+(i%2?4:0);g+=dinh(x,y,k*(i%2?.8:1))}
+    const m=[(A[0]+B[0])/2,(A[1]+B[1])/2];return g+'<text x="'+(m[0]+16)+'" y="'+(m[1]+16)+'" font-family="STKaiti,KaiTi,serif" font-size="12" fill="#8A6B4A" opacity=".85">'+ten+'</text>'}).join('');
+  const vung=(x,y,t)=>'<text x="'+x+'" y="'+y+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="40" fill="#A99366" opacity=".35" letter-spacing="8">'+t+'</text>';
+  const may=(x,y,k)=>'<g transform="translate('+x+' '+y+') scale('+k+')" fill="none" stroke="#C9A55A" stroke-width="2" stroke-linecap="round" opacity=".6"><path d="M0 0q8-12 18-4q4-10 14-4q10-6 14 6q-8 6-16 0q-6 6-14 2q-8 4-16 0z"/><path d="M10-2q4-4 8 0"/></g>';
+  const songNhan=[['黄河',[106.4,40.1],0],['长江',[110.5,31.2],0],['珠江',[109,23.9],0],['松花江',[127.5,46.6],0]];
   $('#bdNuoc').innerHTML='<svg viewBox="0 0 812 800" aria-label="Sơ đồ các ga tàu trên khắp Trung Quốc">'+
-    '<defs><radialGradient id="bnGiay" cx=".45" cy=".45" r=".8"><stop offset="0" stop-color="#FBF5E6"/><stop offset="1" stop-color="#E6D6B4"/></radialGradient><pattern id="bnCham" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#C9B68E" opacity=".4"/></pattern></defs>'+
-    '<rect width="812" height="800" fill="url(#bnGiay)"/><rect width="812" height="800" fill="url(#bnCham)"/>'+
-    vung(690,150,'东北')+vung(430,165,'华北')+vung(170,215,'西北')+vung(650,330,'华东')+vung(110,630,'西南')+vung(470,745,'华南')+
-    '<g opacity=".8">'+nui(40,420,2.2)+nui(80,380,1.8)+nui(60,520,2)+nui(250,420,1.5)+nui(285,428,1.2)+nui(395,300,1.3)+nui(420,280,1.1)+nui(610,180,1.2)+nui(200,640,1.4)+'</g>'+
-    '<g fill="#D9C79A" opacity=".55">'+[[230,150],[270,170],[300,130],[200,190],[330,160]].map(p=>'<circle cx="'+p[0]+'" cy="'+p[1]+'" r="2.4"/>').join('')+'</g><text x="270" y="118" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="11" fill="#B09868">sa mạc · thảo nguyên</text>'+
-    Object.entries(SONG).map(([t,p])=>'<path d="'+DD(p)+'" stroke="#8FC6DA" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>').join('')+
-    '<text x="170" y="322" font-family="STKaiti,KaiTi,serif" font-size="17" fill="#3E7F99">黄河</text><text x="300" y="568" font-family="STKaiti,KaiTi,serif" font-size="17" fill="#3E7F99">长江</text>'+
-    duong+'<rect x="'+(GT[0]-24)+'" y="'+(GT[1]-36)+'" width="56" height="56" rx="10" fill="none" stroke="#8A6B4A" stroke-width="1.5" stroke-dasharray="4 3"/>'+
+    '<defs><radialGradient id="bnGiay" cx=".45" cy=".45" r=".8"><stop offset="0" stop-color="#FBF5E6"/><stop offset="1" stop-color="#E6D6B4"/></radialGradient><pattern id="bnCham" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".8" fill="#C9B68E" opacity=".4"/></pattern>'+
+    '<filter id="bnMo" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="34"/></filter><pattern id="bnGach" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0v10" stroke="#B9A586" stroke-width="1.2" opacity=".5"/></pattern></defs>'+
+    '<rect width="812" height="800" fill="url(#bnGiay)"/>'+
+    // vùng màu theo khí hậu (vệt màu mờ, không phải đường biên)
+    '<g filter="url(#bnMo)" opacity=".6"><circle cx="690" cy="110" r="150" fill="#D6E6F2"/><circle cx="430" cy="260" r="170" fill="#EAD7A0"/><circle cx="180" cy="170" r="190" fill="#EBD09A"/><circle cx="40" cy="470" r="190" fill="#D8C9AE"/><circle cx="175" cy="480" r="90" fill="#CFE3AE"/><circle cx="390" cy="700" r="210" fill="#C7E0A8"/><circle cx="110" cy="660" r="150" fill="#BFD9A4"/><circle cx="560" cy="470" r="160" fill="#CFE6BC"/></g>'+
+    '<rect width="812" height="800" fill="url(#bnCham)"/>'+
+    // cao nguyên phía tây
+    '<path d="M0 300Q60 320 90 380T80 520Q70 600 0 640z" fill="url(#bnGach)"/>'+['青','藏','高','原'].map((c,i)=>'<text x="34" y="'+(420+i*26)+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="20" fill="#8A6B4A" opacity=".7">'+c+'</text>').join('')+
+    vung(690,165,'东北')+vung(430,160,'华北')+vung(300,100,'西北')+vung(660,330,'华东')+vung(205,600,'西南')+vung(500,760,'华南')+
+    '<g>'+[[230,150],[270,170],[300,130],[200,190],[330,160],[250,120],[160,160]].map(p=>'<circle cx="'+p[0]+'" cy="'+p[1]+'" r="2.4" fill="#C9A56A" opacity=".6"/>').join('')+'</g>'+
+    // lạc đà trên đường tơ lụa
+    '<g transform="translate(150 196)" fill="#A07850"><ellipse rx="11" ry="5"/><circle cx="-3" cy="-5" r="3.5"/><circle cx="4" cy="-5" r="3.5"/><path d="M9-2l5-9 3 1-4 9z"/><circle cx="16" cy="-11" r="2.6"/><path d="M-8 3v8M-4 4v7M5 4v7M8 3v8" stroke="#A07850" stroke-width="1.8"/></g><text x="150" y="226" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="12" fill="#8A6B4A">丝绸之路</text>'+
+    nui+
+    Object.entries(SONG).map(([t,p])=>'<path d="'+DD(p)+'" stroke="#FFFDF8" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/><path d="'+DD(p)+'" stroke="#7FBBD3" stroke-width="'+(t==='黄河'||t==='长江'?5:3.5)+'" fill="none" stroke-linecap="round" stroke-linejoin="round"/>').join('')+
+    HO.map(([lo,la,rx,ry,t])=>{const p=PJ(lo,la);return '<ellipse cx="'+p[0]+'" cy="'+p[1]+'" rx="'+rx*16+'" ry="'+ry*16+'" fill="#9FCFE0" stroke="#7FBBD3" stroke-width="1.5"/><text x="'+p[0]+'" y="'+(p[1]+ry*16+13)+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="11" fill="#3E7F99">'+t+'</text>'}).join('')+
+    songNhan.map(([t,ll])=>{const p=PJ(...ll);return '<text x="'+p[0]+'" y="'+p[1]+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="16" fill="#2F6F8C" paint-order="stroke" stroke="#F6EEDC" stroke-width="3">'+t+'</text>'}).join('')+
+    // Đại Vận Hà + Trường Thành
+    '<path d="'+DD(VANHA)+'" stroke="#5FA8C6" stroke-width="2.5" fill="none" stroke-dasharray="7 4" stroke-linecap="round"/><text x="'+(PJ(116.2,35.2)[0]-6)+'" y="'+PJ(116.2,35.2)[1]+'" text-anchor="end" font-family="STKaiti,KaiTi,serif" font-size="13" fill="#2F6F8C">大运河</text>'+
+    '<path d="'+DD(CHANG)+'" stroke="#8C6440" stroke-width="5" fill="none" stroke-linejoin="round"/><path d="'+DD(CHANG)+'" stroke="#E8D3A8" stroke-width="2.2" fill="none" stroke-dasharray="3 5"/>'+
+    '<text x="'+PJ(101,38.6)[0]+'" y="'+(PJ(101,38.6)[1]+22)+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="15" fill="#7A5434" paint-order="stroke" stroke="#F6EEDC" stroke-width="3">万里长城</text>'+
+    may(560,36,1)+may(250,770,.9)+may(20,40,.8)+
+    // thuyền buồm ở khoảng trống phía đông
+    '<g transform="translate(752 372)"><path d="M-22 6h44l-7 9h-30z" fill="#8C6440"/><path d="M-2 6v-30" stroke="#5A4030" stroke-width="2"/><path d="M0-26q16 4 16 26h-16z" fill="#E4C9A0" stroke="#A07850" stroke-width="1"/><path d="M-4-20q-12 6-12 20h12z" fill="#EFD9B4" stroke="#A07850" stroke-width="1"/><path d="M-30 18q8-4 16 0t16 0 16 0 16 0" stroke="#7FBBD3" stroke-width="2" fill="none"/></g>'+
+    duong+hinh+'<rect x="'+(GT[0]-24)+'" y="'+(GT[1]-36)+'" width="56" height="56" rx="10" fill="none" stroke="#8A6B4A" stroke-width="1.5" stroke-dasharray="4 3"/>'+
     '<path d="M'+(GT[0]+32)+' '+(GT[1]+16)+'L'+(GK[0]-80)+' '+(GK[1]-50)+'" stroke="#8A6B4A" stroke-width="1.5" stroke-dasharray="4 3"/>'+cham+
-    '<circle cx="'+GK[0]+'" cy="'+GK[1]+'" r="104" fill="#FBF5E6" stroke="#8A6B4A" stroke-width="2"/><text x="'+GK[0]+'" y="'+(GK[1]-80)+'" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="11" fill="#8A6B4A">PHÓNG TO · 江南</text>'+gn+
-    '<g transform="translate(60 740)"><circle r="28" fill="#FBF5E6" stroke="#C9B68E" stroke-width="2"/><path d="M0-21L5 0 0 21-5 0z" fill="#C8423B"/><path d="M0 21L5 0-5 0z" fill="#8A7A6A"/><text y="-32" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="15" fill="#C8423B">北</text></g>'+
-    '<g transform="translate(24 22)"><rect width="170" height="46" rx="8" fill="#FBF5E6" stroke="#C8423B" stroke-width="2"/><text x="85" y="26" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="20" fill="#C8423B">旅行路线图</text><text x="85" y="39" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="9" fill="#8A6B4A">SƠ ĐỒ CÁC TUYẾN TÀU</text></g>'+
+    // khung phóng to Giang Nam: nền sông nước, kênh rạch
+    '<circle cx="'+GK[0]+'" cy="'+GK[1]+'" r="104" fill="#F6F0DE" stroke="#8A6B4A" stroke-width="2"/><g opacity=".5" stroke="#9FCFE0" stroke-width="3" fill="none" stroke-linecap="round"><path d="M'+(GK[0]-90)+' '+(GK[1]+10)+'q40-20 80 0t90-10"/><path d="M'+(GK[0]-60)+' '+(GK[1]-50)+'q30 40 10 90"/></g><ellipse cx="'+(GK[0]-50)+'" cy="'+(GK[1]-30)+'" rx="26" ry="16" fill="#BFE0EA"/><text x="'+(GK[0]-50)+'" y="'+(GK[1]-26)+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="11" fill="#3E7F99">太湖</text>'+
+    '<text x="'+GK[0]+'" y="'+(GK[1]-82)+'" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="11" fill="#8A6B4A">PHÓNG TO · 江南水乡</text>'+gn+
+    // la bàn, thước tỉ lệ, khung tên
+    '<g transform="translate(60 735)"><circle r="30" fill="#FBF5E6" stroke="#C9B68E" stroke-width="2"/><circle r="22" fill="none" stroke="#C9B68E" stroke-width="1" stroke-dasharray="2 3"/><path d="M0-24L5 0 0 24-5 0z" fill="#C8423B"/><path d="M0 24L5 0-5 0z" fill="#8A7A6A"/><path d="M-24 0L0 4 24 0 0-4z" fill="#C9B68E"/><text y="-35" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="15" fill="#C8423B">北</text></g>'+
+    '<g transform="translate(108 776)"><path d="M0 0h108" stroke="#8A6B4A" stroke-width="2"/><path d="M0-5v10M54-3v6M108-5v10" stroke="#8A6B4A" stroke-width="2"/><text x="54" y="-8" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="10" fill="#8A6B4A">≈ 500 km</text></g>'+
+    '<g transform="translate(24 22)"><rect width="176" height="50" rx="8" fill="#FBF5E6" stroke="#C8423B" stroke-width="2"/><rect x="4" y="4" width="168" height="42" rx="5" fill="none" stroke="#C8423B" stroke-width=".7" stroke-dasharray="2 2"/><text x="88" y="28" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="21" fill="#C8423B">旅行路线图</text><text x="88" y="41" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="9" fill="#8A6B4A">SƠ ĐỒ CÁC TUYẾN TÀU</text></g>'+
     '</svg>';
+  $('#bdChuGiai').innerHTML=TT.map(u=>'<span style="--m:'+u.mau+'"><i></i><b class="zh">'+u.zh+'</b>'+u.vi.replace('Tuyến ','')+'</span>').join('')+'<span class="ky"><i class="vh"></i>Đại Vận Hà</span><span class="ky"><i class="ct"></i>Trường Thành</span>';
 }
 const moGa=g=>{if(!g||g.classList.contains('khoa'))return;const u=TT.find(x=>x.id===g.dataset.u);try{AM.unlock()}catch(e){}batDau(u,+g.dataset.i)};
 $('#bdNuoc').addEventListener('click',e=>moGa(e.target.closest('.ga')));
