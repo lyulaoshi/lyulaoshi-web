@@ -170,15 +170,42 @@ dialog#hc::backdrop{background:rgba(24,16,10,.62)}
 .hc-trang .vm{position:absolute;z-index:-1;pointer-events:none;font-family:var(--kai);line-height:1;color:var(--hcv);opacity:.35}
 .hc-dong{position:absolute;right:-6px;top:-10px;z-index:5;box-shadow:0 4px 12px rgba(0,0,0,.25)}
 .hc-chia{position:absolute;right:-6px;top:38px;z-index:5;background:#E0A800;color:#2B2E45;box-shadow:0 4px 12px rgba(0,0,0,.25)}.hc-chia:disabled{opacity:.6;cursor:progress}
+.hc-xem{position:fixed;inset:0;z-index:7;display:grid;place-items:center;background:rgba(24,16,10,.78);padding:16px;--m:#C8423B}
+.hc-xem-h{display:grid;justify-items:center;gap:10px;max-height:100%}
+.hc-xem img{display:block;max-width:100%;max-height:min(62vh,560px);width:auto;height:auto;border-radius:12px;box-shadow:0 16px 40px rgba(0,0,0,.45);-webkit-touch-callout:default}
+.hc-xem-goi{margin:0;color:#F6E2A8;font-size:12.5px;font-weight:700;text-align:center}
+.hc-xem-nut{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+@media (prefers-reduced-motion:no-preference){.hc-xem:not([hidden]) img{animation:hcVao .35s ease both}}
 .hc-bao{position:absolute;left:50%;bottom:-14px;transform:translate(-50%,100%);z-index:6;margin:0;background:#2B2E45;color:#fff;font-size:13.5px;font-weight:700;padding:9px 16px;border-radius:99px;box-shadow:0 8px 20px rgba(0,0,0,.3);width:max-content;max-width:calc(100vw - 32px);text-align:center}
 /* bìa */
-.hc-bia{position:absolute;inset:0 0 0 50%;z-index:4;border-radius:4px 18px 18px 4px;background:radial-gradient(120% 90% at 30% 20%,#9A3330,#6A1C1C 70%);display:grid;place-items:center;transform-origin:left center;backface-visibility:hidden;box-shadow:inset 0 0 0 9px rgba(0,0,0,.08)}
-.hc-bia svg{width:min(300px,62%);height:auto}
-@media (prefers-reduced-motion:no-preference){dialog#hc[open] .hc-bia{animation:hcLat 1.15s .35s cubic-bezier(.6,.05,.3,1) forwards}}
+/* mở hộ chiếu: sổ hiện lên (đang gấp, nằm giữa) → bìa lật qua gáy, sổ trượt về giữa và mở rộng sang trái → mặt trong bìa trùng giấy trang trái, chữ hiện dần */
+.hc-bia{position:absolute;inset:0 0 0 50%;z-index:4;transform-origin:left center;transform-style:preserve-3d;pointer-events:none}
+.hc-bia>div{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.bia-truoc{border-radius:4px 18px 18px 4px;background:radial-gradient(120% 90% at 30% 20%,#9A3330,#6A1C1C 70%);display:grid;place-items:center;box-shadow:inset 0 0 0 9px rgba(0,0,0,.08),inset 10px 0 18px -10px rgba(0,0,0,.35)}
+.bia-truoc svg{width:min(300px,62%);height:auto}
+.bia-sau{transform:rotateY(180deg);border-radius:18px 4px 4px 18px;background:#7A2222;padding:9px 0 9px 9px}
+.bia-sau::before{content:"";position:absolute;inset:9px 0 9px 9px;border-radius:10px 3px 3px 10px;background:var(--hcg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='36'%3E%3Cg fill='none' stroke='%23C9A28E' stroke-width='.6' opacity='.55'%3E%3Cpath d='M0 18q15-14 30 0t30 0 30 0 30 0'/%3E%3Cpath d='M0 18q15 14 30 0t30 0 30 0 30 0'/%3E%3Cpath d='M0 9q15-9 30 0t30 0 30 0 30 0'/%3E%3Cpath d='M0 27q15 9 30 0t30 0 30 0 30 0'/%3E%3C/g%3E%3C/svg%3E");box-shadow:inset -18px 0 22px -16px rgba(70,35,10,.38)}
 @media (prefers-reduced-motion:reduce){.hc-bia{display:none}}
-@keyframes hcLat{60%{opacity:1}to{transform:rotateY(-180deg);opacity:0;visibility:hidden}}
-@media (prefers-reduced-motion:no-preference){dialog#hc.lat[open] .hc-trang.trai>*{animation:hcHien .5s 1s both}}
+@media (prefers-reduced-motion:no-preference){
+  dialog#hc[open]{animation:hcVao .5s cubic-bezier(.2,.8,.3,1) backwards}
+  dialog#hc[open]::backdrop{animation:hcNen .5s ease both}
+  dialog#hc[open] .hc-bia{animation:hcLat 1.35s .35s cubic-bezier(.55,.06,.25,1) both,hcTat .45s 1.62s ease forwards}
+  dialog#hc[open] .bia-truoc{animation:hcToi 1.35s .35s linear both}
+  dialog#hc[open] .bia-sau{animation:hcSang 1.35s .35s linear both}
+  dialog#hc.lat[open] .hc-sach{animation:hcGiua 1.35s .35s cubic-bezier(.55,.06,.25,1) both}
+  dialog#hc.lat[open] .hc-mo{animation:hcRong 1.35s .35s linear both}
+  dialog#hc.lat[open] .hc-trang.trai>*{animation:hcHien .55s 1.55s ease both}
+}
+@keyframes hcVao{from{opacity:0;transform:translateY(22px) scale(.96)}}
+@keyframes hcNen{from{opacity:0}}
+@keyframes hcLat{from{transform:rotateY(0)}to{transform:rotateY(-180deg)}}
+@keyframes hcTat{to{opacity:0;visibility:hidden}}
+@keyframes hcToi{0%{filter:brightness(1);opacity:1}41.6%{filter:brightness(.7);opacity:1}41.7%,100%{opacity:0}}
+@keyframes hcSang{0%,41.6%{opacity:0}41.7%{opacity:1;filter:brightness(.75)}100%{opacity:1;filter:brightness(1)}}
+@keyframes hcGiua{from{transform:translateX(-25%)}to{transform:none}}
+@keyframes hcRong{0%,41.7%{clip-path:inset(-80px -80px -80px 50%);animation-timing-function:cubic-bezier(.3,.6,.4,1)}100%{clip-path:inset(-80px -80px -80px 0)}}
 @keyframes hcHien{from{opacity:0}}
+@keyframes hcLatN{0%{transform:rotateY(0);opacity:1}55%{opacity:1}100%{transform:rotateY(-120deg);opacity:0;visibility:hidden}}
 /* trang thông tin */
 .tt-dau{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;border-bottom:2px solid var(--do);padding-bottom:6px}
 .tt-dau b{font-family:var(--kai);font-weight:400;font-size:30px;color:var(--do);line-height:1}.tt-dau b small{font-family:inherit;font-size:13px;letter-spacing:3px;margin-left:8px;font-weight:800;font-family:"Be Vietnam Pro",sans-serif}
@@ -271,7 +298,9 @@ dialog#hc::backdrop{background:rgba(24,16,10,.62)}
 .so-tu .trong{color:var(--muted);font-size:14px;background:none;padding:0}
 @media (max-width:720px){
   dialog#hc{max-height:none;margin-top:12px}
-  .hc-bia{inset:0;border-radius:18px}
+  .hc-bia{inset:0}.bia-truoc{border-radius:18px}.bia-sau{display:none}
+  dialog#hc[open] .hc-bia{animation:hcLatN 1.1s .3s cubic-bezier(.5,.05,.3,1) both!important}
+  dialog#hc.lat[open] .hc-sach,dialog#hc.lat[open] .hc-mo,dialog#hc.lat[open] .hc-trang.trai>*,dialog#hc[open] .bia-truoc{animation:none!important}
   .hc-mo{grid-template-columns:minmax(0,1fr);padding:7px;gap:7px}
   .hc-trang{min-height:0;padding:18px 16px 14px}
   .hc-trang.trai,.hc-trang.phai{border-radius:10px;box-shadow:none}
@@ -387,9 +416,9 @@ dialog#hc::backdrop{background:rgba(24,16,10,.62)}
 <dialog id="hc" aria-label="Hộ chiếu du hành và Sổ từ"><div class="hc-sach">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="hcMuc"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4"/></filter></svg>
   <button class="nut-tron hc-dong" type="button" id="hcDong" aria-label="Đóng"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sai"></use></svg></button>
-  <button class="nut-tron hc-chia" type="button" id="hcChia" aria-label="Chia sẻ hộ chiếu" title="Chia sẻ hộ chiếu"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#gui"></use></svg></button>
+  <button class="nut-tron hc-chia" type="button" id="hcChia" aria-label="Lưu ảnh hoặc chia sẻ hộ chiếu" title="Lưu ảnh / chia sẻ hộ chiếu"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#gui"></use></svg></button>
   <p class="hc-bao" id="hcBao" role="status" hidden></p>
-  <div class="hc-bia" aria-hidden="true"><svg viewBox="0 0 240 300"><g fill="none" stroke="#E8C46A"><rect x="8" y="8" width="224" height="284" rx="10" stroke-width="1.5" stroke-dasharray="2 5"/><circle cx="120" cy="104" r="52" stroke-width="4"/><circle cx="120" cy="104" r="42" stroke-width="1.2" stroke-dasharray="3 3"/></g><path d="M120 66c8 10 22 12 30 8-2 12 4 24 14 30-10 6-16 18-14 30-8-4-22-2-30 8-8-10-22-12-30-8 2-12-4-24-14-30 10-6 16-18 14-30 8 4 22 2 30-8z" fill="#E8C46A" opacity=".18"/><text x="120" y="124" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="56" fill="#E8C46A">文</text><text x="120" y="208" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="40" letter-spacing="10" fill="#E8C46A">护照</text><text x="120" y="236" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="13" letter-spacing="6" fill="#E8C46A">PASSPORT</text><text x="120" y="270" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="8.5" letter-spacing="2.5" fill="#E8C46A" opacity=".8">文化盒 · LYU LAOSHI CHINESE BOX</text></svg></div>
+  <div class="hc-bia" aria-hidden="true"><div class="bia-truoc"><svg viewBox="0 0 240 300"><g fill="none" stroke="#E8C46A"><rect x="8" y="8" width="224" height="284" rx="10" stroke-width="1.5" stroke-dasharray="2 5"/><circle cx="120" cy="104" r="52" stroke-width="4"/><circle cx="120" cy="104" r="42" stroke-width="1.2" stroke-dasharray="3 3"/></g><path d="M120 66c8 10 22 12 30 8-2 12 4 24 14 30-10 6-16 18-14 30-8-4-22-2-30 8-8-10-22-12-30-8 2-12-4-24-14-30 10-6 16-18 14-30 8 4 22 2 30-8z" fill="#E8C46A" opacity=".18"/><text x="120" y="124" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="56" fill="#E8C46A">文</text><text x="120" y="208" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="40" letter-spacing="10" fill="#E8C46A">护照</text><text x="120" y="236" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="13" letter-spacing="6" fill="#E8C46A">PASSPORT</text><text x="120" y="270" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="8.5" letter-spacing="2.5" fill="#E8C46A" opacity=".8">文化盒 · LYU LAOSHI CHINESE BOX</text></svg></div><div class="bia-sau"></div></div>
   <div class="hc-mo">
     <section class="hc-trang trai" id="hcTT" aria-label="Trang thông tin"></section>
     <section class="hc-trang phai" aria-label="Trang dấu">
@@ -397,6 +426,11 @@ dialog#hc::backdrop{background:rgba(24,16,10,.62)}
       <div class="vs-dau-trang" id="hcTrang" role="tabpanel"></div>
       <div class="vs-chan"><button type="button" id="hcTruoc" aria-label="Trang trước"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#truoc"></use></svg></button><span id="hcSo"></span><button type="button" id="hcSau" aria-label="Trang sau"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sau"></use></svg></button></div>
     </section>
+  </div></div>
+  <div class="hc-xem" id="hcXem" hidden role="group" aria-label="Ảnh thẻ hộ chiếu"><div class="hc-xem-h">
+    <img id="hcXemAnh" alt="Ảnh thẻ hộ chiếu du hành của em">
+    <p class="hc-xem-goi">Trên điện thoại: nhấn giữ vào ảnh để lưu vào thư viện ảnh.</p>
+    <div class="hc-xem-nut"><button class="btn m" type="button" id="hcLuu"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#tai-ve"></use></svg>Lưu ảnh</button><button class="btn sec" type="button" id="hcGui" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#gui"></use></svg>Chia sẻ</button><button class="btn sec" type="button" id="hcDongXem">Đóng</button></div>
   </div></div></dialog>
 
 <footer class="wrap">文化盒 · Lyu Laoshi Chinese Box — ThS. Lã Thị Thuỳ Phương</footer>
@@ -912,23 +946,29 @@ async function veThe(){
   g.fillStyle='#F6E2A8';g.font='600 25px '+VN;g.fillText('Lên tàu đi khắp Trung Hoa cùng 吕老师汉语盒',210,H-62);
   return new Promise(ok=>cv.toBlob(ok,'image/png'));
 }
+// bấm nút: vẽ thẻ rồi mở khung xem trước có 2 lựa chọn Lưu ảnh / Chia sẻ
+let THE=null;
 async function chiaSe(){
   const nut=$('#hcChia');nut.disabled=true;
   try{
     const dau=T.filter(t=>SAO[t.id]).length;let ri=0;RANK.forEach((k,i)=>{if(dau>=k[0])ri=i});
-    const loi='Hộ chiếu du hành Trung Hoa của mình: '+dau+' dấu ga, danh hiệu '+RANK[ri][2]+'! Lên tàu cùng mình tại https://lyulaoshi.com/van-hoa/';
-    const b=await veThe(),f=new File([b],'ho-chieu-van-hoa.png',{type:'image/png'});
-    if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:'Hộ chiếu 文化盒',text:loi});return}catch(e){if(e.name==='AbortError')return}}
-    const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=f.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);
-    let chep=false;try{await navigator.clipboard.writeText(loi);chep=true}catch(e){}
-    bao('Đã tải ảnh hộ chiếu về máy'+(chep?' và chép sẵn lời mời, em dán vào tin nhắn nhé.':'.'));
+    const b=await veThe();if(THE)URL.revokeObjectURL(THE.url);
+    THE={b,url:URL.createObjectURL(b),f:new File([b],'ho-chieu-van-hoa.png',{type:'image/png'}),loi:'Hộ chiếu du hành Trung Hoa của mình: '+dau+' dấu ga, danh hiệu '+RANK[ri][2]+'! Lên tàu cùng mình tại https://lyulaoshi.com/van-hoa/'};
+    const coChia=!!(navigator.canShare&&navigator.canShare({files:[THE.f]}));
+    $('#hcXemAnh').src=THE.url;$('#hcGui').hidden=!coChia;$('#hcXem').hidden=false;$('#hcLuu').focus();
   }catch(e){bao('Chưa tạo được ảnh, em thử lại nhé.')}
   finally{nut.disabled=false}
 }
+const dongXem=()=>{$('#hcXem').hidden=true;$('#hcChia').focus()};
+$('#hcLuu').onclick=()=>{if(!THE)return;const a=document.createElement('a');a.href=THE.url;a.download='ho-chieu-van-hoa.png';document.body.appendChild(a);a.click();a.remove();am('ok');bao('Đã lưu ảnh hộ chiếu về máy.')};
+$('#hcGui').onclick=async()=>{if(!THE)return;try{await navigator.share({files:[THE.f],title:'Hộ chiếu 文化盒',text:THE.loi})}catch(e){if(e.name!=='AbortError'){let c=false;try{await navigator.clipboard.writeText(THE.loi);c=true}catch(x){}bao(c?'Đã chép lời mời, em lưu ảnh rồi gửi kèm nhé.':'Máy chưa chia sẻ được, em lưu ảnh rồi gửi nhé.')}}};
+$('#hcDongXem').onclick=dongXem;
+$('#hcXem').addEventListener('click',e=>{if(e.target===$('#hcXem'))dongXem()});
+$('#hcXem').addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();e.stopPropagation();dongXem()}});
 $('#hcChia').onclick=chiaSe;
 function moHc(){
   HC_I=Math.max(0,TT.indexOf(CUR));veTT();veHcTrang();
-  const d=$('#hc');d.classList.add('lat');d.showModal();clearTimeout(moHc.t);moHc.t=setTimeout(()=>d.classList.remove('lat'),1700);
+  const d=$('#hc');d.classList.add('lat');d.showModal();clearTimeout(moHc.t);moHc.t=setTimeout(()=>d.classList.remove('lat'),2300);
 }
 $('#hcBtn').onclick=moHc;$('#lhHc').onclick=moHc;$('#hcDong').onclick=()=>$('#hc').close();
 $('#hc').addEventListener('click',e=>{if(e.target===$('#hc'))$('#hc').close()});
