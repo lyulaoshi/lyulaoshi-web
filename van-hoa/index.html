@@ -169,6 +169,8 @@ dialog#hc::backdrop{background:rgba(24,16,10,.62)}
 .hc-trang::before{content:"";position:absolute;inset:0;z-index:-2;opacity:.55;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='36'%3E%3Cg fill='none' stroke='%23C9A28E' stroke-width='.6'%3E%3Cpath d='M0 18q15-14 30 0t30 0 30 0 30 0'/%3E%3Cpath d='M0 18q15 14 30 0t30 0 30 0 30 0'/%3E%3Cpath d='M0 9q15-9 30 0t30 0 30 0 30 0'/%3E%3Cpath d='M0 27q15 9 30 0t30 0 30 0 30 0'/%3E%3C/g%3E%3C/svg%3E")}
 .hc-trang .vm{position:absolute;z-index:-1;pointer-events:none;font-family:var(--kai);line-height:1;color:var(--hcv);opacity:.35}
 .hc-dong{position:absolute;right:-6px;top:-10px;z-index:5;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.hc-chia{position:absolute;right:-6px;top:38px;z-index:5;background:#E0A800;color:#2B2E45;box-shadow:0 4px 12px rgba(0,0,0,.25)}.hc-chia:disabled{opacity:.6;cursor:progress}
+.hc-bao{position:absolute;left:50%;bottom:-14px;transform:translate(-50%,100%);z-index:6;margin:0;background:#2B2E45;color:#fff;font-size:13.5px;font-weight:700;padding:9px 16px;border-radius:99px;box-shadow:0 8px 20px rgba(0,0,0,.3);width:max-content;max-width:calc(100vw - 32px);text-align:center}
 /* bìa */
 .hc-bia{position:absolute;inset:0 0 0 50%;z-index:4;border-radius:4px 18px 18px 4px;background:radial-gradient(120% 90% at 30% 20%,#9A3330,#6A1C1C 70%);display:grid;place-items:center;transform-origin:left center;backface-visibility:hidden;box-shadow:inset 0 0 0 9px rgba(0,0,0,.08)}
 .hc-bia svg{width:min(300px,62%);height:auto}
@@ -218,6 +220,24 @@ dialog#hc::backdrop{background:rgba(24,16,10,.62)}
 .tt-ky small{display:block;font-size:10px;color:var(--muted);font-weight:700}
 .tt-ky svg{width:58px;height:58px;flex:none;opacity:.9;filter:url(#hcMuc)}
 .mrz{margin:14px 0 0;padding:10px 0 2px;background:none;border-top:1.5px dashed color-mix(in srgb,var(--ink) 18%,transparent);font-family:"OCR B","OCR-B","Courier New",ui-monospace,monospace;font-size:clamp(9.5px,1.45vw,13px);letter-spacing:.14em;line-height:1.5;color:color-mix(in srgb,var(--ink) 80%,transparent);white-space:nowrap;overflow:hidden}
+/* lật trang: bản sao trang cũ lật qua gáy sách (trái), mặt sau là giấy trắng */
+.hc-mo{position:relative;perspective:2200px}
+.lat-to{position:absolute;z-index:3;margin:0;pointer-events:none;transform-origin:left center;transform-style:preserve-3d;will-change:transform}
+.lat-to::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(90deg,rgba(60,30,10,.22),rgba(60,30,10,0) 60%);opacity:0}
+.lat-to.di{animation:latDi .72s cubic-bezier(.45,.05,.35,1) forwards}
+.lat-to.di::after{animation:latBong .72s ease-in-out forwards}
+.lat-to.di>*{animation:latAn .72s linear forwards}
+.lat-to.ve{animation:latVe .72s cubic-bezier(.45,.05,.35,1) forwards}
+.lat-to.ve::after{animation:latBong .72s ease-in-out reverse forwards}
+.lat-to.ve>*{animation:latAn .72s linear reverse forwards}
+.lat-duoi{position:absolute;z-index:2;margin:0;pointer-events:none}
+@keyframes latDi{from{transform:rotateY(0)}to{transform:rotateY(-180deg)}}
+@keyframes latVe{from{transform:rotateY(-180deg)}to{transform:rotateY(0)}}
+@keyframes latAn{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes latBong{0%{opacity:0}50%{opacity:1}100%{opacity:.4}}
+@media (max-width:720px){.lat-to.di{animation-name:latDiN}.lat-to.ve{animation-name:latVeN}
+  @keyframes latDiN{from{transform:rotateY(0);opacity:1}to{transform:rotateY(-95deg);opacity:.2}}
+  @keyframes latVeN{from{transform:rotateY(-95deg);opacity:.2}to{transform:rotateY(0);opacity:1}}}
 /* trang dấu */
 .vs-tab{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -6px 12px;padding:2px 6px 4px}
 .vs-tab::-webkit-scrollbar{display:none}
@@ -257,7 +277,7 @@ dialog#hc::backdrop{background:rgba(24,16,10,.62)}
   .hc-trang.trai,.hc-trang.phai{border-radius:10px;box-shadow:none}
   .tt-chinh{grid-template-columns:96px minmax(0,1fr);gap:12px}
   .vs-dau-trang{min-height:420px}
-  .hc-dong{right:2px;top:-6px}
+  .hc-dong{right:2px;top:-6px}.hc-chia{right:2px;top:40px}.hc-bao{bottom:auto;top:6px;transform:translateX(-50%)}
   .tt-dau{padding-right:34px}.tt-dau b{font-size:26px}.tt-dau b small{font-size:11px;letter-spacing:2px}.tt-dau span{font-size:9.5px;letter-spacing:.8px}
 }
 /* ---- lịch lễ hội */
@@ -367,6 +387,8 @@ dialog#hc::backdrop{background:rgba(24,16,10,.62)}
 <dialog id="hc" aria-label="Hộ chiếu du hành và Sổ từ"><div class="hc-sach">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="hcMuc"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4"/></filter></svg>
   <button class="nut-tron hc-dong" type="button" id="hcDong" aria-label="Đóng"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sai"></use></svg></button>
+  <button class="nut-tron hc-chia" type="button" id="hcChia" aria-label="Chia sẻ hộ chiếu" title="Chia sẻ hộ chiếu"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#gui"></use></svg></button>
+  <p class="hc-bao" id="hcBao" role="status" hidden></p>
   <div class="hc-bia" aria-hidden="true"><svg viewBox="0 0 240 300"><g fill="none" stroke="#E8C46A"><rect x="8" y="8" width="224" height="284" rx="10" stroke-width="1.5" stroke-dasharray="2 5"/><circle cx="120" cy="104" r="52" stroke-width="4"/><circle cx="120" cy="104" r="42" stroke-width="1.2" stroke-dasharray="3 3"/></g><path d="M120 66c8 10 22 12 30 8-2 12 4 24 14 30-10 6-16 18-14 30-8-4-22-2-30 8-8-10-22-12-30-8 2-12-4-24-14-30 10-6 16-18 14-30 8 4 22 2 30-8z" fill="#E8C46A" opacity=".18"/><text x="120" y="124" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="56" fill="#E8C46A">文</text><text x="120" y="208" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="40" letter-spacing="10" fill="#E8C46A">护照</text><text x="120" y="236" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="13" letter-spacing="6" fill="#E8C46A">PASSPORT</text><text x="120" y="270" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="8.5" letter-spacing="2.5" fill="#E8C46A" opacity=".8">文化盒 · LYU LAOSHI CHINESE BOX</text></svg></div>
   <div class="hc-mo">
     <section class="hc-trang trai" id="hcTT" aria-label="Trang thông tin"></section>
@@ -812,8 +834,98 @@ function veHcTrang(){
   $('#hcTruoc').disabled=HC_I===0;$('#hcSau').disabled=HC_I===P.length-1;
   const b=$('#hcTab [aria-selected="true"]');if(b)b.scrollIntoView({block:'nearest',inline:'center'});
 }
-$('#hcTab').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;HC_I=+b.dataset.i;am('pick');veHcTrang()});
-$('#hcTruoc').onclick=()=>{HC_I--;veHcTrang()};$('#hcSau').onclick=()=>{HC_I++;veHcTrang()};
+// lật trang: chụp bản sao trang phải, vẽ trang mới bên dưới, rồi cho bản sao lật qua gáy sách
+let latXong=null;
+const banSao=ph=>{const c=ph.cloneNode(true);c.removeAttribute('aria-label');c.setAttribute('aria-hidden','true');c.inert=true;c.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));
+  Object.assign(c.style,{left:ph.offsetLeft+'px',top:ph.offsetTop+'px',width:ph.offsetWidth+'px',height:ph.offsetHeight+'px'});return c};
+function denTrang(i){
+  const P=hcTrang().length;i=Math.max(0,Math.min(P-1,i));if(i===HC_I)return;
+  const dir=i>HC_I?1:-1;if(latXong)latXong();
+  const ph=$('#hcTrang').closest('.hc-trang'),mo=ph.parentNode;
+  if(!$('#hc').open||matchMedia('(prefers-reduced-motion: reduce)').matches){HC_I=i;veHcTrang();return}
+  const cu=banSao(ph);HC_I=i;veHcTrang();am('pick');
+  let cac;
+  if(dir>0){cu.classList.add('hc-trang','lat-to','di');mo.appendChild(cu);cac=[cu]}
+  else{cu.classList.add('lat-duoi');const moi=banSao(ph);moi.classList.add('lat-to','ve');mo.appendChild(cu);mo.appendChild(moi);cac=[cu,moi]}
+  const t=setTimeout(()=>latXong&&latXong(),760);
+  latXong=()=>{clearTimeout(t);cac.forEach(c=>c.remove());latXong=null};
+}
+$('#hcTab').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;denTrang(+b.dataset.i)});
+$('#hcTruoc').onclick=()=>denTrang(HC_I-1);$('#hcSau').onclick=()=>denTrang(HC_I+1);
+// phím mũi tên (khi không gõ tên) và vuốt ngang trên trang dấu
+$('#hc').addEventListener('keydown',e=>{if(e.target.closest('input'))return;if(e.key==='ArrowRight'){e.preventDefault();denTrang(HC_I+1)}else if(e.key==='ArrowLeft'){e.preventDefault();denTrang(HC_I-1)}});
+{let x0=null,y0=0;const vt=$('#hcTrang');
+  vt.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')return;x0=e.clientX;y0=e.clientY});
+  vt.addEventListener('pointerup',e=>{if(x0==null)return;const dx=e.clientX-x0,dy=e.clientY-y0;x0=null;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5)denTrang(HC_I+(dx<0?1:-1))});
+  vt.addEventListener('pointercancel',()=>{x0=null});}
+// ---- chia sẻ: vẽ thẻ hộ chiếu 1080×1350 trên canvas (ảnh, tên, danh hiệu, dấu đã có) rồi mở khung chia sẻ của máy; không có thì tải ảnh về
+const anhSvg=(str,w,h)=>new Promise(ok=>{const im=new Image();im.onload=()=>ok(im);im.onerror=()=>ok(null);
+  im.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(str.replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'" '))});
+const anhUrl=u=>new Promise(ok=>{const im=new Image();im.onload=()=>ok(im);im.onerror=()=>ok(null);im.src=u});
+const bao=(t)=>{const b=$('#hcBao');b.textContent=t;b.hidden=false;clearTimeout(bao.t);bao.t=setTimeout(()=>b.hidden=true,4200)};
+async function veThe(){
+  const dau=T.filter(t=>SAO[t.id]).length,sao=Object.values(SAO).reduce((a,b)=>a+b,0);
+  let ri=0;RANK.forEach((k,i)=>{if(dau>=k[0])ri=i});const r=RANK[ri];
+  const ten=get('vh-ten','').trim(),anh=get('vh-anh',''),so=get('vh-so','');
+  const W=1080,H=1350,cv=document.createElement('canvas');cv.width=W;cv.height=H;const g=cv.getContext('2d');
+  const KAI='"STKaiti","KaiTi","Kaiti SC",serif',VN='"Be Vietnam Pro",sans-serif';
+  try{await document.fonts.load('800 40px "Be Vietnam Pro"')}catch(e){}
+  // bìa da + trang giấy
+  g.fillStyle='#7A2222';g.fillRect(0,0,W,H);
+  g.fillStyle='#FBF3E3';g.beginPath();g.roundRect(40,40,W-80,H-80,28);g.fill();
+  g.save();g.beginPath();g.roundRect(40,40,W-80,H-80,28);g.clip();
+  g.strokeStyle='rgba(201,162,142,.35)';g.lineWidth=1.2;
+  for(let y=60;y<H;y+=26){g.beginPath();for(let x=40;x<=W;x+=6){const yy=y+Math.sin(x/38)*9;x===40?g.moveTo(x,yy):g.lineTo(x,yy)}g.stroke()}
+  g.fillStyle='rgba(216,185,166,.35)';g.font='560px '+KAI;g.textAlign='right';g.fillText(r[1],W-10,H-170);
+  g.restore();
+  // đầu trang
+  g.textAlign='left';g.fillStyle='#C8423B';g.font='76px '+KAI;g.fillText('护照',90,150);
+  g.font='800 30px '+VN;g.fillText('P A S S P O R T',260,140);
+  g.fillStyle='#7A6E62';g.font='600 26px '+VN;g.fillText('中华文化之旅 · Hộ chiếu du hành Trung Hoa',90,198);
+  g.fillStyle='#C8423B';g.fillRect(90,166,W-180,4);
+  // ảnh
+  const ph=anh?await anhUrl(anh):await anhSvg(ANH(['#4A7FB0','#2E8C6A','#B5652B','#7A55B8','#C99A1E'][ri]),300,375);
+  g.save();g.beginPath();g.roundRect(90,240,300,375,18);g.clip();if(ph)g.drawImage(ph,90,240,300,375);g.restore();
+  g.strokeStyle='rgba(200,66,59,.45)';g.lineWidth=4;g.beginPath();g.roundRect(90,240,300,375,18);g.stroke();
+  const huy=await anhSvg('<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#C8423B" stroke-width="5"/><circle cx="50" cy="50" r="35" fill="none" stroke="#C8423B" stroke-width="1.6" stroke-dasharray="3 3"/><text x="50" y="62" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="34" fill="#C8423B">'+r[1]+'</text></svg>',140,140);
+  if(huy){g.save();g.translate(370,600);g.rotate(-.2);g.drawImage(huy,-70,-70,140,140);g.restore()}
+  // thông tin
+  const dong=(y,zh,vi,val,co)=>{g.fillStyle='#C8423B';g.font='30px '+KAI;g.fillText(zh,450,y);const w=g.measureText(zh).width;g.fillStyle='#7A6E62';g.font='700 22px '+VN;g.fillText(vi,456+w,y);g.fillStyle=co||'#2B2E45';g.font=val[1];g.fillText(val[0],450,y+52)};
+  let nm=ten||'Lữ khách';g.font='800 50px '+VN;while(g.measureText(nm).width>540&&nm.length>3)nm=nm.slice(0,-2)+'…';
+  dong(275,'姓名','Họ tên',[nm,'800 50px '+VN]);
+  dong(390,'身份','Danh hiệu',[r[2]+'  '+r[3],'800 38px '+VN],'#2B2E45');
+  dong(500,'护照号','Số hộ chiếu',[so||'WH0000000','800 36px '+VN]);
+  g.fillStyle='#2B2E45';g.font='700 30px '+VN;
+  g.fillText(dau+' dấu ga  ·  '+sao+' sao  ·  '+TU.length+' từ',450,640);
+  // các dấu đã đóng
+  const ds=[...T.filter(t=>SAO[t.id]),...LE.filter(f=>LS[f.id])].slice(0,8);
+  g.fillStyle='#7A6E62';g.font='800 24px '+VN;g.fillText('DẤU ĐÃ ĐÓNG · 已盖章',90,712);
+  g.fillStyle='rgba(43,46,69,.18)';g.fillRect(90,726,W-180,2);
+  if(!ds.length){g.fillStyle='#9A8E82';g.font='600 32px '+VN;g.fillText('Chưa có dấu nào… sắp lên tàu rồi!',90,800)}
+  for(let i=0;i<ds.length;i++){const t=ds[i],im=await anhSvg(dauHc(t,i),190,190);if(!im)continue;
+    const c=i%4,rw=Math.floor(i/4),x=90+110+c*225,y=760+100+rw*212,h=hash(t.id),rot=((h%23)-11)*Math.PI/180;
+    g.save();g.globalAlpha=.9;g.translate(x+((h>>5)%13)-6,y+((h>>9)%11)-5);g.rotate(rot);g.drawImage(im,-95,-95,190,190);g.restore()}
+  // chân thẻ
+  g.fillStyle='#8C2A27';g.beginPath();g.roundRect(40,H-180,W-80,140,[0,0,28,28]);g.fill();
+  const lg=await anhUrl('../img/logo-hallo-128.png');if(lg)g.drawImage(lg,80,H-165,110,110);
+  g.fillStyle='#F6E2A8';g.font='800 40px '+VN;g.fillText('lyulaoshi.com/van-hoa',210,H-102);
+  g.fillStyle='#F6E2A8';g.font='600 25px '+VN;g.fillText('Lên tàu đi khắp Trung Hoa cùng 吕老师汉语盒',210,H-62);
+  return new Promise(ok=>cv.toBlob(ok,'image/png'));
+}
+async function chiaSe(){
+  const nut=$('#hcChia');nut.disabled=true;
+  try{
+    const dau=T.filter(t=>SAO[t.id]).length;let ri=0;RANK.forEach((k,i)=>{if(dau>=k[0])ri=i});
+    const loi='Hộ chiếu du hành Trung Hoa của mình: '+dau+' dấu ga, danh hiệu '+RANK[ri][2]+'! Lên tàu cùng mình tại https://lyulaoshi.com/van-hoa/';
+    const b=await veThe(),f=new File([b],'ho-chieu-van-hoa.png',{type:'image/png'});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:'Hộ chiếu 文化盒',text:loi});return}catch(e){if(e.name==='AbortError')return}}
+    const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=f.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+    let chep=false;try{await navigator.clipboard.writeText(loi);chep=true}catch(e){}
+    bao('Đã tải ảnh hộ chiếu về máy'+(chep?' và chép sẵn lời mời, em dán vào tin nhắn nhé.':'.'));
+  }catch(e){bao('Chưa tạo được ảnh, em thử lại nhé.')}
+  finally{nut.disabled=false}
+}
+$('#hcChia').onclick=chiaSe;
 function moHc(){
   HC_I=Math.max(0,TT.indexOf(CUR));veTT();veHcTrang();
   const d=$('#hc');d.classList.add('lat');d.showModal();clearTimeout(moHc.t);moHc.t=setTimeout(()=>d.classList.remove('lat'),1700);
