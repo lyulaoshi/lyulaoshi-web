@@ -9,6 +9,9 @@
   const daCai=()=>matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
   const ios=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
   const android=/Android/i.test(ua);
+  // iPhone: Chrome (CriOS), Edge (EdgiOS), Firefox (FxiOS) chỉ thêm vào MH chính được từ iOS 16.4; máy cũ hơn phải dùng Safari
+  const iosM=ua.match(/OS (\d+)_(\d+)/), iosV=iosM?+iosM[1]+(+iosM[2])/100:99;   // 16.4 → 16.04
+  const iosTD=/CriOS/.test(ua)?'Chrome':/EdgiOS/.test(ua)?'Edge':/FxiOS/.test(ua)?'Firefox':'Safari';
   const trongApp=/FBAN|FBAV|FB_IAB|FBIOS|Instagram|Zalo|Line\/|Messenger|musical_ly|TikTok|BytedanceWebview/i.test(ua);
   const tenApp=/Zalo/i.test(ua)?'Zalo':/Instagram/i.test(ua)?'Instagram':/musical_ly|TikTok|Bytedance/i.test(ua)?'TikTok':/Line\//.test(ua)?'Line':'Facebook / Messenger';
   const nut=[...document.querySelectorAll('[data-cai-app]')];
@@ -28,11 +31,20 @@
          'Chọn '+K(ios?'Mở bằng Safari':'Mở bằng trình duyệt')+' (hoặc '+K('Mở trong trình duyệt')+').',
          'Trang mở ra trong '+(ios?'Safari':'Chrome')+', em bấm nút '+K('Cài app')+' một lần nữa.'],
       note:'Không thấy nút đó? Bấm Chép link, rồi dán vào '+(ios?'Safari':'Chrome')+'.',chep:true};
-    if(ios) return {t:'Thêm vào màn hình chính',s:'iPhone / iPad · 3 bước',
-      b:['Bấm nút Chia sẻ '+I('gui')+'. Safari: ở thanh dưới cùng, hoặc bấm '+I('ba-cham')+' trước rồi chọn Chia sẻ. Chrome: ở góc trên bên phải.',
-         'Kéo xuống, chọn '+I('them-vuong',' Thêm vào MH chính')+'.',
-         'Bấm '+K('Thêm')+' ở góc trên bên phải. Xong!'],
-      note:'Trên iPhone, app lưu tiến độ học riêng với Safari. Nút "Học tiếp" và điểm luyện tập sẽ bắt đầu ghi lại từ khi em dùng app.'};
+    const luuRieng='Trên iPhone, app lưu tiến độ học riêng với '+iosTD+'. Nút "Học tiếp" và điểm luyện tập sẽ bắt đầu ghi lại từ khi em dùng app.';
+    const buoc23=['Kéo xuống, chọn '+I('them-vuong',' Thêm vào MH chính')+'.','Bấm '+K('Thêm')+' ở góc trên bên phải. Xong!'];
+    if(ios&&iosTD!=='Safari'&&iosV<16.04) return {t:'Mở bằng Safari nhé',s:'iPhone này chỉ cài được bằng Safari',
+      b:['Bấm '+K('Chép link')+' bên dưới.','Mở '+K('Safari')+', dán link vào thanh địa chỉ rồi mở trang.','Bấm nút '+K('Cài app')+' trên trang một lần nữa.'],
+      note:'Máy em đang chạy iOS '+iosM[1]+'.'+iosM[2]+'. Từ iOS 16.4 trở lên mới cài được bằng '+iosTD+'.',chep:true};
+    if(ios&&iosTD==='Chrome') return {t:'Thêm vào màn hình chính',s:'iPhone / iPad · Chrome · 3 bước',
+      b:['Bấm nút Chia sẻ '+I('gui')+' ở cuối thanh địa chỉ phía trên. Không thấy thì bấm '+I('ba-cham')+' ở góc dưới bên phải, chọn '+K('Chia sẻ')+'.'].concat(buoc23),
+      note:luuRieng};
+    if(ios&&iosTD!=='Safari') return {t:'Thêm vào màn hình chính',s:'iPhone / iPad · '+iosTD+' · 3 bước',
+      b:['Bấm '+I('ba-cham')+' (nút menu của '+iosTD+'), chọn '+I('gui',' Chia sẻ')+'.'].concat(buoc23),
+      note:'Không thấy mục Thêm vào MH chính? Em mở trang bằng Safari rồi làm lại. '+luuRieng};
+    if(ios) return {t:'Thêm vào màn hình chính',s:'iPhone / iPad · Safari · 3 bước',
+      b:['Bấm nút Chia sẻ '+I('gui')+' ở thanh dưới cùng. Không thấy thì bấm '+I('ba-cham')+' trước rồi chọn '+K('Chia sẻ')+'.'].concat(buoc23),
+      note:luuRieng};
     if(android) return {t:'Thêm vào màn hình chính',s:'Android · 3 bước',
       b:['Bấm '+I('ba-cham-doc')+' ở góc trên bên phải Chrome.',
          'Chọn '+K('Thêm vào màn hình chính')+' hoặc '+K('Cài đặt ứng dụng')+'.',

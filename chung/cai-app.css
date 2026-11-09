@@ -1,4 +1,4 @@
-/* Nút "Cài app" + hộp hướng dẫn thêm web vào màn hình chính (website/chung/cai-app.js?v=de2effe9) */
+/* Nút "Cài app" + hộp hướng dẫn thêm web vào màn hình chính (website/chung/cai-app.js?v=3ac27d75) */
 .appbtn{display:inline-flex;align-items:center;gap:6px;width:auto;padding:0 13px 0 10px;font:600 14px/1 var(--vi,system-ui,sans-serif);white-space:nowrap}
 .appbtn[hidden]{display:none}
 .appbtn .lli{width:18px;height:18px}
