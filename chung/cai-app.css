@@ -1,4 +1,4 @@
-/* Nút "Cài app" + hộp hướng dẫn thêm web vào màn hình chính (website/chung/cai-app.js?v=7bc0265b) */
+/* Nút "Cài app" + hộp hướng dẫn thêm web vào màn hình chính (website/chung/cai-app.js?v=7d8b479f) */
 /* nổi bật (09/11/2026): nền xanh nhạt, viền xanh, gợn sóng 3 lần khi mở trang cho tới khi học viên bấm lần đầu */
 .appbtn{display:inline-flex;align-items:center;gap:6px;width:auto;padding:0 13px 0 10px;font:700 14px/1 var(--vi,system-ui,sans-serif);white-space:nowrap;
   background:var(--sky-s,#E3EFFB);color:var(--sky,#3B87D6);box-shadow:inset 0 0 0 1.5px var(--sky,#3B87D6);transition:background .2s,color .2s}
@@ -35,3 +35,31 @@
 .llapp .act button.chinh{background:var(--coral,#E0545F);color:#fff}
 .llapp-toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:50;background:var(--ink,#2B2E45);color:var(--ground,#fff);
   padding:10px 16px;border-radius:999px;font:600 14px/1.3 var(--vi,system-ui,sans-serif);box-shadow:0 8px 24px rgba(0,0,0,.2);max-width:calc(100vw - 32px)}
+
+/* hướng dẫn iPhone từng bước có hình (09/11/2026) */
+.llapp .cham{display:flex;gap:6px;justify-content:center;margin-top:-4px}
+.llapp .cham i{width:7px;height:7px;border-radius:99px;background:var(--line,#E3DFEE);transition:width .25s,background .25s}
+.llapp .cham i.qua{background:color-mix(in srgb,var(--sky,#3B87D6) 45%,transparent)}
+.llapp .cham i.on{width:22px;background:var(--sky,#3B87D6)}
+.llapp figure.hv{margin:0}
+.llapp figure.hv svg{display:block;width:100%;height:auto}
+.llapp .bx{margin:0;display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;font-size:15px;line-height:1.55}
+.llapp .bx>b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--coral-s,#FDE6E7);color:var(--coral,#E0545F);font-weight:800;font-size:14px}
+.hv-vo{fill:var(--ground,#F7F5FB);stroke:var(--line,#E3DFEE);stroke-width:1.5}
+.hv-the{fill:var(--card,#fff);stroke:var(--line,#E3DFEE);stroke-width:1}
+.hv-bong{filter:drop-shadow(0 4px 8px rgba(20,22,40,.14))}
+.hv-mo{fill:var(--line,#E3DFEE)}
+.hv-mo2{opacity:.55}
+.hv-ke{stroke:var(--line,#E3DFEE);stroke-width:1.2}
+.hv-net{fill:none;stroke:var(--muted,#6B6E86);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hv-ic{fill:none;stroke:var(--muted,#6B6E86);color:var(--muted,#6B6E86);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hv-ic.x{stroke:var(--sky,#3B87D6);color:var(--sky,#3B87D6);stroke-width:2.2}
+.hv-ic.mo{opacity:.55}
+.hv-chu{fill:var(--ink,#2B2E45);font:500 12px var(--vi,system-ui,sans-serif)}
+.hv-chu.nho{font-size:10.5px}.hv-chu.dam{font-weight:700}.hv-chu.nhat{fill:var(--muted,#6B6E86)}.hv-chu.xanh{fill:var(--sky,#3B87D6)}
+.hv-sang{fill:color-mix(in srgb,var(--sky,#3B87D6) 14%,transparent);stroke:var(--sky,#3B87D6);stroke-width:2.5}
+.hv-song{fill:none;stroke:var(--sky,#3B87D6);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:hv-song 1.6s ease-out infinite}
+@keyframes hv-song{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.45);opacity:0}}
+@media (prefers-reduced-motion:reduce){.hv-song{animation:none;opacity:0}}
+rect.hv-song{animation-name:hv-song-r}
+@keyframes hv-song-r{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.05,1.4);opacity:0}}
