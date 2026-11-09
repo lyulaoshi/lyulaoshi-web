@@ -58,6 +58,14 @@ const CHAO=[[0,'夜深了！','Khuya rồi đó!',['Cú đêm ơi, xem lịch xo
   [22,'夜深了！','Khuya rồi đó!',['Cú đêm ơi, xem lịch xong là đi ngủ liền nha!','Khuya lắm rồi, mai dậy sớm xé lịch tiếp nè!','Thức khuya hại sức lắm đó nha!']]];
 let lanChao=0;try{lanChao=(+localStorage.getItem('llChao')||0)+1;localStorage.setItem('llChao',lanChao)}catch(e){}
 
+// Bài hát hôm nay (bai-hat.js): nhãn trong hàng nhãn, bấm mở YouTube tìm bài; tờ ngày mai thì giấu.
+function baiHtml(d,lech){
+  const B=window.TD_BAI;if(lech||!B||!B.length)return '';
+  const s=B[mod(dayNo(d),B.length)],q=s[0]+' '+s[3].replace(' 作词','');
+  return '<a class="nhan bai" href="https://www.youtube.com/results?search_query='+encodeURIComponent(q)+'" target="_blank" rel="noopener" title="Nghe trên YouTube: '+esc(s[0]+' ('+s[2]+') – '+s[3])+'">'+
+    '<span class="ve"><i><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#nhac"/></svg></i><span class="tl" lang="zh">今日一曲</span></span>'+
+    '<span class="ve"><b lang="zh">'+s[0]+'</b><span class="ca" lang="zh">'+esc(s[3])+'</span></span></a>';
+}
 function veTo(d,lech){
   const a=am(d),l=le(d),y=YJ[mod(dayNo(d),YJ.length)],wk=d.getDay();
   const soNgay=Math.round((Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())-Date.UTC(d.getFullYear(),0,0))/864e5),
@@ -91,7 +99,7 @@ function veTo(d,lech){
     '<div class="than"><span class="tem" lang="zh">'+(lech?'明日':'今日')+'</span>'+
       '<p class="nz" lang="zh">'+ngayZh+' <span>星期'+WK[wk]+'</span>'+loa(ngayZh+'星期'+WK[wk],'Nghe đọc ngày tháng')+'</p>'+
       amHtml+
-      '<div class="hang">'+leHtml+'<span class="nhan yj"><span class="ve"><i lang="zh">宜</i><b lang="zh">'+y[0]+'</b>'+y[1]+'</span><span class="vach" aria-hidden="true"></span><span class="ve"><i class="ji" lang="zh">忌</i><b lang="zh">'+y[2]+'</b>'+y[3]+'</span></span></div>'+
+      '<div class="hang">'+leHtml+'<span class="nhan yj"><span class="ve"><i lang="zh">宜</i><b lang="zh">'+y[0]+'</b>'+y[1]+'</span><span class="vach" aria-hidden="true"></span><span class="ve"><i class="ji" lang="zh">忌</i><b lang="zh">'+y[2]+'</b>'+y[3]+'</span></span>'+baiHtml(d,lech)+'</div>'+
       tdHtml+
       (lech?'':'<button type="button" class="goc" aria-label="Xé tờ này, xem ngày mai" title="Xé tờ này"></button>')+
     '</div>';

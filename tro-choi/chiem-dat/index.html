@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Chiếm lãnh thổ 占领地图 – Trò chơi 吕老师汉语盒</title>
+<meta name="description" content="Trò chơi trên lớp: 2–4 đội trả lời đúng thì chiếm một ô trên bản đồ, được cướp ô của đội bạn. Đội có nhiều đất nhất khi hết câu thì thắng.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+[hidden]{display:none!important}
+/* bản đồ cổ: biển xanh, đất giấy da; cố định ở cả 2 chế độ sáng/tối */
+.bd{--card:#FBF3E0;--ground:#F1E2BF;--ground2:#E5CF9F;--ink:#2B2416;--muted:#6B5A3C;--line:#D8C08C;--sea:#1E5E6E;--shadow:0 5px 0 rgba(10,30,36,.35),0 12px 26px rgba(10,30,36,.3);
+  color-scheme:light;position:relative;overflow:hidden;color:#F3EBD6;background:radial-gradient(circle at 20% 15%,#2C7D8E 0,transparent 50%),radial-gradient(circle at 85% 90%,#174B58 0,transparent 55%),var(--sea)}
+.bd::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.18;background:repeating-radial-gradient(circle at 30% 40%,transparent 0 18px,rgba(255,255,255,.5) 18px 19px)}
+.stagebox{border-radius:24px;padding:clamp(16px,2.6vh,26px) clamp(14px,2.2vw,28px)}
+h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0 0}
+.bd h1{color:#FFF8E6}
+.lg{font-family:var(--hz);color:#F7C948;font-size:30px;line-height:1.1;text-shadow:0 2px 0 #0D3540}
+.lead{max-width:40em;margin:8px 0 0;position:relative}
+.btn.gm{background:linear-gradient(180deg,#F7C948,#E0A21B);color:#2B2416;box-shadow:0 5px 0 #8C6210;font-weight:800;touch-action:manipulation}
+.btn.gm:not(:disabled):active{translate:0 3px;box-shadow:0 2px 0 #8C6210}
+.btn.gm:disabled{opacity:.5;cursor:not-allowed}
+.sbb{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;padding:7px 14px;border-radius:999px;cursor:pointer}
+.muted{color:var(--muted);font-size:14px}
+.hero{display:grid;grid-template-columns:1fr minmax(160px,260px);gap:18px;align-items:center;margin-top:26px}
+.hero svg{display:block;width:100%;height:auto;position:relative}
+@media (max-width:700px){.hero{grid-template-columns:1fr}.hero svg{max-width:210px}}
+.panel{background:var(--card);color:var(--ink);border-radius:20px;box-shadow:var(--shadow);padding:18px;margin-top:14px;display:grid;gap:12px}
+.panel h2{font-size:16px;font-weight:800}.panel h2 small{font-weight:600;font-size:13.5px;color:var(--muted)}
+.setup-p{--card:#FFFBF0;--ground:#F6ECD3;--ground2:#EADBB5;--ink:#2B2416;--muted:#6B5A3C;--line:#DCC795;color-scheme:light}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--ground);color:var(--ink);font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{border-color:#1E5E6E;background:#D6ECEE}
+.chip small{font-weight:400;color:var(--muted);margin-left:4px}
+.books{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,195px),1fr));gap:8px}
+.bk{display:grid;gap:1px;text-align:left;padding:8px 12px;border:2px solid var(--line);border-radius:14px;background:var(--ground);color:var(--ink);font:inherit;cursor:pointer}
+.bk b{font-family:var(--hz);font-weight:400;font-size:17px;line-height:1.25}.bk small{color:var(--muted);font-size:12.5px;font-weight:600;line-height:1.3}
+.bk[aria-pressed="true"]{border-color:#1E5E6E;background:#D6ECEE}
+.lessons{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,178px),1fr));gap:7px;max-height:280px;overflow:auto;padding:2px}
+.ls{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 9px;align-items:center;text-align:left;padding:6px 10px 6px 7px;border:0;border-radius:12px;background:var(--ground2);color:var(--ink);font:inherit;cursor:pointer}
+.ls i{grid-row:span 2;display:grid;place-items:center;width:34px;height:34px;clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%);background:#1E5E6E;color:#fff;font-style:normal;font-weight:800;font-size:15px}
+.ls b{font-family:var(--kai);font-weight:400;font-size:17px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ls.all b{font-family:var(--vi);font-weight:800;font-size:14px}.ls small{color:var(--muted);font-size:12px;font-weight:600}
+.ls[aria-pressed="true"]{background:#1E5E6E;color:#fff}.ls[aria-pressed="true"] small{color:#CDE6E9}.ls[aria-pressed="true"] i{background:#F7C948;color:#2B2416}
+.how{margin:0;padding-left:20px;color:var(--muted);font-size:14.5px}.how b{color:var(--ink)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+/* bàn chơi */
+#play.bd{margin:0 -16px;min-height:100vh;min-height:100dvh;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,1fr);grid-template-rows:auto minmax(0,1fr);gap:clamp(8px,1.4vh,14px) clamp(12px,1.6vw,22px);padding:clamp(8px,1.4vh,14px) clamp(12px,1.6vw,22px)}
+.top2{grid-column:1/-1;position:relative;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top2 .lg{font-size:clamp(22px,3.4vh,32px)}
+.top2 .sp{margin-left:auto;font-weight:700}
+.top2 button{border:0;background:rgba(0,0,0,.25);color:#fff;font:inherit;font-size:14px;font-weight:700;padding:6px 11px;border-radius:999px;cursor:pointer}
+.mapw{position:relative;display:grid;place-items:center;min-height:0}
+.map{display:block;width:100%;max-height:calc(100dvh - 90px);height:auto;filter:drop-shadow(0 8px 14px rgba(0,0,0,.35))}
+.hx{cursor:default;transition:transform .15s}
+.hx polygon{stroke:#8C7444;stroke-width:2.5;transition:fill .35s}
+.hx text{pointer-events:none;font-family:var(--hz);text-anchor:middle;dominant-baseline:central}
+.hx.can{cursor:pointer}
+.hx.can polygon{stroke:#F7C948;stroke-width:5;animation:nhay .8s ease-in-out infinite alternate}
+@keyframes nhay{to{stroke:#FFF8E6}}
+.hx.can:hover{transform:translateY(-3px)}
+.hx.moi polygon{animation:dat .5s ease-out}
+@keyframes dat{from{stroke:#fff;stroke-width:9}}
+.rt{display:grid;gap:10px;align-content:start;min-width:0;position:relative}
+.teams{display:grid;gap:6px}
+.tm{--tc:#D6452F;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 10px;align-items:center;padding:7px 12px;border-radius:14px;background:rgba(0,0,0,.25);border-left:7px solid var(--tc);font-weight:800}
+.tm .dot{width:16px;height:16px;border-radius:4px;background:var(--tc)}
+.tm b{font-size:clamp(20px,2.6vh,26px);font-variant-numeric:tabular-nums}
+.tm .bar{grid-column:1/-1;height:7px;border-radius:99px;background:rgba(255,255,255,.15);overflow:hidden}
+.tm .bar i{display:block;height:100%;background:var(--tc);transition:width .4s}
+.tm.on{background:rgba(255,255,255,.14);box-shadow:0 0 0 2px var(--tc)}
+.tm .tag{font-size:12px;font-weight:700;color:#F7C948}
+.qc{background:var(--card);color:var(--ink);border-radius:18px;box-shadow:var(--shadow);padding:12px 14px;display:grid;gap:6px;text-align:center}
+.qc small{color:var(--muted);font-weight:700;font-size:14px}
+.qc .z{font-family:var(--kai);font-size:clamp(26px,3.4vw,44px);line-height:1.25;overflow-wrap:anywhere}
+.qc .z.w{font-size:clamp(50px,7vw,96px);line-height:1.05}
+.qo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.qo div{display:flex;align-items:center;gap:8px;text-align:left;padding:6px 10px;border-radius:11px;background:var(--ground);font-family:var(--kai);font-size:clamp(18px,2vw,26px);line-height:1.2;border:2px solid transparent}
+.qo div.py{font-family:var(--vi);font-weight:700;color:#1F5C9A;font-size:clamp(16px,1.6vw,21px)}
+.qo b{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#1E5E6E;color:#F7C948;font-family:var(--vi);font-size:15px}
+.qo div.ok{background:#CDEFB5;border-color:#3C8A1E}
+.msg{min-height:1.4em;font-weight:800;font-size:clamp(15px,1.6vw,19px);text-align:center;color:#FFF8E6}
+.msg b{color:#F7C948}
+.ctrl{display:flex;flex-wrap:wrap;gap:7px;justify-content:center}
+.tb{--tc:#D6452F;border:0;border-radius:12px;padding:9px 14px;background:var(--tc);color:#fff;font:inherit;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.35);touch-action:manipulation}
+.tb kbd,.sbb kbd{font:600 12px var(--vi);opacity:.8;margin-left:4px}
+@media (max-width:900px){#play.bd{grid-template-columns:1fr;grid-template-rows:auto}.map{max-height:none}}
+@media (hover:none){.tb kbd,.sbb kbd{display:none}}
+.dlg{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:16px;background:rgba(6,24,30,.72)}
+.dbox{width:min(100%,460px);background:var(--card);color:var(--ink);border-radius:22px;box-shadow:var(--shadow);padding:20px;display:grid;gap:10px;text-align:center;justify-items:center}
+.dbox .big{font-family:var(--hz);color:#1E5E6E;font-size:clamp(38px,7vh,56px);line-height:1.05}
+.dbox h2{font-size:21px;font-weight:800}
+.rk{width:100%;margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.rk li{--tc:#D6452F;display:flex;align-items:center;gap:10px;padding:7px 12px;border-radius:12px;background:var(--ground);border-left:7px solid var(--tc);font-weight:800}
+.rk li b{margin-left:auto;font-size:1.2em}
+.rk .lli{color:#C9971C}
+.confetti{position:fixed;top:-14px;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:30}
+@media (prefers-reduced-motion:reduce){.hx.can polygon,.hx.moi polygon{animation:none}.hx{transition:none}.confetti{display:none}}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/favicon-192.png">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap" id="main">
+  <section id="setup">
+    <div class="hero bd stagebox">
+      <div style="position:relative"><div class="lg" lang="zh">占领地图</div><h1>Chiếm lãnh thổ</h1>
+        <p class="lead">Mỗi đội có một căn cứ trên bản đồ. Trả lời đúng thì chiếm thêm một ô kề lãnh thổ của mình, hoặc cướp ô của đội bạn. Hết câu, đội có nhiều đất nhất thắng.</p></div>
+      <svg viewBox="0 0 200 150" aria-hidden="true" id="heroMap"></svg>
+    </div>
+    <div class="panel setup-p">
+      <h2>1. Câu hỏi</h2><div class="chips" id="srcChips"></div>
+      <div id="baiBox" style="display:grid;gap:10px"><div class="books" id="sach"></div><div class="lessons" id="bai"></div></div>
+      <h2>2. Số đội</h2><div class="chips" id="teamChips"></div>
+      <h2>3. Số câu</h2><div class="chips" id="numChips"></div>
+      <ul class="how">
+        <li>Câu hỏi chiếu lên màn hình. <b>Đội đến lượt</b> được trả lời trước, sai thì đội khác giơ tay giành quyền. Cô bấm nút màu của đội trả lời đúng (phím <b>1 2 3 4</b>).</li>
+        <li>Đội đúng chọn <b>một ô sáng viền</b>: ô trống kề lãnh thổ, hoặc ô của đội bạn để cướp. Căn cứ (cờ) không cướp được. Ô <b lang="zh">城</b> đáng 3 điểm, ô thường 1 điểm.</li>
+        <li><b>Dấu cách</b> hiện đáp án, <b>N</b> khi không đội nào đúng, <b>Z</b> hoàn tác khi bấm nhầm.</li>
+      </ul>
+      <div class="acts"><button class="btn gm" id="startBtn" type="button">Vào bản đồ <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=c0a8a094#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
+    </div>
+  </section>
+
+  <section class="bd" id="play" hidden>
+    <div class="top2"><span class="lg" lang="zh">占领地图</span><span class="sp" id="cnt"></span><button type="button" id="soundBtn" aria-label="Bật / tắt âm thanh"></button><button type="button" id="quitBtn">Kết thúc</button></div>
+    <div class="mapw"><svg class="map" id="map" role="img" aria-label="Bản đồ lãnh thổ các đội"></svg></div>
+    <div class="rt">
+      <div class="teams" id="teams"></div>
+      <div class="qc"><small id="qk"></small><div class="z" id="qz" lang="zh"></div><div class="qo" id="qo"></div></div>
+      <div class="msg" id="msg" aria-live="polite"></div>
+      <div class="ctrl" id="ctrl"></div>
+    </div>
+  </section>
+</main>
+
+<div class="dlg" id="dlg" hidden><div class="dbox" id="dbox" role="dialog" aria-modal="true"></div></div>
+
+<footer class="wrap">Câu hỏi lấy từ đề ôn theo bài của trò Vượt ải (bản nháp, chờ cô duyệt) hoặc từ vựng đề cương HSK 2025 · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../hsk-words.js"></script>
+<script src="../vuot-ai/de-tttc.js?v=2"></script>
+<script src="../vuot-ai/de-301.js?v=1"></script>
+<script src="../vuot-ai/de-301b.js?v=1"></script>
+<script src="../vuot-ai/de-fazhan.js?v=1"></script>
+<script src="../vuot-ai/de-boya.js?v=1"></script>
+<script src="../vuot-ai/de-yuedu.js?v=2"></script>
+<script src="../vuot-ai/de-ledu.js?v=1"></script>
+<script src="../vuot-ai/am.js"></script>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
+
+(function(){
+const $=id=>document.getElementById(id),BAI=window.VA_BAI||[];
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const mk=(t,c,x,lang)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;if(lang)e.lang=lang;return e};
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c0a8a094#'+n+'"></use></svg>';
+const FX=!matchMedia('(prefers-reduced-motion:reduce)').matches;
+const TEAM=[['Đội Đỏ','#D6452F'],['Đội Xanh','#2F78C4'],['Đội Lục','#3D9A3A'],['Đội Tím','#8A4FC4']];
+function confetti(n){if(!FX)return;const C=['#F7C948','#D6452F','#2F78C4','#3D9A3A','#8A4FC4'];
+  for(let i=0;i<n;i++){const e=document.createElement('i');e.className='confetti';e.style.left=Math.random()*100+'vw';e.style.background=C[i%5];document.body.appendChild(e);
+    const h=(window.innerHeight||700)+30,sway=(Math.random()-.5)*120;
+    e.animate({transform:['translate(0,0) rotate(0)','translate('+sway+'px,'+h+'px) rotate('+(360+Math.random()*720)+'deg)']},{duration:1500+Math.random()*1300,delay:Math.random()*500,easing:'cubic-bezier(.3,.5,.6,1)',fill:'backwards'}).onfinish=()=>e.remove()}}
+
+/* ---------- câu hỏi: theo bài (Điền + Trả lời của Vượt ải) hoặc từ vựng HSK (chữ → pinyin) ---------- */
+function qsOf(b){const out=[];
+  (b.dien||[]).forEach(x=>{const o=x.o||[];if(x.s&&o.length>=3)out.push({k:'Chọn từ điền vào chỗ trống',q:x.s.replace(/_+/g,'＿＿＿'),ok:o[x.ok||0],bad:o.filter((_,i)=>i!==(x.ok||0)).slice(0,3)})});
+  (b.hoi||[]).forEach(x=>{const bad=(x.bad||[]).map(y=>y[0]).filter(Boolean);if(x.q&&x.ok&&x.ok[0]&&bad.length>=2)out.push({k:'Chọn câu trả lời đúng',q:x.q,ok:x.ok[0],bad:bad.slice(0,3)})});
+  return out}
+function hskQs(l){const ws=(window.HSK&&HSK[l]||[]).filter(([w,p])=>p&&w.length<=4),out=[];
+  ws.forEach(([w,p])=>{const seen=new Set([p]),c=shuffle(ws.slice()),bad=[];for(const y of [...c.filter(y=>y[0].length===w.length),...c]){if(bad.length>=3)break;if(!seen.has(y[1])){seen.add(y[1]);bad.push(y[1])}}
+    out.push({k:'Pinyin của từ này là gì?',q:w,ok:p,bad,w:1,py:1})});return out}
+const SACH=(window.VA_SACH||[]).filter(s=>BAI.some(b=>b.mon===s.id&&qsOf(b).length));
+let src='bai',pick={s:'',bs:[]},T=2,N=15;
+{const sv=store.get('cl-set');if(sv){if(['bai','1','2','3','4'].includes(sv.src))src=sv.src;if([2,3,4].includes(sv.t))T=sv.t;if([10,15,20].includes(sv.n))N=sv.n;if(sv.s&&SACH.some(s=>s.id===sv.s))pick={s:sv.s,bs:Array.isArray(sv.bs)?sv.bs:[]}}
+ if(!pick.s&&SACH[0])pick.s=SACH[0].id;
+ const bo=new URLSearchParams(location.search).get('bo');if(bo&&bo.startsWith('bai:')){const [,a,b]=bo.split(':');if(SACH.some(s=>s.id===a)){src='bai';pick={s:a,bs:(b||'').split(/[+ ]/).map(y=>a+'-'+y).filter(i=>BAI.some(x=>x.id===i))}}}}
+// đủ 4 lựa chọn cho khó hơn: câu nào thiếu thì mượn đáp án của câu cùng dạng trong phần đã chọn, ưu tiên dài gần bằng đáp án đúng (chọn cố định, máy nào cũng như nhau)
+function du4(list){const H=s=>{let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imul(h,16777619)>>>0}return h},bank={};
+  list.forEach(q=>{(bank[q.k]=bank[q.k]||new Set());[q.ok,...q.bad].forEach(x=>bank[q.k].add(x))});
+  list.forEach(q=>{if(q.bad.length>=3)return;const have=new Set([q.ok,...q.bad]),L=q.ok.length;
+    [...bank[q.k]].filter(x=>!have.has(x)).sort((a,b)=>Math.abs(a.length-L)-Math.abs(b.length-L)||H(q.q+a)-H(q.q+b)).slice(0,3-q.bad.length).forEach(x=>q.bad.push(x))});
+  return list}
+const pool=()=>src==='bai'?du4(BAI.filter(b=>b.mon===pick.s&&(!pick.bs.length||pick.bs.includes(b.id))).flatMap(qsOf)):hskQs(src);
+function chipRow(el,items,cur,fn){el.innerHTML='';items.forEach(([v,t,sub])=>{const b=mk('button','chip',t);b.type='button';if(sub)b.append(mk('small',null,sub));b.setAttribute('aria-pressed',v===cur);b.onclick=()=>{fn(v);paintSetup()};el.append(b)})}
+function paintSetup(){
+  chipRow($('srcChips'),[['bai','Theo bài giáo trình'],['1','Từ vựng HSK 1'],['2','HSK 2'],['3','HSK 3'],['4','HSK 4']],src,v=>src=v);
+  chipRow($('teamChips'),[[2,'2 đội'],[3,'3 đội'],[4,'4 đội']],T,v=>T=v);
+  chipRow($('numChips'),[[10,'10 câu','nhanh'],[15,'15 câu'],[20,'20 câu','cả tiết']],N,v=>N=v);
+  $('baiBox').hidden=src!=='bai';
+  if(src==='bai'){const A=$('sach'),L=$('bai'),top=L.scrollTop;A.innerHTML='';
+    SACH.forEach(x=>{const b=mk('button','bk');b.type='button';b.setAttribute('aria-pressed',x.id===pick.s);b.append(mk('b',null,x.zh,'zh'),mk('small',null,x.vi||''));b.onclick=()=>{pick={s:x.id,bs:[]};paintSetup()};A.append(b)});
+    L.innerHTML='';const all=mk('button','ls all');all.type='button';all.setAttribute('aria-pressed',!pick.bs.length);all.append(mk('i',null,'全','zh'),mk('b',null,'Cả giáo trình'),mk('small',null,BAI.filter(x=>x.mon===pick.s).flatMap(qsOf).length+' câu'));all.onclick=()=>{pick.bs=[];paintSetup()};L.append(all);
+    BAI.filter(x=>x.mon===pick.s).sort((p,q)=>p.n-q.n).forEach(x=>{const c=qsOf(x).length;if(!c)return;const b=mk('button','ls');b.type='button';b.title='Bài '+x.n+': '+x.zh;b.setAttribute('aria-pressed',pick.bs.includes(x.id));b.append(mk('i',null,x.n),mk('b',null,x.zh,'zh'),mk('small',null,c+' câu'));
+      b.onclick=()=>{pick.bs=pick.bs.includes(x.id)?pick.bs.filter(y=>y!==x.id):pick.bs.concat(x.id);paintSetup()};L.append(b)});L.scrollTop=top}
+  const n=pool().length;$('startBtn').disabled=n<6;$('poolInfo').textContent=n<6?'Cần ít nhất 6 câu, cô chọn thêm bài nhé':n+' câu'}
+
+/* ---------- bản đồ lục giác 7 × 5, hàng lẻ lệch phải ---------- */
+const COLS=7,ROWS=5,R=40,W=Math.sqrt(3)*R;
+const BASES={2:[[0,2],[6,2]],3:[[0,0],[6,0],[3,4]],4:[[0,0],[6,0],[0,4],[6,4]]};
+const idx=(c,r)=>r*COLS+c,cr=i=>[i%COLS,Math.floor(i/COLS)];
+function nbrs(i){const [c,r]=cr(i),d=r%2?[[0,-1],[1,-1],[-1,0],[1,0],[0,1],[1,1]]:[[-1,-1],[0,-1],[-1,0],[1,0],[-1,1],[0,1]];
+  return d.map(([dc,dr])=>[c+dc,r+dr]).filter(([x,y])=>x>=0&&x<COLS&&y>=0&&y<ROWS).map(([x,y])=>idx(x,y))}
+const ctr=i=>{const [c,r]=cr(i);return[W*(c+.5*(r%2))+W/2+6,1.5*R*r+R+6]};
+const hexPts=(x,y,rr)=>[0,1,2,3,4,5].map(k=>{const a=Math.PI/180*(60*k-30);return(x+rr*Math.cos(a)).toFixed(1)+','+(y+rr*Math.sin(a)).toFixed(1)}).join(' ');
+const VB='0 0 '+(W*(COLS+.5)+12).toFixed(0)+' '+(1.5*R*(ROWS-1)+2*R+12).toFixed(0);
+// hình minh hoạ ở đầu trang
+{let g='';const own=[0,0,-1,1,1,-1,2,0,-1,-1,1,2,0,-1,2];for(let r=0;r<3;r++)for(let c=0;c<5;c++){const i=r*5+c,x=24+34.6*(c+.5*(r%2)),y=30+30*r,o=own[i];g+='<polygon points="'+hexPts(x,y,19)+'" fill="'+(o<0?'#F1E2BF':['#D6452F','#2F78C4','#3D9A3A'][o])+'" stroke="#8C7444" stroke-width="2"/>'}
+ $('heroMap').innerHTML=g+'<text x="117" y="92" text-anchor="middle" font-size="16" fill="#2B2416" font-family="ZCOOL KuaiLe,serif">城</text>'}
+
+/* ---------- chơi ---------- */
+let G=null,timer=0;
+const chrome=on=>{document.querySelector('header.top').hidden=!on;document.querySelector('footer').hidden=!on;$('main').style.maxWidth=on?'':'none'};
+function start(){const p=pool();if(p.length<6)return;store.set('cl-set',{src,t:T,n:N,s:pick.s,bs:pick.bs});
+  const own=Array(COLS*ROWS).fill(-1),val=Array(COLS*ROWS).fill(1),base=new Set();BASES[T].forEach(([c,r],t)=>{const i=idx(c,r);own[i]=t;base.add(i)});
+  // 城 = 3 điểm: không đặt sát căn cứ để đội nào cũng phải mở đường mới tới
+  const near=new Set([...base].flatMap(i=>[i,...nbrs(i)]));shuffle([...Array(COLS*ROWS).keys()].filter(i=>!near.has(i))).slice(0,6).forEach(i=>val[i]=3);
+  G={pool:p,queue:[],own,val,base,turn:0,n:0,phase:'q',win:-1,last:null,q:null};
+  $('setup').hidden=true;$('play').hidden=false;chrome(false);scrollTo(0,0);paintSound();ask()}
+const score=t=>G.own.reduce((s,o,i)=>s+(o===t?G.val[i]:0),0);
+const legal=t=>G.own.map((o,i)=>i).filter(i=>!G.base.has(i)&&G.own[i]!==t&&nbrs(i).some(j=>G.own[j]===t));
+function paintSound(){$('soundBtn').innerHTML=IC(AM.on?'loa':'loa-tat')}
+function paintMap(can,moi){const S=$('map');S.setAttribute('viewBox',VB);let h='';const ok=new Set(can||[]);
+  G.own.forEach((o,i)=>{const [x,y]=ctr(i),fill=o<0?(G.val[i]>1?'#E9D19A':'#F1E2BF'):TEAM[o][1];
+    h+='<g class="hx'+(ok.has(i)?' can':'')+(i===moi?' moi':'')+'" data-i="'+i+'"'+(ok.has(i)?' role="button" tabindex="0" aria-label="Chiếm ô này"':'')+'><polygon points="'+hexPts(x,y,R-2)+'" fill="'+fill+'"/>';
+    if(G.base.has(i))h+='<path d="M'+(x-6)+' '+(y+14)+'V'+(y-14)+'l16 6-16 6" fill="#FFF8E6" stroke="#FFF8E6" stroke-width="3" stroke-linejoin="round"/>';
+    else if(G.val[i]>1)h+='<text x="'+x+'" y="'+y+'" font-size="26" fill="'+(o<0?'#6B4A12':'#FFF8E6')+'">城</text>';
+    h+='</g>'});
+  S.innerHTML=h;S.querySelectorAll('.hx.can').forEach(g=>{const go=()=>take(+g.dataset.i);g.onclick=go;g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}})}
+function paintTeams(){const E=$('teams');E.innerHTML='';const tot=G.own.reduce((s,o,i)=>s+G.val[i],0);
+  for(let t=0;t<T;t++){const d=mk('div','tm'+(t===G.turn&&G.phase!=='end'?' on':''));d.style.setProperty('--tc',TEAM[t][1]);const s=score(t);
+    d.append(mk('span','dot'));const nm=mk('span',null,TEAM[t][0]);if(t===G.turn&&G.phase!=='end')nm.append(mk('span','tag',' · đến lượt'));d.append(nm,mk('b',null,s));const bar=mk('span','bar'),i=mk('i');i.style.width=(s/tot*100)+'%';bar.append(i);d.append(bar);E.append(d)}
+  $('cnt').textContent='Câu '+Math.min(G.n+1,N)+'/'+N}
+function ctrl(){const C=$('ctrl');C.innerHTML='';
+  if(G.phase==='q'){for(let t=0;t<T;t++){const b=mk('button','tb',TEAM[t][0]+' đúng');b.type='button';b.style.setProperty('--tc',TEAM[t][1]);b.append(mk('kbd',null,t+1));b.onclick=()=>won(t);C.append(b)}
+    const s=mk('button','sbb','Hiện đáp án');s.type='button';s.append(mk('kbd',null,'Dấu cách'));s.onclick=showAns;const n=mk('button','sbb','Không ai đúng');n.type='button';n.append(mk('kbd',null,'N'));n.onclick=noOne;C.append(s,n)}
+  if(G.phase==='pick'){const n=mk('button','sbb','Bỏ lượt chiếm');n.type='button';n.onclick=()=>next();C.append(n)}
+  if(G.last&&G.phase!=='end'){const z=mk('button','sbb','Hoàn tác');z.type='button';z.append(mk('kbd',null,'Z'));z.onclick=undo;C.append(z)}}
+function nextQ(){if(!G.queue.length)G.queue=shuffle(G.pool.slice());return G.queue.pop()}
+function ask(){clearTimeout(timer);G.phase='q';G.win=-1;const q=G.q=nextQ();$('qk').textContent=q.k;$('qz').textContent=q.q;$('qz').className='z'+(q.w?' w':'');
+  const Q=$('qo');Q.innerHTML='';shuffle([q.ok,...q.bad]).forEach((t,i)=>{const d=mk('div',q.py?'py':'');d.append(mk('b',null,'ABCD'[i]),mk('span',null,t,q.py?null:'zh'));d.dataset.ok=t===q.ok?'1':'';Q.append(d)});
+  $('msg').innerHTML='';$('msg').append(document.createTextNode('Lượt của '),mk('b',null,TEAM[G.turn][0]),document.createTextNode(', các đội khác chờ giành quyền.'));
+  paintMap();paintTeams();ctrl()}
+function showAns(){if(G.phase!=='q')return;document.querySelectorAll('#qo div').forEach(d=>{if(d.dataset.ok)d.classList.add('ok')})}
+function won(t){if(G.phase!=='q'||t>=T)return;showAns();G.win=t;const can=legal(t);AM.play('coin');
+  if(!can.length){$('msg').textContent=TEAM[t][0]+' đúng nhưng không còn ô nào để chiếm.';timer=setTimeout(next,1500);G.phase='wait';ctrl();return}
+  G.phase='pick';$('msg').innerHTML='';$('msg').append(mk('b',null,TEAM[t][0]),document.createTextNode(' đúng! Chọn một ô sáng viền trên bản đồ.'));paintMap(can);paintTeams();ctrl()}
+function take(i){if(G.phase!=='pick')return;const t=G.win,prev=G.own[i];G.last={i,prev,turn:G.turn,n:G.n};G.own[i]=t;
+  if(prev>=0){AM.play('hurt');$('msg').innerHTML='';$('msg').append(mk('b',null,TEAM[t][0]),document.createTextNode(' cướp '+(G.val[i]>1?'thành 城':'một ô')+' của '+TEAM[prev][0]+'!'))}
+  else{AM.play(G.val[i]>1?'clear':'ok',2);$('msg').innerHTML='';$('msg').append(mk('b',null,TEAM[t][0]),document.createTextNode(G.val[i]>1?' chiếm được thành 城, +3 điểm!':' chiếm thêm một ô.'))}
+  G.phase='wait';paintMap(null,i);paintTeams();ctrl();timer=setTimeout(next,1300)}
+function noOne(){if(G.phase!=='q')return;showAns();AM.play('no');$('msg').textContent='Không đội nào đúng, sang câu khác.';G.phase='wait';G.last=null;ctrl();timer=setTimeout(next,1500)}
+function next(){clearTimeout(timer);G.n++;G.turn=(G.turn+1)%T;if(G.n>=N){finish();return}ask()}
+function undo(){if(!G.last||G.phase==='end')return;clearTimeout(timer);const L=G.last;G.own[L.i]=L.prev;G.turn=L.turn;G.n=L.n;G.last=null;AM.play('unpick');
+  G.phase='pick';const can=legal(G.win);paintMap(can);paintTeams();ctrl();$('msg').textContent='Đã hoàn tác, chọn lại ô khác.'}
+function finish(){clearTimeout(timer);G.phase='end';paintMap();paintTeams();ctrl();$('msg').textContent='Hết câu!';
+  const rk=[...Array(T).keys()].map(t=>[t,score(t)]).sort((a,b)=>b[1]-a[1]),top=rk[0][1],win=rk.filter(r=>r[1]===top);AM.play('win');confetti(120);
+  const d=$('dbox');d.innerHTML='';d.append(mk('div','big',win.length>1?'平局！':'胜利！','zh'),mk('h2',null,win.length>1?win.map(r=>TEAM[r[0]][0]).join(' và ')+' hoà nhau':TEAM[win[0][0]][0]+' làm chủ bản đồ'));
+  const ul=mk('ol','rk');rk.forEach(([t,s],i)=>{const li=mk('li');li.style.setProperty('--tc',TEAM[t][1]);if(i===0)li.innerHTML=IC('cup');li.append(document.createTextNode(' '+TEAM[t][0]),mk('b',null,s+' điểm'));ul.append(li)});d.append(ul);
+  const a=mk('button','btn gm','Chơi ván mới');a.type='button';a.onclick=()=>{$('dlg').hidden=true;start()};const b=mk('button','sbb','Đổi bài / số đội');b.type='button';b.onclick=quit;const c=mk('button','sbb','Xem lại bản đồ');c.type='button';c.onclick=()=>$('dlg').hidden=true;d.append(a,c,b);$('dlg').hidden=false;a.focus()}
+function quit(){clearTimeout(timer);G=null;$('dlg').hidden=true;$('play').hidden=true;$('setup').hidden=false;chrome(true);paintSetup();scrollTo(0,0)}
+$('startBtn').onclick=start;$('quitBtn').onclick=()=>{if(G&&G.phase!=='end'){if(confirm('Kết thúc ván và xem kết quả?'))finish()}else quit()};
+$('soundBtn').onclick=()=>{AM.toggle();paintSound()};
+addEventListener('keydown',e=>{if(!G||$('play').hidden||!$('dlg').hidden||e.repeat||e.metaKey||e.ctrlKey||e.altKey)return;const k=e.key.toLowerCase();
+  if(/^[1-4]$/.test(k))won(+k-1);else if(k===' '&&G.phase==='q'){e.preventDefault();if(e.target.blur)e.target.blur();showAns()}else if(k==='n')noOne();else if(k==='z')undo()});
+paintSetup();
+})();
+</script>
+</body>
+</html>

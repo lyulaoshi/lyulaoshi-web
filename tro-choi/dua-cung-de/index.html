@@ -213,7 +213,13 @@ function qsOf(b){const out=[];
   (b.hoi||[]).forEach(x=>{const bad=(x.bad||[]).map(y=>y[0]).filter(Boolean);if(x.q&&x.ok&&x.ok[0]&&bad.length>=2)out.push({id:b.id+'/'+x.id,k:'Chọn câu trả lời đúng',q:x.q,ok:x.ok[0],bad:bad.slice(0,3),why:''})});
   return out}
 const SACH=(window.VA_SACH||[]).filter(s=>BAI.some(b=>b.mon===s.id&&qsOf(b).length));
-const poolFor=(mon,ids)=>BAI.filter(b=>b.mon===mon&&(!ids.length||ids.includes(b.id))).flatMap(qsOf);
+// đủ 4 lựa chọn cho khó hơn: câu nào thiếu thì mượn đáp án của câu cùng dạng trong phần đã chọn, ưu tiên dài gần bằng đáp án đúng (chọn cố định, máy nào cũng như nhau)
+function du4(list){const H=s=>{let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imul(h,16777619)>>>0}return h},bank={};
+  list.forEach(q=>{(bank[q.k]=bank[q.k]||new Set());[q.ok,...q.bad].forEach(x=>bank[q.k].add(x))});
+  list.forEach(q=>{if(q.bad.length>=3)return;const have=new Set([q.ok,...q.bad]),L=q.ok.length;
+    [...bank[q.k]].filter(x=>!have.has(x)).sort((a,b)=>Math.abs(a.length-L)-Math.abs(b.length-L)||H(q.q+a)-H(q.q+b)).slice(0,3-q.bad.length).forEach(x=>q.bad.push(x))});
+  return list}
+const poolFor=(mon,ids)=>du4(BAI.filter(b=>b.mon===mon&&(!ids.length||ids.includes(b.id))).flatMap(qsOf));
 
 /* ---------- phòng: suy ra từ link ---------- */
 function roomFrom(u){const p=u.get('p'),n=+u.get('n'),t=+u.get('t'),b=u.get('b')||'';

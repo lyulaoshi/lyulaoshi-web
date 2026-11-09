@@ -21,7 +21,7 @@ window.GT_SACH=[
   t:{1:["你好","Chào hỏi · hỏi tên"],2:["你是哪国人","Bạn là người nước nào?"],3:["那是你的书吗","Kia là sách của bạn à?"],4:["图书馆在哪儿","Thư viện ở đâu?"],5:["在北京大学的东边","Ở phía đông của Đại học Bắc Kinh"],
      6:["现在几点","Bây giờ mấy giờ?"],7:["明天你有课吗","Ngày mai có lớp không?"],8:["你的电话号码是多少","Số điện thoại là bao nhiêu?"],9:["多少钱一瓶","Bao nhiêu tiền một chai?"],10:["你家有几口人","Gia đình bạn có mấy người?"]}},
  {id:"fazhan-sc2",c:"",seal:"发",dim:[70,238],spine:"发展汉语|初级综合 II",zh:"发展汉语初级综合 II",vi:"Phát triển Hán ngữ Sơ cấp 2",short:"发展汉语",total:null,
-  t:{1:["入乡随俗","Nhập gia tùy tục"],2:["儿子要回家","Con trai sắp về nhà"]}},
+  t:{1:["入乡随俗","Nhập gia tùy tục"],2:["儿子要回家","Con trai sắp về nhà"],3:["卖辣椒的女孩儿","Cô bé bán ớt"]}},
  {id:"fazhan-tc1",c:"c-sky",seal:"中",dim:[72,242],spine:"发展汉语|中级综合 I",zh:"发展汉语中级综合 I",vi:"Phát triển Hán ngữ Trung cấp 1",short:"发展汉语中级",total:null,
   t:{1:["北京的四季","Bốn mùa Bắc Kinh"],2:["租房只要一个条件","Thuê nhà chỉ cần một điều kiện"]}},
  {id:"301",c:"c-peach",seal:"会",dim:[76,256],spine:"汉语会话301句",zh:"汉语会话301句",vi:"Giáo trình 301 câu đàm thoại tiếng Hoa",short:"301 câu",from:11,total:20,   // học phần dạy Bài 11–20 + 2 bài ôn (như sách: 复习 sau mỗi 5 bài)

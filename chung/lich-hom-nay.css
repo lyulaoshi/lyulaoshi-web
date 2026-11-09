@@ -55,6 +55,13 @@
 .lichve .nhan.yj{flex-wrap:wrap;row-gap:3px;max-width:100%;padding-right:12px}
 .lichve .nhan.yj .ve{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}   /* mỗi vế 宜 / 忌 không bị ngắt giữa chừng */
 .lichve .nhan.yj .vach{width:1px;height:16px;margin:0 6px;background:color-mix(in srgb,var(--muted) 35%,transparent)}
+.lichve .nhan.bai{text-decoration:none;background:var(--lv-s);transition:transform .2s}
+.lichve .nhan.bai i{background:var(--lv)} .lichve .nhan.bai i .lli{width:13px;height:13px;color:#fff}
+.lichve .nhan.bai .ca{font:400 12.5px var(--kai);white-space:nowrap}
+.lichve .nhan.bai{flex-wrap:wrap;row-gap:3px;max-width:100%;padding-right:12px}
+.lichve .nhan.bai .ve{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.lichve .nhan.bai .tl{font:400 12px var(--kai);letter-spacing:.06em;color:var(--muted);padding-right:7px;margin-right:2px;border-right:1px solid color-mix(in srgb,var(--muted) 35%,transparent)}
+.lichve .nhan.bai:hover{transform:translateY(-1px)} .lichve .nhan.bai:focus-visible{outline:2px solid var(--lv);outline-offset:2px}
 .lichve .nhan.le{padding-left:10px;background:var(--lv-s)} .lichve .nhan.le b{color:var(--lv-d)}
 .lichve .nhan.le.nay{background:var(--lv);color:#fff} .lichve .nhan.le.nay b{color:#fff}
 /* dòng 3: thông điệp */
@@ -151,6 +158,7 @@
   .lichve .than{border-radius:0 0 18px 18px;-webkit-mask:none;mask:none;padding:14px 14px 16px}
   .lichve .than::before{left:14px;right:14px;top:0;bottom:auto;border-left:0;border-top:2px dotted color-mix(in srgb,var(--lv) 45%,transparent)}
   .lichve .tem{top:12px;right:12px}
+  .lichve .nhan.bai{border-radius:14px}
   .lichve .nhan.yj{border-radius:14px;column-gap:12px} .lichve .nhan.yj .vach{display:none}   /* hẹp: cặp dài xuống dòng theo từng vế */
   .lichve .nz{font-size:22px;padding-right:44px}
 }

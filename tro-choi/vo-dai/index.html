@@ -209,7 +209,13 @@ let src='bai',pick={s:'',bs:[]},WIN=2,MODE='judge';
 {const sv=store.get('vd-set');if(sv){if(['bai','1','2','3','4'].includes(sv.src))src=sv.src;if([1,2,3].includes(sv.win))WIN=sv.win;if(['judge','tap'].includes(sv.mode))MODE=sv.mode;if(sv.s&&SACH.some(s=>s.id===sv.s))pick={s:sv.s,bs:Array.isArray(sv.bs)?sv.bs:[]}}
  if(!pick.s&&SACH[0])pick.s=SACH[0].id;
  const bo=new URLSearchParams(location.search).get('bo');if(bo&&bo.startsWith('bai:')){const [,a,b]=bo.split(':');if(SACH.some(s=>s.id===a)){src='bai';pick={s:a,bs:(b||'').split(/[+ ]/).map(y=>a+'-'+y).filter(i=>BAI.some(x=>x.id===i))}}}}
-const pool=()=>src==='bai'?BAI.filter(b=>b.mon===pick.s&&(!pick.bs.length||pick.bs.includes(b.id))).flatMap(qsOf):hskQs(src);
+// đủ 4 lựa chọn cho khó hơn: câu nào thiếu thì mượn đáp án của câu cùng dạng trong phần đã chọn, ưu tiên dài gần bằng đáp án đúng (chọn cố định, máy nào cũng như nhau)
+function du4(list){const H=s=>{let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imul(h,16777619)>>>0}return h},bank={};
+  list.forEach(q=>{(bank[q.k]=bank[q.k]||new Set());[q.ok,...q.bad].forEach(x=>bank[q.k].add(x))});
+  list.forEach(q=>{if(q.bad.length>=3)return;const have=new Set([q.ok,...q.bad]),L=q.ok.length;
+    [...bank[q.k]].filter(x=>!have.has(x)).sort((a,b)=>Math.abs(a.length-L)-Math.abs(b.length-L)||H(q.q+a)-H(q.q+b)).slice(0,3-q.bad.length).forEach(x=>q.bad.push(x))});
+  return list}
+const pool=()=>src==='bai'?du4(BAI.filter(b=>b.mon===pick.s&&(!pick.bs.length||pick.bs.includes(b.id))).flatMap(qsOf)):hskQs(src);
 function chipRow(el,items,cur,fn){el.innerHTML='';items.forEach(([v,t,sub])=>{const b=mk('button','chip',t);b.type='button';if(sub)b.append(mk('small',null,sub));b.setAttribute('aria-pressed',v===cur);b.onclick=()=>{fn(v);paintSetup()};el.append(b)})}
 function paintSetup(){
   chipRow($('srcChips'),[['bai','Theo bài giáo trình'],['1','Từ vựng HSK 1'],['2','HSK 2'],['3','HSK 3'],['4','HSK 4']],src,v=>src=v);
