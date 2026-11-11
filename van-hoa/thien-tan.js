@@ -13,17 +13,17 @@ diem:[
  {id:'su',loai:'tn',zh:'俗',vi:'Nghệ nhân dân gian',ngan:'Phong tục',x:15,y:39,ic:'manh-ghep'}],
 tq:{
 wudadao:{zh:'五大道',py:'Wǔ Dàdào',vi:'Ngũ Đại Đạo',ten2:'Khu phố nhà kiểu Tây',chuTay:'五大道 · 天津',
- anh:["anh/tj-wdd1.webp", "https://commons.wikimedia.org/wiki/File:Five_Great_Avenues_21398-Tianjin_(49063953692).jpg", "CC BY 2.0", "xiquinhosilva"],
- alt:'Một biệt thự mái ngói đỏ giữa hàng cây xanh ở khu Ngũ Đại Đạo, phía sau là toà cao ốc',
+ anh:["anh/tj-wdd12-lon.webp", "https://commons.wikimedia.org/wiki/File:Five_Great_Avenues_21393-Tianjin_(49063741486).jpg", "CC BY 2.0", "xiquinhosilva"],
+ alt:'Biệt thự kiểu Âu màu kem ba tầng, cửa sổ có cửa chớp, ở khu Ngũ Đại Đạo',
  gioi:'Khu phố yên tĩnh với những con đường lớn chạy song song, hai bên là hơn 2.000 toà nhà kiểu Âu xây đầu thế kỷ 20: kiểu Anh, Pháp, Ý, Tây Ban Nha… Vì vậy người ta gọi Thiên Tân là "triển lãm kiến trúc vạn quốc" 万国建筑博览会.',
  nhan:[['lich','Xây 1920–1930'],['mu','Hơn 2.000 toà nhà'],['cup','Di tích quốc gia 2013']],
  the:[
   {c:'#B5652B',chu:'道',ten:'Tên gọi',phu:'Năm con đường lớn',ic:'sach',tieu:'Vì sao gọi 五大道?',p:'Khu phố có năm con đường lớn nổi tiếng: 马场道, 睦南道, 大理道, 常德道, 重庆道. Phần lớn tên đường đặt theo tên các thành phố Trung Quốc như 大理, 常德, 重庆, 成都.',k:['道','dào','con đường'],
-   a:["anh/tj-wdd12.webp", "https://commons.wikimedia.org/wiki/File:Five_Great_Avenues_21393-Tianjin_(49063741486).jpg", "CC BY 2.0", "xiquinhosilva"],alt:'Biệt thự màu kem nhiều ban công ở Ngũ Đại Đạo',s:'object-position:50% 45%'},
-  {c:'#8A5A2B',chu:'马',ten:'Đi xe ngựa',phu:'Dạo phố kiểu xưa',ic:'chuot',tieu:'Xe ngựa dạo phố',p:'Du khách có thể ngồi xe ngựa 马车 chạy chầm chậm qua các con đường, nghe hướng dẫn viên kể chuyện từng ngôi nhà. Ở đầu phố còn có tượng đồng cỗ xe ngựa.',k:['马车','mǎchē','xe ngựa'],
-   a:["anh/tj-wdd2.webp", "https://commons.wikimedia.org/wiki/File:Five_Great_Avenues_21401-Tianjin_(49063954262).jpg", "CC BY 2.0", "xiquinhosilva"],alt:'Tượng đồng hai con ngựa kéo cỗ xe giữa hàng cây',s:'object-position:45% 50%'},
+   a:["anh/tj-wdd8.webp", "https://commons.wikimedia.org/wiki/File:Five_Great_Avenues_21463-Tianjin_(49063227908).jpg", "CC BY 2.0", "xiquinhosilva"],alt:'Biệt thự gạch đỏ mái dốc, cửa sổ vòm, cổng sắt ở Ngũ Đại Đạo',s:'object-position:50% 40%'},
+  {c:'#8A5A2B',chu:'府',ten:'Khánh Vương phủ',phu:'Biệt thự hành lang cột',ic:'vuong-mien',tieu:'Khánh Vương phủ 庆王府',p:'Biệt thự hai tầng xây năm 1922, bốn mặt có hành lang cột bao quanh, kết hợp kiến trúc Tây và chi tiết trang trí Trung Hoa. Về sau con trai Khánh thân vương nhà Thanh mua lại nên gọi là 庆王府. Nay mở cửa cho khách tham quan.',k:['王府','wángfǔ','phủ vương'],
+   a:["anh/tj-qwf23.webp", "https://commons.wikimedia.org/wiki/File:%E5%BA%86%E7%8E%8B%E5%BA%9C%E5%85%A8%E6%99%AF.jpg", "CC BY-SA 3.0", "Xrdtj"],alt:'Biệt thự hai tầng có hành lang cột bao quanh của Khánh Vương phủ',s:'object-position:50% 40%'},
   {c:'#2E8C6A',chu:'园',ten:'Trong ảnh: 民园广场',phu:'Sân vận động thành quảng trường',ic:'anh',tieu:'Quảng trường Dân Viên',p:'民园 xưa là sân vận động xây năm 1920. Năm 2014 được xây lại thành quảng trường 民园广场: vẫn giữ vòng tường cong kiểu Âu, giữa là vườn hoa, ai cũng vào đi dạo được.',k:['广场','guǎngchǎng','quảng trường'],
-   a:["anh/tj-wdd3.webp", "https://commons.wikimedia.org/wiki/File:Five_Great_Avenues_21488-Tianjin_(49063744716).jpg", "CC BY 2.0", "xiquinhosilva"],alt:'Vườn cây cắt tỉa và hồ nước trước toà nhà cong của quảng trường Dân Viên',s:'object-position:50% 55%'},
+   a:["anh/tj-my1.webp", "https://commons.wikimedia.org/wiki/File:Minyuan_Stadium_21416-Tianjin_(49063957902).jpg", "CC BY 2.0", "xiquinhosilva"],alt:'Vòng hành lang vòm gạch đỏ trắng bao quanh quảng trường Dân Viên',s:'object-position:40% 45%'},
   {c:'#C8423B',chu:'保',ten:'Di tích',phu:'Tấm bia năm 2013',ic:'khien',tieu:'Bảo vệ di tích',p:'Năm 2013, quần thể kiến trúc cận đại Ngũ Đại Đạo được công nhận là đơn vị bảo vệ di tích trọng điểm toàn quốc. Nhiều ngôi nhà nay thành bảo tàng, quán cà phê, hiệu sách.',k:['保护','bǎohù','bảo vệ'],
    a:["anh/tj-wdd10.webp", "https://commons.wikimedia.org/wiki/File:%E5%A4%A9%E6%B4%A5%E4%BA%94%E5%A4%A7%E9%81%93%E8%BF%91%E4%BB%A3%E5%BB%BA%E7%AD%91%E7%BE%A4%E9%93%AD%E7%89%8C.JPG", "CC BY-SA 4.0", "ScareCriterion12"],alt:'Tấm bia đá ghi Quần thể kiến trúc cận đại Ngũ Đại Đạo Thiên Tân',s:'object-position:50% 45%'}],
  cau:[
@@ -33,8 +33,8 @@ wudadao:{zh:'五大道',py:'Wǔ Dàdào',vi:'Ngũ Đại Đạo',ten2:'Khu phố
    x:'Hơn 2.000 toà nhà kiểu Anh, Pháp, Ý, Tây Ban Nha… nên người Thiên Tân gọi là 小洋楼 "nhà Tây nhỏ".',k:['小洋楼','xiǎoyánglóu','nhà Tây nhỏ']},
   {t:'ds',q:'Phần lớn các con đường ở Ngũ Đại Đạo được đặt theo tên các thành phố Trung Quốc.',a:0,
    x:'Đúng: 大理道, 常德道, 重庆道, 成都道… đều là tên thành phố.',k:['城市','chéngshì','thành phố']},
-  {t:'c',anh:'40% 40%',khung:'Nhìn ngôi nhà ở giữa',q:'Quan sát ảnh: mái ngôi nhà Tây trong ảnh màu gì?',o:['Đỏ','Vàng','Xanh lá','Đen'],a:0,
-   x:'Mái ngói đỏ, tường sáng màu, cửa sổ vòm: kiểu nhà rất hay gặp ở Ngũ Đại Đạo.',k:['红色','hóngsè','màu đỏ']},
+  {t:'c',anh:'40% 42%',khung:'Nhìn các ô cửa sổ',q:'Quan sát ảnh: cửa sổ của ngôi nhà Tây có gì bên ngoài?',o:['Cửa chớp lá sách','Rèm tre','Song sắt hoa','Không có gì'],a:0,
+   x:'Cửa chớp 百叶窗 kiểu châu Âu: mùa hè khép lại cho mát mà vẫn thoáng gió. Rất nhiều nhà ở Ngũ Đại Đạo có cửa chớp như vậy.',k:['百叶窗','bǎiyèchuāng','cửa chớp']},
   {t:'vt',q:'Thành phố còn giữ nhiều nhà kiểu Âu từ đầu thế kỷ 20, nay thành điểm tham quan.',a:2,
    x:'Cả hai đều có: Thiên Tân với Ngũ Đại Đạo; ở Việt Nam, Hà Nội, Đà Lạt, TP. Hồ Chí Minh cũng còn nhiều nhà kiểu Pháp.',k:['建筑','jiànzhù','kiến trúc']}]},
 
@@ -70,21 +70,21 @@ guwenhua:{zh:'古文化街',py:'Gǔ Wénhuà Jiē',vi:'Phố văn hoá cổ',ten
  gioi:'Con phố kiểu cổ bên sông Hải Hà, hai bên là cửa hàng bán tượng đất, tranh Tết, diều, đồ văn phòng tứ bảo. Giữa phố là miếu Thiên Hậu 天后宫, nơi thờ bà Ma Tổ, nữ thần che chở người đi biển.',
  nhan:[['den-long','Phố cổ dân gian'],['lich','Miếu xây 1326'],['qua','Đồ thủ công']],
  the:[
-  {c:'#B5652B',chu:'津',ten:'Tên 天津',phu:'"Nơi thiên tử qua sông"',ic:'sach',tieu:'Tên thành phố',p:'津 là bến đò. Tương truyền vua Minh Thành Tổ từng qua sông ở đây, sau này đặt tên 天津: "bến đò thiên tử đi qua". Năm 1404 lập thành 天津卫, nên người ta hay gọi Thiên Tân là 天津卫 hoặc 津门.',k:['津','jīn','bến đò'],
-   a:["anh/tj-gwh1.webp", "https://commons.wikimedia.org/wiki/File:Tianjin_Guwenhua_Jie-20150522-RM-121846.jpg", "CC BY-SA 4.0", "Ermell"],alt:'Phố cổ lát đá, hai bên nhà mái cong, xa xa là lầu gác',s:'object-position:50% 50%'},
+  {c:'#B5652B',chu:'津',ten:'Tên 天津',phu:'"Nơi thiên tử qua sông"',ic:'sach',tieu:'Tên thành phố',p:'津 là bến đò. Tương truyền vua Minh Thành Tổ từng qua sông ở đây, sau này đặt tên 天津: "bến đò thiên tử đi qua". Năm 1404 lập thành 天津卫, nên người ta hay gọi Thiên Tân là 天津卫 hoặc 津门. Trong ảnh là gác chuông trống 鼓楼 ở giữa khu thành cổ, cách phố văn hoá cổ không xa.',k:['津','jīn','bến đò'],
+   a:["anh/tj-gl1.webp", "https://commons.wikimedia.org/wiki/File:China_Tianjin_5227506_7_8N.jpg", "CC BY-SA 3.0", "ermell"],alt:'Gác chuông trống hai tầng mái cong ngói xanh trên bệ tường gạch ở thành cổ Thiên Tân',s:'object-position:50% 40%'},
   {c:'#C8423B',chu:'妈',ten:'Miếu Thiên Hậu',phu:'Nữ thần biển 妈祖',ic:'den',tieu:'Miếu Thiên Hậu 天后宫',p:'Miếu xây năm 1326, trước cả khi có thành Thiên Tân. Người Thiên Tân có câu: 先有天后宫，后有天津卫 "có miếu Thiên Hậu trước, có thành Thiên Tân sau". Bà Ma Tổ được thuyền buôn, người đánh cá cầu cho đi biển bình an.',k:['妈祖','Māzǔ','bà Ma Tổ']},
   {c:'#D9692A',chu:'店',ten:'Cửa hàng',phu:'Đèn lồng đỏ ngày Tết',ic:'qua',tieu:'Phố mua sắm cổ',p:'Dọc phố là cửa hàng lâu đời bán tượng đất 泥人, tranh Tết 年画, diều, bút lông, đồ chơi dân gian. Dịp Tết phố treo đầy đèn lồng đỏ, người đi sắm Tết rất đông.',k:['商店','shāngdiàn','cửa hàng'],
    a:["anh/tj-gwh6.webp", "https://commons.wikimedia.org/wiki/File:20230220_Guwenhua_Jie.jpg", "CC BY-SA 4.0", "Yumeto"],alt:'Phố cổ treo đầy đèn lồng đỏ, người đi mua sắm',s:'object-position:50% 40%'},
   {c:'#6B4FA0',chu:'戏',ten:'Sân khấu',phu:'Hát cho nữ thần nghe',ic:'nhac',tieu:'Lầu hát trước miếu',p:'Trước miếu Thiên Hậu có sân khấu 戏楼. Ngày lễ của bà Ma Tổ, người ta diễn kịch hát để "mời bà xem", dân chúng cũng đến xem chung rất vui.',k:['戏楼','xìlóu','lầu hát']}]},
 
 yishi:{zh:'意式风情区',py:'Yìshì Fēngqíng Qū',vi:'Khu phong cách Ý',ten2:'Khu phố kiểu Ý duy nhất châu Á',chuTay:'意式风情区 · 天津',
- anh:["anh/tj-ys7.webp", "https://commons.wikimedia.org/wiki/File:Italian_Style_Town_21304-Tianjin_(48709350882).jpg", "CC BY 2.0", "xiquinhosilva"],
- alt:'Những biệt thự kiểu Ý có tháp nhỏ trên nóc, hàng rào trắng, bầu trời xanh',
+ anh:["anh/tj-mkp7-lon.webp", "https://commons.wikimedia.org/wiki/File:%E5%BC%A0%E9%B8%A3%E5%B2%90%E6%97%A7%E5%AE%85%E8%BF%91%E6%99%AF.jpg", "CC BY-SA 3.0", "Xrdtj"],
+ alt:'Biệt thự kiểu Ý màu trắng có tháp vuông trên nóc, hàng rào hoa văn',
  gioi:'Từ năm 1902 đây là khu tô giới của Ý, khu tô giới duy nhất của nước Ý ở nước ngoài. Ngày nay những biệt thự có tháp nhỏ, quảng trường, đài phun nước đã được tu sửa thành khu phố đi bộ, quán ăn, bảo tàng.',
  nhan:[['lich','Từ năm 1902'],['co','Kiến trúc Ý'],['sach','Nhà Lương Khải Siêu']],
  the:[
   {c:'#2E8C6A',chu:'意',ten:'Khu phố Ý',phu:'Đường cây xanh, nhà trắng',ic:'sach',tieu:'Khu phố Ý',p:'意 là chữ đầu trong 意大利 (nước Ý). Đầu thế kỷ 20, Thiên Tân có nhiều khu tô giới của các nước; khu của Ý nằm bên bờ sông Hải Hà, gần ga Thiên Tân, nay gọi là 意式风情区.',k:['意大利','Yìdàlì','nước Ý'],
-   a:["anh/tj-ys1.webp", "https://commons.wikimedia.org/wiki/File:Italian_Style_Town_21286-Tianjin_(48709355702).jpg", "CC BY 2.0", "xiquinhosilva"],alt:'Con đường rợp bóng cây, hai bên là nhà kiểu Ý',s:'object-position:50% 50%'},
+   a:["anh/tj-ys8.webp", "https://commons.wikimedia.org/wiki/File:Italian_Style_Town_21312-Tianjin_(48709191596).jpg", "CC BY 2.0", "xiquinhosilva"],alt:'Biệt thự kiểu Ý màu vàng nhạt hai tầng, ban công lan can trắng, mái hiên kẻ sọc',s:'object-position:50% 45%'},
   {c:'#C99A1E',chu:'柱',ten:'Quảng trường',phu:'Cột đá và tượng nữ thần',ic:'vuong-mien',tieu:'Quảng trường Marco Polo',p:'Giữa khu phố là quảng trường mang tên 马可波罗 Marco Polo, nhà du hành người Ý từng đến Trung Quốc thời nhà Nguyên. Giữa quảng trường là cột đá cao, trên đỉnh có tượng nữ thần có cánh.',k:['马可波罗','Mǎkě Bōluó','Marco Polo'],
    a:["anh/tj-mkp3.webp", "https://commons.wikimedia.org/wiki/File:Italian_Style_Town_21248-Tianjin_(48708853443).jpg", "CC BY 2.0", "xiquinhosilva"],alt:'Cột đá cao có tượng nữ thần có cánh giữa quảng trường, xung quanh là vườn hoa',s:'object-position:50% 40%'},
   {c:'#3F6BA8',chu:'冰',ten:'饮冰室',phu:'Thư phòng Lương Khải Siêu',ic:'but',tieu:'Thư phòng "Ẩm Băng Thất"',p:'Học giả 梁启超 Lương Khải Siêu sống và viết sách ở đây. Ông đặt tên thư phòng là 饮冰室 "phòng uống băng"; bộ sách của ông cũng mang tên 饮冰室合集. Nay là nhà tưởng niệm.',k:['梁启超','Liáng Qǐchāo','Lương Khải Siêu'],
@@ -98,7 +98,7 @@ yishi:{zh:'意式风情区',py:'Yìshì Fēngqíng Qū',vi:'Khu phong cách Ý',
    x:'马可波罗 Marco Polo đến Trung Quốc thời nhà Nguyên. 哥伦布 là Columbus, 麦哲伦 là Magellan, 郑和 là Trịnh Hoà.',k:['马可波罗','Mǎkě Bōluó','Marco Polo']},
   {t:'ds',q:'Học giả Lương Khải Siêu 梁启超 từng sống và viết sách trong khu phố này.',a:0,
    x:'Đúng. Thư phòng 饮冰室 của ông nay là nhà tưởng niệm.',k:['书房','shūfáng','thư phòng']},
-  {t:'c',anh:'30% 25%',khung:'Nhìn trên nóc nhà',q:'Quan sát ảnh: trên nóc các biệt thự có gì?',o:['Tháp nhỏ có cửa vòm','Mái cong lợp ngói vàng','Cột cờ đỏ','Vườn rau'],a:0,
+  {t:'c',anh:'62% 14%',khung:'Nhìn trên nóc nhà',q:'Quan sát ảnh: trên nóc biệt thự có gì?',o:['Tháp nhỏ có cửa vòm','Mái cong lợp ngói vàng','Cột cờ đỏ','Vườn rau'],a:0,
    x:'Tháp nhỏ trên nóc, ban công, hàng rào trắng: những nét rất đặc trưng của nhà kiểu Ý.',k:['塔','tǎ','tháp']},
   {t:'c',q:'Khu phong cách Ý nằm bên bờ con sông nào?',o:['海河','黄河','长江','淮河'],a:0,zh:1,
    x:'Khu phố nằm bên bờ sông Hải Hà, đi bộ từ ga Thiên Tân chỉ vài phút.',k:['河边','hébiān','bờ sông']}]}
@@ -106,7 +106,7 @@ yishi:{zh:'意式风情区',py:'Yìshì Fēngqíng Qū',vi:'Khu phong cách Ý',
 window.VH_TJ.tq=window.VH_TJ.tq||{};
 // miếu Thiên Hậu, lầu hát: dùng ảnh riêng
 VH_TJ.tq.guwenhua.the[1].a=["anh/tj-thg3.webp", "https://commons.wikimedia.org/wiki/File:Gate_of_Tianjin_Tianhou_Temple.jpg", "CC BY-SA 4.0", "そらみみ"];VH_TJ.tq.guwenhua.the[1].alt='Cổng miếu Thiên Hậu với đèn lồng đỏ hai bên';VH_TJ.tq.guwenhua.the[1].s='object-position:50% 45%';
-VH_TJ.tq.guwenhua.the[3].a=["anh/tj-thg7.webp", "https://commons.wikimedia.org/wiki/File:Opera_house_near_Tianjin_Tianhou_Temple.jpg", "CC BY-SA 4.0", "そらみみ"];VH_TJ.tq.guwenhua.the[3].alt='Lầu hát cổ trước miếu Thiên Hậu, người đi lại đông đúc';VH_TJ.tq.guwenhua.the[3].s='object-position:50% 35%';
+VH_TJ.tq.guwenhua.the[3].a=["anh/tj-xl1.webp", "https://commons.wikimedia.org/wiki/File:%E5%A4%A9%E6%B4%A5%E5%A4%A9%E5%90%8E%E5%AE%AB%E6%88%8F%E6%A5%BC2022.5.jpg", "CC BY-SA 4.0", "ScareCriterion12"];VH_TJ.tq.guwenhua.the[3].alt='Lầu hát hai tầng mái cong trước miếu Thiên Hậu, biển 戏楼';VH_TJ.tq.guwenhua.the[3].s='object-position:50% 30%';
 VH_TJ.tq.guwenhua.cau=[
   {t:'c',q:'Điền chữ còn thiếu vào câu của người Thiên Tân: <b class="zh">先有天后宫，后有天津<span class="o-trong"></span></b>',o:['卫','城','门','港'],a:0,zh:1,
    x:'先有天后宫，后有天津卫: miếu Thiên Hậu xây năm 1326, thành 天津卫 lập năm 1404, nên "có miếu trước, có thành sau".',k:['天津卫','Tiānjīnwèi','Thiên Tân vệ (tên cũ)']},
@@ -153,7 +153,7 @@ shuo:{loai:'chat',av:'爷',zh:'说',py:'shuō',vi:'Nghe tướng thanh',ten2:'Tr
   {zh:'开始了！听完了明儿早上去吃煎饼果子，倍儿香！',py:'Kāishǐ le! Tīng wán le míngr zǎoshang qù chī jiānbing guǒzi, bèir xiāng!',vi:'Bắt đầu rồi! Nghe xong sáng mai đi ăn bánh tráng trứng, thơm lắm!',hoi:'Ông cụ rủ em sáng mai đi ăn món gì?',o:['煎饼果子','烤鸭','火锅'],a:0,
    x:'煎饼果子 là món sáng nổi tiếng nhất Thiên Tân. 香 xiāng là thơm, ngon; 倍儿香 là "thơm cực".',k:['香','xiāng','thơm, ngon']}]},
 
-zhu:{loai:'nha',zh:'住',py:'zhù',vi:'Nhà Tây nhỏ 小洋楼',ten2:'Một ngày trong nhà Tây',chuTay:'小洋楼 · 五大道',anh:["anh/tj-wdd4.webp", "https://commons.wikimedia.org/wiki/File:Five_Great_Avenues_21407-Tianjin_(49063226198).jpg", "CC BY 2.0", "xiquinhosilva"],alt:'Một ngôi nhà Tây hai tầng nhiều ban công giữa cây xanh ở Thiên Tân',
+zhu:{loai:'nha',zh:'住',py:'zhù',vi:'Nhà Tây nhỏ 小洋楼',ten2:'Một ngày trong nhà Tây',chuTay:'小洋楼 · 五大道',anh:["anh/tj-wdd5-lon.webp", "https://commons.wikimedia.org/wiki/File:Five_Great_Avenues_21496-Tianjin_(49063957412).jpg", "CC BY 2.0", "xiquinhosilva"],alt:'Biệt thự kiểu Anh tường gạch đỏ, mái dốc nhọn, khung gỗ trang trí ở Thiên Tân',
  gioi:'Ở Thiên Tân, những ngôi nhà kiểu Âu đầu thế kỷ 20 được gọi thân mật là 小洋楼 "nhà Tây nhỏ": có lò sưởi, cầu thang gỗ, ban công và vườn hoa. Chạm vào từng phần của bản vẽ để khám phá, rồi trả lời câu hỏi bằng cách chạm vào bản vẽ.',
  nhan:[['mu','Nhà Tây 小洋楼'],['kinh-lup','Khám phá 6 khu'],['tick','5 câu chạm bản vẽ']],nut:'Vào nhà · khám phá',
  khamP:'Chạm vào từng phần của bản vẽ: phòng khách, lò sưởi, cầu thang, ban công… để xem tên gọi và công dụng.',
