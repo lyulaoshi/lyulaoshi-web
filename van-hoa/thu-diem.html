@@ -201,7 +201,7 @@ body.co-sheet{padding-bottom:var(--sheet-h,0px)}
 
 <script src="../tro-choi/tts.js"></script>
 <script src="../tro-choi/vuot-ai/am.js"></script>
-<script src="bac-kinh.js?v=5"></script><script src="thien-tan.js?v=4"></script><script src="thua-duc.js?v=1"></script>
+<script src="bac-kinh.js?v=5"></script><script src="thien-tan.js?v=7"></script><script src="thua-duc.js?v=2"></script>
 <script src="tien-do.js?v=1"></script>
 <script>
 (function(){
@@ -244,7 +244,16 @@ function hoi(){
     '<div class="hoi">'+q.q+'</div><div class="chon'+(q.t==='vt'?' ba':q.zh?' zhc':'')+'" id="chon">'+
     oo.map((o,k)=>'<button type="button" data-j="'+o[1]+'" style="--k:'+MAU[k%4]+'"><span class="nhan">'+'ABCD'[k]+'</span>'+(q.zh?'<span class="zh">'+o[0]+'</span>':'<span>'+o[0]+'</span>')+'</button>').join('')+'</div></div>';
   $('#chon').onclick=e=>{const b=e.target.closest('button');if(b&&!b.disabled)tra(b,q)};
+  if(q.anh)canhAnh(q);
 }
+// ảnh câu quan sát: lấy "điểm cần nhìn" làm tâm khung, khung cao hay thấp đều thấy.
+// q.tam = 'x% y%' là điểm cần nhìn trên ảnh; chưa có thì suy từ q.anh (vị trí nền cũ, tính cho khung 620×210)
+function canhAnh(q){const el=$('.anh-hoi'),im=new Image();im.onload=()=>{
+  const r=im.naturalHeight/im.naturalWidth,W=el.clientWidth,H=el.clientHeight;let fx,fy;
+  if(q.tam){[fx,fy]=q.tam.split(' ').map(v=>parseFloat(v)/100)}
+  else{const [px,py]=q.anh.split(' ').map(v=>parseFloat(v)/100),SW=775,SH=SW*r;fx=(.25*px+.5)/1.25;fy=((SH-210)*py+105)/SH}
+  const z=Math.max(1.25,H/(W*r)*1.05),bw=W*z,bh=bw*r,cl=(v,m)=>Math.min(0,Math.max(m,v));
+  el.style.backgroundSize=bw+'px auto';el.style.backgroundPosition=cl(W/2-fx*bw,W-bw)+'px '+cl(H/2-fy*bh,H-bh)+'px'};im.src=ANH}
 function phao(){const t=$('#qzThan');for(let i=0;i<16;i++){const p=document.createElement('i');p.className='phao';p.style.cssText='background:'+MAU[i%4]+';--x:'+((Math.random()-.5)*360|0)+'px;--y:'+((Math.random()-.8)*220|0)+'px;--r:'+(Math.random()*540|0)+'deg';t.append(p);setTimeout(()=>p.remove(),950)}}
 function tra(b,q){
   const ok=+b.dataset.j===q.a;

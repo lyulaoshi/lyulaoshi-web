@@ -109,7 +109,7 @@ qingchui:{zh:'磬锤峰',py:'Qìngchuí Fēng',vi:'Núi Khánh Chuỳ',ten2:'C�
    x:'峰 fēng là đỉnh núi nhọn; 山峰 shānfēng là ngọn núi.',k:['山峰','shānfēng','ngọn núi']},
   {t:'c',q:'Tên 磬锤峰 là do ai đặt?',o:['Vua Khang Hy','Lý Bạch','Khổng Tử','Tần Thuỷ Hoàng'],a:0,
    x:'Vua Khang Hy thấy cột đá giống cái dùi gõ khánh nên đặt tên 磬锤峰.',k:['名字','míngzi','cái tên']},
-  {t:'c',anh:'55% 48%',khung:'Nhìn cột đá',q:'Quan sát ảnh: cột đá trông thế nào?',o:['Phần trên to, phần dưới thắt nhỏ','Phần dưới to, phần trên nhọn','Tròn như quả bóng','Có mái ngói ở trên'],a:0,
+  {t:'c',anh:'55% 48%',tam:'56% 40%',khung:'Nhìn cột đá',q:'Quan sát ảnh: cột đá trông thế nào?',o:['Phần trên to, phần dưới thắt nhỏ','Phần dưới to, phần trên nhọn','Tròn như quả bóng','Có mái ngói ở trên'],a:0,
    x:'Trên to dưới nhỏ nên trông như sắp đổ, nhưng cột đá đã đứng vững hàng nghìn năm.',k:['石头','shítou','hòn đá']},
   {t:'ds',q:'Người dân Thừa Đức còn gọi 磬锤峰 là 棒槌山.',a:0,
    x:'Đúng: 棒槌 bàngchui là cái chày gỗ dùng đập quần áo khi giặt.',k:['棒槌','bàngchui','chày đập áo']},

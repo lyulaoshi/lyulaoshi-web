@@ -51,7 +51,7 @@ tianjinyan:{zh:'天津之眼',py:'Tiānjīn zhī Yǎn',vi:'Mắt Thiên Tân',te
   {c:'#C2477F',chu:'夜',ten:'Về đêm',phu:'Vòng tròn ánh sáng',ic:'trang',tieu:'Ngắm đêm',p:'Khi trời tối, vòng đu quay bật đèn nhiều màu, in bóng xuống mặt sông. Nhiều người chọn lên đu quay lúc hoàng hôn để vừa ngắm mặt trời lặn vừa ngắm đèn thành phố.',k:['夜景','yèjǐng','cảnh đêm'],
    a:["anh/tj-yan7.webp", "https://commons.wikimedia.org/wiki/File:%E5%A4%A9%E6%B4%A5%E4%B9%8B%E7%9C%BCTianjin_Eye.jpg", "CC BY-SA 4.0", "KangTyngrwey"],alt:'Vòng đu quay sáng đèn đỏ và vàng trong đêm',s:'object-position:50% 45%'},
   {c:'#6E7F45',chu:'圈',ten:'Một vòng',phu:'Khoảng 30 phút',ic:'dong-ho',tieu:'Quay một vòng',p:'Đu quay có 48 cabin. Quay rất chậm nên khách lên xuống khi nó vẫn đang chạy. Một vòng khoảng 30 phút; lên tới điểm cao nhất thấy rõ dòng sông uốn lượn qua thành phố.',k:['摩天轮','mótiānlún','vòng đu quay'],
-   a:["anh/tj-yan8.webp", "https://commons.wikimedia.org/wiki/File:Tianjin_Eye.jpg", "CC BY 2.0", "David Hulme"],alt:'Nhìn từ trên cao: cầu, vòng đu quay và khúc sông uốn cong',s:'object-position:60% 50%'}],
+   a:["anh/tj-ey27.webp", "https://commons.wikimedia.org/wiki/File:%E7%82%AB%E5%BD%A9%E6%B4%A5%E9%97%A879%E5%A4%A9%E6%B4%A5%E4%B9%8B%E7%9C%BC%E6%91%A9%E5%A4%A9%E8%BD%AE.jpg", "CC BY-SA 2.0", "kele_jb1984"],alt:'Nhìn sát vòng đu quay từ dưới lên: các cabin treo quanh vành, nan thép toả ra từ trục',s:'object-position:88% 40%'}],
  cau:[
   {t:'c',q:'Điền chữ còn thiếu: vòng đu quay tiếng Trung là <b class="zh">摩天<span class="o-trong"></span></b>',o:['轮','车','楼','桥'],a:0,zh:1,
    x:'摩天轮: 摩天 là "chạm trời", 轮 là "bánh xe". 摩天楼 là nhà chọc trời.',k:['摩天轮','mótiānlún','vòng đu quay']},
@@ -114,7 +114,7 @@ VH_TJ.tq.guwenhua.cau=[
    x:'津 là bến đò. 天津 là "bến đò thiên tử qua sông".',k:['津','jīn','bến đò']},
   {t:'c',q:'Bà Ma Tổ 妈祖 được thờ ở miếu Thiên Hậu là nữ thần che chở ai?',o:['Người đi biển','Học trò đi thi','Người làm ruộng','Thợ xây'],a:0,
    x:'Ma Tổ là nữ thần biển. Thiên Tân là thành phố cảng nên thuyền buôn, người đánh cá đến cầu bình an.',k:['妈祖','Māzǔ','bà Ma Tổ']},
-  {t:'c',anh:'50% 47%',khung:'Nhìn tấm biển trên cổng',q:'Quan sát ảnh: tấm biển xanh trên cổng viết bốn chữ gì? (chữ phồn thể, đọc từ phải sang trái)',o:['津门故里','天津之眼','五大道','天后宫'],a:0,zh:1,
+  {t:'c',anh:'50% 47%',tam:'47% 61%',khung:'Nhìn tấm biển trên cổng',q:'Quan sát ảnh: tấm biển xanh trên cổng viết bốn chữ gì? (chữ phồn thể, đọc từ phải sang trái)',o:['津门故里','天津之眼','五大道','天后宫'],a:0,zh:1,
    x:'Biển viết chữ phồn thể 津門故里, theo lối xưa đọc từ phải sang trái; chữ giản thể là 津门故里 "quê cũ đất Tân Môn". 津门 là tên gọi khác của Thiên Tân.',k:['故里','gùlǐ','quê cũ']},
   {t:'vt',q:'Có miếu thờ bà Thiên Hậu (Ma Tổ), nữ thần che chở người đi biển.',a:2,
    x:'Cả hai đều có. Ở Việt Nam, người Hoa lập nhiều chùa Bà Thiên Hậu, như ở Hội An, TP. Hồ Chí Minh.',k:['天后','Tiānhòu','Thiên Hậu']}];
