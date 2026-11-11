@@ -294,7 +294,7 @@ body{background:var(--ground)}
 
 <script src="../tro-choi/tts.js"></script>
 <script src="../tro-choi/vuot-ai/am.js"></script>
-<script src="bac-kinh.js?v=5"></script><script src="thien-tan.js?v=4"></script>
+<script src="bac-kinh.js?v=5"></script><script src="thien-tan.js?v=4"></script><script src="thua-duc.js?v=1"></script>
 <script src="tien-do.js?v=1"></script>
 <script>
 (function(){
@@ -394,7 +394,7 @@ const NHA_SVG=()=>{const K=D.khu,khu=(k,inner,lx,ly)=>'<g data-k="'+k+'" tabinde
 let KHAM=new Set(),PHA='kham';
 function choiNha(){
   if(PHA==='kham'){
-    $('#khung').innerHTML='<div class="tn-than"><div class="nha-wrap">'+NHA_SVG()+'<div><div class="thong-tin" id="tt"><h3>'+ic('kinh-lup')+'Khám phá ngôi nhà</h3><p>'+(D.khamP||'Chạm vào từng phần của bản vẽ: nhà chính, nhà hai bên, sân, cổng… để xem tên gọi và công dụng.')+'</p></div><p class="dem-kham" id="demK"></p><div class="hang" style="justify-content:flex-start"><button class="btn m" type="button" id="sangHoi">'+ic('tick')+'Trả lời '+D.cau.length+' câu hỏi</button></div></div></div></div>';
+    $('#khung').innerHTML='<div class="tn-than"><div class="nha-wrap">'+NHA_SVG()+'<div><div class="thong-tin" id="tt"><h3>'+ic('kinh-lup')+(D.khamT||'Khám phá ngôi nhà')+'</h3><p>'+(D.khamP||'Chạm vào từng phần của bản vẽ: nhà chính, nhà hai bên, sân, cổng… để xem tên gọi và công dụng.')+'</p></div><p class="dem-kham" id="demK"></p><div class="hang" style="justify-content:flex-start"><button class="btn m" type="button" id="sangHoi">'+ic('tick')+'Trả lời '+D.cau.length+' câu hỏi</button></div></div></div></div>';
     const ve=()=>{$('#demK').textContent='Đã khám phá '+KHAM.size+'/'+Object.keys(D.khu).length+' khu'+(KHAM.size<Object.keys(D.khu).length?' · khám phá hết sẽ dễ trả lời hơn':' · giỏi lắm!');document.querySelectorAll('.nha [data-k]').forEach(g=>g.classList.toggle('da',KHAM.has(g.dataset.k)))};ve();
     const mo=g=>{const k=g.dataset.k,K=D.khu[k];KHAM.add(k);document.querySelectorAll('.nha [data-k]').forEach(x=>x.classList.toggle('chon',x===g));am('choose');
       $('#tt').innerHTML='<h3><span class="zh">'+K.zh+'</span>'+K.vi+'</h3><span style="font-weight:700;color:var(--muted)">'+K.py+' <button class="spk" type="button" data-say="'+K.zh+'" aria-label="Nghe" style="display:inline-grid;vertical-align:middle;width:28px;height:28px">'+ic('loa')+'</button></span><p>'+K.mo+'</p>';ve()};
