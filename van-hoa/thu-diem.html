@@ -186,7 +186,7 @@ body{background:var(--ground)}
 
 <script src="../tro-choi/tts.js"></script>
 <script src="../tro-choi/vuot-ai/am.js"></script>
-<script src="bac-kinh.js?v=5"></script>
+<script src="bac-kinh.js?v=5"></script><script src="thien-tan.js?v=3"></script>
 <script src="tien-do.js?v=1"></script>
 <script>
 (function(){
@@ -198,7 +198,7 @@ const C=VHTD.thanhPho(),BJ=VH_TP[C],S=BJ.sanh,T0=Object.keys(BJ.tq)[0],ID=(new U
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const LIC=l=>/CC0/.test(l)?'https://creativecommons.org/publicdomain/zero/1.0/':'https://creativecommons.org/licenses/'+(/SA/.test(l)?'by-sa':'by')+'/'+(l.match(/[\d.]+/)||['4.0'])[0];
 const nguon=(a,ten)=>'Ảnh: '+esc(a[3])+' · <a href="'+LIC(a[2])+'" target="_blank" rel="noopener">'+a[2]+'</a> · <a href="'+a[1]+'" target="_blank" rel="noopener">'+(ten||'Wikimedia')+'</a>';
-document.title=D.zh+' · '+D.vi+' – 文化盒';
+document.title=D.zh+' · '+D.vi+' – 文化盒';$('#chips').setAttribute('aria-label','Các điểm ở '+S.vi);
 $('#duong').innerHTML='<a href="./#tuyen-tau" style="color:inherit;text-decoration:none"><span class="zh">'+S.tuyen[0]+'</span> '+S.tuyen[1]+'</a>'+ic('sau')+'<a href="thu-thanh-pho.html?c='+C+'#ban-do" style="color:inherit;text-decoration:none"><span class="zh">'+S.zh+'</span> '+S.vi+'</a>'+ic('sau')+D.zh+' '+D.vi;
 const moc=document.querySelector('.moc text');if(moc)moc.textContent=S.zh;
 $('#chips').innerHTML=BJ.diem.map(d=>{const l=VHTD.link(C,d);return l&&d.id!==DID?'<a href="'+l+'"><b>'+d.zh+'</b>'+(d.ngan||d.vi)+'</a>':'<span class="'+(d.id===DID?'nay':'soon')+'"><b>'+d.zh+'</b>'+(d.ngan||d.vi)+'</span>'}).join('');

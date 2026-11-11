@@ -257,7 +257,7 @@ body{background:var(--ground)}
 
 <script src="../tro-choi/tts.js"></script>
 <script src="../tro-choi/vuot-ai/am.js"></script>
-<script src="bac-kinh.js?v=5"></script>
+<script src="bac-kinh.js?v=5"></script><script src="thien-tan.js?v=3"></script>
 <script src="tien-do.js?v=1"></script>
 <script>
 (function(){
@@ -272,7 +272,7 @@ const LIC=l=>/CC0/.test(l)?'https://creativecommons.org/publicdomain/zero/1.0/':
 const nguon=(a,ten)=>'Ảnh: '+esc(a[3])+' · <a href="'+LIC(a[2])+'" target="_blank" rel="noopener">'+a[2]+'</a> · <a href="'+a[1]+'" target="_blank" rel="noopener">'+(ten||'Wikimedia')+'</a>';
 
 // ---- phần đầu trang
-document.title=D.zh+' · '+D.vi+' – 文化盒';
+document.title=D.zh+' · '+D.vi+' – 文化盒';$('#chips').setAttribute('aria-label','Các điểm ở '+S.vi);
 $('#duong').innerHTML='<a href="./#tuyen-tau" style="color:inherit;text-decoration:none"><span class="zh">'+S.tuyen[0]+'</span> '+S.tuyen[1]+'</a>'+ic('sau')+'<a href="thu-thanh-pho.html?c='+C+'#ban-do" style="color:inherit;text-decoration:none"><span class="zh">'+S.zh+'</span> '+S.vi+'</a>'+ic('sau')+D.zh+' '+D.vi;
 const moc=document.querySelector('.moc text');if(moc)moc.textContent=S.zh;
 $('#chips').innerHTML=BJ.diem.map(d=>{const l=VHTD.link(C,d);return l&&d.id!==DID?'<a href="'+l+'"><b>'+d.zh+'</b>'+(d.ngan||d.vi)+'</a>':'<span class="'+(d.id===DID?'nay':'soon')+'"><b>'+d.zh+'</b>'+(d.ngan||d.vi)+'</span>'}).join('');
@@ -329,8 +329,8 @@ function choiMenu(){
 // ---- 说: hội thoại với bác tài
 function choiChat(){
   const L=D.luot,q=L[n];
-  const cu=L.slice(0,n).map((t,i)=>'<div class="dong-chat"><span class="av">师</span><div class="bong"><span class="zh">'+t.zh+'</span><span class="py">'+t.py+'</span></div></div>'+(t.hoi.startsWith('Chọn')?'<div class="dong-chat toi"><div class="bong"><span class="zh">'+t.o[t.a]+'</span></div></div>':'')).join('');
-  $('#khung').innerHTML=dauTn()+'<div class="tn-than"><div class="chat">'+cu+'<div class="dong-chat"><span class="av">师</span><div class="bong"><span class="zh">'+q.zh+(window.TTS&&TTS.can(q.zh)?'<button class="spk" type="button" data-say="'+q.zh+'" aria-label="Nghe">'+ic('loa')+'</button>':'')+'</span><span class="py">'+q.py+'</span></div></div><div id="choTra"></div></div>'+
+  const cu=L.slice(0,n).map((t,i)=>'<div class="dong-chat"><span class="av">'+(D.av||'师')+'</span><div class="bong"><span class="zh">'+t.zh+'</span><span class="py">'+t.py+'</span></div></div>'+(t.hoi.startsWith('Chọn')?'<div class="dong-chat toi"><div class="bong"><span class="zh">'+t.o[t.a]+'</span></div></div>':'')).join('');
+  $('#khung').innerHTML=dauTn()+'<div class="tn-than"><div class="chat">'+cu+'<div class="dong-chat"><span class="av">'+(D.av||'师')+'</span><div class="bong"><span class="zh">'+q.zh+(window.TTS&&TTS.can(q.zh)?'<button class="spk" type="button" data-say="'+q.zh+'" aria-label="Nghe">'+ic('loa')+'</button>':'')+'</span><span class="py">'+q.py+'</span></div></div><div id="choTra"></div></div>'+
     '<p class="hoi-chat">'+q.hoi+'</p><div class="tra-loi" id="traLoi">'+xao(q.o.map((s,j)=>[s,j])).map((o,k)=>'<button type="button" data-j="'+o[1]+'" style="--k:'+MAU[k]+'"><span class="nhan">'+'ABC'[k]+'</span><span'+(/[一-鿿]/.test(o[0])?' class="zh"':'')+'>'+o[0]+'</span></button>').join('')+'</div><div id="biet"></div></div>';
   try{if(window.TTS&&TTS.can(q.zh)&&n>0)TTS.say(q.zh)}catch(e){}
   $('#traLoi').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;const ok=+b.dataset.j===q.a;
@@ -341,6 +341,7 @@ function choiChat(){
 // ---- 住: khám phá rồi chạm vào bản vẽ tứ hợp viện
 const NHA_SVG=()=>{const K=D.khu,khu=(k,inner,lx,ly)=>'<g data-k="'+k+'" tabindex="0" role="button" aria-label="'+K[k].zh+' '+K[k].vi+'">'+inner+'<g class="nhan-k"><rect x="'+(lx-30)+'" y="'+(ly-13)+'" width="60" height="22" rx="11" fill="#FFFDF8" stroke="#B0352F" stroke-width="1.5"/><text x="'+lx+'" y="'+(ly+4)+'" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="15" fill="#B0352F">'+K[k].zh+'</text></g></g>';
   const mai=(x,y,w,h,ngang)=>'<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="3" fill="#7C8790"/>'+(ngang?[...Array(Math.floor(w/8))].map((_,i)=>'<path d="M'+(x+4+i*8)+' '+(y+3)+'v'+(h-6)+'" stroke="#5E6870" stroke-width="2"/>').join(''):[...Array(Math.floor(h/8))].map((_,i)=>'<path d="M'+(x+3)+' '+(y+4+i*8)+'h'+(w-6)+'" stroke="#5E6870" stroke-width="2"/>').join(''))+'<path d="'+(ngang?'M'+x+' '+(y+h/2)+'h'+w:'M'+(x+w/2)+' '+y+'v'+h)+'" stroke="#3E474E" stroke-width="3"/>';
+  if(D.ve)return '<svg class="nha" viewBox="0 0 400 330" aria-label="'+(D.nhaTen||'Bản vẽ ngôi nhà')+'">'+D.ve(khu)+'</svg>';
   return '<svg class="nha" viewBox="0 0 400 330" aria-label="Bản vẽ nhà tứ hợp viện nhìn từ trên cao"><rect x="0" y="300" width="400" height="30" fill="#CFC3A8"/><text x="200" y="320" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="14" fill="#6E5A40">胡同 · ngõ</text>'+
    '<rect x="36" y="26" width="328" height="270" fill="none" stroke="#9A8A72" stroke-width="6"/><text x="200" y="18" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="10" fill="#8A7A62">BẮC 北</text>'+
    khu('yuanzi','<rect x="132" y="112" width="136" height="122" fill="#D9E7C4"/><path d="M200 112v122M132 173h136" stroke="#C2D3A8" stroke-width="10"/><circle cx="160" cy="140" r="15" fill="#7FAF5A"/><circle cx="160" cy="140" r="7" fill="#E58AA0" opacity=".7"/><circle cx="244" cy="206" r="13" fill="#7FAF5A"/><circle cx="234" cy="140" r="9" fill="#5FB0CF" stroke="#3E7F99" stroke-width="2"/>',200,190)+
@@ -353,8 +354,8 @@ const NHA_SVG=()=>{const K=D.khu,khu=(k,inner,lx,ly)=>'<g data-k="'+k+'" tabinde
 let KHAM=new Set(),PHA='kham';
 function choiNha(){
   if(PHA==='kham'){
-    $('#khung').innerHTML='<div class="tn-than"><div class="nha-wrap">'+NHA_SVG()+'<div><div class="thong-tin" id="tt"><h3>'+ic('kinh-lup')+'Khám phá ngôi nhà</h3><p>Chạm vào từng phần của bản vẽ: nhà chính, nhà hai bên, sân, cổng… để xem tên gọi và công dụng.</p></div><p class="dem-kham" id="demK"></p><div class="hang" style="justify-content:flex-start"><button class="btn m" type="button" id="sangHoi">'+ic('tick')+'Trả lời 5 câu hỏi</button></div></div></div></div>';
-    const ve=()=>{$('#demK').textContent='Đã khám phá '+KHAM.size+'/6 khu'+(KHAM.size<6?' · khám phá hết sẽ dễ trả lời hơn':' · giỏi lắm!');document.querySelectorAll('.nha [data-k]').forEach(g=>g.classList.toggle('da',KHAM.has(g.dataset.k)))};ve();
+    $('#khung').innerHTML='<div class="tn-than"><div class="nha-wrap">'+NHA_SVG()+'<div><div class="thong-tin" id="tt"><h3>'+ic('kinh-lup')+'Khám phá ngôi nhà</h3><p>'+(D.khamP||'Chạm vào từng phần của bản vẽ: nhà chính, nhà hai bên, sân, cổng… để xem tên gọi và công dụng.')+'</p></div><p class="dem-kham" id="demK"></p><div class="hang" style="justify-content:flex-start"><button class="btn m" type="button" id="sangHoi">'+ic('tick')+'Trả lời '+D.cau.length+' câu hỏi</button></div></div></div></div>';
+    const ve=()=>{$('#demK').textContent='Đã khám phá '+KHAM.size+'/'+Object.keys(D.khu).length+' khu'+(KHAM.size<Object.keys(D.khu).length?' · khám phá hết sẽ dễ trả lời hơn':' · giỏi lắm!');document.querySelectorAll('.nha [data-k]').forEach(g=>g.classList.toggle('da',KHAM.has(g.dataset.k)))};ve();
     const mo=g=>{const k=g.dataset.k,K=D.khu[k];KHAM.add(k);document.querySelectorAll('.nha [data-k]').forEach(x=>x.classList.toggle('chon',x===g));am('choose');
       $('#tt').innerHTML='<h3><span class="zh">'+K.zh+'</span>'+K.vi+'</h3><span style="font-weight:700;color:var(--muted)">'+K.py+' <button class="spk" type="button" data-say="'+K.zh+'" aria-label="Nghe" style="display:inline-grid;vertical-align:middle;width:28px;height:28px">'+ic('loa')+'</button></span><p>'+K.mo+'</p>';ve()};
     $('.nha').addEventListener('click',e=>{const g=e.target.closest('[data-k]');if(g)mo(g)});
