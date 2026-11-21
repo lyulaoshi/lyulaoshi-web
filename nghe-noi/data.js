@@ -262,3 +262,302 @@ NN_BAI.push({
     viet:[1,3,5,7]
   }]
 });
+
+/* ===== 汉语会话301句 Bài 14–20 (lời thoại lấy từ bài giảng 301 của cô; thêm 21/11/2026) =====
+   Vai có phần tử thứ 3 "nam"/"nu" = giới tính để tools/gen_audio_nn.py chọn giọng.
+   Câu có phần tử thứ 5 = cách máy đọc (số điện thoại…), chữ hiển thị vẫn là phần tử thứ 2. */
+NN_BAI.push({
+  id:"301/bai-14", sach:"301", sachTen:"汉语会话301句", bai:14, ten:"我要去换钱", tenVi:"Tôi phải đi đổi tiền", hsk:"1–3", th:"lam-thu-tuc",  // 人民币 = HSK 5
+  doan:[
+    {ten:"在饭店换钱", tenVi:"Đổi tiền ở khách sạn",
+     vai:{A:["营业员","Nhân viên","nu"],B:["玛丽","Mary","nu"],C:["大卫","Đại Vệ","nam"]},
+     cau:[
+      ["B","钱都花了，我没钱了。我要去换钱。","Qián dōu huā le, wǒ méi qián le. Wǒ yào qù huàn qián.","Tiền tiêu hết rồi, tôi hết tiền rồi. Tôi phải đi đổi tiền."],
+      ["C","听说，饭店里可以换钱。","Tīngshuō, fàndiàn li kěyǐ huàn qián.","Nghe nói trong khách sạn có thể đổi tiền."],
+      ["B","我们去问问吧。","Wǒmen qù wènwen ba.","Chúng ta đi hỏi thử xem."],
+      ["B","请问，这儿能不能换钱？","Qǐng wèn, zhèr néng bu néng huàn qián?","Xin hỏi, ở đây có đổi tiền được không?"],
+      ["A","能。您带的什么钱？","Néng. Nín dài de shénme qián?","Được. Chị mang theo tiền gì?"],
+      ["B","美元。","Měiyuán.","Đô-la Mỹ."],
+      ["A","换多少？","Huàn duōshao?","Đổi bao nhiêu?"],
+      ["B","五百美元。一美元换多少人民币？","Wǔbǎi Měiyuán. Yì Měiyuán huàn duōshao rénmínbì?","Năm trăm đô-la Mỹ. Một đô-la đổi được bao nhiêu nhân dân tệ?"],
+      ["A","八块二毛七。请您写一下儿钱数。再写一下儿名字。","Bā kuài èr máo qī. Qǐng nín xiě yíxiàr qián shù. Zài xiě yíxiàr míngzi.","Tám đồng hai hào bảy xu. Xin chị viết số tiền. Rồi viết thêm tên."],
+      ["B","这样写，对不对？","Zhèyàng xiě, duì bu duì?","Viết thế này, có đúng không?"],
+      ["A","对。给您钱，请数一数。","Duì. Gěi nín qián, qǐng shǔ yi shǔ.","Đúng rồi. Gửi chị tiền, xin chị đếm lại."],
+      ["B","谢谢！","Xièxie!","Cảm ơn!"],
+      ["C","时间不早了。我们快走吧！","Shíjiān bù zǎo le. Wǒmen kuài zǒu ba!","Muộn rồi. Chúng ta đi nhanh lên!"]
+     ],
+     hoi:[
+      {q:"玛丽为什么要去换钱？",vi:"Vì sao Mary phải đi đổi tiền?",opts:["钱都花了","要去旅行","要买毛衣"],dap:0},
+      {q:"玛丽换了多少美元？",vi:"Mary đổi bao nhiêu đô-la Mỹ?",opts:["五十美元","五百美元","八百美元"],dap:1},
+      {q:"一美元换多少人民币？",vi:"Một đô-la đổi được bao nhiêu nhân dân tệ?",opts:["八块二毛七","八块七毛二","七块二毛八"],dap:0}
+     ],
+     viet:[3,6,9,12]}
+  ]
+});
+
+NN_BAI.push({
+  id:"301/bai-15", sach:"301", sachTen:"汉语会话301句", bai:15, ten:"我要打国际电话", tenVi:"Tôi muốn gọi điện thoại quốc tế", hsk:"1–5", th:"lam-thu-tuc",  // 纪念 邮票 套 挑 地区 小姐 = HSK 5
+  doan:[
+    {ten:"买纪念邮票", tenVi:"Mua tem kỷ niệm ở bưu điện",
+     vai:{A:["营业员","Nhân viên bưu điện","nu"],B:["和子","Hòa Tử","nu"]},
+     cau:[
+      ["B","有纪念邮票吗？","Yǒu jìniàn yóupiào ma?","Có tem kỷ niệm không ạ?"],
+      ["A","有，这是新出的。","Yǒu, zhè shì xīn chū de.","Có, đây là loại mới phát hành."],
+      ["B","好。买两套。还有好看的吗？","Hǎo. Mǎi liǎng tào. Hái yǒu hǎokàn de ma?","Được. Tôi mua hai bộ. Còn loại nào đẹp nữa không?"],
+      ["A","你看看，这几种怎么样？","Nǐ kànkan, zhè jǐ zhǒng zěnmeyàng?","Chị xem thử, mấy loại này thế nào?"],
+      ["B","请你帮我挑挑。","Qǐng nǐ bāng wǒ tiāotiao.","Nhờ chị chọn giúp tôi."],
+      ["A","我看这四种都很好。","Wǒ kàn zhè sì zhǒng dōu hěn hǎo.","Tôi thấy bốn loại này đều đẹp."],
+      ["B","那一样买一套吧。这儿能打国际电话吗？","Nà yí yàng mǎi yí tào ba. Zhèr néng dǎ guójì diànhuà ma?","Vậy mỗi kiểu mua một bộ. Ở đây gọi điện thoại quốc tế được không?"],
+      ["A","能，在那儿。买电话卡吗？","Néng, zài nàr. Mǎi diànhuàkǎ ma?","Được, ở đằng kia. Chị có mua thẻ điện thoại không?"],
+      ["B","不，我有。","Bù, wǒ yǒu.","Không, tôi có rồi."]
+     ],
+     hoi:[
+      {q:"新出的纪念邮票，和子买了几套？",vi:"Bộ tem kỷ niệm mới phát hành, Hòa Tử mua mấy bộ?",opts:["一套","两套","四套"],dap:1},
+      {q:"营业员觉得那四种邮票怎么样？",vi:"Nhân viên thấy bốn loại tem đó thế nào?",opts:["都很好","都不好看","太贵了"],dap:0},
+      {q:"和子买电话卡吗？",vi:"Hòa Tử có mua thẻ điện thoại không?",opts:["买两张","不买，她有","买一张"],dap:1}
+     ],
+     viet:[0,3,4,5]},
+    {ten:"打国际电话", tenVi:"Gọi điện thoại quốc tế",
+     vai:{A:["营业员","Nhân viên bưu điện","nu"],B:["和子","Hòa Tử","nu"]},
+     cau:[
+      ["B","小姐，我要打国际电话。","Xiǎojie, wǒ yào dǎ guójì diànhuà.","Chị ơi, tôi muốn gọi điện thoại quốc tế."],
+      ["A","你打到哪儿？","Nǐ dǎ dào nǎr?","Chị gọi đi đâu?"],
+      ["B","东京。我的电话号码是03-390-78160。","Dōngjīng. Wǒ de diànhuà hàomǎ shì líng sān - sān jiǔ líng - qī bā yāo liù líng.","Tô-ky-ô. Số điện thoại của tôi là 03-390-78160.","东京。我的电话号码是零三，三九零，七八幺六零。"],
+      ["A","还要拨地区号。","Hái yào bō dìqū hào.","Còn phải quay mã vùng nữa."],
+      ["B","东京的地区号是多少？","Dōngjīng de dìqū hào shì duōshao?","Mã vùng của Tô-ky-ô là bao nhiêu?"],
+      ["A","不拨03，拨00813。","Bù bō líng sān, bō líng líng bā yāo sān.","Không quay 03, quay 00813.","不拨零三，拨零零八幺三。"],
+      ["A","电话打通了吗？","Diànhuà dǎ tōng le ma?","Điện thoại gọi được chưa?"],
+      ["B","谢谢！打通了。","Xièxie! Dǎ tōng le.","Cảm ơn chị! Gọi được rồi."]
+     ],
+     hoi:[
+      {q:"和子要给哪儿打电话？",vi:"Hòa Tử muốn gọi điện đi đâu?",opts:["北京","上海","东京"],dap:2},
+      {q:"打国际电话还要拨什么？",vi:"Gọi điện quốc tế còn phải quay gì nữa?",opts:["地区号","房间号","手机号"],dap:0},
+      {q:"最后电话打通了吗？",vi:"Cuối cùng điện thoại có gọi được không?",opts:["打通了","没打通","没打"],dap:0}
+     ],
+     viet:[0,1,3,7]}
+  ]
+});
+
+NN_BAI.push({
+  id:"301/bai-16", sach:"301", sachTen:"汉语会话301句", bai:16, ten:"你看过京剧吗？", tenVi:"Bạn đã từng xem Kinh kịch chưa?", hsk:"1–4", th:"vui-choi",
+  doan:[
+    {ten:"去看京剧", tenVi:"Đi xem Kinh kịch",
+     vai:{A:["玛丽","Mary","nu"],B:["大卫","Đại Vệ","nam"]},
+     cau:[
+      ["A","你看过京剧吗？","Nǐ kànguo jīngjù ma?","Bạn xem Kinh kịch bao giờ chưa?"],
+      ["B","没看过。","Méi kànguo.","Chưa xem bao giờ."],
+      ["A","听说很有意思。","Tīngshuō hěn yǒuyìsi.","Nghe nói hay lắm."],
+      ["B","我很想看，你呢？","Wǒ hěn xiǎng kàn, nǐ ne?","Mình rất muốn xem, còn bạn?"],
+      ["A","我也很想看。你知道哪儿演吗？","Wǒ yě hěn xiǎng kàn. Nǐ zhīdao nǎr yǎn ma?","Mình cũng rất muốn xem. Bạn biết ở đâu diễn không?"],
+      ["B","人民剧场常演。","Rénmín Jùchǎng cháng yǎn.","Rạp hát Nhân Dân thường diễn."],
+      ["A","那我们星期六去看，好不好？","Nà wǒmen xīngqīliù qù kàn, hǎo bu hǎo?","Vậy thứ bảy chúng ta đi xem, được không?"],
+      ["B","当然好。明天我去买票。","Dāngrán hǎo. Míngtiān wǒ qù mǎi piào.","Đương nhiên là được. Mai mình đi mua vé."],
+      ["A","买到票以后告诉我。","Mǎidào piào yǐhòu gàosu wǒ.","Mua được vé thì bảo mình nhé."],
+      ["B","好。","Hǎo.","Ừ."]
+     ],
+     hoi:[
+      {q:"大卫看过京剧吗？",vi:"Đại Vệ đã từng xem Kinh kịch chưa?",opts:["看过","没看过","看过两次"],dap:1},
+      {q:"哪儿常演京剧？",vi:"Ở đâu thường diễn Kinh kịch?",opts:["人民剧场","北京饭店","学校"],dap:0},
+      {q:"他们打算什么时候去看？",vi:"Họ định khi nào đi xem?",opts:["星期六","星期天","明天"],dap:0}
+     ],
+     viet:[0,1,4,8]},
+    {ten:"去吃烤鸭", tenVi:"Đi ăn vịt quay",
+     vai:{A:["和子","Hòa Tử","nu"],B:["玛丽","Mary","nu"]},
+     cau:[
+      ["A","听说，烤鸭是北京的名菜。","Tīngshuō, kǎoyā shì Běijīng de míngcài.","Nghe nói vịt quay là món nổi tiếng của Bắc Kinh."],
+      ["B","我还没吃过呢！","Wǒ hái méi chīguo ne!","Mình còn chưa ăn bao giờ đấy!"],
+      ["A","我们应该去尝一尝。","Wǒmen yīnggāi qù cháng yi cháng.","Chúng ta nên đi ăn thử xem."],
+      ["B","二十八号晚上我没事，你呢？","Èrshíbā hào wǎnshang wǒ méi shì, nǐ ne?","Tối ngày 28 mình rảnh, còn bạn?"],
+      ["A","不行，有朋友来看我。","Bù xíng, yǒu péngyou lái kàn wǒ.","Không được, có bạn đến thăm mình."],
+      ["B","三十号晚上怎么样？","Sānshí hào wǎnshang zěnmeyàng?","Tối ngày 30 thì sao?"],
+      ["A","可以。","Kěyǐ.","Được."]
+     ],
+     hoi:[
+      {q:"北京的名菜是什么？",vi:"Món nổi tiếng của Bắc Kinh là gì?",opts:["烤鸭","饺子","面条"],dap:0},
+      {q:"二十八号晚上和子为什么不行？",vi:"Tối ngày 28 vì sao Hòa Tử không đi được?",opts:["要上课","有朋友来看她","要去看京剧"],dap:1},
+      {q:"她们哪天晚上去吃烤鸭？",vi:"Họ đi ăn vịt quay vào tối ngày nào?",opts:["二十八号","二十九号","三十号"],dap:2}
+     ],
+     viet:[0,1,3,5]}
+  ]
+});
+
+NN_BAI.push({
+  id:"301/bai-17", sach:"301", sachTen:"汉语会话301句", bai:17, ten:"去动物园", tenVi:"Đi sở thú", hsk:"1–3", th:"vui-choi",  // 划 = HSK 5
+  doan:[
+    {ten:"去哪儿玩儿？", tenVi:"Đi đâu chơi?",
+     vai:{A:["张丽英","Trương Lệ Anh","nu"],B:["和子","Hòa Tử","nu"]},
+     cau:[
+      ["A","这两天天气很好。我们出去玩儿玩儿吧。","Zhè liǎng tiān tiānqì hěn hǎo. Wǒmen chūqu wánr wanr ba.","Mấy hôm nay thời tiết rất tốt. Chúng ta ra ngoài chơi một chút nhé."],
+      ["B","去哪儿玩儿好呢？","Qù nǎr wánr hǎo ne?","Đi đâu chơi cho vui đây?"],
+      ["A","去北海公园，看看花儿，划划船，多好啊！","Qù Běihǎi Gōngyuán, kànkan huār, huáhua chuán, duō hǎo a!","Đi công viên Bắc Hải, ngắm hoa, chèo thuyền, thích biết bao!"],
+      ["B","上星期我去过了，去别的地方吧。","Shàng xīngqī wǒ qùguo le, qù biéde dìfang ba.","Tuần trước tôi đi rồi, đi chỗ khác đi."],
+      ["A","去动物园怎么样？","Qù dòngwùyuán zěnmeyàng?","Đi sở thú thì sao?"],
+      ["B","行，还可以看看熊猫呢。","Xíng, hái kěyǐ kànkan xióngmāo ne.","Được, còn có thể xem gấu trúc nữa."],
+      ["A","什么时候去？","Shénme shíhou qù?","Khi nào đi?"],
+      ["B","星期天吧。","Xīngqītiān ba.","Chủ nhật nhé."]
+     ],
+     hoi:[
+      {q:"张丽英先说去哪儿玩儿？",vi:"Lúc đầu Trương Lệ Anh rủ đi chơi ở đâu?",opts:["北海公园","动物园","长城"],dap:0},
+      {q:"和子为什么不想去北海公园？",vi:"Vì sao Hòa Tử không muốn đi công viên Bắc Hải?",opts:["上星期去过了","太远了","人太多"],dap:0},
+      {q:"在动物园，和子想看什么？",vi:"Ở sở thú, Hòa Tử muốn xem gì?",opts:["熊猫","花儿","船"],dap:0}
+     ],
+     viet:[1,4,6,7]},
+    {ten:"去机场接朋友", tenVi:"Ra sân bay đón bạn",
+     vai:{A:["和子","Hòa Tử","nu"],B:["刘京","Lưu Kinh","nam"]},
+     cau:[
+      ["A","你认识西川一郎吗？","Nǐ rènshi Xīchuān Yīláng ma?","Bạn có quen Nishikawa Ichirō không?"],
+      ["B","当然认识。去年他在这儿学过汉语。","Dāngrán rènshi. Qùnián tā zài zhèr xuéguo Hànyǔ.","Đương nhiên quen. Năm ngoái anh ấy từng học tiếng Hán ở đây."],
+      ["A","你知道吗？明天他来北京。","Nǐ zhīdao ma? Míngtiān tā lái Běijīng.","Bạn biết không? Ngày mai anh ấy đến Bắc Kinh."],
+      ["B","不知道。他上午到还是下午到？","Bù zhīdao. Tā shàngwǔ dào háishi xiàwǔ dào?","Không biết. Anh ấy đến buổi sáng hay buổi chiều?"],
+      ["A","下午两点，我去机场接他。","Xiàwǔ liǎng diǎn, wǒ qù jīchǎng jiē tā.","Hai giờ chiều, mình ra sân bay đón anh ấy."],
+      ["B","明天下午没有课，我跟你一起去。","Míngtiān xiàwǔ méi yǒu kè, wǒ gēn nǐ yìqǐ qù.","Chiều mai không có tiết, mình đi cùng bạn."],
+      ["A","好的。","Hǎo de.","Được."],
+      ["B","怎么去？","Zěnme qù?","Đi bằng gì?"],
+      ["A","坐车去，一点我去叫你。","Zuò chē qù, yì diǎn wǒ qù jiào nǐ.","Đi xe, một giờ mình qua gọi bạn."]
+     ],
+     hoi:[
+      {q:"去年西川在这儿做什么？",vi:"Năm ngoái Nishikawa làm gì ở đây?",opts:["学过汉语","工作过","旅行过"],dap:0},
+      {q:"西川明天什么时候到？",vi:"Ngày mai Nishikawa đến lúc nào?",opts:["上午十点","下午两点","下午一点"],dap:1},
+      {q:"和子几点去叫刘京？",vi:"Mấy giờ Hòa Tử qua gọi Lưu Kinh?",opts:["一点","两点","三点"],dap:0}
+     ],
+     viet:[3,5,7,8]}
+  ]
+});
+
+NN_BAI.push({
+  id:"301/bai-18", sach:"301", sachTen:"汉语会话301句", bai:18, ten:"路上辛苦了", tenVi:"Đi đường vất vả rồi", hsk:"1–4", th:"don-tiep",  // 辛苦 感谢 = HSK 4; 贸易 = HSK 6
+  doan:[
+    {ten:"飞机晚点了", tenVi:"Máy bay trễ giờ (ở sân bay)",
+     vai:{A:["服务员","Nhân viên sân bay","nu"],B:["和子","Hòa Tử","nu"]},
+     cau:[
+      ["B","从东京来的飞机到了吗？","Cóng Dōngjīng lái de fēijī dào le ma?","Máy bay từ Tô-ky-ô đã đến chưa?"],
+      ["A","还没到。","Hái méi dào.","Vẫn chưa đến."],
+      ["B","为什么？","Wèishénme?","Tại sao vậy?"],
+      ["A","晚点了。飞机现在在上海。","Wǎn diǎn le. Fēijī xiànzài zài Shànghǎi.","Trễ giờ rồi. Máy bay bây giờ đang ở Thượng Hải."],
+      ["B","起飞了吗？","Qǐfēi le ma?","Cất cánh chưa?"],
+      ["A","快要起飞了。","Kuài yào qǐfēi le.","Sắp cất cánh rồi."],
+      ["B","什么时候能到？","Shénme shíhou néng dào?","Khi nào thì đến được?"],
+      ["A","大概三点半能到。","Dàgài sān diǎn bàn néng dào.","Khoảng ba giờ rưỡi thì đến."],
+      ["B","刘京，我们先去喝点儿水，一会儿再来这儿吧。","Liú Jīng, wǒmen xiān qù hē diǎnr shuǐ, yíhuìr zài lái zhèr ba.","Lưu Kinh, chúng ta đi uống chút nước trước, lát nữa lại đến đây nhé."]
+     ],
+     hoi:[
+      {q:"从东京来的飞机到了吗？",vi:"Máy bay từ Tô-ky-ô đến chưa?",opts:["到了","还没到","不来了"],dap:1},
+      {q:"飞机现在在哪儿？",vi:"Máy bay bây giờ đang ở đâu?",opts:["东京","上海","北京"],dap:1},
+      {q:"飞机大概什么时候能到？",vi:"Máy bay khoảng mấy giờ thì đến?",opts:["两点","三点","三点半"],dap:2}
+     ],
+     viet:[0,2,5,7]},
+    {ten:"路上辛苦了", tenVi:"Đi đường vất vả rồi",
+     vai:{A:["和子","Hòa Tử","nu"],B:["西川","Nishikawa","nam"],C:["刘京","Lưu Kinh","nam"]},
+     cau:[
+      ["A","你看，西川来了。","Nǐ kàn, Xīchuān lái le.","Bạn xem, Nishikawa đến rồi."],
+      ["C","你好！路上辛苦了。","Nǐ hǎo! Lù shang xīnkǔ le.","Chào anh! Đi đường vất vả rồi."],
+      ["B","你们好！刘京，你怎么知道我要来？","Nǐmen hǎo! Liú Jīng, nǐ zěnme zhīdao wǒ yào lái?","Chào các bạn! Lưu Kinh, sao bạn biết là tôi sẽ đến?"],
+      ["C","是她告诉我的。","Shì tā gàosu wǒ de.","Chính cô ấy nói cho mình biết."],
+      ["B","感谢你们来接我。","Gǎnxiè nǐmen lái jiē wǒ.","Cảm ơn các bạn đã đến đón tôi."],
+      ["A","我们出去吧！","Wǒmen chūqu ba!","Chúng ta ra ngoài đi thôi!"],
+      ["B","等一等，还有贸易公司的人接我呢。","Děng yi děng, hái yǒu màoyì gōngsī de rén jiē wǒ ne.","Đợi một chút, còn có người của công ty thương mại đón mình nữa."],
+      ["C","好，我们在这儿等你。","Hǎo, wǒmen zài zhèr děng nǐ.","Được, chúng mình đợi bạn ở đây."]
+     ],
+     hoi:[
+      {q:"刘京怎么知道西川要来？",vi:"Làm sao Lưu Kinh biết Nishikawa sẽ đến?",opts:["和子告诉他的","西川告诉他的","公司告诉他的"],dap:0},
+      {q:"见到西川，刘京先说什么？",vi:"Gặp Nishikawa, Lưu Kinh nói câu gì trước?",opts:["路上辛苦了","欢迎你","好久不见"],dap:0},
+      {q:"西川为什么让他们等一等？",vi:"Vì sao Nishikawa bảo họ đợi một chút?",opts:["他要买东西","还有贸易公司的人接他","飞机晚点了"],dap:1}
+     ],
+     viet:[1,3,4,7]}
+  ]
+});
+
+NN_BAI.push({
+  id:"301/bai-19", sach:"301", sachTen:"汉语会话301句", bai:19, ten:"欢迎你！", tenVi:"Xin chào mừng ông!", hsk:"1–4", th:"don-tiep",
+  doan:[
+    {ten:"公司的人来接", tenVi:"Người của công ty ra sân bay đón",
+     vai:{A:["王大年","Vương Đại Niên","nam"],B:["西川","Nishikawa","nam"]},
+     cau:[
+      ["A","您好！西川先生。我是王大年，公司的翻译。","Nín hǎo! Xīchuān xiānsheng. Wǒ shì Wáng Dànián, gōngsī de fānyì.","Chào ông! Ông Nishikawa. Tôi là Vương Đại Niên, phiên dịch của công ty."],
+      ["B","谢谢您来接我。","Xièxie nín lái jiē wǒ.","Cảm ơn ông đã đến đón tôi."],
+      ["A","别客气，路上辛苦了。","Bié kèqi, lù shang xīnkǔ le.","Đừng khách sáo, trên đường vất vả rồi."],
+      ["B","一点儿也不累，很顺利。","Yìdiǎnr yě bú lèi, hěn shùnlì.","Không mệt chút nào, rất thuận lợi."],
+      ["A","汽车在外边，我们送您去饭店。","Qìchē zài wàibian, wǒmen sòng nín qù fàndiàn.","Xe ô tô ở bên ngoài, chúng tôi đưa ông về khách sạn."],
+      ["B","我还有两个朋友。","Wǒ hái yǒu liǎng ge péngyou.","Tôi còn có hai người bạn nữa."],
+      ["A","那一起走吧。","Nà yìqǐ zǒu ba.","Vậy cùng đi nhé."],
+      ["B","谢谢！","Xièxie!","Cảm ơn!"]
+     ],
+     hoi:[
+      {q:"王大年是谁？",vi:"Vương Đại Niên là ai?",opts:["公司的翻译","公司的经理","西川的同学"],dap:0},
+      {q:"西川路上累不累？",vi:"Nishikawa đi đường có mệt không?",opts:["很累","一点儿也不累","有点儿累"],dap:1},
+      {q:"王大年送西川去哪儿？",vi:"Vương Đại Niên đưa Nishikawa đi đâu?",opts:["饭店","公司","朋友那儿"],dap:0}
+     ],
+     viet:[1,2,4,6]},
+    {ten:"经理请吃饭", tenVi:"Giám đốc mời dùng cơm",
+     vai:{A:["经理","Giám đốc","nam"],B:["西川","Nishikawa","nam"]},
+     cau:[
+      ["A","欢迎您！西川先生。","Huānyíng nín! Xīchuān xiānsheng.","Hoan nghênh ông! Ông Nishikawa."],
+      ["B","谢谢！","Xièxie!","Cảm ơn!"],
+      ["A","您第一次来中国吗？","Nín dì yī cì lái Zhōngguó ma?","Lần đầu tiên ông đến Trung Quốc phải không?"],
+      ["B","不，我以前来过。这是我们经理给您的信。","Bù, wǒ yǐqián láiguo. Zhè shì wǒmen jīnglǐ gěi nín de xìn.","Không, trước đây tôi từng đến. Đây là thư của giám đốc chúng tôi gửi cho ông."],
+      ["A","麻烦您了。","Máfan nín le.","Làm phiền ông quá."],
+      ["B","他问您好。","Tā wèn nín hǎo.","Ông ấy gửi lời hỏi thăm ông."],
+      ["A","谢谢。今天晚上我们在北京饭店请您吃晚饭。","Xièxie. Jīntiān wǎnshang wǒmen zài Běijīng Fàndiàn qǐng nín chī wǎnfàn.","Cảm ơn. Tối nay chúng tôi mời ông dùng cơm tối ở khách sạn Bắc Kinh."],
+      ["B","您太客气了，真不好意思。","Nín tài kèqi le, zhēn bùhǎoyìsi.","Ông khách sáo quá, thật ngại quá."],
+      ["A","您有时间吗？","Nín yǒu shíjiān ma?","Ông có thời gian không?"],
+      ["B","下午我去朋友那儿。晚上我没事。","Xiàwǔ wǒ qù péngyou nàr. Wǎnshang wǒ méi shì.","Chiều tôi đến chỗ bạn. Tối tôi không có việc gì."],
+      ["A","我们去接您。","Wǒmen qù jiē nín.","Chúng tôi đến đón ông."],
+      ["B","不用了，我可以打的，我从朋友那儿去。","Búyòng le, wǒ kěyǐ dǎdī, wǒ cóng péngyou nàr qù.","Khỏi cần, tôi có thể đi taxi, tôi đi từ chỗ bạn."]
+     ],
+     hoi:[
+      {q:"西川是第一次来中国吗？",vi:"Đây có phải lần đầu Nishikawa đến Trung Quốc không?",opts:["是，第一次来","不，以前来过","不知道"],dap:1},
+      {q:"今天晚上经理请西川做什么？",vi:"Tối nay giám đốc mời Nishikawa làm gì?",opts:["吃晚饭","看京剧","喝茶"],dap:0},
+      {q:"晚上西川怎么去北京饭店？",vi:"Tối nay Nishikawa đến khách sạn Bắc Kinh bằng cách nào?",opts:["经理去接他","他自己打的去","朋友送他去"],dap:1}
+     ],
+     viet:[2,4,5,7]}
+  ]
+});
+
+NN_BAI.push({
+  id:"301/bai-20", sach:"301", sachTen:"汉语会话301句", bai:20, ten:"为我们的友谊干杯！", tenVi:"Cạn ly vì tình hữu nghị của chúng ta!", hsk:"1–4", th:"an-uong",
+  doan:[
+    {ten:"在宴会上", tenVi:"Trong bữa tiệc chiêu đãi",
+     vai:{A:["经理","Giám đốc","nam"],B:["西川","Nishikawa","nam"],C:["翻译","Phiên dịch","nam"]},
+     cau:[
+      ["C","西川先生，请这儿坐。","Xīchuān xiānsheng, qǐng zhèr zuò.","Ông Nishikawa, mời ngồi đây."],
+      ["B","谢谢！","Xièxie!","Cảm ơn!"],
+      ["A","这两天过得怎么样？","Zhè liǎng tiān guò de zěnmeyàng?","Hai hôm nay ông sống thế nào?"],
+      ["B","过得很愉快。","Guò de hěn yúkuài.","Rất vui vẻ."],
+      ["C","您喜欢喝什么酒？","Nín xǐhuan hē shénme jiǔ?","Ông thích uống rượu gì?"],
+      ["B","啤酒吧。","Píjiǔ ba.","Bia vậy."],
+      ["A","您尝尝这个菜怎么样？","Nín chángchang zhè ge cài zěnmeyàng?","Ông nếm thử món này xem thế nào?"],
+      ["B","很好吃。","Hěn hǎochī.","Rất ngon."],
+      ["A","吃啊，别客气。","Chī a, bié kèqi.","Ăn đi, đừng khách sáo."],
+      ["B","不客气。","Bú kèqi.","Không khách sáo đâu."],
+      ["A","来，为我们的友谊干杯！","Lái, wèi wǒmen de yǒuyì gān bēi!","Nào, cạn ly vì tình hữu nghị của chúng ta!"],
+      ["C","干杯！","Gān bēi!","Cạn ly!"],
+      ["B","干杯！","Gān bēi!","Cạn ly!"]
+     ],
+     hoi:[
+      {q:"西川这两天过得怎么样？",vi:"Hai hôm nay Nishikawa sống thế nào?",opts:["很愉快","很忙","不太好"],dap:0},
+      {q:"西川想喝什么酒？",vi:"Nishikawa muốn uống rượu gì?",opts:["啤酒","葡萄酒","白酒"],dap:0},
+      {q:"他们为什么干杯？",vi:"Họ cạn ly vì điều gì?",opts:["为我们的友谊","为西川的生日","为新的工作"],dap:0}
+     ],
+     viet:[2,3,6,10]},
+    {ten:"在刘京家吃饭", tenVi:"Ăn cơm ở nhà Lưu Kinh",
+     vai:{A:["刘母","Mẹ Lưu Kinh","nu"],B:["和子","Hòa Tử","nu"],C:["刘京","Lưu Kinh","nam"],D:["西川","Nishikawa","nam"]},
+     cau:[
+      ["C","我们先喝酒吧。","Wǒmen xiān hē jiǔ ba.","Chúng ta uống rượu trước nhé."],
+      ["D","这个鱼做得真好吃。","Zhè ge yú zuò de zhēn hǎochī.","Món cá này nấu thật ngon."],
+      ["A","你们别客气，像在家一样。","Nǐmen bié kèqi, xiàng zài jiā yíyàng.","Các cháu đừng khách sáo, cứ như ở nhà nhé."],
+      ["D","我们不客气。","Wǒmen bú kèqi.","Chúng cháu không khách sáo đâu ạ."],
+      ["A","吃饺子吧。","Chī jiǎozi ba.","Ăn sủi cảo đi."],
+      ["B","我最喜欢吃饺子了。","Wǒ zuì xǐhuan chī jiǎozi le.","Cháu thích ăn sủi cảo nhất."],
+      ["C","听说你很会做日本菜。","Tīngshuō nǐ hěn huì zuò Rìběn cài.","Nghe nói bạn rất giỏi nấu món Nhật."],
+      ["B","哪儿啊，我做得不好。","Nǎr a, wǒ zuò de bù hǎo.","Đâu có, mình nấu không ngon đâu."],
+      ["C","你怎么不吃了？","Nǐ zěnme bù chī le?","Sao bạn không ăn nữa?"],
+      ["B","吃饱了。你们慢吃。","Chībǎo le. Nǐmen màn chī.","Mình no rồi. Các bạn ăn từ từ."]
+     ],
+     hoi:[
+      {q:"西川觉得什么菜做得真好吃？",vi:"Nishikawa thấy món gì nấu thật ngon?",opts:["鱼","饺子","日本菜"],dap:0},
+      {q:"和子最喜欢吃什么？",vi:"Hòa Tử thích ăn gì nhất?",opts:["饺子","鱼","烤鸭"],dap:0},
+      {q:"和子为什么不吃了？",vi:"Vì sao Hòa Tử không ăn nữa?",opts:["吃饱了","不好吃","太辣了"],dap:0}
+     ],
+     viet:[1,4,5,9]}
+  ]
+});

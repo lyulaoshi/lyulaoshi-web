@@ -63,6 +63,9 @@ const TH_LIST=[
   {id:"mua-sam",   zh:"购物",     vi:"Mua sắm",     ic2:"tui-tien"},
   {id:"an-uong",   zh:"饮食",     vi:"Ăn uống",     ic2:"tra-sua"},
   {id:"di-lai",    zh:"交通",     vi:"Đi lại",      ic2:"may"},
+  {id:"lam-thu-tuc",zh:"办事",    vi:"Làm thủ tục", ic2:"thu"},
+  {id:"vui-choi",  zh:"休闲",     vi:"Vui chơi",    ic2:"may-anh"},
+  {id:"don-tiep",  zh:"接待",     vi:"Đón tiếp",    ic2:"co"},
   {id:"hoc-tap",   zh:"学习",     vi:"Học tập",     ic2:"sach"},
   {id:"kham-benh", zh:"看病",     vi:"Khám bệnh",   ic2:"cuu"},
 ];
@@ -75,7 +78,12 @@ function veBaiHTML(ds){return ds.map(b=>`<article class="bai">
       return`<a class="doan" href="#${k}"><span class="so">${i+1}</span><span class="t"><b class="zh">${esc(d.ten)}</b><small>${esc(d.tenVi)} · ${d.cau.length} câu</small></span>
       <span class="dots" aria-label="Xong ${n}/4 bước">${BUOC.map(x=>`<i class="${xong(k,x[0])?"on":""}"></i>`).join("")}</span></a>`}).join("")}</div>
   </article>`).join("")}
-function veMucLuc(){$("#dsBai").innerHTML=veBaiHTML(DS)}
+function veMucLuc(){$("#dsBai").innerHTML=veBaiHTML(DS);soLieu()}
+function soLieu(){       // số liệu đầu trang tự đếm theo data.js
+  const dat=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
+  dat("soBai",DS.length);dat("soTh",TH_LIST.filter(t=>DS.some(b=>b.th===t.id)).length);
+  const lv=DS.flatMap(b=>String(b.hsk).split(/[–-]/).map(Number)).filter(n=>n>0);
+  if(lv.length)dat("soHsk",`HSK ${Math.min(...lv)}–${Math.max(...lv)}`)}
 
 function veThList(){
   const el=$("#dsTh");if(!el)return;
@@ -109,7 +117,7 @@ async function noiCau(ci,o={}){
     aud.playbackRate=o.rate||TOC;
     let used=false;
     const ok=()=>{if(!used){used=true;ACEL=null;res()}};
-    const fb=()=>{if(!used){used=true;ACEL=null;noi(D.cau[ci][1],o).then(res)}};
+    const fb=()=>{if(!used){used=true;ACEL=null;noi(D.cau[ci][4]||D.cau[ci][1],o).then(res)}};
     aud.onended=ok;aud.onerror=fb;aud.play().catch(fb);
   });
 }
@@ -205,7 +213,7 @@ function Nhai(){
     if(sb){SAO[key(i)]=+sb.dataset.sao;try{localStorage.setItem("nn-sao",JSON.stringify(SAO))}catch(x){};ve();return}
     const a=e.target.closest("[data-a]");if(!a)return;const c=D.cau[i];
     if(a.dataset.a==="mau"){dung();noiCau(i)}
-    if(a.dataset.a==="cham"){dung();noi(c[1],{rate:.6})}
+    if(a.dataset.a==="cham"){dung();noiCau(i,{rate:.6})}
     if(a.dataset.a==="ghi"){
       if(rec){const r=rec;rec=null;BAN[key(i)]=await r.dung();ve();return}
       dung();try{rec=await ghi();ve()}catch(x){alert("Chưa ghi âm được: máy chưa cho phép dùng micro. Em bấm vào biểu tượng ổ khoá bên trái thanh địa chỉ để cho phép rồi thử lại nhé.")}
@@ -265,7 +273,7 @@ async function chay(){
       const kt=setInterval(()=>{if(me!==CHAY){clearInterval(kt);res()}},300);});
     if(r)ban[i]=await r.dung();l.classList.remove("dangghi");
     if(me!==CHAY)return;
-    l.querySelector(".bb").innerHTML=du+`<button type="button" class="spk" data-noi="${esc(c[1])}" aria-label="Nghe mẫu">${ic("loa")}</button>`;
+    l.querySelector(".bb").innerHTML=du+`<button type="button" class="spk" data-ci="${i}" aria-label="Nghe mẫu">${ic("loa")}</button>`;
     await wait(250);
   }
   if(me!==CHAY)return;
@@ -283,8 +291,8 @@ function Viet(){
   const P=$("#pBody"),ds=D.viet.map(j=>D.cau[j]);const trang={};
   P.innerHTML=`<p class="huong">Nghe câu rồi <b>gõ lại bằng chữ Hán</b> (bật bộ gõ tiếng Trung). Không cần gõ dấu câu. Sai 2 lần thì có nút xem đáp án.</p>
   <div class="thanh">${tocDo()}</div>
-  <ol class="viet">${ds.map((c,j)=>`<li data-j="${j}"><div class="nghe2"><button type="button" class="spk big" data-noi="${esc(c[1])}" aria-label="Nghe câu ${j+1}">${ic("loa")}</button>
-    <button type="button" class="spk" data-noi="${esc(c[1])}" data-rate=".55" aria-label="Nghe chậm">${ic("cham")}</button><span class="goiy">${esc(c[3])}</span></div>
+  <ol class="viet">${ds.map((c,j)=>`<li data-j="${j}"><div class="nghe2"><button type="button" class="spk big" data-ci="${D.viet[j]}" aria-label="Nghe câu ${j+1}">${ic("loa")}</button>
+    <button type="button" class="spk" data-ci="${D.viet[j]}" data-rate=".6" aria-label="Nghe chậm">${ic("cham")}</button><span class="goiy">${esc(c[3])}</span></div>
     <div class="typ"><input type="text" lang="zh-CN" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="Gõ chữ Hán…" aria-label="Câu ${j+1}"><button type="button" class="btn2" data-k>Kiểm tra</button></div>
     <div class="fb" hidden></div></li>`).join("")}</ol>
   <div class="ket" id="ket" hidden><p>${ic("huy","to")}Xong phần nghe – viết!</p>${tiep()}</div>`;
@@ -304,7 +312,8 @@ function Viet(){
 }
 
 /* ---------- chung ---------- */
-document.addEventListener("click",e=>{const b=e.target.closest("[data-noi]");if(b){e.preventDefault();dung();noi(b.dataset.noi,b.dataset.rate?{rate:+b.dataset.rate}:{})}});
+document.addEventListener("click",e=>{const b=e.target.closest("[data-noi]");if(b){e.preventDefault();dung();noi(b.dataset.noi,b.dataset.rate?{rate:+b.dataset.rate}:{})}
+  const c=e.target.closest("[data-ci]");if(c){e.preventDefault();dung();noiCau(+c.dataset.ci,c.dataset.rate?{rate:+c.dataset.rate}:{})}});   // câu trong bài: phát file audio
 document.querySelectorAll(".tab[data-tab]").forEach(t=>t.onclick=()=>{document.querySelectorAll(".tab[data-tab]").forEach(x=>x.setAttribute("aria-pressed",x===t));
   document.querySelectorAll("[data-pane]").forEach(p=>p.hidden=p.dataset.pane!==t.dataset.tab);
   if(t.dataset.tab==="th")veThList();});
