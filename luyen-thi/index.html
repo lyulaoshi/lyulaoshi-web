@@ -555,5 +555,7 @@ function finish(timeUp){
 home();
 </script>
 <script>try{const d=window.KT_DS||[];if(d.length){document.querySelector('#stDe b').textContent=d.length;const c=[...new Set(d.map(x=>String(x.cap||x.lv||x.id||'').match(/\d/)?.[0]).filter(Boolean))].sort();if(c.length)document.querySelector('#stCap b').textContent='HSK '+(c.length>1?c[0]+'–'+c[c.length-1]:c[0])}}catch(e){}</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

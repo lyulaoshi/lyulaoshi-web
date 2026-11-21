@@ -386,5 +386,7 @@ rt i{font-style:normal}.t1{color:var(--coral)}.t2{color:var(--mint)}.t3{color:va
  // thanh công cụ chỉ hiện khi đang đọc
  const tc=document.querySelector('.thanh-cu');const f=()=>tc.hidden=!document.body.classList.contains('dang-doc');new MutationObserver(f).observe(document.body,{attributes:true});f()})();
 </script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

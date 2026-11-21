@@ -312,5 +312,7 @@ body{margin:0}
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){}paint()});
  try{const t=localStorage.getItem('cb-theme');if(t)r.dataset.theme=t;paint()}catch(e){}})();
 </script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

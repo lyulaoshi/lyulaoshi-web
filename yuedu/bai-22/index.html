@@ -2650,5 +2650,7 @@ function fit(){b.style.left='';const r=b.getBoundingClientRect();let x=14;
   for(let p=e;p&&p!==document.body;p=p.parentElement){const c=getComputedStyle(p).position;if(c==='fixed'||c==='sticky'){const q=p.getBoundingClientRect();if(q.width<innerWidth*.6)x=Math.max(x,q.right+14);break}}});
  b.style.left=x+'px'}
 addEventListener('load',fit);addEventListener('resize',fit);setTimeout(fit,1500)})();</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
