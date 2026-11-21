@@ -228,8 +228,9 @@
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js"></script>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
+<meta name="description" content="乐读 1 — 第一课 横、竖、撇、捺、点、提 · 乐读 1 — bài giảng tiếng Trung tương tác của ThS. Lã Thị Thuỳ Phương (Lyu Laoshi): từ mới, ngữ pháp, bài khoá có audio, bài tập có đáp án.">
 <link rel="canonical" href="https://lyulaoshi.com/ledu/bai-1/">
-<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="乐读 1 — 第一课 横、竖、撇、捺、点、提"><meta property="og:description" content="Bài giảng tiếng Trung tương tác của ThS. Lã Thị Thuỳ Phương: giáo trình, phát âm, chữ Hán, từ vựng, ngữ pháp, luyện thi HSK, trò chơi."><meta property="og:url" content="https://lyulaoshi.com/ledu/bai-1/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="乐读 1 — 第一课 横、竖、撇、捺、点、提"><meta property="og:description" content="乐读 1 — 第一课 横、竖、撇、捺、点、提 · 乐读 1 — bài giảng tiếng Trung tương tác của ThS. Lã Thị Thuỳ Phương (Lyu Laoshi): từ mới, ngữ pháp, bài khoá có audio, bài tập có đáp án."><meta property="og:url" content="https://lyulaoshi.com/ledu/bai-1/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
@@ -1044,7 +1045,7 @@ updateTocActive();
 tocLinks.forEach(a=>a.addEventListener("click", ()=>document.getElementById("toc").classList.remove("open")));
 </script>
 <!-- Học tiếp: ghi nhớ bài này trên máy học viên, do tools/build_site.py gắn khi ghép -->
-<script>(function(){var m=location.pathname.match(/^\/([^\/]+)\/(bai-\d+)\/$/);if(!m)return;try{var k='llTiep',s=JSON.parse(localStorage.getItem(k)||'{}');s[m[1]]=m[1]+'/'+m[2]+'/';localStorage.setItem(k,JSON.stringify(s))}catch(e){}})();</script>
+<script>(function(){var m=location.pathname.match(/^\/([^\/]+)\/(bai-\d+)\/$/);if(!m)return;try{var k='llTiep',s=JSON.parse(localStorage.getItem(k)||'{}');s[m[1]]=s._cuoi=m[1]+'/'+m[2]+'/';localStorage.setItem(k,JSON.stringify(s))}catch(e){}})();</script>
 <!-- Nút về mục lục giáo trình, do tools/build_site.py gắn khi ghép -->
 <a class="lls-ve mo" href="../" title="Về mục lục 乐读 1" aria-label="Về mục lục 乐读 1"><img src="/img/logo-hallo-128.png" alt="" width="26" height="26"><span>Mục lục</span></a>
 <style>.lls-ve{position:fixed;left:14px;bottom:14px;z-index:2147483000;display:flex;align-items:center;padding:3px;border-radius:999px;background:#fff;color:#2B2E45!important;
