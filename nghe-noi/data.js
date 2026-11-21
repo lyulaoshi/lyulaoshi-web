@@ -175,8 +175,8 @@ NN_BAI.push({
       ["B","你好，陈明！我叫大卫。你是哪国人？","Nǐ hǎo, Chén Míng! Wǒ jiào Dàwèi. Nǐ shì nǎ guó rén?","Xin chào, Trần Minh! Tôi tên là Đại Vệ. Bạn là người nước nào?"],
       ["A","我是越南人。你呢？","Wǒ shì Yuènán rén. Nǐ ne?","Tôi là người Việt Nam. Còn bạn?"],
       ["B","我是法国人。你来中国多久了？","Wǒ shì Fǎguó rén. Nǐ lái Zhōngguó duō jiǔ le?","Tôi là người Pháp. Bạn đến Trung Quốc bao lâu rồi?"],
-      ["A","我来了两个月。你呢？","Wǒ lái le liǎng gè yuè. Nǐ ne?","Tôi đến được hai tháng rồi. Còn bạn?"],
-      ["B","我来了半年了。有问题可以问我！","Wǒ lái le bànnián le. Yǒu wèntí kěyǐ wèn wǒ!","Tôi đến được nửa năm rồi. Có câu hỏi gì cứ hỏi tôi nhé!"],
+      ["A","我来了两个月了。你呢？","Wǒ lái le liǎng ge yuè le. Nǐ ne?","Tôi đến được hai tháng rồi. Còn bạn?"],
+      ["B","我来了半年了。有问题可以问我！","Wǒ lái le bàn nián le. Yǒu wèntí kěyǐ wèn wǒ!","Tôi đến được nửa năm rồi. Có câu hỏi gì cứ hỏi tôi nhé!"],
       ["A","太好了！认识你，很高兴！","Tài hǎo le! Rènshi nǐ, hěn gāoxìng!","Tốt quá! Rất vui được quen bạn!"],
       ["B","我也是。欢迎你来这里！","Wǒ yě shì. Huānyíng nǐ lái zhèlǐ!","Tôi cũng vậy. Chào mừng bạn đến đây!"]
     ],
@@ -198,11 +198,11 @@ NN_BAI.push({
     cau:[
       ["B","服务员！","Fúwùyuán!","Phục vụ ơi!"],
       ["A","来了！请问要点什么？","Lái le! Qǐng wèn yào diǎn shénme?","Đến ngay! Quý khách muốn gọi món gì?"],
-      ["B","来两碗面条，一盘饺子。","Lái liǎng wǎn miàntiáo, yī pán jiǎozi.","Cho hai bát mì, một đĩa sủi cảo."],
+      ["B","来两碗面条，一盘饺子。","Lái liǎng wǎn miàntiáo, yì pán jiǎozi.","Cho hai bát mì, một đĩa sủi cảo."],
       ["A","好的。喝什么？","Hǎo de. Hē shénme?","Vâng ạ. Quý khách uống gì?"],
       ["B","两杯茶，谢谢。有辣的菜吗？","Liǎng bēi chá, xièxie. Yǒu là de cài ma?","Hai cốc trà, cảm ơn. Có món cay không?"],
       ["A","有，我们有几道辣菜，都很好吃。","Yǒu, wǒmen yǒu jǐ dào là cài, dōu hěn hǎo chī.","Có ạ, chúng tôi có vài món cay, đều rất ngon."],
-      ["B","好，再加一份辣菜，谢谢。","Hǎo, zài jiā yī fèn là cài, xièxie.","Được, thêm một phần món cay, cảm ơn."],
+      ["B","好，再加一份辣菜，谢谢。","Hǎo, zài jiā yí fèn là cài, xièxie.","Được, thêm một phần món cay, cảm ơn."],
       ["A","好的，请等一下。","Hǎo de, qǐng děng yíxià.","Được ạ, xin chờ một lát."]
     ],
     hoi:[
@@ -222,12 +222,12 @@ NN_BAI.push({
     vai:{A:["玛丽","Mary"], B:["大卫","Đại Vệ"]},
     cau:[
       ["A","大卫，今天的作业你做完了吗？","Dàwèi, jīntiān de zuòyè nǐ zuò wán le ma?","Đại Vệ, bài tập hôm nay bạn làm xong chưa?"],
-      ["B","还没有。有一道题我不会做。","Hái méiyǒu. Yǒu yī dào tí wǒ bú huì zuò.","Chưa xong. Có một câu tôi không biết làm."],
+      ["B","还没有。有一道题我不会做。","Hái méiyǒu. Yǒu yí dào tí wǒ bú huì zuò.","Chưa xong. Có một câu tôi không biết làm."],
       ["A","哪道？我来看看。","Nǎ dào? Wǒ lái kànkan.","Câu nào? Để tôi xem."],
       ["B","第五题。我看了很多遍，还是不懂。","Dì wǔ tí. Wǒ kàn le hěn duō biàn, háishi bù dǒng.","Câu số 5. Tôi đọc nhiều lần rồi mà vẫn không hiểu."],
       ["A","这个我懂。你听我说……","Zhège wǒ dǒng. Nǐ tīng wǒ shuō……","Cái này tôi hiểu. Bạn nghe tôi nói nhé..."],
-      ["B","哦，明白了！原来是这样！","Ó, míngbái le! Yuánlái shì zhèyàng!","À, hiểu rồi! Hóa ra là vậy!"],
-      ["A","不客气。不懂的话，多问问老师。","Bú kèqi. Bù dǒng de huà, duō wèn wèn lǎoshī.","Không có gì. Không hiểu thì cứ hỏi thầy cô thêm nhé."]
+      ["B","哦，明白了！原来是这样！谢谢你！","Ò, míngbai le! Yuánlái shì zhèyàng! Xièxie nǐ!","À, hiểu rồi! Hóa ra là vậy! Cảm ơn bạn!"],
+      ["A","不客气。不懂的话，多问问老师。","Bú kèqi. Bù dǒng de huà, duō wènwen lǎoshī.","Không có gì. Không hiểu thì cứ hỏi thầy cô thêm nhé."]
     ],
     hoi:[
       {q:"大卫做完作业了吗？",vi:"Đại Vệ làm xong bài tập chưa?",opts:["做完了","没做完","没做"],dap:1},
@@ -251,13 +251,13 @@ NN_BAI.push({
       ["B","从昨天晚上开始。今天更厉害了。","Cóng zuótiān wǎnshang kāishǐ. Jīntiān gèng lìhài le.","Từ tối qua. Hôm nay nặng hơn rồi."],
       ["A","你感冒了。要多休息，多喝水。","Nǐ gǎnmào le. Yào duō xiūxi, duō hē shuǐ.","Bạn bị cảm rồi. Cần nghỉ ngơi nhiều, uống nhiều nước."],
       ["B","需要吃药吗？","Xūyào chī yào ma?","Có cần uống thuốc không ạ?"],
-      ["A","需要。一天三次，每次两片。","Xūyào. Yītiān sān cì, měi cì liǎng piàn.","Cần. Mỗi ngày 3 lần, mỗi lần 2 viên."],
+      ["A","需要。一天三次，每次两片。","Xūyào. Yì tiān sān cì, měi cì liǎng piàn.","Cần. Mỗi ngày 3 lần, mỗi lần 2 viên."],
       ["B","好的，谢谢医生。","Hǎo de, xièxie yīshēng.","Được ạ, cảm ơn bác sĩ."]
     ],
     hoi:[
-      {q:"大卫哪里不舒服？",vi:"Đại Vệ cảm thấy khó chịu thế nào?",opts:["头痛，有点儿发烧","肚子痛","眼睛不舒服"],dap:0},
+      {q:"大卫哪里不舒服？",vi:"Đại Vệ khó chịu ở đâu?",opts:["头痛，有点儿发烧","肚子痛","眼睛不舒服"],dap:0},
       {q:"从什么时候开始不舒服？",vi:"Bắt đầu không khỏe từ khi nào?",opts:["今天早上","昨天晚上","上个星期"],dap:1},
-      {q:"医生说一天吃几片药？",vi:"Bác sĩ nói mỗi lần uống mấy viên?",opts:["每次一片","每次两片","每次三片"],dap:1}
+      {q:"医生说每次吃几片药？",vi:"Bác sĩ nói mỗi lần uống mấy viên?",opts:["每次一片","每次两片","每次三片"],dap:1}
     ],
     viet:[1,3,5,7]
   }]

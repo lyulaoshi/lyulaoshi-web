@@ -29,7 +29,7 @@ function noi(txt,o={}){return new Promise(res=>{
   const t=setTimeout(fin,1500+txt.length*450/u.rate);   // phòng khi trình duyệt không báo onend
   u.onend=fin;u.onerror=fin;speechSynthesis.speak(u);
 })}
-const PITCH={A:1.12,B:.9};                  // hai vai nghe khác giọng một chút
+const PITCH={A:1.12,B:.9,C:1.25,D:.8};      // các vai nghe khác giọng một chút (khi không có file audio)
 function dung(){if(TTS_OK)speechSynthesis.cancel();if(ACEL){ACEL.pause();ACEL=null}CHAY++}
 let CHAY=0;                                   // mã lượt phát — đổi là các vòng phát cũ tự dừng
 
@@ -146,7 +146,7 @@ function Nghe(){
     <span class="bb"><span class="hz zh">${esc(c[1])}</span><span class="py">${pyMau(c[2])}</span><span class="vi">${esc(c[3])}</span><span class="mo">${ic("loa")} · · · · · ·</span></span></button>`).join("")}</div>
   <h3 class="h3">Trả lời câu hỏi</h3>
   <ol class="hoi">${D.hoi.map((q,i)=>`<li data-q="${i}"><div class="q"><span class="zh">${esc(q.q)}</span> <button type="button" class="spk" data-noi="${esc(q.q)}" aria-label="Nghe câu hỏi">${ic("loa")}</button></div>
-    <div class="qvi">${esc(q.vi)}</div><div class="opts">${q.opts.map((o,j)=>`<button type="button" data-o="${j}"><span class="zh">${esc(o)}</span></button>`).join("")}</div></li>`).join("")}</ol>
+    <div class="qvi">${esc(q.vi)}</div><div class="opts">${tron(q.opts.map((o,j)=>`<button type="button" data-o="${j}"><span class="zh">${esc(o)}</span></button>`)).join("")}</div></li>`).join("")}</ol>
   <div class="ket" id="ket" hidden><p>${ic("huy","to")}Đúng hết! Em đã hiểu đoạn hội thoại.</p>${tiep()}</div>`;
   const chat=$("#chat");
   $("#hienLoi").onclick=()=>{hien=!hien;chat.classList.toggle("an",!hien);$("#hienLoi").textContent=hien?"Ẩn lời":"Hiện lời"};
@@ -165,6 +165,7 @@ function Nghe(){
     if(dung_.size===D.hoi.length){$("#ket").hidden=false;danhDau(K,"nghe")}}));
 }
 const wait=ms=>new Promise(r=>setTimeout(r,ms));
+function tron(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a}   // trộn thứ tự đáp án mỗi lần mở
 
 /* ---------- ② Shadowing ---------- */
 const BAN={};                                 // bản ghi âm của em: BAN[K+"/"+i]
@@ -232,9 +233,10 @@ const MUC=[["Đủ chữ","Hán + pinyin + nghĩa"],["Pinyin","ẩn chữ Hán"]
 let VAI="B",MUCi=0,GHI_VAI=false;
 function Vai(){
   const P=$("#pBody");
-  P.innerHTML=`<p class="huong">Em nhận một vai, máy đọc vai còn lại. Đến lượt em thì <b>nói to câu của mình</b> rồi bấm “Em nói xong”. Càng về sau càng ẩn nhiều chữ.</p>
+  if(!D.vai[VAI])VAI=Object.keys(D.vai)[1]||"A";
+  P.innerHTML=`<p class="huong">Em nhận một vai, máy đọc ${Object.keys(D.vai).length>2?"các vai":"vai"} còn lại. Đến lượt em thì <b>nói to câu của mình</b> rồi bấm “Em nói xong”. Càng về sau càng ẩn nhiều chữ.</p>
   <div class="chon">
-    <div><b>Em đóng vai</b><div class="seg" id="chVai">${["A","B"].map(v=>`<button type="button" data-v="${v}" aria-pressed="${VAI===v}"><span class="zh">${esc(D.vai[v][0])}</span> <small>${esc(D.vai[v][1])}</small></button>`).join("")}</div></div>
+    <div><b>Em đóng vai</b><div class="seg" id="chVai">${Object.keys(D.vai).map(v=>`<button type="button" data-v="${v}" aria-pressed="${VAI===v}"><span class="zh">${esc(D.vai[v][0])}</span> <small>${esc(D.vai[v][1])}</small></button>`).join("")}</div></div>
     <div><b>Mức ẩn chữ</b><div class="seg" id="chMuc">${MUC.map((m,j)=>`<button type="button" data-m="${j}" aria-pressed="${MUCi===j}">${j+1}. ${m[0]}<small>${m[1]}</small></button>`).join("")}</div></div>
     ${CO_GHI?`<label class="chk"><input type="checkbox" id="ghiVai" ${GHI_VAI?"checked":""}> Ghi âm lượt nói của em (để cuối bài nghe lại cả cuộc hội thoại)</label>`:""}
   </div>

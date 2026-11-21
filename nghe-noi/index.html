@@ -93,6 +93,8 @@ div.line{cursor:default}
 .line.B .ai{background:var(--cs);color:var(--c)}
 .line .bb{display:grid;gap:2px;background:var(--card);border-radius:4px 16px 16px 16px;padding:10px 14px;box-shadow:var(--shadow);min-width:0}
 .line.B .bb{border-radius:16px 4px 16px 16px;background:var(--cs)}
+/* vai thứ 3, 4 (đoạn có nhiều người): đứng bên trái, khác màu nhãn */
+.line.C .ai{background:var(--mint-s);color:var(--mint)}.line.D .ai{background:var(--lav-s);color:var(--lav)}
 .line.dang .bb{outline:3px solid var(--c)}
 .line .hz{font-size:24px;line-height:1.35}
 .py{font-size:15px;color:var(--muted)}.vi{font-size:14px;color:var(--muted)}
@@ -176,6 +178,7 @@ div.line{cursor:default}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="听说盒 · Nghe – nói – 吕老师汉语盒"><meta property="og:description" content="Luyện nghe – nói tiếng Trung theo hội thoại trong giáo trình: nghe hiểu, shadowing có ghi âm, đóng vai với máy, nghe – viết – Lyu Laoshi Chinese Box."><meta property="og:url" content="https://lyulaoshi.com/nghe-noi/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -207,7 +210,7 @@ div.line{cursor:default}
   <section data-pane="th" hidden>
     <div id="dsTh"></div>
   </section>
-  <footer>Giọng đọc là giọng máy có sẵn trong trình duyệt. Bản ghi âm của em chỉ lưu tạm trên máy em, không gửi đi đâu.</footer>
+  <footer>Giọng đọc mẫu là giọng máy (AI), chưa phải giọng người thật. Bản ghi âm của em chỉ lưu tạm trên máy em, không gửi đi đâu.</footer>
 </main>
 
 <main class="wrap" id="play" hidden>
@@ -217,7 +220,7 @@ div.line{cursor:default}
   <nav class="pdoan" id="pDoan" aria-label="Chọn đoạn"></nav>
   <nav class="buoc" id="pBuoc" aria-label="4 bước luyện"></nav>
   <section class="panel" id="pBody"></section>
-  <footer>Giọng đọc là giọng máy có sẵn trong trình duyệt. Bản ghi âm của em chỉ lưu tạm trên máy em, không gửi đi đâu.</footer>
+  <footer>Giọng đọc mẫu là giọng máy (AI), chưa phải giọng người thật. Bản ghi âm của em chỉ lưu tạm trên máy em, không gửi đi đâu.</footer>
 </main>
 
 <script src="data.js?v=3"></script>
