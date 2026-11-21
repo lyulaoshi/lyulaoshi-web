@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>教师角 · Góc giáo viên – 吕老师汉语盒</title>
+<meta name="description" content="Góc giáo viên tiếng Trung: trò chơi cả lớp theo đúng bài giáo trình, chia đội, gọi tên, đếm giờ, bộ từ riêng. Miễn phí, không cần đăng nhập – Lyu Laoshi Chinese Box.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../tro-choi/game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/chung/hero.css?v=f1ff4577">
+<style>
+/* Góc giáo viên 教师角 — trang dành cho thầy cô, dùng chung màu và khuôn đầu trang của web */
+html{scroll-behavior:smooth}[id]{scroll-margin-top:72px}
+[lang="zh"]{font-family:var(--kai)}
+.lh-art text{font-family:var(--hz)}
+.sec{margin-top:34px}
+.sh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:12px}
+.sh h2{font-size:clamp(21px,2.6vw,27px);font-weight:800;line-height:1.2}
+.sh h2 small{font-family:var(--hz);font-weight:400;font-size:.82em;color:var(--teal);margin-left:6px}
+.sh p{margin:0;color:var(--muted);font-size:15px;flex:1 1 320px}
+.num{display:inline-grid;place-items:center;width:30px;height:30px;margin-right:8px;border-radius:50%;background:var(--teal);color:#fff;font-size:15px;font-weight:800;vertical-align:3px}
+.pn{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:18px clamp(14px,2.4vw,24px)}
+.muted{color:var(--muted)}.small{font-size:13.5px}
+select,input[type=text],textarea{font:inherit;font-size:15px;color:var(--ink);background:var(--ground);border:2px solid var(--line);border-radius:12px;padding:9px 12px;min-width:0}
+select:focus,input:focus,textarea:focus{border-color:var(--teal);outline:none}
+textarea{width:100%;resize:vertical;line-height:1.5}
+.btn{font-size:15px;padding:10px 16px;border-radius:12px}
+.btn.tl{background:var(--teal);color:#fff}
+.btn.gh{background:var(--ground2);color:var(--ink)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.btn .lli{width:18px;height:18px}
+
+.toast{position:fixed;z-index:30;left:50%;bottom:22px;translate:-50% 0;width:max-content;max-width:calc(100vw - 32px);padding:11px 18px;border-radius:16px;background:var(--ink);color:var(--ground);font-size:14.5px;font-weight:700;box-shadow:var(--shadow)}
+.toast[hidden]{display:none}
+
+/* 1. Chọn bài */
+.pick{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) auto;gap:10px;align-items:end}
+.pick label{display:grid;gap:4px;font-size:13px;font-weight:700;color:var(--muted)}
+.sug{margin-top:16px;display:grid;gap:14px}
+.sug h3{font-size:14px;font-weight:800;color:var(--muted);margin-bottom:8px}
+.sug h3 b{color:var(--ink)}
+.gl{display:flex;flex-wrap:wrap;gap:8px}
+.gl a{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;border-radius:14px;background:var(--ground2);text-decoration:none;font-weight:700;font-size:14.5px;border:2px solid transparent;transition:border-color .12s,transform .12s}
+.gl a:hover{border-color:var(--teal);transform:translateY(-1px)}
+.gl a .z{font-family:var(--hz);font-weight:400;font-size:17px;color:var(--teal)}
+.gl a.phu{background:transparent;border-color:var(--line);font-weight:600}
+.sug-ft{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:14px}
+.sug-ft a{color:var(--teal);font-weight:700}
+.note{margin:0;padding:10px 14px;border-radius:12px;background:var(--butter-s);font-size:14px}
+
+/* 2. Tra trò chơi */
+.fl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.fl button{font:inherit;font-size:14px;font-weight:700;padding:7px 14px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--muted);cursor:pointer}
+.fl button[aria-pressed="true"]{background:var(--teal-s);border-color:var(--teal);color:var(--ink)}
+.fl .cnt{margin-left:auto;font-size:14px;color:var(--muted)}
+.gcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.gc{display:flex;flex-direction:column;gap:8px;padding:16px;border-radius:20px;background:var(--card);box-shadow:var(--shadow);border-top:6px solid var(--c);min-width:0}
+.gc[hidden]{display:none}
+.gc-h{display:flex;align-items:center;gap:10px}
+.gc-h .z{font-family:var(--hz);font-size:22px;color:var(--c);line-height:1}
+.gc-h h3{font-size:17px;font-weight:800;line-height:1.25}
+.gc p{margin:0;font-size:14.5px;line-height:1.5;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--ground2);color:var(--ink)}
+.tags .lli{width:14px;height:14px}
+.tags .dt{background:var(--sky-s)}.tags .th{background:var(--butter-s)}
+.gc .ctrl{font-size:13px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:auto}
+.gc .ctrl b{color:var(--ink)}
+.gc .go{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:12px;background:var(--c);color:#fff;font-weight:800;font-size:14px;text-decoration:none}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:18px}
+
+/* 3. Dụng cụ lớp học */
+.tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tool{display:flex;flex-direction:column;gap:10px;min-width:0}
+.tool h3{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:800}
+.tool h3 .lli{width:22px;height:22px;color:var(--teal)}
+.tool h3 .tr{margin-left:auto;font-size:13px;font-weight:600;color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;border-radius:12px;background:var(--ground2);padding:3px}
+.seg button{font:inherit;font-size:14px;font-weight:700;border:0;background:transparent;color:var(--muted);padding:6px 11px;border-radius:9px;cursor:pointer;min-width:36px}
+.seg button[aria-pressed="true"]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.teams{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
+.teams>p{grid-column:1/-1}
+.team{border-radius:14px;padding:8px 10px;background:color-mix(in srgb,var(--c) 14%,var(--card));border:2px solid color-mix(in srgb,var(--c) 45%,transparent);font-size:14px;min-width:0}
+.team b{display:block;color:var(--c);font-size:14px}
+.team ol{margin:4px 0 0;padding-left:20px}
+.pickname{display:grid;place-items:center;min-height:96px;border-radius:16px;background:var(--ground2);font-size:clamp(26px,4vw,38px);font-weight:800;text-align:center;padding:10px;overflow-wrap:anywhere}
+.pickname.spin{color:var(--muted)}
+.called{font-size:13px;color:var(--muted)}
+.clock{display:grid;place-items:center;min-height:96px;border-radius:16px;background:var(--ground2);font-size:clamp(44px,7vw,64px);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.clock.het{background:var(--coral);color:#fff;animation:nhay .6s ease-in-out 4}
+@keyframes nhay{50%{transform:scale(1.04)}}
+.chk{display:inline-flex;align-items:center;gap:6px;font-size:14px;color:var(--muted);cursor:pointer}
+dialog.big{width:100vw;height:100vh;max-width:none;max-height:none;margin:0;border:0;padding:24px;background:var(--ground);color:var(--ink)}
+dialog.big[open]{display:grid;place-items:center;align-content:center;gap:28px}
+dialog.big::backdrop{background:var(--ground)}
+.big-v{font-size:clamp(60px,15vw,220px);font-weight:800;line-height:1.05;text-align:center;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.big-v.het{color:var(--coral)}
+.big-x{position:absolute;top:16px;right:16px}
+
+/* 4. Bộ từ riêng */
+.bt{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px}
+.bt label{display:grid;gap:4px;font-size:13px;font-weight:700;color:var(--muted)}
+.bt-st{font-size:14px;min-height:1.5em}
+.bt-st .bad{color:var(--coral);font-weight:700}
+.sets{display:flex;flex-wrap:wrap;gap:6px}
+.sets button{font:inherit;font-size:13.5px;font-weight:700;border:2px solid var(--line);background:var(--card);color:var(--ink);padding:5px 11px;border-radius:999px;cursor:pointer}
+
+/* 5. Cách dùng */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:b}
+.step{position:relative;padding:16px 16px 16px 62px;border-radius:20px;background:var(--card);box-shadow:var(--shadow)}
+.step::before{counter-increment:b;content:counter(b);position:absolute;left:16px;top:16px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--teal-s);color:var(--teal);font-weight:800}
+.step b{display:block;font-size:16px}
+.step p{margin:4px 0 0;font-size:14.5px;color:var(--muted);line-height:1.5}
+.keys{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--muted)}
+kbd{display:inline-block;min-width:24px;padding:1px 7px;border-radius:7px;border:2px solid var(--line);border-bottom-width:4px;background:var(--card);color:var(--ink);font:700 13px var(--vi);text-align:center}
+
+/* 6. Sắp có */
+.soon{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.soon>div{padding:16px;border-radius:20px;border:2px dashed var(--line);display:grid;gap:4px}
+.soon b{font-size:16px}.soon p{margin:0;font-size:14px;color:var(--muted);line-height:1.5}
+.soon .lli{width:24px;height:24px;color:var(--faint)}
+.lbl{justify-self:start;font-size:12px;font-weight:800;padding:2px 9px;border-radius:999px;background:var(--ground2);color:var(--muted)}
+
+/* 7. Chia sẻ */
+.share{display:grid;grid-template-columns:minmax(0,1fr) 170px;gap:20px;align-items:center}
+.share .lnk{display:flex;gap:8px}
+.share .lnk input{flex:1;font-size:14px}
+.qr{width:170px;height:170px;padding:10px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:13px;color:#555;text-align:center}
+.qr svg{width:100%;height:100%}
+.privacy{margin-top:12px;font-size:13.5px;color:var(--muted)}
+
+@media (max-width:860px){
+  .tools,.bt{grid-template-columns:minmax(0,1fr)}
+  .steps,.soon{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  .pick{grid-template-columns:minmax(0,1fr)}
+  .pick .btn{justify-self:start}
+  .share{grid-template-columns:minmax(0,1fr)}
+  .share .qr{justify-self:center}
+  .fl .cnt{margin-left:0;width:100%}
+  .gcs{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="canonical" href="https://lyulaoshi.com/giao-vien/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="教师角 · Góc giáo viên – 吕老师汉语盒"><meta property="og:description" content="Góc giáo viên tiếng Trung: trò chơi cả lớp theo đúng bài giáo trình, chia đội, gọi tên, đếm giờ, bộ từ riêng. Miễn phí, không cần đăng nhập – Lyu Laoshi Chinese Box."><meta property="og:url" content="https://lyulaoshi.com/giao-vien/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="../tro-choi/" class="hide-s">Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap">
+<section class="lh" style="--c:var(--teal);--c2:var(--coral);--cs:var(--teal-s)">
+  <div>
+    <span class="lh-eyebrow">Dành cho thầy cô dạy tiếng Trung</span>
+    <h1><span class="lh-big" lang="zh"><i>教师</i><u>角</u></span>Góc giáo viên</h1>
+    <p class="lh-lead">Trò chơi cả lớp và dụng cụ đứng lớp, <b>lấy đúng từ và mẫu câu của bài đang dạy</b>. Miễn phí, không cần đăng nhập. Chỉ cần máy chiếu và trình duyệt.</p>
+    <div class="lh-acts">
+      <a class="lh-btn pri" href="#bai"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sach"></use></svg>Chọn bài hôm nay</a>
+      <a class="lh-btn sec" href="#chia-se"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#bat-tay"></use></svg>Gửi cho đồng nghiệp</a>
+    </div>
+    <div class="lh-stats"><span><b id="stGame">10</b>trò cả lớp</span><span><b id="stSach">7</b>giáo trình</span><span><b id="stBai">–</b>bài có sẵn từ vựng</span></div>
+  </div>
+  <div class="lh-art" aria-hidden="true">
+    <svg viewBox="0 0 400 420" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- màn chiếu -->
+      <path d="M70 46h260" stroke-width="9"/><path d="M200 30v16"/>
+      <rect x="84" y="50" width="232" height="150" rx="10" fill="var(--card)"/>
+      <text x="200" y="128" text-anchor="middle" font-size="62" fill="var(--teal)" stroke="none">你好</text>
+      <text x="200" y="168" text-anchor="middle" font-size="22" fill="var(--muted)" stroke="none" font-family="var(--vi)" font-weight="700">nǐ hǎo</text>
+      <path d="M200 200v22"/>
+      <!-- đội đỏ – xanh -->
+      <rect x="100" y="80" width="36" height="22" rx="6" fill="var(--coral)" stroke="none"/><rect x="264" y="80" width="36" height="22" rx="6" fill="var(--sky)" stroke="none"/>
+      <!-- bàn -->
+      <path d="M40 300h320" stroke-width="7"/>
+      <path d="M62 300l-14 96M338 300l14 96"/>
+      <rect x="80" y="314" width="240" height="44" rx="8" fill="var(--teal-s)"/>
+      <!-- sách -->
+      <rect x="72" y="262" width="92" height="20" rx="4" fill="var(--peach-s)"/><rect x="80" y="242" width="80" height="20" rx="4" fill="var(--lav-s)"/><rect x="76" y="282" width="96" height="18" rx="4" fill="var(--mint-s)"/>
+      <!-- đồng hồ -->
+      <circle cx="232" cy="262" r="30" fill="var(--card)"/><path d="M232 244v18l12 8"/>
+      <!-- chuông -->
+      <path d="M296 296c0-26 8-40 24-40s24 14 24 40z" fill="var(--butter-s)"/><path d="M320 248v8M312 296a8 8 0 0 0 16 0"/>
+      <!-- phấn -->
+      <path d="M180 292l22-8" stroke="var(--coral)" stroke-width="8"/>
+    </svg>
+    <span class="lh-pop a" lang="zh">拔河</span><span class="lh-pop b" lang="zh">宾果</span><span class="lh-pop py c">Đội Đỏ +1</span><span class="lh-pop d" lang="zh">加油！</span>
+  </div>
+</section>
+
+<!-- 1. Chọn bài -->
+<section class="sec" id="bai">
+  <div class="sh"><h2><span class="num">1</span>Hôm nay thầy cô dạy bài gì?<small lang="zh">今天上第几课</small></h2><p>Chọn giáo trình và bài. Bấm một trò là trò mở ra với đúng từ, đúng câu của bài đó.</p></div>
+  <div class="pn">
+    <div class="pick">
+      <label>Giáo trình<select id="pkSach"></select></label>
+      <label>Bài<select id="pkBai"></select></label>
+      <a class="btn gh" id="pkBg" href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#tv"></use></svg>Mở bài giảng</a>
+    </div>
+    <div class="sug" id="sug"></div>
+  </div>
+</section>
+
+<!-- 2. Tra trò chơi -->
+<section class="sec" id="tra">
+  <div class="sh"><h2><span class="num">2</span>Tra trò chơi trên lớp<small lang="zh">课堂游戏</small></h2><p>Lọc theo thời gian, sĩ số và thiết bị lớp mình có. Bấm nhiều nút để lọc kỹ hơn.</p></div>
+  <div class="fl" id="fl" role="group" aria-label="Lọc trò chơi">
+    <button type="button" data-f="nhanh" aria-pressed="false">Dưới 10 phút</button>
+    <button type="button" data-f="dong" aria-pressed="false">Lớp đông</button>
+    <button type="button" data-f="nho" aria-pressed="false">Lớp nhỏ</button>
+    <button type="button" data-f="chieu" aria-pressed="false">Chỉ cần máy chiếu</button>
+    <button type="button" data-f="dt" aria-pressed="false">Học viên dùng điện thoại</button>
+    <button type="button" data-f="noi" aria-pressed="false">Luyện nói</button>
+    <button type="button" data-f="cau" aria-pressed="false">Ôn mẫu câu</button>
+    <span class="cnt" id="flCnt" aria-live="polite"></span>
+  </div>
+  <div class="gcs" id="gcs"></div>
+</section>
+
+<!-- 3. Dụng cụ lớp học -->
+<section class="sec" id="dung-cu">
+  <div class="sh"><h2><span class="num">3</span>Dụng cụ lớp học<small lang="zh">课堂工具</small></h2><p>Dán danh sách lớp một lần. Chia đội, gọi tên và các trò Đua cùng đề, Võ đài, Bom hẹn giờ đều dùng chung danh sách này.</p></div>
+  <div class="tools">
+    <div class="pn tool">
+      <h3><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sotay"></use></svg>Danh sách lớp<span class="tr" id="dsN"></span></h3>
+      <textarea id="ds" rows="7" placeholder="Mỗi dòng một tên&#10;Nguyễn Minh Anh&#10;Trần Bảo Ngọc&#10;Lê Hoàng Nam"></textarea>
+      <p class="small muted" style="margin:0">Danh sách chỉ lưu trên máy này, không gửi đi đâu.</p>
+    </div>
+    <div class="pn tool">
+      <h3><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#xuc-xac"></use></svg>Chia đội ngẫu nhiên</h3>
+      <div class="row"><span class="small muted">Số đội</span><div class="seg" id="tmN" role="group" aria-label="Số đội"></div><button class="btn tl" id="tmGo" type="button"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#lai"></use></svg>Chia đội</button></div>
+      <div class="teams" id="teams"><p class="small muted" style="margin:0">Dán danh sách lớp rồi bấm Chia đội.</p></div>
+    </div>
+    <div class="pn tool">
+      <h3><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#gio-tay"></use></svg>Gọi tên ngẫu nhiên</h3>
+      <div class="pickname" id="pnV">?</div>
+      <div class="row">
+        <button class="btn tl" id="pnGo" type="button"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#xuc-xac"></use></svg>Gọi một bạn</button>
+        <button class="btn gh" id="pnBig" type="button"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#tv"></use></svg>Chiếu to</button>
+        <label class="chk"><input type="checkbox" id="pnNo" checked>Không gọi lại bạn đã gọi</label>
+      </div>
+      <div class="called" id="pnDone"></div>
+    </div>
+    <div class="pn tool">
+      <h3><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#dong-ho"></use></svg>Đếm giờ</h3>
+      <div class="clock" id="ckV">03:00</div>
+      <div class="row"><div class="seg" id="ckP" role="group" aria-label="Chọn thời gian"></div></div>
+      <div class="row">
+        <button class="btn tl" id="ckGo" type="button"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#phat"></use></svg><span>Bắt đầu</span></button>
+        <button class="btn gh" id="ckRe" type="button"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#lai"></use></svg>Đặt lại</button>
+        <button class="btn gh" id="ckBig" type="button"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#tv"></use></svg>Chiếu to</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Bộ từ riêng -->
+<section class="sec" id="bo-tu">
+  <div class="sh"><h2><span class="num">4</span>Bộ từ riêng của thầy cô<small lang="zh">我的词表</small></h2><p>Dạy bài ngoài giáo trình? Dán danh sách từ, các trò cả lớp sẽ chơi đúng những từ đó.</p></div>
+  <div class="pn bt">
+    <div style="display:grid;gap:10px">
+      <label>Tên bộ từ<input type="text" id="btN" maxlength="40" placeholder="Ví dụ: Chủ đề ăn uống – tuần 5"></label>
+      <label>Mỗi dòng một từ: chữ Hán | pinyin | nghĩa. Từ có trong HSK 1–6 chỉ cần gõ chữ Hán.<textarea id="btT" rows="7" placeholder="奶茶 | nǎichá | trà sữa&#10;火锅 | huǒguō | lẩu&#10;朋友"></textarea></label>
+      <div class="bt-st" id="btSt" aria-live="polite"></div>
+    </div>
+    <div style="display:grid;gap:12px;align-content:start">
+      <div><p class="small muted" style="margin:0 0 6px">Chơi bộ này với</p><div class="gl" id="btGo"></div></div>
+      <div class="row"><button class="btn gh" id="btSave" type="button"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#tai-ve"></use></svg>Lưu bộ từ</button><button class="btn gh" id="btDel" type="button" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sai"></use></svg>Xoá bộ này</button></div>
+      <div><p class="small muted" style="margin:0 0 6px">Bộ từ đã lưu trên máy này</p><div class="sets" id="btSets"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Cách dùng -->
+<section class="sec" id="cach-dung">
+  <div class="sh"><h2><span class="num">5</span>Dùng trên lớp thế nào?<small lang="zh">怎么用</small></h2></div>
+  <div class="steps">
+    <div class="step"><b>Nối máy chiếu</b><p>Mở trang này trên máy tính nối máy chiếu hoặc TV. Bấm nút toàn màn hình của trình duyệt (phím <kbd>F11</kbd>) cho chữ to.</p></div>
+    <div class="step"><b>Chọn bài, chọn trò</b><p>Chọn bài ở mục 1, hoặc tra trò ở mục 2. Mỗi trò có màn hướng dẫn ngắn trước khi chơi.</p></div>
+    <div class="step"><b>Thầy cô làm trọng tài</b><p>Học viên hô đáp án, thầy cô bấm phím cho đội đúng. Trò có mã QR thì học viên quét bằng điện thoại.</p></div>
+  </div>
+  <div class="keys"><span>Phím hay dùng trong các trò:</span><span><kbd>Space</kbd> hiện đáp án</span><span><kbd>Z</kbd> hoàn tác</span><span><kbd>N</kbd> bỏ qua câu</span><span><kbd>R</kbd> đọc lại</span><span><kbd>1</kbd>–<kbd>4</kbd> đội trả lời đúng</span></div>
+</section>
+
+<!-- 6. Sắp có -->
+<section class="sec" id="sap-co">
+  <div class="sh"><h2>Đang soạn thêm<small lang="zh">即将推出</small></h2></div>
+  <div class="soon">
+    <div><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#kinh-lup"></use></svg><b>Kiểm tra cấp HSK của đoạn văn</b><p>Dán đoạn tiếng Trung, tô màu từng từ theo cấp HSK 1–9.</p><span class="lbl">Sắp có</span></div>
+    <div><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#cuon-giay"></use></svg><b>Phiếu bài tập in <span lang="zh">田字格</span></b><p>Từ một bộ từ, tự tạo phiếu tập viết, nối từ, điền từ.</p><span class="lbl">Sắp có</span></div>
+    <div><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#but"></use></svg><b>Bảng viết chữ to</b><p>Chiếu chữ Hán viết từng nét theo bút thuận để giảng.</p><span class="lbl">Sắp có</span></div>
+  </div>
+</section>
+
+<!-- 7. Chia sẻ -->
+<section class="sec" id="chia-se">
+  <div class="sh"><h2>Gửi cho đồng nghiệp<small lang="zh">分享给同事</small></h2><p>Thầy cô thấy có ích thì gửi trang này cho đồng nghiệp. Ai có link là dùng được, không cần tài khoản.</p></div>
+  <div class="pn share">
+    <div style="display:grid;gap:12px">
+      <div class="lnk"><input type="text" id="shL" readonly aria-label="Link Góc giáo viên"><button class="btn tl" id="shCp" type="button"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#chep"></use></svg>Chép link</button></div>
+      <div class="row"><button class="btn gh" id="shGo" type="button" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#gui"></use></svg>Gửi qua Zalo, Messenger…</button><a class="btn gh" href="../#hop-thu"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#thu"></use></svg>Góp ý, đề xuất trò mới</a></div>
+      <p class="privacy">Không cần tài khoản hay thông tin cá nhân. Danh sách lớp và bộ từ riêng chỉ lưu trong trình duyệt của máy đang dùng.</p>
+    </div>
+    <div class="qr" id="shQr">Đang tạo mã QR…</div>
+  </div>
+</section>
+</main>
+
+<dialog class="big" id="bigD" aria-label="Chiếu to"><div class="big-v" id="bigV"></div><div class="row" id="bigA"></div><button class="btn gh big-x" id="bigX" type="button"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sai"></use></svg>Đóng</button></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+<footer class="wrap">Từ vựng theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../tu-vung/bai-data.js"></script>
+<script src="../tro-choi/vuot-ai/co-de.js"></script>
+<script src="../tro-choi/hsk-words.js"></script>
+<script src="../tu-vung/nghia-hsk1.js"></script>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
+</script>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+n+'"></use></svg>';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let toastT=0;const toast=t=>{const e=$('toast');e.textContent=t;e.hidden=false;clearTimeout(toastT);toastT=setTimeout(()=>e.hidden=true,2200)};
+
+/* ---------- Trò chơi cả lớp (Ngăn 6 của 游戏盒). bo: 'tu' nhận bộ từ theo bài, 'cau' nhận câu theo bài (chỉ bài có trong VA_CO) ---------- */
+const G=[
+ {id:'keo-co',z:'拔河',n:'Kéo co Đỏ – Xanh',c:'#C2410C',p:'Hai đội thi trả lời từ vựng, đúng thì kéo dây về phía mình.',ph:'5–10 phút',ss:'Cả lớp, 2 đội',tb:'chieu',f:['nhanh','dong','chieu'],bo:'tu',min:8,ctrl:'Thầy cô bấm <b>A</b> / <b>L</b> cho đội đúng, hoặc 2 em thi trên bàn phím.'},
+ {id:'dap-ruoi',z:'拍苍蝇',n:'Đập ruồi',c:'#4D7C0F',p:'Máy đọc một từ, đại diện các đội chạy lên đập đúng con ruồi mang từ đó.',ph:'5–10 phút',ss:'Cả lớp, 2–4 đội',tb:'chieu',f:['nhanh','dong','chieu'],bo:'tu',min:13,ctrl:'Bấm <b>1</b>–<b>4</b> cho đội đập trúng trước.'},
+ {id:'bingo',z:'宾果',n:'Bingo cả lớp',c:'#B91C1C',p:'Mỗi em quét mã nhận một thẻ từ riêng. Thầy cô gọi từ, đủ một hàng thì hô 宾果.',ph:'10–15 phút',ss:'Cả lớp',tb:'dt',f:['dong','dt'],bo:'tu',min:11,ctrl:'Máy tự chấm thẻ theo các từ đã gọi, học viên không gian lận được.'},
+ {id:'vo-dai',z:'擂台赛',n:'Võ đài',c:'#9F1239',p:'Một em giữ đài, lần lượt các bạn lên thách đấu 1-1. Ai giữ đài lâu nhất?',ph:'10–15 phút',ss:'Cả lớp',tb:'chieu',f:['dong','chieu','cau'],bo:'cau',ctrl:'Hai em hô đáp án, thầy cô bấm <b>←</b> / <b>→</b> cho em đúng trước.'},
+ {id:'chiem-dat',z:'占领地图',n:'Chiếm lãnh thổ',c:'#1D4ED8',p:'Trả lời đúng thì chiếm một ô trên bản đồ, được cướp đất của đội bạn.',ph:'15 phút',ss:'Cả lớp, 2–4 đội',tb:'chieu',f:['dong','chieu','cau'],bo:'cau',ctrl:'Bấm <b>1</b>–<b>4</b> cho đội đúng, <b>N</b> khi không đội nào đúng.'},
+ {id:'non-ky-dieu',z:'幸运转盘',n:'Chiếc nón kỳ diệu',c:'#7E22CE',p:'Các đội quay nón lấy điểm, đoán từng chữ của câu đang bị che trong bài.',ph:'15 phút',ss:'Cả lớp, 2–4 đội',tb:'chieu',f:['dong','chieu','cau'],bo:'cau',khong:['ledu'],ctrl:'Thầy cô quay nón và mở chữ theo lời đội đoán.'},
+ {id:'dua-cung-de',z:'同题赛',n:'Đua cùng đề',c:'#0E7490',p:'Cả lớp quét mã, nhập tên rồi cùng làm một đề theo bài. Đúng nhiều, nhanh thì đứng đầu.',ph:'10 phút',ss:'Cả lớp',tb:'dt',f:['nhanh','dong','dt','cau'],bo:'cau',ctrl:'Màn chiếu hiện bảng xếp hạng. Dán danh sách lớp để tự khớp tên.'},
+ {id:'trieu-phu',z:'百万富翁',n:'Ai là triệu phú',c:'#A16207',p:'Từng em lên ghế nóng trả lời chuỗi câu khó dần, có 3 quyền trợ giúp.',ph:'15 phút',ss:'Lớp nhỏ',tb:'chieu',f:['nho','chieu','cau'],bo:'cau',ctrl:'Bấm <b>A</b>–<b>D</b> theo lời em chọn, <b>Enter</b> để chốt.'},
+ {id:'bom-hen-gio',z:'定时炸弹',n:'Bom hẹn giờ',c:'#BE123C',p:'Bom chuyền theo vòng, nói được tiếng Trung mới chuyền đi. Bom nổ ở tay ai, người đó mất một mạng.',ph:'10 phút',ss:'Lớp nhỏ',tb:'chieu',f:['nhanh','nho','chieu','noi'],bo:'tu',ctrl:'Bấm <b>Space</b> khi em nói được, <b>N</b> để đổi đề.'},
+ {id:'gian-diep',z:'谁是卧底',n:'Ai là gián điệp',c:'#334155',p:'Mỗi em nhận một từ bí mật, gián điệp cầm từ gần giống. Mô tả bằng tiếng Trung rồi bỏ phiếu.',ph:'15–20 phút',ss:'Nhóm 4–8 em',tb:'dt',f:['dong','dt','noi'],bo:'',ctrl:'Mỗi em xem từ trên điện thoại riêng, cả nhóm cùng chọn một mã nhóm.'}
+];
+/* Trò ôn mẫu câu chơi một mình nhưng chiếu lên được (chặng của Vượt ải). ledu chỉ có Trả lời + Điền (+ Tìm lỗi sinh từ Điền) */
+const PHU=[{id:'xep-cau',z:'连词成句',n:'Xếp câu',ledu:0},{id:'tra-loi',z:'回答问题',n:'Trả lời câu hỏi',ledu:1},{id:'dien-cho',z:'选词填空',n:'Điền chỗ trống',ledu:1},{id:'tim-loi',z:'改错',n:'Tìm lỗi sai',ledu:1},{id:'dich-cau',z:'翻译',n:'Dịch câu',ledu:0}];
+const TB={chieu:['tv','Máy chiếu'],dt:['dien-thoai','Học viên cần điện thoại']};
+const gameUrl=(id,bo)=>'../tro-choi/'+id+'/'+(bo?'?bo='+encodeURIComponent(bo):'');
+$('stGame').textContent=G.length;
+
+/* ---------- 1. Chọn bài ---------- */
+const BAI=window.BAI||[],CO=window.VA_CO||{};
+$('stSach').textContent=BAI.length;$('stBai').textContent=BAI.reduce((s,b)=>s+b.bai.length,0);
+const pS=$('pkSach'),pB=$('pkBai');
+BAI.forEach(b=>{const o=document.createElement('option');o.value=b.id;o.textContent=b.vi+' · '+b.zh;pS.append(o)});
+const last=store.get('gv-bai')||{};
+if(BAI.some(b=>b.id===last.s))pS.value=last.s;
+function fillBai(keep){const b=BAI.find(x=>x.id===pS.value);pB.innerHTML='';if(!b)return;
+  b.bai.forEach(l=>{const o=document.createElement('option');o.value=l.id;o.textContent='Bài '+l.n+' · '+l.w.length+' từ';pB.append(o)});
+  if(keep&&b.bai.some(l=>l.id===keep))pB.value=keep}
+function sug(){const b=BAI.find(x=>x.id===pS.value);if(!b)return;const l=b.bai.find(x=>x.id===pB.value);if(!l)return;
+  store.set('gv-bai',{s:b.id,b:l.id});
+  $('pkBg').href='../'+b.id+'/'+l.id+'/';
+  const bo='bai:'+b.id+':'+l.id,cau=(CO[b.id]||[]).includes(l.n),nw=l.w.length;
+  const chip=(g,cls)=>'<a'+(cls?' class="'+cls+'"':'')+' href="'+gameUrl(g.id,bo)+'"><span class="z" lang="zh">'+g.z+'</span>'+esc(g.n)+'</a>';
+  let h='';
+  const tu=G.filter(g=>g.bo==='tu'&&!(g.min>nw));
+  h+='<div><h3>Ôn từ vựng · <b>'+nw+' từ</b> của Bài '+l.n+'</h3><div class="gl">'+tu.map(g=>chip(g)).join('')+'</div></div>';
+  const thieu=G.filter(g=>g.bo==='tu'&&g.min>nw);
+  if(thieu.length)h+='<p class="note">Bài này ít từ, chưa đủ cho '+thieu.map(g=>g.n+' (cần '+g.min+' từ)').join(', ')+'.</p>';
+  if(cau){const cs=G.filter(g=>g.bo==='cau'&&!(g.khong||[]).includes(b.id)),ph=PHU.filter(p=>b.id!=='ledu'||p.ledu);
+    h+='<div><h3>Ôn mẫu câu của bài · <b>thi theo đội</b></h3><div class="gl">'+cs.map(g=>chip(g)).join('')+'</div></div>';
+    h+='<div><h3>Chiếu lên cho cả lớp cùng làm</h3><div class="gl">'+ph.map(p=>chip(p,'phu')).join('')+'</div></div>'}
+  else h+='<p class="note">Bài này chưa có bộ câu hỏi theo bài. Các trò ôn mẫu câu (Võ đài, Chiếm lãnh thổ…) vẫn chơi được bằng từ vựng HSK.</p>';
+  h+='<div class="sug-ft"><a href="../tro-choi/?bo='+encodeURIComponent(bo)+'">Xem mọi trò chơi với bài này</a></div>';
+  $('sug').innerHTML=h}
+fillBai(last.b);sug();
+pS.onchange=()=>{fillBai();sug()};pB.onchange=sug;
+
+/* ---------- 2. Tra trò chơi ---------- */
+$('gcs').innerHTML=G.map(g=>'<article class="gc" style="--c:'+g.c+'" data-f="'+g.f.join(' ')+'"><div class="gc-h"><span class="z" lang="zh">'+g.z+'</span><h3>'+esc(g.n)+'</h3></div><p>'+esc(g.p)+'</p>'
+  +'<div class="tags"><span>'+IC('dong-ho')+g.ph+'</span><span>'+esc(g.ss)+'</span><span class="'+(g.tb==='dt'?'dt':'')+'">'+IC(TB[g.tb][0])+TB[g.tb][1]+'</span>'+(g.bo?'<span class="th">'+IC('sach')+(g.bo==='tu'?'Từ của bài':'Câu của bài')+'</span>':'')+'</div>'
+  +'<div class="ctrl">'+g.ctrl+'</div><a class="go" href="'+gameUrl(g.id)+'">'+IC('phat')+'Mở trò</a></article>').join('')+'<p class="empty" id="gcE" hidden>Chưa có trò nào hợp đủ các điều kiện. Thầy cô bỏ bớt một nút lọc nhé.</p>';
+const fb=[...document.querySelectorAll('#fl button')];
+function filt(){const on=fb.filter(b=>b.getAttribute('aria-pressed')==='true').map(b=>b.dataset.f);let n=0;
+  document.querySelectorAll('.gc').forEach(c=>{const f=c.dataset.f.split(' ');const ok=on.every(x=>f.includes(x));c.hidden=!ok;if(ok)n++});
+  $('flCnt').textContent=n+' / '+G.length+' trò';$('gcE').hidden=n>0}
+fb.forEach(b=>b.onclick=()=>{b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');filt()});filt();
+
+/* ---------- 3. Dụng cụ lớp học (danh sách dùng chung khoá dcd-ds với Đua cùng đề, Võ đài, Bom hẹn giờ) ---------- */
+const names=()=>($('ds').value||'').split('\n').map(x=>x.trim()).filter(Boolean);
+$('ds').value=store.get('dcd-ds')||'';
+const dsN=()=>{const n=names().length;$('dsN').textContent=n?n+' bạn':''};dsN();
+$('ds').oninput=()=>{store.set('dcd-ds',$('ds').value);dsN();called.clear();paintCalled()};
+const shuf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const seg=(el,vals,cur,fmt,on)=>{el.innerHTML='';vals.forEach(v=>{const b=document.createElement('button');b.type='button';b.textContent=fmt(v);b.setAttribute('aria-pressed',v===cur);b.onclick=()=>{[...el.children].forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');on(v)};el.append(b)})};
+// Chia đội
+const TC=[['Đỏ','#DC2626'],['Xanh','#2563EB'],['Vàng','#CA8A04'],['Lá','#16A34A'],['Tím','#7C3AED'],['Cam','#EA580C']];
+let tmN=2;seg($('tmN'),[2,3,4,5,6],tmN,String,v=>tmN=v);
+$('tmGo').onclick=()=>{const a=shuf(names());if(a.length<2){$('teams').innerHTML='<p class="small muted" style="margin:0">Cần ít nhất 2 bạn trong danh sách lớp.</p>';return}
+  const t=Array.from({length:tmN},()=>[]);a.forEach((x,i)=>t[i%tmN].push(x));
+  $('teams').innerHTML=t.map((m,i)=>'<div class="team" style="--c:'+TC[i][1]+'"><b>Đội '+TC[i][0]+' · '+m.length+'</b><ol>'+m.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ol></div>').join('')};
+// Gọi tên
+const called=new Set();
+const paintCalled=()=>{$('pnDone').textContent=called.size?'Đã gọi ('+called.size+'): '+[...called].join(', '):''};
+let pnT=0;
+function callOne(out){const all=names();if(!all.length){out.forEach(e=>e.textContent='Chưa có danh sách lớp');return}
+  let pool=$('pnNo').checked?all.filter(x=>!called.has(x)):all;
+  if(!pool.length){called.clear();pool=all;toast('Đã gọi hết lớp, bắt đầu vòng mới')}
+  const pick=pool[Math.floor(Math.random()*pool.length)];clearInterval(pnT);let k=0;
+  out.forEach(e=>e.classList.add('spin'));
+  pnT=setInterval(()=>{const t=all[Math.floor(Math.random()*all.length)];out.forEach(e=>e.textContent=t);
+    if(++k>14){clearInterval(pnT);out.forEach(e=>{e.textContent=pick;e.classList.remove('spin')});called.add(pick);paintCalled()}},70)}
+$('pnGo').onclick=()=>callOne([$('pnV')]);
+// Đếm giờ
+let big='';   // đang chiếu to: 'pn' gọi tên, 'ck' đếm giờ
+let ckS=180,ckL=180,ckRun=false,ckEnd=0,ckI=0,ac=null;
+const mmss=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+const beep=()=>{try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();[0,.35,.7].forEach(t=>{const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=880;o.connect(g);g.connect(ac.destination);const s=ac.currentTime+t;g.gain.setValueAtTime(.0001,s);g.gain.exponentialRampToValueAtTime(.3,s+.02);g.gain.exponentialRampToValueAtTime(.0001,s+.28);o.start(s);o.stop(s+.3)})}catch(e){}};
+function ckPaint(){const v=mmss(ckL),h=ckL===0;$('ckV').textContent=v;$('ckV').classList.toggle('het',h&&!ckRun&&ckS>0);
+  if(big==='ck'){$('bigV').textContent=v;$('bigV').classList.toggle('het',h)}
+  const lb=ckRun?'Tạm dừng':(ckL<ckS&&ckL>0?'Chạy tiếp':'Bắt đầu');$('ckGo').innerHTML=IC(ckRun?'tam-dung':'phat')+'<span>'+lb+'</span>';
+  const bg=document.getElementById('bigCk');if(bg)bg.innerHTML=$('ckGo').innerHTML}
+function ckTick(){ckL=Math.max(0,Math.ceil((ckEnd-Date.now())/1000));if(ckL===0){clearInterval(ckI);ckRun=false;beep()}ckPaint()}
+function ckToggle(){if(ckRun){clearInterval(ckI);ckRun=false;ckTick();ckRun=false;ckPaint();return}
+  if(ckL===0)ckL=ckS;ckEnd=Date.now()+ckL*1000;ckRun=true;clearInterval(ckI);ckI=setInterval(ckTick,250);ckPaint();
+  try{ac=ac||new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}
+function ckReset(){clearInterval(ckI);ckRun=false;ckL=ckS;ckPaint()}
+seg($('ckP'),[30,60,120,180,300,600],ckS,v=>v<60?v+' giây':v/60+' phút',v=>{ckS=v;ckReset()});
+$('ckGo').onclick=ckToggle;$('ckRe').onclick=ckReset;ckPaint();
+// Chiếu to
+const D=$('bigD');
+function openBig(kind){big=kind;const A=$('bigA');A.innerHTML='';const V=$('bigV');V.classList.remove('het','spin');
+  if(kind==='pn'){V.textContent=$('pnV').textContent;const b=document.createElement('button');b.className='btn tl';b.type='button';b.innerHTML=IC('xuc-xac')+'Gọi một bạn';b.onclick=()=>callOne([V,$('pnV')]);A.append(b)}
+  else{const b=document.createElement('button');b.className='btn tl';b.type='button';b.id='bigCk';b.onclick=ckToggle;A.append(b);
+    const r=document.createElement('button');r.className='btn gh';r.type='button';r.innerHTML=IC('lai')+'Đặt lại';r.onclick=ckReset;A.append(r);ckPaint()}
+  if(D.showModal)D.showModal();else D.setAttribute('open','')}
+D.addEventListener('close',()=>{big=''});
+$('bigX').onclick=()=>D.close?D.close():D.removeAttribute('open');
+$('pnBig').onclick=()=>openBig('pn');$('ckBig').onclick=()=>openBig('ck');
+D.addEventListener('keydown',e=>{if(e.key!==' '||e.target.tagName==='BUTTON')return;e.preventDefault();if(big==='ck')ckToggle();else callOne([$('bigV'),$('pnV')])});
+
+/* ---------- 4. Bộ từ riêng (cùng định dạng "Bộ từ của cô" ở tro-choi/tu-lop.js: khoá cot-sets, link ?bo=cot:…) ---------- */
+const H=window.HSK||{},NG=window.NGHIA||{};
+function lookup(z){for(const l in H){const f=H[l].find(([v])=>v===z);if(f)return{p:f[1],vi:NG[z+'|'+f[1]]||NG[z]||''}}return null}
+function parse(text){const ok=[],thieu=[],seen=new Set();
+  text.split('\n').map(x=>x.trim()).filter(Boolean).forEach(line=>{const [z,p,vi]=line.split(/\s*[|\t｜]\s*/).map(x=>(x||'').trim());if(!z||seen.has(z))return;seen.add(z);
+    const L=lookup(z),pp=p||(L&&L.p)||'';if(!pp){thieu.push(z);return}ok.push([z,pp,vi||(L&&L.vi)||''])});return{ok,thieu}}
+const enc=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const sets=()=>{const v=store.get('cot-sets');return Array.isArray(v)?v:[]};
+let cur=-1;
+function btPaint(){const n=$('btN').value.trim()||'Bộ từ của tôi',{ok,thieu}=parse($('btT').value);
+  let st='';if(ok.length)st='<b>'+ok.length+' từ</b> dùng được.';
+  if(thieu.length)st+=' <span class="bad">Thiếu pinyin: '+thieu.map(esc).join('、')+'</span> (từ ngoài HSK cần gõ thêm | pinyin).';
+  $('btSt').innerHTML=st||'<span class="muted">Chưa có từ nào.</span>';
+  const bo=ok.length?'cot:'+enc({n,w:ok}):'';
+  $('btGo').innerHTML=G.filter(g=>g.bo==='tu').map(g=>{const thieuTu=ok.length<(g.min||4);
+    return thieuTu?'<a class="phu" aria-disabled="true" title="Cần ít nhất '+(g.min||4)+' từ" style="opacity:.5;pointer-events:none"><span class="z" lang="zh">'+g.z+'</span>'+esc(g.n)+'</a>':'<a href="'+gameUrl(g.id,bo)+'"><span class="z" lang="zh">'+g.z+'</span>'+esc(g.n)+'</a>'}).join('')
+    +(ok.length>=4?'<a class="phu" href="../tro-choi/?bo='+encodeURIComponent(bo)+'">Mọi trò chơi</a>':'');
+  $('btDel').hidden=cur<0}
+function setsPaint(){const s=sets();$('btSets').innerHTML=s.length?'':'<span class="small muted">Chưa có bộ nào.</span>';
+  s.forEach((x,i)=>{const b=document.createElement('button');b.type='button';b.textContent=x.n+' ('+parse(x.t).ok.length+')';b.onclick=()=>{cur=i;$('btN').value=x.n;$('btT').value=x.t;btPaint()};$('btSets').append(b)})}
+$('btN').oninput=btPaint;$('btT').oninput=btPaint;
+$('btSave').onclick=()=>{const n=$('btN').value.trim(),t=$('btT').value.trim();if(!t){toast('Chưa có từ nào để lưu');return}
+  const s=sets(),v={n:n||'Bộ từ '+(s.length+1),t};if(cur>=0&&s[cur])s[cur]=v;else{s.push(v);cur=s.length-1}store.set('cot-sets',s);setsPaint();btPaint();toast('Đã lưu trên máy này')};
+$('btDel').onclick=()=>{const s=sets();if(cur<0||!s[cur])return;if(!confirm('Xoá bộ từ "'+s[cur].n+'"?'))return;s.splice(cur,1);store.set('cot-sets',s);cur=-1;$('btN').value='';$('btT').value='';setsPaint();btPaint()};
+setsPaint();btPaint();
+
+/* ---------- 7. Chia sẻ ---------- */
+const url=location.origin+location.pathname.replace(/index\.html$/,'');
+const pub=/lyulaoshi\.com$/.test(location.hostname)?url:'https://lyulaoshi.com/giao-vien/';
+$('shL').value=pub;
+$('shCp').onclick=async()=>{try{await navigator.clipboard.writeText(pub);toast('Đã chép link')}catch(e){$('shL').select();document.execCommand('copy');toast('Đã chép link')}};
+if(navigator.share){$('shGo').hidden=false;$('shGo').onclick=()=>navigator.share({title:'Góc giáo viên – 吕老师汉语盒',text:'Trò chơi cả lớp và dụng cụ đứng lớp tiếng Trung, theo đúng bài giáo trình. Miễn phí, không cần đăng nhập.',url:pub}).catch(()=>{})}
+(function(){const el=$('shQr'),s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js';
+  s.onload=()=>{try{const q=qrcode(0,'M');q.addData(pub);q.make();const n=q.getModuleCount();let d='';for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.isDark(r,c))d+='M'+c+' '+r+'h1v1h-1z';
+    el.innerHTML='<svg viewBox="-1 -1 '+(n+2)+' '+(n+2)+'" role="img" aria-label="Mã QR mở Góc giáo viên" shape-rendering="crispEdges"><path d="'+d+'" fill="#111"/></svg>'}catch(e){el.textContent='Không tạo được mã QR.'}};
+  s.onerror=()=>{el.textContent='Không tải được mã QR. Thầy cô dùng nút Chép link.'};document.head.append(s)})();
+})();
+</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

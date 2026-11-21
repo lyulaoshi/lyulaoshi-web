@@ -1,6 +1,6 @@
 // Lịch hôm nay kiểu cuống vé (trang chủ, mục #hom-nay) — trang lịch vạn niên nhỏ: cuống đỏ (lời chào, ngày, nút xé) + thân vé
 // (ngày tháng đọc bằng tiếng Trung, lịch âm + can chi, ngày lễ, 宜/忌, thông điệp hôm nay). Xé tờ thì hiện trang ngày mai.
-// Cần: /chung/lich-du-lieu.js?v=fa326843 (LICH_YJ, LICH_CHU), /chung/thong-diep.js?v=5452996a (TD_CHON, TD_CUNG), /tro-choi/tts.js (loa).
+// Cần: /chung/lich-du-lieu.js?v=fa326843 (LICH_YJ, LICH_CHU), /chung/thong-diep.js?v=0290f27d (TD_CHON, TD_CUNG), /tro-choi/tts.js (loa).
 (function(){
 const ve=document.querySelector('.lichve');if(!ve)return;
 const YJ=window.LICH_YJ||[['学汉字','học chữ Hán','偷懒','lười biếng']];
@@ -85,7 +85,7 @@ function veTo(d,lech){
   let tdHtml='';
   if(t){
     const may=t.cung>=0?'<span class="may"><b lang="zh">'+G[t.cung][0]+'</b> · 幸运色 <i style="--m:'+t.mau[3]+'"></i><b lang="zh">'+t.mau[0]+'</b> · 幸运字 <b lang="zh">'+t.chu[0]+'</b></span>':'';
-    tdHtml='<div class="tdg'+(lech?' an':'')+'"><p><span class="tz" lang="zh">「'+t.cau[0]+'」</span><span class="tv">'+esc(t.cau[2])+'</span></p>'+
+    tdHtml='<div class="tdg'+(lech?' an':'')+'"><p><span class="tz" lang="zh">「'+t.cau[0]+'」</span><span class="tp">'+esc(t.cau[1])+'</span><span class="tv">'+esc(t.cau[2])+'</span></p>'+
       '<div class="tdd">'+may+'<button type="button" class="cung" aria-haspopup="true" aria-expanded="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sao"/></svg>'+
       (t.cung>=0?'<b lang="zh">'+G[t.cung][0]+'</b>'+G[t.cung][2]:'Chọn cung của bạn')+'<svg class="lli mui" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#xuong"/></svg></button></div>'+
       (lech?'<span class="khoa" lang="zh">明天揭晓<small>Mai mới mở</small></span>':'')+'</div>';
@@ -97,7 +97,7 @@ function veTo(d,lech){
       (lech?'<button type="button" class="ve-lai"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#lai"/></svg>Về hôm nay</button>':'')+
     '</div>'+
     '<div class="than"><span class="tem" lang="zh">'+(lech?'明日':'今日')+'</span>'+
-      '<p class="nz" lang="zh">'+ngayZh+' <span>星期'+WK[wk]+'</span>'+loa(ngayZh+'星期'+WK[wk],'Nghe đọc ngày tháng')+'</p>'+
+      '<p class="nz" lang="zh">'+ngayZh+' <span>星期'+WK[wk]+'</span>'+'</p>'+
       amHtml+
       '<div class="hang">'+leHtml+'<span class="nhan yj"><span class="ve"><i lang="zh">宜</i><b lang="zh">'+y[0]+'</b>'+y[1]+'</span><span class="vach" aria-hidden="true"></span><span class="ve"><i class="ji" lang="zh">忌</i><b lang="zh">'+y[2]+'</b>'+y[3]+'</span></span>'+baiHtml(d,lech)+'</div>'+
       tdHtml+

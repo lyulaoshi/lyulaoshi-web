@@ -237,3 +237,5 @@ body.present .tin{font-size:calc(24px*var(--z,1.25))}
 .themebtn{display:inline-grid;place-items:center}.themebtn .lli{width:19px;height:19px}
 
 .po .o{display:inline-block;width:.85em;height:.85em;border:1.5px solid currentColor;border-radius:2px;vertical-align:-.08em;font-style:normal}
+/* Màn cảm ứng (22/11/2026): đường dẫn 语法盒 › HSK n và link trong ô ghi chú cao 19–23px, khó bấm bằng ngón tay -> nới vùng bấm, chữ giữ nguyên cỡ */
+@media (pointer:coarse){.np-crumb a{display:inline-block;padding:6px 2px}.note a{display:inline-block;padding:4px 0}}

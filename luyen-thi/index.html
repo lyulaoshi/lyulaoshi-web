@@ -343,7 +343,7 @@ const ALL=[];DS.forEach(d=>{let n=0;d.q=[];d.parts.forEach(p=>{p.pk=d.cap+"-"+p.
 const soDe=d=>"Số "+d.id.split("-").pop();
 
 let S=null,tick=null;
-function show(v){["vHome","vQuiz","vResult"].forEach(x=>$(x).hidden=x!==v);scrollTo({top:0})}
+function show(v){["vHome","vQuiz","vResult"].forEach(x=>$(x).hidden=x!==v);const dm=document.querySelector(".demo");if(dm)dm.hidden=v!=="vHome";scrollTo({top:0})}   // dòng "Mới mở" chỉ hiện ở trang chọn đề, ẩn khi đang làm đề / xem kết quả (22/11/2026)
 
 // ---------- Mục lục ----------
 let LV="1";

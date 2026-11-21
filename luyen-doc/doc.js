@@ -168,7 +168,7 @@ $("#the").addEventListener("click",e=>{
   if(e.target.closest(".th-x")){dongThe();return}
   const a=e.target.closest("[data-a]");if(!a||!chon)return;const c=C[chon.ci],t=c.tu[chon.k];
   if(a.dataset.a==="nghe-tu")noi(t.w,OPT.toc);
-  if(a.dataset.a==="nghe-cau")noi(c.zh,OPT.toc);
+  if(a.dataset.a==="nghe-cau")noiCau(chon.ci,OPT.toc);
   if(a.dataset.a==="so-cau")soCau(chon.ci);
   if(a.dataset.a==="td-tu"&&window.THANHDIEU)THANHDIEU.mo(t.w,t.py);
   if(a.dataset.a==="td-cau"&&window.THANHDIEU)THANHDIEU.mo(c.zh,c.py);
@@ -176,10 +176,21 @@ $("#the").addEventListener("click",e=>{
 });
 // ---- giọng máy + karaoke
 let VOICE=null;function pick(){const v=speechSynthesis.getVoices().filter(v=>/^(zh|cmn)/i.test(v.lang)&&!/TW|HK|yue/i.test(v.lang));VOICE=v.find(x=>/google/i.test(x.name))||v.find(x=>/tingting/i.test(x.name))||v[0]||null}
-if("speechSynthesis" in window){pick();speechSynthesis.addEventListener("voiceschanged",pick)}else $("#bNghe").hidden=true;
+if("speechSynthesis" in window){pick();speechSynthesis.addEventListener("voiceschanged",pick)}   // không có giọng máy vẫn nghe được file audio mẫu
 function noi(t,rate,onb){return new Promise(res=>{if(!("speechSynthesis" in window)){res();return}speechSynthesis.cancel();
   const u=new SpeechSynthesisUtterance(t);u.lang="zh-CN";if(VOICE)u.voice=VOICE;u.rate=rate||.85;let xong=false;const fin=()=>{if(!xong){xong=true;clearTimeout(to);res()}};
   const to=setTimeout(fin,2000+t.length*420/u.rate);u.onend=fin;u.onerror=fin;if(onb)u.onboundary=onb;speechSynthesis.speak(u)})}
+// ---- giọng đọc mẫu: file am/<id bài>-c<số câu>.mp3 (Gemini TTS, tools/gen_audio_gemini.py); thiếu file thì dùng giọng máy
+// rate theo thang giọng máy (.85 = vừa) → đổi sang tốc độ phát file; onf(tỉ lệ 0–1) để tô chữ chạy theo audio
+let AMC=null;
+function noiCau(ci,rate,onf){return new Promise(res=>{
+  if(AMC)AMC.fin();const a=new Audio(`am/${B.id}-c${ci}.mp3`);a.playbackRate=(rate||OPT.toc)/.85;a.preservesPitch=true;
+  let xong=false,k=null,dau=false;const het=()=>{xong=true;clearInterval(k);if(AMC===a)AMC=null};
+  const fin=()=>{if(!xong){het();res()}};a.fin=()=>{a.pause();fin()};AMC=a;
+  const fb=()=>{if(xong)return;if(dau){fin();return}het();const z=C[ci].zh;noi(z,rate,onf?e=>onf((e.charIndex+1)/z.length):null).then(res)};
+  a.onended=fin;a.onerror=fb;a.onplaying=()=>{dau=true;if(onf&&!k)k=setInterval(()=>{if(a.duration)onf(a.currentTime/a.duration)},60)};
+  a.play().catch(fb)})}
+function dungAm(){if(AMC)AMC.fin()}
 async function nghe(){
   if(phat){dungNghe();return}
   dongThe();const me=phat={t:performance.now()};$("#bNghe").innerHTML='<span class="nghe-o">'+IC("tam-dung")+"</span><span>Dừng</span>";$("#bNghe").setAttribute("aria-pressed","true");$("#tocBar").hidden=false;
@@ -193,12 +204,12 @@ async function nghe(){
     let coBd=false;const to=(ch)=>{ws.forEach((x,i)=>x.classList.toggle("da",pos[i]<=ch))};
     const t0=performance.now(),dur=c.zh.length*300/OPT.toc;
     const tm=setInterval(()=>{if(!coBd)to(Math.floor((performance.now()-t0)/dur*c.zh.length))},90);
-    await noi(c.zh,OPT.toc,e=>{coBd=true;to(e.charIndex)});clearInterval(tm);to(99);
+    await noiCau(ci,OPT.toc,f=>{coBd=true;to(Math.floor(f*c.zh.length))});clearInterval(tm);to(99);
     await new Promise(r=>setTimeout(r,300));
   }
   if(phat===me)dungNghe(true);
 }
-function dungNghe(het){if(!phat)return;tDoc+=0;const d=performance.now()-phat.t;if(TG.t0&&TG.het==null)TG.t0+=d;phat=null;if("speechSynthesis" in window)speechSynthesis.cancel();
+function dungNghe(het){if(!phat)return;tDoc+=0;const d=performance.now()-phat.t;if(TG.t0&&TG.het==null)TG.t0+=d;phat=null;dungAm();if("speechSynthesis" in window)speechSynthesis.cancel();
   document.querySelectorAll("#van .da").forEach(x=>x.classList.remove("da"));if(het)document.querySelectorAll("#van .dang").forEach(x=>x.classList.remove("dang"));
   $("#bNghe").innerHTML='<span class="nghe-o">'+IC("phat")+"</span><span>Nghe</span>";$("#bNghe").setAttribute("aria-pressed","false");$("#tocBar").hidden=true}
 $("#bNghe").onclick=nghe;
@@ -223,7 +234,7 @@ async function batDauGhi(){
   $("#bDoc").setAttribute("aria-pressed","true");$("#bDoc").querySelector("span:last-child").textContent="Dừng";$("#ghiBar").hidden=false;$("#ghiGio").textContent="0:00";
 }
 function dungGhi(){
-  const g=GHI.rec;if(!g)return;GHI.rec=null;if(KA){KA=null;GHI.lich=null;sang(null);xoaChay()}clearInterval(g.tm);
+  const g=GHI.rec;if(!g)return;GHI.rec=null;if(KA){KA=null;dungAm();GHI.lich=null;sang(null);xoaChay()}clearInterval(g.tm);
   g.rec.onstop=()=>{GHI.blob=new Blob(g.ch,{type:g.rec.mimeType||"audio/webm"});if(GHI.url)URL.revokeObjectURL(GHI.url);GHI.url=URL.createObjectURL(GHI.blob);
     GHI.dai=(performance.now()-g.t0)/1000;TG.het=GHI.dai;GHI.seg=(GHI.lich&&GHI.lich.length===C.length)?GHI.lich:tachCau(g.env,C.map(c=>c.zh.replace(/[，。？！、：；“”（）…]/g,"").length));GHI.lich=null;hienKq()};
   g.rec.stop();g.st.getTracks().forEach(t=>t.stop());g.ac.close();
@@ -246,8 +257,8 @@ function phatDoan(x,y,tien){return new Promise(r=>{const me=++choi;AU.src=GHI.ur
   if(AU.readyState>=1)go();else AU.onloadedmetadata=()=>{AU.onloadedmetadata=null;go()}})}
 const sang=ci=>{document.querySelectorAll("#van .dang").forEach(x=>x.classList.remove("dang"));if(ci==null)return;const p=document.querySelector(`#van .cau[data-c="${ci}"]`);if(p){p.classList.add("dang");p.scrollIntoView({block:"center",behavior:"smooth"})}};
 let dangSo=0;
-async function soCau(ci,me){me=me||++dangSo;sang(ci);await noi(C[ci].zh,OPT.toc);if(me!==dangSo)return;await new Promise(r=>setTimeout(r,250));const [x,y]=GHI.seg[ci];await phatDoan(x,y)}
-function dungPhat(){dangSo++;choi++;AU.pause();if("speechSynthesis" in window)speechSynthesis.cancel();sang(null)}
+async function soCau(ci,me){me=me||++dangSo;sang(ci);await noiCau(ci,OPT.toc);if(me!==dangSo)return;await new Promise(r=>setTimeout(r,250));const [x,y]=GHI.seg[ci];await phatDoan(x,y)}
+function dungPhat(){dangSo++;choi++;AU.pause();dungAm();if("speechSynthesis" in window)speechSynthesis.cancel();sang(null)}
 function hienKq(){
   const cpm=Math.round(soChu(B)/Math.max(GHI.dai/60,.05)),bt=store.get("docto",{}),cu=bt[B.id];
   const voi=cpm>350;   // nhanh quá mức đọc thật → chắc chưa đọc hết bài, không ghi kỷ lục
@@ -305,7 +316,7 @@ async function chayKaraoke(o){
     const c=C[ci];sang(ci);toChay(ci,0);
     if(o.mau){let coBd=false,f0=performance.now();const dur=soChuCau(c)*NHIP[o.nhip]*1000;
       const tm=setInterval(()=>{if(!coBd)toChay(ci,Math.min(1,(performance.now()-f0)/dur))},60);
-      await noi(c.zh,TOC_MAU[o.nhip],e=>{coBd=true;toChay(ci,(e.charIndex+1)/c.zh.length)});clearInterval(tm)}
+      await noiCau(ci,TOC_MAU[o.nhip],f=>{coBd=true;toChay(ci,f)});clearInterval(tm)}
     else{const dur=soChuCau(c)*NHIP[o.nhip]*1000+250,f0=performance.now();
       await new Promise(r=>{const tm=setInterval(()=>{const f=(performance.now()-f0)/dur;toChay(ci,f);if(f>=1||KA!==me){clearInterval(tm);r()}},50)})}
     toChay(ci,1.01);

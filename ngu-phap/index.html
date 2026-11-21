@@ -92,6 +92,8 @@ a.pc:hover,a.pc:focus-visible{transform:translateY(-2px);border-color:var(--c)}
 .pc .cls{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
 .pc .cls a,.pc .cls span{font-size:12px;font-weight:700;color:var(--c);background:var(--ground2);border-radius:8px;padding:2px 7px;text-decoration:none;position:relative;z-index:2}
 .pc .cls a:hover{background:var(--cs)}
+/* màn cảm ứng (22/11/2026): chip giáo trình + link 【mã】 cao 23px -> nới vùng bấm cho ngón tay */
+@media (pointer:coarse){.pc .cls a,.pc .bl a{padding:6px 9px}}
 .pc.soon{background:color-mix(in srgb,var(--card) 55%,transparent);box-shadow:none;border:2px dashed var(--line)}
 .pc.soon .vn{color:var(--muted)}
 .pc.soon .cd b{background:var(--ground2);color:var(--muted)}
