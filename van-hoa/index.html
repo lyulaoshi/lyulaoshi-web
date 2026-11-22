@@ -353,6 +353,7 @@ dialog#hc::backdrop{background:rgba(24,16,10,.62)}
 .nhap{display:inline-block;margin-top:14px;font-size:12.5px;font-weight:700;color:#8A5A00;background:#FBF1CF;border-radius:10px;padding:4px 10px}
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <link rel="canonical" href="https://lyulaoshi.com/van-hoa/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="文化盒 · Văn hoá – 吕老师汉语盒"><meta property="og:description" content="Hộ chiếu du hành Trung Hoa: đi tàu qua 7 tuyến, lật Lịch lễ hội quanh năm, giải câu đố văn hoá, nhận dấu hộ chiếu và sưu tầm từ vựng – Lyu Laoshi Chinese Box."><meta property="og:url" content="https://lyulaoshi.com/van-hoa/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 </head>
@@ -984,7 +985,8 @@ tb.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';t
 paint();paintAm();veTuyen();
 })();
 </script>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
 <!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
-<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
 </body>
 </html>

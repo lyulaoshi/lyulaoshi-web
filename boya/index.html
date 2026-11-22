@@ -273,6 +273,7 @@ a.rl b{color:var(--ink)}
 .feat p{margin:4px 0 0;font-size:14.5px;color:var(--muted)}
 </style>
 <link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <link rel="canonical" href="https://lyulaoshi.com/boya/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="博雅汉语 · Giáo trình BOYA sơ cấp 1 · Bài giảng"><meta property="og:description" content="博雅汉语 · Giáo trình BOYA sơ cấp 1 — bài giảng tương tác của ThS. Lã Thị Thuỳ Phương trên Lyu Laoshi Chinese Box: từ mới có bút thuận, audio bài khoá, bài tập có đáp án, nghe – viết."><meta property="og:url" content="https://lyulaoshi.com/boya/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 </head>
@@ -495,7 +496,8 @@ document.querySelectorAll('.box').forEach(b=>{
   });
 });
 </script>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
 <!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
-<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
 </body>
 </html>

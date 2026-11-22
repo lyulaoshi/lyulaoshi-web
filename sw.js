@@ -2,11 +2,13 @@
 // CỐ Ý KHÔNG lưu bài vào máy: luôn lấy bản mới nhất trên mạng, nên cô sửa bài là học viên thấy ngay.
 // Chỉ khi mất mạng mới hiện trang báo nhẹ nhàng (không lưu audio/bài nặng vào điện thoại học viên).
 // Đổi file này thì tăng số phiên bản để máy học viên nhận bản mới.
-const PHIEN_BAN = 'll-1';
+const PHIEN_BAN = 'll-2';   // ll-2 (22/11/2026): bật tải trước (navigation preload)
 
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', e => e.waitUntil((async () => {
   for (const k of await caches.keys()) await caches.delete(k);   // dọn bộ nhớ cũ nếu có
+  // tải trước: trình duyệt gửi yêu cầu trang ngay lúc bấm link, không chờ service worker khởi động xong -> chuyển trang nhanh hơn
+  if (self.registration.navigationPreload) await self.registration.navigationPreload.enable();
   await self.clients.claim();
 })()));
 
@@ -23,6 +25,8 @@ p{margin:0 0 18px;max-width:320px}button{font:inherit;font-weight:700;border:0;b
 
 self.addEventListener('fetch', e => {
   if (e.request.mode !== 'navigate') return;          // ảnh, audio, script… để trình duyệt tự tải như bình thường
-  e.respondWith(fetch(e.request).catch(() =>
-    new Response(MAT_MANG, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })));
+  e.respondWith((async () => {
+    try { return (await e.preloadResponse) || await fetch(e.request); }
+    catch (_) { return new Response(MAT_MANG, { headers: { 'Content-Type': 'text/html; charset=utf-8' } }); }
+  })());
 });

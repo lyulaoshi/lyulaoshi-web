@@ -46,6 +46,7 @@ a:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 </head>
 <body>
 <img class="logo" src="/img/logo-hallo.png" alt="Logo 吕老师汉语盒" width="220" height="242">
@@ -60,7 +61,8 @@ a:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
   <a href="/ngu-phap/" style="--c:var(--mint);--cs:var(--mint-s)"><b lang="zh">语法盒</b><span>Ngữ pháp</span></a>
   <a href="/tro-choi/" style="--c:var(--peach);--cs:var(--peach-s)"><b lang="zh">游戏盒</b><span>Trò chơi</span></a>
 </nav>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
 <!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
-<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
 </body>
 </html>
