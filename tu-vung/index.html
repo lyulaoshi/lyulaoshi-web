@@ -62,6 +62,7 @@
 .bar{height:6px;border-radius:999px;background:color-mix(in srgb,var(--c) 18%,transparent);overflow:hidden}
 .bar i{display:block;height:100%;background:var(--c)}
 .pack.done{background:var(--mint-s);--c:var(--mint)}
+.pack.more{place-content:center;text-align:center;background:var(--ground2);border:2px dashed var(--line);font-weight:800;font-size:14.5px}.pack.more span{display:block;font-weight:600;font-size:13px;color:var(--muted)}
 .lv.bk{font-family:var(--hz);font-weight:400;font-size:16px}
 .bookname{margin:0 0 12px;font-size:14px;color:var(--muted)}.bookname b{font-family:var(--hz);font-weight:400;color:var(--c);font-size:17px}.bookname a{color:var(--c)}
 .pack .ic{font-family:var(--hz);font-size:26px;color:var(--c);line-height:1}
@@ -113,6 +114,14 @@
 .btn.no{background:var(--coral-s);color:var(--coral)}
 .btn.yes{background:var(--mint);color:#fff}
 .btn:disabled{opacity:.4;cursor:default}
+.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.ch{border:2px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:600;font-size:15px;line-height:1.3;padding:10px 12px;border-radius:16px;cursor:pointer;min-height:58px;box-shadow:var(--shadow)}
+.ch:hover:not(:disabled){border-color:var(--c)}
+.ch:disabled{cursor:default}.ch:disabled:not(.ok):not(.bad){opacity:.5}
+.ch.ok{background:var(--mint-s);border-color:var(--mint)}
+.ch.bad{background:var(--coral-s);border-color:var(--coral)}
+.choices .next{grid-column:1/-1;padding:14px}
+.study.chon .card{height:min(44vh,320px);min-height:230px}
 .keys{text-align:center;font-size:12.5px;color:var(--faint);margin-top:10px}
 .sum{text-align:center;margin-top:28px}
 .sum .big{font-family:var(--hz);font-size:54px;color:var(--c);line-height:1.1}
@@ -120,7 +129,7 @@
 .sum .miss span{font-family:var(--kai);font-size:20px;background:var(--coral-s);padding:4px 12px;border-radius:12px}
 .sum .acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
 @media (max-width:760px){.today{grid-template-columns:1fr}}
-@media (max-width:420px){.shelf{gap:6px}.lb small{font-size:10.5px}.lb b{font-size:19px}.panel{padding:18px 16px}}
+@media (max-width:420px){.ch{font-size:14px;padding:9px 10px}.shelf{gap:6px}.lb small{font-size:10.5px}.lb b{font-size:19px}.panel{padding:18px 16px}}
 @media (hover:none){.keys{display:none}}
 @media (prefers-reduced-motion:reduce){.card .in,.pack,.goal i{transition:none}}
 </style>
@@ -181,6 +190,7 @@
     </div>
     <div id="srcHsk">
       <div class="levels" id="levels" role="group" aria-label="Cấp HSK"></div>
+      <p class="bookname" id="lvNote"></p>
       <div class="packs" id="packs"></div>
     </div>
     <div id="srcBai" hidden>
@@ -216,6 +226,7 @@
       <button class="tab" type="button" data-mode="hz" aria-pressed="true">Chữ → nghĩa</button>
       <button class="tab" type="button" data-mode="nghe" aria-pressed="false">Nghe → chữ</button>
       <button class="tab" type="button" data-mode="vi" aria-pressed="false">Nghĩa → chữ</button>
+      <button class="tab" type="button" data-mode="chon" aria-pressed="false">Chọn nghĩa đúng</button>
     </div>
     <div class="sprog"><i id="sprog"></i></div>
     <div class="card" id="card" tabindex="0" role="button" aria-label="Thẻ từ, bấm để lật">
@@ -224,20 +235,25 @@
         <div class="side back" id="back"></div>
       </div>
     </div>
-    <div class="judge">
+    <div class="choices" id="choices" role="group" aria-label="Chọn nghĩa đúng" hidden></div>
+    <div class="judge" id="judge">
       <button class="btn no" type="button" id="bNo" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sai"/></svg> Chưa nhớ</button>
       <button class="btn yes" type="button" id="bYes" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#tick"/></svg> Nhớ rồi</button>
     </div>
-    <p class="keys">Phím tắt: Space lật thẻ · ← chưa nhớ · → nhớ rồi · S nghe đọc</p>
+    <p class="keys" id="keys">Phím tắt: Space lật thẻ · ← chưa nhớ · → nhớ rồi · S nghe đọc</p>
   </div>
   <div class="study sum panel" id="sumBox" hidden></div>
 </main>
 
-<footer class="wrap">Từ vựng theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025). Từ theo bài lấy từ bài giảng của cô trên web. Nghĩa tiếng Việt HSK: cấp 1 (các cấp sau đang bổ sung) · Câu ví dụ lấy từ bài giảng · Tiến độ lưu trên máy này · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+<footer class="wrap">Từ vựng theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025). Từ theo bài lấy từ bài giảng của cô trên web. Nghĩa tiếng Việt HSK: đủ cấp 1–6, cấp 7–9 đang bổ sung · Câu ví dụ lấy từ bài giảng · Tiến độ lưu trên máy này · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../tro-choi/hsk-words.js"></script>
 <script src="../tro-choi/tts.js?v=2"></script>
 <script src="nghia-hsk1.js"></script>
+<script src="nghia-hsk2-3.js"></script>
+<script src="nghia-hsk4.js"></script>
+<script src="nghia-hsk5.js"></script>
+<script src="nghia-hsk6.js"></script>
 <script src="bai-data.js"></script>
 <script src="chu-de.js"></script>
 <script>
@@ -250,32 +266,40 @@
 const $=id=>document.getElementById(id);
 const PACK=20, GOAL=20, NEW_PER_DAY=10;
 const INT=[0,1,3,7,16];                       // số ngày chờ của hộp 0..4
-const LEVELS=Object.keys(HSK);               // "1".."6"
+const LEVELS=Object.keys(HSK).concat('7-9');  // "1".."6" + "7-9" (HSK 7–9 nạp khi cần, file riêng ../tro-choi/hsk79-words.js)
+const hskList=lv=>lv==='7-9'?(window.HSK79||[]):(HSK[lv]||[]);
+let p79=null;
+const ensure79=()=>window.HSK79?Promise.resolve():p79||(p79=new Promise(r=>{const s=document.createElement('script');s.src='../tro-choi/hsk79-words.js';
+  s.onload=()=>{LOOK=null;POOLM=null;r()};s.onerror=()=>{p79=null;r()};document.head.appendChild(s)}));
+const lvName=lv=>lv.replace('-','–');
 const BAI=window.BAI||[], CHUDE=window.CHUDE||[];
 const today=()=>Math.floor((Date.now()-new Date().getTimezoneOffset()*6e4)/864e5);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 // một từ = một thẻ, dù gặp ở HSK, bài học hay chủ đề: khoá = chữ + pinyin bỏ dấu cách/gạch
 const norm=p=>p.toLowerCase().replace(/[\s'’\-·/]/g,'');
 const EX={};BAI.forEach(b=>b.bai.forEach(l=>l.w.forEach(x=>{if(x[3]&&!EX[x[0]])EX[x[0]]=x[3]})));
-const card=(w,p,m,ex)=>({w,p,m:m||NGHIA[w+'|'+p]||NGHIA[w]||'',ex:ex||EX[w]||null,k:w+'|'+norm(p)});
-let LOOK=null;   // khoá -> thẻ, để dựng lại thẻ đến hạn (kể cả thẻ nhập từ mã)
+// nghĩa đã có trong bài giảng / chủ đề → dùng cho thẻ HSK cùng chữ + cùng pinyin (chưa có nghĩa riêng cho cấp đó)
+const MV={};const addM=(w,p,m)=>{const k=w+'|'+norm(p||'');if(m&&!MV[k])MV[k]=m};
+BAI.forEach(b=>b.bai.forEach(l=>l.w.forEach(x=>addM(x[0],x[1],x[2]))));CHUDE.forEach(c=>c.w.forEach(x=>addM(x[0],x[1],x[2])));
+const card=(w,p,m,ex)=>({w,p,m:m||NGHIA[w+'|'+p]||NGHIA[w]||MV[w+'|'+norm(p)]||'',ex:ex||EX[w]||null,k:w+'|'+norm(p)});
+let LOOK=null,POOLM=null;   // khoá -> thẻ, để dựng lại thẻ đến hạn (kể cả thẻ nhập từ mã)
 const look=k=>{if(!LOOK){LOOK=new Map();const add=c=>{if(!LOOK.has(c.k))LOOK.set(c.k,c)};
   BAI.forEach(b=>b.bai.forEach(l=>l.w.forEach(x=>add(card(...x)))));CHUDE.forEach(c=>c.w.forEach(x=>add(card(...x))));
-  LEVELS.forEach(l=>HSK[l].forEach(([w,p])=>add(card(w,p))))}return LOOK.get(k)};
+  LEVELS.forEach(l=>hskList(l).forEach(([w,p])=>add(card(w,p))))}return LOOK.get(k)};
 
 // ---- lưu tiến độ trên máy ----
 const SK='cb-tuvung-v2';
 let S={cards:{},lv:'1',src:'hsk',book:'',mode:'hz',last:'',streak:{last:0,n:0},day:{d:0,n:0}};
 try{const x=JSON.parse(localStorage.getItem(SK));if(x&&x.cards)S=Object.assign(S,x)}catch(e){}
 const save=()=>{try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}};
-if(!HSK[S.lv])S.lv='1';
+if(!LEVELS.includes(S.lv))S.lv='1';
 if(!BAI.some(b=>b.id===S.book))S.book=BAI[0]?BAI[0].id:'';
 
 // ---- các bộ thẻ: "hsk:1:40" · "bai:tttc:bai-2" · "cd:gia-dinh" ----
-const hskWords=lv=>HSK[lv].map(([w,p])=>card(w,p));
+const hskWords=lv=>hskList(lv).map(([w,p])=>card(w,p));
 function deck(id){
   const [t,a,b]=id.split(':');
-  if(t==='hsk'&&HSK[a]){const i=+b;return{name:'HSK '+a+' · Gói '+(i/PACK+1),cards:hskWords(a).slice(i,i+PACK)}}
+  if(t==='hsk'&&LEVELS.includes(a)){const i=+b,cs=hskWords(a).slice(i,i+PACK);if(cs.length)return{name:'HSK '+lvName(a)+' · Gói '+(i/PACK+1),cards:cs}}
   if(t==='bai'){const bk=BAI.find(x=>x.id===a),ls=bk?(b||'').split(/[+ ]/).map(y=>bk.bai.find(x=>x.id===y)).filter(Boolean):[];   // "bai-11+bai-12": ôn gộp nhiều bài (từ 课本盒)
     if(ls.length)return{name:bk.zh+' · Bài '+ls.map(l=>l.n).join(', '),cards:ls.flatMap(l=>l.w.map(x=>card(...x)))}}
   if(t==='cd'){const c=CHUDE.find(x=>x.id===a);if(c)return{name:c.zh+' · '+c.vi,cards:c.w.map(x=>card(...x))}}
@@ -302,12 +326,14 @@ function packBtn(id,title,sub,words,st,ic){
 function scope(){   // thẻ của phần đang xem, để đếm vào kệ 5 hộp
   if(S.src==='bai'){const bk=BAI.find(x=>x.id===S.book);return{label:bk?bk.zh:'',cards:bk?bk.bai.flatMap(l=>l.w.map(x=>card(...x))):[]}}
   if(S.src==='chude')return{label:'các chủ đề',cards:CHUDE.flatMap(c=>c.w.map(x=>card(...x)))};
-  return{label:'HSK '+S.lv,cards:hskWords(S.lv)};
+  return{label:'HSK '+lvName(S.lv),cards:hskWords(S.lv)};
 }
 function uniq(cs){const m=new Map();cs.forEach(c=>m.set(c.k,c));return[...m.values()]}
 function nextNew(){ // thẻ mới cho "Ôn hôm nay": lấy tiếp từ bộ học gần nhất, không có thì HSK đang chọn
   const d=S.last&&deck(S.last);return((d&&d.cards.some(c=>box(c)===0))?d.cards:hskWords(S.lv)).filter(c=>box(c)===0);
 }
+const SHOW0=30;let showN=SHOW0;
+const ensure79Lv=()=>(S.lv==='7-9'||/^hsk:7-9:/.test(S.last)?ensure79():Promise.resolve());
 function render(){
   const d=today(), sc=scope(), cs=uniq(sc.cards);
   const cnt=[0,0,0,0,0];cs.forEach(c=>cnt[box(c)]++);
@@ -319,14 +345,18 @@ function render(){
   const n=doneToday();$('goal').firstElementChild.style.width=Math.min(100,n/GOAL*100)+'%';$('goal').setAttribute('aria-valuenow',Math.min(n,GOAL));
   $('goalTxt').textContent=n>=GOAL?'Đã đủ '+GOAL+' thẻ hôm nay. Giỏi lắm! Ôn thêm cũng được nhé.':'Mục tiêu: '+GOAL+' thẻ mỗi ngày · đã ôn '+n+'.';
   const ld=S.last&&deck(S.last);
-  $('startToday').textContent=due?'Ôn hôm nay ('+(due+nw)+' thẻ)':'Học thẻ mới'+(ld&&ld.cards.some(c=>box(c)===0)?': '+ld.name:' HSK '+S.lv);
+  $('startToday').textContent=due?'Ôn hôm nay ('+(due+nw)+' thẻ)':'Học thẻ mới'+(ld&&ld.cards.some(c=>box(c)===0)?': '+ld.name:' HSK '+lvName(S.lv));
   document.querySelectorAll('[data-src]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.src===S.src));
   $('srcHsk').hidden=S.src!=='hsk';$('srcBai').hidden=S.src!=='bai';$('srcChude').hidden=S.src!=='chude';
   if(S.src==='hsk'){
-    $('levels').innerHTML=LEVELS.map(l=>'<button class="lv" type="button" data-lv="'+l+'" aria-pressed="'+(l===S.lv)+'">'+l+'</button>').join('')+
-      '<button class="lv" type="button" disabled title="Sắp có">7–9</button>';
-    const all=hskWords(S.lv);let h='';
-    for(let i=0;i<all.length;i+=PACK){const g=all.slice(i,i+PACK);h+=packBtn('hsk:'+S.lv+':'+i,'Gói '+(i/PACK+1),'',g.map(c=>c.w),stats(g))}
+    $('levels').innerHTML=LEVELS.map(l=>'<button class="lv" type="button" data-lv="'+l+'" aria-pressed="'+(l===S.lv)+'">'+lvName(l)+'</button>').join('');
+    const all=hskWords(S.lv),hasM=all.filter(c=>c.m).length;let h='',k=0,open1=-1;
+    $('lvNote').textContent=!all.length?'Đang tải từ HSK '+lvName(S.lv)+'…':'HSK '+lvName(S.lv)+' · '+all.length+' từ mới của cấp · '+
+      (hasM===all.length?'đủ nghĩa tiếng Việt.':hasM?'có nghĩa tiếng Việt '+hasM+' từ (lấy từ bài giảng), các từ còn lại đang bổ sung.':'nghĩa tiếng Việt đang bổ sung (thẻ có chữ, pinyin, nghe đọc).');
+    const ps=[];for(let i=0;i<all.length;i+=PACK){const g=all.slice(i,i+PACK),st=stats(g);ps.push([i,g,st]);if(open1<0&&!(st.n&&st.ok===st.n))open1=ps.length-1}
+    const lim=Math.max(showN,open1+12);   // cấp nhiều gói (HSK 6: 90, 7–9: 280): hiện dần, luôn tới quá gói đang học
+    ps.slice(0,lim).forEach(([i,g,st])=>{h+=packBtn('hsk:'+S.lv+':'+i,'Gói '+(i/PACK+1),'',g.map(c=>c.w),st)});
+    if(ps.length>lim)h+='<button class="pack more" type="button" data-more>Xem thêm gói<span>còn '+(ps.length-lim)+' gói</span></button>';
     $('packs').innerHTML=h;
   }else if(S.src==='bai'){
     $('bookTabs').innerHTML=BAI.map(b=>'<button class="lv bk" type="button" data-book="'+b.id+'" aria-pressed="'+(b.id===S.book)+'"><span lang="zh">'+esc(b.zh)+'</span></button>').join('');
@@ -337,9 +367,9 @@ function render(){
     $('topics').innerHTML=CHUDE.map(c=>{const cs=c.w.map(x=>card(...x));return packBtn('cd:'+c.id,esc(c.vi),'<span lang="zh">'+esc(c.zh)+'</span>',c.w.map(x=>x[0]),stats(cs),c.ic)}).join('');
   }
 }
-$('levels').addEventListener('click',e=>{const b=e.target.closest('[data-lv]');if(b){S.lv=b.dataset.lv;save();render()}});
+$('levels').addEventListener('click',e=>{const b=e.target.closest('[data-lv]');if(b){S.lv=b.dataset.lv;showN=SHOW0;save();render();ensure79Lv().then(render)}});
 $('bookTabs').addEventListener('click',e=>{const b=e.target.closest('[data-book]');if(b){S.book=b.dataset.book;save();render()}});
-document.querySelector('.panel.decks').addEventListener('click',e=>{const b=e.target.closest('[data-deck]');if(b)open(b.dataset.deck)});
+document.querySelector('.panel.decks').addEventListener('click',e=>{const b=e.target.closest('[data-deck]');if(b)open(b.dataset.deck);else if(e.target.closest('[data-more]')){showN+=48;render()}});
 document.querySelectorAll('[data-src]').forEach(t=>t.addEventListener('click',()=>{S.src=t.dataset.src;save();render()}));
 function open(id){const d=deck(id);if(!d)return false;S.last=id;save();start(d.cards,d.name,id);return true}
 $('startToday').addEventListener('click',()=>{
@@ -350,10 +380,12 @@ function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;
 
 // ---- màn học ----
 let Q=[],pos=0,total=0,yes=0,miss=[],flipped=false,name='',cur='';
+// kiểu "Chọn nghĩa đúng": máy chấm thay cho tự bấm nhớ/chưa nhớ. chonNow = thẻ đang xem có 4 đáp án; ans = null (chưa chọn) / true / false
+let chonNow=false,ans=null,CH=[],tNext=0;
 const GAMES=[['mua-chu','汉字雨','Mưa chữ Hán'],['lat-the','配对','Lật thẻ ghép đôi'],['bong-bay','打气球','Săn bóng bay']];
 const gameUrl=(g,id)=>'../tro-choi/'+g+'/?bo='+encodeURIComponent(id);
 function start(list,nm,id){
-  cur=id||'';$('gameLink').hidden=!cur;if(cur)$('gameLink').href='../tro-choi/?bo='+encodeURIComponent(cur);
+  cur=id&&!/^hsk:7-9:/.test(id)?id:'';$('gameLink').hidden=!cur;if(cur)$('gameLink').href='../tro-choi/?bo='+encodeURIComponent(cur);   // 游戏盒 chưa nhận bộ HSK 7–9
   list=uniq(list);if(!list.length)return;
   Q=list.slice();pos=0;total=Q.length;yes=0;miss=[];name=nm;
   $('home').hidden=true;$('studyView').hidden=false;$('studyBox').hidden=false;$('sumBox').hidden=true;
@@ -373,11 +405,22 @@ function face(c,part){
   if(S.mode==='nghe'&&TTS.can(c.w))f='<div class="hz" aria-hidden="true"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#loa"/></svg></div><div class="vi none">Nghe rồi đoán chữ</div>';
   else if(S.mode==='vi'&&m)f='<div class="vi" style="font-size:26px">'+esc(m)+'</div><div class="vi none">Chữ Hán là gì?</div>';
   else f='<div class="hz'+(c.w.length>4?' long':'')+'" lang="zh">'+esc(c.w)+'</div>';
-  return tag+(S.mode==='hz'?'':spk)+f+'<span class="hint">Bấm vào thẻ để lật</span>';
+  const hint=chonNow?'Chọn nghĩa đúng bên dưới':S.mode==='chon'?'Thẻ chưa có nghĩa tiếng Việt: lật thẻ rồi tự chấm':'Bấm vào thẻ để lật';
+  return tag+(S.mode==='hz'||S.mode==='chon'?'':spk)+f+'<span class="hint">'+hint+'</span>';
 }
 const flippedDelay=()=>matchMedia('(prefers-reduced-motion:reduce)').matches?0:200;
+function options(c){ // nghĩa đúng + 3 nghĩa sai, ưu tiên lấy từ chính bộ đang ôn
+  const used=new Set([c.m]),out=[c.m];
+  const pick=list=>{for(const x of shuffle(list.slice())){if(out.length>=4)break;if(x.m&&x.w!==c.w&&!used.has(x.m)){used.add(x.m);out.push(x.m)}}};
+  pick(Q);if(out.length<4){if(!POOLM){look('');POOLM=[...LOOK.values()].filter(x=>x.m)}pick(POOLM)}
+  return out.length===4?shuffle(out):null;
+}
 function show(){
-  const c=Q[pos];flipped=false;$('card').classList.remove('flip','swl','swr');
+  const c=Q[pos];flipped=false;$('card').classList.remove('flip','swl','swr');clearTimeout(tNext);
+  CH=S.mode==='chon'&&c.m?options(c)||[]:[];chonNow=CH.length===4;ans=null;
+  $('studyBox').classList.toggle('chon',chonNow);$('choices').hidden=!chonNow;$('judge').hidden=chonNow;
+  $('choices').innerHTML=chonNow?CH.map((m,i)=>'<button class="ch" type="button" data-i="'+i+'">'+esc(m)+'</button>').join(''):'';
+  $('keys').textContent=chonNow?'Phím tắt: 1–4 chọn đáp án · Enter sang thẻ sau · S nghe đọc':'Phím tắt: Space lật thẻ · ← chưa nhớ · → nhớ rồi · S nghe đọc';
   $('front').innerHTML=face(c,'front');
   setTimeout(()=>{$('back').innerHTML=face(c,'back');$('back').classList.toggle('has-ex',!!c.ex)},flippedDelay());
   $('bNo').disabled=$('bYes').disabled=true;
@@ -385,13 +428,25 @@ function show(){
   $('sprog').style.width=(pos/Q.length*100)+'%';
   if(S.mode==='nghe')setTimeout(()=>TTS.say(c.w),250);
 }
+function choose(i){
+  if(!chonNow||ans!==null||!CH[i])return;const c=Q[pos];ans=CH[i]===c.m;
+  [...$('choices').children].forEach((b,j)=>{b.disabled=true;if(CH[j]===c.m)b.classList.add('ok');else if(j===i)b.classList.add('bad')});
+  flipped=true;$('card').classList.add('flip');TTS.say(c.w);
+  $('choices').insertAdjacentHTML('beforeend','<button class="btn '+(ans?'yes':'sec')+' next" type="button" id="bNext">'+(ans?'Đúng rồi! Thẻ sau →':'Thẻ sau →')+'</button>');
+  $('bNext').onclick=()=>judge(ans);$('bNext').focus({preventScroll:true});
+  if(ans)tNext=setTimeout(()=>judge(true),1600);   // đúng: tự sang thẻ sau; sai: chờ học viên xem mặt sau rồi bấm
+}
+$('choices').addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(b)choose(+b.dataset.i)});
 function flip(){
+  if(chonNow){if(ans!==null)$('card').classList.toggle('flip');return}   // chưa chọn thì không cho lật xem trước
   flipped=!flipped;$('card').classList.toggle('flip',flipped);
   $('bNo').disabled=$('bYes').disabled=!flipped;
   if(flipped&&S.mode!=='nghe')TTS.say(Q[pos].w);
 }
 function judge(ok){
   if(!flipped)return;
+  if(chonNow){if(ans===null)return;ok=ans}
+  clearTimeout(tNext);
   const c=Q[pos],d=today(),s=S.cards[c.k]||{b:0,due:d};
   s.w=c.w;s.p=c.p;if(c.m)s.m=c.m;
   if(ok&&c.again){s.b=1;s.due=d+1}                 // quên rồi nhớ lại trong buổi: ở hộp 一, mai gặp lại
@@ -427,6 +482,12 @@ document.querySelectorAll('[data-mode]').forEach(t=>{
 });
 document.addEventListener('keydown',e=>{
   if($('studyView').hidden||$('studyBox').hidden||e.target.closest('button')&&e.key===' ')return;
+  if(chonNow){
+    if(ans===null&&/^[1-4]$/.test(e.key))choose(+e.key-1);
+    else if(ans!==null&&(e.key==='Enter'||e.key===' '||e.key==='ArrowRight')){e.preventDefault();judge(ans)}
+    else if(e.key==='s'||e.key==='S')TTS.say(Q[pos].w);
+    return;
+  }
   if(e.key===' '||e.key==='Enter'){e.preventDefault();flip()}
   else if(e.key==='ArrowLeft')judge(false);
   else if(e.key==='ArrowRight')judge(true);
@@ -478,12 +539,12 @@ $('codeGo').addEventListener('click',async()=>{
   catch(e){msg('Mã không đúng hoặc bị thiếu. Kiểm tra đã chép đủ cả đoạn mã chưa.',1)}
 });
 $('codeShare').addEventListener('click',()=>{navigator.share({title:'Mã tiến độ 词汇盒',text:$('codeTxt').value}).catch(()=>{})});
-render();
+render();ensure79Lv().then(render);
 // Link thẳng từ bài giảng: tu-vung/#tttc/bai-2 · #chu-de/gia-dinh · #hsk/1 · từ trò chơi: #tu/老师,老人
 function route(){const h=decodeURIComponent(location.hash.slice(1)).split('/');if(!h[0])return;
   if(h[0]==='chu-de'){S.src='chude';open('cd:'+h[1])}
   else if(h[0]==='tu'){open('tu:'+h[1])}
-  else if(h[0]==='hsk'&&HSK[h[1]]){S.src='hsk';S.lv=h[1];save();render()}
+  else if(h[0]==='hsk'&&LEVELS.includes(h[1])){S.src='hsk';S.lv=h[1];save();render();ensure79Lv().then(render)}
   else if(BAI.some(b=>b.id===h[0])){S.src='bai';S.book=h[0];if(!open('bai:'+h[0]+':'+h[1]))render()}
 }
 route();addEventListener('hashchange',route);
