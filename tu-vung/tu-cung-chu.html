@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>以字带词 · Từ cùng chữ – Hệ mặt trời chữ – 词汇盒 – 吕老师汉语盒</title>
+<meta name="description" content="Chọn một chữ Hán, xem mọi từ HSK có chữ đó như các hành tinh quay quanh mặt trời: theo cấp HSK, chữ gốc đứng đầu hay đứng sau, từ nào đã thuộc.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../tro-choi/game.css?v=4">
+<link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+/* 以字带词 · Từ cùng chữ (hộp 词汇盒) — hệ mặt trời chữ: chữ gốc là mặt trời, các từ chứa chữ đó là hành tinh, mỗi quỹ đạo một cấp HSK */
+.intro{margin:22px 0 0}.intro h1{margin:4px 0 4px;font-size:clamp(24px,3.6vw,34px);font-weight:800;line-height:1.2}.intro h1 span{font-family:var(--hz);color:#7C6BD6;font-weight:400}.intro p{margin:0;color:var(--muted);max-width:46em}.intro a{font-weight:700;font-size:14px;color:#7C6BD6;text-decoration:none}
+.ct{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:22px;align-items:start;margin:22px 0 40px}
+.scene{position:relative;border-radius:30px;overflow:hidden;box-shadow:var(--shadow);background:radial-gradient(ellipse at 50% 48%,#1B1E3F 0%,#0C0E24 50%,#04050F 100%)}
+.scene svg{display:block;width:100%;height:auto;touch-action:manipulation}
+.scene.day{background:radial-gradient(ellipse at 50% 46%,#FFFFFF 0%,#F1F0FF 42%,#DFE5FB 78%,#D3DCF7 100%)}
+.scene.day .key{color:#3C3489}.scene.day .hint{color:#5A5494}
+.scene.day .rtabs button{background:rgba(60,52,137,.1);color:#3C3489}.scene.day .rtabs button[aria-pressed="true"]{background:#FFD66B;color:#5A3510}
+.key{position:absolute;left:16px;top:14px;display:flex;flex-direction:column;gap:6px;font-size:12.5px;font-weight:700;color:#DCDAF5}
+.key span{display:flex;align-items:center;gap:7px}.key i{width:18px;height:2px;border-radius:2px;display:inline-block}
+.rtabs{position:absolute;left:0;right:0;top:12px;display:none;justify-content:center;gap:6px}
+.rtabs button{border:0;font:inherit;font-size:12.5px;font-weight:800;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12);color:#E7E5FA;cursor:pointer}
+.rtabs button[aria-pressed="true"]{background:#FFD66B;color:#5A3510}
+.narrow .rtabs{display:flex}.narrow .key{display:none}
+.hint{position:absolute;right:16px;bottom:12px;font-size:12px;color:#B9B6E6;opacity:.85}
+.side{display:grid;gap:14px;position:sticky;top:76px}
+.pane{background:var(--card);border-radius:24px;box-shadow:var(--shadow);padding:18px}
+.pane h3{margin:0 0 10px;font-size:15px;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:0;font-family:var(--kai);font-size:22px;width:44px;height:44px;border-radius:14px;background:var(--ground2);color:var(--ink);cursor:pointer;transition:transform .15s}
+.chip:hover{transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:#2C2F6B;color:#FFD66B}
+.find{display:flex;gap:8px;margin-top:10px}
+.find input{flex:1;min-width:0;font:inherit;font-size:15px;padding:9px 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--ground);color:var(--ink)}
+.lvs{display:flex;gap:6px;flex-wrap:wrap}
+.lvs button{border:0;font:inherit;font-weight:700;font-size:13px;padding:7px 12px;border-radius:999px;background:var(--ground2);color:var(--ink);cursor:pointer}
+.lvs button[aria-pressed="true"]{background:#7C6BD6;color:#fff}
+.info .z{font-family:var(--kai);font-size:54px;line-height:1.05}
+.info .z b{font-weight:400;color:#E0A21B}
+.info .py{font-weight:800;color:#7C6BD6;font-size:17px}
+.info .vi{font-size:16px;font-weight:600;margin-top:2px}
+.info .note{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.45}
+.info .bd{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;background:var(--ground2);color:var(--muted);margin-right:6px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.stats b{display:block;font-size:22px;font-weight:800;line-height:1.1}
+.stats span{font-size:12px;color:var(--muted)}
+.stats .g b{color:#E0A21B}
+.more{margin-top:10px;display:flex;flex-wrap:wrap;gap:6px}
+.more button{border:0;font-family:var(--kai);font-size:16px;padding:3px 10px;border-radius:10px;background:var(--ground2);color:var(--ink);cursor:pointer}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts .btn{font-size:14px;padding:9px 14px}
+/* hành tinh */
+.pl{cursor:pointer;outline:none}
+.pl .sel{opacity:0;transition:opacity .25s}
+.pl.on .sel,.pl:focus-visible .sel{opacity:1}
+.pl:hover .body{filter:brightness(1.08)}
+.pl text{pointer-events:none}
+.tw{animation:tw var(--d,3s) ease-in-out infinite}@keyframes tw{0%,100%{opacity:.25}50%{opacity:1}}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pu 3.2s ease-in-out infinite}@keyframes pu{0%,100%{transform:scale(1);opacity:.55}50%{transform:scale(1.12);opacity:.25}}
+.spin{transform-box:fill-box;transform-origin:center;animation:sp 40s linear infinite}@keyframes sp{to{transform:rotate(360deg)}}
+.spinr{transform-box:fill-box;transform-origin:center;animation:sp 9s linear infinite}
+.in{animation:in 1s cubic-bezier(.2,1.2,.4,1) both}@keyframes in{from{opacity:0}to{opacity:1}}
+.orb{fill:none;stroke-width:1.4;stroke-dasharray:2 7;opacity:.55}
+.orb.gold{stroke:#FFD66B!important;stroke-dasharray:none;opacity:.9;stroke-width:2}
+@media (prefers-reduced-motion:reduce){.tw,.pulse,.spin,.spinr,.in{animation:none!important}}
+@media (max-width:860px){.ct{grid-template-columns:1fr}.side{position:static}}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<link rel="canonical" href="https://lyulaoshi.com/tu-vung/tu-cung-chu.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="以字带词 · Từ cùng chữ – Hệ mặt trời chữ – 词汇盒 – 吕老师汉语盒"><meta property="og:description" content="Chọn một chữ Hán, xem mọi từ HSK có chữ đó như các hành tinh quay quanh mặt trời: theo cấp HSK, chữ gốc đứng đầu hay đứng sau, từ nào đã thuộc."><meta property="og:url" content="https://lyulaoshi.com/tu-vung/tu-cung-chu.html"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../" aria-label="Về trang chủ"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="./">词汇盒 Từ vựng</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+<main class="wrap">
+  <div class="intro"><a href="./">← Về 词汇盒</a><h1><span>以字带词</span> Từ cùng chữ</h1><p>Chọn một chữ Hán: chữ đó là mặt trời, mỗi từ HSK có chữ đó là một hành tinh. Quỹ đạo gần là cấp dễ. Từ đã thuộc trong hộp từ vựng thành sao vàng.</p></div>
+  <div class="ct">
+    <div class="scene" id="scene">
+      <svg id="svg" viewBox="0 0 900 620" role="img" aria-label="Hệ mặt trời chữ"></svg>
+      <div class="key" id="key"></div>
+      <div class="rtabs" id="rtabs" role="group" aria-label="Chọn quỹ đạo"></div>
+      <div class="hint">Bấm vào hành tinh để nghe</div>
+    </div>
+    <aside class="side">
+      <div class="pane info" id="info"></div>
+      <div class="pane"><div class="stats" id="stats"></div><div class="more" id="more"></div></div>
+      <div class="pane"><h3>Đến cấp</h3><div class="lvs" id="lvs"></div></div>
+      <div class="pane"><h3>Chọn chữ gốc</h3><div class="chips" id="chips"></div>
+        <div class="find"><input id="q" maxlength="1" placeholder="Gõ 1 chữ Hán" lang="zh" aria-label="Gõ một chữ Hán"><button class="btn sec" id="go" type="button">Xem</button></div></div>
+      <div class="pane acts"><button class="btn pri" type="button" id="study">Học thẻ các từ này</button><button class="btn sec" type="button" id="pause">Tạm dừng quay</button></div>
+    </aside>
+  </div>
+</main>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint();if(window.__redraw)window.__redraw()});})();
+</script>
+<script src="../tro-choi/hsk-words.js"></script>
+<script src="../tro-choi/tts.js?v=2"></script>
+<script src="nghia-hsk1.js"></script><script src="nghia-hsk2-3.js"></script><script src="nghia-hsk4.js"></script><script src="nghia-hsk5.js"></script><script src="nghia-hsk6.js"></script>
+<script src="bai-data.js"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=p=>p.toLowerCase().replace(/[\s'’\-·/]/g,'');
+const MV={};(window.BAI||[]).forEach(b=>b.bai.forEach(l=>l.w.forEach(x=>{const k=x[0]+'|'+norm(x[1]||'');if(x[2]&&!MV[k])MV[k]=x[2]})));
+const mean=(w,p)=>(NGHIA[w+'|'+p]||NGHIA[w]||MV[w+'|'+norm(p)]||'').split(/[;,]/)[0].trim();
+let KN=new Set();try{const S=JSON.parse(localStorage.getItem('cb-tuvung-v2'))||{};KN=new Set(Object.entries(S.cards||{}).filter(([k,s])=>s.b>=4).map(([k])=>k))}catch(e){}
+const known=w=>KN.has(w[0]+'|'+norm(w[1]));
+const ALL=[];Object.keys(HSK).forEach(l=>HSK[l].forEach(([w,p])=>{if(w.length>1)ALL.push([w,p,mean(w,p),+l])}));
+const wordsOf=z=>ALL.filter(w=>w[0].includes(z));
+const RINGS=[{n:'HSK 1',f:l=>l===1,c:'#5DCAA5'},{n:'HSK 2–3',f:l=>l===2||l===3,c:'#85B7EB'},{n:'HSK 4',f:l=>l===4,c:'#AFA9EC'},{n:'HSK 5–6',f:l=>l>=5,c:'#F0997B'}];
+const POP=['学','生','人','大','心','发','出','动','面','子','不','中','天','好','家','电','开','车'];
+let ZI='学',LV=4,SEL=null,RSEL=-1,PAUSE=false,P=[],raf=0,t0=0,tAcc=0,last=0;
+const mk=(t,a,p,txt)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;(p||$('svg')).appendChild(e);return e};
+const reduced=()=>matchMedia('(prefers-reduced-motion:reduce)').matches;
+const pyOf=z=>{for(const l of Object.keys(HSK)){const x=HSK[l].find(([v])=>v===z);if(x)return x[1]}return ''};
+let seed=7;const rnd=()=>(seed=(seed*9301+49297)%233280)/233280;
+
+// ---- vẽ: bảng màu từng loại hành tinh (xanh ngọc = chữ gốc đứng đầu, cam đỏ = đứng sau, vàng = đã thuộc) ----
+const PAL={H:[['#D9FBF1','#53C9A8','#0E5E52'],['#DDF1FF','#5BA9DE','#14456E'],['#E3FAE0','#6CC08A','#1C5B3A']],
+           T:[['#FFE6DE','#EE7A5E','#6E1E12'],['#FFE3E6','#E25D6E','#5E1222'],['#FFE8E0','#D9604A','#5A1A0E']],
+           G:[['#FFFBE6','#FFD54A','#B07A00']]};
+const dark=()=>document.documentElement.dataset.theme==='dark'||(!document.documentElement.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches);
+let DAY=false,RINGF=1.85;   // RINGF: độ rộng vành đai so với bán kính hành tinh
+const hash=s=>[...s].reduce((h,c)=>(h*31+c.charCodeAt(0))>>>0,7);
+function defs(){const d=mk('defs',{});DAY=!dark();
+  const rg=(id,stops,o)=>{const g=mk('radialGradient',Object.assign({id,cx:.5,cy:.5,r:.5},o||{}),d);stops.forEach(([of,c,a])=>mk('stop',{offset:of,'stop-color':c,'stop-opacity':a==null?1:a},g))};
+  rg('sunCore',[[0,'#FFFFF4'],[.35,'#FFF1B0'],[.7,'#FFC24A'],[1,'#F07A1A']]);
+  rg('halo',[[0,'#FFE38A',0],[.62,'#FFE38A',0],[.75,'#FFD54A',.55],[1,'#FFD54A',0]]);
+  rg('glare',[[0,'#FFFFFF',.9],[1,'#FFFFFF',0]]);rg('spec',[[0,'#FFFFFF',.32],[1,'#FFFFFF',0]]);
+  rg('mw',DAY?[[0,'#B4A9F0',.35],[.5,'#C9C2FF',.15],[1,'#C9C2FF',0]]:[[0,'#C9C2FF',.22],[.5,'#8E7CF0',.08],[1,'#8E7CF0',0]]);
+  rg('neb',DAY?[[0,'#7FD3C8',.28],[1,'#7FD3C8',0]]:[[0,'#3FB6C8',.16],[1,'#3FB6C8',0]]);
+  rg('corona',DAY?[[0,'#FFD36B',.7],[.35,'#FFB84A',.3],[.7,'#FFB84A',.08],[1,'#FFB84A',0]]:[[0,'#FFD36B',.75],[.35,'#FFA43A',.28],[.7,'#FF7A1A',.08],[1,'#FF7A1A',0]]);
+  Object.entries(PAL).forEach(([k,arr])=>arr.forEach(([a,b,c],i)=>rg('pl'+k+i,[[0,a],[.45,b],[1,c]],{fx:.36,fy:.36})));
+  // bóng tối phía không có nắng: xoay theo hướng mặt trời
+  const sh=mk('linearGradient',{id:'shade',x1:0,y1:.5,x2:1,y2:.5},d);
+  [[0,0],[.42,0],[.62,DAY?.3:.42],[1,DAY?.62:.86]].forEach(([o,a])=>mk('stop',{offset:o,'stop-color':DAY?'#1A2050':'#05071A','stop-opacity':a},sh));
+  // mặt trời sủi bọt (hạt sáng) + quầng mờ
+  const f=mk('filter',{id:'gran',x:'-10%',y:'-10%',width:'120%',height:'120%'},d);
+  const tb=mk('feTurbulence',{type:'fractalNoise',baseFrequency:'.055',numOctaves:3,seed:3,result:'n'},f);
+  if(!reduced())mk('animate',{attributeName:'baseFrequency',values:'.05;.065;.05',dur:'14s',repeatCount:'indefinite'},tb);
+  mk('feColorMatrix',{in:'n',type:'matrix',values:'0 0 0 0 .85  0 0 0 0 .35  0 0 0 0 .02  0 0 0 -1.6 1.05',result:'spots'},f);
+  mk('feComposite',{in:'spots',in2:'SourceGraphic',operator:'in',result:'s2'},f);
+  const fm=mk('feMerge',{},f);mk('feMergeNode',{in:'SourceGraphic'},fm);mk('feMergeNode',{in:'s2'},fm);
+  const bl=mk('filter',{id:'blur',x:'-50%',y:'-50%',width:'200%',height:'200%'},d);mk('feGaussianBlur',{stdDeviation:14},bl);
+  const bl2=mk('filter',{id:'blur2',x:'-50%',y:'-50%',width:'200%',height:'200%'},d);mk('feGaussianBlur',{stdDeviation:3},bl2);
+  return d;
+}
+// một hành tinh (toạ độ gốc 0,0): thân có vân hoặc hố, bóng tối xoay theo mặt trời, có thể có vành đai
+function planet(pg,w,kd,R,id){
+  const h=hash(w[0]),pal=PAL[kd],pi=h%pal.length,type=kd==='G'?'gas':['gas','rock','gas','ice'][h%4],ring=w[0].length>=4||h%6===0;
+  if(kd==='G'){mk('circle',{r:R*1.6,fill:'url(#halo)'},pg);mk('circle',{r:R+6,fill:'none',stroke:'#FFE38A','stroke-width':1.6,'stroke-dasharray':'1.5 5','stroke-linecap':'round',class:'spinr'},pg)}   // sao vàng: quầng + vòng lấp lánh
+  const rt=mk('g',{transform:'rotate('+(-16+(h%9))+')'},pg);
+  const RF=RINGF,rpath=(top)=>`M${-R*RF} 0A${R*RF} ${R*.42} 0 0 ${top?1:0} ${R*RF} 0`;
+  if(ring){mk('path',{d:rpath(1),fill:'none',stroke:kd==='T'?'#E9C7A6':kd==='G'?'#F8E3A0':'#BFE3EA','stroke-width':R*.13,opacity:.42},rt);
+    mk('path',{d:rpath(1),fill:'none',stroke:'#fff','stroke-width':1,opacity:.35},rt)}
+  const cp=mk('clipPath',{id:'c'+id},pg);mk('circle',{r:R},cp);
+  const body=mk('g',{'clip-path':'url(#c'+id+')'},pg);
+  mk('circle',{r:R,fill:'url(#pl'+kd+pi+')'},body);
+  if(type==='gas'){for(let i=-3;i<=3;i++)mk('ellipse',{cx:(h%7-3)*.6,cy:i*R*.27+((h>>3)%5-2),rx:R*1.2,ry:R*(.06+((h>>i+4)&3)*.025),fill:i%2?'#fff':'#000',opacity:i%2?.08:.06},body);
+    if(h%3===0)mk('ellipse',{cx:R*.25,cy:R*.32,rx:R*.24,ry:R*.13,fill:'#000',opacity:.1},body)}
+  else if(type==='rock'){for(let i=0;i<6;i++){const a=(h>>i)%628/100,r=R*(.25+((h>>(i+2))%55)/100),cr=R*(.07+((h>>(i+5))%10)/100);
+    mk('circle',{cx:Math.cos(a)*r,cy:Math.sin(a)*r,r:cr,fill:'#000',opacity:.1},body);mk('circle',{cx:Math.cos(a)*r-cr*.25,cy:Math.sin(a)*r-cr*.25,r:cr*.75,fill:'#fff',opacity:.08},body)}}
+  else{mk('ellipse',{cx:-R*.1,cy:-R*.35,rx:R*.7,ry:R*.18,fill:'#fff',opacity:.28},body);mk('ellipse',{cx:R*.2,cy:R*.25,rx:R*.6,ry:R*.12,fill:'#fff',opacity:.2},body)}
+  const shade=mk('g',{},body);mk('rect',{x:-R,y:-R,width:2*R,height:2*R,fill:'url(#shade)'},shade);
+  mk('ellipse',{cx:-R*.48,cy:0,rx:R*.3,ry:R*.44,fill:'url(#spec)'},shade);
+  mk('circle',{r:R+.6,fill:'none',stroke:kd==='H'?'#BFF3FF':kd==='G'?'#FFF0B8':'#FFD9C2','stroke-width':1.2,opacity:.45},pg);
+  if(ring)mk('path',{d:rpath(0),fill:'none',stroke:kd==='T'?'#E9C7A6':kd==='G'?'#F8E3A0':'#BFE3EA','stroke-width':R*.13,opacity:.58},rt.cloneNode(false)&&pg.appendChild(rt.cloneNode(false)));
+  return shade;
+}
+function draw(){
+  cancelAnimationFrame(raf);const svg=$('svg');svg.innerHTML='';defs();seed=7;
+  const narrow=$('scene').clientWidth<640;$('scene').classList.toggle('narrow',narrow);$('scene').classList.toggle('day',DAY);
+  const words=wordsOf(ZI).filter(w=>LV===6||w[3]<=LV);CURW=words;
+  if(history.replaceState)history.replaceState(null,'','#'+encodeURIComponent(ZI)+(LV!==4?'/'+LV:''));   // link chia sẻ: tu-cung-chu.html#学 hoặc #学/6
+  let rings=RINGS.map((r,i)=>({...r,i,ws:words.filter(w=>r.f(w[3]))})).filter(r=>r.ws.length);
+  if(!rings.length){svg.setAttribute('viewBox','0 0 900 300');mk('text',{x:450,y:150,'text-anchor':'middle',fill:DAY?'#3C3489':'#DCDAF5','font-size':18},null,'Chữ này chưa có từ nào ở cấp đã chọn.');return}
+  if(RSEL>=rings.length)RSEL=-1;
+  $('rtabs').innerHTML='<button type="button" data-r="-1" aria-pressed="'+(RSEL<0)+'">Tất cả</button>'+rings.map((r,i)=>'<button type="button" data-r="'+i+'" aria-pressed="'+(i===RSEL)+'">'+r.n+' · '+r.ws.length+'</button>').join('');
+  $('key').innerHTML=rings.map(r=>'<span><i style="background:'+r.c+'"></i>'+r.n+' · '+r.ws.length+' từ</span>').join('');
+  const show=narrow&&RSEL>=0?[rings[RSEL]]:rings,all=narrow&&RSEL<0;   // màn hẹp + "Tất cả": quỹ đạo tròn đồng tâm, cao theo màn dọc
+  const VW=narrow?600:900,k=show.length,maxRx=all?250:narrow?240:415,minRx=all?(k>=4?100:(k===1?230:120)):narrow?240:(k===1?260:(k>=4?190:215)),RY=all?1:narrow?.62:.56;
+  const geo=show.map((r,i)=>{const rx=k===1?maxRx:minRx+i*(maxRx-minRx)/(k-1);return{...r,rx,ry:rx*RY}});
+  const sr=all?44:narrow?58:52;let prev=null;PYS=all?0:narrow?18:12.5;   // chế độ Tất cả trên màn hẹp: không hiện pinyin thường trực (quá chật), chỉ hiện ở nhãn khi rê/bấmRINGF=all?1.42:1.85;
+  geo.forEach(g=>{const per=2*Math.PI*Math.min(g.ry,g.rx)/g.ws.length;
+    let R=Math.min(all?34:narrow?40:36,(per-8)/2,prev?g.ry-prev.ry-prev.R-12-PYS:g.ry-sr-12);const minR=all?20:narrow?26:20;
+    if(R<minR){R=minR;g.cap=Math.max(3,Math.floor(2*Math.PI*Math.min(g.ry,g.rx)/(2*R+8)))}else g.cap=g.ws.length;g.R=R;prev=g});
+  const outer=geo[geo.length-1],VH=Math.round(2*(outer.ry+outer.R*1.2+PYS*1.6+(narrow?56:40)))+(narrow?60:0);
+  svg.setAttribute('viewBox','0 0 '+VW+' '+VH);const cx=VW/2,cy=VH/2+(narrow?14:0);
+  // nền: dải Ngân Hà nghiêng, tinh vân, sao nhiều cỡ nhiều màu
+  const mw=mk('g',{transform:`rotate(-24 ${cx} ${cy})`});
+  mk('ellipse',{cx,cy,rx:VW*.75,ry:VH*.2,fill:'url(#mw)',filter:'url(#blur)'},mw);
+  for(let i=0;i<130;i++){const x=cx+(rnd()-.5)*VW*1.4,y=cy+(rnd()+rnd()-1)*VH*.16;mk('circle',{cx:x,cy:y,r:rnd()*.8+.2,fill:DAY?'#6A63B8':'#fff',opacity:((DAY?.1:.15)+rnd()*(DAY?.35:.5)).toFixed(2)},mw)}
+  mk('ellipse',{cx:VW*.82,cy:VH*.2,rx:VW*.18,ry:VH*.14,fill:'url(#neb)'});
+  const SC=DAY?['#6A63B8','#8AA4E0','#E0A21B','#B89BE8']:['#FFFFFF','#CFE3FF','#FFF2CC','#FFD7C2'];
+  for(let i=0;i<90;i++){const big=rnd()<.08;mk('circle',{cx:rnd()*VW,cy:rnd()*VH,r:big?1.5+rnd():rnd()*.8+.3,fill:SC[i%4],class:big?'tw':'',opacity:big?(DAY?.8:1):((DAY?.2:.35)+rnd()*(DAY?.45:.6)).toFixed(2),style:big?'--d:'+(2+rnd()*4).toFixed(1)+'s':''})}
+  // quỹ đạo: nửa sau mờ, nửa trước rõ
+  const orbB=mk('g',{}),back=mk('g',{}),sunG=mk('g',{}),orbF=mk('g',{}),front=mk('g',{});
+  const OC={'#5DCAA5':'#1D9E75','#85B7EB':'#378ADD','#AFA9EC':'#7F77DD','#F0997B':'#D85A30'};
+  geo.forEach(g=>{const all=g.ws.length&&g.ws.every(known),st=all?(DAY?'#E0A21B':'#FFD66B'):(DAY?OC[g.c]:g.c);
+    g.ob=mk('path',{class:'ob',d:`M${cx-g.rx} ${cy}A${g.rx} ${g.ry} 0 0 1 ${cx+g.rx} ${cy}`,fill:'none',stroke:st,'stroke-width':all?2:1.1,opacity:all?.6:.22},orbB);
+    g.of=mk('path',{class:'of',d:`M${cx-g.rx} ${cy}A${g.rx} ${g.ry} 0 0 0 ${cx+g.rx} ${cy}`,fill:'none',stroke:st,'stroke-width':all?2.4:1.4,opacity:all?.95:.5},orbF)});
+  ORB=geo;$('key').innerHTML='';TAGS=mk('g',{'pointer-events':'none'});
+  geo.forEach(g=>{const txt=g.n+(narrow?'':' · '+g.ws.length+' từ'),fz=narrow?15:11.5,w=txt.length*fz*.6+18,h=fz+11,col=DAY?OC[g.c]:g.c;
+    const lg=mk('g',{class:'in'},mk('g',{style:'transition:opacity .3s'},TAGS));g.tag=lg.parentNode;g.tx=cx;g.ty=cy+g.ry;g.tw=w;mk('rect',{x:cx-w/2,y:cy+g.ry-h/2,width:w,height:h,rx:h/2,fill:DAY?'#fff':'rgba(14,16,40,.92)',stroke:col,'stroke-width':1.4},lg);
+    mk('text',{x:cx,y:cy+g.ry+.5,'text-anchor':'middle','dominant-baseline':'central','font-size':fz,'font-weight':800,fill:col},lg,txt)});
+  // mặt trời: quầng mờ lớn, tia sáng, lõi sủi
+  mk('circle',{cx,cy,r:sr*3.2,fill:'url(#corona)',class:'pulse'},sunG);
+  mk('circle',{cx,cy,r:sr*1.25,fill:'#FFD36B',opacity:DAY?.35:.45,filter:'url(#blur)',class:'pulse',style:'animation-delay:-1.6s'},sunG);
+  mk('circle',{cx,cy,r:sr*1.42,fill:'none',stroke:'#FFE7A0','stroke-width':1,opacity:.45,'stroke-dasharray':'1 6',class:'spin'},sunG);
+  const rays=mk('g',{class:'spin',opacity:.1},sunG);
+  for(let i=0;i<12;i++){const a=i*Math.PI/6,l=sr*(1.7+(i%3)*.35);mk('path',{d:`M${cx+Math.cos(a-.05)*sr} ${cy+Math.sin(a-.05)*sr}L${cx+Math.cos(a)*l} ${cy+Math.sin(a)*l}L${cx+Math.cos(a+.05)*sr} ${cy+Math.sin(a+.05)*sr}Z`,fill:'#FFE29A',filter:'url(#blur2)'},rays)}
+  const sun=mk('g',{style:'cursor:pointer'},sunG);
+  mk('circle',{cx,cy,r:sr,fill:'url(#sunCore)',filter:'url(#gran)'},sun);
+  mk('circle',{cx,cy,r:sr+2,fill:'none',stroke:'#FFF6C8','stroke-width':4,opacity:.55,filter:'url(#blur2)'},sun);
+  mk('ellipse',{cx:cx-sr*.32,cy:cy-sr*.42,rx:sr*.36,ry:sr*.2,fill:'#fff',opacity:.35,filter:'url(#blur2)'},sun);
+  mk('text',{x:cx,y:cy-6,'text-anchor':'middle','dominant-baseline':'central','font-size':sr*1.08,fill:'#6A2600',style:'font-family:var(--kai)'},sun,ZI);
+  mk('text',{x:cx,y:cy+sr*.64,'text-anchor':'middle','dominant-baseline':'central','font-size':narrow?17:13.5,'font-weight':800,fill:'#8A3A00'},sun,pyOf(ZI));
+  sun.onclick=e=>{e.stopPropagation();pick(null);TTS.say(ZI)};
+  svg.onclick=e=>{if(!e.target.closest('.pl'))pick(null)};
+  // hành tinh
+  P=[];let uid=0;geo.forEach((g,gi)=>{const ws=g.ws.slice(0,g.cap),n=ws.length,a0=-Math.PI/2+gi*.7;
+    ws.forEach((w,i)=>{const H=w[0][0]===ZI,kd=known(w)?'G':H?'H':'T',R=g.R;
+      const pg=mk('g',{class:'pl',tabindex:0,role:'button','aria-label':w[0]+' '+w[2]},front);
+      mk('circle',{class:'sel',r:R*1.45,fill:'none',stroke:'#fff','stroke-width':2,'stroke-dasharray':'4 4'},pg);
+      const shade=planet(pg,w,kd,R,'p'+(uid++));
+      if(kd==='G'){mk('circle',{cx:R*.75,cy:-R*.75,r:8,fill:'#C0392B',stroke:'#fff','stroke-width':1},pg);mk('text',{x:R*.75,y:-R*.75+.5,'text-anchor':'middle','dominant-baseline':'central','font-size':9,fill:'#fff',style:'font-family:var(--hz)'},pg,'熟')}
+      const fs=R*(w[0].length<=2?.84:w[0].length===3?.66:.5);
+      mk('text',{x:0,y:1,'text-anchor':'middle','dominant-baseline':'central','font-size':fs.toFixed(1),fill:'#fff',stroke:'rgba(5,8,30,.88)','stroke-width':3.6,'paint-order':'stroke','stroke-linejoin':'round',style:'font-family:var(--kai)'},pg,w[0]);
+      if(PYS)mk('text',{x:0,y:R+PYS*.95,'text-anchor':'middle','dominant-baseline':'central','font-size':PYS,'font-weight':700,fill:DAY?'#2F2A6E':'#ECEAFF',stroke:DAY?'rgba(255,255,255,.92)':'rgba(5,8,30,.85)','stroke-width':3,'paint-order':'stroke','stroke-linejoin':'round'},pg,w[1]);   // pinyin luôn hiện dưới hành tinh
+      pg.onclick=e=>{e.stopPropagation();pick(SEL&&SEL[0]===w[0]?null:w)};pg.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(w)}};
+      pg.onmouseenter=()=>{PAUSE_H=true;HOVP=P.find(p=>p.g===pg)||null;label()};pg.onmouseleave=()=>{PAUSE_H=false;HOVP=null;label()};
+      P.push({w,g:pg,shade,a:a0+i*2*Math.PI/n,rx:g.rx,ry:g.ry,om:.00006/(1+gi*.6)*(gi%2?-1:1),back,front,side:null,R,ring:gi,delay:gi*260+i*70})})});
+  LAB=mk('g',{opacity:0,'pointer-events':'none',style:'transition:opacity .2s'});
+  LABR=mk('rect',{rx:11,fill:DAY?'rgba(255,255,255,.96)':'rgba(16,18,44,.9)',stroke:DAY?'rgba(60,52,137,.22)':'rgba(255,255,255,.18)','stroke-width':1},LAB);
+  LABP=mk('text',{'text-anchor':'middle','font-size':14,'font-weight':800,fill:DAY?'#5B4FC4':'#C9C2FF'},LAB);
+  LABM=mk('text',{'text-anchor':'middle','font-size':13,fill:DAY?'#3A3D57':'#EDEBFF'},LAB);VWg=VW;
+  const extra=geo.flatMap(g=>g.ws.slice(g.cap));
+  $('more').innerHTML=extra.length?'<div style="width:100%;font-size:12.5px;color:var(--muted)">Còn '+extra.length+' từ chưa lên quỹ đạo:</div>'+extra.map(w=>'<button type="button" data-w="'+esc(w[0])+'">'+esc(w[0])+'</button>').join(''):'';
+  window.__P=P;window.__extra=extra;
+  CX=cx;CY=cy;place(0);
+  const kn=words.filter(known).length,hd=words.filter(w=>w[0][0]===ZI).length;
+  $('stats').innerHTML='<div><b>'+words.length+'</b><span>hành tinh</span></div><div><b>'+hd+'</b><span>'+esc(ZI)+' đứng đầu</span></div><div class="g"><b>'+kn+'</b><span>sao vàng</span></div>';
+  if(TAGS)svg.appendChild(TAGS);if(LAB)svg.appendChild(LAB);
+  HOVP=null;SELP=null;LABFOR=null;if(SEL&&P.some(p=>p.w[0]===SEL[0]))pick(P.find(p=>p.w[0]===SEL[0]).w,true);else{SEL=null;info()}
+  T0=NOW=last=performance.now();place(0);if(!reduced())raf=requestAnimationFrame(loop);
+}
+let PYS=12.5,T0=0,NOW=0,TAGS=null,CURW=[];
+let CX=450,CY=310,PAUSE_H=false,HOVP=null,SELP=null,LAB=null,LABR,LABP,LABM,LABFOR=null,VWg=900,ORB=[];
+function place(dt){P.forEach(p=>{p.a+=p.om*dt;const e=reduced()?1:Math.min(1,Math.max(0,(NOW-T0-p.delay)/950)),ez=1-Math.pow(1-e,3),c=Math.cos(p.a),s=Math.sin(p.a),x=CX+p.rx*c*ez,y=CY+p.ry*s*ez,depth=(s+1)/2,sc=(.8+.2*depth)*(p===SELP?1.22:1)*(.2+.8*ez);
+  p.g.setAttribute('transform','translate('+x.toFixed(1)+' '+y.toFixed(1)+') scale('+sc.toFixed(3)+')');p.g.style.opacity=((.7+.3*depth)*Math.min(1,e*1.8)).toFixed(2);
+  p.shade.setAttribute('transform','rotate('+(Math.atan2(y-CY,x-CX)*180/Math.PI).toFixed(1)+')');   // nửa tối luôn quay lưng về mặt trời
+  p.x=x;p.y=y;p.sc=sc;if(SELP&&p!==SELP)p.g.style.opacity=((.7+.3*depth)*.32).toFixed(2);
+  const side=s<0?'b':'f';if(side!==p.side){(side==='b'?p.back:p.front).appendChild(p.g);p.side=side}})}
+function tagFade(){ORB.forEach((g,i)=>{if(!g.tag)return;const near=P.some(p=>p.ring===i&&p.x!=null&&Math.abs(p.x-g.tx)<g.tw/2+p.R*p.sc+4&&Math.abs(p.y-g.ty)<p.R*p.sc+PYS+14);g.tag.style.opacity=near?.12:1})}   // nhãn cấp mờ đi khi có hành tinh đi ngang
+function label(){tagFade();const p=HOVP||SELP;if(!LAB)return;if(!p){LAB.setAttribute('opacity',0);LABFOR=null;return}
+  if(LABFOR!==p){LABFOR=p;LABP.textContent=p.w[1]+'  ·  HSK '+p.w[3];LABM.textContent=p.w[2]||'';
+    p.lw=Math.max(LABP.getComputedTextLength?LABP.getComputedTextLength():p.w[1].length*8,LABM.getComputedTextLength?LABM.getComputedTextLength():60)+28}
+  const w=p.lw,h=46,r=p.R*p.sc;let lx=Math.min(Math.max(p.x,w/2+6),VWg-w/2-6),ly=p.y-r-h-10;if(ly<4)ly=p.y+r+10;
+  LABR.setAttribute('x',lx-w/2);LABR.setAttribute('y',ly);LABR.setAttribute('width',w);LABR.setAttribute('height',h);
+  LABP.setAttribute('x',lx);LABP.setAttribute('y',ly+19);LABM.setAttribute('x',lx);LABM.setAttribute('y',ly+36);LAB.setAttribute('opacity',1);LAB.parentNode.appendChild(LAB)}
+function loop(now){const dt=Math.min(64,now-last);last=now;NOW=now;if(!PAUSE&&!PAUSE_H)place(dt);else if(now-T0<4000)place(0);label();raf=requestAnimationFrame(loop)}
+function info(){const w=SEL;
+  if(!w){$('info').innerHTML='<div class="z">'+esc(ZI)+'</div><div class="py">'+esc(pyOf(ZI))+'</div><div class="vi">'+esc(mean(ZI,pyOf(ZI))||'')+'</div><div class="note">Chữ <b>'+esc(ZI)+'</b> là mặt trời. Mỗi hành tinh là một từ có chữ này: xanh lam, xanh ngọc là '+esc(ZI)+' đứng đầu; đỏ san hô là '+esc(ZI)+' đứng sau. Nửa tối của hành tinh luôn quay lưng về mặt trời. Quỹ đạo gần là cấp dễ. Từ đã thuộc thành sao vàng; thuộc trọn một quỹ đạo thì quỹ đạo sáng vàng.</div>';return}
+  const H=w[0][0]===ZI;
+  $('info').innerHTML='<div class="z">'+w[0].split(ZI).map(esc).join('<b>'+esc(ZI)+'</b>')+'</div><div class="py">'+esc(w[1])+'</div><div class="vi">'+esc(w[2]||'')+'</div><div style="margin-top:8px"><span class="bd">HSK '+w[3]+'</span>'+(known(w)?'<span class="bd" style="color:#E0A21B">đã thuộc</span>':'')+'</div><div class="note">'+(H?esc(ZI)+' đứng đầu từ.':w[0].endsWith(ZI)?esc(ZI)+' đứng cuối từ.':esc(ZI)+' ở giữa từ.')+'</div>'}
+function focusOrb(){ORB.forEach((g,i)=>{const on=SELP&&SELP.ring===i,dim=SELP&&!on;
+  if(g.ob){g.ob.style.opacity=on?.6:dim?.1:'';g.of.style.opacity=on?1:dim?.2:'';g.ob.style.strokeWidth=on?2:'';g.of.style.strokeWidth=on?2.6:''}})}
+function pick(w,quiet){SEL=w;SELP=w?P.find(p=>p.w===w)||null:null;P.forEach(p=>p.g.classList.toggle('on',p===SELP));focusOrb();place(0);label();info();if(w&&!quiet)TTS.say(w[0])}
+function chips(){$('chips').innerHTML=POP.map(z=>'<button class="chip" type="button" data-z="'+z+'" aria-pressed="'+(z===ZI)+'">'+z+'</button>').join('')}
+function lvs(){$('lvs').innerHTML=[[1,'HSK 1'],[3,'HSK 3'],[4,'HSK 4'],[6,'HSK 6']].map(([l,n])=>'<button type="button" data-l="'+l+'" aria-pressed="'+(l===LV)+'">'+n+'</button>').join('')}
+$('chips').onclick=e=>{const b=e.target.closest('[data-z]');if(b){ZI=b.dataset.z;SEL=null;RSEL=-1;chips();draw()}};
+$('lvs').onclick=e=>{const b=e.target.closest('[data-l]');if(b){LV=+b.dataset.l;RSEL=-1;lvs();draw()}};
+$('rtabs').onclick=e=>{const b=e.target.closest('[data-r]');if(b){RSEL=+b.dataset.r;draw()}};
+$('more').onclick=e=>{const b=e.target.closest('[data-w]');if(b)pick(wordsOf(ZI).find(w=>w[0]===b.dataset.w))};
+$('go').onclick=()=>{const z=$('q').value.trim();if(z&&wordsOf(z).length){ZI=z;SEL=null;RSEL=-1;chips();draw()}else $('q').value=''};
+$('q').onkeydown=e=>{if(e.key==='Enter')$('go').click()};
+$('pause').onclick=()=>{PAUSE=!PAUSE;$('pause').textContent=PAUSE?'Cho quay tiếp':'Tạm dừng quay'};
+let lastN=null;addEventListener('resize',()=>{const n=$('scene').clientWidth<640;if(n!==lastN){lastN=n;draw()}});lastN=$('scene').clientWidth<640;
+document.addEventListener('visibilitychange',()=>{last=performance.now()});
+// mở từ link: #<chữ> hoặc #<chữ>/<cấp>
+function fromHash(){const h=decodeURIComponent(location.hash.slice(1)).split('/');if(h[0]&&wordsOf(h[0]).length){ZI=h[0];SEL=null;RSEL=-1}if([1,3,4,6].includes(+h[1]))LV=+h[1]}
+fromHash();addEventListener('hashchange',()=>{const z=ZI,l=LV;fromHash();if(z!==ZI||l!==LV){chips();lvs();draw()}});
+// học các từ đang hiện bằng thẻ của 词汇盒 (vào chung 5 hộp ôn)
+$('study').onclick=()=>{if(CURW.length)location.href='./#tu/'+encodeURIComponent(CURW.map(w=>w[0]).join(','))+'/'+encodeURIComponent(ZI)};
+window.__redraw=draw;
+chips();lvs();draw();
+})();
+</script>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
+</body>
+</html>

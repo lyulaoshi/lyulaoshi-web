@@ -1,0 +1,79 @@
+/* Logo theo mùa lễ hội — đi cùng mua-le.js. Chỉ có tác dụng khi script gắn lớp .mua-… vào <html>. */
+.ml-lop{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.ml-lop path,.ml-lop circle,.ml-lop ellipse{stroke:#8b3538;stroke-width:12;stroke-linejoin:round;stroke-linecap:round}
+
+/* —— Giáng sinh —— */
+.ml-tuyet{fill:#fff}
+.ml-bang{fill:#2f9a63}
+.ml-bong{fill:none;stroke:#1f6e45!important;stroke-width:8!important}
+.ml-do{fill:#e0464b}
+.ml-vien{fill:#fff}
+.ml-day{fill:none;stroke-width:6!important}
+.ml-giay{fill:#fdf3d8}
+.ml-lo{fill:#fff;stroke-width:6!important}
+.ml-chu{font:400 44px var(--hz,"KaiTi",serif);fill:#c8323a;text-anchor:middle}
+.ml-thong{fill:none;stroke:#2f7d4f!important;stroke-width:11!important}
+.ml-ruoi{fill:#3aa36b}
+.ml-qua{fill:#e0464b}
+.ml-nho path,.ml-nho circle{stroke-width:4}
+
+/* nắp hé khi rê chuột: tuyết + nơ nghiêng theo nắp (cùng tâm xoay với .lid: 97% 100% của nắp) */
+.ml-nap{transform-box:view-box;transform-origin:1287px 870px;transition:transform .3s ease}
+@media (hover:hover){.art:has(.body:hover,.lid:hover) .ml-nap{transform:rotate(4deg)}}
+.ml-the{transform-box:view-box;transform-origin:820px 800px}
+@media (prefers-reduced-motion:no-preference){
+  .ml-the{animation:ml-dua 3.6s ease-in-out infinite}
+  .ml-mu{animation:float 5s ease-in-out infinite .4s}
+}
+@keyframes ml-dua{50%{rotate:-5deg}}
+
+/* tuyết rơi nhẹ quanh hình hộp */
+.ml-roi{position:absolute;inset:-6% -4% 0;pointer-events:none;overflow:hidden}
+.ml-roi{container-type:size}
+.ml-roi i{position:absolute;top:-3%;left:var(--x);width:var(--s);aspect-ratio:1;border-radius:50%;background:#fff;box-shadow:0 0 0 1.5px #c9d6ea;opacity:.9;animation:ml-roi var(--t) linear infinite var(--dl)}
+@keyframes ml-roi{to{transform:translate(var(--dx),106cqh)}}
+@media (prefers-reduced-motion:reduce){.ml-roi{display:none}}
+
+/* mũ nhỏ trên logo thanh đầu trang */
+.ml-vo{position:relative;display:inline-block;flex:none;line-height:0}
+.ml-nho{inset:auto;left:-14%;top:-30%;width:62%;height:62%;transform:rotate(-18deg)}
+
+/* Kiểu 2 — đèn nháy + vòng hoa */
+.ml-la1{fill:#3c9f63;stroke:#1f5e3b!important;stroke-width:6!important}
+.ml-la2{fill:#5cc282;stroke:#1f5e3b!important;stroke-width:6!important}
+.ml-day2{fill:none;stroke:#3a3a3a!important;stroke-width:9!important}
+.ml-chui{fill:#6b6b6b;stroke-width:5!important}
+.ml-den{stroke-width:7!important}
+.ml-do.ml-do,.ml-den.ml-do{fill:#e0464b}.ml-vang{fill:#f6c945}.ml-xanh{fill:#3cbf74}.ml-lam{fill:#4f8ff0}
+@media (prefers-reduced-motion:no-preference){
+  .ml-den{animation:ml-nhay 1.6s steps(1) infinite;animation-delay:calc(var(--n) * -.4s)}
+}
+@keyframes ml-nhay{50%{opacity:.35}}
+
+/* Kiểu 3 — tuần lộc */
+.ml-sung{fill:none;stroke:#7a4a24!important;stroke-width:26!important}
+.ml-ma{fill:#f08a8f;opacity:.75;stroke:none!important}
+.ml-mat{fill:#3a2326;stroke:none!important}
+.ml-sao{fill:#fff;stroke:none!important}
+.ml-mieng{fill:none;stroke-width:10!important}
+.ml-mui{fill:#e8343c}
+@media (prefers-reduced-motion:no-preference){.ml-mui{animation:ml-sang 2.4s ease-in-out infinite}}
+@keyframes ml-sang{50%{fill:#ff6a5c;filter:drop-shadow(0 0 18px #ff5a4a)}}
+.ml-khan{fill:#d8434a}
+.ml-soc{fill:none;stroke:#fff!important;stroke-width:14!important}
+.ml-tua{fill:none;stroke:#d8434a!important;stroke-width:10!important}
+.ml-k3 .ml-nho{left:2%;top:-34%;width:96%;height:96%;transform:none}
+.ml-k3 .ml-nho path{stroke-width:7!important}
+
+/* Kiểu 4 — người tuyết */
+.ml-bang2{fill:#dff1fb;stroke:#8fb7d4!important;stroke-width:5!important}
+.ml-tay{fill:none;stroke:#7a4a24!important;stroke-width:11!important}
+.ml-than{fill:#2b2b2b;stroke:none!important}
+.ml-cu{fill:#f08a2c;stroke-width:6!important}
+.ml-mieng2{fill:none;stroke:#2b2b2b!important;stroke-width:7!important}
+.ml-mulen{fill:#4f8ff0}
+.ml-nguoi{transform-box:view-box;transform-origin:1390px 1270px}
+@media (prefers-reduced-motion:no-preference){.ml-vay{animation:ml-vay 1.8s ease-in-out infinite;transform-box:view-box;transform-origin:1466px 1040px}}
+@keyframes ml-vay{50%{rotate:-12deg}}
+.ml-k4 .ml-nho{left:0;top:-14%;width:100%;height:100%;transform:none}
+.ml-k4 .ml-nho path{stroke-width:3}
