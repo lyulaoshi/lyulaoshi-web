@@ -16,8 +16,9 @@
   {say:"女：喂，你在哪儿？\n男：我在机场，一会儿就上飞机。",py:"Wèi, nǐ zài nǎr? — Wǒ zài jīchǎng, yíhuìr jiù shàng fēijī.",vi:"Alô, anh ở đâu? — Anh ở sân bay, lát nữa lên máy bay.",ans:3,np:["一16","二20"],w:[["机场","jīchǎng"],["一会儿","yíhuìr"]]},
   {say:"男：今天天气真好！\n女：是啊，我们去外面玩儿吧。",py:"Jīntiān tiānqì zhēn hǎo! — Shì a, wǒmen qù wàimiàn wánr ba.",vi:"Hôm nay thời tiết đẹp quá! — Ừ, mình ra ngoài chơi đi.",ans:4,np:["一22"],w:[["外面","wàimiàn"],["玩儿","wánr"]]},
   {say:"女：你喜欢唱歌吗？\n男：喜欢，我经常去唱歌。",py:"Nǐ xǐhuan chàng gē ma? — Xǐhuan, wǒ jīngcháng qù chàng gē.",vi:"Bạn thích hát không? — Thích, mình thường đi hát.",ans:5,np:["一45","二12"],w:[["唱歌","chàng gē"],["经常","jīngcháng"]]}]},
- {sk:"nghe",no:2,type:"match",vi:"Nghe hội thoại, chọn hình phù hợp (A–E).",
-  bank:[{img:"truong",t:"trường học"},{img:"benhvien",t:"bệnh viện"},{img:"giatdo",t:"giặt quần áo"},{img:"hoaqua",t:"hoa quả"},{img:"lambai",t:"làm bài"}],q:[
+ {sk:"nghe",no:2,type:"match",vi:"Nghe hội thoại, chọn hình phù hợp (A–F).",
+  ex:{say:"男：你怎么还不起床？\n女：我昨天太累了，还想再睡一会儿。",py:"Nǐ zěnme hái bù qǐchuáng? — Wǒ zuótiān tài lèi le, hái xiǎng zài shuì yíhuìr.",vi:"Sao em còn chưa dậy? — Hôm qua em mệt quá, muốn ngủ thêm chút nữa.",ans:5},
+  bank:[{img:"truong",t:"trường học"},{img:"benhvien",t:"bệnh viện"},{img:"giatdo",t:"giặt quần áo"},{img:"hoaqua",t:"hoa quả"},{img:"lambai",t:"làm bài"},{img:"ngu",t:"đi ngủ"}],q:[
   {say:"女：喂，我到了，你在哪儿？\n男：我在学校门口。",py:"Wèi, wǒ dào le, nǐ zài nǎr? — Wǒ zài xuéxiào ménkǒu.",vi:"Alô, em đến rồi, anh ở đâu? — Anh ở cổng trường.",ans:0,np:["一16"],w:[["门口","ménkǒu"],["学校","xuéxiào"]]},
   {say:"男：您哪儿不舒服？\n女：我头疼，身体不舒服。",py:"Nín nǎr bù shūfu? — Wǒ tóu téng, shēntǐ bù shūfu.",vi:"Chị khó chịu ở đâu? — Tôi đau đầu, người không khoẻ.",ans:1,np:["二04"],w:[["舒服","shūfu"],["身体","shēntǐ"]]},
   {say:"女：明天你上班吗？\n男：不上班，我想在家洗衣服。",py:"Míngtiān nǐ shàngbān ma? — Bú shàngbān, wǒ xiǎng zài jiā xǐ yīfu.",vi:"Mai anh đi làm không? — Không, anh muốn ở nhà giặt quần áo.",ans:2,np:["一14","一03"],w:[["洗","xǐ"],["衣服","yīfu"]]},
@@ -72,8 +73,9 @@
   {cn:"你觉得这件衣服怎么样？",py:"Nǐ juéde zhè jiàn yīfu zěnmeyàng?",vi:"Bạn thấy bộ quần áo này thế nào?",ans:5,np:["二13","一46"],w:[["觉得","juéde"],["有点儿","yǒudiǎnr"]],why:"有点儿 + tính từ (thường nghĩa không tốt): 有点儿贵 = hơi đắt."},
   {cn:"我们什么时候考试？",py:"Wǒmen shénme shíhou kǎoshì?",vi:"Khi nào chúng ta thi?",ans:0,np:["一44","一46"],w:[["考试","kǎoshì"],["时候","shíhou"]]},
   {cn:"你会跳舞吗？",py:"Nǐ huì tiàowǔ ma?",vi:"Bạn biết nhảy không?",ans:3,np:["一02","一45"],w:[["跳舞","tiàowǔ"],["教","jiāo"]]}]},
- {sk:"doc",no:3,type:"match",vi:"Chọn câu đáp phù hợp (A–E).",
-  bank:[{t:"在椅子上。",py:"Zài yǐzi shang.",vi:"Ở trên ghế."},{t:"因为我生病了。",py:"Yīnwèi wǒ shēngbìng le.",vi:"Vì tôi bị ốm."},{t:"我想吃面条儿。",py:"Wǒ xiǎng chī miàntiáor.",vi:"Tôi muốn ăn mì."},{t:"我经常跑步。",py:"Wǒ jīngcháng pǎobù.",vi:"Tôi thường chạy bộ."},{t:"不远，走路五分钟。",py:"Bù yuǎn, zǒulù wǔ fēnzhōng.",vi:"Không xa, đi bộ 5 phút."}],q:[
+ {sk:"doc",no:3,type:"match",vi:"Chọn câu đáp phù hợp (A–F).",
+  ex:{cn:"这个手表是谁给你的？",py:"Zhège shǒubiǎo shì shéi gěi nǐ de?",vi:"Chiếc đồng hồ này ai tặng bạn?",ans:5},
+  bank:[{t:"在椅子上。",py:"Zài yǐzi shang.",vi:"Ở trên ghế."},{t:"因为我生病了。",py:"Yīnwèi wǒ shēngbìng le.",vi:"Vì tôi bị ốm."},{t:"我想吃面条儿。",py:"Wǒ xiǎng chī miàntiáor.",vi:"Tôi muốn ăn mì."},{t:"我经常跑步。",py:"Wǒ jīngcháng pǎobù.",vi:"Tôi thường chạy bộ."},{t:"不远，走路五分钟。",py:"Bù yuǎn, zǒulù wǔ fēnzhōng.",vi:"Không xa, đi bộ 5 phút."},{t:"我哥哥送给我的。",py:"Wǒ gēge sòng gěi wǒ de.",vi:"Anh trai tôi tặng."}],q:[
   {cn:"你为什么不去？",py:"Nǐ wèi shénme bú qù?",vi:"Vì sao bạn không đi?",ans:1,np:["二68","一46"],w:[["为什么","wèi shénme"],["因为","yīnwèi"]]},
   {cn:"你的书包呢？",py:"Nǐ de shūbāo ne?",vi:"Cặp sách của bạn đâu?",ans:0,np:["一22","一16"],w:[["书包","shūbāo"],["椅子","yǐzi"]]},
   {cn:"这儿离火车站远吗？",py:"Zhèr lí huǒchēzhàn yuǎn ma?",vi:"Đây cách ga tàu có xa không?",ans:4,np:["二27","二17"],w:[["离","lí"],["远","yuǎn"],["走路","zǒulù"]]},

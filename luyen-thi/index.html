@@ -125,6 +125,12 @@
 .wr input:focus{border-color:var(--c);outline:none}
 .wr input:disabled{opacity:.8}
 .wr .muted{flex-basis:100%}
+.wr.sent input{width:min(100%,18em);font-size:24px;text-align:left}
+.sentimg{display:block;width:min(100%,360px);height:auto;border-radius:16px;margin-top:12px}
+.swords{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.sw{display:inline-flex;flex-direction:column;align-items:center;background:var(--ground2);border-radius:12px;padding:6px 14px}
+.sw b{font-size:24px;font-family:var(--kh)}
+.sw small{font-size:12px;color:var(--mute,inherit)}
 .fb{margin-top:16px;border-radius:16px;padding:12px 16px;line-height:1.6}
 .fb.ok{background:var(--mint-s)} .fb.bad{background:var(--coral-s)}
 .fb b.h{display:block}
@@ -324,6 +330,7 @@
 <script src="de/hsk2-01.js"></script>
 <script src="de/hsk2-02.js"></script>
 <script src="de/hsk2-03.js"></script>
+<script src="de/hsk3-01.js"></script>
 <script src="../ngu-phap/hsk-ngu-phap.js"></script>
 <script src="../tro-choi/tts.js"></script>
 <script>
@@ -393,7 +400,10 @@ function clock(){
 }
 // 书写: so chữ gõ với đáp án (nhiều cách ghi "A / B"), bỏ khoảng trắng và dấu câu
 const norm=s=>String(s||"").replace(/[\s，。！？、,.!?（）()]/g,"");
-const right=(q,a)=>q.part.type==="write"?(a!=null&&q.ans.split("/").some(x=>norm(x)===norm(a))):a===q.ans;
+const isW=q=>q.part.type==="write"||q.part.type==="sent";
+// 书写 二 (sent): đề thật chỉ cho 1 từ + hình, mỗi người viết một câu khác nhau → máy chỉ kiểm: có dùng từ cho sẵn + câu đủ dài (hoặc trùng câu mẫu)
+const sentOk=(q,a)=>{const n=norm(a),w=norm(q.words[0][0]);return n.includes(w)&&n.length>=w.length+3-1};
+const right=(q,a)=>isW(q)?(a!=null&&(q.ans.split("/").some(x=>norm(x)===norm(a))||(q.part.type==="sent"&&sentOk(q,a)))):a===q.ans;
 const filled=a=>a!=null&&a!=="";
 const optsOf=q=>q.part.bank||q.opts||[];
 const ziHTML=(zi,full)=>`<div class="zi">`+zi.map((z,k)=>`<span class="zc${z[2]&&!full?" part":""}"><small>${S.py?z[1]:""}</small><b>${full&&z[2]?full[k]:z[0]}</b></span>`).join("")+`</div>`;
@@ -411,7 +421,7 @@ function render(){
   $("flagBtn").setAttribute("aria-pressed",S.flag[i]);
   let h=`<div class="instr">${p.vi}</div>`;
   if(p.ex){const x=p.ex,o=p.bank?p.bank[x.ans]:null;
-    h+=`<div class="ex"><b class="t">示例</b>`+(x.say?`<button class="play" id="exPlay"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#loa"/></svg> Nghe câu mẫu</button><br><span class="zh">${esc(x.say).replace(/\n/g," ")}</span>`:x.zi?ziHTML(x.zi)+`<span class="zh">→ ${x.full}</span>`:p.type==="write"?`<span class="zh">${wHTML(x.cn,x.ans)}</span>`:`<span class="zh">${x.cn}</span>`)+
+    h+=`<div class="ex"><b class="t">示例</b>`+(x.say?`<button class="play" id="exPlay"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#loa"/></svg> Nghe câu mẫu</button><br><span class="zh">${esc(x.say).replace(/\n/g," ")}</span>`:x.zi?ziHTML(x.zi)+`<span class="zh">→ ${x.full}</span>`:p.type==="write"?`<span class="zh">${wHTML(x.cn,x.ans)}</span>`:p.type==="sent"?`<img class="sentimg" src="img/${x.img}.jpg" alt="" width="320" height="240"><br><span class="zh">${x.words.map(w=>w[0]).join(" / ")}</span> → <span class="zh">${x.ans.split("/")[0]}</span>`:`<span class="zh">${x.cn}</span>`)+
       `${py&&!x.zi?`<br><span class="py">${x.py}</span>`:""}${!exam()?`<br><span class="vi">${x.vi}</span>`:""}`+(o?`<br>Đáp án: <span class="ans">${L[x.ans]}</span>${o.img?"":` <span class="zh">${o.t}</span>`}`:"")+`</div>`}
   if(q.say){
     const n=S.plays[q.id]||0,out=exam()&&n>=2;
@@ -422,6 +432,8 @@ function render(){
     h+=ziHTML(q.zi,lock?q.full:null)+(!exam()||lock?`<div class="vi">${q.full} — ${q.vi}</div>`:"");
   }else if(p.type==="write"){
     h+=`<div class="cn">${wHTML(q.cn,lock?q.ans.split("/")[0]:a)}</div>${!exam()||lock?`<div class="vi">${q.vi}</div>`:""}`;
+  }else if(p.type==="sent"){
+    h+=`<img class="sentimg" src="img/${q.img}.jpg" alt="" width="480" height="360"><div class="swords">${q.words.map(w=>`<span class="sw"><b class="zh">${w[0]}</b>${py?`<small>${w[1]}</small>`:""}</span>`).join("")}</div>${!exam()||lock?`<div class="vi">${q.vi}</div>`:""}`;
   }else if(q.cn){
     h+=`<div class="cn">${q.cn}</div>${py?`<div class="py">${q.py}</div>`:""}${!exam()||lock?`<div class="vi">${q.vi}</div>`:""}`;
     if(q.star) h+=`<div class="star"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sao"/></svg> <span class="zh">${q.star}</span>${py?` <span class="py">${q.spy}</span>`:""}${!exam()||lock?` <span class="vi">— ${q.svi}</span>`:""}</div>`;
@@ -429,7 +441,7 @@ function render(){
   const os=optsOf(q),isPic=!!(os[0]&&os[0].img);
   // với phần ghép A–F: nhắc lựa chọn đã dùng ở câu khác cùng phần (như phiếu trả lời thật)
   const usedBy={};if(p.bank)S.qs.forEach((x,k)=>{if(k!==i&&x.part===p&&S.a[k]!=null)usedBy[S.a[k]]=x.n});
-  if(p.type==="write") h+=`<div class="wr"><input id="wrIn" lang="zh-CN" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(a||"")}"${lock?" disabled":""} placeholder="汉字" aria-label="Gõ chữ Hán vào chỗ trống">${!exam()&&!lock?`<button class="btn pri" id="wrChk">Kiểm tra</button>`:""}<span class="muted">Gõ chữ Hán bằng bộ gõ tiếng Trung (pinyin) trên máy.</span></div>`;
+  if(isW(q)) h+=`<div class="wr${p.type==="sent"?" sent":""}"><input id="wrIn" lang="zh-CN" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(a||"")}"${lock?" disabled":""} placeholder="${p.type==="sent"?"Viết câu":"汉字"}" aria-label="Gõ chữ Hán">${!exam()&&!lock?`<button class="btn pri" id="wrChk">Kiểm tra</button>`:""}<span class="muted">${p.type==="sent"?"Nhìn hình, dùng từ cho sẵn viết MỘT câu hoàn chỉnh (bộ gõ pinyin). Máy chỉ kiểm tra có dùng từ đó và câu đủ dài — nhớ tự đối chiếu câu mẫu.":"Gõ chữ Hán bằng bộ gõ tiếng Trung (pinyin) trên máy."}</span></div>`;
   const cls=p.type==="pic3"?" pics":p.bank?(isPic?" bank":" bank txt"+(os.some(o=>o.t.length>3)?" long":"")):"";
   h+=`<div class="opts${cls}${p.type==="zi"?" zib":""}${lock?" locked":""}">`+os.map((o,k)=>{
     let c="";if(lock){if(k===q.ans)c=" ok";else if(k===a)c=" bad"}else if(k===a)c=" sel";
@@ -438,7 +450,7 @@ function render(){
   $("qBody").innerHTML=h;
   let fb="";
   if(lock){const ok=right(q,a),o=os[q.ans];
-    fb=`<div class="fb ${ok?"ok":"bad"}"><b class="h">${ok?"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=c3b7e0d2#tick\"/></svg> Đúng rồi!":"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=c3b7e0d2#sai\"/></svg> Chưa đúng."} Đáp án: ${p.type==="write"?`<span class="zh">${q.ans}</span>`:L[q.ans]+(o.img?` — ${o.t}`:` — <span class="zh">${o.t}</span>`)}${q.zi?` → <span class="zh">${q.full}</span>`:""}</b>${q.why||""}`+
+    fb=`<div class="fb ${ok?"ok":"bad"}"><b class="h">${ok?"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=c3b7e0d2#tick\"/></svg> Đúng rồi!":"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=c3b7e0d2#sai\"/></svg> Chưa đúng."} Đáp án: ${isW(q)?`<span class="zh">${q.ans.split("/").join(" / ")}</span>`+(p.type==="sent"&&!ok?`<br><small>Chưa dùng từ cho sẵn hoặc câu quá ngắn. Mỗi hình có nhiều câu đúng — đây là câu mẫu để đối chiếu.</small>`:""):L[q.ans]+(o.img?` — ${o.t}`:` — <span class="zh">${o.t}</span>`)}${q.zi?` → <span class="zh">${q.full}</span>`:""}</b>${q.why||""}`+
       (q.np.length?"<br>"+q.np.map(c=>`<a href="../ngu-phap/${npPath(c)}/">【${c}】${NP[c]||""} →</a>`).join("<br>"):"")+"</div>"}
   $("qFb").innerHTML=fb;
   $("prevBtn").disabled=i===0;
@@ -501,7 +513,7 @@ document.addEventListener("click",e=>{
   if(t.dataset.go!=null){S.cur=+t.dataset.go;render();return}
   switch(t.id){
     case "playBtn":play(S.qs[S.cur]);break;
-    case "exPlay":{const q=S.qs[S.cur];sayQ(q.part.ex.say,q.de.id+"-ex-"+q.part.pk);break}
+    case "exPlay":{const q=S.qs[S.cur];sayQ(q.part.ex.say,q.de.id+"-ex-"+q.de.parts.indexOf(q.part));break}
     case "wrChk":{const q=S.qs[S.cur];if(!filled(S.a[S.cur]))break;S.checked[S.cur]=true;log(q,right(q,S.a[S.cur]));render();break}
     case "prevBtn":if(S.cur>0){S.cur--;render()}break;
     case "nextBtn":if(S.cur<S.qs.length-1){S.cur++;render()}else finish();break;
@@ -552,11 +564,11 @@ function finish(timeUp){
   const ot=o=>o.img?`hình ${o.t}`:`${o.t}${o.py?` (${o.py})`:""}`;
   $("review").innerHTML=S.qs.map((q,k)=>{
     const os=optsOf(q),a=S.a[k];
-    const head=q.full||(q.cn||q.say.split("\n")[0].replace(/^(女|男)：/,"")).replace(/（[^）]*）/g,"（ ）");
+    const head=q.full||(q.cn||(q.say||q.words.map(w=>w[0]).join(" / ")).split("\n")[0].replace(/^(女|男)：/,"")).replace(/（[^）]*）/g,"（ ）");
     return `<details${res[k]?"":" open"}><summary><span class="m">${res[k]?"<svg class=\"lli ok\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=c3b7e0d2#dung-tron\"/></svg>":!filled(a)?"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=c3b7e0d2#trong-tron\"/></svg>":"<svg class=\"lli no\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=c3b7e0d2#sai-tron\"/></svg>"}</span>${exam()?"":soDe(q.de)+" · "}Câu ${q.n} · ${SKN[q.part.sk][0]} ${q.part.no} · <span class="zh">${esc(head)}</span></summary><p>`+
       (q.say?`Bài nghe: <span class="zh">${esc(q.say).replace(/\n/g," ")}</span> ${spk(q.say.split("\n")[0].replace(/^(女|男)：/,""))}<br><span class="muted">${q.py}</span><br>`:"")+
       (q.star?`<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sao"/></svg> <span class="zh">${q.star}</span><br>`:"")+
-      `<i class="muted">${q.vi}${q.svi?" — "+q.svi:""}</i><br>${q.part.type==="write"?`Em viết: <b class="zh">${filled(a)?esc(a):"(bỏ trống)"}</b> · Đáp án: <b class="zh">${q.ans}</b>`:`Em chọn: <b>${!filled(a)?"(bỏ trống)":L[a]+". "+esc(ot(os[a]))}</b> · Đáp án: <b>${L[q.ans]}. ${esc(ot(os[q.ans]))}</b>`}${q.why?`<br>${q.why}`:""}</p></details>`}).join("");
+      `<i class="muted">${q.vi}${q.svi?" — "+q.svi:""}</i><br>${isW(q)?`Em viết: <b class="zh">${filled(a)?esc(a):"(bỏ trống)"}</b> · Đáp án: <b class="zh">${q.ans.split("/").join(" / ")}</b>`:`Em chọn: <b>${!filled(a)?"(bỏ trống)":L[a]+". "+esc(ot(os[a]))}</b> · Đáp án: <b>${L[q.ans]}. ${esc(ot(os[q.ans]))}</b>`}${q.why?`<br>${q.why}`:""}</p></details>`}).join("");
   show("vResult");
 }
 

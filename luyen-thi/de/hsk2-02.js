@@ -15,8 +15,9 @@
   {say:"男：你家的猫真漂亮！\n女：它叫咪咪，三岁了。",py:"Nǐ jiā de māo zhēn piàoliang! — Tā jiào Mīmī, sān suì le.",vi:"Con mèo nhà bạn đẹp quá! — Nó tên Mimi, ba tuổi rồi.",ans:4,np:["二06"],w:[["猫","māo"],["漂亮","piàoliang"],["它","tā"]]},
   {say:"男：下午我们去踢足球吧。\n女：好啊，几点去？",py:"Xiàwǔ wǒmen qù tī zúqiú ba. — Hǎo a, jǐ diǎn qù?",vi:"Chiều nay mình đi đá bóng nhé. — Được, mấy giờ đi?",ans:0,np:["一22"],w:[["踢","tī"],["足球","zúqiú"]],why:"……吧 cuối câu = rủ rê, đề nghị."},
   {say:"男：你在写什么？\n女：我在写汉字，明天要考试。",py:"Nǐ zài xiě shénme? — Wǒ zài xiě Hànzì, míngtiān yào kǎoshì.",vi:"Em đang viết gì thế? — Em đang viết chữ Hán, mai phải thi.",ans:2,np:["一42"],w:[["汉字","Hànzì"],["考试","kǎoshì"]]}]},
- {sk:"nghe",no:2,type:"match",vi:"Nghe hội thoại, chọn hình phù hợp (A–E).",
-  bank:[{img:"nghenhac",t:"nghe nhạc"},{img:"benhvien",t:"bệnh viện"},{img:"congvien",t:"đi dạo công viên"},{img:"rapphim",t:"rạp chiếu phim"},{img:"nhahang",t:"nhà hàng"}],q:[
+ {sk:"nghe",no:2,type:"match",vi:"Nghe hội thoại, chọn hình phù hợp (A–F).",
+  ex:{say:"男：我们去买点儿水果和牛奶吧。\n女：好，超市就在前面。",py:"Wǒmen qù mǎi diǎnr shuǐguǒ hé niúnǎi ba. — Hǎo, chāoshì jiù zài qiánmiàn.",vi:"Mình đi mua ít hoa quả và sữa nhé. — Được, siêu thị ngay phía trước.",ans:5},
+  bank:[{img:"nghenhac",t:"nghe nhạc"},{img:"benhvien",t:"bệnh viện"},{img:"congvien",t:"đi dạo công viên"},{img:"rapphim",t:"rạp chiếu phim"},{img:"nhahang",t:"nhà hàng"},{img:"sieuthi",t:"siêu thị"}],q:[
   {say:"女：吃完饭我们做什么？\n男：我们出去走走吧。",py:"Chīwán fàn wǒmen zuò shénme? — Wǒmen chūqu zǒuzou ba.",vi:"Ăn xong mình làm gì? — Mình ra ngoài đi dạo đi.",ans:2,np:["二04","二49"],w:[["出去","chūqu"],["走","zǒu"]],why:"走走 = lặp động từ: đi dạo một chút."},
   {say:"男：您好，您想吃点儿什么？\n女：我要米饭和鱼。",py:"Nín hǎo, nín xiǎng chī diǎnr shénme? — Wǒ yào mǐfàn hé yú.",vi:"Chào chị, chị muốn ăn gì ạ? — Tôi muốn cơm và cá.",ans:4,np:["一03"],w:[["米饭","mǐfàn"],["鱼","yú"]]},
   {say:"女：还有票吗？\n男：对不起，今天的票卖完了。",py:"Hái yǒu piào ma? — Duìbuqǐ, jīntiān de piào màiwán le.",vi:"Còn vé không anh? — Xin lỗi, vé hôm nay bán hết rồi.",ans:3,np:["二49"],w:[["票","piào"],["卖","mài"]],why:"卖完 = bán hết (bổ ngữ kết quả 完)."},
@@ -71,8 +72,9 @@
   {cn:"今天冷吗？",py:"Jīntiān lěng ma?",vi:"Hôm nay có lạnh không?",ans:2,np:["二13"],w:[["有点儿","yǒudiǎnr"],["穿","chuān"]]},
   {cn:"我们明天几点走？",py:"Wǒmen míngtiān jǐ diǎn zǒu?",vi:"Mai mấy giờ chúng ta đi?",ans:4,np:["一44"],w:[["早上","zǎoshang"],["晚","wǎn"]]},
   {cn:"你妹妹多高？",py:"Nǐ mèimei duō gāo?",vi:"Em gái bạn cao bao nhiêu?",ans:5,np:["二55"],w:[["米","mǐ"],["高","gāo"]],why:"A 有 + số đo + 高 = A cao (khoảng) bao nhiêu."}]},
- {sk:"doc",no:3,type:"match",vi:"Chọn câu đáp phù hợp (A–E).",
-  bank:[{t:"我昨天晚上没睡好。",py:"Wǒ zuótiān wǎnshang méi shuìhǎo.",vi:"Tối qua tôi ngủ không ngon."},{t:"是王老师告诉我的。",py:"Shì Wáng lǎoshī gàosu wǒ de.",vi:"Là thầy Vương nói cho tôi."},{t:"我要米饭和鱼。",py:"Wǒ yào mǐfàn hé yú.",vi:"Tôi muốn cơm và cá."},{t:"那我们去别的商店看看吧。",py:"Nà wǒmen qù bié de shāngdiàn kànkan ba.",vi:"Thế mình sang cửa hàng khác xem thử đi."},{t:"坐出租车去吧，快一点儿。",py:"Zuò chūzūchē qù ba, kuài yìdiǎnr.",vi:"Đi taxi đi, nhanh hơn một chút."}],q:[
+ {sk:"doc",no:3,type:"match",vi:"Chọn câu đáp phù hợp (A–F).",
+  ex:{cn:"你看过这个电影吗？",py:"Nǐ kànguo zhège diànyǐng ma?",vi:"Bạn đã xem phim này chưa?",ans:5},
+  bank:[{t:"我昨天晚上没睡好。",py:"Wǒ zuótiān wǎnshang méi shuìhǎo.",vi:"Tối qua tôi ngủ không ngon."},{t:"是王老师告诉我的。",py:"Shì Wáng lǎoshī gàosu wǒ de.",vi:"Là thầy Vương nói cho tôi."},{t:"我要米饭和鱼。",py:"Wǒ yào mǐfàn hé yú.",vi:"Tôi muốn cơm và cá."},{t:"那我们去别的商店看看吧。",py:"Nà wǒmen qù bié de shāngdiàn kànkan ba.",vi:"Thế mình sang cửa hàng khác xem thử đi."},{t:"坐出租车去吧，快一点儿。",py:"Zuò chūzūchē qù ba, kuài yìdiǎnr.",vi:"Đi taxi đi, nhanh hơn một chút."},{t:"我已经看过了，很好看。",py:"Wǒ yǐjīng kànguo le, hěn hǎokàn.",vi:"Mình xem rồi, rất hay."}],q:[
   {cn:"你怎么知道我的名字？",py:"Nǐ zěnme zhīdào wǒ de míngzi?",vi:"Sao bạn biết tên tôi?",ans:1,np:["二60"],w:[["知道","zhīdào"],["告诉","gàosu"]],why:"是……的 nhấn mạnh người làm: 是王老师告诉我的."},
   {cn:"这件衣服太贵了。",py:"Zhè jiàn yīfu tài guì le.",vi:"Bộ quần áo này đắt quá.",ans:3,np:["二30","二04"],w:[["贵","guì"],["别的","bié de"]],why:"那 đầu câu = “thế thì, vậy thì”."},
   {cn:"我们怎么去机场？",py:"Wǒmen zěnme qù jīchǎng?",vi:"Chúng ta đi sân bay bằng gì?",ans:4,np:["二57"],w:[["机场","jīchǎng"],["出租车","chūzūchē"]]},

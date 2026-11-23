@@ -21,8 +21,9 @@
   {say:"女：你喜欢什么运动？\n男：我喜欢打篮球，经常和朋友一起打。",py:"Nǐ xǐhuan shénme yùndòng? — Wǒ xǐhuan dǎ lánqiú, jīngcháng hé péngyou yìqǐ dǎ.",vi:"Bạn thích môn thể thao nào? — Mình thích chơi bóng rổ, thường chơi cùng bạn bè.",ans:4,np:["二16"],w:[["运动","yùndòng"],["篮球","lánqiú"],["经常","jīngcháng"]]},
   {say:"男：医生，我孩子头很疼。\n女：好，我看看。",py:"Yīshēng, wǒ háizi tóu hěn téng. — Hǎo, wǒ kànkan.",vi:"Bác sĩ ơi, con tôi đau đầu. — Được, để tôi xem.",ans:0,np:["二04"],w:[["头","tóu"],["疼","téng"],["医生","yīshēng"]],why:"看看 = lặp động từ, nghĩa “xem thử, xem qua”."},
   {say:"女：你在写什么？\n男：我在写汉字呢。",py:"Nǐ zài xiě shénme? — Wǒ zài xiě Hànzì ne.",vi:"Bạn đang viết gì thế? — Mình đang viết chữ Hán.",ans:2,np:["一42"],w:[["写","xiě"],["汉字","Hànzì"]]}]},
- {sk:"nghe",no:2,type:"match",vi:"Nghe hội thoại, chọn hình phù hợp (A–E).",
-  bank:[{img:"begai",t:"bé gái"},{img:"taxi",t:"taxi"},{img:"rapphim",t:"rạp chiếu phim"},{img:"docsach",t:"học bài"},{img:"nauan",t:"nấu ăn"}],q:[
+ {sk:"nghe",no:2,type:"match",vi:"Nghe hội thoại, chọn hình phù hợp (A–F).",
+  ex:{say:"女：你在哪儿买的这些水果？\n男：在学校旁边的超市。",py:"Nǐ zài nǎr mǎi de zhèxiē shuǐguǒ? — Zài xuéxiào pángbiān de chāoshì.",vi:"Bạn mua chỗ hoa quả này ở đâu? — Ở siêu thị cạnh trường.",ans:5},
+  bank:[{img:"begai",t:"bé gái"},{img:"taxi",t:"taxi"},{img:"rapphim",t:"rạp chiếu phim"},{img:"docsach",t:"học bài"},{img:"nauan",t:"nấu ăn"},{img:"sieuthi",t:"siêu thị"}],q:[
   {say:"男：快点儿，七点半的电影！\n女：没关系，还有二十分钟呢。",py:"Kuài diǎnr, qī diǎn bàn de diànyǐng! — Méi guānxi, hái yǒu èrshí fēnzhōng ne.",vi:"Nhanh lên, phim 7 rưỡi đấy! — Không sao, còn 20 phút nữa mà.",ans:2,np:["二12"],w:[["电影","diànyǐng"],["分钟","fēnzhōng"]]},
   {say:"女：你做的菜真好吃！\n男：你喜欢就多吃点儿。",py:"Nǐ zuò de cài zhēn hǎochī! — Nǐ xǐhuan jiù duō chī diǎnr.",vi:"Món anh nấu ngon thật! — Em thích thì ăn nhiều vào.",ans:4,np:["二17"],w:[["菜","cài"],["做","zuò"]]},
   {say:"男：你怎么还不睡觉？\n女：我明天考试，得再看看书。",py:"Nǐ zěnme hái bú shuìjiào? — Wǒ míngtiān kǎoshì, děi zài kànkan shū.",vi:"Sao em còn chưa ngủ? — Mai em thi, phải xem lại sách thêm.",ans:3,np:["二15","二04"],w:[["考试","kǎoshì"],["得","děi"]]},
@@ -77,8 +78,9 @@
   {cn:"明天我们去看电影怎么样？",py:"Míngtiān wǒmen qù kàn diànyǐng zěnmeyàng?",vi:"Mai mình đi xem phim nhé, thế nào?",ans:0,np:["二75"],w:[["电影","diànyǐng"]],why:"…… 怎么样？ cuối câu = hỏi ý kiến / rủ rê → trả lời 好啊."},
   {cn:"这件衣服是新买的吗？",py:"Zhè jiàn yīfu shì xīn mǎi de ma?",vi:"Bộ quần áo này mới mua à?",ans:1,np:["二60"],w:[["新","xīn"],["件","jiàn"]]},
   {cn:"喂，王老师在吗？",py:"Wèi, Wáng lǎoshī zài ma?",vi:"A lô, thầy Vương có đó không?",ans:4,np:["二36","二50"],w:[["喂","wèi"],["出去","chūqu"]]}]},
- {sk:"doc",no:3,type:"match",vi:"Chọn câu đáp phù hợp (A–E).",
-  bank:[{t:"坐三路，就在前边。",py:"Zuò sān lù, jiù zài qiánbian.",vi:"Đi tuyến số 3, ngay phía trước kia."},{t:"很大，也很漂亮，我很喜欢。",py:"Hěn dà, yě hěn piàoliang, wǒ hěn xǐhuan.",vi:"Rất rộng, lại đẹp, tôi rất thích."},{t:"好多了，头已经不疼了。",py:"Hǎo duō le, tóu yǐjīng bù téng le.",vi:"Đỡ nhiều rồi, hết đau đầu rồi."},{t:"下个星期三。",py:"Xià gè xīngqīsān.",vi:"Thứ Tư tuần sau."},{t:"因为我想去中国工作。",py:"Yīnwèi wǒ xiǎng qù Zhōngguó gōngzuò.",vi:"Vì tôi muốn sang Trung Quốc làm việc."}],q:[
+ {sk:"doc",no:3,type:"match",vi:"Chọn câu đáp phù hợp (A–F).",
+  ex:{cn:"你昨天晚上睡得好吗？",py:"Nǐ zuótiān wǎnshang shuì de hǎo ma?",vi:"Tối qua bạn ngủ ngon không?",ans:5},
+  bank:[{t:"坐三路，就在前边。",py:"Zuò sān lù, jiù zài qiánbian.",vi:"Đi tuyến số 3, ngay phía trước kia."},{t:"很大，也很漂亮，我很喜欢。",py:"Hěn dà, yě hěn piàoliang, wǒ hěn xǐhuan.",vi:"Rất rộng, lại đẹp, tôi rất thích."},{t:"好多了，头已经不疼了。",py:"Hǎo duō le, tóu yǐjīng bù téng le.",vi:"Đỡ nhiều rồi, hết đau đầu rồi."},{t:"下个星期三。",py:"Xià gè xīngqīsān.",vi:"Thứ Tư tuần sau."},{t:"因为我想去中国工作。",py:"Yīnwèi wǒ xiǎng qù Zhōngguó gōngzuò.",vi:"Vì tôi muốn sang Trung Quốc làm việc."},{t:"睡得不错，谢谢。",py:"Shuì de búcuò, xièxie.",vi:"Ngủ khá ngon, cảm ơn."}],q:[
   {cn:"你的病好了吗？",py:"Nǐ de bìng hǎo le ma?",vi:"Bạn khỏi ốm chưa?",ans:2,np:["二15"],w:[["病","bìng"],["疼","téng"]]},
   {cn:"我们坐几路公交车？",py:"Wǒmen zuò jǐ lù gōngjiāochē?",vi:"Chúng ta đi xe buýt tuyến số mấy?",ans:0,np:["二20"],w:[["公交车","gōngjiāochē"],["路","lù"]],why:"就在前边 = ngay ở phía trước (就 nhấn mạnh)."},
   {cn:"你为什么学习汉语？",py:"Nǐ wèi shénme xuéxí Hànyǔ?",vi:"Vì sao bạn học tiếng Trung?",ans:4,np:["二68","二76"],w:[["为什么","wèi shénme"],["因为","yīnwèi"]]},
