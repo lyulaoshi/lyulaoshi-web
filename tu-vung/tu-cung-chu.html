@@ -21,7 +21,7 @@
 .scene.day .rtabs button{background:rgba(60,52,137,.1);color:#3C3489}.scene.day .rtabs button[aria-pressed="true"]{background:#FFD66B;color:#5A3510}
 .key{position:absolute;left:16px;top:14px;display:flex;flex-direction:column;gap:6px;font-size:12.5px;font-weight:700;color:#DCDAF5}
 .key span{display:flex;align-items:center;gap:7px}.key i{width:18px;height:2px;border-radius:2px;display:inline-block}
-.rtabs{position:absolute;left:0;right:0;top:12px;display:none;justify-content:center;gap:6px}
+.rtabs{position:absolute;left:0;right:0;top:12px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:0 10px}
 .rtabs button{border:0;font:inherit;font-size:12.5px;font-weight:800;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.12);color:#E7E5FA;cursor:pointer}
 .rtabs button[aria-pressed="true"]{background:#FFD66B;color:#5A3510}
 .narrow .rtabs{display:flex}.narrow .key{display:none}
@@ -188,15 +188,15 @@ function draw(){
   if(RSEL>=rings.length)RSEL=-1;
   $('rtabs').innerHTML='<button type="button" data-r="-1" aria-pressed="'+(RSEL<0)+'">Tất cả</button>'+rings.map((r,i)=>'<button type="button" data-r="'+i+'" aria-pressed="'+(i===RSEL)+'">'+r.n+' · '+r.ws.length+'</button>').join('');
   $('key').innerHTML=rings.map(r=>'<span><i style="background:'+r.c+'"></i>'+r.n+' · '+r.ws.length+' từ</span>').join('');
-  const show=narrow&&RSEL>=0?[rings[RSEL]]:rings,all=narrow&&RSEL<0;   // màn hẹp + "Tất cả": quỹ đạo tròn đồng tâm, cao theo màn dọc
+  const show=RSEL>=0?[rings[RSEL]]:rings,all=narrow&&RSEL<0;   // nút cấp: xem một quỹ đạo (mọi khổ màn); "Tất cả" trên màn hẹp: quỹ đạo tròn đồng tâm   // màn hẹp + "Tất cả": quỹ đạo tròn đồng tâm, cao theo màn dọc
   const VW=narrow?600:900,k=show.length,maxRx=all?250:narrow?240:415,minRx=all?(k>=4?100:(k===1?230:120)):narrow?240:(k===1?260:(k>=4?190:215)),RY=all?1:narrow?.62:.56;
   const geo=show.map((r,i)=>{const rx=k===1?maxRx:minRx+i*(maxRx-minRx)/(k-1);return{...r,rx,ry:rx*RY}});
   const sr=all?44:narrow?58:52;let prev=null;PYS=all?0:narrow?18:12.5;   // chế độ Tất cả trên màn hẹp: không hiện pinyin thường trực (quá chật), chỉ hiện ở nhãn khi rê/bấmRINGF=all?1.42:1.85;
   geo.forEach(g=>{const per=2*Math.PI*Math.min(g.ry,g.rx)/g.ws.length;
     let R=Math.min(all?34:narrow?40:36,(per-8)/2,prev?g.ry-prev.ry-prev.R-12-PYS:g.ry-sr-12);const minR=all?20:narrow?26:20;
     if(R<minR){R=minR;g.cap=Math.max(3,Math.floor(2*Math.PI*Math.min(g.ry,g.rx)/(2*R+8)))}else g.cap=g.ws.length;g.R=R;prev=g});
-  const outer=geo[geo.length-1],VH=Math.round(2*(outer.ry+outer.R*1.2+PYS*1.6+(narrow?56:40)))+(narrow?60:0);
-  svg.setAttribute('viewBox','0 0 '+VW+' '+VH);const cx=VW/2,cy=VH/2+(narrow?14:0);
+  const outer=geo[geo.length-1],VH=Math.round(2*(outer.ry+outer.R*1.2+PYS*1.6+(narrow?56:40)))+(narrow?60:44);
+  svg.setAttribute('viewBox','0 0 '+VW+' '+VH);const cx=VW/2,cy=VH/2+(narrow?14:12);
   // nền: dải Ngân Hà nghiêng, tinh vân, sao nhiều cỡ nhiều màu
   const mw=mk('g',{transform:`rotate(-24 ${cx} ${cy})`});
   mk('ellipse',{cx,cy,rx:VW*.75,ry:VH*.2,fill:'url(#mw)',filter:'url(#blur)'},mw);

@@ -51,29 +51,133 @@
 @keyframes ml-nhay{50%{opacity:.35}}
 
 /* Kiểu 3 — tuần lộc */
-.ml-sung{fill:none;stroke:#7a4a24!important;stroke-width:26!important}
+.ml-sung-v{fill:none;stroke:#5a3418!important;stroke-width:36!important}
+.ml-sung{fill:none;stroke:#b9804a!important;stroke-width:20!important}
+.ml-tai{fill:#b9804a;stroke:#5a3418!important;stroke-width:9!important}
+.ml-tai2{fill:#f3b3b0;stroke:none!important}
 .ml-ma{fill:#f08a8f;opacity:.75;stroke:none!important}
 .ml-mat{fill:#3a2326;stroke:none!important}
 .ml-sao{fill:#fff;stroke:none!important}
+.ml-may{fill:none;stroke:#3a2326!important;stroke-width:6!important}
 .ml-mieng{fill:none;stroke-width:10!important}
-.ml-mui{fill:#e8343c}
-@media (prefers-reduced-motion:no-preference){.ml-mui{animation:ml-sang 2.4s ease-in-out infinite}}
-@keyframes ml-sang{50%{fill:#ff6a5c;filter:drop-shadow(0 0 18px #ff5a4a)}}
+.ml-luoi{fill:#f07c84;stroke-width:6!important}
+.ml-mui{fill:url(#ml-mui-g);stroke-width:9!important}
+@media (prefers-reduced-motion:no-preference){
+  .ml-mui{animation:ml-sang 2.4s ease-in-out infinite}
+  .ml-chop{transform-box:view-box;transform-origin:0 978px;animation:ml-chop 5s infinite}
+  .ml-chuong{transform-box:view-box;transform-origin:436px 900px;animation:ml-lac 2.2s ease-in-out infinite}
+}
+@keyframes ml-sang{50%{filter:drop-shadow(0 0 16px #ff5a4a) drop-shadow(0 0 30px #ff5a4a88)}}
+@keyframes ml-chop{0%,92%,100%{transform:none}95%{transform:scaleY(.1)}}
+@keyframes ml-lac{0%,100%{rotate:8deg}50%{rotate:-8deg}}
 .ml-khan{fill:#d8434a}
-.ml-soc{fill:none;stroke:#fff!important;stroke-width:14!important}
-.ml-tua{fill:none;stroke:#d8434a!important;stroke-width:10!important}
-.ml-k3 .ml-nho{left:2%;top:-34%;width:96%;height:96%;transform:none}
-.ml-k3 .ml-nho path{stroke-width:7!important}
+.ml-soc{fill:none;stroke:#fff!important;stroke-width:10!important}
+.ml-soc2{fill:none;stroke:#2f9a63!important;stroke-width:8!important}
+.ml-tua{fill:none;stroke:#d8434a!important;stroke-width:11!important}
+.ml-vang2{fill:#f6c945;stroke:#9a6a10!important;stroke-width:8!important}
+.ml-ranh{fill:none;stroke:#9a6a10!important;stroke-width:7!important}
+.ml-k3 .ml-nho,.ml-k5 .ml-nho{left:2%;top:-34%;width:96%;height:96%;transform:none}
+.ml-k3 .ml-nho .ml-sung-v,.ml-k5 .ml-nho .ml-sung-v{stroke-width:9!important}.ml-k3 .ml-nho .ml-sung,.ml-k5 .ml-nho .ml-sung{stroke-width:5!important}
 
 /* Kiểu 4 — người tuyết */
-.ml-bang2{fill:#dff1fb;stroke:#8fb7d4!important;stroke-width:5!important}
+.ml-tuyet2{fill:#dbe8f6;stroke-width:10!important}
+.ml-bt{fill:none;stroke:#bcd3ec!important;stroke-width:9!important}
+.ml-bong2{fill:#dbe8f6;stroke:none!important}
+.ml-bang2{fill:#e4f4fc;stroke:#7fa8c9!important;stroke-width:6!important}
+.ml-sang2{fill:none;stroke:#fff!important;stroke-width:5!important}
+.ml-bongtuyet{fill:none;stroke:#fff!important;stroke-width:7!important;filter:drop-shadow(0 0 1.5px #8fb7d4)}
 .ml-tay{fill:none;stroke:#7a4a24!important;stroke-width:11!important}
+.ml-gang{fill:#e0464b;stroke-width:8!important}
 .ml-than{fill:#2b2b2b;stroke:none!important}
 .ml-cu{fill:#f08a2c;stroke-width:6!important}
-.ml-mieng2{fill:none;stroke:#2b2b2b!important;stroke-width:7!important}
-.ml-mulen{fill:#4f8ff0}
-.ml-nguoi{transform-box:view-box;transform-origin:1390px 1270px}
-@media (prefers-reduced-motion:no-preference){.ml-vay{animation:ml-vay 1.8s ease-in-out infinite;transform-box:view-box;transform-origin:1466px 1040px}}
-@keyframes ml-vay{50%{rotate:-12deg}}
+.ml-cu2{fill:none;stroke:#b85a14!important;stroke-width:4!important}
+.ml-khan-x{fill:#2f9a63}
+.ml-tua2{fill:none;stroke:#2f9a63!important;stroke-width:9!important}
+@media (prefers-reduced-motion:no-preference){
+  .ml-vay{animation:ml-vay 1.8s ease-in-out infinite;transform-box:view-box;transform-origin:1462px 1052px}
+  .ml-bongtuyet{animation:ml-xoay 14s linear infinite}
+}
+@keyframes ml-vay{50%{rotate:-14deg}}
+@keyframes ml-xoay{to{rotate:360deg}}
 .ml-k4 .ml-nho{left:0;top:-14%;width:100%;height:100%;transform:none}
 .ml-k4 .ml-nho path{stroke-width:3}
+
+/* —— Tết Dương lịch —— */
+.ml-vang{fill:#f6c945}.ml-tim{fill:#9b6ce0}
+.ml-phao path{fill:none;stroke-width:9!important}
+.ml-phao circle{stroke:none!important}
+.ml-phao.ml-vang path{stroke:#f6c945!important}.ml-phao.ml-vang circle{fill:#ffe08a}
+.ml-phao.ml-lam path{stroke:#6aa6ff!important}.ml-phao.ml-lam circle{fill:#b9d6ff}
+.ml-phao.ml-tim path{stroke:#c08cff!important}.ml-phao.ml-tim circle{fill:#e2ccff}
+@media (prefers-reduced-motion:no-preference){.ml-phao{animation:ml-no 3.2s ease-out infinite;animation-delay:var(--dl)}}
+@keyframes ml-no{0%{scale:.15;opacity:0}12%{opacity:1}55%{scale:1;opacity:1}100%{scale:1.12;opacity:0}}
+.ml-xoan{fill:none;stroke-width:9!important}
+.ml-xoan.ml-tim{stroke:#9b6ce0!important}.ml-xoan.ml-lam{stroke:#4f8ff0!important}
+.ml-bangron{fill:#e0464b;stroke-width:12!important}
+.ml-duoi{fill:#b8323a;stroke-width:10!important}
+.ml-vien-vang{fill:none;stroke:#f6c945!important;stroke-width:7!important}
+.ml-chu2{font:400 100px var(--hz,"KaiTi",serif);fill:#fff7d6;text-anchor:middle;letter-spacing:4px}
+.ml-chu2 .ml-so{fill:#f6c945;font-family:var(--vi,sans-serif);font-weight:800}
+.ml-non{fill:#4f8ff0}
+.ml-cham{fill:#fff;stroke:none!important}
+.ml-soc3{fill:none;stroke:#f6c945!important;stroke-width:12!important}
+.ml-tua3{fill:none;stroke:#f6c945!important;stroke-width:6!important}
+/* giấy màu rơi (thay tuyết) */
+.ml-giaymau i{border-radius:2px;width:calc(var(--s) * 1.4);height:calc(var(--s) * .7);aspect-ratio:auto;background:var(--c);box-shadow:none;animation-name:ml-giay}
+@keyframes ml-giay{to{transform:translate(var(--dx),106cqh) rotate(720deg)}}
+.mua-nam-moi .ml-nho{left:-10%;top:-38%}
+.ml-phao{filter:drop-shadow(0 0 1.5px rgba(80,40,20,.45))}
+
+/* Tết Dương lịch — kiểu 2 đếm ngược */
+.ml-sao4{stroke:none!important}
+@media (prefers-reduced-motion:no-preference){.ml-sao4{animation:ml-lapl 2.4s ease-in-out infinite;animation-delay:var(--dl)}}
+@keyframes ml-lapl{0%,100%{scale:.55;opacity:.5}50%{scale:1;opacity:1}}
+.ml-the2{fill:#2b2e45;stroke-width:10!important}
+.ml-khoen{fill:#c9ced8;stroke-width:5!important}
+.ml-gach{fill:none;stroke:#11131f!important;stroke-width:5!important}
+.ml-so2{font:800 132px var(--vi,sans-serif);fill:#fff;text-anchor:middle}
+.ml-so-cu,.ml-so-moi{transform-box:fill-box;transform-origin:50% 50%}
+@media (prefers-reduced-motion:no-preference){
+  .ml-so-cu{animation:ml-lat-cu 5s infinite}.ml-so-moi{animation:ml-lat-moi 5s infinite}
+  .ml-dongho{transform-box:fill-box;transform-origin:50% 100%;animation:ml-rung 5s infinite}
+  .ml-reo{animation:ml-reo 5s infinite}
+}
+@media (prefers-reduced-motion:reduce){.ml-so-cu{display:none}.ml-reo{opacity:1}}
+@keyframes ml-lat-cu{0%,38%{scale:1 1;opacity:1}46%{scale:1 0;opacity:1}47%,94%{opacity:0}100%{scale:1 1;opacity:1}}
+@keyframes ml-lat-moi{0%,46%{scale:1 0;opacity:0}47%{opacity:1}55%,92%{scale:1 1;opacity:1}100%{scale:1 0;opacity:0}}
+@keyframes ml-rung{0%,46%,92%,100%{rotate:0deg}48%,52%,56%,60%,64%,68%{rotate:-5deg}50%,54%,58%,62%,66%,70%{rotate:5deg}72%{rotate:0deg}}
+@keyframes ml-reo{0%,46%,74%,100%{opacity:0}48%,72%{opacity:1}}
+.ml-reo{fill:none;stroke:#f6c945!important;stroke-width:9!important;opacity:0}
+.ml-chan{fill:none;stroke-width:14!important}
+.ml-chuongdh{fill:#f6c945;stroke-width:9!important}
+.ml-matdh{fill:#fffaf0;stroke-width:14!important}
+.ml-vach{fill:none;stroke:#2b2e45!important;stroke-width:7!important}
+.ml-kim{fill:none;stroke:#2b2e45!important;stroke-width:9!important}
+.ml-tamdh{fill:#e0464b;stroke:none!important}
+.ml-chu3{font:400 72px var(--hz,"KaiTi",serif);fill:#b8323a;text-anchor:middle;letter-spacing:6px}
+
+/* kiểu 3 bóng bay số */
+.ml-an-pop .art .pop:not(.hallo){visibility:hidden}
+.ml-so3{font:900 230px var(--vi,sans-serif);fill:#f6c945;stroke:#9a6a10;stroke-width:12px;paint-order:stroke;text-anchor:middle}
+.ml-so3b{font:900 230px var(--vi,sans-serif);fill:none;stroke:#fff3b8;stroke-width:6px;text-anchor:middle;opacity:.55;clip-path:inset(0 60% 60% 0)}
+.ml-daybay{fill:none;stroke:#c9ced8!important;stroke-width:4!important}
+.ml-bongtron{stroke-width:9!important}
+.ml-nut{fill:#8b3538;stroke:none!important}
+.ml-bongsang{fill:#fff;opacity:.6;stroke:none!important}
+@media (prefers-reduced-motion:no-preference){.ml-bay{animation:ml-bay 4.5s ease-in-out infinite;animation-delay:var(--dl)}}
+@keyframes ml-bay{50%{translate:0 -18px;rotate:1.5deg}}
+.ml-bay{transform-box:view-box}
+
+/* kiểu 4 bật nắp */
+@media (prefers-reduced-motion:no-preference){
+  .ml-bung .art .lid{animation:ml-bung 4.2s ease-in-out infinite}
+  .ml-manh{opacity:0;animation:ml-manh 4.2s ease-out infinite;animation-delay:var(--dl)}
+}
+@media (prefers-reduced-motion:reduce){.ml-manh{translate:var(--tx) var(--ty)}}
+@keyframes ml-bung{0%,22%,86%,100%{transform:none}34%,70%{transform:translate(-3%,-26%) rotate(-16deg)}}
+@keyframes ml-manh{0%,30%{translate:0 0;scale:.3;opacity:0}36%{opacity:1}58%{translate:var(--tx) var(--ty);scale:1.6;opacity:1}80%,100%{translate:var(--tx) calc(var(--ty) + 70px);scale:1.6;opacity:0}}
+.ml-manh{transform-box:view-box;transform-origin:780px 690px}
+.ml-so4{font:900 150px var(--vi,sans-serif);fill:#e0464b;text-anchor:middle;letter-spacing:8px}
+.ml-so2{font-size:124px}.ml-nho3{font-size:62px}
+.ml-to3{font-size:110px}
+.ml-to4{font-size:96px}
