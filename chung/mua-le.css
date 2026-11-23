@@ -76,8 +76,9 @@
 .ml-tua{fill:none;stroke:#d8434a!important;stroke-width:11!important}
 .ml-vang2{fill:#f6c945;stroke:#9a6a10!important;stroke-width:8!important}
 .ml-ranh{fill:none;stroke:#9a6a10!important;stroke-width:7!important}
-.ml-k3 .ml-nho,.ml-k5 .ml-nho{left:2%;top:-34%;width:96%;height:96%;transform:none}
-.ml-k3 .ml-nho .ml-sung-v,.ml-k5 .ml-nho .ml-sung-v{stroke-width:9!important}.ml-k3 .ml-nho .ml-sung,.ml-k5 .ml-nho .ml-sung{stroke-width:5!important}
+/* sừng nhỏ: chân sừng chạm đỉnh bong bóng 哈喽 của logo nhỏ, ngọn không vượt mép trên thanh đầu trang */
+.mua-giang-sinh.ml-k3 .ml-nho,.mua-giang-sinh.ml-k5 .ml-nho{left:20%;top:-24%;width:60%;height:60%;transform:none}
+.mua-giang-sinh .ml-nho .ml-sung-v{stroke-width:11!important}.mua-giang-sinh .ml-nho .ml-sung{stroke-width:6!important}
 
 /* Kiểu 4 — người tuyết */
 .ml-tuyet2{fill:#dbe8f6;stroke-width:10!important}
@@ -99,8 +100,8 @@
 }
 @keyframes ml-vay{50%{rotate:-14deg}}
 @keyframes ml-xoay{to{rotate:360deg}}
-.ml-k4 .ml-nho{left:0;top:-14%;width:100%;height:100%;transform:none}
-.ml-k4 .ml-nho path{stroke-width:3}
+.mua-giang-sinh.ml-k4 .ml-nho{left:0;top:-14%;width:100%;height:100%;transform:none}
+.mua-giang-sinh.ml-k4 .ml-nho path{stroke-width:3}
 
 /* —— Tết Dương lịch —— */
 .ml-vang{fill:#f6c945}.ml-tim{fill:#9b6ce0}
@@ -125,7 +126,10 @@
 /* giấy màu rơi (thay tuyết) */
 .ml-giaymau i{border-radius:2px;width:calc(var(--s) * 1.4);height:calc(var(--s) * .7);aspect-ratio:auto;background:var(--c);box-shadow:none;animation-name:ml-giay}
 @keyframes ml-giay{to{transform:translate(var(--dx),106cqh) rotate(720deg)}}
-.mua-nam-moi .ml-nho{left:-10%;top:-38%}
+/* nón tiệc nhỏ: đội lệch trên đỉnh phải bong bóng 哈喽 của logo nhỏ, nét mảnh cho vừa cỡ 42px */
+.mua-nam-moi .ml-nho{left:46%;top:-14%;width:42%;height:42%;transform:rotate(18deg)}
+.mua-nam-moi .ml-nho path,.mua-nam-moi .ml-nho circle{stroke-width:7!important}
+.mua-nam-moi .ml-nho .ml-vien-vang{stroke-width:8!important}
 .ml-phao{filter:drop-shadow(0 0 1.5px rgba(80,40,20,.45))}
 
 /* Tết Dương lịch — kiểu 2 đếm ngược */
