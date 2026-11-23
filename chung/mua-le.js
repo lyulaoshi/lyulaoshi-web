@@ -1,5 +1,5 @@
 /* Logo theo mùa lễ hội (22/11/2026). Logo gốc giữ nguyên; trong mùa lễ, script này phủ thêm lớp trang trí vẽ tay
-   (SVG, không emoji) lên hình hộp 哈喽 ở đầu trang chủ + món nhỏ lên logo thanh đầu trang.
+   (SVG, không emoji) lên hình hộp 哈喽 ở đầu trang chủ + món nhỏ lên logo thanh đầu trang + biểu tượng tab trình duyệt.
    Thêm mùa mới: thêm 1 mục vào MUA (tu/den = "tháng-ngày", tính cả 2 đầu; kieu = kiểu đang dùng) + hình trong VE + CSS trong mua-le.css.
    Mùa vắt qua năm mới thì tu > den (vd 12-27 → 01-10).
    Xem thử ngoài mùa: ?mua=giang-sinh hoặc ?mua=nam-moi (kiểu đang chọn), ?mua=giang-sinh&kieu=3 (xem kiểu khác); tắt hẳn: ?mua=khong. */
@@ -351,6 +351,30 @@
   if(VE.an_pop)document.documentElement.classList.add("ml-an-pop");   /* kiểu bóng bay số thay chỗ 4 bong bóng chữ nhỏ */
   if(VE.bung)document.documentElement.classList.add("ml-bung");
 
+
+  /* biểu tượng tab trình duyệt (favicon) theo mùa: vẽ logo nhỏ + món trang trí (VE.nho) lên canvas rồi thay link rel=icon.
+     Biểu tượng app trên màn hình điện thoại (apple-touch-icon, manifest) giữ nguyên vì máy chỉ lưu 1 lần lúc cài.
+     Toạ độ trong khung 64: logo [x,y,cỡ], món [x,y,cỡ,góc xoay] */
+  var FAV={"giang-sinh":{logo:[6,14,52],phu:[12,-6,40,0]},"nam-moi":{logo:[2,12,52],phu:[22,-1,31,14]}}[mua.ten];
+  var FAV_CSS='path,circle,ellipse{stroke:#8b3538;stroke-width:6;stroke-linejoin:round;stroke-linecap:round}'+
+    '.ml-non{fill:#4f8ff0}.ml-cham{fill:#fff;stroke:none}.ml-vien-vang{fill:none;stroke:#f6c945;stroke-width:9}.ml-vang2{fill:#f6c945;stroke:#9a6a10}'+
+    '.ml-sung-v{fill:none;stroke:#5a3418;stroke-width:16}.ml-sung{fill:none;stroke:#b9804a;stroke-width:9}'+
+    '.ml-do{fill:#e0464b}.ml-vien,.ml-tuyet{fill:#fff}.ml-bt{fill:none;stroke:#bcd3ec}.ml-daybay{fill:none;stroke:#c9ced8}.ml-bongtron{fill:#e0464b}.ml-nut{fill:#8b3538;stroke:none}';
+  function doiIcon(){
+    if(!FAV||!VE.nho)return;
+    var K=2,c=document.createElement("canvas");c.width=c.height=64*K;var g=c.getContext("2d"),logo=new Image(),phu=new Image(),xong=0;
+    function ve(){
+      if(++xong<2)return;
+      var L=FAV.logo,a=FAV.phu;
+      g.drawImage(logo,L[0]*K,L[1]*K,L[2]*K,L[2]*K);
+      g.save();g.translate((a[0]+a[2]/2)*K,(a[1]+a[2]/2)*K);g.rotate(a[3]*Math.PI/180);g.drawImage(phu,-a[2]/2*K,-a[2]/2*K,a[2]*K,a[2]*K);g.restore();
+      try{var u=c.toDataURL("image/png");document.querySelectorAll('link[rel="icon"]').forEach(function(l){l.href=u;l.type="image/png"})}catch(e){}
+    }
+    logo.onload=phu.onload=ve;
+    logo.src="/img/logo-hallo-128.png";
+    phu.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><style>'+FAV_CSS+'</style>'+VE.nho+'</svg>');
+  }
+
   var NS="http://www.w3.org/2000/svg";
   function svg(box,cls,html){
     var s=document.createElementNS(NS,"svg");
@@ -376,4 +400,5 @@
     });
   }
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",gan);else gan();
+  doiIcon();
 })();

@@ -466,8 +466,17 @@ function answer(k){
 function log(q,ok){let w=store.get("kt-sai",[]).filter(x=>x!==q.id);if(!ok)w.push(q.id);store.set("kt-sai",w)}
 function play(q){
   const n=S.plays[q.id]||0;if(exam()&&n>=2)return;
-  if(!(window.TTS&&TTS.ready())){alert("Máy này chưa có giọng đọc tiếng Trung, nên chưa nghe được.");return}
-  S.plays[q.id]=n+1;say(q.say);render();
+  S.plays[q.id]=n+1;sayQ(q.say,q.id);render();
+}
+// Ưu tiên file giọng Gemini am/<mã>.mp3 (tools/giong_de_thi.py); chưa có file thì dùng giọng máy
+let AU=null;
+function sayQ(txt,id){
+  if(AU){AU.pause();AU=null}
+  if(window.speechSynthesis)speechSynthesis.cancel();
+  const a=new Audio("am/"+id+".mp3");AU=a;
+  const dung=()=>{if(AU!==a)return;AU=null;if(window.TTS&&TTS.ready())say(txt);else alert("Máy này chưa có giọng đọc tiếng Trung, nên chưa nghe được.")};
+  a.addEventListener("error",dung);
+  const r=a.play();if(r&&r.catch)r.catch(dung);
 }
 // đọc từng lượt thoại, bỏ nhãn 女：/男：/问：
 function say(txt){
@@ -492,7 +501,7 @@ document.addEventListener("click",e=>{
   if(t.dataset.go!=null){S.cur=+t.dataset.go;render();return}
   switch(t.id){
     case "playBtn":play(S.qs[S.cur]);break;
-    case "exPlay":say(S.qs[S.cur].part.ex.say);break;
+    case "exPlay":{const q=S.qs[S.cur];sayQ(q.part.ex.say,q.de.id+"-ex-"+q.part.pk);break}
     case "wrChk":{const q=S.qs[S.cur];if(!filled(S.a[S.cur]))break;S.checked[S.cur]=true;log(q,right(q,S.a[S.cur]));render();break}
     case "prevBtn":if(S.cur>0){S.cur--;render()}break;
     case "nextBtn":if(S.cur<S.qs.length-1){S.cur++;render()}else finish();break;

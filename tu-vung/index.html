@@ -210,10 +210,71 @@
 .sum .miss{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0}
 .sum .miss span{font-family:var(--kai);font-size:20px;background:var(--coral-s);padding:4px 12px;border-radius:12px}
 .sum .acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+/* Thanh mục dính + tìm từ (23/11/2026) */
+.secnav{position:sticky;top:var(--toph,58px);z-index:9;display:flex;align-items:center;gap:10px;margin:18px -16px 0;padding:8px 16px;background:color-mix(in srgb,var(--ground) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.sn-links{display:flex;gap:4px;flex:1 1 auto;min-width:0;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+.sn-links::-webkit-scrollbar{display:none}
+.sn-links a{flex:none;white-space:nowrap;text-decoration:none;color:var(--muted);font-weight:700;font-size:14px;padding:7px 12px;border-radius:999px}
+.sn-links a:hover{color:var(--ink);background:var(--ground2)}
+.sn-links a.on{color:#fff;background:var(--c)}
+.sn-find{flex:none;display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:700;font-size:14px;padding:7px 14px;border-radius:999px;cursor:pointer}
+.sn-find[aria-expanded="true"]{border-color:var(--c);color:var(--c)}
+.findbox{position:absolute;left:16px;right:16px;top:calc(100% + 8px);background:var(--card);border-radius:22px;box-shadow:0 18px 50px rgba(20,20,50,.25),var(--shadow);padding:14px;max-height:min(70vh,560px);overflow-y:auto;border:1.5px solid var(--line)}
+.findbox input{width:100%;font:inherit;font-size:16px;padding:12px 16px;border-radius:14px;border:2px solid var(--c);background:var(--ground);color:var(--ink);outline:0}
+.fnote{margin:10px 2px 6px;font-size:13px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.fnote .btn{padding:6px 12px;font-size:13px}
+.fres{display:grid;gap:6px}
+.fr{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:10px 12px;border-radius:16px;background:var(--ground2)}
+.fr .spk{position:static;width:36px;height:36px}
+.fr .fz{font-family:var(--kai);font-size:24px;line-height:1.15}
+.fr .fz small{font-family:var(--font,inherit);font-size:14px;font-weight:700;color:var(--c);margin-left:8px}
+.fr .fm{grid-column:2;font-size:14px;line-height:1.35}
+.fr .ft{grid-column:2;font-size:12px;color:var(--muted)}
+.fr .fa{grid-row:1/span 3;grid-column:3;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.fr .fa button{border:0;background:var(--c);color:#fff;font:inherit;font-weight:700;font-size:13px;padding:7px 12px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.fr .fa a{font-family:var(--kai);font-size:17px;color:var(--c);text-decoration:none;background:var(--card);padding:1px 8px;border-radius:8px}
+.fr .fa span{display:flex;gap:4px}
+.fr mark{background:none;color:var(--c);font-weight:800}
+.fempty{padding:18px;text-align:center;color:var(--muted);font-size:14px}
+.panel h2,.panel{scroll-margin-top:calc(var(--toph,58px) + 70px)}
+@media (max-width:560px){.sn-find span{display:none}.sn-find{padding:8px 10px}.findbox{left:8px;right:8px}.fr{grid-template-columns:auto minmax(0,1fr)}.fr .fa{grid-row:auto;grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center}}
+/* Học tiếp bộ gần nhất */
+.resume{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;width:100%;margin-top:16px;text-align:left;border:1.5px solid var(--line);background:var(--cs);color:var(--ink);font:inherit;border-radius:18px;padding:12px 16px;cursor:pointer;transition:border-color .15s,transform .15s}
+.resume:hover{border-color:var(--c);transform:translateY(-1px)}
+.resume small{font-size:12px;font-weight:800;color:var(--c);letter-spacing:.04em;text-transform:uppercase}
+.resume b{font-size:15px;line-height:1.3}
+.resume .rs{font-size:13px;color:var(--muted)}
+.resume .go{grid-row:1/span 3;grid-column:2;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--c);color:#fff}
+.resume .bar{grid-column:1}
+/* Ngăn kéo chọn bộ thẻ */
+.drawers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0 4px}
+.dw{position:relative;display:grid;gap:4px;text-align:left;border:2px solid transparent;background:var(--dcs);color:var(--ink);font:inherit;border-radius:20px;padding:14px 16px 16px;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s}
+.dw:hover{transform:translateY(-2px)}
+.dw .dz{font-family:var(--hz);font-size:30px;line-height:1;color:var(--dc)}
+.dw b{font-size:15.5px;font-weight:800}
+.dw small{font-size:12.5px;color:var(--muted);line-height:1.3}
+.dw .bar{margin-top:4px;background:color-mix(in srgb,var(--dc) 18%,transparent)}.dw .bar i{background:var(--dc)}
+.dw .arr{position:absolute;top:14px;right:14px;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;background:var(--card);color:var(--dc);transition:transform .2s}
+.dw .arr .lli{width:15px;height:15px}
+.dw[aria-expanded="true"]{border-color:var(--dc);box-shadow:0 8px 22px color-mix(in srgb,var(--dc) 25%,transparent)}
+.dw[aria-expanded="true"] .arr{transform:rotate(180deg);background:var(--dc);color:#fff}
+.dw[data-src="hsk"]{--dc:var(--lav);--dcs:var(--lav-s)}.dw[data-src="bai"]{--dc:var(--sky);--dcs:var(--sky-s)}
+.dw[data-src="chude"]{--dc:var(--peach);--dcs:var(--peach-s)}.dw[data-src="zizu"]{--dc:var(--mint);--dcs:var(--mint-s)}
+.dbody{margin-top:16px;padding-top:16px;border-top:1.5px dashed var(--line)}
+.dclosed{margin:12px 2px 0;font-size:13.5px;color:var(--muted)}
+@media (max-width:760px){.drawers{grid-template-columns:1fr 1fr;gap:10px}.dw{padding:12px 14px 14px}.dw .dz{font-size:26px}}
+/* Vuốt thẻ */
+.card{transition:transform .25s ease,opacity .25s ease}
+.card.drag{transition:none}
+.stamp{position:absolute;top:22px;z-index:3;font-weight:800;font-size:18px;padding:6px 14px;border-radius:12px;border:3px solid;pointer-events:none;opacity:0;background:var(--card)}
+.stamp.st-yes{left:20px;color:var(--mint);transform:rotate(-10deg);opacity:var(--yes,0)}
+.stamp.st-no{right:20px;color:var(--coral);transform:rotate(10deg);opacity:var(--no,0)}
+.swipehint{display:none;text-align:center;font-size:13px;color:var(--muted);margin:12px 0 0}
+@media (hover:none){.swipehint{display:block}}
 @media (max-width:760px){.today{grid-template-columns:1fr}}
 @media (max-width:420px){.ch{font-size:14px;padding:9px 10px}.shelf{gap:6px}.lb small{font-size:10.5px}.lb b{font-size:19px}.panel{padding:18px 16px}}
 @media (hover:none){.keys{display:none}}
-@media (prefers-reduced-motion:reduce){.card .in,.pack,.goal i{transition:none}}
+@media (prefers-reduced-motion:reduce){.card .in,.card,.pack,.goal i,.dw,.resume{transition:none}}
 </style>
 <link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
 <link rel="stylesheet" href="/chung/hero.css?v=f1ff4577">
@@ -239,6 +300,18 @@
   <div class="lh-art" aria-hidden="true"><svg viewBox="0 0 400 420"><ellipse cx="200" cy="398" rx="150" ry="13" fill="currentColor" opacity=".09"/><rect x="96" y="60" width="230" height="310" rx="22" fill="#ECE8FB" transform="rotate(8 211 215)"/><g transform="rotate(-4 195 209)"><rect x="80" y="54" width="230" height="310" rx="22" fill="#fff" stroke="#E3DFEE" stroke-width="2"/><path d="M80 118V76a22 22 0 0 1 22-22h186a22 22 0 0 1 22 22v42z" fill="#7C6BD6"/><text x="195" y="94" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="800" font-size="15" fill="#fff" letter-spacing="3">HSK 1 · 301 BÀI 11</text><text x="195" y="222" text-anchor="middle" font-family="STKaiti,KaiTi,serif" font-size="92" fill="#2B2E45">手机</text><text x="195" y="264" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-weight="700" font-size="24" fill="#7C6BD6">shǒujī</text><text x="195" y="296" text-anchor="middle" font-family="Be Vietnam Pro,sans-serif" font-size="17" fill="#6B6E86">điện thoại di động</text><rect x="137" y="326" width="18" height="18" rx="5" fill="#7C6BD6"/><rect x="161" y="326" width="18" height="18" rx="5" fill="#7C6BD6"/><rect x="185" y="326" width="18" height="18" rx="5" fill="#7C6BD6"/><rect x="209" y="326" width="18" height="18" rx="5" fill="#ECE8FB"/><rect x="233" y="326" width="18" height="18" rx="5" fill="#ECE8FB"/></g></svg><span class="lh-pop a">记住了！</span><span class="lh-pop b py">shǒujī</span><span class="lh-pop c">再来</span><span class="lh-pop d py">điện thoại</span></div>
 </section>
 
+  <nav class="secnav" id="secnav" aria-label="Các mục trong hộp">
+    <div class="sn-links" id="snLinks">
+      <a href="#hTitle">Hôm nay</a><a href="#dTitle">Chọn bộ thẻ</a><a href="#tccTitle">Từ cùng chữ</a><a href="#tTitle">Thử thách 60 giây</a><a href="#aTitle">Album tem</a>
+    </div>
+    <button class="sn-find" id="findBtn" type="button" aria-expanded="false" aria-controls="findBox"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#kinh-lup"/></svg><span>Tìm từ</span></button>
+    <div class="findbox" id="findBox" hidden>
+      <input id="findIn" type="search" placeholder="Gõ chữ Hán, pinyin hoặc nghĩa tiếng Việt" autocomplete="off" spellcheck="false" aria-label="Tìm từ: chữ Hán, pinyin hoặc nghĩa tiếng Việt">
+      <div class="fnote" id="findNote" role="status"></div>
+      <div class="fres" id="findRes"></div>
+    </div>
+  </nav>
+
   <section class="panel today" aria-labelledby="hTitle">
     <div>
       <h2 id="hTitle">Hôm nay</h2>
@@ -250,6 +323,7 @@
       <div class="goal" role="progressbar" aria-label="Mục tiêu hôm nay" aria-valuemin="0" aria-valuemax="20" id="goal"><i></i></div>
       <button class="btn hot" id="startToday" type="button">Ôn hôm nay</button>
       <p class="sub" id="goalTxt"></p>
+      <button class="resume" id="resume" type="button" hidden></button>
     </div>
     <div>
       <div class="shelf" id="shelf" aria-label="Số thẻ trong 5 hộp">
@@ -263,21 +337,16 @@
     </div>
   </section>
 
-  <section class="panel thach" id="thPanel" aria-labelledby="tTitle">
-    <h2 id="tTitle">Thử thách 60 giây</h2>
-    <p class="sub">Chọn nghĩa đúng càng nhanh càng tốt. Đúng liền 5 câu được thêm 3 giây. Chơi xong gửi link cho bạn để thách đấu: bạn sẽ gặp đúng các câu hỏi đó.</p>
-    <div id="thInvite" hidden></div>
-    <div class="th-pools" id="thPools" role="group" aria-label="Chọn bộ từ để thử thách"></div>
-  </section>
-
   <section class="panel decks" aria-labelledby="dTitle">
     <h2 id="dTitle">Chọn bộ thẻ</h2>
-    <div class="tabs" role="group" aria-label="Cách chia bộ thẻ">
-      <button class="tab" type="button" data-src="hsk" aria-pressed="true">HSK 1–9</button>
-      <button class="tab" type="button" data-src="bai" aria-pressed="false">Theo bài</button>
-      <button class="tab" type="button" data-src="chude" aria-pressed="false">Chủ đề</button>
-      <button class="tab" type="button" data-src="zizu" aria-pressed="false"><span lang="zh">字族</span> Họ chữ</button>
+    <div class="drawers" role="group" aria-label="Cách chia bộ thẻ">
+      <button class="dw" type="button" data-src="hsk" aria-expanded="false"><span class="arr" aria-hidden="true"><svg class="lli"><use href="/chung/ic.svg?v=4faa8901#xuong"/></svg></span><span class="dz" lang="zh">等级</span><b>Theo cấp HSK</b><small id="dwHsk"></small><span class="bar"><i></i></span></button>
+      <button class="dw" type="button" data-src="bai" aria-expanded="false"><span class="arr" aria-hidden="true"><svg class="lli"><use href="/chung/ic.svg?v=4faa8901#xuong"/></svg></span><span class="dz" lang="zh">课本</span><b>Theo bài học</b><small id="dwBai"></small><span class="bar"><i></i></span></button>
+      <button class="dw" type="button" data-src="chude" aria-expanded="false"><span class="arr" aria-hidden="true"><svg class="lli"><use href="/chung/ic.svg?v=4faa8901#xuong"/></svg></span><span class="dz" lang="zh">话题</span><b>Theo chủ đề</b><small id="dwChude"></small><span class="bar"><i></i></span></button>
+      <button class="dw" type="button" data-src="zizu" aria-expanded="false"><span class="arr" aria-hidden="true"><svg class="lli"><use href="/chung/ic.svg?v=4faa8901#xuong"/></svg></span><span class="dz" lang="zh">字族</span><b>Họ chữ</b><small id="dwZizu"></small><span class="bar"><i></i></span></button>
     </div>
+    <p class="dclosed" id="dClosed">Bấm một ngăn để mở các bộ thẻ bên trong.</p>
+    <div class="dbody" id="dBody" hidden>
     <div id="srcHsk">
       <div class="levels" id="levels" role="group" aria-label="Cấp HSK"></div>
       <p class="bookname" id="lvNote"></p>
@@ -294,6 +363,7 @@
       <div class="packs" id="fams"></div>
       <div class="fam" id="famBox" hidden></div>
     </div>
+    </div>
   </section>
 
   <section class="panel tcc" aria-labelledby="tccTitle">
@@ -301,6 +371,13 @@
       <p class="sub">Chọn một chữ: chữ đó thành mặt trời, mọi từ HSK có chữ đó thành hành tinh quay quanh, theo từng cấp. Từ bạn đã thuộc sáng thành sao vàng.</p>
       <div class="zs" id="tccZs"></div></div>
     <a class="sky" href="tu-cung-chu.html" aria-label="Mở hệ mặt trời chữ"><i style="left:61px;top:41px;width:28px;height:28px;background:#FFD66B;box-shadow:0 0 18px #FFB347"></i><i style="left:22px;top:22px;width:12px;height:12px;background:#7DD9B8"></i><i style="left:112px;top:30px;width:14px;height:14px;background:#EE7A5E"></i><i style="left:96px;top:78px;width:10px;height:10px;background:#5BA9DE"></i><i style="left:30px;top:76px;width:13px;height:13px;background:#E25D6E"></i></a>
+  </section>
+
+  <section class="panel thach" id="thPanel" aria-labelledby="tTitle">
+    <h2 id="tTitle">Thử thách 60 giây</h2>
+    <p class="sub">Chọn nghĩa đúng càng nhanh càng tốt. Đúng liền 5 câu được thêm 3 giây. Chơi xong gửi link cho bạn để thách đấu: bạn sẽ gặp đúng các câu hỏi đó.</p>
+    <div id="thInvite" hidden></div>
+    <div class="th-pools" id="thPools" role="group" aria-label="Chọn bộ từ để thử thách"></div>
   </section>
 
   <section class="panel album" aria-labelledby="aTitle">
@@ -345,12 +422,14 @@
         <div class="side front" id="front"></div>
         <div class="side back" id="back"></div>
       </div>
+      <span class="stamp st-yes" aria-hidden="true">Nhớ rồi</span><span class="stamp st-no" aria-hidden="true">Chưa nhớ</span>
     </div>
     <div class="choices" id="choices" role="group" aria-label="Chọn nghĩa đúng" hidden></div>
     <div class="judge" id="judge">
       <button class="btn no" type="button" id="bNo" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#sai"/></svg> Chưa nhớ</button>
       <button class="btn yes" type="button" id="bYes" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#tick"/></svg> Nhớ rồi</button>
     </div>
+    <p class="swipehint" id="swipeHint"></p>
     <p class="keys" id="keys">Phím tắt: Space lật thẻ · ← chưa nhớ · → nhớ rồi · S nghe đọc</p>
   </div>
   <div class="study sum panel" id="sumBox" hidden></div>
@@ -468,7 +547,8 @@ function uniq(cs){const m=new Map();cs.forEach(c=>m.set(c.k,c));return[...m.valu
 function nextNew(){ // thẻ mới cho "Ôn hôm nay": lấy tiếp từ bộ học gần nhất, không có thì HSK đang chọn
   const d=S.last&&deck(S.last);return((d&&d.cards.some(c=>box(c)===0))?d.cards:hskWords(S.lv)).filter(c=>box(c)===0);
 }
-const SHOW0=30;let showN=SHOW0;
+const SHOW0=12;let showN=SHOW0;
+let DOPEN=false;   // ngăn kéo "Chọn bộ thẻ" đang mở hay đóng (mặc định đóng cho trang gọn)
 const ensure79Lv=()=>(S.lv==='7-9'||/^hsk:7-9:/.test(S.last)?ensure79():Promise.resolve());
 function render(){
   const d=today(), sc=scope(), cs=uniq(sc.cards);
@@ -482,7 +562,20 @@ function render(){
   $('goalTxt').textContent=n>=GOAL?'Đã đủ '+GOAL+' thẻ hôm nay. Giỏi lắm! Ôn thêm cũng được nhé.':'Mục tiêu: '+GOAL+' thẻ mỗi ngày · đã ôn '+n+'.';
   const ld=S.last&&deck(S.last);
   $('startToday').textContent=due?'Ôn hôm nay ('+(due+nw)+' thẻ)':'Học thẻ mới'+(ld&&ld.cards.some(c=>box(c)===0)?': '+ld.name:' HSK '+lvName(S.lv));
-  document.querySelectorAll('[data-src]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.src===S.src));
+  // ô "Học tiếp": bộ học gần nhất
+  const rs=$('resume');
+  if(ld){const st=stats(uniq(ld.cards)),dn=st.n&&st.ok===st.n;rs.hidden=false;
+    rs.innerHTML='<small>'+(dn?'Ôn lại bộ gần nhất':'Học tiếp')+'</small><b>'+esc(ld.name)+'</b><span class="rs">'+(st.seen?st.seen+'/'+st.n+' thẻ đã học · '+st.ok+' đã thuộc':st.n+' thẻ, chưa học thẻ nào')+'</span>'+
+      '<span class="bar"><i style="width:'+(st.n?st.seen/st.n*100:0)+'%"></i></span><span class="go" aria-hidden="true"><svg class="lli"><use href="/chung/ic.svg?v=4faa8901#tg-phai"/></svg></span>'}
+  else rs.hidden=true;
+  // 4 ngăn kéo: số liệu + vạch đã học
+  const dwSet=(id,txt,cs)=>{const e=$(id),st=stats(uniq(cs));e.textContent=txt;e.nextElementSibling.firstElementChild.style.width=(st.n?st.seen/st.n*100:0)+'%'};
+  dwSet('dwHsk','Đang chọn HSK '+lvName(S.lv)+' · '+hskList(S.lv).length+' từ',hskWords(S.lv));
+  dwSet('dwBai',BAI.length+' giáo trình · '+BAI.reduce((t,b)=>t+b.bai.length,0)+' bài',BAI.flatMap(b=>b.bai.flatMap(l=>l.w.map(x=>card(...x)))));
+  dwSet('dwChude',CHUDE.length+' chủ đề quen thuộc',CHUDE.flatMap(c=>c.w.map(x=>card(...x))));
+  dwSet('dwZizu',ZIZU.length+' họ · '+ZIZU.reduce((t,f)=>t+f.m.length,0)+' chữ',allZZ());
+  document.querySelectorAll('.dw[data-src]').forEach(x=>x.setAttribute('aria-expanded',DOPEN&&x.dataset.src===S.src));
+  $('dBody').hidden=!DOPEN;$('dClosed').hidden=DOPEN;
   $('srcHsk').hidden=S.src!=='hsk';$('srcBai').hidden=S.src!=='bai';$('srcChude').hidden=S.src!=='chude';$('srcZizu').hidden=S.src!=='zizu';
   if(S.src==='hsk'){
     $('levels').innerHTML=LEVELS.map(l=>'<button class="lv" type="button" data-lv="'+l+'" aria-pressed="'+(l===S.lv)+'">'+lvName(l)+'</button>').join('');
@@ -490,7 +583,7 @@ function render(){
     $('lvNote').textContent=!all.length?'Đang tải từ HSK '+lvName(S.lv)+'…':'HSK '+lvName(S.lv)+' · '+all.length+' từ mới của cấp · '+
       (hasM===all.length?'đủ nghĩa tiếng Việt.':hasM?'có nghĩa tiếng Việt '+hasM+' từ (lấy từ bài giảng), các từ còn lại đang bổ sung.':'nghĩa tiếng Việt đang bổ sung (thẻ có chữ, pinyin, nghe đọc).');
     const ps=[];for(let i=0;i<all.length;i+=PACK){const g=all.slice(i,i+PACK),st=stats(g);ps.push([i,g,st]);if(open1<0&&!(st.n&&st.ok===st.n))open1=ps.length-1}
-    const lim=Math.max(showN,open1+12);   // cấp nhiều gói (HSK 6: 90, 7–9: 280): hiện dần, luôn tới quá gói đang học
+    const lim=Math.max(showN,open1+4);   // cấp nhiều gói (HSK 6: 90, 7–9: 280): hiện dần, luôn tới quá gói đang học
     ps.slice(0,lim).forEach(([i,g,st])=>{h+=packBtn('hsk:'+S.lv+':'+i,'Gói '+(i/PACK+1),'',g.map(c=>c.w),st)});
     if(ps.length>lim)h+='<button class="pack more" type="button" data-more>Xem thêm gói<span>còn '+(ps.length-lim)+' gói</span></button>';
     $('packs').innerHTML=h;
@@ -513,7 +606,7 @@ function render(){
 }
 $('levels').addEventListener('click',e=>{const b=e.target.closest('[data-lv]');if(b){S.lv=b.dataset.lv;showN=SHOW0;save();render();ensure79Lv().then(render)}});
 $('bookTabs').addEventListener('click',e=>{const b=e.target.closest('[data-book]');if(b){S.book=b.dataset.book;save();render()}});
-document.querySelector('.panel.decks').addEventListener('click',e=>{const b=e.target.closest('[data-deck]');if(b)open(b.dataset.deck);else if(e.target.closest('[data-more]')){showN+=48;render()}
+document.querySelector('.panel.decks').addEventListener('click',e=>{const b=e.target.closest('[data-deck]');if(b)open(b.dataset.deck);else if(e.target.closest('[data-more]')){showN+=24;render()}
   else if(e.target.closest('[data-fam]'))showFam(e.target.closest('[data-fam]').dataset.fam);
   else if(e.target.closest('[data-famback]')){famOpen='';$('famBox').hidden=true;$('fams').hidden=false;$('fams').scrollIntoView({block:'nearest'})}
   else if(e.target.closest('[data-famgo]')){const g=e.target.closest('[data-famgo]');S.mode=g.dataset.famgo;save();paintModes();open('zz:'+famOpen)}
@@ -531,7 +624,11 @@ function showFam(g,keep){
     '<div class="fam-acts"><button class="btn pri" type="button" data-famgo="hz">Học thẻ chữ</button><button class="btn sec" type="button" data-famgo="ghep">Ghép bộ</button><button class="btn sec" type="button" data-famgo="am">Đoán âm</button></div>';
   $('fams').hidden=true;$('famBox').hidden=false;if(!keep)$('famBox').scrollIntoView({block:'start',behavior:'smooth'});
 }
-document.querySelectorAll('[data-src]').forEach(t=>t.addEventListener('click',()=>{S.src=t.dataset.src;save();render()}));
+document.querySelectorAll('.dw[data-src]').forEach(t=>t.addEventListener('click',()=>{
+  if(DOPEN&&S.src===t.dataset.src)DOPEN=false;else{S.src=t.dataset.src;DOPEN=true}
+  save();render();if(DOPEN&&S.src==='hsk')ensure79Lv().then(render);
+  if(DOPEN){const r=$('dBody').getBoundingClientRect();if(r.top>innerHeight-120)$('dBody').scrollIntoView({block:'start',behavior:'smooth'})}}));
+$('resume').addEventListener('click',()=>{if(S.last)open(S.last)});
 function open(id){const d=deck(id);if(!d)return false;S.last=id;save();start(d.cards,d.name,id);return true}
 $('startToday').addEventListener('click',()=>{
   const due=shuffle(dueCards()), room=Math.max(0,Math.min(NEW_PER_DAY,GOAL-doneToday()))||(due.length?0:NEW_PER_DAY);
@@ -609,9 +706,11 @@ function options(c){ // nghĩa đúng + 3 nghĩa sai, ưu tiên lấy từ chín
 }
 function show(){
   const c=Q[pos];flipped=false;$('card').classList.remove('flip','swl','swr');clearTimeout(tNext);
+  const ce=$('card');ce.style.transition='none';ce.style.transform='';ce.style.opacity='';ce.style.setProperty('--yes',0);ce.style.setProperty('--no',0);void ce.offsetWidth;ce.style.transition='';
   const qz=quiz(c);CH=qz?qz.o:[];QA=qz?qz.a:null;chonNow=CH.length===4;ans=null;const md=modeOf(c);paintModes();
   $('studyBox').classList.toggle('chon',chonNow);$('choices').hidden=!chonNow;$('judge').hidden=chonNow;
   $('choices').innerHTML=chonNow?CH.map((m,i)=>'<button class="ch'+(md==='am'?' py':'')+'" type="button" data-i="'+i+'">'+(md==='ghep'?'<span class="rz" lang="zh">'+esc(m)+'</span>'+esc(RADM[m]||''):esc(m))+'</button>').join(''):'';
+  $('swipeHint').textContent=chonNow?'Chọn đáp án xong, vuốt thẻ sang bên để qua thẻ sau.':'Chạm để lật thẻ · vuốt phải: Nhớ rồi · vuốt trái: Chưa nhớ';
   $('keys').textContent=chonNow?'Phím tắt: 1–4 chọn đáp án · Enter sang thẻ sau · S nghe đọc':'Phím tắt: Space lật thẻ · ← chưa nhớ · → nhớ rồi · S nghe đọc';
   $('front').innerHTML=face(c,'front');
   setTimeout(()=>{$('back').innerHTML=face(c,'back');$('back').classList.toggle('has-ex',!!c.ex)},flippedDelay());
@@ -687,11 +786,21 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='ArrowRight')judge(true);
   else if(e.key==='s'||e.key==='S')TTS.say(Q[pos].w);
 });
-// vuốt trái/phải trên điện thoại (sau khi đã lật)
-let x0=null,moved=false;
-$('card').addEventListener('pointerdown',e=>{x0=e.clientX;moved=false});
-$('card').addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;
-  if(Math.abs(dx)>60){moved=true;if(flipped)judge(dx>0);setTimeout(()=>moved=false,50)}});
+// vuốt thẻ (điện thoại, cả kéo chuột): thẻ chạy theo tay, hiện dấu "Nhớ rồi"/"Chưa nhớ"; chưa lật thì vuốt = lật
+let x0=null,y0=0,dx=0,moved=false,drag=false;
+const CE=$('card');
+const canJudge=()=>flipped&&(!chonNow||ans!==null);
+const snap=()=>{CE.style.transform='';CE.style.setProperty('--yes',0);CE.style.setProperty('--no',0)};
+CE.addEventListener('pointerdown',e=>{if(e.button>0||e.target.closest('.spk,a'))return;x0=e.clientX;y0=e.clientY;dx=0;drag=false;moved=false});
+CE.addEventListener('pointermove',e=>{if(x0===null)return;dx=e.clientX-x0;const dy=e.clientY-y0;
+  if(!drag){if(Math.abs(dx)>12&&Math.abs(dx)>Math.abs(dy)*1.2){drag=true;CE.classList.add('drag');try{CE.setPointerCapture(e.pointerId)}catch(_){}}else return}
+  const ok=canJudge(),t=ok?dx:dx*.3;
+  CE.style.transform='translateX('+t+'px) rotate('+(t/22)+'deg)';
+  const v=ok&&!chonNow?Math.min(1,Math.abs(dx)/90):0;CE.style.setProperty('--yes',dx>0?v:0);CE.style.setProperty('--no',dx<0?v:0)});
+CE.addEventListener('pointerup',()=>{if(x0===null)return;x0=null;if(!drag)return;drag=false;CE.classList.remove('drag');moved=true;setTimeout(()=>moved=false,60);
+  if(canJudge()&&Math.abs(dx)>80){const r=dx>0?1:-1;CE.style.transform='translateX('+r*Math.min(innerWidth,700)+'px) rotate('+r*18+'deg)';CE.style.opacity='0';judge(chonNow?ans:dx>0)}
+  else{snap();if(!flipped&&!chonNow&&Math.abs(dx)>50)flip()}});
+CE.addEventListener('pointercancel',()=>{x0=null;if(drag){drag=false;CE.classList.remove('drag');snap()}});
 setTimeout(()=>{document.querySelector('[data-mode="nghe"]').disabled=!TTS.ready()},1500);
 // ---- mã tiến độ (chuyển sang máy khác, không cần tài khoản) ----
 const b64=u=>{let t='';for(let i=0;i<u.length;i+=8192)t+=String.fromCharCode.apply(null,u.subarray(i,i+8192));return btoa(t)};
@@ -734,17 +843,84 @@ $('codeGo').addEventListener('click',async()=>{
 });
 $('codeShare').addEventListener('click',()=>{navigator.share({title:'Mã tiến độ 词汇盒',text:$('codeTxt').value}).catch(()=>{})});
 $('tccZs').innerHTML=['学','生','人','大','心','子','不','中','天','好','家','电','开','车','出','动'].map(z=>'<a href="tu-cung-chu.html#'+encodeURIComponent(z)+'" lang="zh">'+z+'</a>').join('');
+// ---- thanh mục dính: đặt ngay dưới thanh đầu trang, tô mục đang xem ----
+const setTop=()=>{const t=document.querySelector('header.top');document.documentElement.style.setProperty('--toph',(t?t.offsetHeight:58)+'px')};
+setTop();addEventListener('resize',setTop);
+const SN=[...$('snLinks').querySelectorAll('a')],SNT=SN.map(a=>document.getElementById(a.getAttribute('href').slice(1)).closest('section'));
+let snRaf=0;
+const snPaint=()=>{snRaf=0;if($('home').hidden)return;const y=$('secnav').getBoundingClientRect().bottom+60;let k=-1;
+  SNT.forEach((t,i)=>{if(t.getBoundingClientRect().top<y)k=i});
+  if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)k=SNT.length-1;
+  SN.forEach((a,i)=>{const on=i===k;if(a.classList.contains('on')!==on){a.classList.toggle('on',on);if(on)a.scrollIntoView({block:'nearest',inline:'nearest'})}})};
+addEventListener('scroll',()=>{if(!snRaf)snRaf=requestAnimationFrame(snPaint)},{passive:true});
+$('snLinks').addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;e.preventDefault();
+  document.getElementById(a.getAttribute('href').slice(1)).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'})});
+
+// ---- tìm từ: chữ Hán, pinyin (có dấu hay không), nghĩa tiếng Việt ----
+const fold=t=>t.normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/đ/g,'d').replace(/Đ/g,'d').toLowerCase();
+let TAG=null,TAGN=0;
+function tagOf(c){   // nguồn của từ: cấp HSK, bài giảng
+  if(!TAG||TAGN!==LOOK.size){TAG={};TAGN=LOOK.size;const put=(k,t)=>{(TAG[k]=TAG[k]||[]).length<2&&!TAG[k].includes(t)&&TAG[k].push(t)};
+    LEVELS.forEach(l=>hskList(l).forEach(([w,p])=>put(w+'|'+norm(p),'HSK '+lvName(l))));
+    BAI.forEach(b=>b.bai.forEach(l=>l.w.forEach(x=>put(x[0]+'|'+norm(x[1]),b.zh+' Bài '+l.n))));
+    CHUDE.forEach(c=>c.w.forEach(x=>put(x[0]+'|'+norm(x[1]),'Chủ đề '+c.vi)))}
+  return TAG[c.k]||[];
+}
+let FR=[];
+function findWords(q){
+  q=q.trim();if(!q)return[];look('');
+  const han=/[㐀-鿿]/.test(q),lq=q.toLowerCase(),fq=fold(q),mark=fq!==lq,pq=fq.replace(/[\s'’\-·]/g,''),out=[];
+  for(const c of LOOK.values()){
+    if(c.k.startsWith('zz:'))continue;let sc=-1;
+    if(han){sc=c.w===q?0:c.w.startsWith(q)?1:c.w.includes(q)?2:-1}
+    else{
+      const py=c.p.toLowerCase(),fp=fold(c.p).replace(/[\s'’\-·]/g,'');
+      if(mark&&py.replace(/[\s'’\-·]/g,'')===lq.replace(/[\s'’\-·]/g,''))sc=0;
+      else if(!mark&&fp===pq)sc=0;else if(!mark&&pq.length>1&&fp.startsWith(pq))sc=2;
+      if(c.m&&q.length>1){const m=mark?c.m.toLowerCase():fold(c.m),qq=mark?lq:fq,at=m.indexOf(qq);
+        if(at>=0){const edge=at===0||/[\s,;(\/]/.test(m[at-1]),end=!/[a-zà-ỹđ]/.test(m[at+qq.length]||' ');
+          const ms=edge&&end?(m.length===qq.length?0:1):edge?3:q.length>3?4:-1;if(ms>=0&&(sc<0||ms<sc))sc=ms}}}
+    if(sc>=0)out.push([sc,c.w.length,c]);
+  }
+  out.sort((a,b)=>a[0]-b[0]||a[1]-b[1]);return out.slice(0,40).map(x=>x[2]);
+}
+function hl(t,q){if(!q)return esc(t);const f=fold(t),fq=fold(q.trim()),i=f.indexOf(fq);if(i<0||!fq)return esc(t);
+  return esc(t.slice(0,i))+'<mark>'+esc(t.slice(i,i+fq.length))+'</mark>'+esc(t.slice(i+fq.length))}
+function paintFind(){
+  const q=$('findIn').value,han=/[㐀-鿿]/.test(q);FR=findWords(q);
+  const has79=!!window.HSK79,more=has79?'':' <button class="btn sec" type="button" data-f79>Tìm cả HSK 7–9</button>';
+  if(!q.trim()){$('findNote').innerHTML='Tìm trong HSK 1–6'+(has79?', HSK 7–9':'')+', bài giảng, chủ đề. Ví dụ: <b lang="zh">学</b> · xuexi · học'+more;$('findRes').innerHTML='';return}
+  $('findNote').innerHTML=FR.length?(FR.length>=40?'40 từ đầu tiên':FR.length+' từ')+(FR.length>1?' <button class="btn pri" type="button" data-fall>Học các thẻ này</button>':'')+more:'';
+  $('findRes').innerHTML=FR.length?FR.map((c,i)=>{const b=box(c),zs=[...new Set(c.w)].filter(z=>/[㐀-鿿]/.test(z)).slice(0,3);
+    return '<div class="fr">'+(TTS.btn(c.w)||'<span></span>')+'<div class="fz" lang="zh">'+(han?esc(c.w).split(esc(q.trim())).join('<mark>'+esc(q.trim())+'</mark>'):esc(c.w))+'<small>'+esc(c.p)+'</small></div>'+
+      '<div class="fm">'+(c.m?(han?esc(c.m):hl(c.m,q)):'<span style="color:var(--muted)">Chưa có nghĩa tiếng Việt</span>')+'</div>'+
+      '<div class="ft">'+tagOf(c).map(esc).join(' · ')+(b?' · '+BOXN[Math.min(b,4)]:'')+'</div>'+
+      '<div class="fa"><button type="button" data-fi="'+i+'">Học thẻ</button>'+(zs.length?'<span>'+zs.map(z=>'<a href="tu-cung-chu.html#'+encodeURIComponent(z)+'" lang="zh" title="Từ cùng chữ '+z+'">'+z+'</a>').join('')+'</span>':'')+'</div></div>'}).join('')
+    :'<div class="fempty">Chưa tìm thấy từ nào. Thử gõ pinyin không dấu (vd. <b>pengyou</b>) hoặc một chữ Hán.'+(has79?'':'<br>Từ này có thể ở HSK 7–9.')+'</div>';
+}
+let fT=0;
+const findOpen=o=>{$('findBox').hidden=!o;$('findBtn').setAttribute('aria-expanded',o);if(o){paintFind();$('findIn').focus({preventScroll:true})}};
+$('findBtn').addEventListener('click',()=>findOpen($('findBox').hidden));
+$('findIn').addEventListener('input',()=>{clearTimeout(fT);fT=setTimeout(paintFind,140)});
+$('findIn').addEventListener('keydown',e=>{if(e.key==='Escape'){findOpen(false);$('findBtn').focus()}});
+$('findBox').addEventListener('click',e=>{const t=e.target;
+  if(t.closest('[data-say]'))TTS.say(t.closest('[data-say]').dataset.say);
+  else if(t.closest('[data-fi]')){const c=FR[+t.closest('[data-fi]').dataset.fi];findOpen(false);start([c],'Tìm từ · '+c.w)}
+  else if(t.closest('[data-fall]')){findOpen(false);start(FR.slice(),'Tìm từ · '+$('findIn').value.trim())}
+  else if(t.closest('[data-f79]')){const b=t.closest('[data-f79]');b.disabled=true;b.textContent='Đang tải HSK 7–9…';ensure79().then(()=>{look('');paintFind()})}});
+document.addEventListener('pointerdown',e=>{if(!$('findBox').hidden&&!e.target.closest('#secnav'))findOpen(false)});
+document.addEventListener('keydown',e=>{if(e.key==='/'&&!$('home').hidden&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();findOpen(true)}});
 // cho tv-them.js (album tem, thử thách 60 giây) dùng chung dữ liệu và tiến độ
 window.TV={S,save,card,deck,box,look,hskWords,LEVELS,lvName,ensure79,start,render,esc,shuffle,allZZ,BAI,CHUDE,uniq,today};
 render();ensure79Lv().then(render);
 // Link thẳng từ bài giảng: tu-vung/#tttc/bai-2 · #chu-de/gia-dinh · #hsk/1 · từ trò chơi: #tu/老师,老人
 function route(){const h=decodeURIComponent(location.hash.slice(1)).split('/');if(!h[0])return;
   if(h[0]==='chu-de'){S.src='chude';open('cd:'+h[1])}
-  else if(h[0]==='zizu'){S.src='zizu';save();render();if(h[1])showFam(h[1])}
+  else if(h[0]==='zizu'){S.src='zizu';DOPEN=true;save();render();if(h[1])showFam(h[1])}
   else if(h[0]==='thach')return;   // thách đấu: tv-them.js xử lý
   else if(h[0]==='tu'){open('tu:'+h[1]+(h[2]?':'+h[2]:''))}
-  else if(h[0]==='hsk'&&LEVELS.includes(h[1])){S.src='hsk';S.lv=h[1];save();render();ensure79Lv().then(render)}
-  else if(BAI.some(b=>b.id===h[0])){S.src='bai';S.book=h[0];if(!open('bai:'+h[0]+':'+h[1]))render()}
+  else if(h[0]==='hsk'&&LEVELS.includes(h[1])){S.src='hsk';S.lv=h[1];DOPEN=true;save();render();ensure79Lv().then(render)}
+  else if(BAI.some(b=>b.id===h[0])){S.src='bai';S.book=h[0];DOPEN=true;if(!open('bai:'+h[0]+':'+h[1]))render()}
 }
 route();addEventListener('hashchange',route);
 })();
