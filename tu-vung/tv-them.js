@@ -26,15 +26,26 @@ function pages(){
   return ps;
 }
 let alOpen='';
-const tem=(w,gold,i)=>'<span class="tem'+(gold?' gold':'')+(w.length>2?' long':'')+'" lang="zh" style="--r:'+(((i*37)%7)-3)+'deg">'+esc(w)+'</span>';
+// tem: mỗi mục album một kiểu — k = 'hsk' tem bưu chính răng cưa · 'bk' vé (giáo trình) · 'cd' huy hiệu tròn (chủ đề) · 'zz' con dấu son (họ chữ). Màu theo cấp HSK của từ.
+function tem(c,k,i,plv){   // plv: cấp của trang HSK (từ có ở nhiều cấp thì theo trang)
+  const r=(((i*37)%7)-3)*.8,lv=plv||(TV.lvOf?TV.lvOf(c):''),col=lv&&TV.LVC?'var(--'+TV.LVC[lv]+')':'',w=esc(c.w),p=esc(c.p||''),n=[...c.w].length;
+  const st=' style="--r:'+(k==='cd'?r/2:r).toFixed(1)+'deg'+(col?';--lc:'+col:'')+'"',lvn=lv?'HSK '+TV.lvName(lv):'';
+  if(k==='zz')return '<span class="tb" lang="zh"'+st+'><span class="z" style="--cols:'+(n>2?2:1)+';--fs:'+(n===1?'1.9em':n===2?'1.25em':'1.15em')+'">'+[...c.w].map(z=>'<i>'+esc(z)+'</i>').join('')+'</span>'+(col?'<span class="tlv"></span>':'')+'</span>';
+  if(k==='cd')return '<span class="tc"'+st+'><span class="tin"><span class="z" lang="zh" style="--fs:'+(n===1?'1.6em':n===2?'1.2em':n===3?'.9em':'.72em')+'">'+w+'</span><span class="p">'+p+'</span></span></span>';
+  if(k==='bk')return '<span class="td"'+st+'><span class="hd"><b>'+(lvn||'&nbsp;')+'</b><span lang="zh">熟</span></span><span class="bd"><span class="z" lang="zh">'+w+'</span><span class="p">'+p+'</span></span></span>';
+  return '<span class="ta"'+st+'><span class="tin">'+(lvn?'<span class="tlv">'+lvn+'</span>':'')+'<span class="z" lang="zh">'+w+'</span><span class="p">'+p+'</span></span><span class="pm" lang="zh">熟</span></span>';
+}
+const temQ=k=>'<span class="tq'+(k==='cd'?' tc':k==='zz'?' tb':'')+'" aria-hidden="true">?</span>';
+const kindOf=id=>id.split(':')[0],pageLv=id=>/^hsk:/.test(id)?id.slice(4):'';
 function renderAlbum(){
   if(!$('alPages'))return;
   const total=Object.values(TV.S.cards).filter(s=>s.b>=4).length;
   $('alSum').innerHTML=total?'Bạn đã sưu tầm <b>'+total+'</b> tem. Mỗi thẻ lên hộp <span lang="zh">熟</span> (đã thuộc) thành một con tem vàng.':'Mỗi thẻ lên hộp <span lang="zh">熟</span> (đã thuộc) thành một con tem vàng. Ôn đều mỗi ngày để có những con tem đầu tiên nhé.';
   $('alPages').after($('alPage'));   // đưa khung chi tiết ra ngoài trước khi vẽ lại lưới
   $('alPages').innerHTML=pages().map(p=>{const cs=TV.uniq(p.cs()),g=cs.filter(c=>TV.box(c)>=4);
-    return '<button class="alp" type="button" data-al="'+p.id+'" aria-expanded="'+(alOpen===p.id)+'"><span class="t">'+esc(p.t)+'<span>'+g.length+'/'+cs.length+' tem</span></span>'+
-      '<span class="pv">'+(g.length?g.slice(-5).map((c,i)=>tem(c.w,1,i)).join(''):'<span class="tem">?</span>')+'</span>'+
+    const lv=/^hsk:/.test(p.id)&&TV.LVC?TV.LVC[p.id.slice(4)]:'';   // trang HSK mang màu của cấp
+    return '<button class="alp" type="button" data-al="'+p.id+'" aria-expanded="'+(alOpen===p.id)+'"'+(lv?' data-lvc style="--ac:var(--'+lv+')"':'')+'><span class="t"><span>'+(lv?'<i class="lvdot"></i>':'')+esc(p.t)+'</span><span>'+g.length+'/'+cs.length+' tem</span></span>'+
+      '<span class="pv">'+(g.length?g.slice(-4).map((c,i)=>tem(c,kindOf(p.id),i,pageLv(p.id))).join(''):temQ(kindOf(p.id)))+'</span>'+
       '<span class="bar"><i style="width:'+(cs.length?g.length/cs.length*100:0)+'%"></i></span></button>'}).join('');
   if(alOpen)openPage(alOpen,true);
 }
@@ -42,7 +53,7 @@ function openPage(id,keep){
   const p=pages().find(x=>x.id===id);if(!p){$('alPage').hidden=true;return}
   alOpen=id;const cs=TV.uniq(p.cs()),g=cs.filter(c=>TV.box(c)>=4),left=cs.length-g.length;
   $('alPage').innerHTML='<h3>'+esc(p.t)+'</h3><p class="sub">'+g.length+' tem vàng'+(left?' · còn '+left+' tem chưa có':' · đủ trọn trang, giỏi quá!')+'</p>'+
-    (g.length?'<div class="tems">'+g.map((c,i)=>tem(c.w,1,i)).join('')+'</div>':'<p class="sub">Trang này chưa có tem nào. Học các thẻ của bộ này cho tới khi lên hộp <span lang="zh">熟</span> là có tem.</p>')+
+    (g.length?'<div class="tems">'+g.map((c,i)=>tem(c,kindOf(id),i,pageLv(id))).join('')+'</div>':'<p class="sub">Trang này chưa có tem nào. Học các thẻ của bộ này cho tới khi lên hộp <span lang="zh">熟</span> là có tem.</p>')+
     '<div class="acts">'+(left?'<button class="btn hot" type="button" data-alstudy="'+id+'">Học để lấy tem (20 thẻ)</button>':'')+'<button class="btn sec" type="button" data-alclose>Đóng trang</button></div>';
   $('alPage').hidden=false;
   document.querySelectorAll('[data-al]').forEach(b=>{b.setAttribute('aria-expanded',b.dataset.al===id);if(b.dataset.al===id)b.after($('alPage'))});   // mở ngay dưới ô vừa bấm
@@ -175,6 +186,6 @@ function readInvite(){
   });
 }
 
-window.TVX={confetti,render(){renderAlbum();renderPools()}};
+window.TVX={confetti,tem,render(){renderAlbum();renderPools()}};
 TVX.render();readInvite();addEventListener('hashchange',readInvite);
 })();

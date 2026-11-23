@@ -1,14 +1,14 @@
-// Biểu đồ thanh điệu dùng chung (lyulaoshi.com/chung/thanh-dieu.js?v=e0cd5c49) — 29/09/2026.
+// Biểu đồ thanh điệu dùng chung (lyulaoshi.com/chung/thanh-dieu.js?v=ef5bcc40) — 29/09/2026.
 // THANHDIEU.mo('我很好','wǒ hěn hǎo') mở khung luyện: đường thanh chuẩn (vẽ từ pinyin, có biến điệu 3-3) + ghi âm, máy dò cao độ giọng
 // (YIN, chạy ngay trên máy, không gửi giọng đi đâu) vẽ chồng lên, rồi nhận xét từng âm tiết. Dùng cho TỪ và CÂU NGẮN (≤ 10 âm tiết).
-// Cần: /chung/ic.svg?v=4faa8901 (icon). Không cần thư viện ngoài.
+// Cần: /chung/ic.svg?v=c3b7e0d2 (icon). Không cần thư viện ngoài.
 window.THANHDIEU=(function(){
 const T1="āēīōūǖ",T2="áéíóúǘ",T3="ǎěǐǒǔǚ",T4="àèìòùǜ";
 const SYL=/(zh|ch|sh|[bpmfdtnlgkhjqxzcsrwy])?[aeiouüvāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]+(ng(?![aeiouāáǎàēéěèīíǐìōóǒòūúǔù])|n(?![aeiouāáǎàēéěèīíǐìōóǒòūúǔùg])|r(?![aeiouāáǎàēéěèīíǐìōóǒòūúǔù]))?/gi;
 const MAU={1:"#E0545F",2:"#2E9E73",3:"#3B87D6",4:"#7C6BD6",0:"#A3A5B8"};
 const thanh=s=>{for(const c of s){if(T1.includes(c))return 1;if(T2.includes(c))return 2;if(T3.includes(c))return 3;if(T4.includes(c))return 4}return 0};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const IC=n=>`<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=4faa8901#${n}"></use></svg>`;
+const IC=n=>`<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#${n}"></use></svg>`;
 function amTiet(py){return (py.match(SYL)||[]).map(s=>({s,t:thanh(s)}))}
 // đường chuẩn theo thang 5 bậc (Triệu Nguyên Nhậm): mỗi âm tiết là dãy điểm [0..1 → bậc]
 function duongChuan(ds){
@@ -105,7 +105,8 @@ function mo(zh,py){
 }
 function esc_(e){if(e.key==="Escape")dong()}
 function dong(){if(S.dung)S.dung();if(box){box.remove();box=null}document.removeEventListener("keydown",esc_)}
-function noi(t){if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/\s/g,""));u.lang="zh-CN";
+function noi(t){if(window.TTS&&TTS.co&&TTS.co(t)){TTS.say(t);return}   // có file giọng Gemini (kho /chung/am/) thì phát file
+  if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/\s/g,""));u.lang="zh-CN";
   const v=speechSynthesis.getVoices().filter(v=>/^(zh|cmn)/i.test(v.lang)&&!/TW|HK|yue/i.test(v.lang));u.voice=v.find(x=>/google/i.test(x.name))||v.find(x=>/tingting/i.test(x.name))||v[0]||null;u.rate=.8;speechSynthesis.speak(u)}
 function ve(){
   const c=cv.getContext("2d"),W=cv.width,H=cv.height,pl=24,pr=24,pt=24,pb=40,N=S.ds.length,y=L=>pt+(5-L)/4*(H-pt-pb),x=u=>pl+u*(W-pl-pr);
