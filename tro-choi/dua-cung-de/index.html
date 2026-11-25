@@ -177,13 +177,13 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin:2px 0
 
 <footer class="wrap">Câu hỏi lấy từ đề ôn theo bài của trò Vượt ải · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
-<script src="../vuot-ai/de-tttc.js?v=2"></script>
-<script src="../vuot-ai/de-301.js?v=1"></script>
-<script src="../vuot-ai/de-301b.js?v=1"></script>
-<script src="../vuot-ai/de-fazhan.js?v=1"></script>
-<script src="../vuot-ai/de-boya.js?v=1"></script>
-<script src="../vuot-ai/de-yuedu.js?v=2"></script>
-<script src="../vuot-ai/de-ledu.js?v=1"></script>
+<script src="../vuot-ai/de-tttc.js?v=3"></script>
+<script src="../vuot-ai/de-301.js?v=2"></script>
+<script src="../vuot-ai/de-301b.js?v=2"></script>
+<script src="../vuot-ai/de-fazhan.js?v=2"></script>
+<script src="../vuot-ai/de-boya.js?v=2"></script>
+<script src="../vuot-ai/de-yuedu.js?v=3"></script>
+<script src="../vuot-ai/de-ledu.js?v=2"></script><script src="../vuot-ai/khong-muon.js?v=4"></script>
 <script src="../vuot-ai/am.js"></script>
 <script src="../qr-anh.js"></script>
 <script>
@@ -213,15 +213,16 @@ function confetti(n){if(!FX)return;const C=['#E8590C','#7FBF1E','#0B7CC2','#FFC9
 
 /* ---------- ngân hàng câu: chặng Điền và Trả lời của Vượt ải ---------- */
 function qsOf(b){const out=[];
-  (b.dien||[]).forEach(x=>{const o=x.o||[];if(x.s&&o.length>=3)out.push({id:b.id+'/'+x.id,k:'Chọn từ điền vào chỗ trống',q:x.s.replace(/_+/g,'＿＿＿'),ok:o[x.ok||0],bad:o.filter((_,i)=>i!==(x.ok||0)).slice(0,3),why:x.why||''})});
-  (b.hoi||[]).forEach(x=>{const bad=(x.bad||[]).map(y=>y[0]).filter(Boolean);if(x.q&&x.ok&&x.ok[0]&&bad.length>=2)out.push({id:b.id+'/'+x.id,k:'Chọn câu trả lời đúng',q:x.q,ok:x.ok[0],bad:bad.slice(0,3),why:''})});
+  (b.dien||[]).forEach(x=>{const o=x.o||[];if(x.s&&o.length>=3)out.push({b:b.id,id:b.id+'/'+x.id,k:'Chọn từ điền vào chỗ trống',q:x.s.replace(/_+/g,'＿＿＿'),ok:o[x.ok||0],bad:o.filter((_,i)=>i!==(x.ok||0)).slice(0,3),why:x.why||''})});
+  (b.hoi||[]).forEach(x=>{const bad=(x.bad||[]).map(y=>y[0]).filter(Boolean);if(x.q&&x.ok&&x.ok[0]&&bad.length>=2)out.push({b:b.id,id:b.id+'/'+x.id,k:'Chọn câu trả lời đúng',q:x.q,ok:x.ok[0],bad:bad.slice(0,3),why:''})});
   return out}
 const SACH=(window.VA_SACH||[]).filter(s=>BAI.some(b=>b.mon===s.id&&qsOf(b).length));
-// đủ 4 lựa chọn cho khó hơn: câu nào thiếu thì mượn đáp án của câu cùng dạng trong phần đã chọn, ưu tiên dài gần bằng đáp án đúng (chọn cố định, máy nào cũng như nhau)
+// đủ 4 lựa chọn cho khó hơn: câu nào thiếu thì mượn đáp án của câu cùng dạng TRONG CÙNG BÀI (24/11/2026, để rà được hết; cặp đã rà thấy vẫn đúng ghi ở vuot-ai/khong-muon.js), ưu tiên dài gần bằng đáp án đúng (chọn cố định, máy nào cũng như nhau)
 function du4(list){const H=s=>{let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imul(h,16777619)>>>0}return h},bank={};
-  list.forEach(q=>{(bank[q.k]=bank[q.k]||new Set());[q.ok,...q.bad].forEach(x=>bank[q.k].add(x))});
+  const K=q=>q.b+'|'+q.k,NO=window.VA_KHONG_MUON||{};
+  list.forEach(q=>{(bank[K(q)]=bank[K(q)]||new Set());[q.ok,...q.bad].forEach(x=>bank[K(q)].add(x))});
   list.forEach(q=>{if(q.bad.length>=3)return;const have=new Set([q.ok,...q.bad]),L=q.ok.length;
-    [...bank[q.k]].filter(x=>!have.has(x)).sort((a,b)=>Math.abs(a.length-L)-Math.abs(b.length-L)||H(q.q+a)-H(q.q+b)).slice(0,3-q.bad.length).forEach(x=>q.bad.push(x))});
+    [...bank[K(q)]].filter(x=>!have.has(x)&&!(NO[q.q]||[]).includes(x)).sort((a,b)=>Math.abs(a.length-L)-Math.abs(b.length-L)||H(q.q+a)-H(q.q+b)).slice(0,3-q.bad.length).forEach(x=>q.bad.push(x))});
   return list}
 const poolFor=(mon,ids)=>du4(BAI.filter(b=>b.mon===mon&&(!ids.length||ids.includes(b.id))).flatMap(qsOf));
 

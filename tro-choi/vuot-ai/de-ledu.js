@@ -308,7 +308,7 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "id": "d4",
     "o": [
      "上网",
-     "上班",
+     "天气",
      "周末"
     ],
     "ok": 0,
@@ -320,7 +320,7 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "id": "d5",
     "o": [
      "中午",
-     "周末",
+     "上网",
      "天气"
     ],
     "ok": 0,
@@ -449,7 +449,7 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "id": "d1",
     "o": [
      "休息",
-     "比赛",
+     "国家",
      "进步"
     ],
     "ok": 0,
@@ -533,7 +533,7 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "id": "d9",
     "o": [
      "好看",
-     "有意思",
+     "国家",
      "朋友"
     ],
     "ok": 0,
@@ -546,7 +546,7 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "o": [
      "有名",
      "国家",
-     "安静"
+     "坐飞机"
     ],
     "ok": 0,
     "s": "这是北京最_的酒店。",
@@ -675,7 +675,7 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "o": [
      "文化",
      "问题",
-     "旅游"
+     "时间"
     ],
     "ok": 0,
     "s": "我来中国学习汉语是因为我喜欢中国_。",
@@ -887,7 +887,7 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "id": "d5",
     "o": [
      "眼睛",
-     "考试",
+     "电梯",
      "试试"
     ],
     "ok": 0,
@@ -923,7 +923,7 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "id": "d9",
     "o": [
      "手机",
-     "零食",
+     "讨论",
      "考试"
     ],
     "ok": 0,
@@ -935,7 +935,7 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "id": "d10",
     "o": [
      "看病",
-     "试试",
+     "外语",
      "树"
     ],
     "ok": 0,
@@ -1277,7 +1277,7 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "id": "d2",
     "o": [
      "服务员",
-     "现在",
+     "数学",
      "肉"
     ],
     "ok": 0,
@@ -1338,7 +1338,7 @@ window.VA_BAI=(window.VA_BAI||[]).concat([
     "o": [
      "现金",
      "数学",
-     "服务员"
+     "足球"
     ],
     "ok": 0,
     "s": "没有_，可以用微信或者银行卡支付²。",

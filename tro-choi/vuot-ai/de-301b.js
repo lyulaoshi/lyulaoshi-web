@@ -35,8 +35,8 @@ B(11,'我要买橘子','Tôi muốn mua quýt',{
 ],[
   D('d1','橘子太贵_。','了|的|吗','太……了 diễn tả mức độ cao, kết thúc bằng 了.','le'),
   D('d2','您尝_。','尝|了|吗','Động từ đơn âm lặp lại AA: 尝尝.','chongdie'),
-  D('d3','请你_这段录音，回答问题。','听听|听了|听的','Động từ lặp lại AA: 听听 (nghe thử).','chongdie'),
-  D('d4','这本书很有意思，你_吧。','看看|看了|看的','看 → 看看 (xem thử một chút).','chongdie'),
+  D('d3','请你_这段录音，回答问题。','听听|听得|听的','Động từ lặp lại AA: 听听 (nghe thử).','chongdie'),
+  D('d4','这本书很有意思，你_吧。','看看|看得|看的','看 → 看看 (xem thử một chút).','chongdie'),
   D('d5','你工作太累了，先_吧。','休息休息|休休息息|休息息息','Động từ song âm lặp lại ABAB: 休息休息.','chongdie'),
   D('d6','不懂的地方，你可以_老师。','问问|问了|问的','问 → 问问 (hỏi thử một chút).','chongdie'),
   D('d7','十块_五分。','零|二|十','Hàng hào trống thì thêm 零: 十块零五分.','qian')
@@ -75,7 +75,7 @@ B(12,'我想买件毛衣','Tôi muốn mua áo len',{
   D('d4','今天我累_了。','极|很|的','Tính từ + 极了: 累极了.','jile'),
   D('d5','他身体_好。','很|是|有','Vị ngữ tính từ cần 很, không dùng 是.','zhuwei'),
   D('d6','我_买件毛衣。','想|的|了','Nguyện vọng: 想 + động từ.','neng'),
-  D('d7','我想喝一_可乐。','瓶|件|口','Lượng từ của đồ uống đựng chai: 瓶.','liang'),
+  D('d7','我想喝一_可乐。','瓶|件|张','Lượng từ của đồ uống đựng chai: 瓶.','liang'),
   D('d8','我家有五_人。','口|件|瓶','Đếm thành viên gia đình dùng 口.','liang')
 ],[
   T('t1','Chủ nhật người đông quá.','星期天|人|太|多','了|很','Xīngqītiān rén tài duō.','zhuwei'),
@@ -109,7 +109,7 @@ B(13,'要换车','Phải chuyển xe',{
   D('d2','我有三_本子。','个|张|瓶','Lượng từ của vở trong bài: 个.','shuliang'),
   D('d3','他会_汉语。','说|来|吗','会 + động từ: 会说汉语.','hui'),
   D('d4','我不_做中国饭。','会|的|了','Chưa biết làm (do chưa học): 不会.','hui'),
-  D('d5','他_找我八毛钱。','找|去|在','找 mang hai tân ngữ: 找我八毛钱.','shuangbin'),
+  D('d5','他_我八毛钱。','找|去|在','找 mang hai tân ngữ: 找我八毛钱.','shuangbin'),
   D('d6','我_你一本书。','给|去|在','给 mang hai tân ngữ: 给你一本书.','shuangbin'),
   D('d7','_前走，就是331路车站。','往|在|从','往 + hướng + động từ: 往前走.','zaiwang')
 ],[
@@ -142,7 +142,7 @@ B(14,'我要去换钱','Tôi phải đi đổi tiền',{
   D('d1','请您_一下儿钱数。','写|了|的','Câu kiêm ngữ: 请 + 您 + V.','jianyu'),
   D('d2','_他吃饭。','请|在|把','Mời ai làm gì: 请 + O + V.','jianyu'),
   D('d3','你去哪儿_？','了|的|吗','Hỏi việc đã xảy ra: 去哪儿了？','le'),
-  D('d4','他_去商店。','没|不是|别','Phủ định việc đã xảy ra: 没 + V (bỏ 了).','le'),
+  D('d4','他_去商店。','没|很|别','Phủ định việc đã xảy ra: 没 + V (bỏ 了).','le'),
   D('d5','这个汉字我不_写。','会|了|的','Chưa biết viết: 不会写.','neng'),
   D('d6','明天我有课，不_去玩儿。','能|了|的','Có tiết học nên không thể đi: 不能去玩儿.','neng'),
   D('d7','现在我_去上课，请你明天再来吧。','要|了|的','Sắp / phải đi học: 要去上课.','neng'),
