@@ -325,3 +325,36 @@ body.hm .t .rg{left:54px;top:8px}
 /* tên web cạnh logo cũng mang lớp .t — trả về kiểu chữ trơn của thanh đầu trang, không thành thẻ công cụ */
 .top .brand .t{position:static;display:grid;gap:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:inherit;line-height:1.15;transition:none}
 .top .brand .t b{font-size:14px;line-height:1.15}
+/* nút "In ra giấy" + bảng chọn tờ in */
+.in-giay{display:flex;align-items:center;gap:16px;width:100%;margin-top:14px;padding:14px 18px;border:2px solid color-mix(in srgb,var(--teal) 35%,transparent);border-radius:22px;background:var(--teal-s);color:var(--ink);font:inherit;text-align:left;cursor:pointer;transition:transform .18s,box-shadow .18s}
+.in-giay:hover{transform:translateY(-3px);box-shadow:0 14px 30px color-mix(in srgb,var(--teal) 28%,transparent)}
+.in-giay:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.in-giay .ic{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:17px;background:var(--teal);color:#fff}
+.in-giay .ic .lli{width:28px;height:28px}
+.in-giay .chu{display:grid;gap:2px;min-width:0;flex:1}
+.in-giay b{font-size:18px;font-weight:800}
+.in-giay b small{margin-left:6px;font:400 17px var(--hz);color:var(--teal)}
+.in-giay .chu>span{font-size:13.5px;color:var(--muted)}
+.in-giay .mui{flex:none;width:18px;height:18px;color:var(--teal)}
+dialog.in-d{width:min(760px,calc(100vw - 24px))}
+dialog.in-d h2 small{margin-left:6px;font:400 18px var(--hz);color:var(--teal)}
+dialog.in-d .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:12px}
+@media (prefers-reduced-motion:reduce){.in-giay,.in-giay:hover{transition:none;transform:none}}
+/* điện thoại: 2 cột thẻ gọn để thấy đủ các tờ in, đỡ phải cuộn */
+@media (max-width:560px){dialog.in-d{padding:16px 12px}dialog.in-d .tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}body.hm dialog.in-d .t{padding:12px 11px;border-radius:18px}body.hm dialog.in-d .t .ic{width:42px;height:42px;border-radius:14px;margin-bottom:8px}body.hm dialog.in-d .t b{font-size:14px}body.hm dialog.in-d .t small.zh{font-size:15.5px}}
+/* khối "Gọi tên" ở bước 2: mọi cách gọi một chỗ (cô chọn cách B) */
+.goi-khoi{margin-top:12px;padding:16px;border-radius:22px;background:var(--card);box-shadow:var(--shadow);scroll-margin:90px}
+.goi-khoi h3{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin:0 0 12px;font-size:18px;font-weight:800}
+.goi-khoi h3 small{font:400 17px var(--hz);color:var(--peach)}
+.goi-khoi h3 span{font-size:13px;font-weight:600;color:var(--muted)}
+.goi-ds{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,165px),1fr));gap:10px}
+.goi-m{display:flex;align-items:center;gap:10px;min-width:0;padding:10px 12px;border:2px solid transparent;border-radius:16px;background:color-mix(in srgb,var(--k) 11%,var(--card));color:var(--ink);text-decoration:none;transition:transform .18s,border-color .18s}
+.goi-m:hover{border-color:var(--k);transform:translateY(-2px)}
+.goi-m:focus-visible{outline:3px solid var(--k);outline-offset:1px}
+.goi-m i{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:var(--k);color:#fff}
+.goi-m i .lli{width:20px;height:20px}
+.goi-m span{display:grid;min-width:0}
+.goi-m b{font-size:14px;line-height:1.3}
+.goi-m small{font:400 14px var(--hz);color:color-mix(in srgb,var(--k) 75%,var(--ink))}
+@media (max-width:560px){.goi-khoi{padding:12px}.goi-ds{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.goi-m{padding:9px;gap:8px}.goi-m i{width:32px;height:32px;border-radius:11px}.goi-m b{font-size:13px}}
+@media (prefers-reduced-motion:reduce){.goi-m,.goi-m:hover{transition:none;transform:none}}

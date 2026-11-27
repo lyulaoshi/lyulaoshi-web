@@ -14,7 +14,7 @@ rules:[
   ex:[["{1|昨天}{2|没有}{3|今天}{4|热}。","Zuótiān méiyǒu jīntiān rè.","Hôm qua không nóng bằng hôm nay.","等级标准"],
       ["{1|这个书包}{2|没有}{3|那个}{4|好看}。","Zhège shūbāo méiyǒu nàge hǎokàn.","Cái cặp này không đẹp bằng cái kia.","等级标准"]]}],
 notes:[
- {t:"Không dùng 很", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> <span class='zh'>我朋友比我很高。</span>"},
+ {t:"Không dùng 很", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=70219054#sai'/></svg> <span class='zh'>我朋友比我很高。</span>"},
  {t:"没有 hay 不比?", html:"Phủ định thông thường dùng <b>没有</b>. <span class='zh'>不比</span> mang ý “không hơn” (bằng nhau hoặc kém), dùng ở cấp cao hơn 【三58】."}],
 cmp:[
  {vn:"Bạn tôi cao hơn tôi.", zh:"我朋友[比我]高。", py:"Wǒ péngyou bǐ wǒ gāo.", ok:true, why:"“hơn tôi” → 比我, đứng trước 高."},

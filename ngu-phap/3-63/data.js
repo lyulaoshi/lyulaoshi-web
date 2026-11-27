@@ -10,7 +10,7 @@ rules:[
   ex:[["晚会上大家{1|又}{2|唱歌}，{3|又}{4|跳舞}，高兴极了。","Wǎnhuì shang dàjiā yòu chàng gē, yòu tiào wǔ, gāoxìng jí le.","Ở dạ hội mọi người vừa hát vừa nhảy, vui vô cùng.","等级标准"],
       ["这件衣服{2|样子}{1|又}{2|好看}，{4|价格}{3|又}{4|便宜}。","Zhè jiàn yīfu yàngzi yòu hǎokàn, jiàgé yòu piányi.","Chiếc áo này kiểu dáng vừa đẹp, giá lại vừa rẻ.","等级标准"]]}],
 cmp:[
- {vn:"Căn phòng này vừa rộng vừa sáng.", zh:"这个房间[又]大[又]亮。", py:"Zhège fángjiān yòu dà yòu liàng.", ok:true, why:"Không dùng <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> 很大很亮 để nói “vừa … vừa”."}],
+ {vn:"Căn phòng này vừa rộng vừa sáng.", zh:"这个房间[又]大[又]亮。", py:"Zhège fángjiān yòu dà yòu liàng.", ok:true, why:"Không dùng <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=70219054#sai'/></svg> 很大很亮 để nói “vừa … vừa”."}],
 ex:[
  ["他[又]会唱歌，[又]会跳舞。","Tā yòu huì chàng gē, yòu huì tiào wǔ.","Anh ấy vừa biết hát, vừa biết nhảy."]],
 errs:[

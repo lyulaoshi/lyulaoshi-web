@@ -56,7 +56,7 @@ window.TTS=(function(){
     },
     stop(){dungAm();if(ok)speechSynthesis.cancel()},
     // nút loa nhỏ: <button class="spk" data-say="你好">(icon loa)</button>
-    btn:w=>window.TTS.can(w)?'<button type="button" class="spk" data-say="'+w+'" aria-label="Nghe đọc '+w+'"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#loa"/></svg></button>':''
+    btn:w=>window.TTS.can(w)?'<button type="button" class="spk" data-say="'+w+'" aria-label="Nghe đọc '+w+'"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#loa"/></svg></button>':''
   };
 })();
 document.addEventListener('click',e=>{const b=e.target.closest('.spk');if(b){e.preventDefault();TTS.say(b.dataset.say)}});

@@ -1,6 +1,5 @@
 // Nghĩa tiếng Việt cho từ HSK 4 (đề cương thi mới 2025, ../tro-choi/hsk-words.js) CHƯA có nghĩa ở nghia-hsk1.js, nghia-hsk2-3.js hay trong bài giảng/chủ đề.
 // Soạn 22/11/2026 — BẢN NHÁP, cô duyệt lại. Mỗi dòng: chữ|pinyin (đúng như hsk-words.js)|nghĩa. Nạp sau nghia-hsk2-3.js.
-// Lưu ý: 线上 trong hsk-words.js ghi pinyin "xiàshàng" (thiếu n, đúng là xiànshàng) — giữ nguyên để khớp thẻ; sửa thì sửa cả hai nơi.
 window.NGHIA=window.NGHIA||{};
 `啊|ā|a, ồ (thán từ)
 爱情|àiqíng|tình yêu (đôi lứa)
@@ -683,7 +682,7 @@ window.NGHIA=window.NGHIA||{};
 详细|xiángxì|chi tiết, tỉ mỉ
 鲜花|xiānhuā|hoa tươi
 羡慕|xiànmù|ngưỡng mộ, ghen tị (tốt)
-线上|xiàshàng|trực tuyến, online
+线上|xiànshàng|trực tuyến, online
 线下|xiànxià|trực tiếp, offline
 现有|xiànyǒu|hiện có
 小吃|xiǎochī|món ăn vặt

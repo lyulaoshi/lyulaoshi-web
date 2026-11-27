@@ -218,7 +218,7 @@ main.full{max-width:none}
     <div class="bgo" id="bgo" hidden role="status"></div>
     <div class="cfoot"><button type="button" id="ckBtn">Kiểm tra thẻ</button><button type="button" id="clearBtn">Xoá đánh dấu</button><button type="button" id="swapBtn">Đổi thẻ khác</button></div>
     <div class="winov fair" id="ckOv" hidden><div class="wbox ck" id="ckBox" role="dialog" aria-modal="true"></div></div>
-    <div class="winov fair" id="winOv" hidden role="status"><div class="rays"></div><div class="wbox"><div class="logo" lang="zh">宾果！</div><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#cup"></use></svg><h2 id="winT"></h2><p id="winN"></p><button class="btn gold" id="winBtn" type="button">Chơi tiếp</button></div></div>
+    <div class="winov fair" id="winOv" hidden role="status"><div class="rays"></div><div class="wbox"><div class="logo" lang="zh">宾果！</div><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#cup"></use></svg><h2 id="winT"></h2><p id="winN"></p><button class="btn gold" id="winBtn" type="button">Chơi tiếp</button></div></div>
   </section>
 
   
@@ -240,7 +240,7 @@ main.full{max-width:none}
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 // Web tĩnh, không có máy chủ: máy cô và máy học viên không nói chuyện với nhau.
@@ -293,7 +293,7 @@ function roll(mc,ball,n,els){ball.innerHTML=n?'<b>'+n+'</b>':'';ball.style.setPr
   if(!FX)return;mc.classList.remove('spin');void mc.getBoundingClientRect();mc.classList.add('spin');
   ball.animate({transform:['translate(-70px,-34px) scale(.25)','translate(0,0) scale(1.22)','scale(1)'],opacity:[0,1,1]},{duration:470,delay:520,easing:'ease-out',fill:'backwards'});
   (els||[]).forEach(e=>e.animate({transform:['scale(.72)','scale(1.05)','scale(1)'],opacity:[0,1,1]},{duration:330,delay:800,easing:'ease-out',fill:'backwards'}))}
-const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#'+n+'"></use></svg>';
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#'+n+'"></use></svg>';
 function paintBv(el,list){el.innerHTML='';
   if(!list.length){el.append(mk('li','t0','Chưa có ai. Ai sẽ là người đầu tiên?'));return}
   list.slice(0,5).forEach((x,i)=>{const li=mk('li',i<3?'t'+(i+1):'');li.innerHTML=IC(i===0?'cup':i<3?'huy-chuong':'sao');

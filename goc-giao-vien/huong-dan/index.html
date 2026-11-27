@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
 <link rel="stylesheet" href="../../tro-choi/game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="../gv.css?v=22">
+<link rel="stylesheet" href="../gv.css?v=25">
 <style>
 .hd{margin-top:14px;display:grid;gap:14px}
 .hd h2{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:20px;font-weight:800;margin-bottom:12px}
@@ -46,7 +46,7 @@
 
 <main class="wrap">
 <section class="ph">
-  <a class="back" href="../"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#tg-trai"></use></svg>Góc giáo viên</a>
+  <a class="back" href="../"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#tg-trai"></use></svg>Góc giáo viên</a>
   <h1>Hướng dẫn dùng<span lang="zh">使用指南</span></h1>
   <p>Đọc hai phút là dùng được trong tiết đầu tiên. Không cần tài khoản.</p>
 </section>
@@ -89,12 +89,12 @@
 <footer class="wrap">© Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../gv.js?v=7"></script>
-<script src="../cong-cu.js?v=d9a81de2"></script>
+<script src="../cong-cu.js?v=0c5cfa11"></script>
 <script>
 (function(){
 const {$,esc,G}=GV;
 const TEN=['Chuẩn bị','Mở đầu, ôn bài cũ','Từ mới','Ngữ pháp','Bài khoá','Luyện nói','Trò chơi','Củng cố','Sau giờ học'];
-/* danh sách lấy thẳng từ cong-cu.js?v=d9a81de2: chỉ công cụ ai cũng dùng được */
+/* danh sách lấy thẳng từ cong-cu.js?v=0c5cfa11: chỉ công cụ ai cũng dùng được */
 const cc=(window.GV_CC||[]).filter(x=>!x.rieng&&!x.soon&&x.url&&x.buoc);
 const duong=u=>/^(\/|https?:)/.test(u)?u:'../'+u;
 $('buoc').innerHTML=TEN.map((t,i)=>{const ds=cc.filter(x=>x.buoc===i+1).map(x=>[x.n,duong(x.url),x.p]);

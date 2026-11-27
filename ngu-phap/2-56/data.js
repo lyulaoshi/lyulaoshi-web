@@ -14,7 +14,7 @@ rules:[
       ["{1|教室前边}{2|坐}{3|着}{4|一位老师}。","Jiàoshì qiánbian zuò zhe yí wèi lǎoshī.","Phía trước lớp có một thầy giáo đang ngồi.","等级标准"],
       ["{1|桌子上}{2|放}{3|着}{4|书、笔和本子}。","Zhuōzi shang fàng zhe shū, bǐ hé běnzi.","Trên bàn để sách, bút và vở.","等级标准"]]}],
 notes:[
- {t:"Không thêm 在 đầu câu", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> <span class='zh'>在桌子上放着一本书。</span> → <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#tick'/></svg> <span class='zh'>桌子上放着一本书。</span>"}],
+ {t:"Không thêm 在 đầu câu", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=70219054#sai'/></svg> <span class='zh'>在桌子上放着一本书。</span> → <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg?v=70219054#tick'/></svg> <span class='zh'>桌子上放着一本书。</span>"}],
 cmp:[
  {vn:"Trên tường treo một bức tranh.", zh:"墙上挂[着]一张画。", py:"Qiáng shang guà zhe yì zhāng huà.", ok:true, why:"Giống trật tự tiếng Việt, nhưng 上 sau danh từ và có 着."}],
 ex:[

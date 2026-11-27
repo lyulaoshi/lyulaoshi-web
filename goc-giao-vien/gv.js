@@ -2,7 +2,7 @@
 // Nạp ở cuối <body> của trang chính và các trang con.
 window.GV=(function(){
 const $=id=>document.getElementById(id);
-const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#'+n+'"></use></svg>';
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#'+n+'"></use></svg>';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
 let tT=0;

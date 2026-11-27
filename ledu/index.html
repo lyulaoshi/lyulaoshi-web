@@ -124,7 +124,9 @@ footer{text-align:center;color:var(--muted);font-size:14px;padding:26px 16px 36p
   .hero{padding-bottom:70px}
 }
 @media (max-width:480px){
-  .top nav{display:none}
+  /* điện thoại: ẩn các mục menu, GIỮ lối về trang chủ (27/11/2026) */
+  .top nav a:not([href="/"]){display:none}
+  .top nav a[href="/"]{background:#fff;color:var(--coral);box-shadow:0 2px 8px rgba(40,35,80,.1);white-space:nowrap}
   .btn{padding:12px 20px;font-size:16px}
   .card{padding:22px 20px 20px}
   .teacher{padding:22px}

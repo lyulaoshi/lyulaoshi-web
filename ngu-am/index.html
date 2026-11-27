@@ -47,7 +47,7 @@ body{background-image:radial-gradient(circle at 12% 8%,var(--sky-s) 0,transparen
 <!-- 拼音盒 · trang mục lục ngữ âm (làm lại theo phong cách chung 29/09/2026; 4 bài phan-1..4 giữ nguyên từ site cũ) -->
 <header class="top"><div class="wrap">
   <a class="brand lld" href="../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><span class="lld-logo logo" aria-hidden="true"><span class="lld-hop"><i class="lld-than"></i><i class="lld-nap"></i><i class="lld-bb"></i></span></span><span class="lld-ten"><span class="lld-zh" lang="zh">吕老师<span>汉语盒</span></span><span class="lld-en">Lyu Laoshi Chinese Box</span></span></a>
-  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="../tro-choi/thanh-dieu/" class="hide-s">Săn thanh điệu</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#trang"></use></svg></button></nav>
+  <nav class="crumb"><a href="../" class="hide-s">Trang chủ</a><a href="../tro-choi/thanh-dieu/" class="hide-s">Săn thanh điệu</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#trang"></use></svg></button></nav>
 </div></header>
 <main class="wrap">
 <section class="lh" style="--c:var(--sky);--c2:var(--coral);--cs:var(--sky-s)">
@@ -81,7 +81,7 @@ body{background-image:radial-gradient(circle at 12% 8%,var(--sky-s) 0,transparen
 <div class="wrap"><footer>Lyu Laoshi Chinese Box · 吕老师汉语盒 — ThS. Lã Thị Thuỳ Phương</footer></div>
 <script>(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();</script>
 <script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
 <!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->

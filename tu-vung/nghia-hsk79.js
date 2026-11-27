@@ -3376,7 +3376,7 @@ window.NGHIA=window.NGHIA||{};
 人文|rénwén|nhân văn
 忍心|rěnxīn|nỡ lòng
 人性|rénxìng|nhân tính
-任性|rénxìng|tuỳ hứng
+任性|rènxìng|tuỳ hứng
 韧性|rènxìng|sự dẻo dai
 人选|rénxuǎn|người được chọn
 任意|rènyì|tuỳ ý

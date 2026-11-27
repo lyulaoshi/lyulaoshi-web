@@ -139,3 +139,10 @@
 @media print{.gvn{display:none!important}}
 /* chừa chỗ ở chân trang để nút nổi không che dòng cuối */
 body:has(>.gvn)>footer{padding-bottom:80px}
+/* máy để nền tối mà chưa bấm nút sáng/tối (chưa có data-theme): dùng cùng màu tối như trên, không thì số đếm giờ xanh đậm chìm vào nền (27/11/2026) */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .gvn,:root:not([data-theme="light"]) .n-trang{--n-nen:#1f2236;--n-nen2:#2b2f47;--n-chu:#eceefa;--n-mo:#a6abc6;--n-vien:#3a3f5c;--n-xanh:#4cc3cc;--n-xanhs:#15393d;--n-do:#ff7d73;--n-dos:#44242a;--n-vang:#e8c25a;--n-vangs:#3a321a;--n-la:#5fd0a3;--n-las:#1c372f;--n-lam:#82b8f0;--n-lams:#1f3147}
+  :root:not([data-theme="light"]) .gvn .n-nut{color:#0c2427;border-color:#0c2427}
+  :root:not([data-theme="light"]) .gvn .n-btn.chinh,:root:not([data-theme="light"]) .n-trang .n-btn.chinh{color:#0c2427}
+  :root:not([data-theme="light"]) .gvn .n-seg button[aria-pressed="true"],:root:not([data-theme="light"]) .n-trang .n-seg button[aria-pressed="true"]{color:#0c2427}
+}
