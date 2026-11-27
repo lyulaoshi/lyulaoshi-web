@@ -124,13 +124,13 @@ main .lh-art{width:min(250px,100%)}
 <script src="../tro-choi/hsk-words.js"></script>
 <script src="../tu-vung/nghia-hsk1.js"></script>
 <script src="gv.js?v=7"></script>
-<script src="cong-cu.js?v=766cf66e"></script>
+<script src="cong-cu.js?v=454120fc"></script>
 <script>
 (function(){
 const {$,IC,esc,store,toast,G,PHU,enc,dung,nhan,href}=GV;
 const BAI=window.BAI||[],CO=window.VA_CO||{};
 
-/* ---------- Công cụ lấy từ cong-cu.js?v=766cf66e (thêm công cụ mới ở đó); 10 trò cả lớp lấy từ mảng G trong gv.js ---------- */
+/* ---------- Công cụ lấy từ cong-cu.js?v=454120fc (thêm công cụ mới ở đó); 10 trò cả lớp lấy từ mảng G trong gv.js ---------- */
 const TIETT=[
  {h:'Chuẩn bị',z:'课前',c:'var(--teal)',p:'Làm trước ở nhà hoặc đầu khoá'},
  {h:'Mở đầu, ôn bài cũ',s:'Mở đầu',z:'复习',c:'var(--peach)',p:'Vài phút ổn định lớp, gợi lại bài cũ'},
@@ -154,7 +154,7 @@ bang();
 /* Bốn nút to "Bấm là dùng" (chỉ đặt công cụ đã làm xong) */
 $('quick').innerHTML=[['goi-ten','var(--sky)'],['dem-gio','var(--peach)'],['chia-doi','var(--mint)'],['the-chop','var(--coral)']].map(([k,c])=>[KHO[k],c])
  .map(([x,c])=>'<a href="'+x.url+'" style="--c:'+c+'">'+IC(x.ic)+'<span>'+x.n+'<small class="zh" lang="zh">'+x.z+'</small><small>'+x.p+'</small></span></a>').join('');
-/* hàng công cụ nhanh thứ hai (nhóm "nhanh" trong cong-cu.js?v=766cf66e) */
+/* hàng công cụ nhanh thứ hai (nhóm "nhanh" trong cong-cu.js?v=454120fc) */
 $('quick2').innerHTML=DS.filter(x=>x.g==='nhanh').map((x,i)=>'<a href="'+x.url+'" style="--c:var(--'+['butter','sky','coral','teal','peach','rose','mint'][i%7]+')">'+IC(x.ic)+'<b>'+x.n+'</b><small class="zh" lang="zh">'+x.z+'</small><small>'+x.p+'</small></a>').join('');
 $('route').innerHTML=TIETT.map((t,i)=>'<a href="#buoc'+(i+1)+'" style="--c:'+t.c+'"><span class="num">'+(i+1)+'</span>'+(t.s||t.h)+'</a>').join('');
 $('stBai').textContent=BAI.reduce((s,b)=>s+b.bai.length,0);
