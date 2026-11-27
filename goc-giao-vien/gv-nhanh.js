@@ -2,7 +2,7 @@
 // Mỗi công cụ vẽ vào một khung riêng và giữ nguyên trạng thái khi đóng; dùng ở hai nơi: nút nổi (mọi trang) và nhanh/.
 window.GVN=(function(){
 const GOC=new URL('.',document.currentScript.src).href;
-const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#'+n+'"></use></svg>';
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#'+n+'"></use></svg>';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const doc=k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},ghi=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 const so=n=>Math.floor(Math.random()*n);
@@ -78,30 +78,40 @@ const CC=[
   ve();return{}}},
 
 {k:'go',n:'Gõ là chiếu',z:'大字板',m:'Chữ thật to, pinyin, giọng đọc',ic:'ban-phim',tao(el){
-  let ls=doc('gv-gochieu')||[],hienPy=true,h=0;
+  let ls=doc('gv-gochieu')||[],hienPy=true,h=0,TD=null;
   el.innerHTML='<form class="n-hang n-go"><input type="text" maxlength="60" lang="zh" placeholder="Gõ chữ Hán: 图书馆" aria-label="Gõ chữ Hán cần chiếu">'+'<button type="submit" class="n-btn chinh">'+IC('tv')+'Chiếu</button></form>'
     +'<div class="n-chieu" aria-live="polite"><div class="n-py"></div><div class="n-han" lang="zh"></div></div><div class="n-hang"><label class="n-bat"><input type="checkbox" checked>Pinyin</label>'+btn(IC('loa')+'Nghe','n-nghe')+'</div><div class="n-chips n-ls"></div>';
   const q=s=>el.querySelector(s),o=q('.n-go input');let z='';
+  /* danh sách từ để tách pinyin; tải không được thì pinyin để rời từng chữ */
+  const napTD=()=>Promise.all([napJs(GOC+'../tro-choi/hsk-words.js',()=>window.HSK).catch(()=>{}),napBai().catch(()=>{})]).then(()=>{if(TD)return;const m=new Map(),them=(w,p)=>{if(!w||w.length<2||!p)return;if(!m.has(w))m.set(w,new Set());m.get(w).add(p)};
+    Object.values(window.HSK||{}).forEach(l=>l.forEach(([w,p])=>them(w,p)));if(!m.size&&!window.BAI)return;
+    (window.BAI||[]).forEach(b=>b.bai.forEach(l=>l.w.forEach(w=>{if(!m.has(w[0]))them(w[0],w[1])})));TD=m});
   const thanh=p=>/[āēīōūǖ]/.test(p)?1:/[áéíóúǘ]/.test(p)?2:/[ǎěǐǒǔǚ]/.test(p)?3:/[àèìòùǜ]/.test(p)?4:0;
   function py(){const f=window.pinyinPro&&window.pinyinPro.pinyin,HAN=/[㐀-鿿]/;if(!f||!HAN.test(z))return'';const c=[...z],a=f(z,{type:'array',nonZh:'spaced'});
     const am=a.map((p,i)=>{const t=thanh(a[i+1]||'');if(c[i]==='不'&&t===4)return'bú';if(c[i]==='一'&&HAN.test(c[i+1]||'')&&!/[第十零一二三四五六七八九]/.test(c[i-1]||'')&&!/[月号日一二三四五六七八九十]/.test(c[i+1])){if(t===4||c[i+1]==='个')return'yí';if(t)return'yì'}return p});
-    /* viết liền âm tiết trong cùng một từ (máy tách từ của trình duyệt); không có thì để rời */
-    const tu=window.Intl&&Intl.Segmenter?[...new Intl.Segmenter('zh',{granularity:'word'}).segment(z)].map(x=>x.segment):c;
-    const doi={'，':',','、':',','。':'.','！':'!','？':'?','：':':','；':';'};let i=0,h='';
-    tu.forEach(w=>{const n=[...w].length,s=am.slice(i,i+n);i+=n;if(HAN.test(w))h+=(h?' ':'')+s.join('');else if(w.trim())h+=doi[w]||w});
-    return h.replace(/(^|[.!?]\s*)(\p{L})/gu,(m,x,y)=>x+y.toUpperCase())}
+    /* viết liền âm tiết trong cùng một từ: khớp từ dài nhất trong đề cương HSK 1–6 và từ của các giáo trình
+       (máy tách từ của trình duyệt hay dính 我去, cắt 图书馆). Từ chỉ có một cách đọc thì lấy pinyin của danh sách. */
+    const doi={'，':',','、':',','。':'.','！':'!','？':'?','：':':','；':';'},co_=w=>!!TD&&TD.has(w);let h='';
+    for(let i=0;i<c.length;){if(!HAN.test(c[i])){const d=doi[c[i]];h+=d?d+' ':c[i];i++;continue}
+      let n=Math.min(6,c.length-i);while(n>1&&!co_(c.slice(i,i+n).join('')))n--;
+      if(c[i]==='个'&&/[一二两三四五六七八九十几这那哪每某]/.test(c[i-1]||''))n=1;   /* 一个人, 这个人: 个 là lượng từ, không ghép thành 个人 */
+      if(c[i+n]==='儿'&&!co_(c.slice(i+n,i+n+2).join('')))n++;   /* 儿 cuốn lưỡi đi liền từ trước */
+      const w=c.slice(i,i+n).join(''),d=n>1&&TD&&TD.get(w);
+      let tu=d&&d.size===1&&!/[一不]/.test(w)?[...d][0]:am.slice(i,i+n).join('');if(n>1&&w.endsWith('儿'))tu=tu.replace(/ér$/,'r');
+      h+=(h&&!/[\s“"(（「]$/.test(h)?' ':'')+tu;i+=n}
+    return h.replace(/\s+/g,' ').replace(/ ([”」])/g,'$1').trim().replace(/(^[“"「]?|[.!?]\s+[“"「]?|[.!?][”」]\s+|:\s*[“"「])(\p{L})/gu,(m,x,y)=>x+y.toUpperCase())}
   function co(){const w=q('.n-chieu').clientWidth||320,n=Math.max(1,[...z].length);q('.n-han').style.fontSize=Math.max(30,Math.min(220,w*.94/Math.min(n,n>10?10:n)))+'px'}
   function ve(){q('.n-han').textContent=z;q('.n-py').textContent=hienPy?py():'';q('.n-nghe').disabled=!z;co();
     q('.n-ls').innerHTML=ls.map((x,i)=>btn(esc(x),'chu','data-i="'+i+'" lang="zh"')).join('')}
   function chieu(t){z=t.trim();if(!z)return;ls=[z].concat(ls.filter(x=>x!==z)).slice(0,8);ghi('gv-gochieu',ls);ve();
-    napJs('https://cdn.jsdelivr.net/npm/pinyin-pro@3.19.0/dist/index.js',()=>window.pinyinPro).then(ve).catch(()=>{q('.n-py').textContent='Chưa tải được pinyin, kiểm tra mạng.'})}
+    Promise.all([napJs('https://cdn.jsdelivr.net/npm/pinyin-pro@3.19.0/dist/index.js',()=>window.pinyinPro),napTD()]).then(ve).catch(()=>{q('.n-py').textContent='Chưa tải được pinyin, kiểm tra mạng.'})}
   q('.n-go').onsubmit=e=>{e.preventDefault();chieu(o.value);o.select()};
   q('.n-ls').onclick=e=>{const b=e.target.closest('[data-i]');if(b){o.value=ls[+b.dataset.i];chieu(o.value)}};
   q('.n-bat input').onchange=e=>{hienPy=e.target.checked;ve()};q('.n-nghe').onclick=()=>nghe(z);
   new ResizeObserver(()=>{clearTimeout(h);h=setTimeout(co,60)}).observe(el);
   ve();return{hien(){setTimeout(()=>{co();if(!z)o.focus({preventScroll:true})},30)}}}},
 
-{k:'quay',n:'Vòng quay',z:'大转盘',m:'Quay chọn mục, tên hoặc từ',ic:'lai',tao(el){
+{k:'quay',n:'Vòng quay',z:'大转盘',m:'Quay chọn mục, tên hoặc từ',ic:'vong-quay',tao(el){
   const MAU=['#16949e','#e0545f','#c99a14','#2e9e73','#3b87d6','#d24e86','#e7823a','#7a63c9'];
   let goc=0,bo=[],h=0,dang=false;
   el.innerHTML='<div class="n-quay"><div class="n-banh"><div class="n-kim"></div><div class="n-xoay"></div></div><div class="n-ben"><div class="n-kq" aria-live="polite"></div><div class="n-hang">'+btn(IC('lai')+'Quay','chinh n-q')+'</div><label class="n-bat"><input type="checkbox" class="n-bo">Bỏ mục đã trúng</label><div class="n-phu"></div>'
@@ -125,7 +135,7 @@ const CC=[
   q('.n-tu').onclick=()=>napBai().then(()=>{const t=tuDung(doc('gv-dung'));if(!t){q('.n-phu').textContent='Chọn bài ở trang chính Góc giáo viên trước.';return}o.value=t.w.map(x=>x.z).join('\n');doi()}).catch(()=>{q('.n-phu').textContent='Chưa tải được từ, kiểm tra mạng.'});
   ve();return{}}},
 
-{k:'rut',n:'Rút từ đặt câu',z:'抽词造句',m:'Rút một từ trong bài để đặt câu',ic:'the-bai',tao(el){
+{k:'rut',n:'Rút từ đặt câu',z:'抽词造句',m:'Rút một từ trong bài để đặt câu',ic:'rut-the',tao(el){
   let tu=[],con=[],cur=null,hienNghia=false,d=null;
   el.innerHTML='<div class="n-hang n-nguon"><label>Giáo trình<select class="n-s"></select></label><label class="n-bl">Bài<select class="n-b"></select></label></div><div class="n-the" aria-live="polite"><div class="n-han" lang="zh">?</div><div class="n-py"></div><div class="n-vi"></div></div>'
     +'<div class="n-phu"></div><div class="n-hang">'+btn(IC('the-bai')+'Rút từ','chinh n-r')+btn(IC('mat')+'Pinyin, nghĩa','n-m','aria-pressed="false"')+btn(IC('loa')+'Nghe','n-nghe')+btn(IC('lai')+'Làm lại','n-lai')+'</div>';

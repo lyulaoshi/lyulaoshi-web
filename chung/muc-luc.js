@@ -2,7 +2,7 @@
 (function(){var r=document.documentElement,b=document.getElementById('themeBtn');if(!b)return;
  var may=matchMedia('(prefers-color-scheme: dark)');
  function hien(){return r.dataset.theme||(may.matches?'dark':'light')}
- function ve(){b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#'+(hien()==='dark'?'mattroi':'trang')+'"></use></svg>'}
+ function ve(){b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#'+(hien()==='dark'?'mattroi':'trang')+'"></use></svg>'}
  ve();if(may.addEventListener)may.addEventListener('change',ve);
  b.addEventListener('click',function(){r.dataset.theme=hien()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){}ve()});
 })();

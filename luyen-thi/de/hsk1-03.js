@@ -82,7 +82,7 @@
   {cn:"我们去商店买东西（　）。",py:"Wǒmen qù shāngdiàn mǎi dōngxi (　).",vi:"Chúng mình đi cửa hàng mua đồ nhé.",ans:3,np:["一22","一34"],w:[["东西","dōngxi"],["吧","ba"]],why:"吧 cuối câu = rủ rê, đề nghị."},
   {cn:"我是学生，他（　）是学生。",py:"Wǒ shì xuésheng, tā (　) shì xuésheng.",vi:"Tôi là học sinh, anh ấy cũng là học sinh.",ans:2,np:["一13","一36"],w:[["也","yě"]],why:"也 đứng trước động từ, sau chủ ngữ: 他也是…"}]},
 
- {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=70219054#sao'/></svg>.",q:[
+ {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=39804db7#sao'/></svg>.",q:[
   {cn:"我今年二十岁，是大学生，我在北京学习汉语。",py:"Wǒ jīnnián èrshí suì, shì dàxuéshēng, wǒ zài Běijīng xuéxí Hànyǔ.",vi:"Năm nay tôi 20 tuổi, là sinh viên, tôi học tiếng Trung ở Bắc Kinh.",
    star:"我在北京：",spy:"Wǒ zài Běijīng:",svi:"Tôi ở Bắc Kinh:",opts:[{t:"工作",py:"gōngzuò"},{t:"学习汉语",py:"xuéxí Hànyǔ"},{t:"看病",py:"kàn bìng"}],ans:1,np:["一16","一36"],w:[["学习","xuéxí"],["大学生","dàxuéshēng"]]},
   {cn:"现在是下午三点，我在家看电视。",py:"Xiànzài shì xiàwǔ sān diǎn, wǒ zài jiā kàn diànshì.",vi:"Bây giờ là 3 giờ chiều, tôi đang xem ti vi ở nhà.",

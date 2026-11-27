@@ -20,7 +20,7 @@ rules:[
   ex:[["{1|你}{2|不要}{3|生气}。", "Nǐ búyào shēngqì.", "Bạn đừng giận."],
       ["{2|不要}在这儿{3|打电话}。", "Búyào zài zhèr dǎ diànhuà.", "Đừng gọi điện ở đây."]]}],
 notes:[
- {t:"Không dùng 没 với 是", html:"<span class='zh'>他不是老师。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=70219054#sai'/></svg> 没是)"},
+ {t:"Không dùng 没 với 是", html:"<span class='zh'>他不是老师。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=39804db7#sai'/></svg> 没是)"},
  {t:"不 biến điệu", html:"trước thanh 4 đọc <b>bú</b>: <span class='zh'>不是 bú shì、不去 bú qù</span>."}],
 cmp:[
  {vn:"Mai tôi không đi.", zh:"我明天[不]去。", py:"Wǒ míngtiān bú qù.", ok:true, why:"Tương lai → 不."},

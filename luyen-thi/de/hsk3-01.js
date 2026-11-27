@@ -97,7 +97,7 @@
   {cn:"A：怎样才能说好汉语？　B：（　）多听多说，才能说得好。",py:"A: Zěnyàng cái néng shuōhǎo Hànyǔ? B: (　) duō tīng duō shuō, cái néng shuō de hǎo.",vi:"A: Làm thế nào mới nói giỏi tiếng Trung? B: Chỉ có nghe nhiều nói nhiều mới nói giỏi được.",ans:1,np:["三70"],w:[["只有","zhǐyǒu"],["怎样","zěnyàng"]],why:"只有……才…… = chỉ có … thì mới …"},
   {cn:"A：你怎么哭了？　B：我（　）想起了小时候的事。",py:"A: Nǐ zěnme kū le? B: Wǒ (　) xiǎngqǐle xiǎoshíhou de shì.",vi:"A: Sao bạn khóc? B: Mình bỗng nhớ lại chuyện hồi nhỏ.",ans:0,np:["三14"],w:[["突然","tūrán"],["哭","kū"]]}]},
 
- {sk:"doc",no:3,type:"text3",vi:"Đọc đoạn văn, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=70219054#sao'/></svg>. (Câu 51–56: mỗi đoạn 1 câu hỏi; câu 57–60: mỗi đoạn 2 câu hỏi.)",q:[
+ {sk:"doc",no:3,type:"text3",vi:"Đọc đoạn văn, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=39804db7#sao'/></svg>. (Câu 51–56: mỗi đoạn 1 câu hỏi; câu 57–60: mỗi đoạn 2 câu hỏi.)",q:[
   {cn:"小明的爸爸是司机，妈妈是老师，他们每天都很忙。",py:"Xiǎo Míng de bàba shì sījī, māma shì lǎoshī, tāmen měi tiān dōu hěn máng.",vi:"Bố Tiểu Minh là tài xế, mẹ là giáo viên, ngày nào họ cũng rất bận.",
    star:"小明的爸爸做什么工作？",spy:"Xiǎo Míng de bàba zuò shénme gōngzuò?",svi:"Bố Tiểu Minh làm nghề gì?",opts:[{t:"老师",py:"lǎoshī"},{t:"医生",py:"yīshēng"},{t:"司机",py:"sījī"}],ans:2,np:["一36"],w:[["司机","sījī"]]},
   {cn:"我家附近新开了一家书店，书很多，也很便宜，我周末常去那儿看书。",py:"Wǒ jiā fùjìn xīn kāile yì jiā shūdiàn, shū hěn duō, yě hěn piányi, wǒ zhōumò cháng qù nàr kàn shū.",vi:"Gần nhà tôi mới mở một hiệu sách, sách nhiều lại rẻ, cuối tuần tôi hay đến đó đọc sách.",

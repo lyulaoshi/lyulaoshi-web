@@ -393,8 +393,8 @@ h3.sec .n{box-shadow:0 3px 0 color-mix(in srgb,var(--lc,var(--c)) 55%,#000 0%);}
 
     <h3 class="sec"><span class="n">2</span> Luyện thêm</h3>
     <div class="modes two">
-      <button class="mode" style="--mc:var(--peach)" data-start="quick"><span class="ic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#nhanh"/></svg></span><b>Luyện nhanh <span class="zh">快练</span></b><span class="muted">10 câu ngẫu nhiên từ các đề của cấp đang chọn. Chấm ngay từng câu, có nghĩa tiếng Việt, pinyin và giải thích.</span><span class="go" id="quickGo">Bắt đầu →</span></button>
-      <button class="mode" style="--mc:var(--lav)" id="wrongBtn" data-start="wrong"><span class="ic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#sotay"/></svg></span><b>Sổ câu sai <span class="zh">错题本</span></b><span class="muted">Câu nào làm sai sẽ tự vào đây (mọi cấp). Làm lại đúng thì câu tự ra khỏi sổ.</span><span class="go" id="wrongGo">Chưa có câu sai</span></button>
+      <button class="mode" style="--mc:var(--peach)" data-start="quick"><span class="ic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#nhanh"/></svg></span><b>Luyện nhanh <span class="zh">快练</span></b><span class="muted">10 câu ngẫu nhiên từ các đề của cấp đang chọn. Chấm ngay từng câu, có nghĩa tiếng Việt, pinyin và giải thích.</span><span class="go" id="quickGo">Bắt đầu →</span></button>
+      <button class="mode" style="--mc:var(--lav)" id="wrongBtn" data-start="wrong"><span class="ic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#sotay"/></svg></span><b>Sổ câu sai <span class="zh">错题本</span></b><span class="muted">Câu nào làm sai sẽ tự vào đây (mọi cấp). Làm lại đúng thì câu tự ra khỏi sổ.</span><span class="go" id="wrongGo">Chưa có câu sai</span></button>
     </div>
 
     <h3 class="sec"><span class="n">3</span> Luyện từng phần <span class="zh">分项练习</span></h3>
@@ -412,7 +412,7 @@ h3.sec .n{box-shadow:0 3px 0 color-mix(in srgb,var(--lc,var(--c)) 55%,#000 0%);}
         <span class="tag" id="qTag"></span>
         <div class="tools">
           <button class="tg" id="pyBtn" aria-pressed="true">Pinyin</button>
-          <button class="tg" id="flagBtn" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#co"/></svg> Đánh dấu</button>
+          <button class="tg" id="flagBtn" aria-pressed="false"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#co"/></svg> Đánh dấu</button>
         </div>
       </div>
       <div id="qBody"></div>
@@ -456,7 +456,7 @@ h3.sec .n{box-shadow:0 3px 0 color-mix(in srgb,var(--lc,var(--c)) 55%,#000 0%);}
   </div>
   <div class="card" id="wordCard">
     <h2>Từ cần ôn <span class="zh">生词</span></h2>
-    <p class="muted">Từ nằm trong các câu làm sai. Bấm <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#loa"/></svg> để nghe.</p>
+    <p class="muted">Từ nằm trong các câu làm sai. Bấm <svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#loa"/></svg> để nghe.</p>
     <div class="words" id="words"></div>
     <div class="acts"><a class="btn" href="../tu-vung/" style="background:var(--sky-s)">Ôn thẻ từ HSK · 词汇盒</a><a class="btn" href="../tro-choi/" style="background:var(--peach-s)">Chơi trò chơi · 游戏盒</a></div>
   </div>
@@ -526,10 +526,10 @@ function home(keep){
     const r=sc[d.id],m=r&&String(r).match(/(\d+)\/(\d+)/),pc=m?Math.round(m[1]/m[2]*100):null,no=d.id.split("-").pop();
     return `<div class="de tk${m?" done":""}"><div class="tk-stub"><small>Đề số</small><b>${no}</b></div>`+
       `<div class="tk-body"><b>HSK ${LV} · ${d.ten.replace(/.*số\s*/,"Số ")}</b>`+
-      `<div class="meta"><span><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#dong-ho"/></svg>${d.phut} phút</span><span><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#de"/></svg>${d.q.length} câu</span></div>`+
+      `<div class="meta"><span><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#dong-ho"/></svg>${d.phut} phút</span><span><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#de"/></svg>${d.q.length} câu</span></div>`+
       `<button class="btn pri" data-de="${d.id}">${m?"Làm lại":"Làm đề"} →</button></div>`+
       `<div class="tk-ring${m?"":" none"}" style="--p:${pc||0}" title="${m?"Lần trước: "+r:"Chưa làm"}"><span>${m?`<b>${pc}%</b><small>${r}</small>`:`<small>Chưa <br>làm</small>`}</span></div></div>`}).join(""):
-    `<div class="de soon"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#cuon-giay"/></svg><div><b>Đề HSK ${LV} đang soạn</b><span class="muted">Cấp này chưa có đề. Em xem cấu trúc đề ở mục 3 bên dưới nhé.</span></div></div>`;
+    `<div class="de soon"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#cuon-giay"/></svg><div><b>Đề HSK ${LV} đang soạn</b><span class="muted">Cấp này chưa có đề. Em xem cấu trúc đề ở mục 3 bên dưới nhé.</span></div></div>`;
   // 2 · luyện thêm
   const pool=ALL.filter(q=>String(q.de.cap)===LV),wrong=store.get("kt-sai",[]).filter(id=>ALL.some(q=>q.id===id));
   $("quickGo").textContent=pool.length?`Bắt đầu HSK ${LV} →`:`HSK ${LV} chưa có câu`;
@@ -539,7 +539,7 @@ function home(keep){
   // 3 · cấu trúc & luyện từng phần
   let h=`<div class="skgrid">`;
   c.ky.forEach(k=>{
-    h+=`<div class="sk sk-${k[0]}"><h3><span class="skic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#${{nghe:"tai-nghe",doc:"sach",viet:"but"}[k[0]]}"/></svg></span><span class="zh">${k[1]}</span>${SKN[k[0]]?SKN[k[0]][0]:"Viết"} <small>· ${k[3].reduce((a,b)=>a+b[0],0)} câu · ${k[2]} phút</small></h3>`;
+    h+=`<div class="sk sk-${k[0]}"><h3><span class="skic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#${{nghe:"tai-nghe",doc:"sach",viet:"but"}[k[0]]}"/></svg></span><span class="zh">${k[1]}</span>${SKN[k[0]]?SKN[k[0]][0]:"Viết"} <small>· ${k[3].reduce((a,b)=>a+b[0],0)} câu · ${k[2]} phút</small></h3>`;
     k[3].forEach((p,i)=>{
       const pk=LV+"-"+k[0]+(i+1),has=ALL.some(q=>q.pk===pk),pc=last[pk];
       h+=`<div class="pt"><span class="no">${PHAN[i+1]}</span><span class="n">${p[0]} câu</span>`+
@@ -591,11 +591,11 @@ function render(){
   $("flagBtn").setAttribute("aria-pressed",S.flag[i]);
   let h=`<div class="instr">${p.vi}</div>`;
   if(p.ex){const x=p.ex,o=p.bank?p.bank[x.ans]:null;
-    h+=`<div class="ex"><b class="t">示例</b>`+(x.say?`<button class="play" id="exPlay"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#loa"/></svg> Nghe câu mẫu</button><br><span class="zh">${esc(x.say).replace(/\n/g," ")}</span>`:x.zi?ziHTML(x.zi)+`<span class="zh">→ ${x.full}</span>`:p.type==="write"?`<span class="zh">${wHTML(x.cn,x.ans)}</span>`:p.type==="sent"?`<img class="sentimg" src="img/${x.img}.jpg" alt="" width="320" height="240"><br><span class="zh">${x.words.map(w=>w[0]).join(" / ")}</span> → <span class="zh">${x.ans.split("/")[0]}</span>`:`<span class="zh">${x.cn}</span>`)+
+    h+=`<div class="ex"><b class="t">示例</b>`+(x.say?`<button class="play" id="exPlay"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#loa"/></svg> Nghe câu mẫu</button><br><span class="zh">${esc(x.say).replace(/\n/g," ")}</span>`:x.zi?ziHTML(x.zi)+`<span class="zh">→ ${x.full}</span>`:p.type==="write"?`<span class="zh">${wHTML(x.cn,x.ans)}</span>`:p.type==="sent"?`<img class="sentimg" src="img/${x.img}.jpg" alt="" width="320" height="240"><br><span class="zh">${x.words.map(w=>w[0]).join(" / ")}</span> → <span class="zh">${x.ans.split("/")[0]}</span>`:`<span class="zh">${x.cn}</span>`)+
       `${py&&!x.zi?`<br><span class="py">${x.py}</span>`:""}${!exam()?`<br><span class="vi">${x.vi}</span>`:""}`+(o?`<br>Đáp án: <span class="ans">${L[x.ans]}</span>${o.img?"":` <span class="zh">${o.t}</span>`}`:"")+`</div>`}
   if(q.say){
     const n=S.plays[q.id]||0,out=exam()&&n>=2;
-    h+=`<button class="play" id="playBtn"${out?" disabled":""}><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#loa"/></svg> ${out?"Đã nghe 2 lần":"Nghe"} <small>${exam()?`(còn ${Math.max(0,2-n)} lần)`:"(nghe lại thoải mái)"}</small></button>`;
+    h+=`<button class="play" id="playBtn"${out?" disabled":""}><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#loa"/></svg> ${out?"Đã nghe 2 lần":"Nghe"} <small>${exam()?`(còn ${Math.max(0,2-n)} lần)`:"(nghe lại thoải mái)"}</small></button>`;
     if(lock) h+=`<div class="script"><span class="zh">${esc(q.say)}</span>${py?`<br><span class="py">${q.py}</span>`:""}<br><span class="vi">${q.vi}</span></div>`;
   }
   if(q.zi){
@@ -607,7 +607,7 @@ function render(){
   }else if(q.cn){
     const cnH=q.blank?q.cn.replace("（"+q.blank+"）",`<b class="blk">（${q.blank}）</b>`):q.cn;
     h+=`<div class="cn${q.cn.length>60?" long":""}">${cnH}</div>${py?`<div class="py">${q.py}</div>`:""}${!exam()||lock?`<div class="vi">${q.vi}</div>`:""}`;
-    if(q.star) h+=`<div class="star"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#sao"/></svg> <span class="zh">${q.star}</span>${py?` <span class="py">${q.spy}</span>`:""}${!exam()||lock?` <span class="vi">— ${q.svi}</span>`:""}</div>`;
+    if(q.star) h+=`<div class="star"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#sao"/></svg> <span class="zh">${q.star}</span>${py?` <span class="py">${q.spy}</span>`:""}${!exam()||lock?` <span class="vi">— ${q.svi}</span>`:""}</div>`;
   }
   const os=optsOf(q),isPic=!!(os[0]&&os[0].img);
   // với phần ghép A–F: nhắc lựa chọn đã dùng ở câu khác cùng phần (như phiếu trả lời thật)
@@ -622,7 +622,7 @@ function render(){
   $("qBody").innerHTML=h;
   let fb="";
   if(lock){const ok=right(q,a),o=os[q.ans];
-    fb=`<div class="fb ${ok?"ok":"bad"}"><b class="h">${ok?"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=70219054#tick\"/></svg> Đúng rồi!":"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=70219054#sai\"/></svg> Chưa đúng."} ${q.part.type==="essay"?"Bài mẫu":"Đáp án"}: ${isW(q)?`<span class="zh">${q.ans.split("/").join(" / ")}</span>`+(p.type==="sent"&&!ok?`<br><small>Chưa dùng từ cho sẵn hoặc câu quá ngắn. Mỗi hình có nhiều câu đúng — đây là câu mẫu để đối chiếu.</small>`:""):L[q.ans]+(o.img?` — ${o.t}`:` — <span class="zh">${o.t}</span>`)}${q.zi?` → <span class="zh">${q.full}</span>`:""}</b>${q.why||""}`+
+    fb=`<div class="fb ${ok?"ok":"bad"}"><b class="h">${ok?"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=39804db7#tick\"/></svg> Đúng rồi!":"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=39804db7#sai\"/></svg> Chưa đúng."} ${q.part.type==="essay"?"Bài mẫu":"Đáp án"}: ${isW(q)?`<span class="zh">${q.ans.split("/").join(" / ")}</span>`+(p.type==="sent"&&!ok?`<br><small>Chưa dùng từ cho sẵn hoặc câu quá ngắn. Mỗi hình có nhiều câu đúng — đây là câu mẫu để đối chiếu.</small>`:""):L[q.ans]+(o.img?` — ${o.t}`:` — <span class="zh">${o.t}</span>`)}${q.zi?` → <span class="zh">${q.full}</span>`:""}</b>${q.why||""}`+
       (q.np.length?"<br>"+q.np.map(c=>`<a href="../ngu-phap/${npPath(c)}/">【${c}】${NP[c]||""} →</a>`).join("<br>"):"")+"</div>"}
   $("qFb").innerHTML=fb;
   $("prevBtn").disabled=i===0;
@@ -727,7 +727,7 @@ function finish(timeUp){
   // điểm ngữ pháp yếu
   const cnt={};S.qs.forEach((q,k)=>{if(!res[k])q.np.forEach(c=>cnt[c]=(cnt[c]||0)+1)});
   const codes=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]);
-  $("weak").innerHTML=codes.length?codes.map(c=>`<div class="wk"><span><span class="code">【${c}】</span>${NP[c]||""} <span class="muted">· sai ${cnt[c]} câu</span></span><a href="../ngu-phap/${npPath(c)}/">Mở bài giảng →</a></div>`).join(""):'<p><svg class="lli ok" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#huy"/></svg> Không có điểm ngữ pháp nào cần ôn trong lượt này.</p>';
+  $("weak").innerHTML=codes.length?codes.map(c=>`<div class="wk"><span><span class="code">【${c}】</span>${NP[c]||""} <span class="muted">· sai ${cnt[c]} câu</span></span><a href="../ngu-phap/${npPath(c)}/">Mở bài giảng →</a></div>`).join(""):'<p><svg class="lli ok" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#huy"/></svg> Không có điểm ngữ pháp nào cần ôn trong lượt này.</p>';
   const ws=new Map();S.qs.forEach((q,k)=>{if(!res[k])q.w.forEach(w=>ws.set(w[0],w[1]))});
   $("wordCard").hidden=!ws.size;
   $("words").innerHTML=[...ws].map(([h,py])=>`<span class="word"><span class="zh">${h}</span><small>${py}</small>${spk(h)}</span>`).join("");
@@ -736,16 +736,16 @@ function finish(timeUp){
   $("review").innerHTML=S.qs.map((q,k)=>{
     const os=optsOf(q),a=S.a[k];
     const head=q.full||(q.cn||(q.say||q.words.map(w=>w[0]).join(" / ")).split("\n")[0].replace(/^(女|男)：/,"")).replace(/（[^）]*）/g,"（ ）");
-    return `<details${res[k]?"":" open"}><summary><span class="m">${res[k]?"<svg class=\"lli ok\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=70219054#dung-tron\"/></svg>":!filled(a)?"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=70219054#trong-tron\"/></svg>":"<svg class=\"lli no\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=70219054#sai-tron\"/></svg>"}</span>${exam()?"":soDe(q.de)+" · "}Câu ${q.n} · ${SKN[q.part.sk][0]} ${q.part.no} · <span class="zh">${esc(head)}</span></summary><p>`+
+    return `<details${res[k]?"":" open"}><summary><span class="m">${res[k]?"<svg class=\"lli ok\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=39804db7#dung-tron\"/></svg>":!filled(a)?"<svg class=\"lli\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=39804db7#trong-tron\"/></svg>":"<svg class=\"lli no\" aria-hidden=\"true\"><use href=\"/chung/ic.svg?v=39804db7#sai-tron\"/></svg>"}</span>${exam()?"":soDe(q.de)+" · "}Câu ${q.n} · ${SKN[q.part.sk][0]} ${q.part.no} · <span class="zh">${esc(head)}</span></summary><p>`+
       (q.say?`Bài nghe: <span class="zh">${esc(q.say).replace(/\n/g," ")}</span> ${spk(q.say.split("\n")[0].replace(/^(女|男)：/,""))}<br><span class="muted">${q.py}</span><br>`:"")+
-      (q.star?`<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#sao"/></svg> <span class="zh">${q.star}</span><br>`:"")+
+      (q.star?`<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#sao"/></svg> <span class="zh">${q.star}</span><br>`:"")+
       `<i class="muted">${q.vi}${q.svi?" — "+q.svi:""}</i><br>${isW(q)?`Em viết: <b class="zh">${filled(a)?esc(a):"(bỏ trống)"}</b> · Đáp án: <b class="zh">${q.ans.split("/").join(" / ")}</b>`:`Em chọn: <b>${!filled(a)?"(bỏ trống)":L[a]+". "+esc(ot(os[a]))}</b> · Đáp án: <b>${L[q.ans]}. ${esc(ot(os[q.ans]))}</b>`}${q.why?`<br>${q.why}`:""}</p></details>`}).join("");
   show("vResult");
 }
 
 (function(){const r=document.documentElement,b=$("themeBtn");
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#'+(cur()==='dark'?'mattroi':'trang')+'"/></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 home();
 </script>

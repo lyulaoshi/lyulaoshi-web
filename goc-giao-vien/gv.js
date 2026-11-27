@@ -2,7 +2,7 @@
 // Nạp ở cuối <body> của trang chính và các trang con.
 window.GV=(function(){
 const $=id=>document.getElementById(id);
-const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#'+n+'"></use></svg>';
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#'+n+'"></use></svg>';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
 let tT=0;
@@ -32,9 +32,9 @@ const G=[
 const PHU=[
  {id:'xep-cau',z:'连词成句',n:'Xếp câu',ic:'manh-ghep',p:'Xếp mảnh câu đúng trật tự',bo:'cau',ledu:0},
  {id:'tra-loi',z:'回答问题',n:'Trả lời câu hỏi',ic:'tin-nhan',p:'Chọn câu đáp lại đúng',bo:'cau',ledu:1},
- {id:'dien-cho',z:'选词填空',n:'Điền chỗ trống',ic:'sotay',p:'Chọn từ điền vào câu',bo:'cau',ledu:1},
+ {id:'dien-cho',z:'选词填空',n:'Điền chỗ trống',ic:'cho-trong',p:'Chọn từ điền vào câu',bo:'cau',ledu:1},
  {id:'tim-loi',z:'改错',n:'Tìm lỗi sai',ic:'kinh-lup',p:'Tìm và sửa từ dùng sai',bo:'cau',ledu:1},
- {id:'dich-cau',z:'翻译',n:'Dịch câu',ic:'cuon-giay',p:'Dựng câu tiếng Trung từ câu Việt',bo:'cau',ledu:0}
+ {id:'dich-cau',z:'翻译',n:'Dịch câu',ic:'dia-cau',p:'Dựng câu tiếng Trung từ câu Việt',bo:'cau',ledu:0}
 ];
 
 /* "Bộ từ đang dùng" lưu ở khoá gv-dung: {k:'bai'|'cot', ten, bo, nw, cau, sach} — mọi trang con đọc chung */
@@ -105,4 +105,4 @@ return {$,IC,esc,store,toast,G,PHU,enc,dung,nhan,href,paintDung,hop,loiRieng};
 /* Nút "Công cụ" (đếm giờ, gọi tên, bảng điểm…) trên mọi trang; trang nhanh/ tự nạp nên bỏ qua. Sửa gv-nhanh thì tăng ?v= ở đây. */
 (function(){const s=document.currentScript;if(!s||!document.body||document.body.dataset.nhanh)return;const goc=new URL('.',s.src).href;
   const l=document.createElement('link');l.rel='stylesheet';l.href=goc+'gv-nhanh.css?v=1';document.head.append(l);
-  l.onload=l.onerror=()=>{const j=document.createElement('script');j.src=goc+'gv-nhanh.js?v=1';document.body.append(j)}})();
+  l.onload=l.onerror=()=>{const j=document.createElement('script');j.src=goc+'gv-nhanh.js?v=3';document.body.append(j)}})();

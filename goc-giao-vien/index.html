@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../tro-choi/game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link rel="stylesheet" href="/chung/hero.css?v=f1ff4577">
-<link rel="stylesheet" href="gv.css?v=26">
+<link rel="stylesheet" href="gv.css?v=28">
 <style>
 /* Bìa gọn hơn khuôn .lh chung (hero.css nạp trước gv.css nhưng sau game.css, nên ghi đè bằng main .lh) */
 main .lh{grid-template-columns:minmax(0,1.5fr) minmax(0,.6fr);gap:20px;margin-top:16px;padding:24px clamp(16px,3vw,36px) 22px}
@@ -19,6 +19,8 @@ main .lh h1 .lh-big{font-size:clamp(56px,6vw,80px);margin-bottom:4px}
 main .lh-lead{margin-top:8px;font-size:15.5px;line-height:1.5;max-width:40em}
 main .lh-stats{margin-top:14px}
 main .lh-art{width:min(250px,100%)}
+/* điện thoại ẩn hình bìa thì chỉ còn một cột (hai cột làm chữ dồn nửa trái, 28/11) */
+@media (max-width:600px){main .lh{grid-template-columns:minmax(0,1fr)}}
 </style>
 <link rel="stylesheet" href="/chung/dau-trang.css?v=844009d7">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
@@ -39,7 +41,7 @@ main .lh-art{width:min(250px,100%)}
     <span class="lh-eyebrow">Dành cho thầy cô dạy tiếng Trung</span>
     <h1><span class="lh-big" lang="zh"><i>教师</i><u>角</u></span>Góc giáo viên</h1>
     <p class="lh-lead">Công cụ đứng lớp, <b>lấy đúng từ của bài đang dạy</b>. Miễn phí, không cần đăng nhập. Chỉ cần máy chiếu và trình duyệt.</p>
-    <a class="btn tl hd-lk" href="huong-dan/"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#sach"></use></svg>Hướng dẫn dùng</a>
+    <a class="btn tl hd-lk" href="huong-dan/"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#sach"></use></svg>Hướng dẫn dùng</a>
     <div class="lh-stats"><span><b id="stGame">10</b>trò cả lớp</span><span><b id="stTool">–</b>công cụ dùng được</span><span><b id="stBai">–</b>bài giáo trình có sẵn từ</span></div>
   </div>
   <div class="lh-art" aria-hidden="true">
@@ -68,14 +70,14 @@ main .lh-art{width:min(250px,100%)}
 
 <div class="hai">
 <button type="button" class="in-giay nh" id="bNhanh">
-  <span class="ic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#lap-lanh"></use></svg></span>
+  <span class="ic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#lap-lanh"></use></svg></span>
   <span class="chu"><b>Công cụ nhanh <small lang="zh">随手用</small></b><span>Bảng điểm, vòng quay, xúc xắc, đo độ ồn…</span></span>
-  <svg class="lli mui" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#tg-phai"></use></svg>
+  <svg class="lli mui" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#tg-phai"></use></svg>
 </button>
 <button type="button" class="in-giay" id="bInGiay">
-  <span class="ic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#may-in"></use></svg></span>
+  <span class="ic"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#may-in"></use></svg></span>
   <span class="chu"><b>In ra giấy <small lang="zh">打印</small></b><span id="inTom">Phiếu và thẻ để phát cho lớp</span></span>
-  <svg class="lli mui" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#tg-phai"></use></svg>
+  <svg class="lli mui" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#tg-phai"></use></svg>
 </button>
 </div>
 
@@ -85,28 +87,33 @@ main .lh-art{width:min(250px,100%)}
   <div id="buoc"></div>
 </div>
 
-<section class="sec" id="cach-dung">
-  <div class="sh"><h2>Dùng trên lớp thế nào?<small lang="zh">怎么用</small></h2></div>
+<details class="gd" id="cach-dung">
+  <summary><h2>Dùng trên lớp thế nào? <small lang="zh">怎么用</small></h2><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#tg-phai"></use></svg></summary>
+  <div class="gd-than">
   <div class="steps">
     <div class="step"><b>Nối máy chiếu</b><p>Mở trang này trên máy tính nối máy chiếu hoặc TV. Phím <kbd>F11</kbd> cho trình duyệt đầy màn hình, chữ to hơn.</p></div>
     <div class="step"><b>Chọn bài một lần</b><p>Bấm "Đổi bài / bộ từ" ở trên. Mọi trò và công cụ bên dưới sẽ dùng đúng từ, câu của bài đó.</p></div>
     <div class="step"><b>Thầy cô làm trọng tài</b><p>Học viên hô đáp án, thầy cô bấm phím cho đội đúng. Trò có mã QR thì học viên quét bằng điện thoại.</p></div>
   </div>
   <div class="keys"><span>Phím hay dùng trong các trò:</span><span><kbd>Space</kbd> hiện đáp án</span><span><kbd>Z</kbd> hoàn tác</span><span><kbd>N</kbd> bỏ qua câu</span><span><kbd>R</kbd> đọc lại</span><span><kbd>1</kbd>–<kbd>4</kbd> đội trả lời đúng</span></div>
-  <div class="row" style="margin-top:12px"><a class="btn gh" href="huong-dan/"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#sach"></use></svg>Xem hướng dẫn đầy đủ</a></div>
-</section>
+  <div class="row" style="margin-top:12px"><a class="btn gh" href="huong-dan/"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#sach"></use></svg>Xem hướng dẫn đầy đủ</a></div>
+  </div>
+</details>
 
-<section class="sec" id="chia-se">
-  <div class="sh"><h2>Gửi cho đồng nghiệp<small lang="zh">分享给同事</small></h2><p>Ai có link là dùng được, không cần tài khoản.</p></div>
-  <div class="pn share">
+<details class="gd" id="chia-se">
+  <summary><h2>Gửi cho đồng nghiệp <small lang="zh">分享给同事</small></h2><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#tg-phai"></use></svg></summary>
+  <div class="gd-than">
+  <p class="gd-p">Ai có link là dùng được, không cần tài khoản.</p>
+  <div class="share">
     <div style="display:grid;gap:12px">
-      <div class="lnk"><input type="text" id="shL" readonly aria-label="Link Góc giáo viên"><button class="btn tl" id="shCp" type="button"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#chep"></use></svg>Chép link</button></div>
-      <div class="row"><button class="btn gh" id="shGo" type="button" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#gui"></use></svg>Gửi qua Zalo, Messenger…</button><a class="btn gh" href="../#hop-thu"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#thu"></use></svg>Góp ý, đề xuất công cụ mới</a></div>
+      <div class="lnk"><input type="text" id="shL" readonly aria-label="Link Góc giáo viên"><button class="btn tl" id="shCp" type="button"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#chep"></use></svg>Chép link</button></div>
+      <div class="row"><button class="btn gh" id="shGo" type="button" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#gui"></use></svg>Gửi qua Zalo, Messenger…</button><a class="btn gh" href="../#hop-thu"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#thu"></use></svg>Góp ý, đề xuất công cụ mới</a></div>
       <p class="privacy">Không cần tài khoản hay thông tin cá nhân. Danh sách lớp và bộ từ riêng chỉ lưu trong trình duyệt của máy đang dùng.</p>
     </div>
     <div class="qr" id="shQr">Đang tạo mã QR…</div>
   </div>
-</section>
+  </div>
+</details>
 </main>
 
 <!-- Chọn bài giáo trình hoặc bộ từ riêng -->
@@ -122,14 +129,14 @@ main .lh-art{width:min(250px,100%)}
   <div class="pane" id="paneGt">
     <div class="two"><label>Giáo trình<select id="pkSach"></select></label><label>Bài<select id="pkBai"></select></label></div>
     <p class="info" id="pkInfo"></p>
-    <div class="row"><button class="btn tl" type="button" id="pkDung"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#tick"></use></svg>Dùng bài này</button><a class="btn gh" id="pkBg" href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#tv"></use></svg>Mở bài giảng</a></div>
+    <div class="row"><button class="btn tl" type="button" id="pkDung"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#tick"></use></svg>Dùng bài này</button><a class="btn gh" id="pkBg" href="#"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#tv"></use></svg>Mở bài giảng</a></div>
   </div>
   <div class="pane" id="paneBt" hidden>
     <p class="info" style="margin:0">Dạy sách khác? Dán từ của bài, mỗi dòng một từ: <b>chữ Hán | pinyin | nghĩa</b>. Từ có trong HSK 1–6 chỉ cần gõ chữ Hán. Chép thẳng từ Excel cũng được.</p>
     <label>Tên bộ từ<input type="text" id="btN" maxlength="40" placeholder="Ví dụ: 汉语教程 Bài 5"></label>
     <label>Danh sách từ<textarea id="btT" rows="6" placeholder="奶茶 | nǎichá | trà sữa&#10;火锅 | huǒguō | lẩu&#10;朋友"></textarea></label>
     <p class="info" id="btSt" aria-live="polite"></p>
-    <div class="row"><button class="btn tl" type="button" id="btDung"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#tick"></use></svg>Lưu và dùng bộ này</button><button class="btn gh" type="button" id="btDel" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#sai"></use></svg>Xoá bộ này</button></div>
+    <div class="row"><button class="btn tl" type="button" id="btDung"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#tick"></use></svg>Lưu và dùng bộ này</button><button class="btn gh" type="button" id="btDel" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#sai"></use></svg>Xoá bộ này</button></div>
     <div><p class="info" style="margin:0 0 6px">Bộ từ đã lưu trên máy này</p><div class="sets" id="btSets"></div></div>
   </div>
   <div class="ft"><button class="btn gh" type="button" id="chonBo">Không chọn bài, chơi theo cấp HSK</button><button class="btn gh" type="button" id="chonX">Đóng</button></div>
@@ -141,14 +148,14 @@ main .lh-art{width:min(250px,100%)}
 <script src="../tro-choi/vuot-ai/co-de.js"></script>
 <script src="../tro-choi/hsk-words.js"></script>
 <script src="../tu-vung/nghia-hsk1.js"></script>
-<script src="gv.js?v=8"></script>
-<script src="cong-cu.js?v=9f3cc089"></script>
+<script src="gv.js?v=10"></script>
+<script src="cong-cu.js?v=8e00864f"></script>
 <script>
 (function(){
 const {$,IC,esc,store,toast,G,PHU,enc,dung,nhan,href}=GV;
 const BAI=window.BAI||[],CO=window.VA_CO||{};
 
-/* ---------- Công cụ lấy từ cong-cu.js?v=9f3cc089 (thêm công cụ mới ở đó); 10 trò cả lớp lấy từ mảng G trong gv.js ---------- */
+/* ---------- Công cụ lấy từ cong-cu.js?v=8e00864f (thêm công cụ mới ở đó); 10 trò cả lớp lấy từ mảng G trong gv.js ---------- */
 const TIETT=[
  {h:'Chuẩn bị',z:'课前',c:'var(--teal)',p:'Làm trước ở nhà hoặc đầu khoá'},
  {h:'Mở đầu, ôn bài cũ',s:'Mở đầu',z:'复习',c:'var(--peach)',p:'Vài phút ổn định lớp, gợi lại bài cũ'},
@@ -180,6 +187,18 @@ $('bNhanh').onclick=()=>{const n=document.querySelector('.gvn .n-nut');if(!n){lo
   const o=[...document.querySelectorAll('.gvn .n-o')].find(b=>b.offsetParent);if(o)o.focus({preventScroll:true})};
 $('route').innerHTML=TIETT.map((t,i)=>'<a href="#buoc'+(i+1)+'" style="--c:'+t.c+'"><span class="num">'+(i+1)+'</span>'+(t.s||t.h)+'</a>').join('');
 $('stBai').textContent=BAI.reduce((s,b)=>s+b.bai.length,0);
+/* thanh số 1–9: tô bước đang xem (bước cuối cùng đã lên tới 40% màn hình; hết trang thì lấy bước vừa bấm hoặc bước 9) */
+let buocNay=0,buocBam=0,cho=0;
+function toBuoc(){cho=0;const vach=Math.max(190,innerHeight*.4),tren=i=>{const s=$('buoc'+i);return s?s.getBoundingClientRect().top:1e9};let n=0;
+  for(let i=1;i<=TIETT.length;i++)if(tren(i)<=vach)n=i;
+  if(n&&innerHeight+scrollY>=document.documentElement.scrollHeight-4)n=buocBam&&tren(buocBam)>0&&tren(buocBam)<innerHeight?buocBam:TIETT.length;
+  if(!scrollY)n=0;   /* đang ở đầu trang thì chưa tô, kể cả khi màn hình cao thấy hết trang */
+  if(n===buocNay)return;buocNay=n;
+  const R=$('route');[...R.children].forEach((a,i)=>i===n-1?a.setAttribute('aria-current','step'):a.removeAttribute('aria-current'));
+  if(n){const r=R.getBoundingClientRect(),q=R.children[n-1].getBoundingClientRect();R.scrollLeft+=q.left-r.left-(r.width-q.width)/2}}   /* điện thoại: kéo thanh cho thấy bước đang tô */
+const henTo=()=>{if(!cho)cho=requestAnimationFrame(toBuoc)};
+addEventListener('scroll',henTo,{passive:true});addEventListener('resize',henTo);
+$('route').addEventListener('click',e=>{const a=e.target.closest('a');if(a){buocBam=[...$('route').children].indexOf(a)+1;buocNay=-1;henTo()}});
 
 const IC_TRO={'keo-co':'gang-tay','dap-ruoi':'bua','vo-dai':'kiem','chiem-dat':'co','non-ky-dieu':'sao','dua-cung-de':'ten-lua','trieu-phu':'tui-tien','bom-hen-gio':'bom','gian-diep':'mat'};
 function tile(x,d){
@@ -195,7 +214,7 @@ function paint(){const d=dung();
   if(d){const a=document.createElement('a');a.href='/tro-choi/?bo='+encodeURIComponent(d.bo);a.textContent='Mọi trò chơi với bộ này';$('dung').querySelector('.r').prepend(a)}
   /* trong mỗi bước: công cụ chung trước, công cụ riêng sau */
   $('buoc').innerHTML=TIETT.map((t,i)=>'<section class="stage" id="buoc'+(i+1)+'" data-z="'+t.z+'" style="--c:'+t.c+';--m:'+t.c+'"><header><span class="num">'+(i+1)+'</span><h2>'+t.h+'<small lang="zh">'+t.z+'</small></h2><p>'+t.p+'</p></header>'+theRoi(i+1,d)+khoiGoi(i+1)+khoiMau(i+1,d)+khoiTro(i+1,d)+duoiBuoc(i+1)+'</section>').join('');}
-/* Nhiều cách làm cùng một việc thì gom một khối, không rải thẻ rời. Thẻ vào khối nhờ trường trong cong-cu.js?v=9f3cc089 / gv.js:
+/* Nhiều cách làm cùng một việc thì gom một khối, không rải thẻ rời. Thẻ vào khối nhờ trường trong cong-cu.js?v=8e00864f / gv.js:
    goi (cách gọi tên) · mau (số thứ tự; một thẻ ghi thêm tên khối) · hang (trò cả lớp theo kiểu lớp) · dau (đường dẫn ở đầu khối trò) · duoi (đường dẫn nhỏ cuối bước) */
 function theRoi(b,d){const ds=DS.filter(x=>x.buoc===b&&!x.goi&&!x.mau&&!x.hang&&!x.dau&&!x.duoi).sort((a,b)=>!!a.rieng-!!b.rieng);
   return ds.length?'<div class="tiles">'+ds.map(x=>tile(x,d)).join('')+'</div>':''}
@@ -223,7 +242,7 @@ function khoiTro(b,d){
     +HANG.map(([k,t,s])=>{const m=ds.filter(x=>x.hang===k);return m.length?'<div class="hg"><h4>'+t+'<small>'+s+'</small></h4><div class="goi-ds">'+m.map(x=>muc(x,i++,d,true)).join('')+'</div></div>':''}).join('')+'</div>'}
 function duoiBuoc(b){return DS.filter(x=>x.buoc===b&&x.duoi).map(x=>'<p class="lk-nho">'+x.duoi.hoi+' <a href="'+x.url+'">'+IC(x.ic)+x.duoi.nut+'</a></p>').join('')}
 
-/* nút "In ra giấy": gom mọi công cụ có tờ in (trường ingiay trong cong-cu.js?v=9f3cc089; thẻ riêng chỉ có khi đã mở khoá) */
+/* nút "In ra giấy": gom mọi công cụ có tờ in (trường ingiay trong cong-cu.js?v=8e00864f; thẻ riêng chỉ có khi đã mở khoá) */
 $('bInGiay').onclick=()=>{
   const tt=x=>x.ingiay.tt||x.ingiay;   /* số thứ tự; dạng {tt,n,url…} = ghi đè tên và đường dẫn cho thẻ in */
   const ds=DS.filter(x=>x.ingiay).sort((a,b)=>tt(a)-tt(b)).map(x=>typeof x.ingiay==='object'?{...x,...x.ingiay}:x);

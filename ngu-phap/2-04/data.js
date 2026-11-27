@@ -12,7 +12,7 @@ rules:[
       ["你{1|想}{2|一}{3|想}这个字的意思。","Nǐ xiǎng yi xiǎng zhège zì de yìsi.","Bạn nghĩ thử nghĩa của chữ này xem.","等级标准"]]},
  {t:"Đã làm (nhanh, nhẹ): A了A", sub:"A了A", fx:[["A",null],["了",null],["A",null]], mean:"Hành động ngắn đã xảy ra.",
   ex:[["他{1|看}{2|了}{3|看}我，没说话。","Tā kàn le kàn wǒ, méi shuō huà.","Anh ấy nhìn tôi một cái, không nói gì.","等级标准"]]},
- {t:"Động từ hai âm tiết: ABAB", sub:"ABAB", fx:[["AB",null],["AB",null]], mean:"介绍介绍、休息休息、学习学习 (không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=70219054#sai'/></svg> 介介绍绍).",
+ {t:"Động từ hai âm tiết: ABAB", sub:"ABAB", fx:[["AB",null],["AB",null]], mean:"介绍介绍、休息休息、学习学习 (không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=39804db7#sai'/></svg> 介介绍绍).",
   ex:[["请{1|介绍}{2|介绍}你的朋友。","Qǐng jièshào jièshào nǐ de péngyou.","Hãy giới thiệu bạn của bạn một chút.","等级标准"],
       ["累了吧？{1|休息}{2|休息}！","Lèi le ba? Xiūxi xiūxi!","Mệt rồi à? Nghỉ một lát đi!"]]}],
 notes:[
