@@ -8,8 +8,8 @@ goals:[
 intro:"Câu hỏi rút gọn: chỉ cần <b>một danh từ / đại từ + 呢</b>. Nghĩa được hiểu theo câu nói trước đó.",
 rules:[
  {t:"(Câu trước)，đại từ / danh từ + 呢？", sub:"省略式", fx:[["(Ngữ cảnh)",""],["Đại từ / danh từ",""],["呢",null],["？",""]], mean:"Còn … thì sao? / … đâu?",
-  ex:[["我去医院，你[呢]？","Wǒ qù yīyuàn, nǐ ne?","Tôi đi bệnh viện, còn bạn?","等级标准"],
-      ["书在桌子上，笔[呢]？","Shū zài zhuōzi shang, bǐ ne?","Sách ở trên bàn, còn bút đâu?","等级标准"]]}],
+  ex:[["{1|我去医院}，{2|你}{3|呢}{4|？}","Wǒ qù yīyuàn, nǐ ne?","Tôi đi bệnh viện, còn bạn?","等级标准"],
+      ["{1|书在桌子上}，{2|笔}{3|呢}{4|？}","Shū zài zhuōzi shang, bǐ ne?","Sách ở trên bàn, còn bút đâu?","等级标准"]]}],
 cmp:[
  {vn:"Tôi khỏe, còn bạn?", zh:"我很好，你[呢]？", py:"Wǒ hěn hǎo, nǐ ne?", ok:true, why:"“còn bạn” = 你呢."},
  {vn:"Điện thoại của tôi đâu rồi?", zh:"我的手机[呢]？", py:"Wǒ de shǒujī ne?", ok:true, why:"Không ngữ cảnh → hỏi vị trí."}],

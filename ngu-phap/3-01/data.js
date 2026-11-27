@@ -8,12 +8,12 @@ goals:[
 intro:"Tiền tố là thành phần đứng <b>trước</b> một từ để tạo từ mới. HSK 3 học ba tiền tố thường gặp: 第、老、小.",
 rules:[
  {t:"第 + số: số thứ tự", sub:"第-", fx:[["第",null],["Số",""]], mean:"thứ nhất, thứ ba… (xem 【二72】).",
-  ex:[["[第]一　[第]三","dì-yī　dì-sān","thứ nhất　thứ ba","等级标准"]]},
+  ex:[["{1|第}{2|一}　{1|第}{2|三}","dì-yī　dì-sān","thứ nhất　thứ ba","等级标准"]]},
  {t:"老 / 小 + họ: cách gọi thân mật", sub:"老- · 小-", fx:[["老 / 小",null],["Họ",""]], mean:"老 + họ: gọi người lớn tuổi hơn hoặc ngang hàng, thân quen; 小 + họ: gọi người trẻ hơn. Không dùng với người lạ, cấp trên.",
-  ex:[["[老]王　[小]李　[小]王","Lǎo Wáng　Xiǎo Lǐ　Xiǎo Wáng","anh / ông Vương　cậu / em Lý　cậu / em Vương","等级标准"]]},
+  ex:[["{1|老}{2|王}　{1|小}{2|李}　{1|小}{2|王}","Lǎo Wáng　Xiǎo Lǐ　Xiǎo Wáng","anh / ông Vương　cậu / em Lý　cậu / em Vương","等级标准"]]},
  {t:"老 + số: thứ bậc con trong nhà", sub:"老二", fx:[["老",null],["二 / 三…",""]], mean:"老大 con cả, 老二 con thứ hai…",
-  ex:[["[老]二","lǎo'èr","con thứ hai","等级标准"],
-      ["他是我们家的[老]大。","Tā shì wǒmen jiā de lǎodà.","Anh ấy là con cả nhà tôi."]]}],
+  ex:[["{1|老}{2|二}","lǎo'èr","con thứ hai","等级标准"],
+      ["他是我们家的{1|老}{2|大}。","Tā shì wǒmen jiā de lǎodà.","Anh ấy là con cả nhà tôi."]]}],
 notes:[{t:"老师 ≠ 老 + họ", html:"老 trong <span class='zh'>老师、老虎</span> là một phần của từ, không mang nghĩa “già”."}],
 cmp:[
  {vn:"anh Vương (bạn đồng nghiệp lớn tuổi)", zh:"[老]王", py:"Lǎo Wáng", ok:true, why:"Tiếng Việt gọi “anh / chú”; tiếng Trung dùng 老 + họ."},

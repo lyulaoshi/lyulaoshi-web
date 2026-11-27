@@ -8,11 +8,11 @@ goals:[
 intro:"Khi câu có cả tân ngữ và số lần, vị trí tân ngữ phụ thuộc <b>loại tân ngữ</b>.",
 rules:[
  {t:"Đại từ chỉ người: V + O + số lần", sub:"代词宾语", fx:[["V (了 / 过)",""],["Đại từ",null],["số + 次 / 遍",""]], mean:"",
-  ex:[["我找了[他]两次。","Wǒ zhǎo le tā liǎng cì.","Tôi tìm anh ấy hai lần.","等级标准"]]},
+  ex:[["我{1|找了}{2|他}{3|两次}。","Wǒ zhǎo le tā liǎng cì.","Tôi tìm anh ấy hai lần.","等级标准"]]},
  {t:"Danh từ vật: V + số lần + O", sub:"一般宾语", fx:[["V (了 / 过)",""],["số + 次 / 遍",null],["Danh từ",""]], mean:"Địa danh đứng trước hoặc sau số lần đều được.",
-  ex:[["我去过两次[上海]。","Wǒ qù guo liǎng cì Shànghǎi.","Tôi đã đến Thượng Hải hai lần.","等级标准"],
-      ["我来过[中国]一次。","Wǒ lái guo Zhōngguó yí cì.","Tôi đã đến Trung Quốc một lần.","等级标准"],
-      ["他读了三遍[课文]。","Tā dú le sān biàn kèwén.","Anh ấy đọc bài khóa ba lượt.","等级标准"]]}],
+  ex:[["我{1|去过}{2|两次}{3|上海}。","Wǒ qù guo liǎng cì Shànghǎi.","Tôi đã đến Thượng Hải hai lần.","等级标准"],
+      ["我{1|来过}{3|中国}{2|一次}。","Wǒ lái guo Zhōngguó yí cì.","Tôi đã đến Trung Quốc một lần.","等级标准"],
+      ["他{1|读了}{2|三遍}{3|课文}。","Tā dú le sān biàn kèwén.","Anh ấy đọc bài khóa ba lượt.","等级标准"]]}],
 cmp:[
  {vn:"Tôi đã gặp anh ấy ba lần.", zh:"我见过[他]三次。", py:"Wǒ jiàn guo tā sān cì.", ok:true, why:"Đại từ trước số lần."},
  {vn:"Tôi xem phim này hai lần.", zh:"我看了两遍[这个电影]。", py:"Wǒ kàn le liǎng biàn zhège diànyǐng.", ok:true, why:"Danh từ sau số lần."}],

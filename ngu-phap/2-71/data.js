@@ -8,8 +8,8 @@ goals:[
 intro:"Thể trải nghiệm nói người đó <b>đã từng</b> có việc gì trong quá khứ (không nhất thiết lúc nào). Trợ từ 过 xem 【二32】.",
 rules:[
  {t:"V + 过 / 没 + V + 过", sub:"经历态", fx:[["Chủ ngữ",""],["(没)",""],["Động từ",""],["过",null],["tân ngữ",""]], mean:"",
-  ex:[["他学[过]中文。/ 他没学[过]中文。","Tā xué guo Zhōngwén. / Tā méi xué guo Zhōngwén.","Anh ấy từng học tiếng Trung. / Anh ấy chưa từng học tiếng Trung.","等级标准"],
-      ["我吃[过]饺子。/ 我没吃[过]饺子。","Wǒ chī guo jiǎozi. / Wǒ méi chī guo jiǎozi.","Tôi từng ăn sủi cảo. / Tôi chưa từng ăn sủi cảo.","等级标准"]]}],
+  ex:[["{1|他}{3|学}{4|过}{5|中文}。/ {1|他}{2|没}{3|学}{4|过}{5|中文}。","Tā xué guo Zhōngwén. / Tā méi xué guo Zhōngwén.","Anh ấy từng học tiếng Trung. / Anh ấy chưa từng học tiếng Trung.","等级标准"],
+      ["{1|我}{3|吃}{4|过}{5|饺子}。/ {1|我}{2|没}{3|吃}{4|过}{5|饺子}。","Wǒ chī guo jiǎozi. / Wǒ méi chī guo jiǎozi.","Tôi từng ăn sủi cảo. / Tôi chưa từng ăn sủi cảo.","等级标准"]]}],
 notes:[
  {t:"过 hay 了?", html:"<span class='zh'>我去了北京。</span> (đã đi, có thể còn ở đó) · <span class='zh'>我去过北京。</span> (từng đi, giờ đã về)."}],
 cmp:[

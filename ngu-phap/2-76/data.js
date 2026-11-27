@@ -8,11 +8,11 @@ goals:[
 intro:"Mở rộng cách hỏi của 【一46】 với các từ để hỏi HSK 2. Quy tắc vẫn là: <b>hỏi chỗ nào thay chỗ đó</b>, không thêm 吗.",
 rules:[
  {t:"Các từ để hỏi HSK 2", sub:"", fx:[["什么时候 · 为什么 · 怎样",null],["+ Động từ",""],["·",""],["什么样的",null],["+ Danh từ",""]], mean:"什么时候 khi nào · 什么样的 + N kiểu … như thế nào · 为什么 tại sao · 怎么样 thế nào (tình hình) · 怎样 + V làm thế nào.",
-  ex:[["你们[什么时候]见面？","Nǐmen shénme shíhou jiàn miàn?","Khi nào các bạn gặp nhau?","等级标准"],
-      ["你喜欢[什么样]的朋友？","Nǐ xǐhuan shénmeyàng de péngyou?","Bạn thích người bạn như thế nào?","等级标准"],
-      ["你[为什么]没去上课？","Nǐ wèi shénme méi qù shàng kè?","Sao bạn không đi học?","等级标准"],
-      ["明天天气[怎么样]？","Míngtiān tiānqì zěnmeyàng?","Mai thời tiết thế nào?","等级标准"],
-      ["你明天[怎样]去学校？","Nǐ míngtiān zěnyàng qù xuéxiào?","Mai bạn đến trường bằng cách nào?","等级标准"]]}],
+  ex:[["你们{1|什么时候}{2|见面}？","Nǐmen shénme shíhou jiàn miàn?","Khi nào các bạn gặp nhau?","等级标准"],
+      ["你喜欢{3|什么样的}{4|朋友}？","Nǐ xǐhuan shénmeyàng de péngyou?","Bạn thích người bạn như thế nào?","等级标准"],
+      ["你{1|为什么}{2|没去上课}？","Nǐ wèi shénme méi qù shàng kè?","Sao bạn không đi học?","等级标准"],
+      ["明天天气{1|怎么样}？","Míngtiān tiānqì zěnmeyàng?","Mai thời tiết thế nào?","等级标准"],
+      ["你明天{1|怎样}{2|去学校}？","Nǐ míngtiān zěnyàng qù xuéxiào?","Mai bạn đến trường bằng cách nào?","等级标准"]]}],
 cmp:[
  {vn:"Khi nào bạn về nhà?", zh:"你[什么时候]回家？", py:"Nǐ shénme shíhou huí jiā?", ok:true, why:"“khi nào” lên trước động từ (như trạng ngữ thời gian)."},
  {vn:"Bạn thích áo kiểu gì?", zh:"你喜欢[什么样的]衣服？", py:"Nǐ xǐhuan shénmeyàng de yīfu?", ok:true, why:"什么样的 đứng trước danh từ."}],

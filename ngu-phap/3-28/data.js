@@ -7,10 +7,10 @@ goals:[
  "Chọn đúng 还 / 也 hay 都 ở vế sau."],
 intro:"除了 có hai nghĩa ngược nhau, phân biệt nhờ từ ở vế sau: <b>还 / 也</b> = thêm vào; <b>都</b> = trừ ra.",
 rules:[
- {t:"除了 A，(S) 还 / 也 B: cộng thêm", sub:"包括", fx:[["除了",null],["A",""],["，还 / 也",null],["B",""]], mean:"Có A, và còn có B.",
-  ex:[["[除了]英文，他[还]会说中文。","Chúle Yīngwén, tā hái huì shuō Zhōngwén.","Ngoài tiếng Anh, anh ấy còn biết tiếng Trung.","等级标准"]]},
- {t:"除了 A，(S) 都 B: loại trừ", sub:"排除", fx:[["除了",null],["A",""],["，都",null],["B",""]], mean:"Tất cả đều B, trừ A.",
-  ex:[["[除了]他，我们[都]是留学生。","Chúle tā, wǒmen dōu shì liúxuéshēng.","Trừ anh ấy ra, chúng tôi đều là lưu học sinh.","等级标准"]]}],
+ {t:"除了 A，(S) 还 / 也 B: cộng thêm", sub:"包括", fx:[["除了",null],["A",""],["，",""],["还 / 也",null],["B",""]], mean:"Có A, và còn có B.",
+  ex:[["{1|除了}{2|英文}，{3|他还}会说{4|中文}。","Chúle Yīngwén, tā hái huì shuō Zhōngwén.","Ngoài tiếng Anh, anh ấy còn biết tiếng Trung.","等级标准"]]},
+ {t:"除了 A，(S) 都 B: loại trừ", sub:"排除", fx:[["除了",null],["A",""],["，",""],["都",null],["B",""]], mean:"Tất cả đều B, trừ A.",
+  ex:[["{1|除了}{2|他}，{3|我们都}{4|是留学生}。","Chúle tā, wǒmen dōu shì liúxuéshēng.","Trừ anh ấy ra, chúng tôi đều là lưu học sinh.","等级标准"]]}],
 notes:[{t:"Khung đầy đủ", html:"<span class='zh'>除了……（以外）</span> — xem 【三38】."}],
 cmp:[
  {vn:"Ngoài tiếng Anh, tôi còn biết tiếng Trung.", zh:"[除了]英文，我[还]会中文。", py:"Chúle Yīngwén, wǒ hái huì Zhōngwén.", ok:true, why:"Cộng thêm → 还."},

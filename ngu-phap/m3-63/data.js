@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新3.63】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新3.63】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新3.63", title:"选择复句：或者……，或者……", vi:"或者…，或者… — hoặc …, hoặc …", tag:"句子的类型 · 复句",
 goals:[
@@ -8,8 +8,8 @@ goals:[
 intro:"【二64】 dùng 还是 để <b>hỏi</b> lựa chọn. Khi <b>kể</b> các khả năng, liệt kê “hoặc … hoặc …”, tiếng Trung dùng 或者.",
 rules:[
  {t:"或者 + A，或者 + B", sub:"选择", fx:[["或者",null],["lựa chọn A",""],["·",""],["或者",null],["lựa chọn B",""]], mean:"A hay B đều được / có thể A, có thể B.",
-  ex:[["周末我[或者]在家看书，[或者]去看电影。","Zhōumò wǒ huòzhě zài jiā kàn shū, huòzhě qù kàn diànyǐng.","Cuối tuần tôi hoặc ở nhà đọc sách, hoặc đi xem phim."],
-      ["[或者]你来，[或者]我去，都可以。","Huòzhě nǐ lái, huòzhě wǒ qù, dōu kěyǐ.","Hoặc bạn đến, hoặc tôi đi, đều được."]]}],
+  ex:[["周末我{1|或者}{2|在家看书}，{3|或者}{4|去看电影}。","Zhōumò wǒ huòzhě zài jiā kàn shū, huòzhě qù kàn diànyǐng.","Cuối tuần tôi hoặc ở nhà đọc sách, hoặc đi xem phim."],
+      ["{1|或者}{2|你来}，{3|或者}{4|我去}，都可以。","Huòzhě nǐ lái, huòzhě wǒ qù, dōu kěyǐ.","Hoặc bạn đến, hoặc tôi đi, đều được."]]}],
 notes:[{t:"或者 và 还是", html:"<span class='zh'>你喝茶还是喝咖啡？</span> (hỏi) · <span class='zh'>我喝茶或者喝咖啡都行。</span> (kể)."}],
 cmp:[
  {vn:"Hoặc hôm nay, hoặc ngày mai, tôi đều rảnh.", zh:"[或者]今天，[或者]明天，我都有时间。", py:"Huòzhě jīntiān, huòzhě míngtiān, wǒ dōu yǒu shíjiān.", ok:true, why:"Kể các lựa chọn → 或者; không dùng 还是."}],

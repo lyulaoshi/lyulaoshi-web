@@ -8,12 +8,12 @@ goals:[
 intro:"有 = “có”. Đề cương HSK 1 dạy 2 nghĩa: <b>sở hữu</b> và <b>tồn tại</b>. Trật tự giống tiếng Việt.",
 rules:[
  {t:"Sở hữu: A 有 B", sub:"表示领有", fx:[["Người / vật",""],["有 / 没有",null],["(số lượng) + N",""]], mean:"Ai có cái gì; một tổng thể có bao nhiêu phần.",
-  ex:[["我[有]很多书。","Wǒ yǒu hěn duō shū.","Tôi có rất nhiều sách.","等级标准"],
-      ["他[没有]哥哥。","Tā méiyǒu gēge.","Anh ấy không có anh trai.","等级标准"],
-      ["一个星期[有]七天。","Yí ge xīngqī yǒu qī tiān.","Một tuần có bảy ngày.","等级标准"]]},
+  ex:[["{1|我}{2|有}{3|很多书}。","Wǒ yǒu hěn duō shū.","Tôi có rất nhiều sách.","等级标准"],
+      ["{1|他}{2|没有}{3|哥哥}。","Tā méiyǒu gēge.","Anh ấy không có anh trai.","等级标准"],
+      ["{1|一个星期}{2|有}{3|七天}。","Yí ge xīngqī yǒu qī tiān.","Một tuần có bảy ngày.","等级标准"]]},
  {t:"Tồn tại: Nơi chốn + 有 + N", sub:"表示存在", fx:[["Nơi chốn","房间里、桌子上…"],["有 / 没有",null],["(số lượng) + N",""]], mean:"Ở đâu có gì. Nơi chốn đứng <b>đầu câu</b>; đồ vật cần phương vị 【一01】.",
-  ex:[["房间里[有]两张桌子。","Fángjiān li yǒu liǎng zhāng zhuōzi.","Trong phòng có hai cái bàn.","等级标准"],
-      ["房间里[没有]桌子。","Fángjiān li méiyǒu zhuōzi.","Trong phòng không có bàn.","等级标准"]]}],
+  ex:[["{1|房间里}{2|有}{3|两张桌子}。","Fángjiān li yǒu liǎng zhāng zhuōzi.","Trong phòng có hai cái bàn.","等级标准"],
+      ["{1|房间里}{2|没有}{3|桌子}。","Fángjiān li méiyǒu zhuōzi.","Trong phòng không có bàn.","等级标准"]]}],
 notes:[
  {t:"有 hay 是 / 在?", html:"<span class='zh'>学校东边有一个医院。</span> (có một bệnh viện — mới giới thiệu) · <span class='zh'>学校东边是医院。</span> (là bệnh viện — nói rõ là gì 【一36】) · <span class='zh'>医院在学校东边。</span> (vật đã biết, hỏi vị trí 【一16】)."},
  {t:"Câu hỏi", html:"<span class='zh'>你有哥哥吗？/ 你有没有哥哥？</span>"}],

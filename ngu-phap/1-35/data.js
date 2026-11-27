@@ -8,11 +8,11 @@ goals:[
 intro:"Câu cảm thán thể hiện cảm xúc mạnh (khen, chê, ngạc nhiên), cuối câu có dấu <b>！</b>.",
 rules:[
  {t:"太 + tính từ + 了！", sub:"太……了", fx:[["太",null],["Tính từ",""],["了！",null]], mean:"…quá! (mức độ rất cao, khen hoặc chê).",
-  ex:[["今天[太]热[了]！","Jīntiān tài rè le!","Hôm nay nóng quá!","等级标准"],
-      ["[太]好[了]！","Tài hǎo le!","Tốt quá!"]]},
+  ex:[["今天{1|太}{2|热}{3|了！}","Jīntiān tài rè le!","Hôm nay nóng quá!","等级标准"],
+      ["{1|太}{2|好}{3|了！}","Tài hǎo le!","Tốt quá!"]]},
  {t:"真 + tính từ！", sub:"真……", fx:[["真",null],["Tính từ",""],["！",""]], mean:"…thật! Không thêm 了.",
-  ex:[["这水果[真]好吃！","Zhè shuǐguǒ zhēn hǎochī!","Hoa quả này ngon thật!","等级标准"],
-      ["你的中文[真]好！","Nǐ de Zhōngwén zhēn hǎo!","Tiếng Trung của bạn giỏi thật!"]]}],
+  ex:[["这水果{1|真}{2|好吃}{3|！}","Zhè shuǐguǒ zhēn hǎochī!","Hoa quả này ngon thật!","等级标准"],
+      ["你的中文{1|真}{2|好}{3|！}","Nǐ de Zhōngwén zhēn hǎo!","Tiếng Trung của bạn giỏi thật!"]]}],
 cmp:[
  {vn:"Ngon quá!", zh:"[太]好吃[了]！", py:"Tài hǎochī le!", ok:true, why:"“quá” cuối câu → 太…了 bao quanh tính từ."},
  {vn:"Đẹp thật!", zh:"[真]漂亮！", py:"Zhēn piàoliang!", ok:true, why:"“thật” cuối câu → 真 đứng trước."}],

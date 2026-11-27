@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新2.46】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新2.46】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新2.46", title:"“是”字句2：表示说明或特征", vi:"Câu chữ 是 2 — nói rõ, nêu đặc điểm", tag:"句子的类型 · 特殊句型",
 goals:[
@@ -8,11 +8,11 @@ goals:[
 intro:"是字句1 nói <b>A là B</b> (我是学生). Ở HSK 2, 是 còn dùng để <b>nêu đặc điểm, nói rõ</b> — tiếng Việt thường không dịch ra chữ “là”.",
 rules:[
  {t:"S + 是 + (tính từ / danh từ) + 的", sub:"特征", fx:[["S",""],["是",null],["đặc điểm (+ 的)",""]], mean:"Nêu màu sắc, chất liệu, loại…",
-  ex:[["这件衣服[是]红的。","Zhè jiàn yīfu shì hóng de.","Chiếc áo này màu đỏ."],
-      ["我的手机[是]新的。","Wǒ de shǒujī shì xīn de.","Điện thoại của tôi là (cái) mới."]]},
+  ex:[["{1|这件衣服}{2|是}{3|红的}。","Zhè jiàn yīfu shì hóng de.","Chiếc áo này màu đỏ."],
+      ["{1|我的手机}{2|是}{3|新的}。","Wǒ de shǒujī shì xīn de.","Điện thoại của tôi là (cái) mới."]]},
  {t:"S + 是 + cụm danh từ (nói rõ)", sub:"说明", fx:[["S",""],["是",null],["cụm danh từ",""]], mean:"Nói rõ tình huống, đặc điểm.",
-  ex:[["今天[是]晴天。","Jīntiān shì qíngtiān.","Hôm nay trời nắng."],
-      ["他[是]大眼睛，高个子。","Tā shì dà yǎnjing, gāo gèzi.","Anh ấy mắt to, dáng cao."]]}],
+  ex:[["{1|今天}{2|是}{3|晴天}。","Jīntiān shì qíngtiān.","Hôm nay trời nắng."],
+      ["{1|他}{2|是}{3|大眼睛，高个子}。","Tā shì dà yǎnjing, gāo gèzi.","Anh ấy mắt to, dáng cao."]]}],
 cmp:[
  {vn:"Chiếc áo này màu đỏ.", zh:"这件衣服[是]红的。", py:"Zhè jiàn yīfu shì hóng de.", ok:false, tag:"(tiếng Việt không có “là”)", why:"Tiếng Trung dùng 是……的 để nêu đặc điểm."}],
 ex:[

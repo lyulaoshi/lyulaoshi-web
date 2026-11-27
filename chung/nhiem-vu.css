@@ -1,0 +1,56 @@
+/* Nhiệm vụ học tập (chung/nhiem-vu.js) — tự chứa màu để dùng được trên cả bài ngữ pháp lẫn bài giáo trình */
+:root{--nv:#0F7C86;--nv-s:#E3F4F5;--nv-nen:#fff;--nv-chu:#22253A;--nv-mo:#656980;--nv-vien:#DCDEE8;--nv-xong:#23855D}
+:root.nv-toi{--nv:#4FC3CC;--nv-s:#16363C;--nv-nen:#232536;--nv-chu:#ECEDF6;--nv-mo:#A9ACC2;--nv-vien:#3B3E55;--nv-xong:#2F8F69}
+
+.nv-giao{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--nv);background:var(--nv-nen);color:var(--nv);font:700 13.5px/1 "Be Vietnam Pro",system-ui,sans-serif;padding:8px 13px;border-radius:999px;cursor:pointer;white-space:nowrap;min-height:36px}
+.nv-giao:hover,.nv-giao:focus-visible{background:var(--nv);color:#fff}
+.nv-giao.nv-noi{position:fixed;right:12px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:800;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+@media print{.nv-giao,.nv-dock,.nv-nen{display:none!important}}
+
+.nv-nen{position:fixed;inset:0;z-index:1000;background:rgba(20,22,40,.55);display:grid;place-items:center;padding:16px;overflow:auto;font-family:"Be Vietnam Pro",system-ui,sans-serif}
+.nv-nen.cong{background:rgba(20,22,40,.86);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.nv-hop{position:relative;width:min(520px,100%);background:var(--nv-nen);color:var(--nv-chu);border-radius:22px;border-top:8px solid var(--nv);padding:22px 22px 20px;box-shadow:0 24px 60px rgba(0,0,0,.3);margin:auto;text-align:left;font-size:15px;line-height:1.55}
+.nv-hop h2{margin:0 34px 6px 0;font-size:21px;line-height:1.3;color:var(--nv-chu);font-family:inherit;font-weight:800}
+.nv-hop h2 span{font-family:"LXGW WenKai","STKaiti","KaiTi",serif;font-weight:400;color:var(--nv);font-size:18px}
+.nv-hop p{margin:8px 0;color:var(--nv-chu)}
+.nv-bai{font-weight:700;color:var(--nv)!important}
+.nv-x{position:absolute;right:14px;top:14px;width:36px;height:36px;border:0;border-radius:50%;background:var(--nv-s);color:var(--nv);cursor:pointer;display:grid;place-items:center}
+.nv-lb{display:block;margin:12px 0 5px;font-weight:700;font-size:13.5px;color:var(--nv-mo)}
+.nv-lb b{color:var(--nv)}
+.nv-in,.nv-ma{box-sizing:border-box;width:100%;border:1.5px solid var(--nv-vien);background:var(--nv-nen);color:var(--nv-chu);border-radius:12px;padding:10px 12px;font:inherit;font-size:16px}
+.nv-in:focus,.nv-ma:focus,.nv-tl:focus{outline:2px solid var(--nv);outline-offset:1px}
+.nv-ma{font-size:12.5px;resize:vertical;word-break:break-all}
+.nv-chon{display:flex;flex-wrap:wrap;gap:6px}
+.nv-chon button{border:1.5px solid var(--nv-vien);background:var(--nv-nen);color:var(--nv-chu);font:600 13.5px/1 inherit;font-family:inherit;padding:9px 13px;border-radius:999px;cursor:pointer}
+.nv-chon button[aria-pressed="true"]{background:var(--nv);border-color:var(--nv);color:#fff}
+.nv-nut{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.nv-btn{display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--nv);background:var(--nv-nen);color:var(--nv);font:700 14px/1.2 "Be Vietnam Pro",system-ui,sans-serif;padding:10px 15px;border-radius:999px;cursor:pointer;text-decoration:none;min-height:42px}
+.nv-btn.chinh{background:var(--nv);color:#fff}
+.nv-btn.mo{border-color:var(--nv-vien);color:var(--nv-mo);margin-left:auto}
+.nv-nho{font-size:13px;color:var(--nv-mo)!important}
+.nv-nho a{color:var(--nv);font-weight:700}
+.nv-ds{margin:10px 0;padding-left:20px}
+.nv-ds li{margin:3px 0}
+.nv-xong{width:56px;height:56px;border-radius:18px;background:var(--nv-s);color:var(--nv);display:grid;place-items:center;font-size:30px;margin-bottom:10px}
+
+/* đang làm nhiệm vụ */
+body.nv-on{padding-bottom:112px}
+.nv-dock{position:fixed;left:0;right:0;bottom:0;z-index:900;background:var(--nv-nen);color:var(--nv-chu);border-top:1px solid var(--nv-vien);box-shadow:0 -6px 24px rgba(0,0,0,.12);font:600 14px/1.3 "Be Vietnam Pro",system-ui,sans-serif;padding-bottom:env(safe-area-inset-bottom)}
+.nv-thanh{height:5px;background:var(--nv-s)}
+.nv-thanh i{display:block;height:100%;width:0;background:var(--nv);transition:width .4s}
+.nv-dong{display:flex;align-items:center;gap:6px 18px;flex-wrap:wrap;max-width:900px;margin:0 auto;padding:8px 14px 10px}
+.nv-ten{font-weight:800;max-width:11em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nv-dong b{color:var(--nv)}
+.nv-dong .nv-btn{margin-left:auto;border-color:var(--nv-vien);color:var(--nv-mo)}
+.nv-dong .nv-btn.san{background:var(--nv);border-color:var(--nv);color:#fff}
+body.nv-on .nv-giao{display:none}
+body.nv-on .lls-ve{bottom:calc(var(--nv-cao,76px) + 10px)!important}   /* nút Mục lục không bị thanh nhiệm vụ che */
+body.nv-on .np-tools{bottom:calc(var(--nv-cao,76px) + 10px)}
+.nv-sec{position:relative}
+.nv-sec::after{content:attr(data-nv);display:block;margin:14px auto 0;width:max-content;max-width:100%;font:700 12.5px/1.4 "Be Vietnam Pro",system-ui,sans-serif;color:var(--nv-mo);background:var(--nv-s);border-radius:999px;padding:4px 12px}
+.nv-sec.nv-read::after{content:"Đã đọc xong phần này";color:#fff;background:var(--nv-xong)}
+.nv-done{box-shadow:-4px 0 0 var(--nv-xong)}
+.nv-tl{box-sizing:border-box;display:block;width:100%;margin:10px 0 4px;border:1.5px solid var(--nv-vien);background:var(--nv-nen);color:var(--nv-chu);border-radius:12px;padding:10px 12px;font:inherit;font-size:16px;resize:vertical}
+.ansrow[data-bao]::after{content:attr(data-bao);font:700 13px/1.4 "Be Vietnam Pro",system-ui,sans-serif;color:#C2404A;margin-left:10px}
+/* bài ngữ pháp: chỉ xem được đáp án sau khi đã làm */
+body.nv-on .qz:not(.nv-tried):not(.nv-done) [data-act="show"]{display:none}

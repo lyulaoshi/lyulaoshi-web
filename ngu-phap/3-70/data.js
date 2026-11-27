@@ -8,8 +8,8 @@ goals:[
 intro:"只有 = “chỉ có (làm thế) … mới …”: thiếu điều kiện thì không được. 只要 = “chỉ cần … là …”: có điều kiện là đủ.",
 rules:[
  {t:"只有 + điều kiện，(S) + 才 + kết quả", sub:"条件", fx:[["只有",null],["điều kiện duy nhất",""],["·",""],["S + 才",null],["kết quả",""]], mean:"",
-  ex:[["[只有]认真检查，我们[才]会发现问题、解决问题。","Zhǐyǒu rènzhēn jiǎnchá, wǒmen cái huì fāxiàn wèntí, jiějué wèntí.","Chỉ có kiểm tra kỹ, chúng ta mới phát hiện và giải quyết được vấn đề.","等级标准"],
-      ["[只有]多练习，你[才]能提高中文水平。","Zhǐyǒu duō liànxí, nǐ cái néng tígāo Zhōngwén shuǐpíng.","Chỉ có luyện nhiều, bạn mới nâng cao được trình độ tiếng Trung.","等级标准"]]}],
+  ex:[["{1|只有}{2|认真检查}，{3|我们才}{4|会发现问题、解决问题}。","Zhǐyǒu rènzhēn jiǎnchá, wǒmen cái huì fāxiàn wèntí, jiějué wèntí.","Chỉ có kiểm tra kỹ, chúng ta mới phát hiện và giải quyết được vấn đề.","等级标准"],
+      ["{1|只有}{2|多练习}，{3|你才}{4|能提高中文水平}。","Zhǐyǒu duō liànxí, nǐ cái néng tígāo Zhōngwén shuǐpíng.","Chỉ có luyện nhiều, bạn mới nâng cao được trình độ tiếng Trung.","等级标准"]]}],
 cmp:[
  {vn:"Chỉ cần luyện nhiều là bạn sẽ tiến bộ.", zh:"[只要]多练习，你[就]会进步。", py:"Zhǐyào duō liànxí, nǐ jiù huì jìnbù.", ok:true, why:"“chỉ cần … là” = 只要…就, khác 只有…才."}],
 ex:[

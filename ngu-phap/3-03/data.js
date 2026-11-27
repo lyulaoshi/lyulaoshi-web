@@ -8,8 +8,8 @@ goals:[
 intro:"敢 = “dám”, đứng <b>trước động từ</b> như các động từ năng nguyện khác (会、能、想…).",
 rules:[
  {t:"(不) 敢 + V", sub:"敢", fx:[["Chủ ngữ",""],["敢 / 不敢",null],["Động từ",""]], mean:"",
-  ex:[["这儿有两米高，你[敢]跳下去吗？","Zhèr yǒu liǎng mǐ gāo, nǐ gǎn tiào xiaqu ma?","Chỗ này cao hai mét, bạn dám nhảy xuống không?","等级标准"],
-      ["我[不敢]在河里游泳。","Wǒ bù gǎn zài hé li yóuyǒng.","Tôi không dám bơi ở sông."]]}],
+  ex:[["这儿有两米高，{1|你}{2|敢}{3|跳下去}吗？","Zhèr yǒu liǎng mǐ gāo, nǐ gǎn tiào xiaqu ma?","Chỗ này cao hai mét, bạn dám nhảy xuống không?","等级标准"],
+      ["{1|我}{2|不敢}{3|在河里游泳}。","Wǒ bù gǎn zài hé li yóuyǒng.","Tôi không dám bơi ở sông."]]}],
 cmp:[
  {vn:"Tôi không dám nói.", zh:"我[不敢]说。", py:"Wǒ bù gǎn shuō.", ok:true, why:"Giống trật tự tiếng Việt."}],
 ex:[

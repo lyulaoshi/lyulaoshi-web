@@ -8,11 +8,11 @@ goals:[
 intro:"Bổ ngữ khả năng cho biết <b>có đủ khả năng / điều kiện</b> để đạt kết quả hay không. Rất hay dùng trong khẩu ngữ, nhất là dạng phủ định.",
 rules:[
  {t:"V + 得 / 不 + bổ ngữ", sub:"可能补语", fx:[["Động từ",""],["得 / 不",null],["động từ / tính từ (bổ ngữ)",""]], mean:"",
-  ex:[["老师的话我都听[得]懂。","Lǎoshī de huà wǒ dōu tīng de dǒng.","Lời thầy tôi đều nghe hiểu được.","等级标准"],
-      ["这件衣服太脏了，洗[不]干净了。","Zhè jiàn yīfu tài zāng le, xǐ bu gānjìng le.","Chiếc áo này bẩn quá, giặt không sạch được nữa.","等级标准"]]},
+  ex:[["老师的话我都{1|听}{2|得}{3|懂}。","Lǎoshī de huà wǒ dōu tīng de dǒng.","Lời thầy tôi đều nghe hiểu được.","等级标准"],
+      ["这件衣服太脏了，{1|洗}{2|不}{3|干净}了。","Zhè jiàn yīfu tài zāng le, xǐ bu gānjìng le.","Chiếc áo này bẩn quá, giặt không sạch được nữa.","等级标准"]]},
  {t:"V + 得了 / 不了", sub:"得了 · 不了", fx:[["Động từ",""],["得了 / 不了",null]], mean:"了 đọc liǎo: có thể / không thể thực hiện.",
-  ex:[["明天的比赛你参加[得了]吗？","Míngtiān de bǐsài nǐ cānjiā de liǎo ma?","Trận đấu ngày mai bạn tham gia được không?","等级标准"],
-      ["我病了，明天上[不了]课。","Wǒ bìng le, míngtiān shàng bu liǎo kè.","Tôi ốm rồi, mai không lên lớp được.","等级标准"]]}],
+  ex:[["明天的比赛你{1|参加}{2|得了}吗？","Míngtiān de bǐsài nǐ cānjiā de liǎo ma?","Trận đấu ngày mai bạn tham gia được không?","等级标准"],
+      ["我病了，明天{1|上}{2|不了}课。","Wǒ bìng le, míngtiān shàng bu liǎo kè.","Tôi ốm rồi, mai không lên lớp được.","等级标准"]]}],
 notes:[{t:"不能 và V不C", html:"Không làm được vì <b>khả năng / điều kiện thực tế</b>: <span class='zh'>听不懂、买不到</span>. Không được phép: <span class='zh'>不能</span> (<span class='zh'>这儿不能抽烟</span>)."}],
 cmp:[
  {vn:"Tôi nghe không hiểu.", zh:"我听[不]懂。", py:"Wǒ tīng bu dǒng.", ok:true, why:"“không … được / không hiểu” (khả năng) → V不C."},

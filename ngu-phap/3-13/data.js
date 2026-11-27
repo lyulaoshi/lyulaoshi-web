@@ -8,14 +8,17 @@ goals:[
 intro:"Các phó từ này <b>giới hạn phạm vi</b>. 光 khẩu ngữ, 仅 / 仅仅 trang trọng hơn, 就 hay dùng trong nói.",
 rules:[
  {t:"光 / 仅 / 仅仅 + V / số lượng", sub:"chỉ", fx:[["(S)",""],["光 / 仅 / 仅仅",null],["V / số lượng",""]], mean:"",
-  ex:[["他每天[光]玩儿不学习。","Tā měi tiān guāng wánr bù xuéxí.","Ngày nào anh ấy cũng chỉ chơi, không học.","等级标准"],
-      ["今天来上课的[仅]有五个学生。","Jīntiān lái shàng kè de jǐn yǒu wǔ ge xuésheng.","Hôm nay chỉ có năm học sinh đến lớp.","等级标准"],
-      ["这次旅行[仅仅]花了三千块。","Zhè cì lǚxíng jǐnjǐn huā le sānqiān kuài.","Chuyến du lịch này chỉ tốn 3.000 tệ.","等级标准"]]},
+  ex:[["{1|他}每天{2|光}{3|玩儿不学习}。","Tā měi tiān guāng wánr bù xuéxí.","Ngày nào anh ấy cũng chỉ chơi, không học.","等级标准"],
+      ["今天来上课的{2|仅}有{3|五个学生}。","Jīntiān lái shàng kè de jǐn yǒu wǔ ge xuésheng.","Hôm nay chỉ có năm học sinh đến lớp.","等级标准"],
+      ["{1|这次旅行}{2|仅仅}{3|花了三千块}。","Zhè cì lǚxíng jǐnjǐn huā le sānqiān kuài.","Chuyến du lịch này chỉ tốn 3.000 tệ.","等级标准"]]},
  {t:"就³: chỉ (riêng)", sub:"就³", fx:[["就",null],["người / số lượng",""]], mean:"就 + chủ ngữ: chỉ người đó; 就 + V + số lượng: chỉ bấy nhiêu.",
-  ex:[["我们班[就]他知道这个消息。","Wǒmen bān jiù tā zhīdào zhège xiāoxi.","Lớp chúng tôi chỉ anh ấy biết tin này.","等级标准"],
-      ["我[就]拿了一支笔。","Wǒ jiù ná le yì zhī bǐ.","Tôi chỉ lấy một cây bút.","等级标准"]]},
+  ex:[["我们班{1|就}{2|他}知道这个消息。","Wǒmen bān jiù tā zhīdào zhège xiāoxi.","Lớp chúng tôi chỉ anh ấy biết tin này.","等级标准"],
+      ["我{1|就}拿了{2|一支笔}。","Wǒ jiù ná le yì zhī bǐ.","Tôi chỉ lấy một cây bút.","等级标准"]]},
  {t:"至少: ít nhất", sub:"至少", fx:[["至少",null],["(V) + số lượng",""]], mean:"",
-  ex:[["教室里[至少]有五十个人。","Jiàoshì li zhìshǎo yǒu wǔshí ge rén.","Trong lớp ít nhất có 50 người.","等级标准"]]}],
+  ex:[["教室里{1|至少}{2|有五十个人}。","Jiàoshì li zhìshǎo yǒu wǔshí ge rén.","Trong lớp ít nhất có 50 người.","等级标准"]]},
+ {t:"到处、只是", sub:"khắp nơi, chỉ là", fx:[["S / nơi chốn",""],["到处 / 只是",null],["V",""]], mean:"到处 = khắp nơi (hay đi với 都) · 只是 = chỉ là, chẳng qua.",
+  ex:[["{1|公园里}{2|到处}{3|都是花}。", "Gōngyuán li dàochù dōu shì huā.", "Trong công viên chỗ nào cũng là hoa."],
+      ["{1|我}{2|只是}{3|随便看看}。", "Wǒ zhǐshì suíbiàn kànkan.", "Tôi chỉ xem qua thôi."]]}],
 cmp:[
  {vn:"Tôi chỉ có 10 tệ thôi.", zh:"我[就]有十块钱。", py:"Wǒ jiù yǒu shí kuài qián.", ok:true, why:"“chỉ … thôi” → 就 / 只 trước động từ."},
  {vn:"Ít nhất phải học hai tiếng.", zh:"[至少]要学两个小时。", py:"Zhìshǎo yào xué liǎng ge xiǎoshí.", ok:true, why:"至少 đứng trước."}],
@@ -35,6 +38,8 @@ practice:[
   {w:["你","至少","要","睡","七个小时"], a:"你至少要睡七个小时。", vi:"Bạn phải ngủ ít nhất bảy tiếng."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Trong nhà chỉ có mình tôi.", a:"家里就我一个人。/ 家里只有我一个人。"},
-  {q:"Tôi chỉ lấy một cây bút.", a:"我就拿了一支笔。/ 我只拿了一支笔。"}]}],
+  {q:"Tôi chỉ lấy một cây bút.", a:"我就拿了一支笔。/ 我只拿了一支笔。"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"房间里＿都是书。", vi:"Trong phòng đâu đâu cũng là sách.", o:["到处", "只是", "一共"], a:0, why:"到处都是."}]}],
 rel:["二14","一10","三12","二20"]
 };

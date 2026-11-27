@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Giao bài về nhà 回家玩 · Góc giáo viên – 吕老师汉语盒</title>
+<meta name="description" content="Giao game từ vựng tiếng Trung về nhà: chọn bộ từ, chọn game, gửi link cho học viên, thu mã kết quả và xếp hạng – Góc giáo viên, Lyu Laoshi Chinese Box.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../../tro-choi/game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="../gv.css?v=20">
+<style>
+.khoi{margin-top:14px}.khoi h2{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:18px;font-weight:800}
+.khoi h2 i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;font-style:normal;font-size:15px}
+.khoi label.o{display:grid;gap:4px;font-size:13px;font-weight:700;color:var(--muted)}
+.khoi textarea{font-family:var(--kai),var(--vi);font-size:18px}
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.games h3{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:6px 0 0;font-size:15px;font-weight:800}.games h3 small{font-weight:600;font-size:12.5px;color:var(--muted)}
+.games button{position:relative;display:grid;gap:4px;align-content:start;text-align:left;padding:13px 15px;border:2px solid color-mix(in srgb,var(--c) 24%,transparent);border-radius:18px;background:var(--s);color:var(--ink);font:inherit;cursor:pointer;transition:transform .12s,border-color .12s}
+.games button:hover:not(:disabled){transform:translateY(-2px);border-color:var(--c)}
+.games b{font-size:15.5px;font-weight:800;line-height:1.3;padding-right:26px;color:color-mix(in srgb,var(--c) 62%,var(--ink))}.games b span{font-family:var(--hz);font-weight:400;margin-left:7px}
+.games small{font-size:13px;line-height:1.45}.games em{font-style:normal;font-size:12px;font-weight:700;color:var(--muted)}
+.games button[aria-pressed="true"]{border-color:var(--c);box-shadow:0 0 0 2px var(--c),var(--shadow)}
+.games button>.lli{position:absolute;top:10px;right:10px;width:24px;height:24px;padding:4px;border-radius:50%;background:var(--c);color:#fff;opacity:0}
+.games button[aria-pressed="true"]>.lli{opacity:1}
+.games button:disabled{opacity:.5;cursor:not-allowed}
+.gui{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:18px;align-items:start}
+.lnk{display:flex;gap:8px}.lnk input{flex:1;font-size:13.5px}
+.tin{margin:10px 0;padding:12px 15px;border-radius:16px 16px 16px 4px;background:var(--sky-s);font-size:14.5px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}
+.qr{width:190px;height:190px;padding:10px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:13px;color:#555;text-align:center}
+.qr svg{width:100%;height:100%}
+@media (max-width:700px){.gui{grid-template-columns:minmax(0,1fr)}.qr{justify-self:center}}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<link rel="canonical" href="https://lyulaoshi.com/goc-giao-vien/giao-bai/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="Giao bài về nhà 回家玩 · Góc giáo viên – 吕老师汉语盒"><meta property="og:description" content="Giao game từ vựng tiếng Trung về nhà: chọn bộ từ, chọn game, gửi link cho học viên, thu mã kết quả và xếp hạng – Góc giáo viên, Lyu Laoshi Chinese Box."><meta property="og:url" content="https://lyulaoshi.com/goc-giao-vien/giao-bai/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../" class="hide-s">Góc giáo viên</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap">
+<section class="ph">
+  <a class="back" href="../"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#tg-trai"></use></svg>Góc giáo viên</a>
+  <h1>Giao bài về nhà<span lang="zh">回家玩</span></h1>
+  <p>Chọn bộ từ, chọn một game, gửi link. Học viên chơi hết ván thì gửi mã lại, thầy cô dán vào trang Thu bài để xếp hạng.</p>
+  <a class="btn gh" href="/chung/bai-nop.html?v=584a5ed2" style="justify-self:start"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#thu"></use></svg>Thu bài, xếp hạng</a>
+</section>
+<div id="vTao">
+  <section class="khoi pn">
+    <h2><i>1</i>Bộ từ</h2>
+    <div class="seg" id="sNguon" role="group" aria-label="Nguồn từ"></div>
+    <div id="nguon"></div>
+    <div id="tuNhap" hidden style="display:grid;gap:10px;margin-top:12px">
+      <label class="o">Mỗi dòng một từ: chữ Hán | pinyin | nghĩa. Từ có trong HSK chỉ cần gõ chữ Hán.<textarea id="tuT" rows="8" placeholder="奶茶 | nǎichá | trà sữa&#10;火锅 | huǒguō | lẩu&#10;朋友"></textarea></label>
+      <p class="small muted" id="tuSt" style="margin:0" aria-live="polite"></p>
+    </div>
+  </section>
+  <section class="khoi pn">
+    <h2><i>2</i>Chọn một trong 16 game</h2>
+    <div class="games" id="games" role="group" aria-label="Chọn game"></div>
+  </section>
+  <section class="khoi pn">
+    <h2><i>3</i>Gửi cho lớp</h2>
+    <div class="row" style="margin-bottom:12px"><label class="o" style="flex:2 1 260px">Tên bài giao<input type="text" id="tTen" maxlength="60"></label><label class="o" style="flex:1 1 180px">Hạn nộp (không bắt buộc)<input type="text" id="tHan" maxlength="40" placeholder="Ví dụ: tối thứ Sáu"></label></div>
+    <p class="note" id="chuaGui" hidden></p>
+    <div class="gui" id="gui">
+      <div style="min-width:0">
+        <div class="lnk"><input type="text" id="lk" readonly aria-label="Link bài giao"><button class="btn tl" type="button" id="bLk"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#chep"></use></svg>Chép link</button></div>
+        <div class="tin" id="tin"></div>
+        <div class="row"><button class="btn tl" type="button" id="bTin"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#chep"></use></svg>Chép tin nhắn</button><button class="btn gh" type="button" id="bGui" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#gui"></use></svg>Gửi qua Zalo…</button><a class="btn gh" id="aThu" target="_blank" rel="noopener"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#phat"></use></svg>Chơi thử như học viên</a></div>
+      </div>
+      <div class="qr" id="qr">Đang tạo mã QR…</div>
+    </div>
+  </section>
+</div>
+
+</main>
+<footer class="wrap">© Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../../tu-vung/bai-data.js"></script>
+<script src="../../tro-choi/vuot-ai/co-de.js"></script>
+<script src="../../tro-choi/nhom-chu.js?v=1"></script>
+<script src="../../tro-choi/vuot-ai/de-tttc.js?v=3"></script>
+<script src="../../tro-choi/vuot-ai/de-301.js?v=2"></script>
+<script src="../../tro-choi/vuot-ai/de-301b.js?v=2"></script>
+<script src="../../tro-choi/vuot-ai/de-fazhan.js?v=2"></script>
+<script src="../../tro-choi/vuot-ai/de-boya.js?v=2"></script>
+<script src="../../tro-choi/vuot-ai/de-yuedu.js?v=3"></script>
+<script src="../../tro-choi/vuot-ai/de-ledu.js?v=2"></script>
+<script src="../../tro-choi/hsk-words.js"></script>
+<script src="../../tu-vung/nghia-hsk1.js"></script>
+<script src="../../tro-choi/giao-bai.js?v=3"></script>
+<script src="../gv.js?v=7"></script>
+<script src="../gv-tu.js?v=9"></script>
+<script>
+(function(){
+const {$,esc,store,toast,enc}=GV,{seg}=GVT,B=GIAOBAI,G=B.GAME;
+const o=Object.assign({nguon:'bai',game:'lat-the',tuT:'',ten:'',han:''},store.get('gv-giao-nhap')||{});
+const luu=()=>store.set('gv-giao-nhap',o);
+const GOC=/lyulaoshi\.com$/.test(location.hostname)?location.origin:'https://lyulaoshi.com';
+let tu=[],tenBo='',tenTuDat=!!o.ten;
+/* ---------- 1. Bộ từ ---------- */
+function tra(z){const H=window.HSK||{},N=window.NGHIA||{};for(const l in H){const f=H[l].find(([v])=>v===z);if(f)return{p:f[1],vi:N[z+'|'+f[1]]||N[z]||''}}return null}
+function tachTu(chu){const ok=[],thieu=[],co=new Set();chu.split('\n').map(x=>x.trim()).filter(Boolean).forEach(d=>{const [z,p,vi]=d.split(/\s*[|\t｜]\s*/).map(x=>(x||'').trim());if(!z||co.has(z))return;co.add(z);
+  const L=tra(z),pp=p||(L&&L.p)||'';if(!pp){thieu.push(z);return}ok.push({z,p:pp,vi:vi||(L&&L.vi)||''})});return{ok,thieu}}
+let tuBai=[],tenBai='';
+function capNhat(){if(o.nguon==='nhap'){const r=tachTu(o.tuT);tu=r.ok;tenBo='Bộ từ '+tu.length+' từ';
+    $('tuSt').textContent=tu.length+' từ dùng được.'+(r.thieu.length?' Thiếu pinyin: '+r.thieu.join('、')+' (gõ thêm | pinyin).':'')}
+  else{tu=tuBai;tenBo=tenBai}ve()}
+seg($('sNguon'),[['bai','Theo bài giáo trình'],['nhap','Tự nhập']],o.nguon,v=>{o.nguon=v;luu();$('nguon').hidden=v!=='bai';$('tuNhap').hidden=v!=='nhap';capNhat()});
+$('nguon').hidden=o.nguon!=='bai';$('tuNhap').hidden=o.nguon!=='nhap';
+$('tuT').value=o.tuT;$('tuT').oninput=e=>{o.tuT=e.target.value;luu();capNhat()};
+/* ---------- 2. Game ---------- */
+/* luật chọn từ của vài game: từ nào dùng được */
+let CHU_BO=null;
+const HAN=/^\p{Script=Han}+$/u,NANA=new Set((window.GROUPS||[]).join(''));
+const LOC={tu23:x=>[...x.z].length>=2&&[...x.z].length<=3&&HAN.test(x.z)&&!/儿$/.test(x.z),
+  nana:x=>[...x.z].some(c=>NANA.has(c)),
+  bo:x=>CHU_BO?[...x.z].some(c=>CHU_BO.has(c)):true};
+/* danh sách chữ ghép được lấy thẳng từ trang Ghép bộ thủ để không chép hai nơi */
+fetch('../../tro-choi/ghep-bo/index.html').then(r=>r.text()).then(t=>{const d=t.slice(t.indexOf('const LR'),t.indexOf('const ITEMS'));CHU_BO=new Set((d.match(/\p{Script=Han}(?==)/gu)||[]));ve()}).catch(()=>{});
+const dungDuoc=k=>{const g=G[k];if(g.loc==='bo'&&CHU_BO)return new Set(tu.flatMap(x=>[...x.z]).filter(c=>CHU_BO.has(c))).size;
+  return tu.filter(x=>(!g.dai||[...x.z].length<=g.dai)&&(!g.loc||LOC[g.loc](x))).length};
+/* bài giáo trình đang chọn (cho game ôn câu) */
+function baiDangChon(){if(o.nguon!=='bai')return null;const s=$('ngS'),b=$('ngB');if(!s||s.value==='__cot')return null;return{sach:s.value,bai:b.value}}
+const deBai=()=>{const c=baiDangChon();return c&&(window.VA_BAI||[]).find(x=>x.id===c.sach+'-'+c.bai)};
+function tinhTrang(k){const g=G[k];
+  if(g.cau){if(o.nguon!=='bai'||!baiDangChon())return{du:false,ghi:'Chỉ dùng với bài giáo trình'};const d=deBai(),co=d&&g.cau.some(t=>(d[t]||[]).length);
+    return{du:!!co,ghi:co?'Câu của bài đang chọn':'Bài này chưa có đề'}}
+  const n=dungDuoc(k),du=n>=g.it,don=g.loc==='bo'?' chữ ghép được':' từ';
+  const dieu=g.dai?' (tối đa '+g.dai+' chữ)':g.loc==='tu23'?' (loại 2–3 chữ)':g.loc==='nana'?' có chữ dễ nhầm':'';
+  return{du,so:n,ghi:du?(n<tu.length&&g.loc!=='bo'?'Dùng '+n+' / '+tu.length+' từ'+dieu:'Dùng '+n+don):'Cần ít nhất '+g.it+don+dieu+', đang có '+n}}
+/* mỗi game một sắc nhạt trong bảng màu chung của web (tự đổi theo giao diện sáng / tối) */
+const SAC={'lat-the':'peach','noi-the':'lav','bong-bay':'rose','mua-chu':'sky','nho-chu':'butter','viet-chu':'mint',
+ 'thanh-dieu':'lav','ran-san-chu':'mint','bay-chu':'coral','ghep-bo':'peach',
+ 'vuot-ai':'coral','xep-cau':'lav','tra-loi':'sky','dien-cho':'mint','tim-loi':'rose','dich-cau':'peach'};
+function veGame(){const the=([k,g])=>{const t=tinhTrang(k);
+    return '<button type="button" data-k="'+k+'" style="--c:var(--'+SAC[k]+');--s:var(--'+SAC[k]+'-s)" aria-pressed="'+(k===o.game&&t.du)+'"'+(t.du?'':' disabled')+'><b>'+g.t+'<span lang="zh">'+g.z+'</span></b><small>'+g.m+'</small><em>'+t.ghi+'</em>'+GV.IC('tick')+'</button>'};
+  const ds=Object.entries(G);
+  $('games').innerHTML='<h3>Từ vựng, thanh điệu, chữ Hán</h3>'+ds.filter(([,g])=>!g.cau).map(the).join('')+'<h3>Ôn mẫu câu theo bài<small>Dùng đề của Vượt ải</small></h3>'+ds.filter(([,g])=>g.cau).map(the).join('')}
+$('games').onclick=e=>{const b=e.target.closest('button');if(!b||b.disabled)return;o.game=b.dataset.k;luu();ve()};
+/* ---------- 3. Gửi ---------- */
+function boHienTai(){
+  /* trọn một bài giáo trình thì dùng link ngắn bai:…, còn lại gói cả bộ từ vào link */
+  if(o.nguon==='bai')for(const b of window.BAI)for(const l of b.bai)if(b.vi+' · Bài '+l.n===tenBo&&l.w.length===tu.length)return'bai:'+b.id+':'+l.id;
+  return 'cot:'+enc({n:tenTen(),w:tu.map(x=>[x.z,x.p,x.vi])})}
+const tenTen=()=>o.ten.trim()||(o.nguon==='bai'?tenBo:'Ôn từ vựng');
+let hien=null,qrTai=null;
+function ve(){veGame();const du=!!(tu.length&&G[o.game]&&tinhTrang(o.game).du);
+  if(!tenTuDat)$('tTen').value=tenTen();
+  $('gui').hidden=!du;$('chuaGui').hidden=du;
+  if(!du){$('chuaGui').textContent=tu.length?'Chọn một game dùng được với bộ từ này.':'Chưa có từ nào. Chọn bài hoặc nhập bộ từ ở bước 1.';hien=null;return}
+  const g=G[o.game],c=g.cau&&baiDangChon(),bo=c?'bai:'+c.sach+':'+c.bai:boHienTai(),ten=tenTen(),lk=B.link(GOC,o.game,bo,ten);
+  hien={id:B.maBai(o.game,bo,ten),game:o.game,ten,bo,so:g.cau?0:tinhTrang(o.game).so,link:lk};
+  $('lk').value=lk;$('aThu').href=B.link(location.origin,o.game,bo,ten);
+  $('tin').textContent=ten+'\nGame: '+g.t+' '+g.z+' · '+(g.cau?'câu của bài':hien.so+(g.loc==='bo'?' chữ':' từ'))+'\nCác em bấm link, gõ họ tên rồi chơi hết một ván. Chơi xong bấm "Chép để gửi" và dán mã vào nhóm'+(o.han.trim()?' trước '+o.han.trim():'')+'.\n'+lk;
+  veQR(lk)}
+function veQR(lk){const el=$('qr');if(lk.length>1800){el.textContent='Bộ từ dài nên không làm mã QR được. Thầy cô gửi link.';return}
+  qrTai=qrTai||new Promise((ok,loi)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js';s.onload=ok;s.onerror=()=>{qrTai=null;loi()};document.head.append(s)});
+  qrTai.then(()=>{if(!hien||hien.link!==lk)return;const q=qrcode(0,'L');q.addData(lk);q.make();const n=q.getModuleCount();let d='';for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.isDark(r,c))d+='M'+c+' '+r+'h1v1h-1z';
+    el.innerHTML='<svg viewBox="-1 -1 '+(n+2)+' '+(n+2)+'" role="img" aria-label="Mã QR mở bài giao" shape-rendering="crispEdges"><path d="'+d+'" fill="#111"/></svg>'}).catch(()=>el.textContent='Không tạo được mã QR. Thầy cô gửi link.')}
+$('tTen').oninput=e=>{o.ten=e.target.value;tenTuDat=!!o.ten.trim();luu();ve()};
+$('tHan').value=o.han;$('tHan').oninput=e=>{o.han=e.target.value;luu();ve()};
+if(o.ten)$('tTen').value=o.ten;
+/* link cũ …/giao-bai/#ket-qua: chuyển sang trang Thu bài */
+if(location.hash==='#ket-qua')location.replace('/chung/bai-nop.html?v=584a5ed2');
+GVT.nguon($('nguon'),(list,t)=>{tuBai=list;tenBai=t;capNhat()});
+capNhat();
+})();
+</script>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
+</body>
+</html>

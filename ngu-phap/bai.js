@@ -7,7 +7,7 @@ const H=window.HSK_NP||{}, BAI=window.NP_BAI||[], READY=window.NP_READY||{}, BOO
 const N25=window.HSK_NP25||{}, LV25=(window.NP_LV25||{})[L.code];
 const CN="一二三四五六七八九", lv21=L.code?CN.indexOf(L.code[0])+1:0, lv=LV25&&LV25!=="?"?+LV25:lv21;
 const THEM=(window.NP_THEM||{})[L.code];   // bài đề cương 2025 không ghi → xếp bổ sung ở cấp gần nhất
-const lvTxt=LV25==="?"?(THEM?"HSK "+THEM+" · bổ sung":"ngoài đề cương mới"):"HSK "+lv, lvHash=LV25==="?"?(THEM||"all"):lv;
+const lvTxt=LV25==="?"?(THEM?"HSK "+THEM+" · bổ sung":"ngoài đề cương mới"):"HSK "+(lv>6?"7–9":lv), lvHash=LV25==="?"?(THEM||"all"):lv;
 const P25=[];Object.keys(N25).forEach(k=>N25[k].ds.forEach(d=>{if(d[4].includes(L.code))P25.push(d)}));  // các điểm đề cương mới có bài này
 const LC=(window.NP_LVCOLOR||{})[THEM&&LV25==="?"?THEM:(lv>6?"7":lv)]; if(LC)document.documentElement.style.cssText=`--c:var(--${LC});--cs:var(--${LC}-s)`;
 const GLY=(window.NP_GLYPH||{})[L.code];
@@ -23,12 +23,16 @@ const plain=s=>String(s).replace(/\{\d\|/g,'').replace(/[\[\]{}]/g,'');
 const say=s=>{const t=plain(s).replace(/——/g,'，');return window.TTS&&(TTS.co(t)||("speechSynthesis" in window))?`<button type="button" class="spk" data-say="${esc(t)}" aria-label="Nghe câu này"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#loa"/></svg></button>`:""};
 const folder=c=>READY[c];
 const $=s=>document.querySelector(s);
+// Ghi nguồn ngắn gọn (cô yêu cầu 27/11/2026): chỉ bài có duyet:true trong data.js mới ghi tên cô
+const DUYET=!!L.duyet;
+const CO_CHUAN=[].concat(L.ex||[],...(L.rules||[]).map(r=>r.ex||[])).some(e=>e[3]==="等级标准");
+const BAN_QUYEN=DUYET?"© ThS. Lã Thị Thuỳ Phương":"© 吕老师汉语盒";
 
 function sent(e,i){ // e = [chữ Hán, pinyin, nghĩa, nguồn?]
   return `<div class="sn"><span class="no">${i!=null?"("+(i+1)+")":""}</span><div><div class="l1"><span class="z">${mk(e[0])}</span>${say(e[0])}${e[3]?`<span class="src">${esc(e[3])}</span>`:""}</div>
     <div class="p">${esc(e[1]||"")}</div><div class="v">${esc(e[2]||"")}</div></div></div>`;
 }
-const SEP=/^(·|\/|→|hoặc|,)$/;  // ô chỉ là dấu ngăn: không chèn "+" hai bên
+const SEP=/^(·|\/|→|hoặc|,|，)$/;  // ô chỉ là dấu ngăn: không chèn "+" hai bên
 function fx(f,color){let n=0;  // color: tô mỗi ô một màu, khớp với {n|…} trong câu ví dụ
   return `<div class="fx${color?" col":""}">${f.map((p,i)=>SEP.test(p[0])?`<span class="plus">${esc(p[0])}</span>`:(i&&!SEP.test(f[i-1][0])&&!/^\//.test(p[0])?'<span class="plus">+</span>':'')+`<span class="${p[1]==null?"k":""}${color?" s"+(++n):""}"><b>${esc(p[0])}</b>${p[1]?`<i>${esc(p[1])}</i>`:""}</span>`).join('')}</div>`}
 let secN=0;
@@ -41,17 +45,17 @@ let html=`<div class="np-bar"><nav class="np-crumb"><a href="../"><span class="z
  <div class="np-tools" role="group" aria-label="Hiện hoặc ẩn pinyin, nghĩa"><span class="lb">Hiện</span><button class="tg" id="pyBtn" type="button" aria-pressed="true" title="Bật / tắt pinyin dưới câu ví dụ">Pinyin</button><button class="tg" id="viBtn" type="button" aria-pressed="true" title="Bật / tắt nghĩa tiếng Việt dưới câu ví dụ">Nghĩa</button></div>`;
 html+=`<section class="sec cover" id="m0"><div>${GLY?`<div class="gly n${Math.min(Array.from(GLY).length,4)}" aria-hidden="true">${esc(GLY)}</div>`:""}<div class="code"><b>${esc(lvTxt)}</b><span class="zh">${esc(L.tag||off[2])}</span> · 【${esc(L.code)}】</div>
   <h1>${esc(L.title).replace(/(“|”)/g,'<span class="qm">$1</span>')}</h1><div class="vi">${esc(L.vi)}</div>
-  <p class="d25">${P25.length?`Đề thi HSK mới: ${P25.map(d=>`<a href="../#hsk-${d[0].split(".")[0]}"><b>HSK ${d[0]}</b> ${esc(d[3].split(" — ")[0])}</a>`).join(" · ")}`:`Đề thi HSK mới (2025): ${LV25==="?"?"đề cương không ghi điểm này"+(THEM?" — xếp bổ sung ở HSK "+THEM:""):"thuộc HSK "+esc(LV25)}`}</p></div>
+  <p class="d25">${P25.length?`Đề thi HSK mới: ${P25.map(d=>`<a href="../#hsk-${d[0].split(".")[0]}"><b>HSK ${d[0].replace(/^7\./,"7–9 · ")}</b> ${esc(d[3].split(" — ")[0])}</a>`).join(" · ")}`:`Đề thi HSK mới (2025): ${LV25==="?"?"đề cương không ghi điểm này"+(THEM?" — xếp bổ sung ở HSK "+THEM:""):"thuộc HSK "+esc(LV25)}`}</p></div>
   <div class="goal"><h3>Mục tiêu</h3><ul>${(L.goals||[]).map(g=>`<li>${g}</li>`).join('')}</ul></div></section>`;
 
 if(L.rules) html+=sec("lav","语法规则","Công thức & cách dùng",(L.intro?`<p>${L.intro}</p>`:"")+L.rules.map((r,i)=>`<div class="rule"><h3>${L.rules.length>1?`<span style="color:var(--sc)">${i+1}.</span>`:""}${esc(r.t)}${r.sub?`<small>${esc(r.sub)}</small>`:""}</h3>
-  ${fx(r.fx,(r.ex||[]).some(e=>/\{\d\|/.test(e[0])))}${r.mean?`<div class="mean">${r.mean}</div>`:""}<div class="ex">${(r.ex||[]).map(e=>sent(e)).join('')}</div>${r.note?`<div class="note">${r.note}</div>`:""}</div>`).join('')
+  ${fx(r.fx,true)}${r.mean?`<div class="mean">${r.mean}</div>`:""}<div class="ex">${(r.ex||[]).map(e=>sent(e)).join('')}</div>${r.note?`<div class="note">${r.note}</div>`:""}</div>`).join('')
   +(L.notes||[]).map(n=>`<div class="note"><b class="t">${esc(n.t)}:</b> ${n.html}</div>`).join(''));
 
 if(L.cmp) html+=sec("butter","汉越对比","So với tiếng Việt",`<div class="cmp">${L.cmp.map(c=>`<div class="row"><div class="vn">${esc(c.vn)}</div><div class="ar">→</div>
   <div class="cn"><span class="z">${mk(c.zh)}</span> ${c.ok===false?`<span class="no">${esc(c.tag||"")}</span>`:c.ok?'<span class="ok"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#tick"/></svg></span>':""}<div style="font-size:14px;color:var(--sc)">${esc(c.py||"")}</div></div>${c.why?`<div class="why">${c.why}</div>`:""}</div>`).join('')}</div>`);
 
-if(L.ex) html+=sec("sky","例句","Câu ví dụ",L.ex.map((e,i)=>sent(e,i)).join('')+`<p style="font-size:13px;color:var(--muted);margin-top:10px">“等级标准”: câu ví dụ trong 《国际中文教育中文水平等级标准·应用解读本》; còn lại do cô bổ sung.</p>`);
+if(L.ex) html+=sec("sky","例句","Câu ví dụ",L.ex.map((e,i)=>sent(e,i)).join('')+(CO_CHUAN?`<p style="font-size:13px;color:var(--muted);margin-top:10px">“等级标准”: câu trong 应用解读本.</p>`:""));
 
 if(L.errs) html+=sec("coral","偏误","Lỗi người Việt hay mắc",`<div class="errs">${L.errs.map(e=>`<div class="err"><div class="bad">${esc(e.bad)}</div><div class="good">${esc(e.good)}</div><div class="why">${e.why}</div></div>`).join('')}</div>`);
 
@@ -90,7 +94,7 @@ Object.keys(READY).sort((a,b)=>(CN.indexOf(a[0])-CN.indexOf(b[0]))||(parseInt(a.
 const at=order.indexOf(L.code), pv=order[at-1], nx=order[at+1];
 const nm=c=>(OFF[c]||[c,c])[1].split("：")[0];
 html+=`<div class="pn">${pv?`<a href="../${folder(pv)}/">← Bài trước<b>【${pv}】${esc(nm(pv))}</b></a>`:"<span></span>"}${nx?`<a class="nx" href="../${folder(nx)}/">Bài sau →<b>【${nx}】${esc(nm(nx))}</b></a>`:""}</div>
-<p class="copy">© Bài giảng được biên soạn bởi ThS. Lã Thị Thuỳ Phương.</p>`;
+<p class="copy">${BAN_QUYEN}</p>`;
 $('#np').innerHTML=html;
 
 
@@ -155,17 +159,36 @@ function tog(id,cls){const b=document.getElementById(id);let on=true;try{on=loca
   b.addEventListener('click',()=>{on=!on;set();try{localStorage.setItem('np-'+cls,on?"1":"0")}catch(e){}});}
 tog('pyBtn','hide-py'); tog('viBtn','hide-vi');
 
+// ---------- Giao bài / làm nhiệm vụ (chung/nhiem-vu.js) ----------
+(function(){
+  if(!window.NV)return;
+  const ten=`【${L.code}】${L.title}`;
+  NV.tenBai=ten;
+  if(!NV.dangLam)return;
+  const qzs=[...document.querySelectorAll('#np .qz')], lay=qd=>{const [gi,ii]=qd.id.slice(1).split('-').map(Number);return L.practice[gi].items[ii]};
+  const items=qzs.map(qd=>{const [gi,ii]=qd.id.slice(1).split('-').map(Number),it=lay(qd);
+    return {id:qd.id,el:qd,label:`${L.practice[gi].t.split('.')[0]}${ii+1}: ${it.q||it.vi||it.a}`}});
+  qzs.forEach(qd=>{ if(qd.dataset.type!=="show"||qd.querySelector('.tin'))return;   // câu mở: viết câu trả lời rồi mới xem đáp án
+    const t=document.createElement('textarea');t.className='nv-tl';t.rows=2;t.placeholder='Viết câu trả lời của em…';t.setAttribute('aria-label','Câu trả lời của em');qd.querySelector('.acts').before(t);
+    t.addEventListener('input',()=>{const v=t.value.trim();if(v.length>=2){qd.classList.add('nv-tried');NV.ghi(qd.id,{xong:true,dung:null,tl:v})}});});
+  function xet(qd,e){const it=lay(qd),type=qd.dataset.type,fb=qd.querySelector('.fb'),act=e.target.closest('[data-act]')?.dataset.act;
+    if(type==="choice"){const b=e.target.closest('.opt');if(!b)return;const k=+b.dataset.k,ok=k===it.a;NV.ghi(qd.id,{xong:ok,dung:ok,tl:ok?undefined:it.o[k]});return}
+    if(type==="order"){
+      if(act==="check"&&!qd.querySelector('.pool .chip:not(.used)')){const ok=fb.classList.contains('ok');qd.classList.add('nv-tried');
+        NV.ghi(qd.id,{xong:ok,dung:ok,tl:ok?undefined:[...qd.querySelector('.line').children].map(x=>x.textContent).join('')})}
+      else if(act==="show"&&qd.classList.contains('nv-tried'))NV.ghi(qd.id,{xong:true});return}
+    const inp=qd.querySelector('.tin');if(inp&&(act==="type"||e.type==="keydown")){const v=inp.value.trim();if(!/[\u3400-\u9fff]/.test(v))return;
+      const ok=qd.querySelector('.typ + .fb').classList.contains('ok');qd.classList.add('nv-tried');NV.ghi(qd.id,{xong:true,dung:ok,tl:ok?undefined:v})}}
+  document.addEventListener('click',e=>{const qd=e.target.closest('.qz');if(qd)xet(qd,e)});
+  document.addEventListener('keydown',e=>{if(e.key!=="Enter"||e.isComposing||!e.target.classList?.contains('tin'))return;xet(e.target.closest('.qz'),e)});
+  const secs=[...document.querySelectorAll('#np > .sec')].filter(s=>!s.querySelector('.qz')&&!s.classList.contains('mint'));
+  NV.bat({title:ten,sections:secs.map(s=>({el:s,name:s.querySelector('h2')?s.querySelector('h2').lastChild.textContent.trim():'Mở đầu · mục tiêu'})),items});
+})();
+
 // ---------- In bài: CHỈ giáo viên (cô yêu cầu 28/09/2026) ----------
-// Mở chế độ giáo viên: vào bất kỳ bài nào với ?gv=<mã giáo viên> một lần, máy nhớ; tắt: ?gv=0.
-// Mã không ghi trong code, chỉ lưu SHA-256. Học sinh bấm in (Ctrl+P) chỉ ra dòng thông báo (xem bai.css @media print).
 const IN_BAI=false;   // cô tạm gác việc in (28/09/2026) — đổi thành true để bật lại (cả dòng NP_IN trong ngu-phap/index.html)
-const GV_HASH="90d7f6d38bc77fbade6f4aec51474079fa4810d61b1774787db9938057d2cb70";
-async function sha(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
-if(IN_BAI)(async()=>{document.body.classList.add('np-in');const q=new URLSearchParams(location.search).get('gv');
-  try{if(q==="0")localStorage.removeItem('np-gv');else if(q&&window.crypto&&crypto.subtle&&await sha(q)===GV_HASH)localStorage.setItem('np-gv',GV_HASH);}catch(e){}
-  if(q!=null)history.replaceState(null,'',location.pathname+location.hash);   // xoá mã khỏi thanh địa chỉ
-  let on=false;try{on=localStorage.getItem('np-gv')===GV_HASH}catch(e){}
-  if(on){document.body.classList.add('gv');printUI();}})();
+if(IN_BAI)(async()=>{document.body.classList.add('np-in');
+  if(window.NV&&await NV.laCo){document.body.classList.add('gv');printUI();}})();
 function printUI(){
   const dock=document.querySelector('.np-tools');
   dock.insertAdjacentHTML('beforeend',`<button class="tg pr" id="prBtn" type="button" aria-haspopup="menu" aria-expanded="false" title="In bài (chỉ giáo viên)">In</button>
@@ -203,7 +226,7 @@ function doPrint(kind){
       });h+=`</ol>`;ans.push([g.t,aa]);});
     if(kind==="da")h+=`<div class="pda"><h1>Đáp án · 【${esc(L.code)}】<span class="zh">${esc(L.title)}</span></h1>${ans.map(([t,aa])=>`<h2>${esc(t)}</h2><ol>${aa.map(a=>`<li>${a}</li>`).join('')}</ol>`).join('')}</div>`;
   }
-  h+=`<div class="pfoot">© ThS. Lã Thị Thuỳ Phương · 吕老师汉语盒 lyulaoshi.com</div>`;
+  h+=`<div class="pfoot">${DUYET?"© ThS. Lã Thị Thuỳ Phương · ":"© "}吕老师汉语盒 lyulaoshi.com</div>`;
   let ps=$('#printSheet');if(!ps){ps=document.createElement('div');ps.id='printSheet';document.body.appendChild(ps)}
   ps.innerHTML=h;document.body.classList.add('printing');
   const done=()=>{document.body.classList.remove('printing');removeEventListener('afterprint',done)};addEventListener('afterprint',done);

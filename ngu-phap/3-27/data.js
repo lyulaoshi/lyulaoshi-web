@@ -8,11 +8,11 @@ goals:[
 intro:"把 dẫn ra <b>vật bị tác động</b>; 被 / 叫 / 让 dẫn ra <b>người gây ra</b> hành động (bị động). Chi tiết kiểu câu ở 【三54】【三55】.",
 rules:[
  {t:"S + 把 + O + V + thành phần khác", sub:"把", fx:[["Chủ ngữ",""],["把",null],["Đối tượng",""],["V + 在 / 了 / bổ ngữ…",""]], mean:"Nhấn mạnh xử lý đối tượng thế nào.",
-  ex:[["我看见你[把]手机放在书包里了。","Wǒ kànjiàn nǐ bǎ shǒujī fàng zài shūbāo li le.","Tôi thấy bạn để điện thoại vào cặp rồi.","等级标准"]]},
+  ex:[["我看见{1|你}{2|把}{3|手机}{4|放在书包里}了。","Wǒ kànjiàn nǐ bǎ shǒujī fàng zài shūbāo li le.","Tôi thấy bạn để điện thoại vào cặp rồi.","等级标准"]]},
  {t:"O + 被 / 叫 / 让 + người + V + thành phần khác", sub:"被 · 叫 · 让", fx:[["Đối tượng",""],["被 / 叫 / 让",null],["người",""],["V + 了 / bổ ngữ…",""]], mean:"叫, 让 mang màu khẩu ngữ, phải có người làm; 被 có thể lược người làm.",
-  ex:[["裙子[被]我弄脏了。","Qúnzi bèi wǒ nòngzāng le.","Váy bị tôi làm bẩn rồi.","等级标准"],
-      ["手机[叫]我弄坏了。","Shǒujī jiào wǒ nònghuài le.","Điện thoại bị tôi làm hỏng rồi.","等级标准"],
-      ["我的车[让]朋友借走了。","Wǒ de chē ràng péngyou jièzǒu le.","Xe của tôi bị bạn mượn đi rồi.","等级标准"]]}],
+  ex:[["{1|裙子}{2|被}{3|我}{4|弄脏了}。","Qúnzi bèi wǒ nòngzāng le.","Váy bị tôi làm bẩn rồi.","等级标准"],
+      ["{1|手机}{2|叫}{3|我}{4|弄坏了}。","Shǒujī jiào wǒ nònghuài le.","Điện thoại bị tôi làm hỏng rồi.","等级标准"],
+      ["{1|我的车}{2|让}{3|朋友}{4|借走了}。","Wǒ de chē ràng péngyou jièzǒu le.","Xe của tôi bị bạn mượn đi rồi.","等级标准"]]}],
 cmp:[
  {vn:"Điện thoại bị tôi làm hỏng rồi.", zh:"手机[被]我弄坏了。", py:"Shǒujī bèi wǒ nònghuài le.", ok:true, why:"“bị” = 被, trật tự giống tiếng Việt, nhưng cần bổ ngữ 坏 + 了."}],
 ex:[

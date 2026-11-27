@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bingo cả lớp 宾果 – Trò chơi 吕老师汉语盒</title>
+<meta name="description" content="Trò chơi trên lớp: cô tạo phòng, học viên quét mã QR nhận thẻ từ vựng riêng, nghe cô gọi từ rồi đánh dấu. Đủ một hàng là Bingo! Không cần tài khoản.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+[hidden]{display:none!important}
+.screen{padding:26px 0}
+.eyebrow{font-family:var(--hz);color:var(--mint);font-size:22px}
+h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4px}
+.lead{color:var(--muted);max-width:40em;margin:10px 0 0}
+.panel{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:20px;margin-top:20px;display:grid;gap:14px}
+.panel h2{font-size:16px;font-weight:800}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:2px solid var(--line);background:var(--ground);color:var(--ink);font:inherit;font-weight:700;padding:8px 14px;border-radius:999px;cursor:pointer;text-align:left}
+.chip[aria-pressed="true"]{border-color:var(--mint);background:var(--mint-s);color:var(--ink)}
+.chip:disabled{opacity:.5;cursor:not-allowed}
+.chip small{font-weight:400;color:var(--muted);margin-left:4px}
+.how{margin:0;padding-left:20px;color:var(--muted);font-size:14.5px}
+.how b{color:var(--ink)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.muted{color:var(--muted);font-size:14px}
+.hero-top{display:grid;grid-template-columns:1fr minmax(200px,250px);gap:22px;align-items:center}
+@media (max-width:700px){.hero-top{grid-template-columns:1fr}}
+main.big{max-width:1400px}
+/* phòng: mã QR */
+.room{display:grid;grid-template-columns:minmax(220px,340px) minmax(0,1fr);gap:22px;align-items:start;margin-top:14px}
+.qr{background:#fff;border-radius:18px;padding:14px;box-shadow:var(--shadow);aspect-ratio:1;display:grid;place-items:center;color:#2B2E45;text-align:center;font-size:14px}
+.qr svg{display:block;width:100%;height:100%}
+.linkbox{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.linkbox code{color:var(--ink);font-size:13.5px;overflow-wrap:anywhere;background:var(--ground2);padding:6px 10px;border-radius:10px;min-width:0;flex:1 1 200px}
+.wl{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.wl li{color:var(--ink);background:var(--card);border-radius:10px;padding:2px 10px;font-family:var(--kai);font-size:clamp(20px,2vw,27px);line-height:1.35}
+.wl li small{font-family:var(--vi);font-size:13px;color:var(--sky);font-weight:700;margin-left:5px}
+@media (max-width:760px){.room{grid-template-columns:1fr}.qr{max-width:260px}}
+/* cô gọi từ */
+.stagec{color:var(--ink)}
+.call{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px;margin-top:14px;align-items:start}
+.stagec{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:18px;min-height:clamp(260px,56vh,560px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center}
+.cnt{font-weight:700;color:var(--muted);font-size:15px}
+.mrow2{display:flex;align-items:center;gap:12px;width:100%;max-width:520px}
+.stagec .bar{background:var(--ground2)}
+.cz{font-family:var(--kai);font-size:clamp(70px,12vw,170px);line-height:1.1}
+.cz.long{font-size:clamp(50px,8vw,120px)}
+.cp{font-weight:800;color:var(--sky);font-size:clamp(38px,6vw,84px);line-height:1.15;overflow-wrap:anywhere}
+.cv2{font-weight:800;font-size:clamp(30px,4.6vw,64px);line-height:1.2}
+.csub{min-height:1.5em;color:var(--muted);font-weight:600;font-size:clamp(16px,1.6vw,22px)}
+.csub .zh{font-family:var(--kai);font-weight:400;font-size:1.4em;color:var(--ink);margin-right:8px}
+.spk.huge{width:clamp(84px,11vw,130px);height:clamp(84px,11vw,130px);font-size:clamp(38px,5vw,60px)}
+.btn kbd{font:600 12px var(--vi);opacity:.7}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.go{background:var(--mint);color:#fff}
+.ct{display:grid;gap:12px}
+.hist{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none;max-height:clamp(120px,26vh,290px);overflow:auto}
+.hist li{background:var(--butter-s);border-radius:10px;padding:0 9px;font-family:var(--kai);font-size:clamp(19px,1.8vw,24px);line-height:1.4}
+.chk{display:flex;gap:8px;flex-wrap:wrap}
+.chk input{font:inherit;font-weight:800;font-size:20px;width:100px;padding:6px 10px;border-radius:10px;border:2px solid var(--line);background:var(--ground);color:var(--ink)}
+.chk .btn{padding:8px 16px}
+.res{font-weight:700;font-size:15px}.res.ok{color:var(--mint)}.res.no{color:var(--coral)}
+.mini{display:grid;gap:3px;max-width:290px}
+.mini span{aspect-ratio:1;display:grid;place-items:center;border-radius:6px;background:var(--ground2);color:var(--muted);font-family:var(--kai);font-size:clamp(11px,1.15vw,15px);line-height:1;overflow:hidden;white-space:nowrap}
+.mini span.c{background:var(--mint-s);color:var(--ink)}
+.mini span.l{background:var(--mint);color:#fff}
+@media (max-width:860px){.call{grid-template-columns:1fr}.stagec{min-height:260px}}
+@media (hover:none){.btn kbd{display:none}}
+/* thẻ của học viên */
+#card{padding:12px 0 8px}
+.chead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.cno{font-weight:800;padding:2px 14px;border-radius:999px;background:var(--mint-s)}
+.cno b{font-size:24px;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.grid{container-type:inline-size;display:grid;gap:clamp(4px,1.3vw,8px);width:min(100%,calc(100vh - 215px),640px);min-width:min(100%,300px);margin:10px auto 0}
+.cell{position:relative;aspect-ratio:1;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:1px;cursor:pointer;display:grid;align-content:center;justify-items:center;overflow:hidden;font:inherit;touch-action:manipulation;box-shadow:0 2px 0 var(--line)}
+.cell .zh{font-family:var(--kai);line-height:1.08;white-space:nowrap}
+.cell .pyi{color:var(--sky);font-weight:700;line-height:1.1;white-space:nowrap}
+.cell.on{background:var(--butter-s);border-color:var(--butter)}
+.cell.on::after{content:"";position:absolute;inset:9%;border-radius:50%;border:clamp(3px,1cqw,6px) solid #D2323C;opacity:.72;transform:rotate(-12deg);pointer-events:none}
+.cell.line{background:var(--mint-s);border-color:var(--mint);box-shadow:0 0 0 2px var(--mint)}
+.cell.free{cursor:default;background:var(--coral-s);border-color:var(--coral);color:var(--coral);font-family:var(--hz)}
+.bgo{margin:10px auto 0;max-width:640px;padding:10px 14px;border-radius:14px;background:var(--mint);color:#fff;font-weight:700;text-align:center}
+.bgo b{font-family:var(--hz);font-weight:400;font-size:26px;margin-right:8px}
+.cfoot{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.cfoot button{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;font-size:14px;padding:6px 12px;border-radius:999px;cursor:pointer}
+.cfoot button:disabled{opacity:.5;cursor:not-allowed}
+/* màn chiếu cho lớp: không bao giờ lộ từ đang đọc, trừ khi cô bấm cho xem */
+main.full{max-width:none}
+.ch{min-height:100vh;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:clamp(8px,2vh,18px);margin:0 -16px;padding:clamp(26px,5vh,44px) 24px clamp(8px,2vh,16px)}
+.chtop{display:flex;align-items:center;gap:14px;font-weight:800;font-size:clamp(18px,3vh,30px)}
+.chtop .logo{font-size:1.5em}.chtop #chCnt{flex:none}
+.chbody{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(14px,3vw,40px);align-items:stretch;min-height:0}
+.chl{display:grid;grid-template-rows:auto minmax(0,1fr);gap:clamp(10px,2vh,20px);min-height:0}
+.chp{background:var(--card);color:var(--ink);border-radius:24px;box-shadow:var(--shadow);min-height:clamp(150px,36vh,420px);padding:14px 20px;display:flex;align-items:center;gap:clamp(10px,2vw,28px)}
+.chpt{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center}
+.ch.start .mrow{display:none}.ch.start .chr .card2{display:none}
+.chr{display:grid;gap:12px;align-content:start}
+.ch:not(.start) .chr{width:clamp(210px,25vw,340px)}.chr .cqr{justify-self:center}
+.chr .bv{font-size:clamp(15px,2.5vh,22px)}.chr .card2 h2{font-size:clamp(15px,2.5vh,22px)}
+.chp .mrow .mc{width:clamp(100px,24vh,210px)}.chp .ball{width:clamp(64px,15vh,130px)}.chp .ball b{font-size:clamp(20px,5vh,46px)}
+.chp .big{font-weight:800;font-size:clamp(34px,8vh,84px);line-height:1.15;overflow-wrap:anywhere}
+.chp .py2{font-weight:800;color:var(--sky);font-size:clamp(40px,11vh,110px);line-height:1.15;overflow-wrap:anywhere}
+.chp .zh2{font-family:var(--kai);font-size:clamp(70px,20vh,200px);line-height:1.05}
+.chp .sm{color:var(--muted);font-weight:600;font-size:clamp(17px,3vh,30px)}
+.chh{display:flex;flex-wrap:wrap;gap:clamp(6px,1.2vh,12px);align-content:flex-start;margin:0;padding:0;list-style:none;overflow:hidden;min-height:0}
+.chh li{background:var(--card);color:var(--ink);border-bottom:5px solid #FFC02E;border-radius:14px;padding:2px clamp(10px,1.2vw,18px);font-family:var(--kai);font-size:clamp(28px,6.4vh,64px);line-height:1.3}
+.chh li small{font-family:var(--vi);font-size:.36em;font-weight:700;color:var(--sky);margin-left:6px}
+.chh li:nth-child(5n+2){border-bottom-color:#E0463F}.chh li:nth-child(5n+3){border-bottom-color:#14A06E}.chh li:nth-child(5n+4){border-bottom-color:#2F86DA}.chh li:nth-child(5n+5){border-bottom-color:#9A6BE0}
+.chh li.moi{background:#FFD84D}
+.cqr{background:#fff;border-radius:18px;padding:12px;box-shadow:var(--shadow);width:clamp(120px,24vh,230px);aspect-ratio:1;align-self:start;display:grid;place-items:center;color:#2B2E45;font-size:14px;text-align:center}
+.cqr svg{display:block;width:100%;height:100%}
+.ch.start .chbody{grid-template-columns:minmax(0,1fr) auto;align-items:center}
+.ch.start .chl{grid-template-rows:auto}
+.ch.start .cqr{width:min(72vh,44vw)}
+.chf{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;opacity:.55}
+.chf:hover,.chf:focus-within{opacity:1}
+.chf button{border:0;background:var(--ground2);color:var(--ink);font:inherit;font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px;cursor:pointer}
+.cwin{position:fixed;inset:0;z-index:25;display:grid;place-items:center;background:rgba(70,5,15,.6);pointer-events:none}
+.cwin div{background:#FFC93C;color:#5A2A00;border-radius:28px;padding:clamp(18px,4vh,40px) clamp(28px,5vw,70px);font-weight:800;font-size:clamp(24px,5vh,50px);text-align:center;box-shadow:var(--shadow)}
+.cwin b{display:block;color:#A81E2A;font-family:var(--hz);font-weight:400;font-size:2em;line-height:1.15}
+@media (max-width:700px){.chbody{grid-template-columns:1fr}.cqr{justify-self:center}.ch.start .chbody{grid-template-columns:1fr}.ch.start .cqr{width:min(70vw,44vh)}}
+/* giao diện hội chợ: cố định ở cả 2 chế độ sáng/tối; đổi biến màu để thẻ và nút bên trong tự theo */
+.fair{--card:#FFF6E0;--ground:#FBEBCB;--ground2:#F5E0B5;--ink:#3A1D12;--muted:#7A5240;--faint:#A98A6A;--line:#E6CB98;--mint:#14805C;--mint-s:#D5F0DF;--sky:#1B62B0;--coral:#C9303C;--coral-s:#FFDCD6;--butter:#B8860B;--butter-s:#FFE9A8;--shadow:0 6px 0 rgba(80,10,20,.35),0 14px 30px rgba(60,5,15,.3);
+  color-scheme:light;position:relative;overflow:hidden;color:#FFF6E0;background:radial-gradient(circle at 50% -10%,#E0463F 0,transparent 60%),radial-gradient(circle at 8% 110%,#7E1420 0,transparent 55%),#A81E2A}
+.stagebox{border-radius:26px;margin-top:14px;padding:clamp(34px,6vh,52px) clamp(14px,2vw,26px) clamp(14px,2.5vh,24px)}
+.bunt{position:absolute;top:0;left:0;width:100%;height:clamp(20px,3.6vh,34px);pointer-events:none}
+.fair h1,.fair .lead,.onr,.onr .muted,.onr .lead{color:#FFEFD6}
+.onr .lead b{color:#FFD84D}
+.logo{font-family:var(--hz);color:#FFD84D;text-shadow:0 3px 0 #7E1420;line-height:1.1}
+.btn.gold{background:linear-gradient(180deg,#FFE070,#FFC02E);color:#5A2A00;box-shadow:0 5px 0 #C98A12;font-weight:800;touch-action:manipulation}
+.btn.gold:not(:disabled):active{translate:0 3px;box-shadow:0 2px 0 #C98A12}
+/* lồng quay và bóng */
+.mc svg{display:block;width:100%;height:auto}
+.drum{transform-origin:80px 62px}
+.mc.spin .drum{animation:drum .85s cubic-bezier(.3,.6,.4,1)}
+.mc.idle .drum{animation:drum 9s linear infinite}
+@keyframes drum{to{transform:rotate(720deg)}}
+.mrow{display:flex;align-items:flex-end;gap:10px;flex:none}
+.mrow .mc{width:clamp(84px,15vh,132px)}
+.ball{--bc:#E0463F;flex:none;width:clamp(58px,10vh,88px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 32% 28%,#fff 0,var(--bc) 34%,color-mix(in srgb,var(--bc) 72%,#000) 100%);box-shadow:0 5px 0 rgba(60,10,10,.3)}
+.ball b{width:62%;aspect-ratio:1;border-radius:50%;background:#fff;color:#3A1D12;display:grid;place-items:center;font-weight:800;font-size:clamp(18px,3.4vh,31px);font-variant-numeric:tabular-nums}
+.ball:empty{visibility:hidden}
+.bar{height:12px;border-radius:99px;background:rgba(60,5,15,.45);overflow:hidden;flex:1;min-width:80px}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#FFC02E,#FFE070);transition:width .4s}
+/* bảng vàng */
+.card2{background:var(--card);color:var(--ink);border-radius:18px;box-shadow:var(--shadow);padding:14px;display:grid;gap:8px}
+.card2 h2{font-size:15px;font-weight:800}
+.bv{margin:0;padding:0;list-style:none;display:grid;gap:5px;font-weight:700;font-size:clamp(14px,1.9vh,17px)}
+.bv li{display:flex;align-items:center;gap:7px;background:var(--ground);border-radius:10px;padding:4px 9px}
+.bv li .lli{width:1.25em;height:1.25em}
+.bv li small{margin-left:auto;font-weight:600;color:var(--muted);font-size:.85em;white-space:nowrap}
+.bv .t1 .lli{color:#D49A00}.bv .t2 .lli{color:#8A94A6}.bv .t3 .lli{color:#B8703A}
+.bv .t0{color:var(--muted);background:none;font-weight:600;padding:0}
+/* vé của học viên */
+#card.fair{margin:0 -16px;padding:clamp(24px,4vh,38px) 16px 16px;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.tk{display:flex;align-items:center;gap:10px}
+.tk .logo{font-size:30px}
+.stub{margin-left:auto;background:var(--card);color:var(--ink);font-weight:800;padding:2px 14px 2px 18px;border-radius:10px;border-left:3px dashed var(--faint);font-size:14px}
+.stub b{font-size:23px;letter-spacing:.04em;font-variant-numeric:tabular-nums;color:var(--coral)}
+.stat{display:flex;align-items:center;gap:10px;margin-top:6px;font-weight:700;font-size:14.5px}
+.stat span{flex:none;color:#FFD84D}
+.ticket{width:min(100%,calc(100vh - 250px),620px);min-width:min(100%,300px);width:min(100%,calc(100dvh - 250px),620px);margin:10px auto 0;padding:clamp(5px,1.4vw,9px);background:var(--card);border-radius:18px;box-shadow:var(--shadow)}
+.ticket .grid{width:100%;min-width:0;margin:0}
+.ticket .cell{background:#fff;box-shadow:0 3px 0 var(--line)}
+.ticket .cell.on{background:var(--butter-s)}
+.ticket .cell.line{background:var(--mint-s)}
+.ticket .cell.free{background:var(--coral-s)}
+.cell.on::after{background:rgba(210,50,60,.1)}
+.cell.new::after{animation:stamp .3s cubic-bezier(.3,1.5,.5,1)}
+@keyframes stamp{from{transform:rotate(-30deg) scale(2.1);opacity:0}}
+.cell.near{animation:near .9s ease-in-out infinite alternate}
+.cell.sai{border-color:#C9303C!important;box-shadow:0 0 0 3px #C9303C!important;animation:lac .3s 2}
+@keyframes lac{25%{translate:-4px 0}75%{translate:4px 0}}
+.ck{display:grid;gap:8px;justify-items:center}
+.ck input{width:130px;text-align:center;font:inherit;font-weight:800;font-size:30px;padding:4px 8px;border-radius:12px;border:2px solid var(--line);background:#fff;color:var(--ink)}
+.ck .zh{font-family:var(--kai);font-size:22px;color:#C9303C}
+.bgo.cho{background:var(--card);color:var(--ink)}.bgo.cho button{margin-left:8px;border:0;border-radius:999px;padding:4px 12px;font:inherit;font-weight:800;background:#FFC93C;color:#5A2A00;cursor:pointer}
+@keyframes near{to{border-color:#E08A00;box-shadow:0 0 0 3px #FFC02E}}
+.fair .bgo{background:#FFC93C;color:#5A2A00}
+.fair .bgo b{color:#A81E2A}
+.winov{position:fixed;inset:0;z-index:28;display:grid;place-items:center;padding:16px}
+.rays{position:absolute;left:50%;top:50%;width:220vmax;height:220vmax;margin:-110vmax 0 0 -110vmax;background:repeating-conic-gradient(rgba(255,216,77,.2) 0 12deg,transparent 12deg 24deg);animation:drum 30s linear infinite;transform-origin:center}
+.wbox{position:relative;background:var(--card);color:var(--ink);border-radius:26px;padding:22px 24px;box-shadow:var(--shadow);text-align:center;display:grid;gap:6px;justify-items:center;max-width:360px}
+.wbox .logo{font-size:56px;color:#C9303C;text-shadow:0 3px 0 #FFC93C}
+.wbox>.lli{width:64px;height:64px;color:#D49A00}
+.wbox h2{font-size:21px;font-weight:800}
+.wbox .zt{font-family:var(--hz);font-size:1.15em;color:#C9303C;margin-right:6px}
+.wbox p{margin:0 0 6px;color:var(--muted);font-weight:600}
+.wbox p b{color:#C9303C;font-size:1.5em}
+@media (prefers-reduced-motion:reduce){.mc .drum,.rays,.cell.new::after,.cell.near{animation:none!important}}
+.confetti{position:fixed;top:-14px;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:30}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<link rel="canonical" href="https://lyulaoshi.com/tro-choi/bingo/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="Bingo cả lớp 宾果 – Trò chơi 吕老师汉语盒"><meta property="og:description" content="Trò chơi trên lớp: cô tạo phòng, học viên quét mã QR nhận thẻ từ vựng riêng, nghe cô gọi từ rồi đánh dấu. Đủ một hàng là Bingo! Không cần tài khoản."><meta property="og:url" content="https://lyulaoshi.com/tro-choi/bingo/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../../" class="hide-s">Trang chủ</a><a href="../">游戏盒 Trò chơi</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap" id="main">
+  
+
+  <!-- học viên: thẻ -->
+  <section class="fair" id="card" hidden>
+    <div class="tk"><span class="logo" lang="zh">宾果</span><span class="stub">Mã thẻ <b id="cardNo"></b></span></div>
+    <div class="onr" id="cardHow" style="font-size:14px;margin-top:2px"></div>
+    <div class="stat"><span id="cardStat"></span><div class="bar"><i id="barC"></i></div></div>
+    <div class="ticket"><div class="grid" id="grid"></div></div>
+    <div class="bgo" id="bgo" hidden role="status"></div>
+    <div class="cfoot"><button type="button" id="ckBtn">Kiểm tra thẻ</button><button type="button" id="clearBtn">Xoá đánh dấu</button><button type="button" id="swapBtn">Đổi thẻ khác</button></div>
+    <div class="winov fair" id="ckOv" hidden><div class="wbox ck" id="ckBox" role="dialog" aria-modal="true"></div></div>
+    <div class="winov fair" id="winOv" hidden role="status"><div class="rays"></div><div class="wbox"><div class="logo" lang="zh">宾果！</div><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#cup"></use></svg><h2 id="winT"></h2><p id="winN"></p><button class="btn gold" id="winBtn" type="button">Chơi tiếp</button></div></div>
+  </section>
+
+  
+
+  <section class="screen" id="bad" hidden><h1>Link phòng không đúng</h1><p class="lead">Em xin cô mã QR mới nhé. </p></section>
+</main>
+
+<footer class="wrap">Từ vựng và pinyin theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../hsk-words.js"></script>
+<script src="../../tu-vung/bai-data.js"></script>
+<script src="../../tu-vung/chu-de.js"></script>
+<script src="../../tu-vung/nghia-hsk1.js"></script>
+<script src="../bo-tu.js?v=5"></script>
+<script src="../tu-lop.js?v=5"></script>
+<script src="../tts.js?v=2"></script>
+<script src="../vuot-ai/am.js"></script>
+<script src="../qr-anh.js"></script>
+<script>
+(function(){const r=document.documentElement,b=document.getElementById('themeBtn');
+ const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
+
+// Web tĩnh, không có máy chủ: máy cô và máy học viên không nói chuyện với nhau.
+// Mọi thứ suy ra được từ link phòng: mã phòng p → danh sách từ, thứ tự gọi; p + mã thẻ → thẻ của từng em. Nên cô chỉ cần mã thẻ là kiểm tra được.
+(function(){
+const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'];
+const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const FX=!matchMedia('(prefers-reduced-motion:reduce)').matches;
+const hash=s=>{let h=2166136261;for(const c of s){h^=c.codePointAt(0);h=Math.imul(h,16777619)>>>0}return h};
+function seeded(a,seed){const out=a.slice();let s=seed>>>0;const rnd=()=>{s=s+0x6D2B79F5|0;let t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296};
+  for(let i=out.length-1;i>0;i--){const j=rnd()*(i+1)|0;[out[i],out[j]]=[out[j],out[i]]}return out}
+const SHOW=['zh','zp'],CALL=['may','co','py','vi'];
+const cellsOf=n=>n===5?24:n*n;   // 5×5 có ô miễn phí ở giữa
+const poolOf=(lv,g)=>{const a=TULOP.words(lv,4);return g==='vi'?a.filter(x=>x.vi):a};
+const enough=(lv,g,n)=>poolOf(lv,g).length>=cellsOf(n)+2;
+
+/* ---------- phòng: suy ra từ link ---------- */
+function roomFrom(u){const p=u.get('p'),n=+u.get('n'),h=u.get('h'),g=u.get('g'),lv=(u.get('lv')||'1').split('.');
+  if(!/^[a-z0-9]{1,12}$/.test(p||'')||![3,4,5].includes(n)||!SHOW.includes(h)||!CALL.includes(g)||!lv.every(l=>LEVELS.includes(l)))return null;
+  const pool=poolOf(lv,g);if(pool.length<cellsOf(n)+2)return null;
+  const M=Math.min(pool.length,Math.round(cellsOf(n)*1.5)),words=seeded(pool,hash(p)).slice(0,M);
+  return{p,n,h,g,lv,words,order:seeded(words,hash(p+'!')),key:'bg-'+p}}
+function cardOf(rm,no){const c=seeded(rm.words,hash(rm.p+'#'+no)).slice(0,cellsOf(rm.n));if(rm.n===5)c.splice(12,0,null);return c}
+function linesOf(n,on){const out=[],idx=[];for(let r=0;r<n;r++){idx.push([...Array(n)].map((_,c)=>r*n+c));idx.push([...Array(n)].map((_,c)=>c*n+r))}
+  idx.push([...Array(n)].map((_,i)=>i*n+i));idx.push([...Array(n)].map((_,i)=>i*n+n-1-i));
+  idx.forEach(l=>{if(l.every(on))out.push(l)});return out}
+const linesAll=n=>linesOf(n,()=>true);
+function linkFor(rm,gv){const u=new URLSearchParams();['p','n','h','g'].forEach(k=>u.set(k,rm[k]));
+  const bo=new URLSearchParams(location.search).get('bo');if(bo)u.set('bo',bo);else u.set('lv',rm.lv.join('.'));
+  if(gv)u.set('gv','1');return location.origin+location.pathname+'?'+u.toString().replace(/%3A/g,':').replace(/%2B/g,'+')}
+function confetti(n){if(!FX)return;const C=['#14805C','#FFC93C','#E0545F','#3B87D6','#FF9F5A'];
+  for(let i=0;i<n;i++){const e=document.createElement('i');e.className='confetti';e.style.left=Math.random()*100+'vw';e.style.background=C[i%5];document.body.appendChild(e);
+    const h=(window.innerHeight||700)+30,sway=(Math.random()-.5)*120;
+    e.animate({transform:['translate(0,0) rotate(0)','translate('+sway+'px,'+h+'px) rotate('+(360+Math.random()*720)+'deg)']},{duration:1500+Math.random()*1300,delay:Math.random()*500,easing:'cubic-bezier(.3,.5,.6,1)',fill:'backwards'}).onfinish=()=>e.remove()}}
+const mk=(t,c,x,lang)=>{const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;if(lang)e.lang=lang;return e};
+const show=id=>{['setup','room','call','card','bad','chieu'].forEach(s=>{const e=$(s);if(e)e.hidden=s!==id});$('main').classList.toggle('big',id==='call'||id==='room');scrollTo(0,0)};
+
+/* ---------- hội chợ: cờ dây, lồng quay, bóng, bảng vàng ---------- */
+{let t='';const C=['#FFD84D','#FFF6E0','#2F86DA','#14A06E','#FF9F5A'];for(let i=0;i<40;i++)t+='<path d="M'+i*25+' 0h25l-12.5 34z" fill="'+C[i%5]+'"/>';
+ document.querySelectorAll('.fair').forEach(f=>{if(f.id!=='winOv'&&f.id!=='ckOv')f.insertAdjacentHTML('afterbegin','<svg class="bunt" viewBox="0 0 1000 34" preserveAspectRatio="none" aria-hidden="true">'+t+'</svg>')})}
+const BALLC=['#E0463F','#2F86DA','#14A06E','#E08A00','#9A6BE0'];
+const CAGE=(()=>{const c=['#E0463F','#2F86DA','#14A06E','#FFD84D','#9A6BE0','#FF9F5A','#fff','#E0463F','#2F86DA'],pos=[[60,44],[84,34],[106,50],[52,70],[76,60],[100,76],[66,90],[90,92],[112,66]];
+  return '<svg viewBox="0 0 160 150"><path d="M46 146 66 104M114 146 94 104" stroke="#5A2A00" stroke-width="9" stroke-linecap="round"/><rect x="28" y="138" width="104" height="10" rx="5" fill="#5A2A00"/>'
+  +'<path d="M132 62h18v-18" fill="none" stroke="#5A2A00" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="150" cy="40" r="7" fill="#E0463F"/>'
+  +'<circle cx="80" cy="62" r="52" fill="#FFF6E0" opacity=".28"/><g class="drum">'+pos.map((p,i)=>'<circle cx="'+p[0]+'" cy="'+p[1]+'" r="9.5" fill="'+c[i]+'" stroke="rgba(60,20,10,.35)"/>').join('')
+  +'<path d="M80 10V114M28 62H132M43 25l74 74M117 25 43 99" stroke="#FFC02E" stroke-width="2" opacity=".65"/></g><circle cx="80" cy="62" r="52" fill="none" stroke="#FFC02E" stroke-width="6"/><circle cx="80" cy="62" r="7" fill="#C98A12"/></svg>'})();
+document.querySelectorAll('.mc').forEach(m=>m.innerHTML=CAGE);
+// quay lồng rồi nhả bóng số n; els = phần lộ ra sau khi bóng rơi
+function roll(mc,ball,n,els){ball.innerHTML=n?'<b>'+n+'</b>':'';ball.style.setProperty('--bc',BALLC[n%5]);
+  if(!FX)return;mc.classList.remove('spin');void mc.getBoundingClientRect();mc.classList.add('spin');
+  ball.animate({transform:['translate(-70px,-34px) scale(.25)','translate(0,0) scale(1.22)','scale(1)'],opacity:[0,1,1]},{duration:470,delay:520,easing:'ease-out',fill:'backwards'});
+  (els||[]).forEach(e=>e.animate({transform:['scale(.72)','scale(1.05)','scale(1)'],opacity:[0,1,1]},{duration:330,delay:800,easing:'ease-out',fill:'backwards'}))}
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#'+n+'"></use></svg>';
+function paintBv(el,list){el.innerHTML='';
+  if(!list.length){el.append(mk('li','t0','Chưa có ai. Ai sẽ là người đầu tiên?'));return}
+  list.slice(0,5).forEach((x,i)=>{const li=mk('li',i<3?'t'+(i+1):'');li.innerHTML=IC(i===0?'cup':i<3?'huy-chuong':'sao');
+    li.append(document.createTextNode(' Thẻ '+x.no),mk('small',null,x.l+' hàng · sau '+x.at+' từ'));el.append(li)})}
+
+/* Từ đây đến dấu đóng là phần giáo viên: bản ghép khoá phần này, bản cho học viên (the.html) cắt bỏ — tools/khoa_trang.py */
+
+/* ---------- học viên: thẻ riêng ---------- */
+function cardScreen(rm){show('card');$('main').className='wrap full';document.querySelector('header.top').hidden=true;document.querySelector('footer').hidden=true;
+  const newNo=()=>1+Math.random()*999|0;
+  let st=store.get(rm.key);if(!st||!(st.no>=1&&st.no<=999)||!Array.isArray(st.m))st={no:newNo(),m:[]};
+  const save=()=>store.set(rm.key,st);save();
+  $('cardHow').textContent={may:'Nghe máy đọc từ rồi chạm vào ô đó.',co:'Nghe cô đọc từ rồi chạm vào ô đó.',py:'Nhìn pinyin cô chiếu rồi chạm vào chữ đó.',vi:'Nhìn nghĩa cô chiếu rồi chạm vào chữ đó.'}[rm.g];
+  let lines=0,saiShow=new Set();
+  // Điện thoại không nhận được tín hiệu từ máy cô, nhưng biết thứ tự gọi (suy từ mã phòng). Em nhập "đã gọi đến từ thứ mấy" (số trên màn chiếu) là máy chấm được dấu nào sai.
+  const verify=k=>{const c=cardOf(rm,st.no),called=new Set(rm.order.slice(0,k).map(x=>x.w)),bad=st.m.filter(i=>c[i]&&!called.has(c[i].w));
+    return{bad,ls:linesOf(rm.n,i=>!c[i]||(st.m.includes(i)&&called.has(c[i].w)))}};
+  function askCheck(auto){const B=$('ckBox');B.innerHTML='';const c=cardOf(rm,st.no);
+    B.append(mk('div','logo',auto?'宾果？':'检查','zh'),mk('h2',null,auto?'Đủ một hàng rồi! Kiểm tra trước đã':'Kiểm tra thẻ'),mk('p',null,'Trên màn hình của cô đang ghi "Từ thứ …" mấy? Hoặc hỏi cô đã gọi bao nhiêu từ.'));
+    const i=mk('input');i.inputMode='numeric';i.maxLength=3;i.setAttribute('aria-label','Đã gọi đến từ thứ mấy');if(st.vk)i.value=st.vk;const r=mk('div',null,'');const go=mk('button','btn gold','Kiểm tra');go.type='button';
+    const run=()=>{const k=+i.value;if(!(k>=1&&k<=rm.order.length)){i.focus();return}st.vk=k;save();const v=verify(k);saiShow=new Set(v.bad);r.innerHTML='';
+      if(v.ls.length&&!v.bad.length){$('ckOv').hidden=true;saiShow.clear();win(v.ls.length,true);paint(true);return}
+      if(v.bad.length){r.append(mk('p',null,'Các ô này cô chưa gọi tới:'));const z=mk('div',null,null);v.bad.forEach(j=>z.append(mk('span','zh',c[j].w+' ','zh')));r.append(z);
+        const fx=mk('button','btn gold','Bỏ dấu các ô sai');fx.type='button';fx.onclick=()=>{st.m=st.m.filter(j=>!v.bad.includes(j));save();saiShow.clear();$('ckOv').hidden=true;paint(true)};r.append(fx)}
+      if(v.ls.length)r.append(mk('p',null,'Nhưng em vẫn có '+v.ls.length+' hàng đúng, bỏ dấu sai đi rồi giơ tay nhé!'));else if(!v.bad.length)r.append(mk('p',null,'Dấu nào cũng đúng, nhưng chưa đủ hàng. Chơi tiếp nhé!'));
+      paint(true)};
+    go.onclick=run;i.onkeydown=e=>{if(e.key==='Enter')run()};const cl=mk('button','btn sec','Đóng');cl.type='button';cl.onclick=()=>{$('ckOv').hidden=true;saiShow.clear();paint(true)};
+    B.append(i,go,r,cl);$('ckOv').hidden=false;i.focus()}
+  function win(n,ok){window.TCX&&TCX.xong();AM.play('win');confetti(90);if(navigator.vibrate)navigator.vibrate([60,40,120]);const c=cardOf(rm,st.no),tong=c.filter(Boolean).length;
+    const kin=st.m.length>=tong,t=kin?['大满贯','Kín cả thẻ']:TITLE[Math.min(n,TITLE.length)-1],h=$('winT');h.innerHTML='';h.append(mk('span','zt',t[0],'zh'),document.createTextNode(t[1]));
+    $('winN').innerHTML='Máy đã kiểm tra đúng. Giơ tay và đọc mã thẻ<br><b></b>';$('winN').querySelector('b').textContent=st.no;$('winOv').hidden=false}
+  const TITLE=[['幸运星','Ngôi sao may mắn'],['双喜','Song hỉ, 2 hàng'],['三连','Ba hàng liền'],['高手','Cao thủ dò từ']];
+  function paint(first,moi){const c=cardOf(rm,st.no),g=$('grid'),m=new Set(st.m),on=i=>!c[i]||m.has(i),ls=linesOf(rm.n,on),inL=new Set(ls.flat());
+    const all=linesAll(rm.n),thieu=all.map(l=>l.filter(i=>!on(i))),it=Math.min(...thieu.map(x=>x.length)),near=new Set(thieu.filter(x=>x.length===1).flat());
+    const tong=c.filter(Boolean).length;$('barC').style.width=st.m.length/tong*100+'%';
+    $('cardStat').textContent=ls.length?'Đã có '+ls.length+' hàng':it===1?'Chỉ còn 1 ô nữa!':'Còn '+it+' ô nữa';
+    $('cardNo').textContent=st.no;g.style.gridTemplateColumns='repeat('+rm.n+',minmax(0,1fr))';g.innerHTML='';
+    const unit=100/rm.n;
+    c.forEach((x,i)=>{
+      if(!x){const f=mk('div','cell free line','福','zh');f.style.fontSize=unit*.5+'cqw';g.append(f);return}
+      const b=mk('button','cell'+(m.has(i)?' on':'')+(inL.has(i)?' line':'')+(i===moi?' new':'')+(near.has(i)?' near':'')+(saiShow.has(i)?' sai':''));b.type='button';b.setAttribute('aria-pressed',m.has(i));
+      const z=mk('span','zh',x.w,'zh');z.style.fontSize=unit*({1:.56,2:.42,3:.29,4:.22}[x.w.length]||.2)+'cqw';b.append(z);
+      if(rm.h==='zp'){const py=mk('span','pyi',x.p);py.style.fontSize=unit*Math.min(.15,1.45/x.p.length)+'cqw';b.append(py)}
+      b.onclick=()=>{let dau=-1;if(m.has(i))st.m=st.m.filter(y=>y!==i);else{st.m.push(i);dau=i;if(navigator.vibrate)navigator.vibrate(15)}save();paint(false,dau)};
+      g.append(b)});
+    // chỉ báo 宾果 khi đã kiểm tra với số từ cô đã gọi; chưa kiểm tra thì mời bấm Kiểm tra
+    const vd=st.vk?verify(st.vk):null,okLines=vd&&!vd.bad.length?vd.ls.length:0,bg=$('bgo');bg.hidden=!ls.length;bg.className='bgo'+(okLines?'':' cho');bg.innerHTML='';
+    if(ls.length&&okLines)bg.append(mk('b',null,'宾果！','zh'),document.createTextNode('Giơ tay và đọc mã thẻ '+st.no+' cho cô.'));
+    else if(ls.length){bg.append(document.createTextNode('Đủ một hàng rồi, kiểm tra trước khi giơ tay.'));const k=mk('button',null,'Kiểm tra');k.type='button';k.onclick=()=>askCheck(false);bg.append(k)}
+    if(ls.length>lines&&!first)askCheck(true);
+    lines=ls.length;$('swapBtn').disabled=st.m.length>0;$('clearBtn').disabled=!st.m.length}
+  $('winBtn').onclick=()=>$('winOv').hidden=true;$('ckBtn').onclick=()=>askCheck(false);
+  $('clearBtn').onclick=()=>{if(confirm('Xoá hết dấu đã đánh?')){st.m=[];save();paint()}};
+  $('swapBtn').onclick=()=>{if(st.m.length)return;st={no:newNo(),m:[]};save();paint()};
+  paint(true)}
+
+/* ---------- vào trang: cô tạo phòng, cô gọi từ, hay học viên ---------- */
+function route(){const u=new URLSearchParams(location.search);
+  
+  const rm=roomFrom(u);if(!rm){show('bad');return}
+  
+  cardScreen(rm)}
+
+route();
+})();
+</script>
+<script src="../tien-do.js?v=1"></script>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
+</body>
+</html>

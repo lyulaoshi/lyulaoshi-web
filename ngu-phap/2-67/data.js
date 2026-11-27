@@ -7,9 +7,9 @@ goals:[
  "Phân biệt với 只有……才…… (chỉ có … mới …) 【三70】."],
 intro:"只要 = “chỉ cần”: chỉ cần điều kiện này là <b>đủ</b> để có kết quả.",
 rules:[
- {t:"只要 + điều kiện，(S) 就 + kết quả", sub:"只要……就……", fx:[["只要",null],["Điều kiện",""],["，(S) 就",null],["Kết quả",""]], mean:"",
-  ex:[["[只要]你认真学习，[就]一定能取得好成绩。","Zhǐyào nǐ rènzhēn xuéxí, jiù yídìng néng qǔdé hǎo chéngjì.","Chỉ cần bạn chăm chỉ học là nhất định sẽ có thành tích tốt.","等级标准"],
-      ["[只要]你通过这次考试，我[就]送你一件礼物。","Zhǐyào nǐ tōngguò zhè cì kǎoshì, wǒ jiù sòng nǐ yí jiàn lǐwù.","Chỉ cần con qua kỳ thi này là mẹ tặng con một món quà.","等级标准"]]}],
+ {t:"只要 + điều kiện，(S) 就 + kết quả", sub:"只要……就……", fx:[["只要",null],["Điều kiện",""],["，",""],["(S) 就",null],["Kết quả",""]], mean:"",
+  ex:[["{1|只要}{2|你认真学习}，{3|就}{4|一定能取得好成绩}。","Zhǐyào nǐ rènzhēn xuéxí, jiù yídìng néng qǔdé hǎo chéngjì.","Chỉ cần bạn chăm chỉ học là nhất định sẽ có thành tích tốt.","等级标准"],
+      ["{1|只要}{2|你通过这次考试}，{3|我就}{4|送你一件礼物}。","Zhǐyào nǐ tōngguò zhè cì kǎoshì, wǒ jiù sòng nǐ yí jiàn lǐwù.","Chỉ cần con qua kỳ thi này là mẹ tặng con một món quà.","等级标准"]]}],
 notes:[
  {t:"只要 và 只有", html:"<span class='zh'>只要……就……</span> điều kiện đủ (dễ); <span class='zh'>只有……才……</span> điều kiện duy nhất (khó) 【三70】."}],
 cmp:[

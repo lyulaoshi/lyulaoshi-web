@@ -8,11 +8,11 @@ goals:[
 intro:"Cả hai đứng <b>trước động từ</b>. 可能 nói về <b>khả năng xảy ra</b> (đoán); 可以 nói về <b>sự cho phép</b>.",
 rules:[
  {t:"可能 + V: có lẽ, có thể (phỏng đoán)", sub:"可能", fx:[["Chủ ngữ",""],["(不)可能",null],["Động từ",""]], mean:"Người nói đoán việc có khả năng xảy ra. 可能 còn đứng được ở đầu câu.",
-  ex:[["他[可能]出去了。","Tā kěnéng chūqu le.","Có lẽ anh ấy ra ngoài rồi.","等级标准"],
-      ["我今天[不可能]写完这么多作业。","Wǒ jīntiān bù kěnéng xiěwán zhème duō zuòyè.","Hôm nay tôi không thể nào làm xong nhiều bài tập thế này.","等级标准"]]},
+  ex:[["{1|他}{2|可能}{3|出去}了。","Tā kěnéng chūqu le.","Có lẽ anh ấy ra ngoài rồi.","等级标准"],
+      ["{1|我}今天{2|不可能}{3|写完这么多作业}。","Wǒ jīntiān bù kěnéng xiěwán zhème duō zuòyè.","Hôm nay tôi không thể nào làm xong nhiều bài tập thế này.","等级标准"]]},
  {t:"可以 + V: được phép, có thể", sub:"可以", fx:[["Chủ ngữ",""],["可以 / 不可以",null],["Động từ",""]], mean:"Xin phép, cho phép; 不可以 = không được (cấm).",
-  ex:[["老师，我[可以]进来吗？","Lǎoshī, wǒ kěyǐ jìnlai ma?","Thưa thầy, em vào được không ạ?","等级标准"],
-      ["这儿[不可以]停车。","Zhèr bù kěyǐ tíng chē.","Ở đây không được đỗ xe.","等级标准"]]}],
+  ex:[["老师，{1|我}{2|可以}{3|进来}吗？","Lǎoshī, wǒ kěyǐ jìnlai ma?","Thưa thầy, em vào được không ạ?","等级标准"],
+      ["{1|这儿}{2|不可以}{3|停车}。","Zhèr bù kěyǐ tíng chē.","Ở đây không được đỗ xe.","等级标准"]]}],
 notes:[
  {t:"Trả lời xin phép", html:"<span class='zh'>可以。</span> (được) / <span class='zh'>不行。/ 不可以。</span> (không được)."},
  {t:"可以 và 能", html:"cùng nói điều kiện cho phép: <span class='zh'>明天我可以 / 能来。</span> Nhưng xin phép, cấm đoán thường dùng 可以; khả năng về sức lực, kỹ năng thường dùng 能 / 会."}],

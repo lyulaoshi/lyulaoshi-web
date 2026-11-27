@@ -7,8 +7,8 @@ goals:[
 intro:"Giống “chẳng … chút nào / không … tí nào”. Tiếng Việt “chút nào” ở cuối, còn tiếng Trung 一点儿也不 ở <b>trước</b>.",
 rules:[
  {t:"S + 一点儿 + 也 / 都 + 不 / 没 + Adj / V", sub:"强调", fx:[["S",""],["一点儿也 / 都",null],["不 / 没",null],["Adj / V",""]], mean:"",
-  ex:[["中文[一点儿也不]简单。","Zhōngwén yìdiǎnr yě bù jiǎndān.","Tiếng Trung chẳng đơn giản chút nào.","等级标准"],
-      ["这双球鞋穿着[一点儿也不]舒服。","Zhè shuāng qiúxié chuān zhe yìdiǎnr yě bù shūfu.","Đôi giày thể thao này đi chẳng thoải mái chút nào.","等级标准"]]}],
+  ex:[["{1|中文}{2|一点儿也}{3|不}{4|简单}。","Zhōngwén yìdiǎnr yě bù jiǎndān.","Tiếng Trung chẳng đơn giản chút nào.","等级标准"],
+      ["{1|这双球鞋穿着}{2|一点儿也}{3|不}{4|舒服}。","Zhè shuāng qiúxié chuān zhe yìdiǎnr yě bù shūfu.","Đôi giày thể thao này đi chẳng thoải mái chút nào.","等级标准"]]}],
 cmp:[
  {vn:"Tôi không mệt chút nào.", zh:"我[一点儿也不]累。", py:"Wǒ yìdiǎnr yě bú lèi.", ok:false, tag:"(trật tự khác)", why:"“chút nào” cuối câu → 一点儿也 lên trước 不."}],
 ex:[

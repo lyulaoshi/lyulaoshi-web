@@ -8,9 +8,9 @@ goals:[
 intro:"跟 và 和 ở đây là <b>giới từ</b>, dẫn ra người cùng tham gia. Cụm “跟 + người” đứng <b>trước động từ</b>, không đứng cuối câu như “với bạn” trong tiếng Việt.",
 rules:[
  {t:"跟 / 和 + người + động từ", sub:"跟¹ · 和¹", fx:[["Chủ ngữ",""],["跟 / 和",null],["Người",""],["(一起)",""],["Động từ",""]], mean:"Làm gì với ai / cùng ai. 跟 dùng nhiều trong khẩu ngữ.",
-  ex:[["他[跟]老师请假了。","Tā gēn lǎoshī qǐng jià le.","Anh ấy đã xin phép nghỉ với thầy.","等级标准"],
-      ["我没[和]姐姐一起去中国。","Wǒ méi hé jiějie yìqǐ qù Zhōngguó.","Tôi không đi Trung Quốc cùng chị.","等级标准"],
-      ["我想[跟]你说一件事。","Wǒ xiǎng gēn nǐ shuō yí jiàn shì.","Tôi muốn nói với bạn một chuyện."]]}],
+  ex:[["{1|他}{2|跟}{3|老师}{5|请假}了。","Tā gēn lǎoshī qǐng jià le.","Anh ấy đã xin phép nghỉ với thầy.","等级标准"],
+      ["{1|我}没{2|和}{3|姐姐}{4|一起}{5|去中国}。","Wǒ méi hé jiějie yìqǐ qù Zhōngguó.","Tôi không đi Trung Quốc cùng chị.","等级标准"],
+      ["{1|我}想{2|跟}{3|你}{5|说一件事}。","Wǒ xiǎng gēn nǐ shuō yí jiàn shì.","Tôi muốn nói với bạn một chuyện."]]}],
 notes:[
  {t:"Phủ định, năng nguyện", html:"不 / 没 / 想 / 要… đứng <b>trước</b> 跟 / 和: <span class='zh'>我不想跟他去。</span>"},
  {t:"跟, 和 còn là liên từ", html:"nối hai danh từ (“và”) 【一19】: <span class='zh'>我和弟弟</span>."}],

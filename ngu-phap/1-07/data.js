@@ -8,16 +8,16 @@ goals:[
 intro:"Cách ghép số của tiếng Trung rất giống tiếng Việt: 十五 = mười lăm, 二十 = hai mươi. Chỉ cần nhớ vài điểm khác: 零, 两, 半.",
 rules:[
  {t:"Ghép số", sub:"十、百", fx:[["số","2–9"],["十 / 百",null],["số lẻ",""]], mean:"十五 (15) · 二十 (20) · 一百一十五 (115). Số trăm tròn chục có thể bỏ 十 cuối: 二百六(十) = 260.",
-  ex:[["五　[十]五　一[百]一[十]五","wǔ　shíwǔ　yìbǎi yīshíwǔ","5　15　115","等级标准"],
-      ["十二　二十　二[百]","shí'èr　èrshí　èrbǎi","12　20　200","等级标准"]]},
+  ex:[["{3|五}　{2|十}{3|五}　{1|一}{2|百}{1|一}{2|十}{3|五}","wǔ　shíwǔ　yìbǎi yīshíwǔ","5　15　115","等级标准"],
+      ["{2|十}{3|二}　{1|二}{2|十}　{1|二}{2|百}","shí'èr　èrshí　èrbǎi","12　20　200","等级标准"]]},
  {t:"Số 0 ở giữa đọc 零", sub:"零", fx:[["百","hàng trăm"],["零",null],["số lẻ",""]], mean:"206 = 二百<b>零</b>六 (“hai trăm linh sáu”). Còn 二百六 = 260.",
-  ex:[["二百六（十）　二百[零]六","èrbǎi liù(shí)　èrbǎi líng liù","260　206","等级标准"]]},
+  ex:[["{1|二百}六（十）　{1|二百}{2|零}{3|六}","èrbǎi liù(shí)　èrbǎi líng liù","260　206","等级标准"]]},
  {t:"二 hay 两?", sub:"二 · 两", fx:[["两",null],["Lượng từ","个、本…"],["Danh từ",""]], mean:"<b>两</b> đứng trước lượng từ (hai cái, hai quyển); <b>二</b> dùng khi đếm, số thứ tự, trong số nhiều chữ số (十二, 二十, 第二). Hàng trăm nói được cả 二百 / 两百.",
-  ex:[["[两]个人　[两]本书","liǎng ge rén　liǎng běn shū","hai người　hai quyển sách","等级标准"],
-      ["二百 = [两]百","èrbǎi = liǎngbǎi","200","等级标准"]]},
+  ex:[["{1|两}{2|个}{3|人}　{1|两}{2|本}{3|书}","liǎng ge rén　liǎng běn shū","hai người　hai quyển sách","等级标准"],
+      ["二百 = {1|两}百","èrbǎi = liǎngbǎi","200","等级标准"]]},
  {t:"半: một nửa", sub:"半", fx:[["半",null],["Lượng từ",""],["Danh từ",""]], mean:"半 + lượng từ + N (半个小时 = nửa tiếng); số + 点 + 半 (八点半 = 8 giờ rưỡi).",
-  ex:[["八点[半]","bā diǎn bàn","tám giờ rưỡi","等级标准"],
-      ["[半]个小时","bàn ge xiǎoshí","nửa tiếng","等级标准"]]}],
+  ex:[["八{2|点}{1|半}","bā diǎn bàn","tám giờ rưỡi","等级标准"],
+      ["{1|半}{2|个}{3|小时}","bàn ge xiǎoshí","nửa tiếng","等级标准"]]}],
 notes:[
  {t:"Biến điệu của 一", html:"一 đứng trước thanh 4 đọc <b>yí</b> (一个 yí ge), trước thanh 1, 2, 3 đọc <b>yì</b> (一百 yìbǎi); khi đếm số đọc <b>yī</b>."}],
 cmp:[

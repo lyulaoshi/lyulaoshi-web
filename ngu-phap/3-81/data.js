@@ -7,8 +7,8 @@ goals:[
 intro:"Giống “Chơi gì mà chơi!”, “Thoải mái gì chứ!” trong tiếng Việt. Giọng hơi gắt, chỉ dùng khi nói với người thân quen.",
 rules:[
  {t:"X + 什么 (啊)，lý do / đề nghị", sub:"口语", fx:[["X (V / Adj)",""],["什么 (啊)",null],["·",""],["lý do / đề nghị",""]], mean:"",
-  ex:[["[玩儿什么]，我们赶快工作吧。","Wánr shénme, wǒmen gǎnkuài gōngzuò ba.","Chơi gì mà chơi, chúng ta mau làm việc đi.","等级标准"],
-      ["[舒服什么啊]，办公室空调坏了。","Shūfu shénme a, bàngōngshì kōngtiáo huài le.","Thoải mái gì chứ, điều hòa văn phòng hỏng rồi.","等级标准"]]}],
+  ex:[["{1|玩儿}{2|什么}，{3|我们赶快工作吧}。","Wánr shénme, wǒmen gǎnkuài gōngzuò ba.","Chơi gì mà chơi, chúng ta mau làm việc đi.","等级标准"],
+      ["{1|舒服}{2|什么啊}，{3|办公室空调坏了}。","Shūfu shénme a, bàngōngshì kōngtiáo huài le.","Thoải mái gì chứ, điều hòa văn phòng hỏng rồi.","等级标准"]]}],
 cmp:[
  {vn:"Đẹp gì mà đẹp!", zh:"[好看什么]！", py:"Hǎokàn shénme!", ok:true, why:"X + 什么 = “X gì mà X”; không có dấu hỏi."}],
 ex:[

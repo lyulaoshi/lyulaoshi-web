@@ -7,8 +7,8 @@ goals:[
 intro:"Giống “đẹp thì đẹp thật, nhưng …” trong tiếng Việt — người nói thừa nhận một ưu điểm rồi chuyển ý.",
 rules:[
  {t:"X + 是 + X，就是 / 不过 + ý trái", sub:"转折", fx:[["X 是 X",null],["·",""],["就是 / 不过",null],["điểm chưa tốt",""]], mean:"X là tính từ / động từ, lặp lại y nguyên.",
-  ex:[["这件衣服[好看是好看]，[就是]有点儿贵。","Zhè jiàn yīfu hǎokàn shì hǎokàn, jiù shì yǒudiǎnr guì.","Chiếc áo này đẹp thì đẹp thật, chỉ là hơi đắt.","等级标准"],
-      ["坐公交车[方便是方便]，[不过]人太多了。","Zuò gōngjiāochē fāngbiàn shì fāngbiàn, búguò rén tài duō le.","Đi xe buýt tiện thì tiện thật, nhưng đông người quá.","等级标准"]]}],
+  ex:[["这件衣服{1|好看是好看}，{2|就是}{3|有点儿贵}。","Zhè jiàn yīfu hǎokàn shì hǎokàn, jiù shì yǒudiǎnr guì.","Chiếc áo này đẹp thì đẹp thật, chỉ là hơi đắt.","等级标准"],
+      ["坐公交车{1|方便是方便}，{2|不过}{3|人太多了}。","Zuò gōngjiāochē fāngbiàn shì fāngbiàn, búguò rén tài duō le.","Đi xe buýt tiện thì tiện thật, nhưng đông người quá.","等级标准"]]}],
 cmp:[
  {vn:"Ngon thì ngon thật, nhưng hơi mặn.", zh:"[好吃是好吃]，[就是]有点儿咸。", py:"Hǎochī shì hǎochī, jiù shì yǒudiǎnr xián.", ok:true, why:"Giống tiếng Việt: lặp từ + 是."}],
 ex:[

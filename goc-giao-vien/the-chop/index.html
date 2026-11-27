@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thẻ chớp 闪卡 · Góc giáo viên – 吕老师汉语盒</title>
+<meta name="description" content="Chiếu thẻ từ tiếng Trung theo đúng bài giáo trình: chữ Hán, pinyin, nghĩa, giọng đọc, tự chạy – Góc giáo viên, Lyu Laoshi Chinese Box.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../../tro-choi/game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="../gv.css?v=20">
+<style>
+.the{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6vmin;width:100%;min-height:300px;padding:16px;border:0;border-radius:20px;background:var(--ground2);color:var(--ink);font:inherit;text-align:center;cursor:pointer}
+.the .z{font-family:var(--kai);font-size:min(24vmin,calc(76vw / var(--n,2)));line-height:1.15;overflow-wrap:anywhere}
+.the .p{font-size:clamp(22px,5.4vmin,58px);font-weight:700;color:var(--teal)}
+.the .v{font-size:clamp(20px,4.6vmin,46px);font-weight:700}
+.the .v.chinh{font-size:clamp(28px,8vmin,90px)}
+.the .p.chinh{font-size:clamp(34px,10vmin,110px)}
+.the .vd{margin-top:1.4vmin;padding-top:1.6vmin;border-top:2px dashed var(--line);max-width:100%}
+.the .vd b{display:block;font-family:var(--kai);font-weight:400;font-size:clamp(22px,4.8vmin,50px)}
+.the .vd span{display:block;font-size:clamp(14px,2.4vmin,24px);color:var(--muted)}
+.the .loa .lli{width:clamp(90px,22vmin,220px);height:clamp(90px,22vmin,220px);color:var(--teal)}
+.the .goi{font-size:14px;color:var(--faint)}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<link rel="canonical" href="https://lyulaoshi.com/goc-giao-vien/the-chop/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="Thẻ chớp 闪卡 · Góc giáo viên – 吕老师汉语盒"><meta property="og:description" content="Chiếu thẻ từ tiếng Trung theo đúng bài giáo trình: chữ Hán, pinyin, nghĩa, giọng đọc, tự chạy – Góc giáo viên, Lyu Laoshi Chinese Box."><meta property="og:url" content="https://lyulaoshi.com/goc-giao-vien/the-chop/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../" class="hide-s">Góc giáo viên</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap">
+<section class="ph">
+  <a class="back" href="../"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#tg-trai"></use></svg>Góc giáo viên</a>
+  <h1>Thẻ chớp<span lang="zh">闪卡</span></h1>
+  <p>Chiếu từng từ của bài, cả lớp đọc rồi lật thẻ kiểm tra.</p>
+</section>
+<div id="nguon"></div>
+<div class="pn cd">
+  <span class="nh">Mặt trước<span class="seg" id="cdMt" role="group" aria-label="Mặt trước của thẻ"></span></span>
+  <label class="chk"><input type="checkbox" id="cdPy">Hiện sẵn pinyin</label>
+  <label class="chk"><input type="checkbox" id="cdVd">Câu ví dụ khi lật</label>
+  <label class="chk"><input type="checkbox" id="cdDoc" checked>Đọc khi lật</label>
+  <span class="nh">Tự chạy<span class="seg" id="cdTu" role="group" aria-label="Tự chạy"></span></span>
+</div>
+<section class="san" id="san">
+  <div class="san-top"><span id="dem" aria-live="polite"></span><span class="row"><button class="btn gh" type="button" id="bTron"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#xuc-xac"></use></svg>Trộn</button><button class="btn gh" type="button" id="bToan"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#tv"></use></svg>Toàn màn hình</button></span></div>
+  <button type="button" class="the" id="the"></button>
+  <div class="san-bt">
+    <button class="btn gh lon" type="button" id="bTruoc"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#truoc"></use></svg>Trước</button>
+    <button class="btn tl lon" type="button" id="bLat"></button>
+    <button class="btn gh lon" type="button" id="bSau">Tiếp<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sau"></use></svg></button>
+    <button class="btn gh lon" type="button" id="bDoc"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#loa"></use></svg>Đọc</button>
+  </div>
+  <div class="keys giua"><span><kbd>Space</kbd> lật / tiếp</span><span><kbd>←</kbd> <kbd>→</kbd> chuyển thẻ</span><span><kbd>R</kbd> đọc lại</span><span><kbd>F</kbd> toàn màn hình</span></div>
+</section>
+</main>
+<footer class="wrap">© Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../../tu-vung/bai-data.js"></script>
+<script src="../../tro-choi/vuot-ai/co-de.js"></script>
+<script src="../../tro-choi/tts.js"></script>
+<script src="../gv.js?v=7"></script>
+<script src="../gv-tu.js?v=9"></script>
+<script>
+(function(){
+const {$,IC,esc,store}=GV,{seg,tron,toan}=GVT;
+const o=Object.assign({mt:'z',py:false,vd:false,doc:true},store.get('gv-the-chop')||{});
+const luu=()=>store.set('gv-the-chop',o);
+let ds=[],i=0,lat=false,tu=0,hen=0;
+const doc=()=>{const x=ds[i];if(x)TTS.say(x.z)};
+function ve(){const x=ds[i],T=$('the');
+  $('dem').textContent=ds.length?'Thẻ '+(i+1)+' / '+ds.length:'';
+  ['bTruoc','bSau','bLat','bDoc','bTron'].forEach(k=>$(k).disabled=!ds.length);
+  $('bLat').innerHTML=IC(lat?'sau':'lai')+(lat?'Thẻ tiếp':'Lật thẻ');
+  if(!x){T.innerHTML='<span class="goi">Chưa chọn từ nào.</span>';return}
+  const n=Math.max(2,[...x.z].length);T.style.setProperty('--n',n);
+  const z='<span class="z" lang="zh">'+esc(x.z)+'</span>',p=c=>'<span class="p '+(c||'')+'">'+esc(x.p)+'</span>',v=c=>'<span class="v '+(c||'')+'">'+esc(x.vi||'(chưa có nghĩa)')+'</span>';
+  let h='';
+  if(lat){h=z+p()+v();if(o.vd&&x.vd)h+='<span class="vd"><b lang="zh">'+esc(x.vd[0])+'</b><span>'+esc(x.vd[1])+'</span><span>'+esc(x.vd[2])+'</span></span>'}
+  else if(o.mt==='z')h=z+(o.py?p():'');
+  else if(o.mt==='v')h=v('chinh');
+  else if(o.mt==='p')h=p('chinh');
+  else h='<span class="loa">'+IC('loa-to')+'</span><span class="goi">Nghe rồi đoán chữ</span>';
+  T.innerHTML=h}
+function den(k){if(!ds.length)return;i=(k+ds.length)%ds.length;lat=false;ve();if(o.mt==='n')doc()}
+function lật(){if(!ds.length)return;lat=true;ve();if(o.doc)doc()}
+const buoc=()=>lat?den(i+1):lật();
+function chay(s){tu=s;clearInterval(hen);if(s)hen=setInterval(buoc,s*1000)}
+const tay=f=>{f();if(tu)chay(tu)};   // bấm tay thì tính giờ lại từ đầu
+seg($('cdMt'),[['z','Chữ Hán'],['v','Nghĩa'],['p','Pinyin'],['n','Nghe']],o.mt,v=>{o.mt=v;luu();lat=false;ve();if(v==='n')doc()});
+seg($('cdTu'),[[0,'Tắt'],[3,'3 giây'],[5,'5 giây'],[8,'8 giây']],0,chay);
+[['cdPy','py'],['cdVd','vd'],['cdDoc','doc']].forEach(([id,k])=>{$(id).checked=o[k];$(id).onchange=e=>{o[k]=e.target.checked;luu();ve()}});
+$('the').onclick=()=>tay(buoc);$('bLat').onclick=()=>tay(buoc);
+$('bTruoc').onclick=()=>tay(()=>den(i-1));$('bSau').onclick=()=>tay(()=>den(i+1));
+$('bDoc').onclick=doc;$('bToan').onclick=()=>toan($('san'));
+$('bTron').onclick=()=>{ds=tron(ds);tay(()=>den(0));GV.toast('Đã trộn thứ tự thẻ')};
+document.addEventListener('keydown',e=>{if(e.target.closest('select,input,textarea,summary')||e.metaKey||e.ctrlKey||e.altKey)return;
+  if(e.key===' '||e.key==='Enter'){if(e.target.closest('button,a')&&!e.target.closest('#san'))return;e.preventDefault();tay(buoc)}
+  else if(e.key==='ArrowRight'){e.preventDefault();tay(()=>den(i+1))}
+  else if(e.key==='ArrowLeft'){e.preventDefault();tay(()=>den(i-1))}
+  else if(e.key==='r'||e.key==='R')doc();
+  else if(e.key==='f'||e.key==='F')toan($('san'))});
+GVT.nguon($('nguon'),list=>{ds=list;i=0;lat=false;ve()});
+})();
+</script>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
+</body>
+</html>

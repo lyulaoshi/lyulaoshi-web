@@ -7,8 +7,8 @@ goals:[
 intro:"Giống “trước hết / đầu tiên …, sau đó …” khi hướng dẫn, kể quy trình.",
 rules:[
  {t:"(S) + 首先 + V1，然后 + V2", sub:"顺承", fx:[["首先",null],["việc 1",""],["·",""],["然后",null],["việc 2",""]], mean:"",
-  ex:[["同学们[首先]读了一遍课文，[然后]认真地回答了黑板上的问题。","Tóngxuémen shǒuxiān dú le yí biàn kèwén, ránhòu rènzhēn de huídá le hēibǎn shang de wèntí.","Các bạn trước hết đọc bài khóa một lượt, sau đó nghiêm túc trả lời câu hỏi trên bảng.","等级标准"],
-      ["我们[首先]要找到科学的练习方法，[然后]坚持每天练习。","Wǒmen shǒuxiān yào zhǎodào kēxué de liànxí fāngfǎ, ránhòu jiānchí měi tiān liànxí.","Trước hết chúng ta phải tìm phương pháp luyện tập khoa học, sau đó kiên trì luyện mỗi ngày.","等级标准"]]}],
+  ex:[["同学们{1|首先}{2|读了一遍课文}，{3|然后}{4|认真地回答了黑板上的问题}。","Tóngxuémen shǒuxiān dú le yí biàn kèwén, ránhòu rènzhēn de huídá le hēibǎn shang de wèntí.","Các bạn trước hết đọc bài khóa một lượt, sau đó nghiêm túc trả lời câu hỏi trên bảng.","等级标准"],
+      ["我们{1|首先}{2|要找到科学的练习方法}，{3|然后}{4|坚持每天练习}。","Wǒmen shǒuxiān yào zhǎodào kēxué de liànxí fāngfǎ, ránhòu jiānchí měi tiān liànxí.","Trước hết chúng ta phải tìm phương pháp luyện tập khoa học, sau đó kiên trì luyện mỗi ngày.","等级标准"]]}],
 notes:[{t:"Thêm bước", html:"<span class='zh'>首先……，然后……，最后……</span> — trước hết …, sau đó …, cuối cùng …"}],
 cmp:[
  {vn:"Đầu tiên rửa tay, sau đó ăn cơm.", zh:"[首先]洗手，[然后]吃饭。", py:"Shǒuxiān xǐ shǒu, ránhòu chī fàn.", ok:true, why:"Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> 以后吃饭 khi kể bước kế tiếp."}],

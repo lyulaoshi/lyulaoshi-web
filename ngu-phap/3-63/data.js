@@ -7,8 +7,8 @@ goals:[
 intro:"【二46】 đã có 又 A 又 B trong một cụm ngắn (又高又大). Ở HSK 3, 又 nối <b>hai vế câu</b> dài hơn, mỗi vế có thể có tân ngữ, chủ ngữ riêng.",
 rules:[
  {t:"(S) + 又 + V/Adj1 (…)，(S) + 又 + V/Adj2 (…)", sub:"并列", fx:[["又",null],["vế 1",""],["·",""],["又",null],["vế 2",""]], mean:"",
-  ex:[["晚会上大家[又]唱歌，[又]跳舞，高兴极了。","Wǎnhuì shang dàjiā yòu chàng gē, yòu tiào wǔ, gāoxìng jí le.","Ở dạ hội mọi người vừa hát vừa nhảy, vui vô cùng.","等级标准"],
-      ["这件衣服样子[又]好看，价格[又]便宜。","Zhè jiàn yīfu yàngzi yòu hǎokàn, jiàgé yòu piányi.","Chiếc áo này kiểu dáng vừa đẹp, giá lại vừa rẻ.","等级标准"]]}],
+  ex:[["晚会上大家{1|又}{2|唱歌}，{3|又}{4|跳舞}，高兴极了。","Wǎnhuì shang dàjiā yòu chàng gē, yòu tiào wǔ, gāoxìng jí le.","Ở dạ hội mọi người vừa hát vừa nhảy, vui vô cùng.","等级标准"],
+      ["这件衣服{2|样子}{1|又}{2|好看}，{4|价格}{3|又}{4|便宜}。","Zhè jiàn yīfu yàngzi yòu hǎokàn, jiàgé yòu piányi.","Chiếc áo này kiểu dáng vừa đẹp, giá lại vừa rẻ.","等级标准"]]}],
 cmp:[
  {vn:"Căn phòng này vừa rộng vừa sáng.", zh:"这个房间[又]大[又]亮。", py:"Zhège fángjiān yòu dà yòu liàng.", ok:true, why:"Không dùng <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> 很大很亮 để nói “vừa … vừa”."}],
 ex:[

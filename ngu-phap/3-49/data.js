@@ -8,10 +8,13 @@ goals:[
 intro:"Bổ ngữ mức độ đứng <b>sau</b> tính từ — giống “mệt <b>lắm</b>, đẹp <b>cực</b>” của tiếng Việt.",
 rules:[
  {t:"Adj / động từ tâm lý + 得很 / 极了 / 死了", sub:"程度补语", fx:[["Tính từ / 喜欢…",""],["得很 / 极了 / 死了",null]], mean:"",
-  ex:[["我累[得很]。","Wǒ lèi de hěn.","Tôi mệt lắm.","等级标准"],
-      ["外面冷[极了]。","Wàimiàn lěng jí le.","Bên ngoài lạnh cực kỳ.","等级标准"],
-      ["这个游戏孩子们喜欢[极了]。","Zhège yóuxì háizimen xǐhuan jí le.","Trò chơi này bọn trẻ thích lắm.","等级标准"],
-      ["他们今天忙[死了]。","Tāmen jīntiān máng sǐ le.","Hôm nay họ bận chết đi được.","等级标准"]]}],
+  ex:[["我{1|累}{2|得很}。","Wǒ lèi de hěn.","Tôi mệt lắm.","等级标准"],
+      ["外面{1|冷}{2|极了}。","Wàimiàn lěng jí le.","Bên ngoài lạnh cực kỳ.","等级标准"],
+      ["这个游戏孩子们{1|喜欢}{2|极了}。","Zhège yóuxì háizimen xǐhuan jí le.","Trò chơi này bọn trẻ thích lắm.","等级标准"],
+      ["他们今天{1|忙}{2|死了}。","Tāmen jīntiān máng sǐ le.","Hôm nay họ bận chết đi được.","等级标准"]]},
+ {t:"V / Adj + 坏了", sub:"quá chừng", fx:[["Adj / V",""],["坏了",null]], mean:"坏了 chỉ mức độ rất cao: 累坏了, 高兴坏了, 饿坏了.",
+  ex:[["今天我{1|累}{2|坏了}。", "Jīntiān wǒ lèi huài le.", "Hôm nay tôi mệt rã rời."],
+      ["孩子们{1|高兴}{2|坏了}。", "Háizimen gāoxìng huài le.", "Bọn trẻ vui quá chừng."]]}],
 cmp:[
  {vn:"Đẹp cực!", zh:"漂亮[极了]！", py:"Piàoliang jí le!", ok:true, why:"“cực” sau tính từ — giống tiếng Việt."},
  {vn:"Nóng chết đi được!", zh:"热[死了]！", py:"Rè sǐ le!", ok:true, why:"“chết đi được” = 死了."}],
@@ -46,6 +49,8 @@ practice:[
  {t:"F. Dịch thêm", sub:"gõ chữ Hán rồi bấm Kiểm tra", type:"show", items:[
   {q:"Mệt chết đi được!", a:"累死了！/ 我累死了！"},
   {q:"Hôm nay lạnh vô cùng.", a:"今天冷极了。/ 今天冷死了。/ 今天冷得很。"},
-  {q:"Câu hỏi này khó lắm.", a:"这个问题难极了。/ 这个问题难得很。/ 这个问题难死了。"}]}],
+  {q:"Câu hỏi này khó lắm.", a:"这个问题难极了。/ 这个问题难得很。/ 这个问题难死了。"}]},
+ {t:"G. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"一天没吃饭，我饿＿。", vi:"Cả ngày chưa ăn, tôi đói lả.", o:["坏了", "很了", "得"], a:0, why:"饿坏了."}]}],
 rel:["二51","一09","二31","三75"]
 };

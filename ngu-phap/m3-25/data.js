@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新3.25】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新3.25】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新3.25", title:"介词：根据", vi:"Giới từ 根据 — căn cứ vào, dựa theo", tag:"词类 · 介词",
 goals:[
@@ -8,8 +8,8 @@ goals:[
 intro:"根据 = “căn cứ vào / theo”. Dùng khi nói <b>dựa vào thông tin, quy định, tình hình</b> nào đó để làm việc gì.",
 rules:[
  {t:"根据 + căn cứ，S + V", sub:"根据", fx:[["根据",null],["căn cứ",""],["·",""],["S + V",""]], mean:"",
-  ex:[["[根据]天气情况，我们明天不去了。","Gēnjù tiānqì qíngkuàng, wǒmen míngtiān bú qù le.","Căn cứ tình hình thời tiết, mai chúng ta không đi nữa."],
-      ["[根据]学校的要求，学生八点以前要到教室。","Gēnjù xuéxiào de yāoqiú, xuésheng bā diǎn yǐqián yào dào jiàoshì.","Theo yêu cầu của trường, học sinh phải đến lớp trước 8 giờ."]]}],
+  ex:[["{1|根据}{2|天气情况}，{3|我们明天不去了}。","Gēnjù tiānqì qíngkuàng, wǒmen míngtiān bú qù le.","Căn cứ tình hình thời tiết, mai chúng ta không đi nữa."],
+      ["{1|根据}{2|学校的要求}，{3|学生八点以前要到教室}。","Gēnjù xuéxiào de yāoqiú, xuésheng bā diǎn yǐqián yào dào jiàoshì.","Theo yêu cầu của trường, học sinh phải đến lớp trước 8 giờ."]]}],
 cmp:[
  {vn:"Theo giáo viên, bài này rất quan trọng.", zh:"[根据]老师的话，这课很重要。", py:"Gēnjù lǎoshī de huà, zhè kè hěn zhòngyào.", ok:true, why:"根据 + danh từ / cụm danh từ, không đi trực tiếp với động từ."}],
 ex:[

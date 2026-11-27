@@ -8,14 +8,14 @@ goals:[
 intro:"Tiếng Việt: “Tôi ăn cơm <b>ở nhà lúc 7 giờ</b>.” Tiếng Trung: <b>我七点在家吃饭</b>. Mọi trạng ngữ dồn lên <b>trước động từ</b>.",
 rules:[
  {t:"Phó từ, tính từ làm trạng ngữ", sub:"副词、形容词作状语", fx:[["Chủ ngữ",""],["不 / 非常 / 认真…",null],["Động từ / tính từ",""]], mean:"Phủ định, mức độ, cách thức.",
-  ex:[["他[不]吃包子。","Tā bù chī bāozi.","Anh ấy không ăn bánh bao.","等级标准"],
-      ["这个房间[非常]干净。","Zhège fángjiān fēicháng gānjìng.","Căn phòng này vô cùng sạch.","等级标准"],
-      ["你[认真]写！","Nǐ rènzhēn xiě!","Em viết cẩn thận vào!","等级标准"]]},
+  ex:[["{1|他}{2|不}{3|吃包子}。","Tā bù chī bāozi.","Anh ấy không ăn bánh bao.","等级标准"],
+      ["{1|这个房间}{2|非常}{3|干净}。","Zhège fángjiān fēicháng gānjìng.","Căn phòng này vô cùng sạch.","等级标准"],
+      ["{1|你}{2|认真}{3|写}！","Nǐ rènzhēn xiě!","Em viết cẩn thận vào!","等级标准"]]},
  {t:"Thời gian, nơi chốn làm trạng ngữ", sub:"表示时间、处所的词语作状语", fx:[["Chủ ngữ",""],["Thời gian",null],["在 / 从 + nơi chốn",null],["Động từ",""]], mean:"Thời gian có thể đứng trước hoặc sau chủ ngữ, nhưng luôn trước động từ.",
-  ex:[["他[十点]睡觉。","Tā shí diǎn shuì jiào.","Anh ấy đi ngủ lúc 10 giờ.","等级标准"],
-      ["我们[下午]去吧。","Wǒmen xiàwǔ qù ba.","Chiều chúng mình đi nhé.","等级标准"],
-      ["她[在网上]买了两本书。","Tā zài wǎngshang mǎi le liǎng běn shū.","Cô ấy mua hai quyển sách trên mạng.","等级标准"],
-      ["哥哥[从北京]回来了。","Gēge cóng Běijīng huílai le.","Anh trai từ Bắc Kinh về rồi.","等级标准"]]}],
+  ex:[["{1|他}{2|十点}{4|睡觉}。","Tā shí diǎn shuì jiào.","Anh ấy đi ngủ lúc 10 giờ.","等级标准"],
+      ["{1|我们}{2|下午}{4|去}吧。","Wǒmen xiàwǔ qù ba.","Chiều chúng mình đi nhé.","等级标准"],
+      ["{1|她}{3|在网上}{4|买了两本书}。","Tā zài wǎngshang mǎi le liǎng běn shū.","Cô ấy mua hai quyển sách trên mạng.","等级标准"],
+      ["{1|哥哥}{3|从北京}{4|回来}了。","Gēge cóng Běijīng huílai le.","Anh trai từ Bắc Kinh về rồi.","等级标准"]]}],
 notes:[
  {t:"Thứ tự nhiều trạng ngữ", html:"<span class='zh'>我 + 明天 + 也 + 在家 + 吃饭</span> = thời gian → phó từ → nơi chốn → động từ."}],
 cmp:[

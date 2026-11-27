@@ -8,11 +8,11 @@ goals:[
 intro:"Vị ngữ HSK 1 là <b>động từ (+ tân ngữ)</b> hoặc <b>tính từ</b>. Tính từ làm vị ngữ trực tiếp — không cần “là” (是).",
 rules:[
  {t:"Động từ / cụm động từ làm vị ngữ", sub:"动词性谓语", fx:[["Chủ ngữ",""],["Động từ (+ tân ngữ)",null]], mean:"Nói chủ ngữ làm gì, bị gì.",
-  ex:[["他[病了]。","Tā bìng le.","Anh ấy bị ốm rồi.","等级标准"],
-      ["我们[学中文]。","Wǒmen xué Zhōngwén.","Chúng tôi học tiếng Trung.","等级标准"]]},
+  ex:[["{1|他}{2|病了}。","Tā bìng le.","Anh ấy bị ốm rồi.","等级标准"],
+      ["{1|我们}{2|学中文}。","Wǒmen xué Zhōngwén.","Chúng tôi học tiếng Trung.","等级标准"]]},
  {t:"Tính từ / cụm tính từ làm vị ngữ", sub:"形容词性谓语", fx:[["Chủ ngữ",""],["(很 / 不…) + tính từ",null]], mean:"Nói chủ ngữ thế nào. Xem kỹ 【一30】.",
-  ex:[["今天[不冷]。","Jīntiān bù lěng.","Hôm nay không lạnh.","等级标准"],
-      ["这个菜[很好吃]。","Zhège cài hěn hǎochī.","Món này rất ngon.","等级标准"]]}],
+  ex:[["{1|今天}{2|不冷}。","Jīntiān bù lěng.","Hôm nay không lạnh.","等级标准"],
+      ["{1|这个菜}{2|很好吃}。","Zhège cài hěn hǎochī.","Món này rất ngon.","等级标准"]]}],
 cmp:[
  {vn:"Hôm nay (trời) lạnh.", zh:"今天[很冷]。", py:"Jīntiān hěn lěng.", ok:true, why:"Tính từ làm vị ngữ, không có 是."},
  {vn:"Anh ấy bị ốm.", zh:"他[病了]。", py:"Tā bìng le.", ok:true, why:"“bị” không dịch thành chữ riêng."}],

@@ -8,11 +8,14 @@ goals:[
 intro:"Ba trợ từ ngữ khí mới của HSK 2, đều đứng <b>cuối câu</b>, đọc thanh nhẹ.",
 rules:[
  {t:"啊: cảm thán, làm mềm", sub:"啊¹", fx:[["Câu",""],["啊",null],["！",""]], mean:"Thường đi với 真、多、好…",
-  ex:[["今天真冷[啊]！","Jīntiān zhēn lěng a!","Hôm nay lạnh thật đấy!","等级标准"]]},
+  ex:[["{1|今天真冷}{2|啊}{3|！}","Jīntiān zhēn lěng a!","Hôm nay lạnh thật đấy!","等级标准"]]},
  {t:"吧: phỏng đoán (… phải không?)", sub:"吧²", fx:[["Câu (đoán)",""],["吧",null],["？",""]], mean:"Người hỏi đã đoán gần chắc, muốn xác nhận 【二79】.",
-  ex:[["您是老师[吧]？","Nín shì lǎoshī ba?","Ông là thầy giáo phải không ạ?","等级标准"]]},
+  ex:[["{1|您是老师}{2|吧}{3|？}","Nín shì lǎoshī ba?","Ông là thầy giáo phải không ạ?","等级标准"]]},
  {t:"的: khẳng định", sub:"的²", fx:[["(是)……",""],["的",null]], mean:"Nhấn mạnh sự việc đã xảy ra như thế (câu 是……的 【二60】).",
-  ex:[["我是昨天来[的]。","Wǒ shì zuótiān lái de.","Tôi đến (là) hôm qua.","等级标准"]]}],
+  ex:[["我{1|是昨天来}{2|的}。","Wǒ shì zuótiān lái de.","Tôi đến (là) hôm qua.","等级标准"]]},
+ {t:"呢: nhấn mạnh, đang diễn ra", sub:"呢", fx:[["Câu",""],["呢",null]], mean:"呢 cuối câu kể: khẳng định có chút nhấn mạnh (还早呢), hoặc cho biết việc đang diễn ra.",
+  ex:[["{1|时间还早}{2|呢}。", "Shíjiān hái zǎo ne.", "Còn sớm mà."],
+      ["{1|他在睡觉}{2|呢}。", "Tā zài shuìjiào ne.", "Anh ấy đang ngủ đấy."]]}],
 cmp:[
  {vn:"Đẹp quá đi!", zh:"真漂亮[啊]！", py:"Zhēn piàoliang a!", ok:true, why:"“đi / thế / nhỉ” cảm thán → 啊."},
  {vn:"Bạn là người Việt Nam phải không?", zh:"你是越南人[吧]？", py:"Nǐ shì Yuènán rén ba?", ok:true, why:"Đoán → 吧; hỏi trung tính → 吗."}],
@@ -35,6 +38,8 @@ practice:[
   {w:["我","是","昨天","来","的"], a:"我是昨天来的。", vi:"Tôi đến hôm qua."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Bạn mệt rồi phải không?", a:"你累了吧？"},
-  {q:"Món này ngon thật đấy!", a:"这个菜真好吃啊！"}]}],
+  {q:"Món này ngon thật đấy!", a:"这个菜真好吃啊！"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"别着急，还早＿。", vi:"Đừng vội, còn sớm mà.", o:["呢", "吗", "吧？"], a:0, why:"还……呢."}]}],
 rel:["一22","二79","二60","一35"]
 };

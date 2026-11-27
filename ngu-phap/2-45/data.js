@@ -7,9 +7,9 @@ goals:[
  "Thường có lý do ở vế trước."],
 intro:"Khi đã cân nhắc và chọn phương án tốt hơn, dùng <b>还是……吧</b>: “thôi, … đi”.",
 rules:[
- {t:"(Lý do)，(S) 还是 + V + 吧", sub:"还是……吧", fx:[["(Lý do)，",""],["(S)",""],["还是",null],["Động từ",""],["吧",null]], mean:"",
-  ex:[["打车太贵了，你[还是]坐地铁[吧]。","Dǎ chē tài guì le, nǐ háishi zuò dìtiě ba.","Đi taxi đắt quá, bạn đi tàu điện ngầm thì hơn.","等级标准"],
-      ["外边下雨了，我们[还是]在房间看电视[吧]。","Wàibian xià yǔ le, wǒmen háishi zài fángjiān kàn diànshì ba.","Ngoài trời mưa rồi, thôi chúng mình ở trong phòng xem ti vi đi.","等级标准"]]}],
+ {t:"(Lý do)，(S) 还是 + V + 吧", sub:"还是……吧", fx:[["(Lý do)",""],["，",""],["(S)",""],["还是",null],["Động từ",""],["吧",null]], mean:"",
+  ex:[["{1|打车太贵了}，{2|你}{3|还是}{4|坐地铁}{5|吧}。","Dǎ chē tài guì le, nǐ háishi zuò dìtiě ba.","Đi taxi đắt quá, bạn đi tàu điện ngầm thì hơn.","等级标准"],
+      ["{1|外边下雨了}，{2|我们}{3|还是}{4|在房间看电视}{5|吧}。","Wàibian xià yǔ le, wǒmen háishi zài fángjiān kàn diànshì ba.","Ngoài trời mưa rồi, thôi chúng mình ở trong phòng xem ti vi đi.","等级标准"]]}],
 cmp:[
  {vn:"Muộn rồi, thôi bạn về đi.", zh:"太晚了，你[还是]回去[吧]。", py:"Tài wǎn le, nǐ háishi huíqu ba.", ok:true, why:"“thôi … đi” = 还是……吧."},
  {vn:"Bạn uống trà hay cà phê?", zh:"你喝茶[还是]喝咖啡？", py:"Nǐ hē chá háishi hē kāfēi?", ok:true, why:"Câu hỏi lựa chọn — nghĩa khác."}],

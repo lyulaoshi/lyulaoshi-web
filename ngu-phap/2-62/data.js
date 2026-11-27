@@ -7,12 +7,12 @@ goals:[
  "Đặt 先, 再 <b>sau chủ ngữ, trước động từ</b>; 然后 đứng đầu vế sau."],
 intro:"Câu ghép nối tiếp kể các hành động <b>theo thứ tự thời gian</b>. Tiếng Việt: “Trước …, rồi / sau đó …”.",
 rules:[
- {t:"Không dùng từ nối", sub:"（1）", fx:[["Việc 1",""],["，",null],["Việc 2",""]], mean:"Thứ tự câu = thứ tự việc.",
-  ex:[["吃了晚饭，我们出去走走。","Chī le wǎnfàn, wǒmen chūqu zǒuzou.","Ăn tối xong, chúng tôi ra ngoài đi dạo.","等级标准"],
-      ["他回房间拿了衣服，去教室上课了。","Tā huí fángjiān ná le yīfu, qù jiàoshì shàng kè le.","Anh ấy về phòng lấy quần áo, rồi lên lớp học.","等级标准"]]},
- {t:"先……，再 / 然后……", sub:"（2）", fx:[["(S) 先",null],["Việc 1",""],["，再 / 然后",null],["Việc 2",""]], mean:"再 đứng trước động từ (sau chủ ngữ); 然后 đứng đầu vế sau, có thể thêm 再.",
-  ex:[["你[先]去超市买东西，[再]回家。","Nǐ xiān qù chāoshì mǎi dōngxi, zài huí jiā.","Bạn đi siêu thị mua đồ trước, rồi hẵng về nhà.","等级标准"],
-      ["我[先]去吃午饭，[然后]回房间休息。","Wǒ xiān qù chī wǔfàn, ránhòu huí fángjiān xiūxi.","Tôi đi ăn trưa trước, sau đó về phòng nghỉ.","等级标准"]]}],
+ {t:"Không dùng từ nối", sub:"（1）", fx:[["Việc 1",""],["，",""],["Việc 2",""]], mean:"Thứ tự câu = thứ tự việc.",
+  ex:[["{1|吃了晚饭}，{2|我们出去走走}。","Chī le wǎnfàn, wǒmen chūqu zǒuzou.","Ăn tối xong, chúng tôi ra ngoài đi dạo.","等级标准"],
+      ["他{1|回房间拿了衣服}，{2|去教室上课}了。","Tā huí fángjiān ná le yīfu, qù jiàoshì shàng kè le.","Anh ấy về phòng lấy quần áo, rồi lên lớp học.","等级标准"]]},
+ {t:"先……，再 / 然后……", sub:"（2）", fx:[["(S) 先",null],["Việc 1",""],["，",""],["再 / 然后",null],["Việc 2",""]], mean:"再 đứng trước động từ (sau chủ ngữ); 然后 đứng đầu vế sau, có thể thêm 再.",
+  ex:[["{1|你先}{2|去超市买东西}，{3|再}{4|回家}。","Nǐ xiān qù chāoshì mǎi dōngxi, zài huí jiā.","Bạn đi siêu thị mua đồ trước, rồi hẵng về nhà.","等级标准"],
+      ["{1|我先}{2|去吃午饭}，{3|然后}{4|回房间休息}。","Wǒ xiān qù chī wǔfàn, ránhòu huí fángjiān xiūxi.","Tôi đi ăn trưa trước, sau đó về phòng nghỉ.","等级标准"]]}],
 cmp:[
  {vn:"Trước hết làm bài tập, rồi xem ti vi.", zh:"[先]做作业，[再]看电视。", py:"Xiān zuò zuòyè, zài kàn diànshì.", ok:true, why:"“trước … rồi …” = 先……再……"}],
 ex:[

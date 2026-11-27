@@ -8,8 +8,8 @@ goals:[
 intro:"对 dẫn ra <b>đối tượng</b> mà thái độ, hành động hướng tới. Tiếng Việt “nhiệt tình <b>với khách</b>” → tiếng Trung đưa <b>对顾客</b> lên trước tính từ.",
 rules:[
  {t:"对 + đối tượng + tính từ / động từ", sub:"对", fx:[["Chủ ngữ",""],["对",null],["người / vật",""],["热情 / 好 / 感兴趣 / 说…",""]], mean:"Thái độ, cảm nhận, lời nói hướng về ai / cái gì.",
-  ex:[["她[对]顾客非常热情。","Tā duì gùkè fēicháng rèqíng.","Cô ấy rất nhiệt tình với khách hàng.","等级标准"],
-      ["这件事你[对]他说了吗？","Zhè jiàn shì nǐ duì tā shuō le ma?","Chuyện này bạn đã nói với anh ấy chưa?","等级标准"]]}],
+  ex:[["{1|她}{2|对}{3|顾客}非常{4|热情}。","Tā duì gùkè fēicháng rèqíng.","Cô ấy rất nhiệt tình với khách hàng.","等级标准"],
+      ["这件事{1|你}{2|对}{3|他}{4|说了}吗？","Zhè jiàn shì nǐ duì tā shuō le ma?","Chuyện này bạn đã nói với anh ấy chưa?","等级标准"]]}],
 notes:[
  {t:"Cụm hay gặp", html:"<span class='zh'>对……好</span> (tốt với) · <span class='zh'>对……感兴趣</span> (hứng thú với) · <span class='zh'>对身体好 / 不好</span> (tốt / không tốt cho sức khỏe)."},
  {t:"对 còn là tính từ", html:"= đúng: <span class='zh'>你说得对。</span>"}],

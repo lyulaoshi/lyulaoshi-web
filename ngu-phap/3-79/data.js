@@ -7,8 +7,8 @@ goals:[
 intro:"Ở đây 都 = “đã”, không phải “đều”. Giống “Đã 11 giờ rồi (mà) …”.",
 rules:[
  {t:"都 + thời gian / số lượng + 了，…", sub:"口语", fx:[["都",null],["thời gian / số lượng",""],["了",null],["·",""],["lời khuyên / thắc mắc",""]], mean:"",
-  ex:[["[都]十一点[了]，你别看电视了。","Dōu shíyī diǎn le, nǐ bié kàn diànshì le.","Đã 11 giờ rồi, con đừng xem ti vi nữa.","等级标准"],
-      ["[都]三天[了]，他怎么还没回来？","Dōu sān tiān le, tā zěnme hái méi huílai?","Đã ba ngày rồi, sao anh ấy vẫn chưa về?","等级标准"]]}],
+  ex:[["{1|都}{2|十一点}{3|了}，{4|你别看电视了}。","Dōu shíyī diǎn le, nǐ bié kàn diànshì le.","Đã 11 giờ rồi, con đừng xem ti vi nữa.","等级标准"],
+      ["{1|都}{2|三天}{3|了}，{4|他怎么还没回来？}","Dōu sān tiān le, tā zěnme hái méi huílai?","Đã ba ngày rồi, sao anh ấy vẫn chưa về?","等级标准"]]}],
 cmp:[
  {vn:"Đã 20 tuổi rồi mà còn …", zh:"[都]二十岁[了]，还……", py:"Dōu èrshí suì le, hái……", ok:true, why:"都 = “đã”, cuối cụm có 了."}],
 ex:[

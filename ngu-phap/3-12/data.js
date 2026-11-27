@@ -8,11 +8,15 @@ goals:[
 intro:"Bốn phó từ mức độ HSK 3, đều đứng <b>trước tính từ / động từ tâm lý</b>.",
 rules:[
  {t:"比较 / 相当 + Adj: khá, tương đối", sub:"比较 · 相当", fx:[["比较 / 相当",null],["Tính từ / 喜欢…",""]], mean:"相当 mức độ cao hơn 比较.",
-  ex:[["我[比较]喜欢游泳。","Wǒ bǐjiào xǐhuan yóuyǒng.","Tôi khá thích bơi.","等级标准"],
-      ["这个公园的景色[相当]漂亮。","Zhège gōngyuán de jǐngsè xiāngdāng piàoliang.","Phong cảnh công viên này khá đẹp.","等级标准"]]},
+  ex:[["我{1|比较}{2|喜欢游泳}。","Wǒ bǐjiào xǐhuan yóuyǒng.","Tôi khá thích bơi.","等级标准"],
+      ["这个公园的景色{1|相当}{2|漂亮}。","Zhège gōngyuán de jǐngsè xiāngdāng piàoliang.","Phong cảnh công viên này khá đẹp.","等级标准"]]},
  {t:"更加 / 还 + Adj: càng, còn … hơn", sub:"更加 · 还³", fx:[["(比 B)",""],["更加 / 还",null],["Tính từ",""]], mean:"更加 trang trọng hơn 更.",
-  ex:[["她以前学习就很努力，现在[更加]努力了。","Tā yǐqián xuéxí jiù hěn nǔlì, xiànzài gèngjiā nǔlì le.","Trước đây cô ấy học đã rất chăm, giờ càng chăm hơn.","等级标准"],
-      ["这个房间比那个房间[还]干净。","Zhège fángjiān bǐ nàge fángjiān hái gānjìng.","Phòng này còn sạch hơn phòng kia."]]}],
+  ex:[["她以前学习就很努力，现在{2|更加}{3|努力}了。","Tā yǐqián xuéxí jiù hěn nǔlì, xiànzài gèngjiā nǔlì le.","Trước đây cô ấy học đã rất chăm, giờ càng chăm hơn.","等级标准"],
+      ["{1|这个房间比那个房间}{2|还}{3|干净}。","Zhège fángjiān bǐ nàge fángjiān hái gānjìng.","Phòng này còn sạch hơn phòng kia."]]},
+ {t:"有些、越、极", sub:"hơi, càng, cực", fx:[["S",""],["有些 / 越 / 极",null],["Adj / V",""]], mean:"有些 = hơi (như 有点儿) · 越……越…… = càng … càng · 极 + Adj = cực kỳ (cũng nói Adj + 极了).",
+  ex:[["{1|今天}{2|有些}{3|冷}。", "Jīntiān yǒuxiē lěng.", "Hôm nay hơi lạnh."],
+      ["{1|雨}{2|越}下{2|越}{3|大}。", "Yǔ yuè xià yuè dà.", "Mưa càng lúc càng to."],
+      ["{1|这个办法}{2|极}{3|好}。", "Zhège bànfǎ jí hǎo.", "Cách này cực hay."]]}],
 cmp:[
  {vn:"Tôi khá thích bơi.", zh:"我[比较]喜欢游泳。", py:"Wǒ bǐjiào xǐhuan yóuyǒng.", ok:true, why:"比较 ở đây = “khá”, không phải “so sánh”."}],
 ex:[
@@ -31,6 +35,9 @@ practice:[
   {w:["这个公园的","景色","相当","漂亮"], a:"这个公园的景色相当漂亮。", vi:"Phong cảnh công viên này khá đẹp."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Anh ấy nói tiếng Trung khá giỏi.", a:"他的中文说得相当好。/ 他中文说得相当好。/ 他的中文说得比较好。"},
-  {q:"Bây giờ cô ấy càng chăm chỉ hơn.", a:"现在她更加努力了。/ 她现在更加努力了。"}]}],
+  {q:"Bây giờ cô ấy càng chăm chỉ hơn.", a:"现在她更加努力了。/ 她现在更加努力了。"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"天气越来＿热了。", vi:"Trời ngày càng nóng.", o:["越", "极", "有些"], a:0, why:"越来越."},
+  {q:"第一次上台，我＿紧张。", vi:"Lần đầu lên sân khấu, tôi hơi hồi hộp.", o:["有些", "越", "极了"], a:0, why:"有些 = hơi."}]}],
 rel:["一09","二13","二58","一18"]
 };

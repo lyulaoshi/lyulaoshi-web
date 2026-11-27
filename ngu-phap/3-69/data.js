@@ -7,8 +7,8 @@ goals:[
 intro:"要是 = 如果 nhưng thân mật, hay dùng khi nói. Vế sau thường có 就.",
 rules:[
  {t:"要是 + giả thiết，(S) + 就 + kết quả", sub:"假设", fx:[["要是",null],["giả thiết",""],["·",""],["S + 就",null],["kết quả",""]], mean:"",
-  ex:[["[要是]不开心，我[就]会大声唱歌。","Yàoshi bù kāixīn, wǒ jiù huì dàshēng chàng gē.","Nếu không vui, tôi sẽ hát thật to.","等级标准"],
-      ["[要是]你明天有时间，[就]跟我一起去长城吧。","Yàoshi nǐ míngtiān yǒu shíjiān, jiù gēn wǒ yìqǐ qù Chángchéng ba.","Nếu mai bạn có thời gian thì đi Trường Thành với tôi nhé.","等级标准"]]}],
+  ex:[["{1|要是}{2|不开心}，{3|我就}{4|会大声唱歌}。","Yàoshi bù kāixīn, wǒ jiù huì dàshēng chàng gē.","Nếu không vui, tôi sẽ hát thật to.","等级标准"],
+      ["{1|要是}{2|你明天有时间}，{3|就}{4|跟我一起去长城吧}。","Yàoshi nǐ míngtiān yǒu shíjiān, jiù gēn wǒ yìqǐ qù Chángchéng ba.","Nếu mai bạn có thời gian thì đi Trường Thành với tôi nhé.","等级标准"]]}],
 cmp:[
  {vn:"Nếu trời mưa thì tôi không đi.", zh:"[要是]下雨，我[就]不去了。", py:"Yàoshi xià yǔ, wǒ jiù bú qù le.", ok:true, why:"“thì” = 就, đặt sau 我, không đặt trước 我."}],
 ex:[

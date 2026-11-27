@@ -7,9 +7,9 @@ goals:[
  "Không quên <b>的时候</b> sau sự việc."],
 intro:"当 dẫn ra thời điểm xảy ra một việc: <b>当……的时候</b> = “khi …”. Cụm này thường đứng <b>đầu câu</b>.",
 rules:[
- {t:"当 + sự việc + 的时候，(S) + V", sub:"当……的时候", fx:[["当",null],["sự việc",""],["的时候",null],["，vế sau",""]], mean:"Khi (việc A xảy ra) thì (việc B).",
-  ex:[["[当]他进来[的时候]，我们正在看电视。","Dāng tā jìnlai de shíhou, wǒmen zhèngzài kàn diànshì.","Khi anh ấy đi vào, chúng tôi đang xem ti vi.","等级标准"],
-      ["[当]爸爸回来[的时候]，妈妈已经做好晚饭了。","Dāng bàba huílai de shíhou, māma yǐjīng zuòhǎo wǎnfàn le.","Khi bố về, mẹ đã nấu xong cơm tối rồi.","等级标准"]]}],
+ {t:"当 + sự việc + 的时候，(S) + V", sub:"当……的时候", fx:[["当",null],["sự việc",""],["的时候",null],["，",""],["vế sau",""]], mean:"Khi (việc A xảy ra) thì (việc B).",
+  ex:[["{1|当}{2|他进来}{3|的时候}，{4|我们正在看电视}。","Dāng tā jìnlai de shíhou, wǒmen zhèngzài kàn diànshì.","Khi anh ấy đi vào, chúng tôi đang xem ti vi.","等级标准"],
+      ["{1|当}{2|爸爸回来}{3|的时候}，{4|妈妈已经做好晚饭了}。","Dāng bàba huílai de shíhou, māma yǐjīng zuòhǎo wǎnfàn le.","Khi bố về, mẹ đã nấu xong cơm tối rồi.","等级标准"]]}],
 notes:[
  {t:"Có thể bỏ 当", html:"<span class='zh'>他进来的时候，……</span> cũng đúng; 当 làm câu trang trọng, rõ ràng hơn."}],
 cmp:[

@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thẻ tên tiếng Trung 中文名 · Góc giáo viên – 吕老师汉语盒</title>
+<meta name="description" content="Đổi danh sách lớp sang tên tiếng Trung (âm Hán Việt) kèm pinyin, in thẻ đặt bàn và bảng tên cả lớp – Góc giáo viên, Lyu Laoshi Chinese Box.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../../tro-choi/game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="../gv.css?v=20">
+<link rel="stylesheet" href="../gv-giay.css?v=7">
+<style>
+.hai-cot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:14px;margin-top:14px;align-items:start}
+.hai-cot h2{font-size:17px;font-weight:800;margin-bottom:8px}
+.cuon{overflow-x:auto}
+.bsua{width:100%;border-collapse:collapse;font-size:14px}
+.bsua th{text-align:left;font-size:12.5px;color:var(--muted);padding:4px 6px}
+.bsua td{padding:3px 6px;border-top:1px solid var(--line);vertical-align:middle}
+.bsua input{width:100%;min-width:86px;padding:5px 9px}
+.bsua input.z{font-family:var(--kai);font-size:20px}
+.bsua tr.thieu input.z{border-color:var(--coral);background:var(--coral-s)}
+.bsua .undo,.bsua .xv{border:0;background:transparent;color:var(--teal);cursor:pointer;padding:4px}
+.bsua .xv{border-radius:10px;background:var(--teal-s);padding:5px 8px}
+.bsua td:last-child{white-space:nowrap}
+.bsua .undo .lli,.bsua .xv .lli{width:18px;height:18px}
+/* tờ hướng dẫn viết tên */
+.hd{display:flex;flex-direction:column;overflow:hidden;padding-top:2mm}
+.hd+.hd{border-top:.3mm dashed #888}
+.hd header{display:flex;align-items:center;gap:4mm;height:15mm;flex:none;border-bottom:.4mm solid #222;margin-bottom:2mm;white-space:nowrap;overflow:hidden}
+.hd header .z{font-family:var(--kai);font-size:10mm;line-height:1.2}
+.hd header .giua{display:flex;flex-direction:column;flex:1;min-width:0;line-height:1.4}   /* đủ chỗ cho dấu nặng, chân chữ g y */
+.hd header .p{font-size:4.8mm;font-weight:800;color:#0f6f76}
+.hd header .v{font-size:3.5mm;color:#333}
+.hd header .giua>span{overflow:hidden;text-overflow:ellipsis}
+.hd header small{flex:none;font-size:3mm;color:#777}
+.hd svg{display:block;flex:none}
+.hd .khoi{display:flex;flex-direction:column;justify-content:flex-start;flex:none;overflow:hidden}
+.hd .tren{display:flex;gap:4mm}
+.hd .phai{display:flex;flex-direction:column;min-width:0}
+.hd .tt{height:4.5mm;font-size:3.2mm;line-height:4.5mm;white-space:nowrap}
+.hd .tt b{font-family:var(--kai);font-weight:400;font-size:4mm;margin-right:1.5mm}
+.hd .buoc{display:flex;margin-bottom:1.5mm}
+.hd .hang{display:flex}
+/* hộp xem nét chạy */
+.vt-ten{text-align:center;font-weight:800;font-size:clamp(18px,2.6vw,30px)}
+.vt-ten small{display:block;font-size:.65em;font-weight:600;color:var(--muted)}
+.vt-o{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:100%}
+.vt-o button{display:grid;justify-items:center;gap:6px;padding:0;border:0;background:transparent;color:var(--ink);font:inherit;font-weight:700;cursor:pointer}
+.vt-o .o{display:grid;place-items:center;border-radius:16px;background:#fff;border:2px solid #c9807a;overflow:hidden}
+.vt-o .o svg{display:block}
+/* thẻ gập đặt bàn: nửa trên in ngược để gập đôi là đọc được cả hai mặt */
+.ban{display:grid;grid-template-rows:1fr 1fr;height:100%}
+.tam{display:grid;grid-template-rows:1fr 1fr;min-height:0;border:.3mm dashed #888}
+.tam+.tam{border-top:0}
+.mat{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;overflow:hidden;text-align:center;line-height:1.15}
+.mat:first-child{transform:rotate(180deg);border-top:.2mm dotted #bbb}
+.mat .z{font-family:var(--kai);line-height:1.12;white-space:nowrap}
+.mat .p{font-size:7mm;font-weight:700;color:#0f6f76}
+.mat .v{font-size:4.4mm;color:#333;margin-top:1mm}
+.bang h2{font-size:6mm;font-weight:800;text-align:center;margin-bottom:5mm}
+.bang table{width:100%;border-collapse:collapse;font-size:3.8mm}
+.bang th,.bang td{border:.3mm solid #444;padding:0 2.5mm;height:9.4mm;text-align:left;overflow:hidden}
+.bang th{background:#eef6f6;font-size:3.5mm}
+.bang td.s,.bang th.s{width:14mm;text-align:center}
+.bang td.z{font-family:var(--kai);font-size:6mm}
+@media (max-width:760px){.hai-cot{grid-template-columns:minmax(0,1fr)}}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<link rel="canonical" href="https://lyulaoshi.com/goc-giao-vien/the-ten/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="Thẻ tên tiếng Trung 中文名 · Góc giáo viên – 吕老师汉语盒"><meta property="og:description" content="Đổi danh sách lớp sang tên tiếng Trung (âm Hán Việt) kèm pinyin, in thẻ đặt bàn và bảng tên cả lớp – Góc giáo viên, Lyu Laoshi Chinese Box."><meta property="og:url" content="https://lyulaoshi.com/goc-giao-vien/the-ten/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../" class="hide-s">Góc giáo viên</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap">
+<section class="ph">
+  <a class="back" href="../"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#tg-trai"></use></svg>Góc giáo viên</a>
+  <h1>Thẻ tên tiếng Trung<span lang="zh">中文名</span></h1>
+  <p>Dán danh sách lớp, máy đổi sang tên Hán Việt kèm pinyin. Thầy cô kiểm tra, sửa chữ nếu cần rồi in thẻ, bảng tên hoặc tờ hướng dẫn viết.</p>
+</section>
+<div class="hai-cot">
+  <section class="pn">
+    <h2>Danh sách lớp</h2>
+    <textarea id="dsT" rows="12" placeholder="Mỗi dòng một tên&#10;Nguyễn Thị Minh Anh&#10;Trần Bảo Ngọc&#10;Lê Hoàng Nam" aria-label="Danh sách lớp"></textarea>
+    <label class="chk" style="margin-top:8px"><input type="checkbox" id="cDem">Bỏ tên đệm “Thị”, “Văn”</label>
+    <p class="small muted" style="margin:8px 0 0">Dùng chung với danh sách ở Quản lý lớp. Chỉ lưu trên máy này.</p>
+  </section>
+  <section class="pn">
+    <h2>Tên tiếng Trung</h2>
+    <p class="note" style="margin-bottom:10px">Chữ Hán được chọn tự động theo âm Hán Việt. Một âm có thể ứng với nhiều chữ, nên hỏi lại học viên hoặc kiểm tra trước khi in.</p>
+    <div class="cuon"><table class="bsua"><thead><tr><th>STT</th><th>Họ tên</th><th>中文名</th><th>Pinyin</th><th></th></tr></thead><tbody id="tb"></tbody></table></div>
+  </section>
+</div>
+<div class="pn cd">
+  <span class="nh">Mẫu giấy<span id="sGiay" role="group" aria-label="Mẫu giấy"></span></span>
+  <span class="nh">In<span class="seg" id="sKieu" role="group" aria-label="Kiểu in"></span></span>
+  <span class="nh" id="lMoi">Mỗi trang<span class="seg" id="sMoi" role="group" aria-label="Số bạn mỗi trang"></span></span>
+  <label class="nh" id="lLop">Tên lớp<input type="text" id="tLop" maxlength="40" placeholder="Ví dụ: Lớp Trung 1A"></label>
+</div>
+<div class="inbar"><button class="btn tl lon" type="button" id="bIn" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#cuon-giay"></use></svg>In / Lưu PDF</button><span id="ghi" aria-live="polite"></span></div>
+<div class="xem" id="xem"></div>
+</main>
+<footer class="wrap">© Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<dialog class="big" id="vietD" aria-label="Cách viết tên">
+  <div class="vt-ten" id="vtTen"></div>
+  <div class="vt-o" id="vtO"></div>
+  <div class="san-bt">
+    <button class="btn gh lon" type="button" id="vtTruoc"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#truoc"></use></svg>Bạn trước</button>
+    <button class="btn tl lon" type="button" id="vtLai"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#lai"></use></svg>Viết lại</button>
+    <button class="btn gh lon" type="button" id="vtSau">Bạn tiếp<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sau"></use></svg></button>
+  </div>
+  <div class="row"><label class="chk"><input type="checkbox" id="vtCham">Viết chậm</label><span class="small muted">Bấm vào một chữ để xem riêng chữ đó.</span></div>
+  <button class="btn gh big-x" type="button" id="vtX"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sai"></use></svg>Đóng</button>
+</dialog>
+
+<script src="ten-han.js?v=2"></script>
+<script src="../phieu-viet/chu.js?v=1"></script>
+<script src="../gv.js?v=7"></script>
+<script src="../gv-tu.js?v=9"></script>
+<script>
+(function(){
+const {$,IC,esc,store}=GV,{seg}=GVT;
+/* gom hai lối bỏ dấu (hoà / hòa, thuý / thúy) về một dạng để tra bảng */
+const CAP='oà:òa oá:óa oả:ỏa oã:õa oạ:ọa oè:òe oé:óe oẻ:ỏe uỳ:ùy uý:úy uỷ:ủy uỹ:ũy uỵ:ụy'.split(' ').map(x=>x.split(':'));
+const khoa=s=>CAP.reduce((t,[a,b])=>t.split(a).join(b),s.normalize('NFC').toLowerCase());
+const bang=s=>{const m=new Map();s.split(/\s+/).filter(Boolean).forEach(x=>{const [a,v]=x.split(':');m.set(khoa(a),[v[0],v.slice(1)])});return m};
+const HO=bang(TEN_HAN.ho),TEN=bang(TEN_HAN.ten);
+const o=Object.assign({dem:false,kieu:'ban',lop:'',moi:2},store.get('gv-the-ten')||{});
+const sua=store.get('gv-ten')||{};   // chữ thầy cô đã sửa tay: {họ tên: {z,p}}
+const luu=()=>store.set('gv-the-ten',o);
+/* mỗi dòng một người, giữ thứ tự dán; chép từ Excel (có cột STT) thì lấy ô nhiều chữ cái nhất */
+const dong=()=>$('dsT').value.split('\n').map(l=>{const o=l.split('\t').map(x=>x.trim()).sort((a,b)=>(b.match(/\p{L}/gu)||[]).length-(a.match(/\p{L}/gu)||[]).length)[0]||'';
+  return o.replace(/^\s*\d+\s*[.)\-]?\s*/,'').replace(/\s+/g,' ').trim()}).filter(Boolean);
+const hoa=s=>s?s[0].toUpperCase()+s.slice(1):s;
+function doi(ten){let a=ten.split(' ');
+  if(o.dem&&a.length>2)a=a.filter((x,i)=>i===0||i===a.length-1||!['thị','văn'].includes(khoa(x)));
+  let thieu=false;
+  const r=a.map((x,i)=>{const k=khoa(x),v=(i===0&&a.length>1?HO.get(k):null)||TEN.get(k)||HO.get(k);if(!v)thieu=true;return v||['□','?']});
+  const noi=s=>s.reduce((t,p)=>t+(t&&/^[aāáǎàoōóǒòeēéěè]/.test(p)?'’':'')+p,'');
+  const p=r.length>1?hoa(r[0][1])+' '+hoa(noi(r.slice(1).map(x=>x[1]))):hoa(r[0][1]);
+  return{z:r.map(x=>x[0]).join(''),p,thieu}}
+function lop(){return dong().map(ten=>{const m=doi(ten),s=sua[ten];return s?{ten,z:s.z,p:s.p,thieu:!s.z||s.z.includes('□'),tay:true}:{ten,...m}})}
+const nutLai='<button type="button" class="undo" title="Trở về chữ máy chọn" aria-label="Trở về chữ máy chọn">'+IC('lai')+'</button>';
+const nutXem=x=>'<button type="button" class="xv" title="Xem cách viết" aria-label="Xem cách viết tên '+esc(x.ten)+'">'+IC('but')+'</button>';
+function veBang(){const ds=lop();
+  $('tb').innerHTML=ds.length?ds.map((x,i)=>'<tr class="'+(x.thieu?'thieu':'')+'" data-i="'+i+'"><td>'+(i+1)+'</td><td>'+esc(x.ten)+'</td><td><input type="text" class="z" lang="zh" value="'+esc(x.z)+'" aria-label="Tên chữ Hán của '+esc(x.ten)+'"></td><td><input type="text" class="p" value="'+esc(x.p)+'" aria-label="Pinyin của '+esc(x.ten)+'"></td><td>'
+    +nutXem(x)+(x.tay?nutLai:'')+'</td></tr>').join('')
+    :'<tr><td colspan="5" class="muted">Dán danh sách lớp để bắt đầu.</td></tr>'}
+/* ---------- Tờ hướng dẫn viết: chữ lớn đánh số nét, dãy từng bước, ô tô và ô tự viết ---------- */
+const han=s=>[...s].filter(c=>/\p{Script=Han}/u.test(c));
+/* pinyin từng chữ của một tên: tách từ "Ruǎn Míngyīng" */
+function amChu(x){const t=CHU.tach(x.z.replace(/□/g,''),x.p.replace(/\?/g,''));return t||han(x.z).map(()=>'')}
+const KE='style="stroke:var(--go,#c9807a)" fill="none"';   /* màu kẻ theo mẫu giấy */
+const luoi='<rect x="6" y="6" width="1012" height="1012" '+KE+' stroke-width="12"/><path d="M512 6V1018M6 512H1018" '+KE+' stroke-width="6" stroke-dasharray="26 22"/>';
+const oSvg=(h,mm)=>'<svg viewBox="0 0 1024 1024" width="'+mm+'mm" height="'+mm+'mm" aria-hidden="true">'+h+'</svg>';
+const chuSvg=(c,d,mau)=>d?'<g transform="'+GVT.VT+'" fill="'+mau+'">'+d.strokes.map(p=>'<path d="'+p+'"/>').join('')+'</g>':'<text x="512" y="860" text-anchor="middle" font-size="880" style="font-family:var(--kai)" fill="'+mau+'">'+c+'</text>';
+/* số thứ tự đặt ngay trước điểm bắt đầu của nét, né các số đã đặt */
+function soNet(d){const da=[];return (d.medians||[]).map((m,k)=>{
+  const q=([x,y])=>[51.2+.9*x,51.2+.9*(900-y)],a=q(m[0]),b=q(m[Math.min(1,m.length-1)]);
+  let dx=b[0]-a[0],dy=b[1]-a[1];const l=Math.hypot(dx,dy)||1;dx/=l;dy/=l;
+  let x=a[0]-dx*34,y=a[1]-dy*34;
+  for(let t=1;t<14&&da.some(([u,v])=>Math.hypot(u-x,v-y)<88);t++){const s=(t%2?1:-1)*Math.ceil(t/2)*50;x=a[0]-dx*34-dy*s;y=a[1]-dy*34+dx*s}
+  x=Math.max(46,Math.min(978,x));y=Math.max(46,Math.min(978,y));da.push([x,y]);
+  return '<circle cx="'+x.toFixed(0)+'" cy="'+y.toFixed(0)+'" r="42" fill="#d11f1f"/><text x="'+x.toFixed(0)+'" y="'+(y+20).toFixed(0)+'" text-anchor="middle" font-size="56" font-weight="700" fill="#fff" style="font-family:var(--vi)">'+(k+1)+'</text>'}).join('')}
+const buoc=(d,mm)=>d.strokes.map((_,k)=>'<svg viewBox="0 0 1024 1024" width="'+mm+'mm" height="'+mm+'mm" aria-hidden="true"><g transform="'+GVT.VT+'">'+d.strokes.slice(0,k+1).map((p,j)=>'<path d="'+p+'" fill="'+(j===k?'#d11f1f':'#222')+'"/>').join('')+'</g></svg>').join('');
+function toMot(x,net,cao,mot){const cs=han(x.z),am=amChu(x),moi=Math.min(mot?80:40,(cao-27)/Math.max(1,cs.length));
+  const lon=Math.min(moi-2,mot?42:32),rong=186-lon;
+  return '<section class="hd" style="height:'+cao+'mm"><header><span class="z" lang="zh">'+esc(cs.join(''))+'</span><span class="giua"><span class="p">'+esc(x.p)+'</span><span class="v">'+esc(x.ten)+'</span></span><small>Tập viết tên của em</small></header>'
+   +cs.map((c,i)=>{const d=net.get(c),n=d?d.strokes.length:0,s=Math.min(mot?10:7.5,rong/Math.max(1,n));
+     const nho=Math.max(8,Math.min(mot?18:15,lon-4.5-s-1.5)),cot=Math.floor(rong/nho),o18=19,them=mot?Math.max(0,Math.floor((moi-Math.max(lon,6+s+nho)-3)/o18)):0;
+     const o_=(j,mm)=>oSvg(luoi+(j<3?chuSvg(c,d,'#cfcfcf'):''),mm);
+     let h='<div class="khoi" style="height:'+moi.toFixed(2)+'mm"><div class="tren">'+oSvg(luoi+chuSvg(c,d,'#333')+(d?soNet(d):''),lon.toFixed(2))
+       +'<div class="phai"><div class="tt"><b lang="zh">'+c+'</b>'+[am[i],n&&n+' nét'].filter(Boolean).map(esc).join(' · ')+'</div>'+(d?'<div class="buoc">'+buoc(d,s.toFixed(2))+'</div>':'')
+       +'<div class="hang">'+Array.from({length:cot},(_,j)=>o_(j,nho.toFixed(2))).join('')+'</div></div></div>';
+     for(let r=0;r<them;r++)h+='<div class="hang"'+(r?'':' style="margin-top:1.5mm"')+'>'+Array.from({length:10},()=>oSvg(luoi,o18)).join('')+'</div>';
+     return h+'</div>'}).join('')+'</section>'}
+let lan=0;
+async function veViet(ds){const l=++lan,co=ds.filter(x=>han(x.z).length),chu=[...new Set(co.flatMap(x=>han(x.z)))];
+  if(!co.length){$('xem').innerHTML='';$('bIn').disabled=true;$('ghi').textContent=ds.length?'Chưa có chữ Hán nào để hướng dẫn viết.':'';return}
+  if(chu.some(c=>!GVT.coNet(c))){$('bIn').disabled=true;$('ghi').textContent='Đang lấy nét của '+chu.length+' chữ…'}
+  const d=await Promise.all(chu.map(GVT.net));if(l!==lan||o.kieu!=='viet')return;
+  const net=new Map(chu.map((c,i)=>[c,d[i]]));
+  /* 2 bạn mỗi trang; tên dài hơn 5 chữ chiếm riêng một trang */
+  const trang=[];let cho=null;
+  co.forEach(x=>{if(o.moi===1||han(x.z).length>5){trang.push([x]);return}if(cho){cho.push(x);cho=null}else{cho=[x];trang.push(cho)}});
+  $('xem').innerHTML=trang.map(t=>{const mot=o.moi===1||han(t[0].z).length>5;return '<div class="trang cat">'+t.map(x=>toMot(x,net,mot?274:137,mot)).join('')+'</div>'}).join('');
+  GVT.vuaTrang($('xem'));$('bIn').disabled=false;
+  const th=ds.filter(x=>x.thieu).length,mat=chu.filter(c=>!net.get(c));
+  $('ghi').textContent=co.length+' bạn · '+trang.length+' trang A4.'+(th?' Còn '+th+' tên có ô trống (□), chữ đó chưa có trên tờ viết.':'')+(o.moi===2?' Cắt đôi theo đường đứt.':'')+(mat.length?' Chưa lấy được nét của: '+mat.join('、')+' (kiểm tra mạng).':'')}
+function veIn(){const ds=lop();let h='';lan++;
+  if(o.kieu==='viet'){veViet(ds);return}
+  if(o.kieu==='ban'){for(let t=0;t<ds.length;t+=2){h+='<div class="trang cat"><div class="ban">';
+      ds.slice(t,t+2).forEach(x=>{const n=Math.max(3,[...x.z].length),c=Math.min(34,168/n).toFixed(1);
+        const mat='<div class="mat"><div class="z" lang="zh" style="font-size:'+c+'mm">'+esc(x.z)+'</div><div class="p">'+esc(x.p)+'</div><div class="v">'+esc(x.ten)+'</div></div>';h+='<div class="tam">'+mat+mat+'</div>'});
+      h+='</div></div>'}}
+  else for(let t=0;t<ds.length;t+=25){h+='<div class="trang"><div class="bang"><h2>Tên tiếng Trung'+(o.lop?' · '+esc(o.lop):'')+'</h2><table><thead><tr><th class="s">STT</th><th>Họ tên</th><th>中文名</th><th>Pinyin</th></tr></thead><tbody>'
+      +ds.slice(t,t+25).map((x,k)=>'<tr><td class="s">'+(t+k+1)+'</td><td>'+esc(x.ten)+'</td><td class="z" lang="zh">'+esc(x.z)+'</td><td>'+esc(x.p)+'</td></tr>').join('')+'</tbody></table></div></div>'}
+  $('xem').innerHTML=h;GVT.vuaTrang($('xem'));$('bIn').disabled=!ds.length;
+  const th=ds.filter(x=>x.thieu).length;
+  $('ghi').textContent=ds.length?ds.length+' bạn · '+$('xem').children.length+' trang A4.'+(th?' Còn '+th+' tên có ô trống (□), thầy cô gõ chữ vào bảng.':'')+(o.kieu==='ban'?' Cắt theo đường đứt, gập đôi theo đường chấm.':''):''}
+const ve=()=>{veBang();veIn()};
+$('dsT').value=store.get('dcd-ds')||'';
+$('dsT').oninput=()=>{store.set('dcd-ds',$('dsT').value);ve()};
+$('cDem').checked=o.dem;$('cDem').onchange=e=>{o.dem=e.target.checked;luu();ve()};
+$('tb').addEventListener('change',e=>{const tr=e.target.closest('tr[data-i]');if(!tr)return;const x=lop()[+tr.dataset.i];
+  const z=tr.querySelector('.z').value.trim(),p=tr.querySelector('.p').value.trim();sua[x.ten]={z,p};store.set('gv-ten',sua);
+  tr.className=!z||z.includes('□')?'thieu':'';veIn();
+  if(!tr.querySelector('.undo'))tr.lastElementChild.insertAdjacentHTML('beforeend',nutLai)});
+$('tb').addEventListener('click',e=>{const b=e.target.closest('.undo');if(!b)return;delete sua[lop()[+b.closest('tr').dataset.i].ten];store.set('gv-ten',sua);ve()});
+const lLop=()=>{$('lLop').hidden=o.kieu!=='bang';$('lMoi').hidden=o.kieu!=='viet'};
+seg($('sMoi'),[[1,'1 bạn'],[2,'2 bạn']],o.moi,v=>{o.moi=v;luu();veIn()});
+seg($('sKieu'),[['ban','Thẻ đặt bàn'],['bang','Bảng tên cả lớp'],['viet','Hướng dẫn viết']],o.kieu,v=>{o.kieu=v;luu();lLop();veIn()});
+$('tLop').value=o.lop;$('tLop').oninput=e=>{o.lop=e.target.value;luu();veIn()};
+$('bIn').onclick=()=>print();
+/* ---------- Xem nét chạy từng tên (chiếu lên bảng) ---------- */
+const VD=$('vietD');let vi=0,luot=0,but=[];
+let napHW=null;
+const hanzi=()=>napHW||(napHW=new Promise((ok,loi)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js';s.onload=ok;s.onerror=()=>{napHW=null;s.remove();loi()};document.head.append(s)}));
+const viet=w=>new Promise(r=>w.animateCharacter({onComplete:r}));
+async function chay(tu){const l=++luot;const ds=tu==null?but:[but[tu]];ds.forEach(w=>w&&w.hideCharacter({duration:0}));
+  for(const w of ds){if(l!==luot||!w)return;await viet(w)}}
+async function moViet(k){const ds=lop();if(!ds.length)return;vi=(k+ds.length)%ds.length;const x=ds[vi],cs=han(x.z),am=amChu(x),l=++luot;but=[];
+  $('vtTen').innerHTML=esc(x.p)+'<small>'+esc(x.ten)+' · '+(vi+1)+' / '+ds.length+'</small>';
+  $('vtO').innerHTML=cs.length?'':'<p class="muted">Tên này chưa có chữ Hán, thầy cô gõ chữ vào bảng.</p>';
+  if(!VD.open)VD.showModal?VD.showModal():VD.setAttribute('open','');
+  if(!cs.length)return;
+  const co=Math.floor(Math.max(120,Math.min(280,innerHeight*.38,(innerWidth-48)/Math.min(cs.length,innerWidth<600?2:5)-14)));
+  cs.forEach((c,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<span class="o" style="width:'+co+'px;height:'+co+'px"></span><span>'+esc([am[i]||c].join(''))+'</span>';b.onclick=()=>chay(i);$('vtO').append(b)});
+  try{await hanzi()}catch(e){$('vtO').innerHTML='<p class="muted">Không tải được nét chữ. Kiểm tra mạng rồi mở lại.</p>';return}
+  const net=await Promise.all(cs.map(GVT.net));if(l!==luot)return;
+  [...$('vtO').children].forEach((b,i)=>{if(!net[i]){b.firstChild.textContent=cs[i];but[i]=null;return}b.lastChild.textContent=[am[i],net[i].strokes.length+' nét'].filter(Boolean).join(' · ');
+    but[i]=HanziWriter.create(b.firstChild,cs[i],{width:co,height:co,padding:co*.06,showCharacter:false,showOutline:true,strokeColor:'#222222',outlineColor:'#dddddd',radicalColor:null,
+      strokeAnimationSpeed:$('vtCham').checked?.45:1,delayBetweenStrokes:$('vtCham').checked?700:300,charDataLoader:(c,xong)=>xong(net[i])})});
+  chay()}
+$('tb').addEventListener('click',e=>{const b=e.target.closest('.xv');if(b)moViet(+b.closest('tr').dataset.i)});
+$('vtTruoc').onclick=()=>moViet(vi-1);$('vtSau').onclick=()=>moViet(vi+1);$('vtLai').onclick=()=>chay();$('vtCham').onchange=()=>moViet(vi);
+$('vtX').onclick=()=>VD.close?VD.close():VD.removeAttribute('open');
+VD.addEventListener('close',()=>{luot++;but=[];$('vtO').innerHTML=''});
+VD.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();moViet(vi+1)}else if(e.key==='ArrowLeft'){e.preventDefault();moViet(vi-1)}});
+addEventListener('resize',()=>GVT.vuaTrang($('xem')));
+GVT.giay($('sGiay'),$('xem'));
+lLop();ve();
+})();
+</script>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
+</body>
+</html>

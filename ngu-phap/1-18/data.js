@@ -8,8 +8,8 @@ goals:[
 intro:"比 dẫn ra đối tượng đem ra so sánh. Tiếng Việt: A + tính từ + <b>hơn</b> + B; tiếng Trung: A + <b>比 B</b> + tính từ.",
 rules:[
  {t:"A 比 B + tính từ", sub:"比", fx:[["A",""],["比",null],["B",""],["Tính từ",""]], mean:"A … hơn B. Tính từ đứng <b>cuối</b>, không có 很.",
-  ex:[["哥哥[比]弟弟高。","Gēge bǐ dìdi gāo.","Anh trai cao hơn em trai.","等级标准"],
-      ["这个房间[比]那个房间大。","Zhège fángjiān bǐ nàge fángjiān dà.","Phòng này rộng hơn phòng kia.","等级标准"]]}],
+  ex:[["{1|哥哥}{2|比}{3|弟弟}{4|高}。","Gēge bǐ dìdi gāo.","Anh trai cao hơn em trai.","等级标准"],
+      ["{1|这个房间}{2|比}{3|那个房间}{4|大}。","Zhège fángjiān bǐ nàge fángjiān dà.","Phòng này rộng hơn phòng kia.","等级标准"]]}],
 notes:[
  {t:"Không dùng 很 / 非常 / 真", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> <span class='zh'>他比我很高。</span> Muốn nhấn mạnh thì dùng 更 / 还 (HSK 2 【二58】): <span class='zh'>他比我更高。</span>"},
  {t:"Phủ định", html:"dùng <span class='zh'>A 没有 B + tính từ</span> 【一38】: <span class='zh'>弟弟没有哥哥高。</span>"},

@@ -7,10 +7,10 @@ goals:[
  "Kết hợp <b>如果……的话</b>."],
 intro:"的话 đứng <b>cuối vế điều kiện</b> (như “nếu … thì”), 等 đứng <b>cuối danh sách</b> liệt kê.",
 rules:[
- {t:"(如果) ……的话，(S) 就……", sub:"的话", fx:[["(如果) Điều kiện",""],["的话",null],["，(S) 就",""],["Kết quả",""]], mean:"Nếu … thì … 【二66】",
-  ex:[["你要来[的话]，就给我打个电话，我去接你。","Nǐ yào lái dehuà, jiù gěi wǒ dǎ ge diànhuà, wǒ qù jiē nǐ.","Nếu bạn định đến thì gọi cho tôi, tôi ra đón.","等级标准"]]},
+ {t:"(如果) ……的话，(S) 就……", sub:"的话", fx:[["(如果) Điều kiện",""],["的话",null],["，",""],["(S) 就",""],["Kết quả",""]], mean:"Nếu … thì … 【二66】",
+  ex:[["{1|你要来}{2|的话}，{3|就}{4|给我打个电话}，我去接你。","Nǐ yào lái dehuà, jiù gěi wǒ dǎ ge diànhuà, wǒ qù jiē nǐ.","Nếu bạn định đến thì gọi cho tôi, tôi ra đón.","等级标准"]]},
  {t:"A、B、C 等", sub:"等", fx:[["A、B、C",""],["等",null]], mean:"Liệt kê chưa hết (vân vân) hoặc kết thúc danh sách.",
-  ex:[["我去超市买了很多东西，有酒、水果、牛奶[等]。","Wǒ qù chāoshì mǎi le hěn duō dōngxi, yǒu jiǔ, shuǐguǒ, niúnǎi děng.","Tôi đi siêu thị mua nhiều thứ, có rượu, hoa quả, sữa v.v.","等级标准"]]}],
+  ex:[["我去超市买了很多东西，有{1|酒、水果、牛奶}{2|等}。","Wǒ qù chāoshì mǎi le hěn duō dōngxi, yǒu jiǔ, shuǐguǒ, niúnǎi děng.","Tôi đi siêu thị mua nhiều thứ, có rượu, hoa quả, sữa v.v.","等级标准"]]}],
 notes:[
  {t:"等 và 什么的", html:"<span class='zh'>什么的</span> 【二43】 mang màu khẩu ngữ hơn: <span class='zh'>水果、面包什么的</span>."}],
 cmp:[

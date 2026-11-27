@@ -7,12 +7,12 @@ goals:[
  "Đặt 就 <b>sau chủ ngữ</b> của vế sau."],
 intro:"Vế trước nêu <b>điều giả định</b>, vế sau nêu <b>kết quả</b>. Tiếng Việt: “Nếu … thì …”.",
 rules:[
- {t:"Không dùng từ nối", sub:"（1）", fx:[["Giả thiết",""],["，",null],["Kết quả",""]], mean:"",
-  ex:[["明天下雨，我们在家休息。","Míngtiān xià yǔ, wǒmen zài jiā xiūxi.","Mai mưa thì chúng tôi ở nhà nghỉ.","等级标准"],
-      ["明天不下雨，我们出去玩儿。","Míngtiān bú xià yǔ, wǒmen chūqu wánr.","Mai không mưa thì chúng tôi ra ngoài chơi.","等级标准"]]},
+ {t:"Không dùng từ nối", sub:"（1）", fx:[["Giả thiết",""],["，",""],["Kết quả",""]], mean:"",
+  ex:[["{1|明天下雨}，{2|我们在家休息}。","Míngtiān xià yǔ, wǒmen zài jiā xiūxi.","Mai mưa thì chúng tôi ở nhà nghỉ.","等级标准"],
+      ["{1|明天不下雨}，{2|我们出去玩儿}。","Míngtiān bú xià yǔ, wǒmen chūqu wánr.","Mai không mưa thì chúng tôi ra ngoài chơi.","等级标准"]]},
  {t:"如果……，就…… / ……的话，就……", sub:"（2）", fx:[["如果",null],["Giả thiết",""],["(的话)，(S) 就",null],["Kết quả",""]], mean:"如果 và 的话 có thể dùng một trong hai, hoặc cả hai.",
-  ex:[["[如果]你下午有时间，我们[就]一起去超市吧。","Rúguǒ nǐ xiàwǔ yǒu shíjiān, wǒmen jiù yìqǐ qù chāoshì ba.","Nếu chiều bạn có thời gian thì chúng mình cùng đi siêu thị nhé.","等级标准"],
-      ["明天天气不好[的话]，我[就]不去公园了。","Míngtiān tiānqì bù hǎo dehuà, wǒ jiù bú qù gōngyuán le.","Nếu mai thời tiết không tốt thì tôi không đi công viên nữa.","等级标准"]]}],
+  ex:[["{1|如果}{2|你下午有时间}，{3|我们就}{4|一起去超市吧}。","Rúguǒ nǐ xiàwǔ yǒu shíjiān, wǒmen jiù yìqǐ qù chāoshì ba.","Nếu chiều bạn có thời gian thì chúng mình cùng đi siêu thị nhé.","等级标准"],
+      ["{2|明天天气不好}{3|的话，我就}{4|不去公园了}。","Míngtiān tiānqì bù hǎo dehuà, wǒ jiù bú qù gōngyuán le.","Nếu mai thời tiết không tốt thì tôi không đi công viên nữa.","等级标准"]]}],
 cmp:[
  {vn:"Nếu mai mưa thì tôi không đi.", zh:"[如果]明天下雨，我[就]不去。", py:"Rúguǒ míngtiān xià yǔ, wǒ jiù bú qù.", ok:true, why:"“thì tôi” → 我就."}],
 ex:[

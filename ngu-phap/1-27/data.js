@@ -8,12 +8,12 @@ goals:[
 intro:"Tiếng Việt: danh từ + từ bổ nghĩa (“áo <b>mới</b>”). Tiếng Trung: <b>từ bổ nghĩa + (的) + danh từ</b> (新衣服). Đây là điểm ngược rõ nhất giữa hai ngôn ngữ.",
 rules:[
  {t:"Danh từ làm định ngữ", sub:"名词性词语", fx:[["Danh từ (loại)",null],["Danh từ",""]], mean:"Chỉ loại, chất liệu: thường không cần 的.",
-  ex:[["他在看[中文]书。","Tā zài kàn Zhōngwén shū.","Anh ấy đang đọc sách tiếng Trung.","等级标准"]]},
+  ex:[["他在看{1|中文}{2|书}。","Tā zài kàn Zhōngwén shū.","Anh ấy đang đọc sách tiếng Trung.","等级标准"]]},
  {t:"Tính từ làm định ngữ", sub:"形容词性词语", fx:[["Tính từ",null],["(的)",""],["Danh từ",""]], mean:"Tính từ một âm tiết thường không cần 的 (新书包); tính từ hai âm tiết hoặc có 很 thì thêm 的 (干净的房间、很好的朋友).",
-  ex:[["[新]书包很好看。","Xīn shūbāo hěn hǎokàn.","Cặp sách mới rất đẹp.","等级标准"],
-      ["我喜欢[干净的]房间。","Wǒ xǐhuan gānjìng de fángjiān.","Tôi thích căn phòng sạch sẽ.","等级标准"]]},
+  ex:[["{1|新}{3|书包}很好看。","Xīn shūbāo hěn hǎokàn.","Cặp sách mới rất đẹp.","等级标准"],
+      ["我喜欢{1|干净}{2|的}{3|房间}。","Wǒ xǐhuan gānjìng de fángjiān.","Tôi thích căn phòng sạch sẽ.","等级标准"]]},
  {t:"Cụm số lượng làm định ngữ", sub:"数量短语", fx:[["Số + lượng từ",null],["Danh từ",""]], mean:"Không dùng 的.",
-  ex:[["她看了[两本]书。","Tā kàn le liǎng běn shū.","Cô ấy đọc hai quyển sách.","等级标准"]]}],
+  ex:[["她看了{1|两本}{2|书}。","Tā kàn le liǎng běn shū.","Cô ấy đọc hai quyển sách.","等级标准"]]}],
 notes:[
  {t:"Người sở hữu", html:"đại từ / danh từ chỉ người + 的 【一20】: <span class='zh'>我的书、老师的手机</span>."},
  {t:"Nhiều định ngữ", html:"thứ tự thường: <b>sở hữu + số lượng + tính từ + loại</b>: <span class='zh'>我的两本新中文书</span>."}],

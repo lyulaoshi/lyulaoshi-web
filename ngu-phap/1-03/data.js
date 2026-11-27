@@ -8,11 +8,11 @@ goals:[
 intro:"想 và 要 đứng <b>trước động từ</b>. 想 nhẹ nhàng (mong, thích); 要 mạnh hơn (quyết định rồi, sẽ làm).",
 rules:[
  {t:"想: muốn (mong muốn)", sub:"愿望", fx:[["Chủ ngữ",""],["想 / 不想",null],["Động từ","+ tân ngữ"]], mean:"Muốn làm gì; có thể thêm 很: 很想…",
-  ex:[["我[想]学中文。","Wǒ xiǎng xué Zhōngwén.","Tôi muốn học tiếng Trung.","等级标准"],
-      ["你[想]去哪儿？","Nǐ xiǎng qù nǎr?","Bạn muốn đi đâu?"]]},
+  ex:[["{1|我}{2|想}{3|学中文}。","Wǒ xiǎng xué Zhōngwén.","Tôi muốn học tiếng Trung.","等级标准"],
+      ["{1|你}{2|想}{3|去哪儿}？","Nǐ xiǎng qù nǎr?","Bạn muốn đi đâu?"]]},
  {t:"要: muốn / sẽ (ý định chắc chắn)", sub:"意志 · 打算", fx:[["Chủ ngữ",""],["要",null],["Động từ","+ tân ngữ"]], mean:"Đã quyết, sắp làm: “muốn, định, sẽ”.",
-  ex:[["他[要]去书店。","Tā yào qù shūdiàn.","Anh ấy muốn (sẽ) đi hiệu sách.","等级标准"],
-      ["明天我[要]去北京。","Míngtiān wǒ yào qù Běijīng.","Ngày mai tôi sẽ đi Bắc Kinh."]],
+  ex:[["{1|他}{2|要}{3|去书店}。","Tā yào qù shūdiàn.","Anh ấy muốn (sẽ) đi hiệu sách.","等级标准"],
+      ["明天{1|我}{2|要}{3|去北京}。","Míngtiān wǒ yào qù Běijīng.","Ngày mai tôi sẽ đi Bắc Kinh."]],
   note:"Phủ định của 要 (muốn) thường là <b>不想</b>: <span class='zh'>我不想去。</span> Vì <span class='zh'>不要 + động từ</span> hay mang nghĩa “<b>đừng</b>”: <span class='zh'>不要说话！</span> = Đừng nói chuyện!"}],
 notes:[
  {t:"要 + danh từ", html:"= muốn có, cần (động từ thường): <span class='zh'>我要一杯水。</span> Tôi muốn một cốc nước. Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> <span class='zh'>我想一杯水。</span>"},

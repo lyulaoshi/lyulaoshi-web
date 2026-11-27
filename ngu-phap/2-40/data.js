@@ -8,8 +8,8 @@ goals:[
 intro:"Cụm động từ hoạt động như <b>một động từ</b>, thường làm vị ngữ của câu.",
 rules:[
  {t:"Các dạng cụm động từ", sub:"动词性短语", fx:[["(trạng ngữ / 能愿)",""],["Động từ",null],["(tân ngữ / bổ ngữ)",""]], mean:"",
-  ex:[["买水果　写完　拿出来","mǎi shuǐguǒ　xiěwán　ná chūlai","mua hoa quả　viết xong　lấy ra","等级标准"],
-      ["常常休息　可以去","chángcháng xiūxi　kěyǐ qù","thường nghỉ ngơi　có thể đi","等级标准"]]}],
+  ex:[["{2|买}{3|水果}　{2|写}{3|完}　{2|拿}{3|出来}","mǎi shuǐguǒ　xiěwán　ná chūlai","mua hoa quả　viết xong　lấy ra","等级标准"],
+      ["{1|常常}{2|休息}　{1|可以}{2|去}","chángcháng xiūxi　kěyǐ qù","thường nghỉ ngơi　có thể đi","等级标准"]]}],
 cmp:[
  {vn:"có thể đi", zh:"[可以]去", py:"kěyǐ qù", ok:true, why:"Năng nguyện trước động từ — giống tiếng Việt."},
  {vn:"viết xong", zh:"写[完]", py:"xiěwán", ok:true, why:"Bổ ngữ kết quả sau động từ — giống tiếng Việt."}],

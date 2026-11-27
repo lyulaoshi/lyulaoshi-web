@@ -7,8 +7,8 @@ goals:[
 intro:"并且 = “và, hơn nữa” — trang trọng hơn 而且 một chút, hay gặp trong văn viết.",
 rules:[
  {t:"Vế 1，并且 + vế 2", sub:"递进", fx:[["Vế 1",""],["·",""],["并且",null],["vế 2",""]], mean:"",
-  ex:[["专家们对这个问题进行了讨论，[并且]提出了解决办法。","Zhuānjiāmen duì zhège wèntí jìnxíng le tǎolùn, bìngqiě tíchū le jiějué bànfǎ.","Các chuyên gia đã thảo luận vấn đề này và còn đưa ra cách giải quyết.","等级标准"],
-      ["这种办法可以保存食物，[并且]能保存很久。","Zhè zhǒng bànfǎ kěyǐ bǎocún shíwù, bìngqiě néng bǎocún hěn jiǔ.","Cách này có thể bảo quản thực phẩm, hơn nữa bảo quản được rất lâu.","等级标准"]]}],
+  ex:[["{1|专家们对这个问题进行了讨论}，{2|并且}{3|提出了解决办法}。","Zhuānjiāmen duì zhège wèntí jìnxíng le tǎolùn, bìngqiě tíchū le jiějué bànfǎ.","Các chuyên gia đã thảo luận vấn đề này và còn đưa ra cách giải quyết.","等级标准"],
+      ["{1|这种办法可以保存食物}，{2|并且}{3|能保存很久}。","Zhè zhǒng bànfǎ kěyǐ bǎocún shíwù, bìngqiě néng bǎocún hěn jiǔ.","Cách này có thể bảo quản thực phẩm, hơn nữa bảo quản được rất lâu.","等级标准"]]}],
 cmp:[
  {vn:"Anh ấy đồng ý, hơn nữa còn giúp tôi.", zh:"他同意了，[并且]还帮了我。", py:"Tā tóngyì le, bìngqiě hái bāng le wǒ.", ok:true, why:"并且 đứng đầu vế sau; có thể thêm 还."}],
 ex:[

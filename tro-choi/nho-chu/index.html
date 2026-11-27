@@ -195,6 +195,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script src="../../tu-vung/bai-data.js"></script>
 <script src="../../tu-vung/chu-de.js"></script>
 <script src="../bo-tu.js?v=5"></script>
+<script src="../giao-bai.js?v=3"></script>
 <script src="../vuot-ai/am.js?v=1"></script>
 <script src="../tts.js?v=2"></script>
 <script src="../vui.js?v=20261004"></script>
@@ -351,7 +352,7 @@ $('sndBtn').onclick=()=>{$('sndBtn').style.opacity=AM.toggle()?1:.4};
 $('seeBtn').onclick=hide;
 $('quitBtn').onclick=()=>{if(alive)end()};
 function end(){window.TCX&&TCX.xong();
-  if(!alive)return;alive=false;clearInterval(timerId);clearInterval(clockId);$('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
+  if(!alive)return;alive=false;clearInterval(timerId);window.GIAOBAI&&GIAOBAI.xong(score,round);clearInterval(clockId);$('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   store.set('nc-total',(store.get('nc-total')||0)+total);if((store.get('nc-total')||0)>=100)award(5);
   const kk=bestKey(),best=store.get(kk)||0,rec=score>best;if(rec)store.set(kk,score);
   missed.forEach((v,c)=>{quen[c]=2});saveQuen();chipInfo();

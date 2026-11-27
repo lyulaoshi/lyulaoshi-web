@@ -8,9 +8,9 @@ goals:[
 intro:"Tân ngữ là người / vật chịu tác động của động từ, đứng <b>ngay sau động từ</b> — giống tiếng Việt.",
 rules:[
  {t:"Động từ + tân ngữ", sub:"名词、代词或名词性短语作宾语", fx:[["Chủ ngữ",""],["Động từ",""],["Tân ngữ",null]], mean:"Tân ngữ có thể là danh từ, đại từ, cụm danh từ.",
-  ex:[["他吃[面包]。","Tā chī miànbāo.","Anh ấy ăn bánh mì.","等级标准"],
-      ["妈妈来看[我]了。","Māma lái kàn wǒ le.","Mẹ đến thăm tôi rồi.","等级标准"],
-      ["她买了[一个手机]。","Tā mǎi le yí ge shǒujī.","Cô ấy mua một chiếc điện thoại.","等级标准"]]}],
+  ex:[["{1|他}{2|吃}{3|面包}。","Tā chī miànbāo.","Anh ấy ăn bánh mì.","等级标准"],
+      ["{1|妈妈}{2|来看}{3|我}了。","Māma lái kàn wǒ le.","Mẹ đến thăm tôi rồi.","等级标准"],
+      ["{1|她}{2|买了}{3|一个手机}。","Tā mǎi le yí ge shǒujī.","Cô ấy mua một chiếc điện thoại.","等级标准"]]}],
 notes:[
  {t:"Động từ ly hợp", html:"帮忙、见面、睡觉… đã có “tân ngữ” bên trong, không thêm tân ngữ sau: <span class='zh'>我帮你。/ 我帮你的忙。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> 我帮忙你) 【三05】."}],
 cmp:[

@@ -7,8 +7,8 @@ goals:[
 intro:"Không cần 吗, không cần từ để hỏi: đọc lên giọng ở cuối câu. Tiếng Việt cũng có: “Hôm nay thứ Bảy?”",
 rules:[
  {t:"Câu kể + ？ (lên giọng)", sub:"语调", fx:[["Câu kể",""],["↗ ？",null]], mean:"",
-  ex:[["今天是星期六[？]","Jīntiān shì xīngqīliù?","Hôm nay thứ Bảy à?","等级标准"],
-      ["你打算去旅行[？]","Nǐ dǎsuàn qù lǚxíng?","Bạn định đi du lịch à?","等级标准"]]}],
+  ex:[["{1|今天是星期六}{2|？}","Jīntiān shì xīngqīliù?","Hôm nay thứ Bảy à?","等级标准"],
+      ["{1|你打算去旅行}{2|？}","Nǐ dǎsuàn qù lǚxíng?","Bạn định đi du lịch à?","等级标准"]]}],
 cmp:[
  {vn:"Bạn không đi à?", zh:"你不去[？]", py:"Nǐ bú qù?", ok:true, why:"Lên giọng cuối câu, thể hiện ngạc nhiên."}],
 ex:[

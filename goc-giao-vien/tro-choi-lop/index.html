@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Trò chơi cả lớp · Góc giáo viên – 吕老师汉语盒</title>
+<meta name="description" content="Tra các trò chơi cả lớp tiếng Trung theo thời gian, sĩ số, thiết bị: Kéo co, Đập ruồi, Võ đài, Chiếm lãnh thổ… – Góc giáo viên, Lyu Laoshi Chinese Box.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../../tro-choi/game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="../gv.css?v=20">
+<style>.fl button[aria-pressed="true"]{background:var(--teal-s);border-color:var(--teal);color:var(--ink)}</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<link rel="canonical" href="https://lyulaoshi.com/goc-giao-vien/tro-choi-lop/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="Trò chơi cả lớp · Góc giáo viên – 吕老师汉语盒"><meta property="og:description" content="Tra các trò chơi cả lớp tiếng Trung theo thời gian, sĩ số, thiết bị: Kéo co, Đập ruồi, Võ đài, Chiếm lãnh thổ… – Góc giáo viên, Lyu Laoshi Chinese Box."><meta property="og:url" content="https://lyulaoshi.com/goc-giao-vien/tro-choi-lop/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../" class="hide-s">Góc giáo viên</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap">
+<section class="ph">
+  <a class="back" href="../"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#tg-trai"></use></svg>Góc giáo viên</a>
+  <h1>Trò chơi cả lớp<span lang="zh">课堂游戏</span></h1>
+  <p>Lọc theo thời gian, sĩ số và thiết bị lớp mình có. Bấm nhiều nút để lọc kỹ hơn.</p>
+</section>
+
+<div class="dung" id="dung"></div>
+
+<div class="fl" id="fl" role="group" aria-label="Lọc trò chơi">
+  <button type="button" data-f="nhanh" aria-pressed="false">Dưới 10 phút</button>
+  <button type="button" data-f="dong" aria-pressed="false">Lớp đông</button>
+  <button type="button" data-f="nho" aria-pressed="false">Lớp nhỏ</button>
+  <button type="button" data-f="chieu" aria-pressed="false">Chỉ cần máy chiếu</button>
+  <button type="button" data-f="dt" aria-pressed="false">Học viên dùng điện thoại</button>
+  <button type="button" data-f="noi" aria-pressed="false">Luyện nói</button>
+  <button type="button" data-f="cau" aria-pressed="false">Ôn mẫu câu</button>
+  <span class="cnt" id="flCnt" aria-live="polite"></span>
+</div>
+<div class="gcs" id="gcs"></div>
+</main>
+<footer class="wrap">© Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../gv.js?v=7"></script>
+<script>
+(function(){
+const {$,IC,esc,G,dung,nhan,href}=GV;
+const d=dung();
+GV.paintDung($('dung'),'../');
+const TB={chieu:['tv','Máy chiếu'],dt:['dien-thoai','Học viên cần điện thoại']};
+$('gcs').innerHTML=G.map(g=>{const theo=g.bo&&d?(nhan(g,d)?'Theo bài đang chọn':'Theo cấp HSK'):(g.bo==='tu'?'Từ của bài':g.bo==='cau'?'Câu của bài':'');
+  return '<article class="gc" style="--c:'+g.c+'" data-f="'+g.f.join(' ')+'"><div class="gc-h"><h3>'+esc(g.n)+'</h3><span class="z" lang="zh">'+g.z+'</span></div><p>'+esc(g.p)+'</p>'
+  +'<div class="tags"><span>'+IC('dong-ho')+g.ph+'</span><span>'+esc(g.ss)+'</span><span class="'+(g.tb==='dt'?'dt':'')+'">'+IC(TB[g.tb][0])+TB[g.tb][1]+'</span>'+(theo?'<span class="th">'+IC('sach')+theo+'</span>':'')+'</div>'
+  +'<div class="ctrl">'+g.ctrl+'</div><a class="go" href="'+href(g,d)+'">'+IC('phat')+'Mở trò</a></article>'}).join('')
+  +'<p class="empty" id="gcE" hidden>Chưa có trò nào hợp đủ các điều kiện. Thầy cô bỏ bớt một nút lọc nhé.</p>';
+const fb=[...document.querySelectorAll('#fl button')];
+function filt(){const on=fb.filter(b=>b.getAttribute('aria-pressed')==='true').map(b=>b.dataset.f);let n=0;
+  document.querySelectorAll('.gc').forEach(c=>{const ok=on.every(x=>c.dataset.f.split(' ').includes(x));c.hidden=!ok;if(ok)n++});
+  $('flCnt').textContent=n+' / '+G.length+' trò';$('gcE').hidden=n>0}
+fb.forEach(b=>b.onclick=()=>{b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');filt()});filt();
+})();
+</script>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
+</body>
+</html>

@@ -8,8 +8,8 @@ goals:[
 intro:"Câu “nén”: hai vế không có dấu phẩy. 了 đánh dấu việc 1 đã xong, 就 nối sang việc 2.",
 rules:[
  {t:"S + V1 + 了 + O1 + (就) + V2", sub:"紧缩", fx:[["S",""],["V1 了 O1",null],["就",null],["V2",""]], mean:"",
-  ex:[["他下[了]课[就]去图书馆。","Tā xià le kè jiù qù túshūguǎn.","Tan học là anh ấy đi thư viện.","等级标准"],
-      ["他喝[了]酒[就]会脸红。","Tā hē le jiǔ jiù huì liǎn hóng.","Anh ấy hễ uống rượu là đỏ mặt.","等级标准"]]}],
+  ex:[["{1|他}{2|下了课}{3|就}{4|去图书馆}。","Tā xià le kè jiù qù túshūguǎn.","Tan học là anh ấy đi thư viện.","等级标准"],
+      ["{1|他}{2|喝了酒}{3|就}{4|会脸红}。","Tā hē le jiǔ jiù huì liǎn hóng.","Anh ấy hễ uống rượu là đỏ mặt.","等级标准"]]}],
 notes:[{t:"Nói về tương lai", html:"Mẫu này cũng dùng cho việc chưa xảy ra: <span class='zh'>明天我吃了早饭就走。</span> (Mai ăn sáng xong tôi đi luôn.)"}],
 cmp:[
  {vn:"Ăn cơm xong tôi đi ngay.", zh:"我吃[了]饭[就]走。", py:"Wǒ chī le fàn jiù zǒu.", ok:true, why:"Không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> 我吃饭了就走 — 了 đứng sau động từ."}],

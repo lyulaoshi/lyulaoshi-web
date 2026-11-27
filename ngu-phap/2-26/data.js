@@ -8,8 +8,8 @@ goals:[
 intro:"给 giới từ dẫn ra <b>người nhận / người được hưởng</b> hành động. Cụm “给 + người” đứng <b>trước động từ</b>.",
 rules:[
  {t:"给 + người + động từ (+ tân ngữ)", sub:"给", fx:[["Chủ ngữ",""],["给",null],["Người",""],["Động từ + tân ngữ",""]], mean:"Làm gì cho ai: gọi điện, viết thư, mua quà, gửi tin nhắn…",
-  ex:[["我晚上要[给]女朋友打电话。","Wǒ wǎnshang yào gěi nǚpéngyou dǎ diànhuà.","Tối nay tôi phải gọi điện cho bạn gái.","等级标准"],
-      ["她后天过生日，我们[给]她送什么礼物呢？","Tā hòutiān guò shēngrì, wǒmen gěi tā sòng shénme lǐwù ne?","Ngày kia là sinh nhật cô ấy, chúng ta tặng cô ấy quà gì nhỉ?","等级标准"]]}],
+  ex:[["{1|我}晚上要{2|给}{3|女朋友}{4|打电话}。","Wǒ wǎnshang yào gěi nǚpéngyou dǎ diànhuà.","Tối nay tôi phải gọi điện cho bạn gái.","等级标准"],
+      ["她后天过生日，{1|我们}{2|给}{3|她}{4|送什么礼物}呢？","Tā hòutiān guò shēngrì, wǒmen gěi tā sòng shénme lǐwù ne?","Ngày kia là sinh nhật cô ấy, chúng ta tặng cô ấy quà gì nhỉ?","等级标准"]]}],
 notes:[
  {t:"给 động từ", html:"<span class='zh'>妈妈给我一本书。</span> = Mẹ cho tôi một quyển sách (câu hai tân ngữ 【二61】)."},
  {t:"Phủ định, năng nguyện", html:"đứng trước 给: <span class='zh'>我没给他打电话。我想给你买一件衣服。</span>"}],

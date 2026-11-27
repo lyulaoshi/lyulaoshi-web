@@ -8,8 +8,8 @@ goals:[
 intro:"为² (wèi) dẫn ra người <b>được hưởng lợi</b> từ hành động — “làm … cho ai”.",
 rules:[
  {t:"为 + người + V", sub:"为²", fx:[["(S)",""],["为",null],["người",""],["Động từ",""]], mean:"",
-  ex:[["妈妈每天[为]我们做饭。","Māma měi tiān wèi wǒmen zuò fàn.","Mẹ ngày nào cũng nấu cơm cho chúng tôi.","等级标准"],
-      ["他[为]我买了一束花。","Tā wèi wǒ mǎi le yí shù huā.","Anh ấy mua cho tôi một bó hoa.","等级标准"]]}],
+  ex:[["{1|妈妈}每天{2|为}{3|我们}{4|做饭}。","Māma měi tiān wèi wǒmen zuò fàn.","Mẹ ngày nào cũng nấu cơm cho chúng tôi.","等级标准"],
+      ["{1|他}{2|为}{3|我}{4|买了一束花}。","Tā wèi wǒ mǎi le yí shù huā.","Anh ấy mua cho tôi một bó hoa.","等级标准"]]}],
 cmp:[
  {vn:"Mẹ nấu cơm cho chúng tôi.", zh:"妈妈[为我们]做饭。", py:"Māma wèi wǒmen zuò fàn.", ok:true, why:"“cho chúng tôi” lên trước động từ (giống 给)."}],
 ex:[

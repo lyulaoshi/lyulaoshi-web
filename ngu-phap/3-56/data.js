@@ -8,11 +8,11 @@ goals:[
 intro:"Mở rộng câu liên động 【二57】: hai động từ cùng chủ ngữ, nhưng quan hệ là <b>cách thức</b> hoặc <b>mục đích</b>, không chỉ trình tự thời gian.",
 rules:[
  {t:"V1 là cách thức của V2", sub:"（1）方式", fx:[["V1 (着) + O1","cách thức"],["V2 + O2",null]], mean:"",
-  ex:[["他笑着说：“没事儿。”","Tā xiào zhe shuō: “Méi shìr.”","Anh ấy cười nói: “Không sao.”","等级标准"],
-      ["我明天坐飞机去北京。","Wǒ míngtiān zuò fēijī qù Běijīng.","Mai tôi đi máy bay đến Bắc Kinh.","等级标准"]]},
+  ex:[["他{1|笑着}{2|说}：“没事儿。”","Tā xiào zhe shuō: “Méi shìr.”","Anh ấy cười nói: “Không sao.”","等级标准"],
+      ["我明天{1|坐飞机}{2|去北京}。","Wǒ míngtiān zuò fēijī qù Běijīng.","Mai tôi đi máy bay đến Bắc Kinh.","等级标准"]]},
  {t:"V2 là mục đích của V1", sub:"（2）目的", fx:[["去 / 来 + nơi chốn",""],["V2 + O2","mục đích"]], mean:"",
-  ex:[["他去超市买水果。","Tā qù chāoshì mǎi shuǐguǒ.","Anh ấy đi siêu thị mua hoa quả.","等级标准"],
-      ["我来中国学习中文。","Wǒ lái Zhōngguó xuéxí Zhōngwén.","Tôi sang Trung Quốc học tiếng Trung.","等级标准"]]}],
+  ex:[["他{1|去超市}{2|买水果}。","Tā qù chāoshì mǎi shuǐguǒ.","Anh ấy đi siêu thị mua hoa quả.","等级标准"],
+      ["我{1|来中国}{2|学习中文}。","Wǒ lái Zhōngguó xuéxí Zhōngwén.","Tôi sang Trung Quốc học tiếng Trung.","等级标准"]]}],
 cmp:[
  {vn:"Tôi đi Bắc Kinh bằng máy bay.", zh:"我[坐飞机]去北京。", py:"Wǒ zuò fēijī qù Běijīng.", ok:true, why:"“bằng máy bay” đưa lên trước 去."},
  {vn:"Tôi sang Trung Quốc để học.", zh:"我来中国[学习]。", py:"Wǒ lái Zhōngguó xuéxí.", ok:true, why:"Mục đích đứng sau, không cần “để”."}],

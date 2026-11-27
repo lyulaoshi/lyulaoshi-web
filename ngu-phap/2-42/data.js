@@ -8,8 +8,8 @@ goals:[
 intro:"不一会儿 = “chưa được một lúc” → chẳng mấy chốc. Hay đi cùng <b>就</b> (nhanh) và <b>了</b> (đã xong).",
 rules:[
  {t:"(S) 不一会儿 (就) + V + 了", sub:"不一会儿", fx:[["(Chủ ngữ)",""],["不一会儿",null],["就",null],["Động từ … 了",""]], mean:"",
-  ex:[["今天的作业我[不一会儿]就做完了。","Jīntiān de zuòyè wǒ bù yíhuìr jiù zuòwán le.","Bài tập hôm nay tôi chẳng mấy chốc đã làm xong.","等级标准"],
-      ["我们走到车站，[不一会儿]，公交车就来了。","Wǒmen zǒudào chēzhàn, bù yíhuìr, gōngjiāochē jiù lái le.","Chúng tôi đi tới bến, một lát sau xe buýt đã đến.","等级标准"]]}],
+  ex:[["今天的作业{1|我}{2|不一会儿}{3|就}{4|做完了}。","Jīntiān de zuòyè wǒ bù yíhuìr jiù zuòwán le.","Bài tập hôm nay tôi chẳng mấy chốc đã làm xong.","等级标准"],
+      ["我们走到车站，{2|不一会儿}，公交车{3|就}{4|来了}。","Wǒmen zǒudào chēzhàn, bù yíhuìr, gōngjiāochē jiù lái le.","Chúng tôi đi tới bến, một lát sau xe buýt đã đến.","等级标准"]]}],
 cmp:[
  {vn:"Chẳng mấy chốc trời đã tối.", zh:"[不一会儿]，天就黑了。", py:"Bù yíhuìr, tiān jiù hēi le.", ok:true, why:"Đầu vế câu, kèm 就……了."}],
 ex:[

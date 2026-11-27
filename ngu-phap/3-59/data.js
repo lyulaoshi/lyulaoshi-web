@@ -8,10 +8,10 @@ goals:[
 intro:"Động từ tiếng Trung khó mang cả tân ngữ lẫn bổ ngữ cùng lúc. Cách giải quyết: <b>nói động từ hai lần</b> — lần đầu kèm tân ngữ, lần sau kèm bổ ngữ.",
 rules:[
  {t:"S + V + O + V + bổ ngữ", sub:"重动", fx:[["S",""],["V + O",""],["V",null],["得 / 了 + bổ ngữ",""]], mean:"",
-  ex:[["他打篮球打[得很好]。","Tā dǎ lánqiú dǎ de hěn hǎo.","Anh ấy chơi bóng rổ rất giỏi.","等级标准"],
-      ["她游泳游[得很快]。","Tā yóuyǒng yóu de hěn kuài.","Cô ấy bơi rất nhanh.","等级标准"],
-      ["她走路走[累]了。","Tā zǒu lù zǒulèi le.","Cô ấy đi bộ đến mệt rồi.","等级标准"],
-      ["我看电视看了[两个小时]。","Wǒ kàn diànshì kàn le liǎng ge xiǎoshí.","Tôi xem ti vi hai tiếng.","等级标准"]]}],
+  ex:[["{1|他}{2|打篮球}{3|打}{4|得很好}。","Tā dǎ lánqiú dǎ de hěn hǎo.","Anh ấy chơi bóng rổ rất giỏi.","等级标准"],
+      ["{1|她}{2|游泳}{3|游}{4|得很快}。","Tā yóuyǒng yóu de hěn kuài.","Cô ấy bơi rất nhanh.","等级标准"],
+      ["{1|她}{2|走路}{3|走}{4|累了}。","Tā zǒu lù zǒulèi le.","Cô ấy đi bộ đến mệt rồi.","等级标准"],
+      ["{1|我}{2|看电视}{3|看}{4|了两个小时}。","Wǒ kàn diànshì kàn le liǎng ge xiǎoshí.","Tôi xem ti vi hai tiếng.","等级标准"]]}],
 cmp:[
  {vn:"Anh ấy viết chữ Hán rất đẹp.", zh:"他写汉字写[得很漂亮]。", py:"Tā xiě Hànzì xiě de hěn piàoliang.", ok:true, why:"Lặp 写: lần đầu với 汉字, lần sau với 得."}],
 ex:[

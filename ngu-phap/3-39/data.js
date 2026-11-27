@@ -7,9 +7,9 @@ goals:[
  "Phân biệt với 自从 (chỉ quá khứ) 【三21】."],
 intro:"从……起 = “kể từ …” — mở đầu một việc mới, hay dùng với <b>现在、今天、明天</b>.",
 rules:[
- {t:"从 + thời điểm + 起，……", sub:"从……起", fx:[["从",null],["thời điểm",""],["起",null],["，vế chính",""]], mean:"",
-  ex:[["[从]现在[起]，你要努力学习了。","Cóng xiànzài qǐ, nǐ yào nǔlì xuéxí le.","Kể từ bây giờ, em phải chăm chỉ học rồi.","等级标准"],
-      ["[从]今天[起]，我就用这台新电脑了。","Cóng jīntiān qǐ, wǒ jiù yòng zhè tái xīn diànnǎo le.","Kể từ hôm nay, tôi dùng chiếc máy tính mới này.","等级标准"]]}],
+ {t:"从 + thời điểm + 起，……", sub:"从……起", fx:[["从",null],["thời điểm",""],["起",null],["，",""],["vế chính",""]], mean:"",
+  ex:[["{1|从}{2|现在}{3|起}，{4|你要努力学习了}。","Cóng xiànzài qǐ, nǐ yào nǔlì xuéxí le.","Kể từ bây giờ, em phải chăm chỉ học rồi.","等级标准"],
+      ["{1|从}{2|今天}{3|起}，{4|我就用这台新电脑了}。","Cóng jīntiān qǐ, wǒ jiù yòng zhè tái xīn diànnǎo le.","Kể từ hôm nay, tôi dùng chiếc máy tính mới này.","等级标准"]]}],
 cmp:[
  {vn:"Kể từ mai, tôi sẽ dậy lúc 6 giờ.", zh:"[从]明天[起]，我六点起床。", py:"Cóng míngtiān qǐ, wǒ liù diǎn qǐ chuáng.", ok:true, why:"Mốc tương lai → 从……起 (không dùng 自从)."}],
 ex:[

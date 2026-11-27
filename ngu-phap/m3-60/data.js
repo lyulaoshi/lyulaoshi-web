@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新3.60】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新3.60】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新3.60", title:"“是……的”句2：强调说话人的看法或态度", vi:"Câu 是……的 2 — nhấn mạnh nhận xét, thái độ", tag:"句子的类型 · 特殊句型",
 goals:[
@@ -8,9 +8,9 @@ goals:[
 intro:"Người nói dùng 是……的 để <b>khẳng định, trấn an, thuyết phục</b>: “chắc chắn là…, … mà”. Bỏ 是 và 的 đi câu vẫn đúng nhưng yếu hơn.",
 rules:[
  {t:"S + 是 + nhận xét + 的", sub:"语气", fx:[["S",""],["是",null],["nhận xét (tính từ / 会 V / 能 V…)",""],["的",null]], mean:"Khẳng định ý kiến của người nói.",
-  ex:[["学中文[是]很有意思[的]。","Xué Zhōngwén shì hěn yǒu yìsi de.","Học tiếng Trung là rất thú vị đấy."],
-      ["你放心，他[是]会来[的]。","Nǐ fàngxīn, tā shì huì lái de.","Bạn yên tâm, anh ấy chắc chắn sẽ đến."],
-      ["这个问题[是]可以解决[的]。","Zhège wèntí shì kěyǐ jiějué de.","Vấn đề này hoàn toàn có thể giải quyết."]]}],
+  ex:[["{1|学中文}{2|是}{3|很有意思}{4|的}。","Xué Zhōngwén shì hěn yǒu yìsi de.","Học tiếng Trung là rất thú vị đấy."],
+      ["你放心，{1|他}{2|是}{3|会来}{4|的}。","Nǐ fàngxīn, tā shì huì lái de.","Bạn yên tâm, anh ấy chắc chắn sẽ đến."],
+      ["{1|这个问题}{2|是}{3|可以解决}{4|的}。","Zhège wèntí shì kěyǐ jiějué de.","Vấn đề này hoàn toàn có thể giải quyết."]]}],
 notes:[{t:"So sánh 是……的 1", html:"<span class='zh'>我是坐飞机来的。</span> nhấn <b>cách thức</b> của việc đã xảy ra 【二60】. <span class='zh'>他是会来的。</span> nhấn <b>thái độ khẳng định</b>, nói về tương lai cũng được."}],
 cmp:[
  {vn:"Việc này chắc chắn làm được mà.", zh:"这件事[是]能做好[的]。", py:"Zhè jiàn shì shì néng zuòhǎo de.", ok:true, why:"“chắc chắn … mà” → 是……的 bao quanh nhận xét."}],

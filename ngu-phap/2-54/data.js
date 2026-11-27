@@ -8,9 +8,9 @@ goals:[
 intro:"Đây là <b>kiểu câu</b> tương ứng với thành phần vị ngữ danh từ 【二48】. Chủ ngữ + danh từ, không có động từ.",
 rules:[
  {t:"Chủ ngữ + danh từ / cụm danh từ", sub:"名词谓语句", fx:[["Chủ ngữ",""],["Danh từ / cụm danh từ",null]], mean:"Chỉ dùng trong câu khẳng định ngắn, khẩu ngữ.",
-  ex:[["明天[阴天]。","Míngtiān yīntiān.","Mai trời âm u.","等级标准"],
-      ["他[中国人]。","Tā Zhōngguó rén.","Anh ấy người Trung Quốc.","等级标准"],
-      ["现在[八点二十分]。","Xiànzài bā diǎn èrshí fēn.","Bây giờ 8 giờ 20.","等级标准"]]}],
+  ex:[["{1|明天}{2|阴天}。","Míngtiān yīntiān.","Mai trời âm u.","等级标准"],
+      ["{1|他}{2|中国人}。","Tā Zhōngguó rén.","Anh ấy người Trung Quốc.","等级标准"],
+      ["{1|现在}{2|八点二十分}。","Xiànzài bā diǎn èrshí fēn.","Bây giờ 8 giờ 20.","等级标准"]]}],
 notes:[
  {t:"Phủ định", html:"<span class='zh'>他不是中国人。明天不是阴天。</span>"}],
 cmp:[

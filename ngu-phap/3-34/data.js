@@ -8,8 +8,8 @@ goals:[
 intro:"不A不B với A, B trái nghĩa nghĩa là <b>vừa đúng, không quá mức nào</b> — thường là lời khen.",
 rules:[
  {t:"不 + A + 不 + B (A, B trái nghĩa)", sub:"四字格", fx:[["不",null],["A",""],["不",null],["B (trái nghĩa A)",""]], mean:"",
-  ex:[["不大不小　不长不短　不冷不热","bú dà bù xiǎo　bù cháng bù duǎn　bù lěng bú rè","không to không nhỏ　không dài không ngắn　không nóng không lạnh","等级标准"],
-      ["不多不少　不早不晚","bù duō bù shǎo　bù zǎo bù wǎn","không nhiều không ít　không sớm không muộn","等级标准"]]}],
+  ex:[["{1|不}{2|大}{3|不}{4|小}　{1|不}{2|长}{3|不}{4|短}　{1|不}{2|冷}{3|不}{4|热}","bú dà bù xiǎo　bù cháng bù duǎn　bù lěng bú rè","không to không nhỏ　không dài không ngắn　không nóng không lạnh","等级标准"],
+      ["{1|不}{2|多}{3|不}{4|少}　{1|不}{2|早}{3|不}{4|晚}","bù duō bù shǎo　bù zǎo bù wǎn","không nhiều không ít　không sớm không muộn","等级标准"]]}],
 cmp:[
  {vn:"Cái áo này vừa khít (không to không nhỏ).", zh:"这件衣服[不大不小]。", py:"Zhè jiàn yīfu bú dà bù xiǎo.", ok:true, why:"Tiếng Việt “vừa”; tiếng Trung dùng 不A不B."}],
 ex:[

@@ -8,8 +8,8 @@ goals:[
 intro:"再² nối hai hành động theo <b>trình tự, có điều kiện</b>: phải xong việc trước thì mới làm việc sau.",
 rules:[
  {t:"V1 (完 / 了) … 再 V2", sub:"再²", fx:[["V1 + 完 / 了 …",""],["再",null],["V2",""]], mean:"",
-  ex:[["我们做完作业[再]玩儿游戏。","Wǒmen zuòwán zuòyè zài wánr yóuxì.","Chúng ta làm xong bài tập rồi mới chơi trò chơi.","等级标准"],
-      ["你洗了手[再]吃水果。","Nǐ xǐ le shǒu zài chī shuǐguǒ.","Con rửa tay rồi mới ăn hoa quả.","等级标准"]]}],
+  ex:[["我们{1|做完作业}{2|再}{3|玩儿游戏}。","Wǒmen zuòwán zuòyè zài wánr yóuxì.","Chúng ta làm xong bài tập rồi mới chơi trò chơi.","等级标准"],
+      ["你{1|洗了手}{2|再}{3|吃水果}。","Nǐ xǐ le shǒu zài chī shuǐguǒ.","Con rửa tay rồi mới ăn hoa quả.","等级标准"]]}],
 cmp:[
  {vn:"Ăn cơm xong rồi mới đi.", zh:"吃完饭[再]走。", py:"Chīwán fàn zài zǒu.", ok:true, why:"“rồi mới” = 再 trước động từ sau."}],
 ex:[

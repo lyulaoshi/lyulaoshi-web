@@ -8,10 +8,10 @@ goals:[
 intro:"Bốn phó từ tần suất HSK 3, đứng <b>trước động từ</b>. 通常 có thể đứng đầu câu.",
 rules:[
  {t:"通常 · 往往 · 总 · 总是 + V", sub:"频率", fx:[["(S)",""],["通常 / 往往 / 总 / 总是",null],["Động từ",""]], mean:"通常 thông thường · 往往 thường hay (khi có điều kiện nào đó) · 总 / 总是 luôn luôn.",
-  ex:[["李经理[通常]很早就到公司。","Lǐ jīnglǐ tōngcháng hěn zǎo jiù dào gōngsī.","Giám đốc Lý thường đến công ty rất sớm.","等级标准"],
-      ["为了记住一个汉字，他[往往]要写很多遍。","Wèile jìzhù yí ge Hànzì, tā wǎngwǎng yào xiě hěn duō biàn.","Để nhớ một chữ Hán, anh ấy thường phải viết rất nhiều lượt.","等级标准"],
-      ["我[总]弄不明白什么时候用“把”字句，常常一说就错。","Wǒ zǒng nòng bu míngbai shénme shíhou yòng “bǎ” zì jù, chángcháng yì shuō jiù cuò.","Tôi mãi không hiểu khi nào dùng câu chữ “把”, hay nói là sai.","等级标准"],
-      ["他去机场[总是]提前两个小时出发。","Tā qù jīchǎng zǒngshì tíqián liǎng ge xiǎoshí chūfā.","Anh ấy ra sân bay lúc nào cũng xuất phát sớm hai tiếng.","等级标准"]]}],
+  ex:[["{1|李经理}{2|通常}很早就{3|到公司}。","Lǐ jīnglǐ tōngcháng hěn zǎo jiù dào gōngsī.","Giám đốc Lý thường đến công ty rất sớm.","等级标准"],
+      ["为了记住一个汉字，{1|他}{2|往往}{3|要写很多遍}。","Wèile jìzhù yí ge Hànzì, tā wǎngwǎng yào xiě hěn duō biàn.","Để nhớ một chữ Hán, anh ấy thường phải viết rất nhiều lượt.","等级标准"],
+      ["{1|我}{2|总}{3|弄不明白}什么时候用“把”字句，{2|常常}一说就错。","Wǒ zǒng nòng bu míngbai shénme shíhou yòng “bǎ” zì jù, chángcháng yì shuō jiù cuò.","Tôi mãi không hiểu khi nào dùng câu chữ “把”, hay nói là sai.","等级标准"],
+      ["{1|他}去机场{2|总是}{3|提前两个小时出发}。","Tā qù jīchǎng zǒngshì tíqián liǎng ge xiǎoshí chūfā.","Anh ấy ra sân bay lúc nào cũng xuất phát sớm hai tiếng.","等级标准"]]}],
 notes:[{t:"往往 và 常常", html:"<span class='zh'>我以后会常常来。</span> <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#tick'/></svg> · <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> <span class='zh'>我以后会往往来。</span> — 往往 chỉ nói quy luật đã quan sát được."}],
 cmp:[
  {vn:"Anh ấy lúc nào cũng đến muộn.", zh:"他[总是]迟到。", py:"Tā zǒngshì chídào.", ok:true, why:"“lúc nào cũng” = 总是."}],

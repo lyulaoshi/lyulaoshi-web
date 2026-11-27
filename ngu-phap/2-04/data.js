@@ -8,13 +8,13 @@ goals:[
 intro:"Lặp động từ làm câu <b>mềm, thân mật</b> — giống “xem <b>thử</b>, nghỉ <b>một chút</b>” của tiếng Việt. Chữ lặp lại thường đọc thanh nhẹ.",
 rules:[
  {t:"Động từ một âm tiết: AA / A一A", sub:"AA · A一A", fx:[["A",null],["(一)",""],["A",null]], mean:"看看 = 看一看 = xem một chút.",
-  ex:[["我能[用用]你的手机吗？","Wǒ néng yòngyong nǐ de shǒujī ma?","Tôi dùng thử điện thoại của bạn được không?","等级标准"],
-      ["你[想一想]这个字的意思。","Nǐ xiǎng yi xiǎng zhège zì de yìsi.","Bạn nghĩ thử nghĩa của chữ này xem.","等级标准"]]},
+  ex:[["我能{1|用}{3|用}你的手机吗？","Wǒ néng yòngyong nǐ de shǒujī ma?","Tôi dùng thử điện thoại của bạn được không?","等级标准"],
+      ["你{1|想}{2|一}{3|想}这个字的意思。","Nǐ xiǎng yi xiǎng zhège zì de yìsi.","Bạn nghĩ thử nghĩa của chữ này xem.","等级标准"]]},
  {t:"Đã làm (nhanh, nhẹ): A了A", sub:"A了A", fx:[["A",null],["了",null],["A",null]], mean:"Hành động ngắn đã xảy ra.",
-  ex:[["他[看了看]我，没说话。","Tā kàn le kàn wǒ, méi shuō huà.","Anh ấy nhìn tôi một cái, không nói gì.","等级标准"]]},
+  ex:[["他{1|看}{2|了}{3|看}我，没说话。","Tā kàn le kàn wǒ, méi shuō huà.","Anh ấy nhìn tôi một cái, không nói gì.","等级标准"]]},
  {t:"Động từ hai âm tiết: ABAB", sub:"ABAB", fx:[["AB",null],["AB",null]], mean:"介绍介绍、休息休息、学习学习 (không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> 介介绍绍).",
-  ex:[["请[介绍介绍]你的朋友。","Qǐng jièshào jièshào nǐ de péngyou.","Hãy giới thiệu bạn của bạn một chút.","等级标准"],
-      ["累了吧？[休息休息]！","Lèi le ba? Xiūxi xiūxi!","Mệt rồi à? Nghỉ một lát đi!"]]}],
+  ex:[["请{1|介绍}{2|介绍}你的朋友。","Qǐng jièshào jièshào nǐ de péngyou.","Hãy giới thiệu bạn của bạn một chút.","等级标准"],
+      ["累了吧？{1|休息}{2|休息}！","Lèi le ba? Xiūxi xiūxi!","Mệt rồi à? Nghỉ một lát đi!"]]}],
 notes:[
  {t:"Không lặp", html:"động từ không chỉ hành động (<span class='zh'>是、有、在、喜欢、知道</span>), và không lặp khi có 着 / 过 hay trong câu đang diễn ra."},
  {t:"Động từ ly hợp", html:"lặp phần đầu: <span class='zh'>散散步、聊聊天、帮帮忙</span>."}],

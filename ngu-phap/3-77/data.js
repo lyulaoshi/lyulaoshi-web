@@ -7,8 +7,8 @@ goals:[
 intro:"Khi đồng ý với người khác, thêm 是 (đọc nhấn mạnh) = “đúng là, quả thật là”.",
 rules:[
  {t:"S + 是 (nhấn) + vị ngữ", sub:"强调", fx:[["S",""],["是",null],["(很) Adj / V",""]], mean:"",
-  ex:[["你说得对，这位经理[是]很负责。","Nǐ shuō de duì, zhè wèi jīnglǐ shì hěn fùzé.","Bạn nói đúng, vị giám đốc này đúng là rất có trách nhiệm.","等级标准"],
-      ["我同意，那电影[是]很有意思。","Wǒ tóngyì, nà diànyǐng shì hěn yǒu yìsi.","Tôi đồng ý, bộ phim đó quả thật rất hay.","等级标准"]]}],
+  ex:[["你说得对，{1|这位经理}{2|是}{3|很负责}。","Nǐ shuō de duì, zhè wèi jīnglǐ shì hěn fùzé.","Bạn nói đúng, vị giám đốc này đúng là rất có trách nhiệm.","等级标准"],
+      ["我同意，{1|那电影}{2|是}{3|很有意思}。","Wǒ tóngyì, nà diànyǐng shì hěn yǒu yìsi.","Tôi đồng ý, bộ phim đó quả thật rất hay.","等级标准"]]}],
 notes:[{t:"Phân biệt", html:"<span class='zh'>他很负责。</span> = nói bình thường. <span class='zh'>他是很负责。</span> = xác nhận / đồng tình (“đúng là thế”)."}],
 cmp:[
  {vn:"Món này đúng là ngon thật.", zh:"这个菜[是]很好吃。", py:"Zhège cài shì hěn hǎochī.", ok:true, why:"是 = “đúng là”, đặt trước 很 + tính từ."}],

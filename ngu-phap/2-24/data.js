@@ -8,8 +8,8 @@ goals:[
 intro:"从 ở HSK 1 chỉ <b>điểm bắt đầu</b> (từ đâu). Ở HSK 2, 从 còn chỉ <b>con đường đi qua</b>: 从这儿走 = đi qua đây, đi lối này.",
 rules:[
  {t:"从 + nơi chốn + V (đi qua, theo lối)", sub:"从²", fx:[["(S)",""],["从",null],["nơi chốn","lối đi qua"],["走 / 过 / 进…",""]], mean:"Qua, theo (tuyến đường).",
-  ex:[["你[从]这儿走，五分钟就到书店了。","Nǐ cóng zhèr zǒu, wǔ fēnzhōng jiù dào shūdiàn le.","Bạn đi lối này, năm phút là tới hiệu sách.","等级标准"],
-      ["这路公交车[从]我们学校门口过。","Zhè lù gōngjiāochē cóng wǒmen xuéxiào ménkǒu guò.","Tuyến xe buýt này đi qua cổng trường chúng tôi.","等级标准"]]}],
+  ex:[["{1|你}{2|从}{3|这儿}{4|走}，五分钟就到书店了。","Nǐ cóng zhèr zǒu, wǔ fēnzhōng jiù dào shūdiàn le.","Bạn đi lối này, năm phút là tới hiệu sách.","等级标准"],
+      ["{1|这路公交车}{2|从}{3|我们学校门口}{4|过}。","Zhè lù gōngjiāochē cóng wǒmen xuéxiào ménkǒu guò.","Tuyến xe buýt này đi qua cổng trường chúng tôi.","等级标准"]]}],
 cmp:[
  {vn:"Đi lối này sẽ nhanh hơn.", zh:"[从这儿]走比较快。", py:"Cóng zhèr zǒu bǐjiào kuài.", ok:true, why:"“lối này” → 从这儿 trước động từ."},
  {vn:"Tôi đến từ Hà Nội.", zh:"我[从河内]来。", py:"Wǒ cóng Hénèi lái.", ok:true, why:"Đây là 从¹ (điểm xuất phát) 【一15】."}],

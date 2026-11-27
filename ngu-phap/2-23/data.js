@@ -8,8 +8,8 @@ goals:[
 intro:"向¹ chỉ <b>phương hướng</b> của động tác, gần nghĩa với 往. Cụm “向 + hướng” đứng trước động từ.",
 rules:[
  {t:"向 + hướng / nơi chốn + V", sub:"向¹", fx:[["(S)",""],["向",null],["hướng / nơi chốn",""],["Động từ",""]], mean:"Nhìn, đi, chạy… về phía nào.",
-  ex:[["你[向]西边看，看见西山了吗？","Nǐ xiàng xībian kàn, kànjiàn Xī Shān le ma?","Bạn nhìn về phía tây, thấy núi Tây Sơn chưa?","等级标准"],
-      ["他[向]图书馆走去了。","Tā xiàng túshūguǎn zǒuqu le.","Anh ấy đi về phía thư viện rồi.","等级标准"]]}],
+  ex:[["{1|你}{2|向}{3|西边}{4|看}，看见西山了吗？","Nǐ xiàng xībian kàn, kànjiàn Xī Shān le ma?","Bạn nhìn về phía tây, thấy núi Tây Sơn chưa?","等级标准"],
+      ["{1|他}{2|向}{3|图书馆}{4|走去了}。","Tā xiàng túshūguǎn zǒuqu le.","Anh ấy đi về phía thư viện rồi.","等级标准"]]}],
 cmp:[
  {vn:"Nhìn về phía tây.", zh:"[向西边]看。", py:"Xiàng xībian kàn.", ok:true, why:"“về phía tây” lên trước động từ."}],
 ex:[

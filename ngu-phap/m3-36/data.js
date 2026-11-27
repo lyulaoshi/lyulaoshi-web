@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新3.36】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新3.36】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新3.36", title:"一般来说；不怎么样", vi:"一般来说 — nói chung; 不怎么样 — chẳng ra sao", tag:"短语 · 固定短语",
 goals:[
@@ -8,11 +8,11 @@ goals:[
 intro:"Hai cụm cố định rất hay gặp trong hội thoại: 一般来说 để <b>khái quát</b>, 不怎么样 để <b>đánh giá không tốt</b> một cách nhẹ nhàng.",
 rules:[
  {t:"一般来说，……", sub:"一般来说", fx:[["一般来说",null],["·",""],["điều thường xảy ra",""]], mean:"Nói chung, thông thường.",
-  ex:[["[一般来说]，南方比北方热。","Yìbān lái shuō, nánfāng bǐ běifāng rè.","Nói chung, miền Nam nóng hơn miền Bắc."],
-      ["[一般来说]，我晚上十一点睡觉。","Yìbān lái shuō, wǒ wǎnshang shíyī diǎn shuìjiào.","Thông thường tôi ngủ lúc 11 giờ tối."]]},
+  ex:[["{1|一般来说}，{2|南方比北方热}。","Yìbān lái shuō, nánfāng bǐ běifāng rè.","Nói chung, miền Nam nóng hơn miền Bắc."],
+      ["{1|一般来说}，{2|我晚上十一点睡觉}。","Yìbān lái shuō, wǒ wǎnshang shíyī diǎn shuìjiào.","Thông thường tôi ngủ lúc 11 giờ tối."]]},
  {t:"S + 不怎么样", sub:"不怎么样", fx:[["S",""],["不怎么样",null]], mean:"Không ra sao, không tốt lắm (chê nhẹ).",
-  ex:[["这个饭店的菜[不怎么样]。","Zhège fàndiàn de cài bù zěnmeyàng.","Món ở nhà hàng này chẳng ra sao."],
-      ["他的汉字写得[不怎么样]。","Tā de Hànzì xiě de bù zěnmeyàng.","Chữ Hán anh ấy viết không đẹp lắm."]]}],
+  ex:[["{1|这个饭店的菜}{2|不怎么样}。","Zhège fàndiàn de cài bù zěnmeyàng.","Món ở nhà hàng này chẳng ra sao."],
+      ["{1|他的汉字写得}{2|不怎么样}。","Tā de Hànzì xiě de bù zěnmeyàng.","Chữ Hán anh ấy viết không đẹp lắm."]]}],
 cmp:[
  {vn:"Bộ phim đó chẳng hay lắm.", zh:"那个电影[不怎么样]。", py:"Nàge diànyǐng bù zěnmeyàng.", ok:true, why:"Không nói × 不怎么好看样; 不怎么样 là một cụm cố định."}],
 ex:[

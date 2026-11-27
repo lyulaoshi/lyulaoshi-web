@@ -142,6 +142,7 @@ body.playing .wrap{max-width:900px}
 <script src="../../tu-vung/bai-data.js"></script>
 <script src="../../tu-vung/chu-de.js"></script>
 <script src="../bo-tu.js?v=5"></script>
+<script src="../giao-bai.js?v=3"></script>
 <script src="../tts.js?v=2"></script>
 <script src="../vui.js?v=20261004"></script>
 <script>
@@ -261,7 +262,7 @@ function setPause(p){paused=p;$('pauseBtn').innerHTML=p?'<svg class=lli aria-hid
 $('pauseBtn').onclick=()=>setPause(!paused);
 $('quitBtn').onclick=()=>{if(alive)end()};
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&alive)setPause(true)});
-function end(){window.TCX&&TCX.xong();
+function end(){window.TCX&&TCX.xong();window.GIAOBAI&&GIAOBAI.xong(score,hitCount);
   alive=false;cancelAnimationFrame(raf);document.body.classList.remove('playing');
   $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   const k=bestKey(),best=store.get(k)||0,rec=score>best;if(rec)store.set(k,score);

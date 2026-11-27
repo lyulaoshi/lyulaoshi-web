@@ -257,6 +257,7 @@ function finish(){window.TCX&&TCX.xong();
   const win=S.hearts>0,tot=S.q.length,acc=S.ok/tot,ai=S.mode==='ai';
   const stars=!win?0:acc>=.9&&!S.hints?3:acc>=.7?2:1;
   cancelAnimationFrame(raf);S.run=false;
+  if(ai)window.GIAOBAI&&GIAOBAI.xong(S.ok,tot);   // giao bài về nhà: Sổ câu sai không tính
   $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   AM.play(win?'win':'lose');
   $('overZh').textContent=win?'通关':'再来';

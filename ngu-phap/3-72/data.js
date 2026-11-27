@@ -7,8 +7,8 @@ goals:[
 intro:"Tiếng Việt: “Anh ấy tập thể dục mỗi ngày <b>để</b> giữ sức khỏe.” Tiếng Trung: <b>为了</b>保持健康，他每天坚持运动。",
 rules:[
  {t:"为了 + mục đích，(S) + hành động", sub:"目的", fx:[["为了",null],["mục đích",""],["·",""],["S + hành động",""]], mean:"",
-  ex:[["[为了]保持健康，他每天坚持运动。","Wèile bǎochí jiànkāng, tā měi tiān jiānchí yùndòng.","Để giữ sức khỏe, anh ấy kiên trì tập thể dục mỗi ngày.","等级标准"],
-      ["[为了]学好中文，我每天都要看中国电视剧。","Wèile xuéhǎo Zhōngwén, wǒ měi tiān dōu yào kàn Zhōngguó diànshìjù.","Để học giỏi tiếng Trung, ngày nào tôi cũng xem phim truyền hình Trung Quốc.","等级标准"]]}],
+  ex:[["{1|为了}{2|保持健康}，{3|他每天坚持运动}。","Wèile bǎochí jiànkāng, tā měi tiān jiānchí yùndòng.","Để giữ sức khỏe, anh ấy kiên trì tập thể dục mỗi ngày.","等级标准"],
+      ["{1|为了}{2|学好中文}，{3|我每天都要看中国电视剧}。","Wèile xuéhǎo Zhōngwén, wǒ měi tiān dōu yào kàn Zhōngguó diànshìjù.","Để học giỏi tiếng Trung, ngày nào tôi cũng xem phim truyền hình Trung Quốc.","等级标准"]]}],
 cmp:[
  {vn:"Tôi dậy sớm để kịp tàu.", zh:"[为了]赶上火车，我早早起床了。", py:"Wèile gǎnshang huǒchē, wǒ zǎozǎo qǐ chuáng le.", ok:true, why:"Đưa mục đích lên trước; không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> 我起床早为了赶火车."}],
 ex:[

@@ -8,11 +8,11 @@ goals:[
 intro:"会 và 能 là <b>động từ năng nguyện</b>: luôn đứng <b>trước động từ chính</b>, cho biết người đó “biết / có thể” làm việc gì.",
 rules:[
  {t:"会: biết (do học mà có)", sub:"技能", fx:[["Chủ ngữ",""],["会 / 不会",null],["Động từ","+ tân ngữ"]], mean:"Kỹ năng: nói tiếng, bơi, lái xe, nấu ăn, viết chữ…",
-  ex:[["我[不会]说中文。","Wǒ bú huì shuō Zhōngwén.","Tôi không biết nói tiếng Trung.","等级标准"],
-      ["他[会]开车。","Tā huì kāi chē.","Anh ấy biết lái xe."]]},
+  ex:[["{1|我}{2|不会}{3|说中文}。","Wǒ bú huì shuō Zhōngwén.","Tôi không biết nói tiếng Trung.","等级标准"],
+      ["{1|他}{2|会}{3|开车}。","Tā huì kāi chē.","Anh ấy biết lái xe."]]},
  {t:"能: có thể (khả năng, điều kiện)", sub:"能力 · 条件", fx:[["Chủ ngữ",""],["能 / 不能",null],["Động từ","+ tân ngữ"]], mean:"Có đủ sức, đủ điều kiện, hoàn cảnh cho phép để làm.",
-  ex:[["明天你[能]来吗？","Míngtiān nǐ néng lái ma?","Ngày mai bạn đến được không?","等级标准"],
-      ["我今天很忙，[不能]去。","Wǒ jīntiān hěn máng, bù néng qù.","Hôm nay tôi rất bận, không đi được."]],
+  ex:[["明天{1|你}{2|能}{3|来}吗？","Míngtiān nǐ néng lái ma?","Ngày mai bạn đến được không?","等级标准"],
+      ["{1|我}今天很忙，{2|不能}{3|去}。","Wǒ jīntiān hěn máng, bù néng qù.","Hôm nay tôi rất bận, không đi được."]],
   note:"Mẹo HSK 1: <b>会</b> = đã <b>học</b> nên biết; <b>能</b> = <b>hôm nay / lúc này</b> có làm được không. <span class='zh'>我会游泳，今天我不能游泳。</span> = Tôi biết bơi, nhưng hôm nay không bơi được."}],
 notes:[
  {t:"Phủ định", html:"chỉ dùng <b>不</b>: <span class='zh'>不会、不能</span> (không dùng 没会、没能 trong câu nói bình thường)."},

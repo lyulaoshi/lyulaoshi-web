@@ -8,8 +8,8 @@ goals:[
 intro:"愿意 đứng <b>trước động từ</b>, nhấn vào <b>ý chí tự nguyện</b>: đồng ý, sẵn lòng làm (thường là việc có chút hy sinh hoặc lựa chọn).",
 rules:[
  {t:"(很 / 不) 愿意 + V", sub:"愿意", fx:[["Chủ ngữ",""],["(很 / 不) 愿意",null],["Động từ",""]], mean:"Có thể thêm 很, 非常 trước 愿意.",
-  ex:[["她很[愿意]帮助同学。","Tā hěn yuànyì bāngzhù tóngxué.","Cô ấy rất sẵn lòng giúp đỡ bạn học.","等级标准"],
-      ["我[不愿意]去外地工作。","Wǒ bú yuànyì qù wàidì gōngzuò.","Tôi không muốn đi làm ở nơi khác.","等级标准"]]}],
+  ex:[["{1|她}{2|很愿意}{3|帮助同学}。","Tā hěn yuànyì bāngzhù tóngxué.","Cô ấy rất sẵn lòng giúp đỡ bạn học.","等级标准"],
+      ["{1|我}{2|不愿意}{3|去外地工作}。","Wǒ bú yuànyì qù wàidì gōngzuò.","Tôi không muốn đi làm ở nơi khác.","等级标准"]]}],
 notes:[
  {t:"Câu hỏi", html:"<span class='zh'>你愿意去吗？/ 你愿（意）不愿意去？</span> — trả lời <span class='zh'>愿意。/ 不愿意。</span>"},
  {t:"愿意 + danh từ / câu", html:"cũng dùng được: <span class='zh'>我愿意你来。</span> (tôi muốn bạn đến)."}],

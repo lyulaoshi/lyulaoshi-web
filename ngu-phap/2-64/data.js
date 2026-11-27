@@ -8,11 +8,11 @@ goals:[
 intro:"Câu ghép lựa chọn đưa ra <b>hai vế câu</b> để người nghe chọn. Khác 【一47】 ở chỗ mỗi lựa chọn là cả một vế.",
 rules:[
  {t:"Không dùng từ nối", sub:"（1）", fx:[["Vế 1？",""],["Vế 2？",null]], mean:"Hai câu hỏi ngắn nối nhau.",
-  ex:[["这次旅行你坐火车？坐飞机？","Zhè cì lǚxíng nǐ zuò huǒchē? Zuò fēijī?","Chuyến du lịch này bạn đi tàu? Hay đi máy bay?","等级标准"],
-      ["我们星期六去，星期天去？","Wǒmen xīngqīliù qù, xīngqītiān qù?","Mình đi thứ Bảy, hay Chủ nhật?","等级标准"]]},
- {t:"(是)……，还是……？", sub:"（2）", fx:[["(是)",null],["Vế 1",""],["，还是",null],["Vế 2？",""]], mean:"",
-  ex:[["你[是]坐火车来的，[还是]坐飞机来的？","Nǐ shì zuò huǒchē lái de, háishi zuò fēijī lái de?","Bạn đến bằng tàu hay bằng máy bay?","等级标准"],
-      ["周末你们想去打排球，[还是]想去打篮球？","Zhōumò nǐmen xiǎng qù dǎ páiqiú, háishi xiǎng qù dǎ lánqiú?","Cuối tuần các bạn muốn đi chơi bóng chuyền hay bóng rổ?","等级标准"]]}],
+  ex:[["{1|这次旅行你坐火车？}{2|坐飞机？}","Zhè cì lǚxíng nǐ zuò huǒchē? Zuò fēijī?","Chuyến du lịch này bạn đi tàu? Hay đi máy bay?","等级标准"],
+      ["{1|我们星期六去}，{2|星期天去？}","Wǒmen xīngqīliù qù, xīngqītiān qù?","Mình đi thứ Bảy, hay Chủ nhật?","等级标准"]]},
+ {t:"(是)……，还是……？", sub:"（2）", fx:[["(是)",null],["Vế 1",""],["，",""],["还是",null],["Vế 2？",""]], mean:"",
+  ex:[["{1|你是}{2|坐火车来的}，{3|还是}{4|坐飞机来的？}","Nǐ shì zuò huǒchē lái de, háishi zuò fēijī lái de?","Bạn đến bằng tàu hay bằng máy bay?","等级标准"],
+      ["周末你们{2|想去打排球}，{3|还是}{4|想去打篮球？}","Zhōumò nǐmen xiǎng qù dǎ páiqiú, háishi xiǎng qù dǎ lánqiú?","Cuối tuần các bạn muốn đi chơi bóng chuyền hay bóng rổ?","等级标准"]]}],
 cmp:[
  {vn:"Bạn đi hôm nay hay ngày mai?", zh:"你今天去，[还是]明天去？", py:"Nǐ jīntiān qù, háishi míngtiān qù?", ok:true, why:"“hay” trong câu hỏi = 还是."}],
 ex:[

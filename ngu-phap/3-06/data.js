@@ -8,10 +8,13 @@ goals:[
 intro:"Những từ này gồm động từ + bổ ngữ kết quả. Khi muốn nói <b>làm được / không làm được</b>, chèn <b>得 / 不</b> vào giữa.",
 rules:[
  {t:"V + 得 / 不 + bổ ngữ", sub:"离合", fx:[["V",""],["得 / 不",null],["bổ ngữ",""]], mean:"打得开 mở được · 打不开 không mở được.",
-  ex:[["你的文件我打[不]开，你能再给我发一下儿吗？","Nǐ de wénjiàn wǒ dǎ bu kāi, nǐ néng zài gěi wǒ fā yíxiàr ma?","File của bạn tôi không mở được, bạn gửi lại cho tôi được không?","等级标准"],
-      ["黑板上的字很小，我们都看[不]见。","Hēibǎn shang de zì hěn xiǎo, wǒmen dōu kàn bu jiàn.","Chữ trên bảng nhỏ quá, chúng tôi đều không nhìn thấy.","等级标准"],
-      ["放心吧，孩子这么大，离[得]开妈妈了。","Fàngxīn ba, háizi zhème dà, lí de kāi māma le.","Yên tâm đi, con lớn thế này rồi, xa mẹ được rồi.","等级标准"],
-      ["我们完[不]成这个任务。","Wǒmen wán bu chéng zhège rènwu.","Chúng tôi không hoàn thành được nhiệm vụ này.","等级标准"]]}],
+  ex:[["你的文件我{1|打}{2|不}{3|开}，你能再给我发一下儿吗？","Nǐ de wénjiàn wǒ dǎ bu kāi, nǐ néng zài gěi wǒ fā yíxiàr ma?","File của bạn tôi không mở được, bạn gửi lại cho tôi được không?","等级标准"],
+      ["黑板上的字很小，我们都{1|看}{2|不}{3|见}。","Hēibǎn shang de zì hěn xiǎo, wǒmen dōu kàn bu jiàn.","Chữ trên bảng nhỏ quá, chúng tôi đều không nhìn thấy.","等级标准"],
+      ["放心吧，孩子这么大，{1|离}{2|得}{3|开}妈妈了。","Fàngxīn ba, háizi zhème dà, lí de kāi māma le.","Yên tâm đi, con lớn thế này rồi, xa mẹ được rồi.","等级标准"],
+      ["我们{1|完}{2|不}{3|成}这个任务。","Wǒmen wán bu chéng zhège rènwu.","Chúng tôi không hoàn thành được nhiệm vụ này.","等级标准"]]},
+ {t:"分开", sub:"tách ra, xa nhau", fx:[["S / vật",""],["分开",null],["了 / thời lượng",""]], mean:"分开 = tách ra; thêm 得 / 不 vào giữa: 分得开, 分不开.",
+  ex:[["{1|我们}{2|分开}{3|一年了}。", "Wǒmen fēnkāi yì nián le.", "Chúng tôi xa nhau một năm rồi."],
+      ["请把{1|这两种东西}{2|分开}{3|放}。", "Qǐng bǎ zhè liǎng zhǒng dōngxi fēnkāi fàng.", "Hãy để riêng hai loại đồ này."]]}],
 cmp:[
  {vn:"Tôi không nhìn thấy.", zh:"我看[不]见。", py:"Wǒ kàn bu jiàn.", ok:true, why:"“không … thấy (được)” → 不 chen vào giữa."},
  {vn:"Cửa không mở được.", zh:"门打[不]开。", py:"Mén dǎ bu kāi.", ok:true, why:"Không mở được vì điều kiện thực tế (kẹt, khóa…) thường nói 打不开."}],
@@ -31,6 +34,8 @@ practice:[
   {w:["这个门","我","打不开"], a:"这个门我打不开。", vi:"Cái cửa này tôi mở không được."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Bạn có nhìn thấy không?", a:"你看得见吗？"},
-  {q:"File này tôi không mở được.", a:"这个文件我打不开。"}]}],
+  {q:"File này tôi không mở được.", a:"这个文件我打不开。"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"这两个字太像了，我分＿开。", vi:"Hai chữ này giống quá, tôi không phân biệt được.", o:["不", "没的", "很"], a:0, why:"分不开."}]}],
 rel:["三05","三48","二49","三46"]
 };

@@ -7,8 +7,8 @@ goals:[
 intro:"Giống “lúc thì …, lúc thì …” / “khi …, khi …” trong tiếng Việt.",
 rules:[
  {t:"一会儿 + V/Adj1，一会儿 + V/Adj2", sub:"交替", fx:[["一会儿",null],["V / Adj 1",""],["·",""],["一会儿",null],["V / Adj 2",""]], mean:"",
-  ex:[["最近天气有点儿奇怪，[一会儿]冷，[一会儿]热。","Zuìjìn tiānqì yǒudiǎnr qíguài, yíhuìr lěng, yíhuìr rè.","Dạo này thời tiết hơi lạ, lúc lạnh lúc nóng.","等级标准"],
-      ["他们在晚会上[一会儿]唱歌，[一会儿]跳舞，玩儿得很开心。","Tāmen zài wǎnhuì shang yíhuìr chàng gē, yíhuìr tiào wǔ, wánr de hěn kāixīn.","Ở buổi dạ hội họ lúc thì hát, lúc thì nhảy, chơi rất vui.","等级标准"]]}],
+  ex:[["最近天气有点儿奇怪，{1|一会儿}{2|冷}，{3|一会儿}{4|热}。","Zuìjìn tiānqì yǒudiǎnr qíguài, yíhuìr lěng, yíhuìr rè.","Dạo này thời tiết hơi lạ, lúc lạnh lúc nóng.","等级标准"],
+      ["他们在晚会上{1|一会儿}{2|唱歌}，{3|一会儿}{4|跳舞}，玩儿得很开心。","Tāmen zài wǎnhuì shang yíhuìr chàng gē, yíhuìr tiào wǔ, wánr de hěn kāixīn.","Ở buổi dạ hội họ lúc thì hát, lúc thì nhảy, chơi rất vui.","等级标准"]]}],
 notes:[{t:"Phân biệt", html:"<span class='zh'>等一会儿</span> (đợi một lát) — 一会儿 sau động từ là thời lượng; ở mẫu này 一会儿 đứng <b>trước</b> động từ."}],
 cmp:[
  {vn:"Đứa bé lúc khóc lúc cười.", zh:"孩子[一会儿]哭，[一会儿]笑。", py:"Háizi yíhuìr kū, yíhuìr xiào.", ok:true, why:"Hai vế ngắn, 一会儿 đứng đầu mỗi vế."}],

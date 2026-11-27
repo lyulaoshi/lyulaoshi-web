@@ -8,10 +8,14 @@ goals:[
 intro:"Các từ 分钟、年、天、周 tự là lượng từ, nên <b>số + 年 / 天 / 周 / 分钟</b> — không chen 个.",
 rules:[
  {t:"Số + 分钟 / 年 / 天 / 周", sub:"时量", fx:[["Số",""],["分钟 / 年 / 天 / 周",null]], mean:"Chỉ độ dài thời gian.",
-  ex:[["十[分钟]　两[年]　五[天]　三[周]","shí fēnzhōng　liǎng nián　wǔ tiān　sān zhōu","10 phút　2 năm　5 ngày　3 tuần","等级标准"]]},
+  ex:[["{1|十}{2|分钟}　{1|两}{2|年}　{1|五}{2|天}　{1|三}{2|周}","shí fēnzhōng　liǎng nián　wǔ tiān　sān zhōu","10 phút　2 năm　5 ngày　3 tuần","等级标准"]]},
  {t:"So sánh: cần 个", sub:"个小时 · 个星期 · 个月", fx:[["Số",""],["个",null],["小时 / 星期 / 月",""]], mean:"两个小时 (2 tiếng), 三个星期 (3 tuần), 一个月 (1 tháng).",
-  ex:[["我学了两个小时。","Wǒ xué le liǎng ge xiǎoshí.","Tôi học hai tiếng."],
-      ["他在北京住了一个月。","Tā zài Běijīng zhù le yí ge yuè.","Anh ấy sống ở Bắc Kinh một tháng."]]}],
+  ex:[["我学了{1|两}{2|个}{3|小时}。","Wǒ xué le liǎng ge xiǎoshí.","Tôi học hai tiếng."],
+      ["他在北京住了{1|一}{2|个}{3|月}。","Tā zài Běijīng zhù le yí ge yuè.","Anh ấy sống ở Bắc Kinh một tháng."]]},
+ {t:"日、号、岁", sub:"ngày, tuổi", fx:[["Số",""],["日 / 号 / 岁",null]], mean:"号 nói ngày (khẩu ngữ), 日 viết; 岁 nói tuổi. Không cần thêm lượng từ.",
+  ex:[["今天五月{1|三}{2|号}。", "Jīntiān wǔ yuè sān hào.", "Hôm nay ngày 3 tháng 5."],
+      ["十月{1|一}{2|日}是中国的国庆节。", "Shí yuè yī rì shì Zhōngguó de Guóqìng Jié.", "Ngày 1 tháng 10 là Quốc khánh Trung Quốc."],
+      ["我弟弟今年{1|八}{2|岁}。", "Wǒ dìdi jīnnián bā suì.", "Em trai tôi năm nay 8 tuổi."]]}],
 notes:[
  {t:"Thời lượng đứng sau động từ", html:"<span class='zh'>我等了十分钟。</span> — xem 【三51】 (bổ ngữ thời lượng)."},
  {t:"Thời điểm ≠ thời lượng", html:"<span class='zh'>两点</span> = 2 giờ (thời điểm); <span class='zh'>两个小时</span> = 2 tiếng (thời lượng)."}],
@@ -40,6 +44,8 @@ practice:[
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"năm ngày · ba tuần", a:"五天 · 三周（三个星期）"},
   {q:"Tôi học tiếng Trung hai năm rồi.", a:"我学中文学了两年了。"},
-  {q:"Anh ấy ở Bắc Kinh một tháng.", a:"他在北京住了一个月。"}]}],
+  {q:"Anh ấy ở Bắc Kinh một tháng.", a:"他在北京住了一个月。"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"我今年二十＿。", vi:"Năm nay tôi 20 tuổi.", o:["岁", "号", "年"], a:0, why:"Tuổi → 岁."}]}],
 rel:["二11","三51","一44","二52"]
 };

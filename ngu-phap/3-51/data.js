@@ -8,13 +8,13 @@ goals:[
 intro:"Bổ ngữ thời lượng đứng <b>sau động từ</b>. Khi có tân ngữ, cần sắp xếp theo một trong các cách dưới đây.",
 rules:[
  {t:"V + O + V + 了 + thời lượng", sub:"重复动词", fx:[["V + tân ngữ",""],["V + 了",null],["thời lượng",""]], mean:"",
-  ex:[["我学中文学了[两年]。","Wǒ xué Zhōngwén xué le liǎng nián.","Tôi học tiếng Trung được hai năm.","等级标准"],
-      ["我等他等了[半个多小时]。","Wǒ děng tā děng le bàn ge duō xiǎoshí.","Tôi đợi anh ấy hơn nửa tiếng.","等级标准"],
-      ["他游泳游了[四十分钟]。","Tā yóuyǒng yóu le sìshí fēnzhōng.","Anh ấy bơi 40 phút.","等级标准"]]},
+  ex:[["我{1|学中文}{2|学了}{3|两年}。","Wǒ xué Zhōngwén xué le liǎng nián.","Tôi học tiếng Trung được hai năm.","等级标准"],
+      ["我{1|等他}{2|等了}{3|半个多小时}。","Wǒ děng tā děng le bàn ge duō xiǎoshí.","Tôi đợi anh ấy hơn nửa tiếng.","等级标准"],
+      ["他{1|游泳}{2|游了}{3|四十分钟}。","Tā yóuyǒng yóu le sìshí fēnzhōng.","Anh ấy bơi 40 phút.","等级标准"]]},
  {t:"V + 了 + thời lượng (+ 的) + O", sub:"时量在前", fx:[["V + 了",""],["thời lượng (+ 的)",null],["tân ngữ",""]], mean:"Tân ngữ là người: V + người + thời lượng.",
-  ex:[["我学了[两年]中文。","Wǒ xué le liǎng nián Zhōngwén.","Tôi học hai năm tiếng Trung.","等级标准"],
-      ["我等了他[半个多小时]。","Wǒ děng le tā bàn ge duō xiǎoshí.","Tôi đợi anh ấy hơn nửa tiếng.","等级标准"],
-      ["他游了[四十分钟]的泳。","Tā yóu le sìshí fēnzhōng de yǒng.","Anh ấy bơi 40 phút.","等级标准"]]}],
+  ex:[["我{1|学了}{2|两年}{3|中文}。","Wǒ xué le liǎng nián Zhōngwén.","Tôi học hai năm tiếng Trung.","等级标准"],
+      ["我{1|等了}{3|他}{2|半个多小时}。","Wǒ děng le tā bàn ge duō xiǎoshí.","Tôi đợi anh ấy hơn nửa tiếng.","等级标准"],
+      ["他{1|游了}{2|四十分钟的}{3|泳}。","Tā yóu le sìshí fēnzhōng de yǒng.","Anh ấy bơi 40 phút.","等级标准"]]}],
 cmp:[
  {vn:"Tôi học tiếng Trung hai năm rồi.", zh:"我学中文学了[两年]了。", py:"Wǒ xué Zhōngwén xué le liǎng nián le.", ok:true, why:"Có 了 cuối câu = đến giờ vẫn đang học."}],
 ex:[

@@ -8,8 +8,8 @@ goals:[
 intro:"由¹ gần nghĩa 从 (từ, qua), thường gặp trong văn viết, thông báo, biển chỉ dẫn.",
 rules:[
  {t:"由 + nơi chốn + V", sub:"由¹", fx:[["(S)",""],["由",null],["nơi chốn",""],["出发 / 进入 / 开往…",""]], mean:"",
-  ex:[["这路公交车[由]北京机场出发。","Zhè lù gōngjiāochē yóu Běijīng jīchǎng chūfā.","Tuyến xe buýt này xuất phát từ sân bay Bắc Kinh.","等级标准"],
-      ["我们[由]南门进入公园。","Wǒmen yóu nánmén jìnrù gōngyuán.","Chúng tôi vào công viên qua cổng Nam.","等级标准"]]}],
+  ex:[["{1|这路公交车}{2|由}{3|北京机场}{4|出发}。","Zhè lù gōngjiāochē yóu Běijīng jīchǎng chūfā.","Tuyến xe buýt này xuất phát từ sân bay Bắc Kinh.","等级标准"],
+      ["{1|我们}{2|由}{3|南门}{4|进入公园}。","Wǒmen yóu nánmén jìnrù gōngyuán.","Chúng tôi vào công viên qua cổng Nam.","等级标准"]]}],
 cmp:[
  {vn:"Chuyến bay xuất phát từ Hà Nội.", zh:"航班[由]河内出发。", py:"Hángbān yóu Hénèi chūfā.", ok:true, why:"“từ Hà Nội” lên trước động từ; 由 trang trọng như thông báo."}],
 ex:[

@@ -8,8 +8,8 @@ goals:[
 intro:"Lượng từ động tác đi <b>sau động từ</b> để đếm số lần: 去<b>一次</b> (đi một lần). Tiếng Việt cũng đặt “một lần” sau động từ.",
 rules:[
  {t:"Động từ + số + lượng từ động tác", sub:"动量词", fx:[["Động từ",""],["Số",""],["遍 / 次 / 场 / 回 / 下",null]], mean:"<b>次 / 回</b> lần (回 khẩu ngữ) · <b>遍</b> lượt trọn vẹn (đọc, xem, nghe hết một lượt) · <b>场</b> trận, cơn, buổi (khóc, mưa, phim, bóng) · <b>下</b> cái, phát (hành động ngắn).",
-  ex:[["看两[遍]　去一[次]　哭一[场]","kàn liǎng biàn　qù yí cì　kū yì cháng","xem hai lượt　đi một lần　khóc một trận","等级标准"],
-      ["来两[回]　打一[下]儿","lái liǎng huí　dǎ yí xiàr","đến hai lần　đánh một cái","等级标准"]]}],
+  ex:[["{1|看}{2|两}{3|遍}　{1|去}{2|一}{3|次}　{1|哭}{2|一}{3|场}","kàn liǎng biàn　qù yí cì　kū yì cháng","xem hai lượt　đi một lần　khóc một trận","等级标准"],
+      ["{1|来}{2|两}{3|回}　{1|打}{2|一}{3|下儿}","lái liǎng huí　dǎ yí xiàr","đến hai lần　đánh một cái","等级标准"]]}],
 notes:[
  {t:"Có tân ngữ", html:"tân ngữ là người / đại từ: đứng trước lượng từ (<span class='zh'>我找了他两次</span>); tân ngữ là vật: thường đứng sau (<span class='zh'>我去过一次中国</span>) — chi tiết ở 【二52】【三50】."},
  {t:"一下(儿)", html:"sau động từ = làm thử, làm nhanh: <span class='zh'>你等一下儿。请看一下。</span>"}],

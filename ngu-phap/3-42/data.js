@@ -8,8 +8,8 @@ goals:[
 intro:"越……越…… = “càng … càng …”. Khác với 越来越 【二44】 (thay đổi theo thời gian).",
 rules:[
  {t:"(S1) 越 A，(S2) 越 B", sub:"越……越……", fx:[["(S)",""],["越",null],["A",""],["(S2)",""],["越",null],["B",""]], mean:"",
-  ex:[["中文[越]学[越]有意思。","Zhōngwén yuè xué yuè yǒu yìsi.","Tiếng Trung càng học càng thú vị.","等级标准"],
-      ["衣服的牌子[越]有名，价钱[越]贵。","Yīfu de páizi yuè yǒumíng, jiàqián yuè guì.","Nhãn hiệu quần áo càng nổi tiếng, giá càng đắt.","等级标准"]]}],
+  ex:[["{1|中文}{2|越}{3|学}{5|越}{6|有意思}。","Zhōngwén yuè xué yuè yǒu yìsi.","Tiếng Trung càng học càng thú vị.","等级标准"],
+      ["{1|衣服的牌子}{2|越}{3|有名}，{4|价钱}{5|越}{6|贵}。","Yīfu de páizi yuè yǒumíng, jiàqián yuè guì.","Nhãn hiệu quần áo càng nổi tiếng, giá càng đắt.","等级标准"]]}],
 cmp:[
  {vn:"Càng nghĩ càng giận.", zh:"[越]想[越]生气。", py:"Yuè xiǎng yuè shēngqì.", ok:true, why:"Giống khung tiếng Việt."}],
 ex:[

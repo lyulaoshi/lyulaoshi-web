@@ -8,10 +8,10 @@ goals:[
 intro:"Khi mọi người đã biết việc đã xảy ra, và ta muốn nói rõ <b>khi nào, ở đâu, bằng cách nào, ai làm</b>, dùng khung 是……的. Phần được nhấn mạnh đứng ngay sau 是.",
 rules:[
  {t:"S + 是 + chi tiết cần nhấn mạnh + V + 的", sub:"强调时间、地点、方式、动作者", fx:[["Chủ ngữ",""],["(是)",null],["thời gian / nơi chốn / cách thức / người làm",""],["Động từ",""],["的",null]], mean:"",
-  ex:[["我[是]昨天到北京[的]。","Wǒ shì zuótiān dào Běijīng de.","Tôi đến Bắc Kinh (là) hôm qua.","等级标准"],
-      ["他[是]在网上买[的]手机。","Tā shì zài wǎngshang mǎi de shǒujī.","Anh ấy mua điện thoại (là) trên mạng.","等级标准"],
-      ["我们[是]坐飞机来[的]。","Wǒmen shì zuò fēijī lái de.","Chúng tôi đến (là) bằng máy bay.","等级标准"],
-      ["这件事[是]老师告诉我[的]。","Zhè jiàn shì shì lǎoshī gàosu wǒ de.","Chuyện này (là) thầy giáo nói cho tôi.","等级标准"]]}],
+  ex:[["{1|我}{2|是}{3|昨天}{4|到}北京{5|的}。","Wǒ shì zuótiān dào Běijīng de.","Tôi đến Bắc Kinh (là) hôm qua.","等级标准"],
+      ["{1|他}{2|是}{3|在网上}{4|买}{5|的}手机。","Tā shì zài wǎngshang mǎi de shǒujī.","Anh ấy mua điện thoại (là) trên mạng.","等级标准"],
+      ["{1|我们}{2|是}{3|坐飞机}{4|来}{5|的}。","Wǒmen shì zuò fēijī lái de.","Chúng tôi đến (là) bằng máy bay.","等级标准"],
+      ["这件事{2|是}{3|老师}{4|告诉}我{5|的}。","Zhè jiàn shì shì lǎoshī gàosu wǒ de.","Chuyện này (là) thầy giáo nói cho tôi.","等级标准"]]}],
 notes:[
  {t:"Phủ định", html:"<span class='zh'>我不是昨天到的，是前天到的。</span>"},
  {t:"Chỉ dùng cho việc đã xảy ra", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> <span class='zh'>我是明天去的。</span>"}],

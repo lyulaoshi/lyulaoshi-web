@@ -8,9 +8,9 @@ goals:[
 intro:"Khác 【三51】 (hành động kéo dài bao lâu), ở đây hành động xảy ra <b>trong chốc lát</b>, thời lượng là <b>khoảng thời gian từ đó đến nay</b>.",
 rules:[
  {t:"S + V (+ O) + thời lượng + 了", sub:"间隔", fx:[["Chủ ngữ",""],["V + tân ngữ",""],["thời lượng",null],["了",null]], mean:"",
-  ex:[["他们来中国[两个月]了。","Tāmen lái Zhōngguó liǎng ge yuè le.","Họ đến Trung Quốc được hai tháng rồi.","等级标准"],
-      ["哥哥去北京[一个星期]了。","Gēge qù Běijīng yí ge xīngqī le.","Anh trai đi Bắc Kinh được một tuần rồi.","等级标准"],
-      ["我父母结婚[二十年]了。","Wǒ fùmǔ jié hūn èrshí nián le.","Bố mẹ tôi cưới nhau được 20 năm rồi.","等级标准"]]}],
+  ex:[["{1|他们}{2|来中国}{3|两个月}{4|了}。","Tāmen lái Zhōngguó liǎng ge yuè le.","Họ đến Trung Quốc được hai tháng rồi.","等级标准"],
+      ["{1|哥哥}{2|去北京}{3|一个星期}{4|了}。","Gēge qù Běijīng yí ge xīngqī le.","Anh trai đi Bắc Kinh được một tuần rồi.","等级标准"],
+      ["{1|我父母}{2|结婚}{3|二十年}{4|了}。","Wǒ fùmǔ jié hūn èrshí nián le.","Bố mẹ tôi cưới nhau được 20 năm rồi.","等级标准"]]}],
 cmp:[
  {vn:"Tôi tốt nghiệp được ba năm rồi.", zh:"我毕业[三年]了。", py:"Wǒ bìyè sān nián le.", ok:true, why:"Động từ tức thời (毕业) + thời lượng + 了 = đã … được bao lâu."}],
 ex:[

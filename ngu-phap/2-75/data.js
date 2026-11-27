@@ -8,10 +8,10 @@ goals:[
 intro:"Nói đề nghị trước, sau đó thêm “câu hỏi đuôi” để hỏi ý người nghe — rất giống “…, được không?” của tiếng Việt.",
 rules:[
  {t:"Đề nghị，好吗 / 可以吗 / 行吗 / 怎么样？", sub:"", fx:[["Đề nghị",""],["，",""],["好吗 / 可以吗 / 行吗 / 怎么样",null],["？",""]], mean:"",
-  ex:[["我们明天八点出发，[好吗]？","Wǒmen míngtiān bā diǎn chūfā, hǎo ma?","Mai mình xuất phát lúc 8 giờ, được không?","等级标准"],
-      ["你明天早点儿来，[可以吗]？","Nǐ míngtiān zǎo diǎnr lái, kěyǐ ma?","Mai bạn đến sớm một chút, được không?","等级标准"],
-      ["你的词典借我用用，[行吗]？","Nǐ de cídiǎn jiè wǒ yòngyong, xíng ma?","Cho tôi mượn từ điển dùng một chút, được không?","等级标准"],
-      ["我们今天吃面条儿，[怎么样]？","Wǒmen jīntiān chī miàntiáor, zěnmeyàng?","Hôm nay mình ăn mì, thế nào?","等级标准"]]}],
+  ex:[["{1|我们明天八点出发}，{2|好吗}{3|？}","Wǒmen míngtiān bā diǎn chūfā, hǎo ma?","Mai mình xuất phát lúc 8 giờ, được không?","等级标准"],
+      ["{1|你明天早点儿来}，{2|可以吗}{3|？}","Nǐ míngtiān zǎo diǎnr lái, kěyǐ ma?","Mai bạn đến sớm một chút, được không?","等级标准"],
+      ["{1|你的词典借我用用}，{2|行吗}{3|？}","Nǐ de cídiǎn jiè wǒ yòngyong, xíng ma?","Cho tôi mượn từ điển dùng một chút, được không?","等级标准"],
+      ["{1|我们今天吃面条儿}，{2|怎么样}{3|？}","Wǒmen jīntiān chī miàntiáor, zěnmeyàng?","Hôm nay mình ăn mì, thế nào?","等级标准"]]}],
 cmp:[
  {vn:"Mai gặp nhau nhé, được không?", zh:"明天见面，[好吗]？", py:"Míngtiān jiàn miàn, hǎo ma?", ok:true, why:"Giống tiếng Việt."},
  {vn:"— Được!", zh:"好！/ 可以！/ 行！", py:"Hǎo! / Kěyǐ! / Xíng!", ok:true, why:"Trả lời theo từ hỏi."}],

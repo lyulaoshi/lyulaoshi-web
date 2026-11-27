@@ -8,15 +8,18 @@ goals:[
 intro:"Sáu phó từ thời gian HSK 2, vị trí chung: <b>sau chủ ngữ, trước động từ / tính từ</b>.",
 rules:[
  {t:"刚 / 刚刚: vừa mới", sub:"刚 · 刚刚", fx:[["Chủ ngữ",""],["刚 / 刚刚",null],["Động từ",""]], mean:"Việc xảy ra cách đây rất ngắn.",
-  ex:[["我[刚]从学校回到家。","Wǒ gāng cóng xuéxiào huídào jiā.","Tôi vừa từ trường về đến nhà.","等级标准"],
-      ["白老师[刚刚]从国外回来。","Bái lǎoshī gānggāng cóng guówài huílai.","Thầy Bạch vừa mới từ nước ngoài về.","等级标准"]]},
+  ex:[["{1|我}{2|刚}{3|从学校回到家}。","Wǒ gāng cóng xuéxiào huídào jiā.","Tôi vừa từ trường về đến nhà.","等级标准"],
+      ["{1|白老师}{2|刚刚}{3|从国外回来}。","Bái lǎoshī gānggāng cóng guówài huílai.","Thầy Bạch vừa mới từ nước ngoài về.","等级标准"]]},
  {t:"还: vẫn còn", sub:"还²", fx:[["Chủ ngữ",""],["还",null],["(在) V / Adj",""],["(呢)",""]], mean:"Trạng thái, hành động vẫn tiếp tục.",
-  ex:[["外边[还]在下雨呢。","Wàibian hái zài xià yǔ ne.","Bên ngoài vẫn đang mưa.","等级标准"]]},
+  ex:[["{1|外边}{2|还}{3|在下雨}{4|呢}。","Wàibian hái zài xià yǔ ne.","Bên ngoài vẫn đang mưa.","等级标准"]]},
  {t:"忽然 · 一直", sub:"忽然 · 一直", fx:[["忽然 / 一直",null],["Động từ",""]], mean:"忽然 bỗng nhiên (bất ngờ) · 一直 suốt, liên tục, luôn luôn.",
-  ex:[["街上的灯[忽然]都亮了。","Jiē shang de dēng hūrán dōu liàng le.","Đèn trên phố bỗng nhiên sáng hết.","等级标准"],
-      ["她[一直]在说话。","Tā yìzhí zài shuō huà.","Cô ấy nói suốt.","等级标准"]]},
+  ex:[["街上的灯{1|忽然}都{2|亮了}。","Jiē shang de dēng hūrán dōu liàng le.","Đèn trên phố bỗng nhiên sáng hết.","等级标准"],
+      ["她{1|一直}{2|在说话}。","Tā yìzhí zài shuō huà.","Cô ấy nói suốt.","等级标准"]]},
  {t:"已经……了: đã … rồi", sub:"已经", fx:[["Chủ ngữ",""],["已经",null],["Động từ / Adj",""],["了",null]], mean:"Thường có 了 cuối câu.",
-  ex:[["校长[已经]下班[了]。","Xiàozhǎng yǐjīng xià bān le.","Hiệu trưởng đã tan làm rồi.","等级标准"]]}],
+  ex:[["{1|校长}{2|已经}{3|下班}{4|了}。","Xiàozhǎng yǐjīng xià bān le.","Hiệu trưởng đã tan làm rồi.","等级标准"]]},
+ {t:"一会儿", sub:"một lát, lát nữa", fx:[["S",""],["一会儿",null],["就 + V",""]], mean:"Trước động từ: lát nữa. Sau động từ: một lúc (等一会儿).",
+  ex:[["{1|他}{2|一会儿}{3|就回来}。", "Tā yíhuìr jiù huílai.", "Lát nữa anh ấy về ngay."],
+      ["请你等{2|一会儿}。", "Qǐng nǐ děng yíhuìr.", "Mời bạn đợi một lát."]]}],
 notes:[
  {t:"刚 + thời lượng", html:"<span class='zh'>我刚来了两天。</span> <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> → <span class='zh'>我刚来两天。</span> (vừa đến được hai ngày) — câu có 刚 thường không có 了 cuối."}],
 cmp:[
@@ -47,6 +50,8 @@ practice:[
  {t:"C. Sửa câu sai", sub:"tự sửa rồi xem đáp án", type:"show", items:[
   {q:"我刚吃完饭了。", vi:"(ý: Tôi vừa ăn cơm xong.)", bad:true, a:"我刚吃完饭。"},
   {q:"他还不起床。(ý: vẫn chưa dậy)", vi:"(ý: Anh ấy vẫn chưa dậy.)", bad:true, a:"他还没起床。"},
-  {q:"我一直想中国去。", vi:"(ý: Tôi luôn muốn đi Trung Quốc.)", bad:true, a:"我一直想去中国。"}]}],
+  {q:"我一直想中国去。", vi:"(ý: Tôi luôn muốn đi Trung Quốc.)", bad:true, a:"我一直想去中国。"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"别走，经理＿就到。", vi:"Đừng đi, giám đốc lát nữa đến.", o:["一会儿", "一直", "刚刚"], a:0, why:"一会儿就."}]}],
 rel:["一11","三14","二16","一40"]
 };

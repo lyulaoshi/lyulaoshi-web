@@ -8,11 +8,11 @@ goals:[
 intro:"从 là giới từ: 从 + từ chỉ nơi chốn / thời gian tạo thành cụm giới từ, đứng <b>trước động từ</b> chính.",
 rules:[
  {t:"从 + nơi chốn + động từ", sub:"处所起点", fx:[["Chủ ngữ",""],["从",null],["Nơi chốn",""],["来 / 去 / 回…",""]], mean:"Từ đâu đến, từ đâu đi.",
-  ex:[["你[从]哪儿来？","Nǐ cóng nǎr lái?","Bạn từ đâu đến?","等级标准"],
-      ["我[从]越南来。","Wǒ cóng Yuènán lái.","Tôi đến từ Việt Nam."]]},
+  ex:[["{1|你}{2|从}{3|哪儿}{4|来}？","Nǐ cóng nǎr lái?","Bạn từ đâu đến?","等级标准"],
+      ["{1|我}{2|从}{3|越南}{4|来}。","Wǒ cóng Yuènán lái.","Tôi đến từ Việt Nam."]]},
  {t:"从……到……", sub:"时间 · 处所", fx:[["从",null],["điểm đầu",""],["到",null],["điểm cuối",""],["Động từ",""]], mean:"Từ … đến … (thời gian hoặc nơi chốn).",
-  ex:[["我们[从]星期一[到]星期五工作。","Wǒmen cóng xīngqīyī dào xīngqīwǔ gōngzuò.","Chúng tôi làm việc từ thứ Hai đến thứ Sáu.","等级标准"],
-      ["[从]八点[到]十点我们上课。","Cóng bā diǎn dào shí diǎn wǒmen shàng kè.","Từ 8 giờ đến 10 giờ chúng tôi học."]]}],
+  ex:[["我们{1|从}{2|星期一}{3|到}{4|星期五}{5|工作}。","Wǒmen cóng xīngqīyī dào xīngqīwǔ gōngzuò.","Chúng tôi làm việc từ thứ Hai đến thứ Sáu.","等级标准"],
+      ["{1|从}{2|八点}{3|到}{4|十点}我们{5|上课}。","Cóng bā diǎn dào shí diǎn wǒmen shàng kè.","Từ 8 giờ đến 10 giờ chúng tôi học."]]}],
 notes:[
  {t:"从 + người", html:"người không phải nơi chốn — thêm 这儿 / 那儿: <span class='zh'>从老师那儿</span> (từ chỗ cô giáo)."}],
 cmp:[

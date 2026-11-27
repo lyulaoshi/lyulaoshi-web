@@ -8,10 +8,10 @@ goals:[
 intro:"Câu kiêm ngữ nói <b>ai khiến / mời / cử ai làm gì</b> — giống “Mẹ bảo tôi về sớm” trong tiếng Việt.",
 rules:[
  {t:"S + 叫 / 让 / 请 / 派 + người + V (+ O)", sub:"使令", fx:[["S",""],["叫 / 让 / 请 / 派",null],["người (kiêm ngữ)",""],["V + O",""]], mean:"",
-  ex:[["经理[叫]他介绍一下儿中国市场情况。","Jīnglǐ jiào tā jièshào yíxiàr Zhōngguó shìchǎng qíngkuàng.","Giám đốc bảo anh ấy giới thiệu tình hình thị trường Trung Quốc.","等级标准"],
-      ["公司[派]我来中国学习中文。","Gōngsī pài wǒ lái Zhōngguó xuéxí Zhōngwén.","Công ty cử tôi sang Trung Quốc học tiếng Trung.","等级标准"],
-      ["我[请]他去我家玩儿。","Wǒ qǐng tā qù wǒ jiā wánr.","Tôi mời anh ấy đến nhà tôi chơi.","等级标准"],
-      ["妈妈[让]我早点儿回国。","Māma ràng wǒ zǎo diǎnr huí guó.","Mẹ bảo tôi về nước sớm.","等级标准"]]}],
+  ex:[["{1|经理}{2|叫}{3|他}{4|介绍一下儿中国市场情况}。","Jīnglǐ jiào tā jièshào yíxiàr Zhōngguó shìchǎng qíngkuàng.","Giám đốc bảo anh ấy giới thiệu tình hình thị trường Trung Quốc.","等级标准"],
+      ["{1|公司}{2|派}{3|我}{4|来中国学习中文}。","Gōngsī pài wǒ lái Zhōngguó xuéxí Zhōngwén.","Công ty cử tôi sang Trung Quốc học tiếng Trung.","等级标准"],
+      ["{1|我}{2|请}{3|他}{4|去我家玩儿}。","Wǒ qǐng tā qù wǒ jiā wánr.","Tôi mời anh ấy đến nhà tôi chơi.","等级标准"],
+      ["{1|妈妈}{2|让}{3|我}{4|早点儿回国}。","Māma ràng wǒ zǎo diǎnr huí guó.","Mẹ bảo tôi về nước sớm.","等级标准"]]}],
 cmp:[
  {vn:"Mẹ không cho tôi đi.", zh:"妈妈[不让]我去。", py:"Māma bú ràng wǒ qù.", ok:true, why:"Phủ định đứng trước 让."}],
 ex:[

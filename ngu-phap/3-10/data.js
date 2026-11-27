@@ -8,7 +8,10 @@ goals:[
 intro:"Ba lượng từ động tác này mượn danh từ chỉ <b>bộ phận / dụng cụ</b> của hành động: 口 (miệng), 眼 (mắt).",
 rules:[
  {t:"V + số + 顿 / 口 / 眼", sub:"动量词", fx:[["Động từ",""],["Số",""],["顿 / 口 / 眼",null]], mean:"批评一顿 mắng một trận · 喝一口 uống một ngụm · 看一眼 nhìn một cái.",
-  ex:[["批评一[顿]　喝一[口]　看一[眼]","pīpíng yí dùn　hē yì kǒu　kàn yì yǎn","mắng một trận　uống một ngụm　nhìn một cái","等级标准"]]}],
+  ex:[["{1|批评}{2|一}{3|顿}　{1|喝}{2|一}{3|口}　{1|看}{2|一}{3|眼}","pīpíng yí dùn　hē yì kǒu　kàn yì yǎn","mắng một trận　uống một ngụm　nhìn một cái","等级标准"]]},
+ {t:"声: số lần phát ra tiếng", sub:"声", fx:[["V",""],["(了)",""],["Số",""],["声",null]], mean:"声 đếm số tiếng kêu, tiếng gọi.",
+  ex:[["他大{1|叫}{2|了}{3|一}{4|声}。", "Tā dà jiàole yì shēng.", "Anh ấy kêu to một tiếng."],
+      ["门外{1|响}{2|了}{3|两}{4|声}。", "Mén wài xiǎngle liǎng shēng.", "Ngoài cửa vang lên hai tiếng."]]}],
 notes:[{t:"顿 cho bữa ăn", html:"<span class='zh'>一天吃三顿饭</span> (một ngày ăn ba bữa) — ở đây 顿 là lượng từ danh từ."}],
 cmp:[
  {vn:"Bạn nếm thử một miếng đi.", zh:"你尝一[口]吧。", py:"Nǐ cháng yì kǒu ba.", ok:true, why:"“một miếng” sau động từ."},
@@ -30,6 +33,8 @@ practice:[
   {w:["我","只","喝了","一口","咖啡"], a:"我只喝了一口咖啡。", vi:"Tôi chỉ uống một ngụm cà phê."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Bạn nếm thử một miếng đi.", a:"你尝一口吧。"},
-  {q:"Một ngày tôi ăn ba bữa.", a:"我一天吃三顿饭。"}]}],
+  {q:"Một ngày tôi ăn ba bữa.", a:"我一天吃三顿饭。"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"走的时候叫我一＿。", vi:"Lúc đi gọi tôi một tiếng.", o:["声", "趟的", "页"], a:0, why:"叫一声."}]}],
 rel:["二11","三09","二52","三50"]
 };

@@ -8,13 +8,13 @@ goals:[
 intro:"Câu cầu khiến dùng để bảo người khác làm hay không làm việc gì. Chủ ngữ (你 / 您 / 你们) thường lược đi.",
 rules:[
  {t:"Mời, yêu cầu: 请 + V", sub:"请求", fx:[["请",null],["Động từ",""],["！ / 。",""]], mean:"请 = mời, xin, vui lòng; đứng <b>đầu</b> câu.",
-  ex:[["[请]进！","Qǐng jìn!","Mời vào!","等级标准"],
-      ["[请]坐。","Qǐng zuò.","Mời ngồi."]]},
+  ex:[["{1|请}{2|进}{3|！}","Qǐng jìn!","Mời vào!","等级标准"],
+      ["{1|请}{2|坐}{3|。}","Qǐng zuò.","Mời ngồi."]]},
  {t:"Ngăn cấm: 别 / 不要 + V", sub:"禁止", fx:[["(你)",""],["别 / 不要",null],["Động từ",""],["(了)",""]], mean:"别 + V + 了 = đừng … nữa (đang làm thì dừng).",
-  ex:[["[别]说了！","Bié shuō le!","Đừng nói nữa!","等级标准"],
-      ["[不要]在这儿吃东西。","Bú yào zài zhèr chī dōngxi.","Đừng ăn uống ở đây."]]},
+  ex:[["{2|别}{3|说}{4|了}！","Bié shuō le!","Đừng nói nữa!","等级标准"],
+      ["{2|不要}{3|在这儿吃东西}。","Bú yào zài zhèr chī dōngxi.","Đừng ăn uống ở đây."]]},
  {t:"Đề nghị mềm: … 吧", sub:"建议", fx:[["Câu",""],["吧",null]], mean:"…đi, …nhé.",
-  ex:[["你休息一下[吧]。","Nǐ xiūxi yíxià ba.","Bạn nghỉ một lát đi."]]}],
+  ex:[["{1|你休息一下}{2|吧}。","Nǐ xiūxi yíxià ba.","Bạn nghỉ một lát đi."]]}],
 cmp:[
  {vn:"Mời vào!", zh:"[请]进！", py:"Qǐng jìn!", ok:true, why:"“mời” đứng đầu — giống tiếng Việt."},
  {vn:"Đừng nói nữa!", zh:"[别]说了！", py:"Bié shuō le!", ok:true, why:"“nữa” → 了 cuối câu."}],

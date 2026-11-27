@@ -8,8 +8,8 @@ goals:[
 intro:"就 đặt trước 是 / 在 để <b>khẳng định mạnh</b>: không phải chỗ khác, chính là chỗ này.",
 rules:[
  {t:"就 + 是 / 在", sub:"强调", fx:[["Chủ ngữ",""],["就",null],["是 / 在",""],["…",""]], mean:"chính là / ngay ở.",
-  ex:[["教学楼[就]在前边。","Jiàoxuélóu jiù zài qiánbian.","Tòa giảng đường ở ngay phía trước.","等级标准"],
-      ["你看，这[就]是我们上课的教室。","Nǐ kàn, zhè jiù shì wǒmen shàng kè de jiàoshì.","Bạn nhìn này, đây chính là phòng học của chúng tôi.","等级标准"]]}],
+  ex:[["{1|教学楼}{2|就}{3|在}{4|前边}。","Jiàoxuélóu jiù zài qiánbian.","Tòa giảng đường ở ngay phía trước.","等级标准"],
+      ["你看，{1|这}{2|就}{3|是}{4|我们上课的教室}。","Nǐ kàn, zhè jiù shì wǒmen shàng kè de jiàoshì.","Bạn nhìn này, đây chính là phòng học của chúng tôi.","等级标准"]]}],
 notes:[
  {t:"是……的 cũng nhấn mạnh", html:"xem 【二60】."}],
 cmp:[

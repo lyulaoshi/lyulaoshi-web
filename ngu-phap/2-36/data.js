@@ -7,9 +7,9 @@ goals:[
  "Nói các câu điện thoại cơ bản: 请问……在吗？您找哪位？"],
 intro:"喂 là thán từ, đứng <b>đầu câu</b>, tách bằng dấu phẩy. Khi nghe điện thoại thường đọc <b>wéi</b> (thanh 2), khi gọi người khác (hơi thiếu lịch sự) đọc <b>wèi</b>.",
 rules:[
- {t:"喂，……", sub:"喂", fx:[["喂",null],["，câu",""]], mean:"A lô / này.",
-  ex:[["[喂]，是王老师吗？","Wéi, shì Wáng lǎoshī ma?","A lô, có phải thầy Vương không ạ?","等级标准"],
-      ["[喂]，您找哪位？","Wéi, nín zhǎo nǎ wèi?","A lô, anh / chị tìm ai ạ?","等级标准"]]}],
+ {t:"喂，……", sub:"喂", fx:[["喂",null],["，",""],["câu",""]], mean:"A lô / này.",
+  ex:[["{1|喂}，{2|是王老师吗？}","Wéi, shì Wáng lǎoshī ma?","A lô, có phải thầy Vương không ạ?","等级标准"],
+      ["{1|喂}，{2|您找哪位？}","Wéi, nín zhǎo nǎ wèi?","A lô, anh / chị tìm ai ạ?","等级标准"]]}],
 notes:[
  {t:"Lịch sự", html:"gọi người lạ ngoài đường bằng 喂 nghe hơi cộc; nên dùng <span class='zh'>你好 / 请问 / 对不起</span>."}],
 cmp:[

@@ -7,14 +7,14 @@ goals:[
  "Đặt 不但 đúng chỗ: cùng chủ ngữ thì 不但 <b>sau</b> chủ ngữ."],
 intro:"Vế sau nói thêm một ý <b>mạnh hơn</b> vế trước. Tiếng Việt: “không những … mà còn …”, “… còn … hơn”.",
 rules:[
- {t:"Không dùng từ nối", sub:"（1）", fx:[["Vế 1",""],["，",null],["Vế 2 (tăng thêm)",""]], mean:"",
-  ex:[["那个地方我去过了，去过两次了。","Nàge dìfang wǒ qù guo le, qù guo liǎng cì le.","Chỗ đó tôi đi rồi, đi hai lần rồi.","等级标准"],
-      ["他弟弟会说中文，说得很流利。","Tā dìdi huì shuō Zhōngwén, shuō de hěn liúlì.","Em trai anh ấy biết nói tiếng Trung, nói rất lưu loát.","等级标准"]]},
- {t:"……，更 / 还……", sub:"（2）", fx:[["Vế 1",""],["，(S) 更 / 还",null],["Vế 2",""]], mean:"",
-  ex:[["昨天很冷，今天[更]冷。","Zuótiān hěn lěng, jīntiān gèng lěng.","Hôm qua lạnh, hôm nay còn lạnh hơn.","等级标准"],
-      ["班长学习很好，[还]经常帮助同学。","Bānzhǎng xuéxí hěn hǎo, hái jīngcháng bāngzhù tóngxué.","Lớp trưởng học giỏi, lại còn hay giúp bạn.","等级标准"]]},
- {t:"不但……，而且……", sub:"（3）", fx:[["(S) 不但",null],["Vế 1",""],["，而且",null],["Vế 2",""]], mean:"Không những … mà còn …",
-  ex:[["她[不但]会说中文，[而且]说得很好。","Tā búdàn huì shuō Zhōngwén, érqiě shuō de hěn hǎo.","Cô ấy không những biết nói tiếng Trung mà còn nói rất giỏi.","等级标准"]]}],
+ {t:"Không dùng từ nối", sub:"（1）", fx:[["Vế 1",""],["，",""],["Vế 2 (tăng thêm)",""]], mean:"",
+  ex:[["{1|那个地方我去过了}，{2|去过两次了}。","Nàge dìfang wǒ qù guo le, qù guo liǎng cì le.","Chỗ đó tôi đi rồi, đi hai lần rồi.","等级标准"],
+      ["{1|他弟弟会说中文}，{2|说得很流利}。","Tā dìdi huì shuō Zhōngwén, shuō de hěn liúlì.","Em trai anh ấy biết nói tiếng Trung, nói rất lưu loát.","等级标准"]]},
+ {t:"……，更 / 还……", sub:"（2）", fx:[["Vế 1",""],["，",""],["(S) 更 / 还",null],["Vế 2",""]], mean:"",
+  ex:[["{1|昨天很冷}，{2|今天更}{3|冷}。","Zuótiān hěn lěng, jīntiān gèng lěng.","Hôm qua lạnh, hôm nay còn lạnh hơn.","等级标准"],
+      ["{1|班长学习很好}，{2|还}{3|经常帮助同学}。","Bānzhǎng xuéxí hěn hǎo, hái jīngcháng bāngzhù tóngxué.","Lớp trưởng học giỏi, lại còn hay giúp bạn.","等级标准"]]},
+ {t:"不但……，而且……", sub:"（3）", fx:[["(S) 不但",null],["Vế 1",""],["，",""],["而且",null],["Vế 2",""]], mean:"Không những … mà còn …",
+  ex:[["{1|她不但}{2|会说中文}，{3|而且}{4|说得很好}。","Tā búdàn huì shuō Zhōngwén, érqiě shuō de hěn hǎo.","Cô ấy không những biết nói tiếng Trung mà còn nói rất giỏi.","等级标准"]]}],
 cmp:[
  {vn:"Cô ấy không những xinh mà còn thông minh.", zh:"她[不但]漂亮，[而且]很聪明。", py:"Tā búdàn piàoliang, érqiě hěn cōngming.", ok:true, why:"Giống khung tiếng Việt."}],
 ex:[

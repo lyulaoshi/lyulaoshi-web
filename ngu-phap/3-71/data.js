@@ -8,8 +8,8 @@ goals:[
 intro:"Mở rộng 【二68】 因为……，所以……: thêm cặp <b>由于</b> (do) và <b>因此</b> (vì vậy), hay dùng khi viết.",
 rules:[
  {t:"由于 + nguyên nhân，所以 / 因此 + kết quả", sub:"因果", fx:[["(由于)",null],["nguyên nhân",""],["·",""],["所以 / 因此",null],["kết quả",""]], mean:"Có thể chỉ dùng một từ ở một vế.",
-  ex:[["[由于]身体不好，[所以]爸爸打算提前退休。","Yóuyú shēntǐ bù hǎo, suǒyǐ bàba dǎsuàn tíqián tuìxiū.","Do sức khỏe không tốt nên bố định nghỉ hưu sớm.","等级标准"],
-      ["他工作很努力，[因此]取得了很大的成功。","Tā gōngzuò hěn nǔlì, yīncǐ qǔdé le hěn dà de chénggōng.","Anh ấy làm việc rất chăm chỉ, vì vậy đã đạt được thành công lớn.","等级标准"]]}],
+  ex:[["{1|由于}{2|身体不好}，{3|所以}{4|爸爸打算提前退休}。","Yóuyú shēntǐ bù hǎo, suǒyǐ bàba dǎsuàn tíqián tuìxiū.","Do sức khỏe không tốt nên bố định nghỉ hưu sớm.","等级标准"],
+      ["{2|他工作很努力}，{3|因此}{4|取得了很大的成功}。","Tā gōngzuò hěn nǔlì, yīncǐ qǔdé le hěn dà de chénggōng.","Anh ấy làm việc rất chăm chỉ, vì vậy đã đạt được thành công lớn.","等级标准"]]}],
 cmp:[
  {vn:"Do trời mưa nên trận đấu bị hoãn.", zh:"[由于]下雨，比赛推迟了。", py:"Yóuyú xià yǔ, bǐsài tuīchí le.", ok:true, why:"Có thể chỉ dùng 由于 ở vế đầu."}],
 ex:[

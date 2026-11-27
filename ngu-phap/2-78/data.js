@@ -8,9 +8,9 @@ goals:[
 intro:"Khi người hỏi đã đoán điều gì và muốn xác nhận, dùng <b>是不是</b>: “… phải không?”, “có phải … không?”.",
 rules:[
  {t:"Ba vị trí của 是不是", sub:"", fx:[["Câu，是不是？",null],["·",""],["是不是 + câu？",null],["·",""],["S + 是不是 + V？",null]], mean:"",
-  ex:[["你要去体育馆打球，[是不是]？","Nǐ yào qù tǐyùguǎn dǎ qiú, shì bu shì?","Bạn định đến nhà thi đấu chơi bóng, phải không?","等级标准"],
-      ["[是不是]你拿了我的笔？","Shì bu shì nǐ ná le wǒ de bǐ?","Có phải bạn cầm bút của tôi không?","等级标准"],
-      ["你[是不是]有很多中国朋友？","Nǐ shì bu shì yǒu hěn duō Zhōngguó péngyou?","Có phải bạn có nhiều bạn Trung Quốc không?","等级标准"]]}],
+  ex:[["{1|你要去体育馆打球，是不是？}","Nǐ yào qù tǐyùguǎn dǎ qiú, shì bu shì?","Bạn định đến nhà thi đấu chơi bóng, phải không?","等级标准"],
+      ["{2|是不是你拿了我的笔？}","Shì bu shì nǐ ná le wǒ de bǐ?","Có phải bạn cầm bút của tôi không?","等级标准"],
+      ["{3|你是不是有很多中国朋友？}","Nǐ shì bu shì yǒu hěn duō Zhōngguó péngyou?","Có phải bạn có nhiều bạn Trung Quốc không?","等级标准"]]}],
 cmp:[
  {vn:"Bạn mệt rồi, phải không?", zh:"你累了，[是不是]？", py:"Nǐ lèi le, shì bu shì?", ok:true, why:"“phải không” cuối câu = 是不是."},
  {vn:"Có phải bạn là người Hà Nội không?", zh:"你[是不是]河内人？", py:"Nǐ shì bu shì Hénèi rén?", ok:true, why:"“có phải … không” = 是不是."}],

@@ -7,11 +7,11 @@ goals:[
  "Biết 以外 có thể lược."],
 intro:"Khung cố định mở rộng từ giới từ 除了 【三28】. Thêm 以外 cho câu trang trọng, rõ ràng hơn.",
 rules:[
- {t:"除了 A（以外），(S) 还 / 也 B", sub:"包括", fx:[["除了",null],["A",""],["(以外)，",""],["还 / 也",null],["B",""]], mean:"Ngoài A còn có B.",
-  ex:[["[除了]上课，我[还]要参加各种活动。","Chúle shàng kè, wǒ hái yào cānjiā gè zhǒng huódòng.","Ngoài việc học, tôi còn phải tham gia nhiều hoạt động.","等级标准"],
-      ["[除了]我，我姐姐和弟弟[也]会说中文。","Chúle wǒ, wǒ jiějie hé dìdi yě huì shuō Zhōngwén.","Ngoài tôi ra, chị và em trai tôi cũng biết tiếng Trung.","等级标准"]]},
- {t:"除了 A（以外），(S) 都 B", sub:"排除", fx:[["除了",null],["A",""],["(以外)，",""],["都",null],["B",""]], mean:"Trừ A, đều B.",
-  ex:[["[除了]北京[以外]，中国的其他城市我[都]没去过。","Chúle Běijīng yǐwài, Zhōngguó de qítā chéngshì wǒ dōu méi qù guo.","Ngoài Bắc Kinh ra, các thành phố khác của Trung Quốc tôi đều chưa đến.","等级标准"]]}],
+ {t:"除了 A（以外），(S) 还 / 也 B", sub:"包括", fx:[["除了",null],["A",""],["(以外)",""],["，",""],["还 / 也",null],["B",""]], mean:"Ngoài A còn có B.",
+  ex:[["{1|除了}{2|上课}，{1|我}{4|还要}{5|参加各种活动}。","Chúle shàng kè, wǒ hái yào cānjiā gè zhǒng huódòng.","Ngoài việc học, tôi còn phải tham gia nhiều hoạt động.","等级标准"],
+      ["{1|除了}{2|我}，{5|我姐姐和弟弟}{4|也}{5|会说中文}。","Chúle wǒ, wǒ jiějie hé dìdi yě huì shuō Zhōngwén.","Ngoài tôi ra, chị và em trai tôi cũng biết tiếng Trung.","等级标准"]]},
+ {t:"除了 A（以外），(S) 都 B", sub:"排除", fx:[["除了",null],["A",""],["(以外)",""],["，",""],["都",null],["B",""]], mean:"Trừ A, đều B.",
+  ex:[["{1|除了}{2|北京}{3|以外}，中国的其他城市我{4|都}{5|没去过}。","Chúle Běijīng yǐwài, Zhōngguó de qítā chéngshì wǒ dōu méi qù guo.","Ngoài Bắc Kinh ra, các thành phố khác của Trung Quốc tôi đều chưa đến.","等级标准"]]}],
 cmp:[
  {vn:"Ngoài tiếng Anh ra, tôi còn học tiếng Trung.", zh:"[除了]英语[以外]，我[还]学中文。", py:"Chúle Yīngyǔ yǐwài, wǒ hái xué Zhōngwén.", ok:true, why:"“ngoài … ra” = 除了……以外."}],
 ex:[

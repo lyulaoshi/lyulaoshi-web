@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新1.45】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新1.45】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新1.45", title:"存现句1：处所＋是/有＋名词", vi:"Câu tồn hiện 1 — ở đâu có / là cái gì", tag:"句子的类型 · 特殊句型",
 goals:[

@@ -8,9 +8,9 @@ goals:[
 intro:"Khung “sắp … rồi”: động từ kẹp giữa <b>要 / 快要 / 就要</b> và <b>了</b>. 快要 nhấn mạnh “rất gần”, 就要 hay đi với thời gian cụ thể.",
 rules:[
  {t:"(S) 要 / 快要 / 就要 + V + 了", sub:"将要", fx:[["(S)",""],["要 / 快要 / 就要",null],["Động từ",""],["了",null]], mean:"",
-  ex:[["[要]下雨[了]。","Yào xià yǔ le.","Sắp mưa rồi.","等级标准"],
-      ["我们[快要]放假[了]。","Wǒmen kuàiyào fàng jià le.","Chúng tôi sắp được nghỉ rồi.","等级标准"],
-      ["他们明天[就要]考试[了]。","Tāmen míngtiān jiùyào kǎoshì le.","Mai họ đã thi rồi.","等级标准"]]}],
+  ex:[["{2|要}{3|下雨}{4|了}。","Yào xià yǔ le.","Sắp mưa rồi.","等级标准"],
+      ["{1|我们}{2|快要}{3|放假}{4|了}。","Wǒmen kuàiyào fàng jià le.","Chúng tôi sắp được nghỉ rồi.","等级标准"],
+      ["{1|他们}明天{2|就要}{3|考试}{4|了}。","Tāmen míngtiān jiùyào kǎoshì le.","Mai họ đã thi rồi.","等级标准"]]}],
 notes:[
  {t:"快要 và thời gian", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> <span class='zh'>他明天快要走了。</span> → <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#tick'/></svg> <span class='zh'>他明天就要走了。</span> (có mốc thời gian dùng 就要)."}],
 cmp:[

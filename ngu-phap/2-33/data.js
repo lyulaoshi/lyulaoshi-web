@@ -8,11 +8,11 @@ goals:[
 intro:"着 (zhe, thanh nhẹ) đứng sau động từ, nhấn vào <b>trạng thái được duy trì</b> — khác 在 / 正在 nhấn vào hành động đang tiến hành.",
 rules:[
  {t:"V + 着: trạng thái duy trì", sub:"着", fx:[["Chủ ngữ",""],["Động từ",""],["着",null],["(呢)",""]], mean:"Cửa đang mở, ti vi đang bật, đang mặc…",
-  ex:[["门开[着]。/ 门没开[着]。","Mén kāi zhe. / Mén méi kāi zhe.","Cửa đang mở. / Cửa không mở.","等级标准"],
-      ["电视开[着]呢。/ 电视没开[着]。","Diànshì kāi zhe ne. / Diànshì méi kāi zhe.","Ti vi đang bật. / Ti vi không bật.","等级标准"],
-      ["他穿[着]一件黑大衣。","Tā chuān zhe yí jiàn hēi dàyī.","Anh ấy mặc một chiếc áo khoác đen.","等级标准"]]},
+  ex:[["{1|门}{2|开}{3|着}。/ {1|门}没{2|开}{3|着}。","Mén kāi zhe. / Mén méi kāi zhe.","Cửa đang mở. / Cửa không mở.","等级标准"],
+      ["{1|电视}{2|开}{3|着}{4|呢}。/ {1|电视}没{2|开}{3|着}。","Diànshì kāi zhe ne. / Diànshì méi kāi zhe.","Ti vi đang bật. / Ti vi không bật.","等级标准"],
+      ["{1|他}{2|穿}{3|着}一件黑大衣。","Tā chuān zhe yí jiàn hēi dàyī.","Anh ấy mặc một chiếc áo khoác đen.","等级标准"]]},
  {t:"V + 着 (+ tân ngữ) trong hành động", sub:"动作持续", fx:[["(在)",""],["Động từ",""],["着",null],["tân ngữ",""]], mean:"Hành động kéo dài một lúc.",
-  ex:[["孩子们在教室里高兴地唱[着]歌。","Háizimen zài jiàoshì li gāoxìng de chàng zhe gē.","Bọn trẻ đang vui vẻ hát trong lớp.","等级标准"]]}],
+  ex:[["孩子们{1|在}教室里高兴地{2|唱}{3|着}{4|歌}。","Háizimen zài jiàoshì li gāoxìng de chàng zhe gē.","Bọn trẻ đang vui vẻ hát trong lớp.","等级标准"]]}],
 notes:[
  {t:"V1 着 + V2", html:"= làm V2 trong trạng thái V1: <span class='zh'>他笑着说……、坐着吃饭、站着上课</span>. Xem 持续态 【二70】, câu tồn hiện 【二56】."}],
 cmp:[

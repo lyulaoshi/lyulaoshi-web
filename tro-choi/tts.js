@@ -5,7 +5,7 @@
 // Mã = FNV-1a 32 bit trên khoa(chữ) — PHẢI giống hệt hàm khoa()/ma() trong tools/giong_kho.py.
 (function(){   // nạp bảng mã kho giọng (đồng bộ khi trang đang tải để nút loa vẽ ngay biết câu nào có file)
   if(window.GIONG_AM!=null||document.querySelector('script[data-giong-am]'))return;
-  const src="/chung/giong-am.js?v=06564b55";
+  const src="/chung/giong-am.js?v=576f25d0";
   if(document.readyState==='loading')document.write('<script data-giong-am src="'+src+'"><\/script>');
   else{const s=document.createElement('script');s.src=src;s.dataset.giongAm='';document.head.appendChild(s)}
 })();

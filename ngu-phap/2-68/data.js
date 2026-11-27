@@ -7,12 +7,12 @@ goals:[
  "Trả lời câu hỏi 为什么 bằng 因为……"],
 intro:"Vế trước nêu <b>nguyên nhân</b>, vế sau nêu <b>kết quả</b>. Tiếng Việt: “Vì … nên …”.",
 rules:[
- {t:"Không dùng từ nối", sub:"（1）", fx:[["Nguyên nhân",""],["，",null],["Kết quả",""]], mean:"",
-  ex:[["我今天太忙了，午饭都没吃。","Wǒ jīntiān tài máng le, wǔfàn dōu méi chī.","Hôm nay tôi bận quá, cơm trưa cũng chưa ăn.","等级标准"],
-      ["那个学生病了，没来上课。","Nàge xuésheng bìng le, méi lái shàng kè.","Bạn học sinh đó ốm, không đến lớp.","等级标准"]]},
- {t:"因为……，所以……", sub:"（2）", fx:[["因为",null],["Nguyên nhân",""],["，所以",null],["Kết quả",""]], mean:"Có thể chỉ dùng một trong hai từ.",
-  ex:[["[因为]很累，[所以]我今天不想做饭了。","Yīnwèi hěn lèi, suǒyǐ wǒ jīntiān bù xiǎng zuò fàn le.","Vì rất mệt nên hôm nay tôi không muốn nấu cơm.","等级标准"],
-      ["[因为]明天有考试，[所以]我想早一点儿睡觉。","Yīnwèi míngtiān yǒu kǎoshì, suǒyǐ wǒ xiǎng zǎo yìdiǎnr shuì jiào.","Vì mai có bài thi nên tôi muốn ngủ sớm một chút.","等级标准"]]}],
+ {t:"Không dùng từ nối", sub:"（1）", fx:[["Nguyên nhân",""],["，",""],["Kết quả",""]], mean:"",
+  ex:[["{1|我今天太忙了}，{2|午饭都没吃}。","Wǒ jīntiān tài máng le, wǔfàn dōu méi chī.","Hôm nay tôi bận quá, cơm trưa cũng chưa ăn.","等级标准"],
+      ["{1|那个学生病了}，{2|没来上课}。","Nàge xuésheng bìng le, méi lái shàng kè.","Bạn học sinh đó ốm, không đến lớp.","等级标准"]]},
+ {t:"因为……，所以……", sub:"（2）", fx:[["因为",null],["Nguyên nhân",""],["，",""],["所以",null],["Kết quả",""]], mean:"Có thể chỉ dùng một trong hai từ.",
+  ex:[["{1|因为}{2|很累}，{3|所以}{4|我今天不想做饭了}。","Yīnwèi hěn lèi, suǒyǐ wǒ jīntiān bù xiǎng zuò fàn le.","Vì rất mệt nên hôm nay tôi không muốn nấu cơm.","等级标准"],
+      ["{1|因为}{2|明天有考试}，{3|所以}{4|我想早一点儿睡觉}。","Yīnwèi míngtiān yǒu kǎoshì, suǒyǐ wǒ xiǎng zǎo yìdiǎnr shuì jiào.","Vì mai có bài thi nên tôi muốn ngủ sớm một chút.","等级标准"]]}],
 cmp:[
  {vn:"Vì trời mưa nên tôi không đi.", zh:"[因为]下雨，[所以]我没去。", py:"Yīnwèi xià yǔ, suǒyǐ wǒ méi qù.", ok:true, why:"Giống khung tiếng Việt."}],
 ex:[

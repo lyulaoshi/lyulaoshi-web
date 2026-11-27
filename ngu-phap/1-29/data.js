@@ -8,12 +8,12 @@ goals:[
 intro:"Câu có vị ngữ là động từ là loại câu thường gặp nhất. Khung cơ bản giống tiếng Việt: <b>S + V + O</b>.",
 rules:[
  {t:"Khẳng định", sub:"肯定", fx:[["Chủ ngữ",""],["Động từ",null],["Tân ngữ",""]], mean:"Ai làm gì.",
-  ex:[["我买一个[面包]。","Wǒ mǎi yí ge miànbāo.","Tôi mua một cái bánh mì.","等级标准"]]},
+  ex:[["{1|我}{2|买}{3|一个面包}。","Wǒ mǎi yí ge miànbāo.","Tôi mua một cái bánh mì.","等级标准"]]},
  {t:"Phủ định", sub:"否定", fx:[["Chủ ngữ",""],["不 / 没",null],["Động từ",""],["Tân ngữ",""]], mean:"不: ý muốn, thói quen, tương lai; 没: việc đã không xảy ra 【一14】.",
-  ex:[["他[不]去医院。","Tā bú qù yīyuàn.","Anh ấy không đi bệnh viện.","等级标准"]]},
+  ex:[["{1|他}{2|不}{3|去}{4|医院}。","Tā bú qù yīyuàn.","Anh ấy không đi bệnh viện.","等级标准"]]},
  {t:"Câu hỏi", sub:"疑问", fx:[["S + V + O",""],["吗？",null],["/ S + V不V + O？",null]], mean:"Hỏi có / không.",
-  ex:[["你去医院[吗]？","Nǐ qù yīyuàn ma?","Bạn đi bệnh viện không?"],
-      ["你[去不去]医院？","Nǐ qù bu qù yīyuàn?","Bạn có đi bệnh viện không?"]]}],
+  ex:[["{1|你去医院}{2|吗}？","Nǐ qù yīyuàn ma?","Bạn đi bệnh viện không?"],
+      ["{1|你}{3|去不去}{1|医院}？","Nǐ qù bu qù yīyuàn?","Bạn có đi bệnh viện không?"]]}],
 cmp:[
  {vn:"Tôi mua bánh mì.", zh:"我[买]面包。", py:"Wǒ mǎi miànbāo.", ok:true, why:"Giống tiếng Việt."},
  {vn:"Anh ấy không đi bệnh viện.", zh:"他[不去]医院。", py:"Tā bú qù yīyuàn.", ok:true, why:"“không” trước động từ — giống tiếng Việt."}],

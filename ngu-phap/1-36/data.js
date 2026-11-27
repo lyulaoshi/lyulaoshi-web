@@ -1,6 +1,7 @@
 // Bài ngữ pháp 【一36】. Câu ví dụ: [chữ Hán, pinyin, nghĩa, nguồn]; [..] = phần tô đậm.
 window.NP_LESSON={
-code:"一36", title:"“是”字句", vi:"Câu chữ “是” — “A là B”", tag:"句子的类型 · 特殊句型",
+code:"一36", duyet:true,   // cô duyệt bài mẫu 27/09/2026
+ title:"“是”字句", vi:"Câu chữ “是” — “A là B”", tag:"句子的类型 · 特殊句型",
 goals:[
  "Dùng câu chữ <b>是</b> theo 3 nghĩa trong đề cương HSK 1: <b>đồng nhất – phân loại</b>, <b>nói rõ đặc điểm</b>, <b>tồn tại</b>.",
  "Phủ định bằng <b>不是</b>, hỏi bằng <b>吗</b> hoặc <b>是不是</b>.",
@@ -8,15 +9,15 @@ goals:[
 intro:"是 là động từ phán đoán, nối chủ ngữ với phần đứng sau để nói <b>“A là gì / A thế nào / ở đó là gì”</b>. Đề cương HSK 1 chia thành 3 nghĩa:",
 rules:[
  {t:"Đồng nhất hoặc phân loại", sub:"表示等同或类属", fx:[["A","người / vật"],["是",null],["B","danh từ"]], mean:"A là B · A thuộc loại B",
-  ex:[["他[是]我的老师。","Tā shì wǒ de lǎoshī.","Thầy ấy là thầy giáo của tôi.","等级标准"],
-      ["这[是]他的书。","Zhè shì tā de shū.","Đây là sách của anh ấy.","等级标准"]]},
+  ex:[["{1|他}{2|是}{3|我的老师}。","Tā shì wǒ de lǎoshī.","Thầy ấy là thầy giáo của tôi.","等级标准"],
+      ["{1|这}{2|是}{3|他的书}。","Zhè shì tā de shū.","Đây là sách của anh ấy.","等级标准"]]},
  {t:"Nói rõ đặc điểm", sub:"表示说明或特征", fx:[["A","người / vật"],["是",null],["tính từ / danh từ","màu, chất liệu…"],["的",null]], mean:"Xếp A vào nhóm “cái có đặc điểm đó”: <i>cái màu trắng, cái sạch</i>…",
-  ex:[["花[是]白[的]。","Huā shì bái de.","Hoa màu trắng (hoa này là loại màu trắng).","等级标准"],
-      ["衣服[是]干净[的]。","Yīfu shì gānjìng de.","Quần áo là đồ sạch (đã giặt rồi).","等级标准"]],
+  ex:[["{1|花}{2|是}{3|白}{4|的}。","Huā shì bái de.","Hoa màu trắng (hoa này là loại màu trắng).","等级标准"],
+      ["{1|衣服}{2|是}{3|干净}{4|的}。","Yīfu shì gānjìng de.","Quần áo là đồ sạch (đã giặt rồi).","等级标准"]],
   note:"So sánh: <span class='zh'>花很白。</span> = hoa <b>rất</b> trắng (miêu tả mức độ). <span class='zh'>花是白的。</span> = hoa <b>màu</b> trắng (phân loại, không phải màu khác). Bỏ <span class='zh'>的</span> là sai: <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> <span class='zh'>花是白。</span>"},
  {t:"Tồn tại: ở chỗ đó là cái gì", sub:"表示存在", fx:[["Nơi chốn","… 东边 / 前边 / 里…"],["是",null],["người / vật","cái gì ở đó"]], mean:"Nơi chốn đứng <b>đầu câu</b>; 是 cho biết cái ở đó <b>là cái gì</b>.",
-  ex:[["车站东边[是]一个学校。","Chēzhàn dōngbian shì yí ge xuéxiào.","Phía đông nhà ga là một trường học.","等级标准"],
-      ["教学楼西边[不是]图书馆。","Jiàoxuélóu xībian bú shì túshūguǎn.","Phía tây toà giảng đường không phải là thư viện.","等级标准"]],
+  ex:[["{1|车站东边}{2|是}{3|一个学校}。","Chēzhàn dōngbian shì yí ge xuéxiào.","Phía đông nhà ga là một trường học.","等级标准"],
+      ["{1|教学楼西边}不{2|是}{3|图书馆}。","Jiàoxuélóu xībian bú shì túshūguǎn.","Phía tây toà giảng đường không phải là thư viện.","等级标准"]],
   note:"Muốn nói “<b>có</b> một cái gì đó” (chưa biết là gì) thì dùng <span class='zh'>有</span> 【一37】: <span class='zh'>车站东边有一个学校。</span> Còn khi người/vật đứng đầu câu thì nói vị trí bằng <span class='zh'>在</span>: <span class='zh'>学校在车站东边。</span>"}],
 notes:[
  {t:"Phủ định", html:"chỉ dùng <b>不</b> đặt trước 是: <span class='zh'>A 不是 B</span> (không bao giờ dùng 没是). Chú ý biến điệu: <span class='zh'>不是</span> đọc <b>bú shì</b>."},

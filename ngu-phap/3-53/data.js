@@ -8,11 +8,11 @@ goals:[
 intro:"Câu này có hai tầng chủ ngữ: chủ ngữ lớn (người / vật được nói tới) và chủ ngữ nhỏ (bộ phận, khía cạnh của nó). Tiếng Việt cũng có: “Bà tôi sức khỏe rất tốt.”",
 rules:[
  {t:"Chủ ngữ lớn + (chủ ngữ nhỏ + vị ngữ)", sub:"主谓谓语", fx:[["Chủ ngữ lớn",""],["Chủ ngữ nhỏ",null],["Vị ngữ",""]], mean:"",
-  ex:[["奶奶[身体]非常好。","Nǎinai shēntǐ fēicháng hǎo.","Bà sức khỏe rất tốt.","等级标准"],
-      ["这件衣服[颜色]很好看。","Zhè jiàn yīfu yánsè hěn hǎokàn.","Chiếc áo này màu rất đẹp.","等级标准"]]},
+  ex:[["{1|奶奶}{2|身体}{3|非常好}。","Nǎinai shēntǐ fēicháng hǎo.","Bà sức khỏe rất tốt.","等级标准"],
+      ["{1|这件衣服}{2|颜色}{3|很好看}。","Zhè jiàn yīfu yánsè hěn hǎokàn.","Chiếc áo này màu rất đẹp.","等级标准"]]},
  {t:"Tân ngữ đã biết + chủ ngữ + V", sub:"受事主语", fx:[["Đối tượng (đã biết)",""],["Chủ ngữ",null],["Động từ",""]], mean:"",
-  ex:[["那本书[我]没看过。","Nà běn shū wǒ méi kàn guo.","Quyển sách đó tôi chưa đọc.","等级标准"],
-      ["这电影[我]看了三遍。","Zhè diànyǐng wǒ kàn le sān biàn.","Bộ phim này tôi xem ba lượt rồi.","等级标准"]]}],
+  ex:[["{1|那本书}{2|我}{3|没看过}。","Nà běn shū wǒ méi kàn guo.","Quyển sách đó tôi chưa đọc.","等级标准"],
+      ["{1|这电影}{2|我}{3|看了三遍}。","Zhè diànyǐng wǒ kàn le sān biàn.","Bộ phim này tôi xem ba lượt rồi.","等级标准"]]}],
 cmp:[
  {vn:"Anh ấy sức khỏe rất tốt.", zh:"他[身体]很好。", py:"Tā shēntǐ hěn hǎo.", ok:true, why:"Giống tiếng Việt; không cần 的 (他的身体很好 cũng đúng)."}],
 ex:[

@@ -8,13 +8,13 @@ goals:[
 intro:"Ba đại từ này đều bao quát <b>toàn bộ</b> một nhóm, nên thường đi với <b>都</b> ở phía sau.",
 rules:[
  {t:"各 · 各位 · 各种", sub:"各", fx:[["各 / 各位 / 各种",null],["Danh từ",""]], mean:"各国 các nước · 各位 các vị (lịch sự) · 各种 các loại.",
-  ex:[["我们班的同学来自世界[各]国。","Wǒmen bān de tóngxué láizì shìjiè gè guó.","Các bạn lớp tôi đến từ các nước trên thế giới.","等级标准"],
-      ["[各位]朋友，下午好！","Gèwèi péngyou, xiàwǔ hǎo!","Chào các bạn, buổi chiều tốt lành!","等级标准"],
-      ["这儿有[各种]颜色的花。","Zhèr yǒu gè zhǒng yánsè de huā.","Ở đây có hoa đủ các màu.","等级标准"]]},
+  ex:[["我们班的同学来自世界{1|各}{2|国}。","Wǒmen bān de tóngxué láizì shìjiè gè guó.","Các bạn lớp tôi đến từ các nước trên thế giới.","等级标准"],
+      ["{1|各位}{2|朋友}，下午好！","Gèwèi péngyou, xiàwǔ hǎo!","Chào các bạn, buổi chiều tốt lành!","等级标准"],
+      ["这儿有{1|各种}颜色的{2|花}。","Zhèr yǒu gè zhǒng yánsè de huā.","Ở đây có hoa đủ các màu.","等级标准"]]},
  {t:"每 + lượng từ + N (+ 都)", sub:"每", fx:[["每",null],["(số) + lượng từ",""],["N",""],["都",null]], mean:"mỗi … (đều).",
-  ex:[["我[每]个星期天[都]去爬山。","Wǒ měi ge xīngqītiān dōu qù pá shān.","Chủ nhật nào tôi cũng đi leo núi.","等级标准"]]},
+  ex:[["我{1|每}{2|个}{3|星期天}{4|都}去爬山。","Wǒ měi ge xīngqītiān dōu qù pá shān.","Chủ nhật nào tôi cũng đi leo núi.","等级标准"]]},
  {t:"任何 + N + 都", sub:"任何", fx:[["任何",null],["Danh từ",""],["都 / 也",null]], mean:"bất kỳ … nào cũng.",
-  ex:[["我们[任何]时候[都]要注意保护环境。","Wǒmen rènhé shíhou dōu yào zhùyì bǎohù huánjìng.","Bất cứ lúc nào chúng ta cũng phải chú ý bảo vệ môi trường.","等级标准"]]}],
+  ex:[["我们{1|任何}{2|时候}{3|都}要注意保护环境。","Wǒmen rènhé shíhou dōu yào zhùyì bǎohù huánjìng.","Bất cứ lúc nào chúng ta cũng phải chú ý bảo vệ môi trường.","等级标准"]]}],
 cmp:[
  {vn:"Ngày nào tôi cũng đi học.", zh:"我[每]天[都]上课。", py:"Wǒ měi tiān dōu shàng kè.", ok:true, why:"“… nào cũng” = 每……都."},
  {vn:"Chào các vị!", zh:"[各位]好！", py:"Gèwèi hǎo!", ok:true, why:"Lịch sự hơn 大家好."}],

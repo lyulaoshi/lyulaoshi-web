@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新3.21】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新3.21】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新3.21", title:"否定副词：不必、不用", vi:"不必, 不用 — không cần", tag:"词类 · 副词",
 goals:[
@@ -8,10 +8,10 @@ goals:[
 intro:"Khi việc gì <b>không cần thiết</b>, tiếng Trung dùng 不用 hoặc 不必 trước động từ. Đây là cách từ chối lịch sự, hay gặp khi đáp lời cảm ơn, lời mời.",
 rules:[
  {t:"S + 不用 / 不必 + V", sub:"不用 · 不必", fx:[["S",""],["不用 / 不必",null],["V",""]], mean:"Không cần làm gì.",
-  ex:[["明天[不用]上课。","Míngtiān búyòng shàngkè.","Mai không cần đi học."],
-      ["你[不必]来接我，我自己去。","Nǐ búbì lái jiē wǒ, wǒ zìjǐ qù.","Bạn không cần đến đón tôi, tôi tự đi."]]},
+  ex:[["{1|明天}{2|不用}{3|上课}。","Míngtiān búyòng shàngkè.","Mai không cần đi học."],
+      ["{1|你}{2|不必}{3|来接我}，我自己去。","Nǐ búbì lái jiē wǒ, wǒ zìjǐ qù.","Bạn không cần đến đón tôi, tôi tự đi."]]},
  {t:"不用 + 谢 / 客气", sub:"đáp lời", fx:[["不用",null],["谢 / 客气",""]], mean:"Đáp lời cảm ơn: không có gì.",
-  ex:[["——谢谢你！——[不用]谢。","— Xièxie nǐ! — Búyòng xiè.","— Cảm ơn bạn! — Không có gì."]]}],
+  ex:[["——谢谢你！——{1|不用}{2|谢}。","— Xièxie nǐ! — Búyòng xiè.","— Cảm ơn bạn! — Không có gì."]]}],
 notes:[{t:"不用 và 别", html:"<span class='zh'>不用去</span> = không cần đi (đi cũng được); <span class='zh'>别去</span> = đừng đi (khuyên, cấm)."}],
 cmp:[
  {vn:"Bạn không cần mua, tôi có rồi.", zh:"你[不用]买，我有了。", py:"Nǐ búyòng mǎi, wǒ yǒu le.", ok:true, why:"“không cần” = 不用, đặt trước động từ."}],

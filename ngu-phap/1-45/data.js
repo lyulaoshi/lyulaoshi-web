@@ -8,11 +8,11 @@ goals:[
 intro:"Cách hỏi đơn giản nhất: giữ nguyên câu trần thuật, thêm <b>吗</b> vào cuối. Giống “… à?”, “… không?” của tiếng Việt.",
 rules:[
  {t:"Câu trần thuật + 吗？", sub:"是非问", fx:[["Câu trần thuật",""],["吗",null],["？",""]], mean:"Không đổi trật tự từ.",
-  ex:[["他是老师[吗]？","Tā shì lǎoshī ma?","Anh ấy là giáo viên à?","等级标准"],
-      ["这包子好吃[吗]？","Zhè bāozi hǎochī ma?","Bánh bao này có ngon không?","等级标准"]]},
+  ex:[["{1|他是老师}{2|吗}{3|？}","Tā shì lǎoshī ma?","Anh ấy là giáo viên à?","等级标准"],
+      ["{1|这包子好吃}{2|吗}{3|？}","Zhè bāozi hǎochī ma?","Bánh bao này có ngon không?","等级标准"]]},
  {t:"Trả lời ngắn", sub:"回答", fx:[["Lặp lại V / Adj",null],["hoặc",""],["不 / 没 + V / Adj",null]], mean:"Tiếng Trung ít dùng “có / vâng” chung chung; lặp lại động từ hoặc tính từ trong câu hỏi.",
-  ex:[["你喜欢中文吗？——[喜欢]。/ [不喜欢]。","Nǐ xǐhuan Zhōngwén ma? —— Xǐhuan. / Bù xǐhuan.","Bạn thích tiếng Trung không? — Thích. / Không thích."],
-      ["你是学生吗？——[是]。/ [不是]。","Nǐ shì xuésheng ma? —— Shì. / Bú shì.","Bạn là học sinh à? — Vâng. / Không phải."]]}],
+  ex:[["你喜欢中文吗？——{1|喜欢}。/ {2|不喜欢}。","Nǐ xǐhuan Zhōngwén ma? —— Xǐhuan. / Bù xǐhuan.","Bạn thích tiếng Trung không? — Thích. / Không thích."],
+      ["你是学生吗？——{1|是}。/ {2|不是}。","Nǐ shì xuésheng ma? —— Shì. / Bú shì.","Bạn là học sinh à? — Vâng. / Không phải."]]}],
 notes:[
  {t:"Câu phủ định + 吗", html:"<span class='zh'>你不去吗？</span> = Bạn không đi à? (ngạc nhiên)."}],
 cmp:[

@@ -8,12 +8,12 @@ goals:[
 intro:"都、一起、一块儿 đều là phó từ: đứng <b>sau chủ ngữ, trước động từ</b> (hoặc tính từ).",
 rules:[
  {t:"都: đều, tất cả", sub:"都¹", fx:[["Chủ ngữ số nhiều","我们、同学们…"],["都",null],["Động từ / tính từ",""]], mean:"都 “gom” những người / vật đứng <b>trước</b> nó.",
-  ex:[["同学们[都]很认真。","Tóngxuémen dōu hěn rènzhēn.","Các bạn học đều rất chăm chỉ.","等级标准"],
-      ["我们[都]是越南人。","Wǒmen dōu shì Yuènán rén.","Chúng tôi đều là người Việt Nam."]]},
+  ex:[["{1|同学们}{2|都}{3|很认真}。","Tóngxuémen dōu hěn rènzhēn.","Các bạn học đều rất chăm chỉ.","等级标准"],
+      ["{1|我们}{2|都}{3|是越南人}。","Wǒmen dōu shì Yuènán rén.","Chúng tôi đều là người Việt Nam."]]},
  {t:"一起 / 一块儿: cùng nhau", sub:"协同", fx:[["Chủ ngữ",""],["(跟 / 和 + người)",""],["一起 / 一块儿",null],["Động từ",""]], mean:"一块儿 (yíkuàir) mang màu khẩu ngữ hơn 一起.",
-  ex:[["我们常[一块儿]玩儿。","Wǒmen cháng yíkuàir wánr.","Chúng tôi thường chơi cùng nhau.","等级标准"],
-      ["明天他们[一起]去图书馆。","Míngtiān tāmen yìqǐ qù túshūguǎn.","Ngày mai họ cùng đi thư viện.","等级标准"],
-      ["我跟妈妈[一起]去商店。","Wǒ gēn māma yìqǐ qù shāngdiàn.","Tôi cùng mẹ đi cửa hàng."]]}],
+  ex:[["{1|我们}常{3|一块儿}{4|玩儿}。","Wǒmen cháng yíkuàir wánr.","Chúng tôi thường chơi cùng nhau.","等级标准"],
+      ["明天{1|他们}{3|一起}{4|去图书馆}。","Míngtiān tāmen yìqǐ qù túshūguǎn.","Ngày mai họ cùng đi thư viện.","等级标准"],
+      ["{1|我}{2|跟妈妈}{3|一起}{4|去商店}。","Wǒ gēn māma yìqǐ qù shāngdiàn.","Tôi cùng mẹ đi cửa hàng."]]}],
 notes:[
  {t:"也 + 都", html:"也 đứng trước 都: <span class='zh'>他们也都是学生。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> 都也)"},
  {t:"都不 ≠ 不都", html:"<span class='zh'>我们都不去。</span> = tất cả đều không đi. <span class='zh'>我们不都去。</span> = không phải tất cả đều đi."}],

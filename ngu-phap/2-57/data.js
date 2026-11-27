@@ -8,8 +8,8 @@ goals:[
 intro:"Câu liên động xếp các động từ <b>theo thứ tự thời gian</b>: việc nào xảy ra trước đứng trước.",
 rules:[
  {t:"S + V1 (+ O1) + V2 (+ O2)", sub:"先后发生", fx:[["Chủ ngữ",""],["V1 (+ O1)",null],["V2 (+ O2)",null]], mean:"V1 xong rồi đến V2.",
-  ex:[["他开门出去了。","Tā kāi mén chūqu le.","Anh ấy mở cửa đi ra ngoài.","等级标准"],
-      ["我们吃完饭去图书馆吧。","Wǒmen chīwán fàn qù túshūguǎn ba.","Chúng mình ăn cơm xong thì đi thư viện nhé.","等级标准"]]}],
+  ex:[["{1|他}{2|开门}{3|出去}了。","Tā kāi mén chūqu le.","Anh ấy mở cửa đi ra ngoài.","等级标准"],
+      ["{1|我们}{2|吃完饭}{3|去图书馆}吧。","Wǒmen chīwán fàn qù túshūguǎn ba.","Chúng mình ăn cơm xong thì đi thư viện nhé.","等级标准"]]}],
 cmp:[
  {vn:"Anh ấy mở cửa đi ra ngoài.", zh:"他开门出去了。", py:"Tā kāi mén chūqu le.", ok:true, why:"Hai động từ nối liền, không cần “và”."}],
 ex:[

@@ -8,8 +8,8 @@ goals:[
 intro:"什么的 đứng <b>sau một hay vài ví dụ</b>, cho biết còn những thứ tương tự nữa. Không phải câu hỏi.",
 rules:[
  {t:"A、B + 什么的", sub:"什么的", fx:[["Một vài ví dụ",""],["什么的",null]], mean:"… các thứ, vân vân.",
-  ex:[["考试前多做点儿练习[什么的]。","Kǎoshì qián duō zuò diǎnr liànxí shénmede.","Trước kỳ thi làm nhiều bài luyện tập các thứ.","等级标准"],
-      ["我去超市买了一些水果、面包[什么的]。","Wǒ qù chāoshì mǎi le yìxiē shuǐguǒ, miànbāo shénmede.","Tôi đi siêu thị mua ít hoa quả, bánh mì các thứ.","等级标准"]]}],
+  ex:[["考试前{1|多做点儿练习}{2|什么的}。","Kǎoshì qián duō zuò diǎnr liànxí shénmede.","Trước kỳ thi làm nhiều bài luyện tập các thứ.","等级标准"],
+      ["我去超市买了一些{1|水果、面包}{2|什么的}。","Wǒ qù chāoshì mǎi le yìxiē shuǐguǒ, miànbāo shénmede.","Tôi đi siêu thị mua ít hoa quả, bánh mì các thứ.","等级标准"]]}],
 cmp:[
  {vn:"Tôi thích bóng đá, bơi lội các thứ.", zh:"我喜欢踢足球、游泳[什么的]。", py:"Wǒ xǐhuan tī zúqiú, yóuyǒng shénmede.", ok:true, why:"“các thứ” cuối danh sách."}],
 ex:[

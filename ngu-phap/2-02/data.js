@@ -8,11 +8,11 @@ goals:[
 intro:"应该 và 该 đứng <b>trước động từ</b>, nói về việc <b>nên</b> làm, <b>phải</b> làm theo lý lẽ, bổn phận. 该 ngắn gọn, khẩu ngữ hơn.",
 rules:[
  {t:"应该 / 该 + V", sub:"应该 · 该", fx:[["Chủ ngữ",""],["应该 / 该",null],["Động từ",""]], mean:"Nên, cần phải (lời khuyên, bổn phận).",
-  ex:[["你[该]吃药了。","Nǐ gāi chī yào le.","Đến lúc con phải uống thuốc rồi.","等级标准"],
-      ["你们[应该]去检查一下儿身体。","Nǐmen yīnggāi qù jiǎnchá yíxiàr shēntǐ.","Các bạn nên đi kiểm tra sức khỏe một chút.","等级标准"]]},
+  ex:[["{1|你}{2|该}{3|吃药}了。","Nǐ gāi chī yào le.","Đến lúc con phải uống thuốc rồi.","等级标准"],
+      ["{1|你们}{2|应该}{3|去检查}一下儿身体。","Nǐmen yīnggāi qù jiǎnchá yíxiàr shēntǐ.","Các bạn nên đi kiểm tra sức khỏe một chút.","等级标准"]]},
  {t:"Phủ định: 不应该", sub:"否定", fx:[["Chủ ngữ",""],["不应该",null],["Động từ",""]], mean:"Không nên (thường mang ý trách).",
-  ex:[["你[不应该]这么晚回家。","Nǐ bù yīnggāi zhème wǎn huí jiā.","Con không nên về nhà muộn thế này."],
-      ["我[不应该]跟你说这些。","Wǒ bù yīnggāi gēn nǐ shuō zhèxiē.","Tôi không nên nói với bạn những chuyện này."]]}],
+  ex:[["{1|你}{2|不应该}{3|这么晚回家}。","Nǐ bù yīnggāi zhème wǎn huí jiā.","Con không nên về nhà muộn thế này."],
+      ["{1|我}{2|不应该}{3|跟你说这些}。","Wǒ bù yīnggāi gēn nǐ shuō zhèxiē.","Tôi không nên nói với bạn những chuyện này."]]}],
 notes:[
  {t:"Trả lời ngắn", html:"<span class='zh'>——我应该去吗？——应该。/ 不应该。</span>"}],
 cmp:[

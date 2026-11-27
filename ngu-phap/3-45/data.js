@@ -8,9 +8,9 @@ goals:[
 intro:"Tiếng Việt: “câu chuyện <b>(mà) Tiểu Bạch kể</b>” — phần bổ nghĩa đứng sau. Tiếng Trung: cả cụm + <b>的</b> đứng <b>trước</b> danh từ.",
 rules:[
  {t:"Cụm động từ / chủ – vị + 的 + N", sub:"谓词性定语", fx:[["Cụm động từ / chủ – vị",null],["的",null],["Danh từ",""]], mean:"",
-  ex:[["你看见那个[跳舞的]女孩儿了吗？","Nǐ kànjiàn nàge tiào wǔ de nǚháir le ma?","Bạn có thấy cô bé đang nhảy kia không?","等级标准"],
-      ["[观看演出的]观众请从右边的门进去。","Guānkàn yǎnchū de guānzhòng qǐng cóng yòubian de mén jìnqu.","Khán giả xem biểu diễn xin mời vào cửa bên phải.","等级标准"],
-      ["[小白讲的]故事很有意思。","Xiǎo Bái jiǎng de gùshi hěn yǒu yìsi.","Câu chuyện Tiểu Bạch kể rất thú vị.","等级标准"]]}],
+  ex:[["你看见那个{1|跳舞}{2|的}{3|女孩儿}了吗？","Nǐ kànjiàn nàge tiào wǔ de nǚháir le ma?","Bạn có thấy cô bé đang nhảy kia không?","等级标准"],
+      ["{1|观看演出}{2|的}{3|观众}请从右边的门进去。","Guānkàn yǎnchū de guānzhòng qǐng cóng yòubian de mén jìnqu.","Khán giả xem biểu diễn xin mời vào cửa bên phải.","等级标准"],
+      ["{1|小白讲}{2|的}{3|故事}很有意思。","Xiǎo Bái jiǎng de gùshi hěn yǒu yìsi.","Câu chuyện Tiểu Bạch kể rất thú vị.","等级标准"]]}],
 cmp:[
  {vn:"quyển sách tôi mua hôm qua", zh:"[我昨天买的]书", py:"wǒ zuótiān mǎi de shū", ok:true, why:"Cả cụm bổ nghĩa + 的 lên trước danh từ."}],
 ex:[

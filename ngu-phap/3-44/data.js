@@ -8,10 +8,10 @@ goals:[
 intro:"Tiếng Việt: “Tôi hy vọng <b>(rằng)</b> mọi người đều thi tốt”. Tiếng Trung: động từ + cả cụm, <b>không cần</b> từ nối.",
 rules:[
  {t:"V + cụm động từ / tính từ / chủ – vị", sub:"谓词性宾语", fx:[["打算 / 喜欢 / 觉得 / 希望…",null],["cụm động từ / tính từ / câu nhỏ",""]], mean:"",
-  ex:[["我打算[去上海]。","Wǒ dǎsuàn qù Shànghǎi.","Tôi định đi Thượng Hải.","等级标准"],
-      ["她喜欢[安静]。","Tā xǐhuan ānjìng.","Cô ấy thích yên tĩnh.","等级标准"],
-      ["我感到[不舒服]。","Wǒ gǎndào bù shūfu.","Tôi cảm thấy khó chịu.","等级标准"],
-      ["老师希望[大家都能取得好成绩]。","Lǎoshī xīwàng dàjiā dōu néng qǔdé hǎo chéngjì.","Thầy cô hy vọng mọi người đều đạt thành tích tốt.","等级标准"]]}],
+  ex:[["我{1|打算}{2|去上海}。","Wǒ dǎsuàn qù Shànghǎi.","Tôi định đi Thượng Hải.","等级标准"],
+      ["她{1|喜欢}{2|安静}。","Tā xǐhuan ānjìng.","Cô ấy thích yên tĩnh.","等级标准"],
+      ["我{1|感到}{2|不舒服}。","Wǒ gǎndào bù shūfu.","Tôi cảm thấy khó chịu.","等级标准"],
+      ["老师{1|希望}{2|大家都能取得好成绩}。","Lǎoshī xīwàng dàjiā dōu néng qǔdé hǎo chéngjì.","Thầy cô hy vọng mọi người đều đạt thành tích tốt.","等级标准"]]}],
 cmp:[
  {vn:"Tôi nghĩ (rằng) anh ấy nói đúng.", zh:"我觉得[他说得对]。", py:"Wǒ juéde tā shuō de duì.", ok:false, tag:"(không dịch “rằng”)", why:"Không có từ nối trước câu nhỏ."}],
 ex:[

@@ -8,9 +8,9 @@ goals:[
 intro:"朝 = “hướng về”, gần 向. Hay dùng khi nói <b>mặt / cửa quay về hướng nào</b> hoặc động tác hướng về ai.",
 rules:[
  {t:"朝 + hướng / người + V", sub:"朝", fx:[["(S)",""],["朝",null],["hướng / người",""],["Động từ",""]], mean:"",
-  ex:[["大门[朝]南开。","Dàmén cháo nán kāi.","Cổng chính quay về hướng Nam.","等级标准"],
-      ["他[朝]左边看了一下儿。","Tā cháo zuǒbian kàn le yíxiàr.","Anh ấy nhìn sang bên trái một cái.","等级标准"],
-      ["他[朝]我大喊：“小心！”","Tā cháo wǒ dà hǎn: “Xiǎoxīn!”","Anh ấy hét lớn về phía tôi: “Cẩn thận!”","等级标准"]]}],
+  ex:[["{1|大门}{2|朝}{3|南}{4|开}。","Dàmén cháo nán kāi.","Cổng chính quay về hướng Nam.","等级标准"],
+      ["{1|他}{2|朝}{3|左边}{4|看了一下儿}。","Tā cháo zuǒbian kàn le yíxiàr.","Anh ấy nhìn sang bên trái một cái.","等级标准"],
+      ["{1|他}{2|朝}{3|我}{4|大喊}：“小心！”","Tā cháo wǒ dà hǎn: “Xiǎoxīn!”","Anh ấy hét lớn về phía tôi: “Cẩn thận!”","等级标准"]]}],
 cmp:[
  {vn:"Anh ấy vẫy tay với tôi.", zh:"他[朝]我挥手。", py:"Tā cháo wǒ huī shǒu.", ok:true, why:"“với tôi” (hướng về tôi) → 朝我 trước động từ."}],
 ex:[

@@ -8,9 +8,15 @@ goals:[
 intro:"多 = “hơn”. Vị trí phụ thuộc vào số: <b>số tròn chục trở lên</b> → 多 trước lượng từ; <b>số từ 1 đến 9</b> → 多 sau lượng từ.",
 rules:[
  {t:"Số tròn (十、百…) + 多 + lượng từ", sub:"（1）数词＋多＋量词", fx:[["Số tròn chục",""],["多",null],["Lượng từ",""]], mean:"Hơn 30 (31–39…).",
-  ex:[["三十[多]本　五十[多]斤","sānshí duō běn　wǔshí duō jīn","hơn 30 quyển　hơn 50 cân","等级标准"]]},
+  ex:[["{1|三十}{2|多}{3|本}　{1|五十}{2|多}{3|斤}","sānshí duō běn　wǔshí duō jīn","hơn 30 quyển　hơn 50 cân","等级标准"]]},
  {t:"Số 1–9 + lượng từ + 多", sub:"（2）数词＋量词＋多", fx:[["Số 1–9",""],["Lượng từ",""],["多",null]], mean:"Hơn 3 tệ (3 tệ lẻ).",
-  ex:[["三块[多]　四米[多]　七斤[多]","sān kuài duō　sì mǐ duō　qī jīn duō","hơn 3 tệ　hơn 4 mét　hơn 7 cân","等级标准"]]}],
+  ex:[["{1|三}{2|块}{3|多}　{1|四}{2|米}{3|多}　{1|七}{2|斤}{3|多}","sān kuài duō　sì mǐ duō　qī jīn duō","hơn 3 tệ　hơn 4 mét　hơn 7 cân","等级标准"]]},
+ {t:"好多 + danh từ", sub:"rất nhiều", fx:[["好多",null],["Danh từ",""]], mean:"好多 = rất nhiều (khẩu ngữ); không thêm 的.",
+  ex:[["公园里有{1|好多}{2|人}。", "Gōngyuán li yǒu hǎoduō rén.", "Trong công viên có rất nhiều người."],
+      ["我们{1|好多}{2|天}没见了。", "Wǒmen hǎoduō tiān méi jiàn le.", "Chúng ta nhiều ngày rồi chưa gặp."]]},
+ {t:"几 chỉ số ước lượng", sub:"几", fx:[["十 / (bỏ trống)",""],["几",null],["Lượng từ + N",""]], mean:"几 = vài; sau 十 nghĩa là mười mấy; trước 十 nghĩa là mấy chục.",
+  ex:[["我买了{2|几}{3|本书}。", "Wǒ mǎile jǐ běn shū.", "Tôi mua vài quyển sách."],
+      ["教室里有{1|十}{2|几}{3|个学生}。", "Jiàoshì li yǒu shíjǐ gè xuésheng.", "Trong lớp có mười mấy học sinh."]]}],
 cmp:[
  {vn:"hơn 30 người", zh:"三十[多]个人", py:"sānshí duō ge rén", ok:true, why:"Số tròn chục: 多 trước lượng từ."},
  {vn:"hơn 3 tệ", zh:"三块[多]", py:"sān kuài duō", ok:true, why:"Số lẻ: 多 sau lượng từ."}],
@@ -31,6 +37,10 @@ practice:[
   {w:["这个","西瓜","五斤多"], a:"这个西瓜五斤多。", vi:"Quả dưa hấu này hơn 5 cân."}]},
  {t:"C. Nói bằng tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"hơn 50 người · hơn 2 mét", a:"五十多个人 · 两米多"},
-  {q:"Cái áo này hơn 100 tệ.", a:"这件衣服一百多块。"}]}],
+  {q:"Cái áo này hơn 100 tệ.", a:"这件衣服一百多块。"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"Trong công viên có rất nhiều người.", vi:"Chọn câu đúng.", o:["公园里有好多人。", "公园里有好多的很人。"], a:0, why:"好多 + N."}]},
+ {t:"E. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"她今年二十＿岁。", vi:"Năm nay chị ấy hai mươi mấy tuổi.", o:["几", "多少", "半个"], a:0, why:"二十几岁."}]}],
 rel:["三74","二09","一07","二55"]
 };

@@ -8,8 +8,8 @@ goals:[
 intro:"看上去 gần nghĩa với 看起来 【三35】, nhấn mạnh vào <b>ấn tượng khi nhìn</b>.",
 rules:[
  {t:"S + 看上去 + Adj", sub:"看上去", fx:[["Chủ ngữ",""],["看上去",null],["(很 / 非常) + tính từ",""]], mean:"",
-  ex:[["这件衣服[看上去]很不错。","Zhè jiàn yīfu kàn shàngqu hěn búcuò.","Chiếc áo này nhìn khá đẹp.","等级标准"],
-      ["那沙发[看上去]非常结实。","Nà shāfā kàn shàngqu fēicháng jiēshi.","Cái ghế sofa đó nhìn rất chắc chắn.","等级标准"]]}],
+  ex:[["{1|这件衣服}{2|看上去}{3|很不错}。","Zhè jiàn yīfu kàn shàngqu hěn búcuò.","Chiếc áo này nhìn khá đẹp.","等级标准"],
+      ["{1|那沙发}{2|看上去}{3|非常结实}。","Nà shāfā kàn shàngqu fēicháng jiēshi.","Cái ghế sofa đó nhìn rất chắc chắn.","等级标准"]]}],
 cmp:[
  {vn:"Cô ấy nhìn trẻ lắm.", zh:"她[看上去]很年轻。", py:"Tā kàn shàngqu hěn niánqīng.", ok:true, why:"Nhận xét vẻ ngoài → 看上去."}],
 ex:[

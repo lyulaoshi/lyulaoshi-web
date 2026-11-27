@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新3.33】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新3.33】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新3.33", title:"看来；在……看来", vi:"看来, 在……看来 — xem ra; theo … thì", tag:"短语 · 固定短语",
 goals:[
@@ -8,11 +8,11 @@ goals:[
 intro:"Cả hai cách nói đều để <b>đưa ra ý kiến, suy đoán</b>. 看来 thường đứng đầu câu, sau một thông tin vừa nói; 在……看来 cho biết đó là ý kiến của ai.",
 rules:[
  {t:"……，看来 + nhận định", sub:"看来", fx:[["thông tin",""],["·",""],["看来",null],["nhận định",""]], mean:"Dựa vào điều trên, người nói suy ra.",
-  ex:[["他还没来，[看来]他不会来了。","Tā hái méi lái, kànlái tā bú huì lái le.","Anh ấy vẫn chưa đến, xem ra anh ấy sẽ không đến nữa."],
-      ["天这么黑，[看来]要下雨了。","Tiān zhème hēi, kànlái yào xià yǔ le.","Trời tối thế này, xem ra sắp mưa rồi."]]},
+  ex:[["{1|他还没来}，{2|看来}{3|他不会来了}。","Tā hái méi lái, kànlái tā bú huì lái le.","Anh ấy vẫn chưa đến, xem ra anh ấy sẽ không đến nữa."],
+      ["{1|天这么黑}，{2|看来}{3|要下雨了}。","Tiān zhème hēi, kànlái yào xià yǔ le.","Trời tối thế này, xem ra sắp mưa rồi."]]},
  {t:"在 + người + 看来，……", sub:"在……看来", fx:[["在",null],["người",""],["看来",null],["ý kiến",""]], mean:"Theo ý kiến của ai.",
-  ex:[["[在我看来]，学中文不太难。","Zài wǒ kànlái, xué Zhōngwén bú tài nán.","Theo tôi thì học tiếng Trung không khó lắm."],
-      ["[在妈妈看来]，身体最重要。","Zài māma kànlái, shēntǐ zuì zhòngyào.","Theo mẹ thì sức khỏe quan trọng nhất."]]}],
+  ex:[["{1|在}{2|我}{3|看来}，{4|学中文不太难}。","Zài wǒ kànlái, xué Zhōngwén bú tài nán.","Theo tôi thì học tiếng Trung không khó lắm."],
+      ["{1|在}{2|妈妈}{3|看来}，{4|身体最重要}。","Zài māma kànlái, shēntǐ zuì zhòngyào.","Theo mẹ thì sức khỏe quan trọng nhất."]]}],
 notes:[{t:"看来 và 看起来", html:"<span class='zh'>看起来</span> = trông (bề ngoài): <span class='zh'>他看起来很累</span>. <span class='zh'>看来</span> = suy ra từ tình huống: <span class='zh'>看来他很累</span>. 【三35】"}],
 cmp:[
  {vn:"Theo tôi thì bộ phim này rất hay.", zh:"[在我看来]，这个电影很好看。", py:"Zài wǒ kànlái, zhège diànyǐng hěn hǎokàn.", ok:true, why:"“theo tôi thì” = 在我看来, đặt đầu câu."}],

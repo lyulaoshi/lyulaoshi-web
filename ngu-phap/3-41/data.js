@@ -8,10 +8,10 @@ goals:[
 intro:"Tiếng Việt: “không biết <b>một câu</b> nào”. Tiếng Trung đưa “一句” lên trước: 他<b>一句</b>中文<b>也不</b>会说.",
 rules:[
  {t:"一 + lượng từ (+ N) + 也 / 都 + 不 / 没 + V", sub:"强调否定", fx:[["(S)",""],["一 + lượng từ + N",null],["也 / 都",null],["不 / 没 + V",""]], mean:"",
-  ex:[["他[一句]中文[也不]会说。","Tā yí jù Zhōngwén yě bú huì shuō.","Anh ấy không biết nói một câu tiếng Trung nào.","等级标准"],
-      ["我上午[一口]水[也没]喝，现在渴极了。","Wǒ shàngwǔ yì kǒu shuǐ yě méi hē, xiànzài kě jí le.","Cả buổi sáng tôi chưa uống ngụm nước nào, giờ khát lắm.","等级标准"],
-      ["他[一个]汉字[都不]认识。","Tā yí ge Hànzì dōu bú rènshi.","Anh ấy không biết một chữ Hán nào.","等级标准"],
-      ["这个公园我[一次][都没]去过。","Zhège gōngyuán wǒ yí cì dōu méi qù guo.","Công viên này tôi chưa đến lần nào.","等级标准"]]}],
+  ex:[["{1|他}{2|一句中文}{3|也}{4|不会说}。","Tā yí jù Zhōngwén yě bú huì shuō.","Anh ấy không biết nói một câu tiếng Trung nào.","等级标准"],
+      ["{1|我}上午{2|一口水}{3|也}{4|没喝}，现在渴极了。","Wǒ shàngwǔ yì kǒu shuǐ yě méi hē, xiànzài kě jí le.","Cả buổi sáng tôi chưa uống ngụm nước nào, giờ khát lắm.","等级标准"],
+      ["{1|他}{2|一个汉字}{3|都}{4|不认识}。","Tā yí ge Hànzì dōu bú rènshi.","Anh ấy không biết một chữ Hán nào.","等级标准"],
+      ["这个公园{1|我}{2|一次}{3|都}{4|没去过}。","Zhège gōngyuán wǒ yí cì dōu méi qù guo.","Công viên này tôi chưa đến lần nào.","等级标准"]]}],
 cmp:[
  {vn:"Tôi không có một đồng nào.", zh:"我[一分钱][也没]有。", py:"Wǒ yì fēn qián yě méi yǒu.", ok:true, why:"“một … nào” đưa lên trước 也没."}],
 ex:[

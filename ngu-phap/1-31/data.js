@@ -7,12 +7,12 @@ goals:[
  "Dùng câu một từ để cảnh báo, gọi: <b>车！小心！</b>"],
 intro:"Không phải câu nào cũng có chủ ngữ. Có những câu chỉ gồm <b>một động từ / cụm động từ</b> hoặc <b>một danh từ</b> mà vẫn trọn nghĩa.",
 rules:[
- {t:"Hiện tượng tự nhiên: động từ + tân ngữ", sub:"动词性非主谓句", fx:[["下 / 刮…",null],["雨 / 雪 / 风",""],["了",""]], mean:"Mưa, tuyết, gió… đứng <b>sau</b> động từ.",
-  ex:[["[下雨]了。","Xià yǔ le.","Mưa rồi.","等级标准"],
-      ["[下雪]了！","Xià xuě le!","Tuyết rơi rồi!"]]},
+ {t:"Hiện tượng tự nhiên: động từ + tân ngữ", sub:"动词性非主谓句", fx:[["下 / 刮…",null],["雨 / 雪 / 风",""],["了",null]], mean:"Mưa, tuyết, gió… đứng <b>sau</b> động từ.",
+  ex:[["{1|下}{2|雨}{3|了}。","Xià yǔ le.","Mưa rồi.","等级标准"],
+      ["{1|下}{2|雪}{3|了}！","Xià xuě le!","Tuyết rơi rồi!"]]},
  {t:"Câu một danh từ / một từ", sub:"名词性非主谓句", fx:[["Danh từ / từ","！"]], mean:"Cảnh báo, gọi, trả lời ngắn, cảm thán.",
-  ex:[["[车]！","Chē!","Xe kìa! (cẩn thận)","等级标准"],
-      ["[小心]！","Xiǎoxīn!","Cẩn thận!"]]}],
+  ex:[["{1|车}！","Chē!","Xe kìa! (cẩn thận)","等级标准"],
+      ["{1|小心}！","Xiǎoxīn!","Cẩn thận!"]]}],
 cmp:[
  {vn:"Trời mưa rồi.", zh:"[下雨]了。", py:"Xià yǔ le.", ok:true, why:"Không cần dịch “trời”; 雨 đứng sau 下."},
  {vn:"Xe kìa!", zh:"[车]！", py:"Chē!", ok:true, why:"Một danh từ đủ làm câu cảnh báo."}],

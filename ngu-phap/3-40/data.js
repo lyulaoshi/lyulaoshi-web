@@ -7,9 +7,9 @@ goals:[
  "Không bỏ 来说."],
 intro:"对……来说 = “đối với … (mà nói)”: nhận xét tiếp theo đúng với <b>người / nhóm đó</b>.",
 rules:[
- {t:"对 + người + 来说，nhận xét", sub:"对……来说", fx:[["对",null],["người / nhóm",""],["来说",null],["，nhận xét",""]], mean:"",
-  ex:[["[对]日本留学生[来说]，汉字不太难。","Duì Rìběn liúxuéshēng láishuō, Hànzì bú tài nán.","Đối với du học sinh Nhật Bản, chữ Hán không khó lắm.","等级标准"],
-      ["[对]专家[来说]，这个问题很容易解决。","Duì zhuānjiā láishuō, zhège wèntí hěn róngyì jiějué.","Đối với chuyên gia, vấn đề này rất dễ giải quyết.","等级标准"]]}],
+ {t:"对 + người + 来说，nhận xét", sub:"对……来说", fx:[["对",null],["người / nhóm",""],["来说",null],["，",""],["nhận xét",""]], mean:"",
+  ex:[["{1|对}{2|日本留学生}{3|来说}，{4|汉字不太难}。","Duì Rìběn liúxuéshēng láishuō, Hànzì bú tài nán.","Đối với du học sinh Nhật Bản, chữ Hán không khó lắm.","等级标准"],
+      ["{1|对}{2|专家}{3|来说}，{4|这个问题很容易解决}。","Duì zhuānjiā láishuō, zhège wèntí hěn róngyì jiějué.","Đối với chuyên gia, vấn đề này rất dễ giải quyết.","等级标准"]]}],
 cmp:[
  {vn:"Đối với tôi, tiếng Trung rất thú vị.", zh:"[对]我[来说]，中文很有意思。", py:"Duì wǒ láishuō, Zhōngwén hěn yǒu yìsi.", ok:true, why:"Giống khung tiếng Việt “đối với … mà nói”."}],
 ex:[

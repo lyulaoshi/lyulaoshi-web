@@ -8,8 +8,8 @@ goals:[
 intro:"又……又…… nối hai tính từ (hoặc động từ) cùng tồn tại: “vừa ngon vừa rẻ”.",
 rules:[
  {t:"又 + Adj1 + 又 + Adj2", sub:"又……又……", fx:[["又",null],["Tính từ 1",""],["又",null],["Tính từ 2",""]], mean:"Hai đặc điểm cùng chiều.",
-  ex:[["这个饭馆的菜[又]好吃[又]便宜。","Zhège fànguǎn de cài yòu hǎochī yòu piányi.","Món ở quán này vừa ngon vừa rẻ.","等级标准"],
-      ["这球鞋[又]不大[又]不好看。","Zhè qiúxié yòu bú dà yòu bù hǎokàn.","Đôi giày thể thao này vừa không to vừa không đẹp.","等级标准"]]}],
+  ex:[["这个饭馆的菜{1|又}{2|好吃}{3|又}{4|便宜}。","Zhège fànguǎn de cài yòu hǎochī yòu piányi.","Món ở quán này vừa ngon vừa rẻ.","等级标准"],
+      ["这球鞋{1|又}{2|不大}{3|又}{4|不好看}。","Zhè qiúxié yòu bú dà yòu bù hǎokàn.","Đôi giày thể thao này vừa không to vừa không đẹp.","等级标准"]]}],
 notes:[
  {t:"Khác 一边……一边……", html:"一边…一边… 【一39】 là hai <b>hành động</b> cùng lúc; 又…又… thường là hai <b>đặc điểm</b>."}],
 cmp:[

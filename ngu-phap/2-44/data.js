@@ -8,8 +8,8 @@ goals:[
 intro:"越来越 = “càng ngày càng”. Đứng <b>trước tính từ</b> hoặc động từ tâm lý (喜欢、想…).",
 rules:[
  {t:"S + 越来越 + Adj / 喜欢… (+ 了)", sub:"越来越", fx:[["Chủ ngữ",""],["越来越",null],["Tính từ / động từ tâm lý",""],["(了)",""]], mean:"",
-  ex:[["天气[越来越]热了。","Tiānqì yuè lái yuè rè le.","Thời tiết càng ngày càng nóng.","等级标准"],
-      ["我[越来越]喜欢学习中文。","Wǒ yuè lái yuè xǐhuan xuéxí Zhōngwén.","Tôi càng ngày càng thích học tiếng Trung.","等级标准"]]}],
+  ex:[["{1|天气}{2|越来越}{3|热}{4|了}。","Tiānqì yuè lái yuè rè le.","Thời tiết càng ngày càng nóng.","等级标准"],
+      ["{1|我}{2|越来越}{3|喜欢}学习中文。","Wǒ yuè lái yuè xǐhuan xuéxí Zhōngwén.","Tôi càng ngày càng thích học tiếng Trung.","等级标准"]]}],
 notes:[
  {t:"越……越……", html:"khung khác ở HSK 3 【三42】: <span class='zh'>中文越学越有意思。</span> (càng học càng thú vị)."}],
 cmp:[

@@ -8,11 +8,11 @@ goals:[
 intro:"Thể tiếp tục có hai nghĩa: <b>trạng thái được giữ nguyên</b> và <b>hành động đang kéo dài</b>. Trợ từ 着 xem thêm ở 【二33】.",
 rules:[
  {t:"Trạng thái kéo dài", sub:"（1）表示状态的持续", fx:[["Chủ ngữ",""],["(一直)",""],["Động từ",""],["着",null]], mean:"",
-  ex:[["灯一直亮[着]。/ 灯没亮[着]。","Dēng yìzhí liàng zhe. / Dēng méi liàng zhe.","Đèn vẫn sáng suốt. / Đèn không sáng.","等级标准"],
-      ["电脑开[着]。/ 电脑没开[着]。","Diànnǎo kāi zhe. / Diànnǎo méi kāi zhe.","Máy tính đang bật. / Máy tính không bật.","等级标准"]]},
+  ex:[["{1|灯}{2|一直}{3|亮}{4|着}。/ {1|灯}没{3|亮}{4|着}。","Dēng yìzhí liàng zhe. / Dēng méi liàng zhe.","Đèn vẫn sáng suốt. / Đèn không sáng.","等级标准"],
+      ["{1|电脑}{3|开}{4|着}。/ {1|电脑}没{3|开}{4|着}。","Diànnǎo kāi zhe. / Diànnǎo méi kāi zhe.","Máy tính đang bật. / Máy tính không bật.","等级标准"]]},
  {t:"Hành động kéo dài", sub:"（2）表示动作的持续", fx:[["Chủ ngữ",""],["Động từ",""],["着",null],["(tân ngữ) + 呢",""]], mean:"",
-  ex:[["外边下[着]雪呢。/ 外边没下雪。","Wàibian xià zhe xuě ne. / Wàibian méi xià xuě.","Bên ngoài tuyết đang rơi. / Bên ngoài không có tuyết.","等级标准"],
-      ["他们说[着]、笑[着]，不一会儿就到学校了。","Tāmen shuō zhe, xiào zhe, bù yíhuìr jiù dào xuéxiào le.","Họ vừa nói vừa cười, chẳng mấy chốc đã đến trường.","等级标准"]]}],
+  ex:[["{1|外边}{2|下}{3|着}{4|雪呢}。/ {1|外边}没{2|下}{4|雪}。","Wàibian xià zhe xuě ne. / Wàibian méi xià xuě.","Bên ngoài tuyết đang rơi. / Bên ngoài không có tuyết.","等级标准"],
+      ["{1|他们}{2|说}{3|着}、{2|笑}{3|着}，不一会儿就到学校了。","Tāmen shuō zhe, xiào zhe, bù yíhuìr jiù dào xuéxiào le.","Họ vừa nói vừa cười, chẳng mấy chốc đã đến trường.","等级标准"]]}],
 cmp:[
  {vn:"Đèn vẫn đang sáng.", zh:"灯还亮[着]。", py:"Dēng hái liàng zhe.", ok:true, why:"Trạng thái → V着."},
  {vn:"Bên ngoài tuyết đang rơi.", zh:"外边下[着]雪呢。", py:"Wàibian xià zhe xuě ne.", ok:true, why:"Hành động kéo dài → V着 + 呢."}],

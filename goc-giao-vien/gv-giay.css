@@ -1,0 +1,85 @@
+/* Mẫu giấy in của góc giáo viên (phiếu tập viết, thẻ tên, Bingo). Chọn bằng GVT.giay → .xem[data-giay=…].
+   Trang .trang rộng 200×285mm, chừa vành 5mm quanh nội dung 190×275mm: khung và góc trang trí nằm trong vành đó.
+   Trang cắt rời nhiều mảnh (.trang.cat) thì đóng khung từng mảnh (.mat, .hd, .phieu) thay vì cả trang.
+   Mẫu "don" (tối giản, đỡ mực) không thêm gì. Hình vẽ tay bằng SVG, không dùng emoji. */
+
+/* ---------- Màu từng mẫu: --gc chính, --gp phụ, --gn nền nhạt, --go màu kẻ ô ---------- */
+.xem[data-giay="hop"]{--gc:#127f88;--gp:#e0545f;--gn:#e4f5f5;--go:#7bbfc4;--goc:none}
+.xem[data-giay="xua"]{--gc:#a3262b;--gp:#b8860b;--gn:#fcf0dc;--go:#d3958c;
+  --goc:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='2' y='2' width='36' height='36' fill='%23fff' stroke='%23a3262b' stroke-width='3.5'/%3E%3Cpath d='M9.5 9.5H30.5V30.5H15.5V15.5H24.5V24.5' fill='none' stroke='%23a3262b' stroke-width='3.5'/%3E%3C/svg%3E")}
+.xem[data-giay="hoa"]{--gc:#b8436f;--gp:#4f8f60;--gn:#fdecf2;--go:#e2a6bb;
+  --goc:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M26 27c8-1 12 4 12 10-7 1-12-3-12-10z' fill='%237fb48a'/%3E%3Cg fill='%23f3a9c0' stroke='%23c95f87' stroke-width='1'%3E%3Cellipse cx='17' cy='8.5' rx='6.5' ry='7.5'/%3E%3Cellipse cx='25.5' cy='15' rx='6.5' ry='7.5' transform='rotate(72 25.5 15)'/%3E%3Cellipse cx='22' cy='25' rx='6.5' ry='7.5' transform='rotate(144 22 25)'/%3E%3Cellipse cx='11.5' cy='25' rx='6.5' ry='7.5' transform='rotate(216 11.5 25)'/%3E%3Cellipse cx='8.5' cy='15' rx='6.5' ry='7.5' transform='rotate(288 8.5 15)'/%3E%3C/g%3E%3Ccircle cx='17' cy='17.5' r='4.2' fill='%23ffe27a' stroke='%23c99a14' stroke-width='1'/%3E%3C/svg%3E")}
+
+/* ---------- Khung: dùng chung cho cả trang và từng mảnh cắt ---------- */
+.xem[data-giay]:not([data-giay="don"]) .trang:not(.cat)::after,
+.xem[data-giay]:not([data-giay="don"]) :is(.mat,.hd,.phieu)::after{content:"";position:absolute;inset:1.5mm;pointer-events:none}
+.xem[data-giay]:not([data-giay="don"]) :is(.mat,.hd,.phieu){position:relative}
+
+.xem[data-giay="hop"] :is(.trang:not(.cat),.mat,.hd,.phieu)::after{border:.8mm solid var(--gc);border-radius:5mm;outline:.3mm dashed var(--gp);outline-offset:-1.9mm}
+.xem[data-giay="xua"] :is(.trang:not(.cat),.mat,.hd,.phieu)::after{border:.8mm solid var(--gc);outline:.25mm solid var(--gp);outline-offset:-1.7mm;
+  background:var(--goc) left -.8mm top -.8mm/7.5mm no-repeat,var(--goc) right -.8mm top -.8mm/7.5mm no-repeat,var(--goc) left -.8mm bottom -.8mm/7.5mm no-repeat,var(--goc) right -.8mm bottom -.8mm/7.5mm no-repeat;background-origin:border-box;background-clip:border-box}
+.xem[data-giay="hoa"] :is(.trang:not(.cat),.mat,.hd,.phieu)::after{border:.6mm solid #eaa9bf;border-radius:6mm;
+  background:var(--goc) left -1mm top -1mm/9mm no-repeat,var(--goc) right -1mm bottom -1mm/9mm no-repeat;background-origin:border-box;background-clip:border-box}
+/* hoa nằm ở góc được phép lấn ra ngoài đường viền */
+
+/* ---------- Dấu bản quyền ở chân tờ in: logo nhỏ + © lyulaoshi.com ----------
+   BẮT BUỘC trên mọi trang và mọi mảnh cắt rời (cô chốt 26/11/2026) — không thêm nút tắt. */
+.xem{--logo:url(../img/logo-hallo-128.png)}
+/* phiếu tập viết và Bingo: dòng chân đã có tên web, thêm logo đứng trước */
+.xem :is(.chan,.phieu) .web::before{content:"";display:inline-block;width:4mm;height:4mm;margin-right:1mm;vertical-align:-1mm;background:var(--logo) center/contain no-repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+/* tờ viết tên, thẻ đặt bàn (mỗi mặt), bảng tên, phiếu gọi từ: giữa chân */
+.xem :is(.hd,.mat){position:relative}
+.xem :is(.hd,.mat)::before,.xem :is(.bang,.goi)::after{content:"© lyulaoshi.com";position:absolute;left:50%;transform:translateX(-50%);padding-left:5mm;font:700 2.7mm/4mm var(--vi);color:var(--gc,#555);white-space:nowrap;background:var(--logo) left center/4mm 4mm no-repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.xem .hd::before{bottom:2.6mm}
+.xem .mat::before{bottom:3.6mm}
+.xem .mat{padding-bottom:4mm}   /* đẩy tên lên, chừa chỗ cho dấu */
+.xem :is(.bang,.goi)::after{bottom:5.6mm}
+
+/* Bài khoá: mỗi mảnh cắt rời đều mang dấu */
+.xem .in .the{position:relative;padding-bottom:5mm}
+.xem .in .the::after{content:"© lyulaoshi.com";position:absolute;right:3mm;bottom:1mm;padding-left:4.2mm;font:700 2.4mm/3.4mm var(--vi);color:var(--gc,#555);white-space:nowrap;background:var(--logo) left center/3.4mm 3.4mm no-repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* ---------- Phiếu tập viết ---------- */
+.xem[data-giay]:not([data-giay="don"]) .dau{position:relative;align-items:center;height:13mm;margin-bottom:1mm;padding:0 5mm 0 17mm;border:0;border-radius:3.5mm;background:var(--gn)}
+.xem[data-giay]:not([data-giay="don"]) .dau b{color:var(--gc);font-size:5mm}
+.xem[data-giay]:not([data-giay="don"]) .dau::before{content:"";position:absolute;left:4mm;top:1.5mm;width:10mm;height:10mm}
+.xem[data-giay="hop"]:not([data-giay="don"]) .dau::before{content:"字";display:grid;place-items:center;font:6.6mm/1 var(--hz);color:#fff;background:var(--gc);border-radius:3mm}
+.xem[data-giay="xua"]:not([data-giay="don"]) .dau{border-bottom:.9mm double var(--gp);border-radius:1mm}
+.xem[data-giay="xua"]:not([data-giay="don"]) .dau::before{content:"汉";display:grid;place-items:center;font:6.8mm/1 var(--kai);color:#fff;background:var(--gc);border-radius:1.2mm;box-shadow:inset 0 0 0 .5mm var(--gc),inset 0 0 0 .8mm #fff}
+.xem[data-giay="hoa"] .dau::before{background:var(--goc) center/contain no-repeat}
+.xem[data-giay]:not([data-giay="don"]) .chu .nghia>span:first-child b{color:var(--gc)}
+.xem[data-giay]:not([data-giay="don"]) .chan{color:var(--gc)}
+
+/* ---------- Tờ hướng dẫn viết tên ---------- */
+.xem[data-giay]:not([data-giay="don"]) .hd{overflow:visible}
+.xem[data-giay]:not([data-giay="don"]) .hd::after{inset:0 -3.5mm .6mm}
+.xem[data-giay]:not([data-giay="don"]) .hd+.hd{border-top:.3mm dashed #aaa}
+.xem[data-giay]:not([data-giay="don"]) .hd header{height:13.5mm;margin:1.8mm 2mm 1.7mm;padding:0 4mm;border:0;border-radius:3.5mm;background:var(--gn);align-items:center}
+.xem[data-giay="xua"]:not([data-giay="don"]) .hd header{border-bottom:.9mm double var(--gp);border-radius:1mm}
+.xem[data-giay]:not([data-giay="don"]) .hd header .z{color:var(--gc)}
+.xem[data-giay]:not([data-giay="don"]) .hd header .p{color:var(--gc)}
+.xem[data-giay]:not([data-giay="don"]) .hd header small{padding:.6mm 3mm;border-radius:9mm;background:var(--gc);color:#fff;font-weight:700}
+.xem[data-giay]:not([data-giay="don"]) .hd .tt b{color:var(--gc)}
+
+/* ---------- Thẻ đặt bàn ---------- */
+.xem[data-giay]:not([data-giay="don"]) .mat .p{color:var(--gc)}
+.xem[data-giay]:not([data-giay="don"]) .mat .v{margin-top:1.5mm;padding:.5mm 4mm;border-radius:9mm;background:var(--gn)}
+.xem[data-giay="xua"] .mat .z{color:#7d1519}
+
+/* ---------- Bảng tên cả lớp, phiếu gọi từ ---------- */
+.xem[data-giay]:not([data-giay="don"]) .bang{padding:3mm 3mm 0}
+.xem[data-giay]:not([data-giay="don"]) .bang h2{margin-bottom:4mm;padding:1.5mm 0;border-radius:3.5mm;background:var(--gn);color:var(--gc)}
+.xem[data-giay]:not([data-giay="don"]) .bang th{background:var(--gc);color:#fff;border-color:var(--gc)}
+.xem[data-giay]:not([data-giay="don"]) .bang td{border-color:var(--go)}
+.xem[data-giay]:not([data-giay="don"]) .bang tbody tr:nth-child(even) td{background:var(--gn)}
+.xem[data-giay]:not([data-giay="don"]) .goi{padding:5mm}
+.xem[data-giay]:not([data-giay="don"]) .goi h2{color:var(--gc)}
+.xem[data-giay]:not([data-giay="don"]) .goi li{border-color:var(--go)}
+.xem[data-giay]:not([data-giay="don"]) .goi li i{border-color:var(--gc);border-radius:1mm}
+
+/* ---------- Phiếu Bingo ---------- */
+.xem[data-giay]:not([data-giay="don"]) .phieu header{padding:0 5.5mm}
+.xem[data-giay]:not([data-giay="don"]) .phieu header b{color:var(--gc)}
+.xem[data-giay]:not([data-giay="don"]) .luoi{border-color:var(--gc)}
+.xem[data-giay]:not([data-giay="don"]) .ob{border-color:var(--gc)}
+.xem[data-giay]:not([data-giay="don"]) .ob.free{background:var(--gn);color:var(--gc)}

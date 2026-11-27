@@ -8,8 +8,8 @@ goals:[
 intro:"Tiếng Việt chỉ có một chữ “hay / hoặc”. Tiếng Trung tách hai: <b>或者</b> trong câu kể, <b>还是</b> trong câu hỏi lựa chọn.",
 rules:[
  {t:"A 或者 / 或 B (câu kể)", sub:"或 · 或者", fx:[["A",""],["或者 / 或",null],["B",""]], mean:"Chọn một trong hai, hoặc cái nào cũng được. 或 ngắn gọn, hay dùng trong văn viết.",
-  ex:[["星期天我想去看电影[或]听音乐会。","Xīngqītiān wǒ xiǎng qù kàn diànyǐng huò tīng yīnyuèhuì.","Chủ nhật tôi muốn đi xem phim hoặc nghe hòa nhạc.","等级标准"],
-      ["我下午去打球[或者]去爬山。","Wǒ xiàwǔ qù dǎ qiú huòzhě qù pá shān.","Chiều tôi đi chơi bóng hoặc đi leo núi.","等级标准"]]}],
+  ex:[["星期天我想去{1|看电影}{2|或}{3|听音乐会}。","Xīngqītiān wǒ xiǎng qù kàn diànyǐng huò tīng yīnyuèhuì.","Chủ nhật tôi muốn đi xem phim hoặc nghe hòa nhạc.","等级标准"],
+      ["我下午{1|去打球}{2|或者}{3|去爬山}。","Wǒ xiàwǔ qù dǎ qiú huòzhě qù pá shān.","Chiều tôi đi chơi bóng hoặc đi leo núi.","等级标准"]]}],
 cmp:[
  {vn:"Tôi uống trà hoặc cà phê đều được.", zh:"我喝茶[或者]咖啡都可以。", py:"Wǒ hē chá huòzhě kāfēi dōu kěyǐ.", ok:true, why:"Câu kể → 或者."},
  {vn:"Bạn uống trà hay cà phê?", zh:"你喝茶[还是]咖啡？", py:"Nǐ hē chá háishi kāfēi?", ok:true, why:"Câu hỏi → 还是."}],

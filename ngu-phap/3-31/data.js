@@ -8,8 +8,8 @@ goals:[
 intro:"Từ tượng thanh mô phỏng âm thanh. 哈哈 là tiếng cười to, vui vẻ.",
 rules:[
  {t:"哈哈 + 的 + N · 哈哈 + 地 + V", sub:"拟声词", fx:[["哈哈",null],["的 / 地",""],["N / V",""]], mean:"",
-  ex:[["我还没进门就听到同学们[哈哈]的笑声。","Wǒ hái méi jìn mén jiù tīngdào tóngxuémen hāhā de xiàoshēng.","Tôi chưa vào cửa đã nghe tiếng các bạn cười ha ha.","等级标准"],
-      ["听了他的话，我们都[哈哈]地笑了起来。","Tīng le tā de huà, wǒmen dōu hāhā de xiào le qǐlai.","Nghe anh ấy nói, chúng tôi đều cười ha ha."]]}],
+  ex:[["我还没进门就听到同学们{1|哈哈}{2|的}{3|笑声}。","Wǒ hái méi jìn mén jiù tīngdào tóngxuémen hāhā de xiàoshēng.","Tôi chưa vào cửa đã nghe tiếng các bạn cười ha ha.","等级标准"],
+      ["听了他的话，我们都{1|哈哈}{2|地}{3|笑了起来}。","Tīng le tā de huà, wǒmen dōu hāhā de xiào le qǐlai.","Nghe anh ấy nói, chúng tôi đều cười ha ha."]]}],
 cmp:[
  {vn:"cười ha ha", zh:"[哈哈]地笑", py:"hāhā de xiào", ok:true, why:"Tượng thanh làm trạng ngữ, đứng trước động từ."}],
 ex:[

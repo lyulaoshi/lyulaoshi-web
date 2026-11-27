@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新3.53】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新3.53】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新3.53", title:"“怎样＋动词”的特指问句", vi:"Hỏi bằng 怎样 + động từ — làm thế nào?", tag:"句子的类型 · 疑问句",
 goals:[
@@ -8,9 +8,9 @@ goals:[
 intro:"【一46】 đã học 怎么 + động từ để hỏi cách làm (怎么走?). 怎样 cùng nghĩa, dùng nhiều trong <b>câu hỏi của bài đọc, thông báo, đề thi</b>.",
 rules:[
  {t:"S + 怎样 + V (+ O)？", sub:"怎样 + V", fx:[["S",""],["怎样",null],["V + O",""],["？",""]], mean:"Làm thế nào để …?",
-  ex:[["我们[怎样]学好中文？","Wǒmen zěnyàng xuéhǎo Zhōngwén?","Chúng ta học giỏi tiếng Trung bằng cách nào?"],
-      ["这个字[怎样]写？","Zhège zì zěnyàng xiě?","Chữ này viết thế nào?"],
-      ["去火车站[怎样]走？","Qù huǒchēzhàn zěnyàng zǒu?","Đến ga tàu đi thế nào?"]]}],
+  ex:[["{1|我们}{2|怎样}{3|学好中文}{4|？}","Wǒmen zěnyàng xuéhǎo Zhōngwén?","Chúng ta học giỏi tiếng Trung bằng cách nào?"],
+      ["{3|这个字}{2|怎样}{3|写}{4|？}","Zhège zì zěnyàng xiě?","Chữ này viết thế nào?"],
+      ["{3|去火车站}{2|怎样}{3|走}{4|？}","Qù huǒchēzhàn zěnyàng zǒu?","Đến ga tàu đi thế nào?"]]}],
 notes:[{t:"怎样 và 怎么样", html:"<span class='zh'>怎样 + V</span> hỏi <b>cách làm</b>. <span class='zh'>……怎么样？</span> ở cuối câu hỏi <b>ý kiến, tình trạng</b>: <span class='zh'>这个菜怎么样？</span>"}],
 cmp:[
  {vn:"Làm thế nào để giữ sức khỏe?", zh:"[怎样]保持身体健康？", py:"Zěnyàng bǎochí shēntǐ jiànkāng?", ok:false, tag:"(từ hỏi đứng trước)", why:"Tiếng Việt “làm thế nào” có thể đứng đầu; tiếng Trung 怎样 đứng ngay trước động từ."}],

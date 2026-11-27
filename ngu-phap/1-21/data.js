@@ -8,11 +8,11 @@ goals:[
 intro:"了¹ đứng <b>ngay sau động từ</b>, cho biết hành động đã xảy ra, đã xong. Nó gần với “đã … rồi” của tiếng Việt nhưng vị trí cố định sau động từ.",
 rules:[
  {t:"Động từ + 了 + số lượng + tân ngữ", sub:"了¹", fx:[["Chủ ngữ",""],["Động từ",""],["了",null],["Số lượng + tân ngữ",""]], mean:"Tân ngữ thường có số lượng hoặc định ngữ; tân ngữ “trơn” (了书) nghe chưa trọn câu.",
-  ex:[["他买[了]一本书。","Tā mǎi le yì běn shū.","Anh ấy đã mua một quyển sách.","等级标准"],
-      ["我写[了]两个汉字。","Wǒ xiě le liǎng ge Hànzì.","Tôi đã viết hai chữ Hán.","等级标准"]]},
+  ex:[["{1|他}{2|买}{3|了}{4|一本书}。","Tā mǎi le yì běn shū.","Anh ấy đã mua một quyển sách.","等级标准"],
+      ["{1|我}{2|写}{3|了}{4|两个汉字}。","Wǒ xiě le liǎng ge Hànzì.","Tôi đã viết hai chữ Hán.","等级标准"]]},
  {t:"Phủ định: 没 + động từ (bỏ 了)", sub:"没 V", fx:[["Chủ ngữ",""],["没 / 没有",null],["Động từ + tân ngữ",""]], mean:"Không có 了 trong câu phủ định.",
-  ex:[["他[没]买书。","Tā méi mǎi shū.","Anh ấy không mua sách.","等级标准"],
-      ["我[没]写汉字。","Wǒ méi xiě Hànzì.","Tôi không viết chữ Hán.","等级标准"]]}],
+  ex:[["{1|他}{2|没}{3|买书}。","Tā méi mǎi shū.","Anh ấy không mua sách.","等级标准"],
+      ["{1|我}{2|没}{3|写汉字}。","Wǒ méi xiě Hànzì.","Tôi không viết chữ Hán.","等级标准"]]}],
 notes:[
  {t:"Câu hỏi", html:"<span class='zh'>你买了书吗？/ 你买书了没有？</span>"},
  {t:"Không dùng 了¹", html:"với thói quen (<span class='zh'>我以前常去</span>), với 是、喜欢、在 (đang)…"},

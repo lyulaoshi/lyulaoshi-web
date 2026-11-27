@@ -8,9 +8,9 @@ goals:[
 intro:"Câu tiếng Trung cơ bản: <b>Chủ ngữ + Vị ngữ</b>. Chủ ngữ ở HSK 1 là danh từ, đại từ hoặc cụm danh từ. Trật tự này giống tiếng Việt.",
 rules:[
  {t:"Danh từ / đại từ / cụm danh từ làm chủ ngữ", sub:"名词、代词或名词性短语作主语", fx:[["Chủ ngữ",null],["Vị ngữ","động từ / tính từ…"]], mean:"Chủ ngữ đứng trước; mọi phần bổ nghĩa của nó (这个、我的…) đứng trước danh từ chính.",
-  ex:[["[衣服]很好看。","Yīfu hěn hǎokàn.","Quần áo rất đẹp.","等级标准"],
-      ["[他]在看电视。","Tā zài kàn diànshì.","Anh ấy đang xem ti vi.","等级标准"],
-      ["[这个房间]很干净。","Zhège fángjiān hěn gānjìng.","Căn phòng này rất sạch.","等级标准"]]}],
+  ex:[["{1|衣服}{2|很好看}。","Yīfu hěn hǎokàn.","Quần áo rất đẹp.","等级标准"],
+      ["{1|他}{2|在看电视}。","Tā zài kàn diànshì.","Anh ấy đang xem ti vi.","等级标准"],
+      ["{1|这个房间}{2|很干净}。","Zhège fángjiān hěn gānjìng.","Căn phòng này rất sạch.","等级标准"]]}],
 notes:[
  {t:"Lược chủ ngữ", html:"Khi ngữ cảnh rõ, chủ ngữ có thể lược: <span class='zh'>——你去吗？——去。</span>"}],
 cmp:[

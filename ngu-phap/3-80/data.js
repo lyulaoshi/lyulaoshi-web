@@ -7,8 +7,8 @@ goals:[
 intro:"Giống “chậm thì chậm thôi”, “bận thì bận chút vậy” — người nói nhượng bộ, không phàn nàn nữa.",
 rules:[
  {t:"X + 就 + X + (点儿) + 吧，lý do", sub:"口语", fx:[["X 就 X",null],["(点儿) 吧",""],["·",""],["lý do chấp nhận",""]], mean:"X là tính từ / động từ, lặp lại y nguyên.",
-  ex:[["[慢就慢]吧，他能完成任务就很不错了。","Màn jiù màn ba, tā néng wánchéng rènwu jiù hěn búcuò le.","Chậm thì chậm thôi, anh ấy hoàn thành được nhiệm vụ là tốt lắm rồi.","等级标准"],
-      ["[忙就忙]点儿吧，我们过几天就能休息了。","Máng jiù máng diǎnr ba, wǒmen guò jǐ tiān jiù néng xiūxi le.","Bận thì bận chút vậy, mấy hôm nữa chúng ta được nghỉ rồi.","等级标准"]]}],
+  ex:[["{1|慢就慢}{2|吧}，{3|他能完成任务就很不错了}。","Màn jiù màn ba, tā néng wánchéng rènwu jiù hěn búcuò le.","Chậm thì chậm thôi, anh ấy hoàn thành được nhiệm vụ là tốt lắm rồi.","等级标准"],
+      ["{1|忙就忙}{2|点儿吧}，{3|我们过几天就能休息了}。","Máng jiù máng diǎnr ba, wǒmen guò jǐ tiān jiù néng xiūxi le.","Bận thì bận chút vậy, mấy hôm nữa chúng ta được nghỉ rồi.","等级标准"]]}],
 cmp:[
  {vn:"Đắt thì đắt chút thôi, đồ tốt là được.", zh:"[贵就贵]点儿吧，东西好就行。", py:"Guì jiù guì diǎnr ba, dōngxi hǎo jiù xíng.", ok:true, why:"Giống tiếng Việt: lặp X, 就 = “thì”."}],
 ex:[

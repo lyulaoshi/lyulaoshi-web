@@ -8,8 +8,8 @@ goals:[
 intro:"为¹ (wèi) dẫn ra <b>người / việc</b> mà hành động, cảm xúc hướng tới. Hay gặp: 为……高兴, 为……干杯.",
 rules:[
  {t:"为 + đối tượng + V / Adj", sub:"为¹", fx:[["(S)",""],["为",null],["người / việc",""],["高兴 / 干杯 / 担心…",""]], mean:"Vì, cho ai / điều gì.",
-  ex:[["[为]大家的健康干杯！","Wèi dàjiā de jiànkāng gān bēi!","Cạn ly vì sức khỏe của mọi người!","等级标准"],
-      ["我们都[为]你的好成绩高兴。","Wǒmen dōu wèi nǐ de hǎo chéngjì gāoxìng.","Chúng tôi đều mừng cho thành tích tốt của bạn.","等级标准"]]}],
+  ex:[["{2|为}{3|大家的健康}{4|干杯}！","Wèi dàjiā de jiànkāng gān bēi!","Cạn ly vì sức khỏe của mọi người!","等级标准"],
+      ["{1|我们}都{2|为}{3|你的好成绩}{4|高兴}。","Wǒmen dōu wèi nǐ de hǎo chéngjì gāoxìng.","Chúng tôi đều mừng cho thành tích tốt của bạn.","等级标准"]]}],
 notes:[
  {t:"为 · 为了", html:"为了 (vì mục đích) học ở 【三26】; 为² (thay, cho) ở 【三23】."}],
 cmp:[

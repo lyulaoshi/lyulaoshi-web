@@ -8,8 +8,8 @@ goals:[
 intro:"Cụm tính từ hoạt động như <b>một tính từ</b>: làm vị ngữ (房间很舒服) hoặc định ngữ (很舒服的房间).",
 rules:[
  {t:"Các dạng cụm tính từ", sub:"形容词性短语", fx:[["(很 / 非常…)",""],["Tính từ",null],["(一点儿)",""]], mean:"",
-  ex:[["很舒服　非常高兴","hěn shūfu　fēicháng gāoxìng","rất thoải mái　vô cùng vui","等级标准"],
-      ["大一点儿　又漂亮又可爱","dà yìdiǎnr　yòu piàoliang yòu kě'ài","to hơn một chút　vừa xinh vừa đáng yêu","等级标准"]]}],
+  ex:[["{1|很}{2|舒服}　{1|非常}{2|高兴}","hěn shūfu　fēicháng gāoxìng","rất thoải mái　vô cùng vui","等级标准"],
+      ["{2|大}{3|一点儿}　{1|又}{2|漂亮}{1|又}{2|可爱}","dà yìdiǎnr　yòu piàoliang yòu kě'ài","to hơn một chút　vừa xinh vừa đáng yêu","等级标准"]]}],
 cmp:[
  {vn:"Căn phòng rất thoải mái.", zh:"房间[很舒服]。", py:"Fángjiān hěn shūfu.", ok:true, why:"Cụm tính từ làm vị ngữ, không có 是."},
  {vn:"một căn phòng rất thoải mái", zh:"一个[很舒服的]房间", py:"yí ge hěn shūfu de fángjiān", ok:true, why:"Làm định ngữ: thêm 的, đặt trước danh từ."}],

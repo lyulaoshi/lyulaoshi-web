@@ -8,9 +8,13 @@ goals:[
 intro:"Ba bổ ngữ kết quả mới, bổ sung cho 【二49】. Phủ định bằng <b>没</b> + V + bổ ngữ.",
 rules:[
  {t:"V + 到 / 住 / 走", sub:"结果补语", fx:[["Động từ",""],["到 / 住 / 走",null],["(了) + tân ngữ",""]], mean:"到 đạt được · 住 giữ chặt, dừng lại · 走 rời khỏi.",
-  ex:[["他终于买[到]火车票了。","Tā zhōngyú mǎidào huǒchē piào le.","Cuối cùng anh ấy đã mua được vé tàu.","等级标准"],
-      ["我把球传给他，可是他没接[住]。","Wǒ bǎ qiú chuán gěi tā, kěshì tā méi jiēzhù.","Tôi chuyền bóng cho anh ấy, nhưng anh ấy không bắt được.","等级标准"],
-      ["那本书他拿[走]了吗？","Nà běn shū tā názǒu le ma?","Quyển sách đó anh ấy mang đi rồi à?","等级标准"]]}],
+  ex:[["他终于{1|买}{2|到}{3|火车票}了。","Tā zhōngyú mǎidào huǒchē piào le.","Cuối cùng anh ấy đã mua được vé tàu.","等级标准"],
+      ["我把球传给他，可是他没{1|接}{2|住}。","Wǒ bǎ qiú chuán gěi tā, kěshì tā méi jiēzhù.","Tôi chuyền bóng cho anh ấy, nhưng anh ấy không bắt được.","等级标准"],
+      ["那本书他{1|拿}{2|走}{3|了吗}？","Nà běn shū tā názǒu le ma?","Quyển sách đó anh ấy mang đi rồi à?","等级标准"]]},
+ {t:"V + 上", sub:"kết quả 上", fx:[["V",""],["上",null],["(tân ngữ)",""]], mean:"上 báo động tác đạt được: đóng lại, gắn vào, đạt tới.",
+  ex:[["请{1|关}{2|上}{3|门}。", "Qǐng guānshang mén.", "Làm ơn đóng cửa."],
+      ["他{1|考}{2|上}了{3|大学}。", "Tā kǎoshangle dàxué.", "Anh ấy thi đỗ đại học."],
+      ["请{1|写}{2|上}{3|你的名字}。", "Qǐng xiěshang nǐ de míngzi.", "Hãy ghi tên bạn vào."]]}],
 cmp:[
  {vn:"Tôi tìm thấy điện thoại rồi.", zh:"我找[到]手机了。", py:"Wǒ zhǎodào shǒujī le.", ok:true, why:"“thấy / được” (kết quả) = 到."},
  {vn:"Bạn nhớ kỹ nhé.", zh:"你记[住]啊。", py:"Nǐ jìzhù a.", ok:true, why:"“nhớ kỹ” = 记住."}],
@@ -46,6 +50,8 @@ practice:[
   {q:"Cuối cùng tôi đã mua được vé.", a:"我终于买到票了。/ 我终于买到了票。/ 终于买到票了。"},
   {q:"Tôi không tìm thấy anh ấy.", a:"我没找到他。/ 我没有找到他。"},
   {q:"Ai mang quyển sách của tôi đi rồi?", a:"谁把我的书拿走了？/ 谁拿走了我的书？"},
-  {q:"Hãy nhớ kỹ số này.", a:"请记住这个号码。/ 你记住这个号码。/ 记住这个号码。"}]}],
+  {q:"Hãy nhớ kỹ số này.", a:"请记住这个号码。/ 你记住这个号码。/ 记住这个号码。"}]},
+ {t:"G. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"天冷了，穿＿大衣吧。", vi:"Trời lạnh rồi, mặc áo khoác vào đi.", o:["上", "到", "住"], a:0, why:"穿上 = mặc vào."}]}],
 rel:["二49","三48","三47","三54"]
 };

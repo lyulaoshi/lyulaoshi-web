@@ -8,8 +8,11 @@ goals:[
 intro:"向² dẫn ra <b>người mà hành động hướng tới</b> (học từ ai, xin phép ai, cảm ơn ai…).",
 rules:[
  {t:"向 + người + V", sub:"向²", fx:[["(S)",""],["向",null],["người",""],["学习 / 请假 / 介绍…",""]], mean:"",
-  ex:[["我们要[向]班长学习。","Wǒmen yào xiàng bānzhǎng xuéxí.","Chúng ta phải học tập lớp trưởng.","等级标准"],
-      ["如果不能来上课，你要[向]老师请假。","Rúguǒ bù néng lái shàng kè, nǐ yào xiàng lǎoshī qǐng jià.","Nếu không đến lớp được, em phải xin phép thầy cô.","等级标准"]]}],
+  ex:[["{1|我们}要{2|向}{3|班长}{4|学习}。","Wǒmen yào xiàng bānzhǎng xuéxí.","Chúng ta phải học tập lớp trưởng.","等级标准"],
+      ["如果不能来上课，{1|你}要{2|向}{3|老师}{4|请假}。","Rúguǒ bù néng lái shàng kè, nǐ yào xiàng lǎoshī qǐng jià.","Nếu không đến lớp được, em phải xin phép thầy cô.","等级标准"]]},
+ {t:"关于 + sự việc", sub:"về", fx:[["关于",null],["sự việc",""],["，",""],["câu",""]], mean:"关于 = về (chủ đề). Đứng đầu câu hoặc làm định ngữ: 关于……的书.",
+  ex:[["{1|关于}{2|这个问题}，{3|我们明天再谈}。", "Guānyú zhège wèntí, wǒmen míngtiān zài tán.", "Về vấn đề này, mai chúng ta bàn tiếp."],
+      ["我买了一本{1|关于}{2|中国历史}的书。", "Wǒ mǎile yì běn guānyú Zhōngguó lìshǐ de shū.", "Tôi mua một cuốn sách về lịch sử Trung Quốc."]]}],
 cmp:[
  {vn:"Tôi xin phép thầy nghỉ.", zh:"我[向老师]请假。", py:"Wǒ xiàng lǎoshī qǐng jià.", ok:true, why:"“xin phép thầy” → 向老师 + 请假."}],
 ex:[
@@ -25,6 +28,8 @@ practice:[
   {w:["你","要","向","老师","请假"], a:"你要向老师请假。", vi:"Em phải xin phép thầy cô."},
   {w:["我","向","大家","介绍","一下儿"], a:"我向大家介绍一下儿。", vi:"Tôi xin giới thiệu với mọi người."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
-  {q:"Anh ấy bày tỏ lời cảm ơn với tôi.", a:"他向我表示感谢。"}]}],
+  {q:"Anh ấy bày tỏ lời cảm ơn với tôi.", a:"他向我表示感谢。"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"＿这件事，我知道得不多。", vi:"Về việc này, tôi biết không nhiều.", o:["关于", "为了", "向"], a:0, why:"关于 nêu chủ đề."}]}],
 rel:["二23","三22","二25","三23"]
 };

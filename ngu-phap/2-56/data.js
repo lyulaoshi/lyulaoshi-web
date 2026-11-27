@@ -8,11 +8,11 @@ goals:[
 intro:"Câu tồn hiện miêu tả <b>cảnh vật</b>: ở chỗ nào có người / vật gì, trong trạng thái nào (đặt, ngồi, treo…).",
 rules:[
  {t:"Nơi chốn + 有 + số lượng + N", sub:"（1）", fx:[["Nơi chốn",""],["有",null],["(số lượng) + N",""]], mean:"Xem 【一37】.",
-  ex:[["房间里[有]两张桌子。","Fángjiān li yǒu liǎng zhāng zhuōzi.","Trong phòng có hai cái bàn."]]},
+  ex:[["{1|房间里}{2|有}{3|两张桌子}。","Fángjiān li yǒu liǎng zhāng zhuōzi.","Trong phòng có hai cái bàn."]]},
  {t:"Nơi chốn + V + 着 + (số lượng) + N", sub:"（2）", fx:[["Nơi chốn",""],["Động từ",""],["着",null],["(số lượng) + N",""]], mean:"放着 (đặt), 坐着 (ngồi), 挂着 (treo), 写着 (viết)…",
-  ex:[["桌子上放[着]一本词典。","Zhuōzi shang fàng zhe yì běn cídiǎn.","Trên bàn đặt một quyển từ điển.","等级标准"],
-      ["教室前边坐[着]一位老师。","Jiàoshì qiánbian zuò zhe yí wèi lǎoshī.","Phía trước lớp có một thầy giáo đang ngồi.","等级标准"],
-      ["桌子上放[着]书、笔和本子。","Zhuōzi shang fàng zhe shū, bǐ hé běnzi.","Trên bàn để sách, bút và vở.","等级标准"]]}],
+  ex:[["{1|桌子上}{2|放}{3|着}{4|一本词典}。","Zhuōzi shang fàng zhe yì běn cídiǎn.","Trên bàn đặt một quyển từ điển.","等级标准"],
+      ["{1|教室前边}{2|坐}{3|着}{4|一位老师}。","Jiàoshì qiánbian zuò zhe yí wèi lǎoshī.","Phía trước lớp có một thầy giáo đang ngồi.","等级标准"],
+      ["{1|桌子上}{2|放}{3|着}{4|书、笔和本子}。","Zhuōzi shang fàng zhe shū, bǐ hé běnzi.","Trên bàn để sách, bút và vở.","等级标准"]]}],
 notes:[
  {t:"Không thêm 在 đầu câu", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> <span class='zh'>在桌子上放着一本书。</span> → <svg class='lli ok' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#tick'/></svg> <span class='zh'>桌子上放着一本书。</span>"}],
 cmp:[

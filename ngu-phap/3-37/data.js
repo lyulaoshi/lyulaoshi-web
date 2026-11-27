@@ -8,8 +8,8 @@ goals:[
 intro:"有的是 = “có đầy, thiếu gì” — nhấn mạnh <b>số lượng nhiều</b>, người nghe không phải lo.",
 rules:[
  {t:"有的是 + N · N + 有的是", sub:"有的是", fx:[["(Nơi chốn / S)",""],["有的是",null],["Danh từ",""]], mean:"",
-  ex:[["咱们图书馆[有的是]书，你可以多看看。","Zánmen túshūguǎn yǒudeshì shū, nǐ kěyǐ duō kànkan.","Thư viện chúng ta có đầy sách, bạn cứ đọc nhiều vào.","等级标准"],
-      ["这儿水果[有的是]，你多拿一点儿。","Zhèr shuǐguǒ yǒudeshì, nǐ duō ná yìdiǎnr.","Ở đây hoa quả thiếu gì, bạn cứ lấy thêm đi.","等级标准"]]}],
+  ex:[["{1|咱们图书馆}{2|有的是}{3|书}，你可以多看看。","Zánmen túshūguǎn yǒudeshì shū, nǐ kěyǐ duō kànkan.","Thư viện chúng ta có đầy sách, bạn cứ đọc nhiều vào.","等级标准"],
+      ["{1|这儿}{3|水果}{2|有的是}，你多拿一点儿。","Zhèr shuǐguǒ yǒudeshì, nǐ duō ná yìdiǎnr.","Ở đây hoa quả thiếu gì, bạn cứ lấy thêm đi.","等级标准"]]}],
 cmp:[
  {vn:"Thời gian thì thiếu gì, đừng vội.", zh:"时间[有的是]，别着急。", py:"Shíjiān yǒudeshì, bié zháojí.", ok:true, why:"“thiếu gì” = 有的是."}],
 ex:[

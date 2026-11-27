@@ -8,11 +8,11 @@ goals:[
 intro:"也 và 还 là phó từ nối ý: luôn đứng <b>trước động từ / tính từ</b>, không đứng trước chủ ngữ.",
 rules:[
  {t:"也: cũng", sub:"也", fx:[["Chủ ngữ 2",""],["也",null],["Động từ / tính từ",""]], mean:"Chủ ngữ sau giống chủ ngữ trước.",
-  ex:[["他是学生，我[也]是学生。","Tā shì xuésheng, wǒ yě shì xuésheng.","Anh ấy là học sinh, tôi cũng là học sinh.","等级标准"],
-      ["我[也]不喜欢喝咖啡。","Wǒ yě bù xǐhuan hē kāfēi.","Tôi cũng không thích uống cà phê."]]},
- {t:"还: còn, lại còn (thêm việc)", sub:"还¹", fx:[["Chủ ngữ",""],["V1……，",""],["还",null],["V2",""]], mean:"Cùng một chủ ngữ làm thêm việc thứ hai.",
-  ex:[["他要去上海，[还]要去北京。","Tā yào qù Shànghǎi, hái yào qù Běijīng.","Anh ấy muốn đi Thượng Hải, còn muốn đi Bắc Kinh nữa.","等级标准"],
-      ["我买了苹果，[还]买了面包。","Wǒ mǎi le píngguǒ, hái mǎi le miànbāo.","Tôi đã mua táo, còn mua cả bánh mì."]]}],
+  ex:[["他是学生，{1|我}{2|也}{3|是学生}。","Tā shì xuésheng, wǒ yě shì xuésheng.","Anh ấy là học sinh, tôi cũng là học sinh.","等级标准"],
+      ["{1|我}{2|也}{3|不喜欢喝咖啡}。","Wǒ yě bù xǐhuan hē kāfēi.","Tôi cũng không thích uống cà phê."]]},
+ {t:"还: còn, lại còn (thêm việc)", sub:"还¹", fx:[["Chủ ngữ",""],["V1……",""],["，",""],["还",null],["V2",""]], mean:"Cùng một chủ ngữ làm thêm việc thứ hai.",
+  ex:[["{1|他}{2|要去上海}，{3|还}{4|要去北京}。","Tā yào qù Shànghǎi, hái yào qù Běijīng.","Anh ấy muốn đi Thượng Hải, còn muốn đi Bắc Kinh nữa.","等级标准"],
+      ["{1|我}{2|买了苹果}，{3|还}{4|买了面包}。","Wǒ mǎi le píngguǒ, hái mǎi le miànbāo.","Tôi đã mua táo, còn mua cả bánh mì."]]}],
 notes:[
  {t:"也 + 不 / 都", html:"<span class='zh'>也不</span> (cũng không), <span class='zh'>也都</span> (cũng đều) — 也 luôn đứng trước."},
  {t:"还 hỏi thêm", html:"<span class='zh'>你还要什么？</span> = Bạn còn cần gì nữa không?"}],

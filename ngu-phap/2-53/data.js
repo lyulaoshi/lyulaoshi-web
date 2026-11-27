@@ -8,9 +8,9 @@ goals:[
 intro:"Số lượng đứng <b>sau tính từ</b>, cho biết hơn / kém <b>bao nhiêu</b> — giống “lớn hơn <b>hai tuổi</b>” của tiếng Việt.",
 rules:[
  {t:"(A 比 B) + Adj + số lượng / 一点儿 / 一些", sub:"形容词＋数量补语", fx:[["(A 比 B)",""],["Tính từ",""],["số lượng / 一点儿 / 一些",null]], mean:"",
-  ex:[["我比弟弟大[两岁]。","Wǒ bǐ dìdi dà liǎng suì.","Tôi lớn hơn em trai hai tuổi.","等级标准"],
-      ["昨天很热，今天凉快[一点儿]。","Zuótiān hěn rè, jīntiān liángkuai yìdiǎnr.","Hôm qua rất nóng, hôm nay mát hơn một chút.","等级标准"],
-      ["她的中文比我流利[一些]。","Tā de Zhōngwén bǐ wǒ liúlì yìxiē.","Tiếng Trung của cô ấy lưu loát hơn tôi một chút.","等级标准"]]}],
+  ex:[["{1|我比弟弟}{2|大}{3|两岁}。","Wǒ bǐ dìdi dà liǎng suì.","Tôi lớn hơn em trai hai tuổi.","等级标准"],
+      ["昨天很热，今天{2|凉快}{3|一点儿}。","Zuótiān hěn rè, jīntiān liángkuai yìdiǎnr.","Hôm qua rất nóng, hôm nay mát hơn một chút.","等级标准"],
+      ["{1|她的中文比我}{2|流利}{3|一些}。","Tā de Zhōngwén bǐ wǒ liúlì yìxiē.","Tiếng Trung của cô ấy lưu loát hơn tôi một chút.","等级标准"]]}],
 notes:[
  {t:"Adj + 一点儿 ≠ 有点儿 + Adj", html:"<span class='zh'>便宜一点儿</span> (rẻ hơn chút — so sánh) · <span class='zh'>有点儿贵</span> (hơi đắt — không vừa ý) 【二13】."}],
 cmp:[

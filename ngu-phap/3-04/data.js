@@ -8,8 +8,11 @@ goals:[
 intro:"需要 nói về <b>nhu cầu khách quan</b>: tình huống đòi hỏi phải làm / phải có.",
 rules:[
  {t:"需要 + V / N", sub:"需要", fx:[["Chủ ngữ",""],["(不) 需要",null],["Động từ / danh từ",""]], mean:"",
-  ex:[["她生病了，[需要]休息。","Tā shēng bìng le, xūyào xiūxi.","Cô ấy ốm rồi, cần nghỉ ngơi.","等级标准"],
-      ["我们[需要]买吃的，家里没有很多。","Wǒmen xūyào mǎi chī de, jiā li méiyǒu hěn duō.","Chúng ta cần mua đồ ăn, trong nhà không còn nhiều.","等级标准"]]}],
+  ex:[["{1|她}生病了，{2|需要}{3|休息}。","Tā shēng bìng le, xūyào xiūxi.","Cô ấy ốm rồi, cần nghỉ ngơi.","等级标准"],
+      ["{1|我们}{2|需要}{3|买吃的}，家里没有很多。","Wǒmen xūyào mǎi chī de, jiā li méiyǒu hěn duō.","Chúng ta cần mua đồ ăn, trong nhà không còn nhiều.","等级标准"]]},
+ {t:"得 (děi) + động từ", sub:"phải", fx:[["S",""],["得",null],["V / số lượng",""]], mean:"得 đọc <b>děi</b>: phải; trước số lượng: cần mất. Phủ định dùng 不用.",
+  ex:[["{1|我}{2|得}{3|走了}。", "Wǒ děi zǒu le.", "Tôi phải đi rồi."],
+      ["{1|从这儿到机场}{2|得}{3|一个小时}。", "Cóng zhèr dào jīchǎng děi yí gè xiǎoshí.", "Từ đây đến sân bay phải mất một tiếng."]]}],
 notes:[{t:"不需要 · 不用", html:"<span class='zh'>你不需要来。= 你不用来。</span> (Bạn không cần đến.)"}],
 cmp:[
  {vn:"Tôi cần một cái túi.", zh:"我[需要]一个袋子。", py:"Wǒ xūyào yí ge dàizi.", ok:true, why:"需要 + danh từ."},
@@ -31,6 +34,8 @@ practice:[
   {w:["你","需要","什么","帮助","吗"], a:"你需要什么帮助吗？", vi:"Bạn có cần giúp gì không?"}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Việc này không cần bạn làm.", a:"这件事不需要你做。/ 这件事不用你做。"},
-  {q:"Chúng ta cần mua đồ ăn.", a:"我们需要买吃的。"}]}],
+  {q:"Chúng ta cần mua đồ ăn.", a:"我们需要买吃的。"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"时间不早了，我＿回家了。", vi:"Muộn rồi, tôi phải về.", o:["得", "的", "地"], a:0, why:"得 (děi) = phải."}]}],
 rel:["一03","三03","二02","二19"]
 };

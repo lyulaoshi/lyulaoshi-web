@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新3.49】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新3.49】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新3.49", title:"趋向补语2：趋向补语的引申用法", vi:"Bổ ngữ xu hướng nghĩa mở rộng — 想起来, 笑起来, 说下去…", tag:"句子成分 · 补语",
 goals:[
@@ -8,16 +8,16 @@ goals:[
 intro:"【二50】【三47】 học 来 / 去, 进来, 出去… chỉ <b>hướng di chuyển</b>. Ở HSK 3, chúng còn mang <b>nghĩa bóng</b> — không ai đi lên hay xuống cả.",
 rules:[
  {t:"V + 出 / 起 / 下: kết quả", sub:"（1）结果", fx:[["V",""],["出 / 起 / 下",null]], mean:"出: làm ra, nhận ra · 起: nhớ ra (想起) · 下: giữ lại, chứa được (留下, 放得下).",
-  ex:[["我[想出]了一个好办法。","Wǒ xiǎngchūle yí gè hǎo bànfǎ.","Tôi nghĩ ra một cách hay."],
-      ["我[想起]他的名字了。","Wǒ xiǎngqǐ tā de míngzi le.","Tôi nhớ ra tên anh ấy rồi."],
-      ["请[留下]你的电话。","Qǐng liúxià nǐ de diànhuà.","Xin để lại số điện thoại của bạn."]]},
+  ex:[["我{1|想}{2|出}了一个好办法。","Wǒ xiǎngchūle yí gè hǎo bànfǎ.","Tôi nghĩ ra một cách hay."],
+      ["我{1|想}{2|起}他的名字了。","Wǒ xiǎngqǐ tā de míngzi le.","Tôi nhớ ra tên anh ấy rồi."],
+      ["请{1|留}{2|下}你的电话。","Qǐng liúxià nǐ de diànhuà.","Xin để lại số điện thoại của bạn."]]},
  {t:"V + 上 / 起来: bắt đầu", sub:"（2）开始", fx:[["V / Adj",""],["上 / 起来",null]], mean:"Bắt đầu một hành động / trạng thái.",
-  ex:[["他突然[笑起来]了。","Tā tūrán xiào qilai le.","Anh ấy đột nhiên bật cười."],
-      ["我[爱上]了这个城市。","Wǒ àishàngle zhège chéngshì.","Tôi đã yêu thành phố này."],
-      ["外面[下起雨来]了。","Wàimian xià qǐ yǔ lai le.","Bên ngoài bắt đầu mưa rồi."]]},
+  ex:[["他突然{1|笑}{2|起来}了。","Tā tūrán xiào qilai le.","Anh ấy đột nhiên bật cười."],
+      ["我{1|爱}{2|上}了这个城市。","Wǒ àishàngle zhège chéngshì.","Tôi đã yêu thành phố này."],
+      ["外面{1|下}{2|起}雨{2|来}了。","Wàimian xià qǐ yǔ lai le.","Bên ngoài bắt đầu mưa rồi."]]},
  {t:"V + 下去 / 下来: tiếp tục", sub:"（3）持续", fx:[["V",""],["下去 / 下来",null]], mean:"下去: tiếp tục (từ nay về sau) · 下来: kéo dài đến bây giờ, giữ lại được.",
-  ex:[["你[说下去]，我在听。","Nǐ shuō xiaqu, wǒ zài tīng.","Bạn nói tiếp đi, tôi đang nghe."],
-      ["他每天跑步，[坚持下来]了。","Tā měi tiān pǎobù, jiānchí xialai le.","Ngày nào anh ấy cũng chạy bộ, đã kiên trì được đến giờ."]]}],
+  ex:[["你{1|说}{2|下去}，我在听。","Nǐ shuō xiaqu, wǒ zài tīng.","Bạn nói tiếp đi, tôi đang nghe."],
+      ["他每天跑步，{1|坚持}{2|下来}了。","Tā měi tiān pǎobù, jiānchí xialai le.","Ngày nào anh ấy cũng chạy bộ, đã kiên trì được đến giờ."]]}],
 notes:[{t:"Tân ngữ với 起来", html:"Tân ngữ chen giữa 起 và 来: <span class='zh'>下起雨来、唱起歌来</span> (không nói × 下雨起来)."}],
 cmp:[
  {vn:"Tôi nhớ ra rồi!", zh:"我[想起来]了！", py:"Wǒ xiǎng qilai le!", ok:true, why:"“nhớ ra” = 想起来 — 起来 ở đây không phải “đứng dậy”."},

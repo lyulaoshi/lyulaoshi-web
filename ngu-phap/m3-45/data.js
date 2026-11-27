@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新3.45】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新3.45】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新3.45", title:"在……上/下/中", vi:"在……上 / 下 / 中 — về mặt; dưới (sự giúp đỡ); trong (quá trình)", tag:"短语 · 固定格式",
 goals:[
@@ -8,12 +8,12 @@ goals:[
 intro:"Đây không phải vị trí thật (trên bàn, dưới ghế) mà là nghĩa <b>trừu tượng</b>. Cả cụm đứng <b>trước động từ</b> hoặc ở đầu câu.",
 rules:[
  {t:"在 + lĩnh vực + 上", sub:"在……上", fx:[["在",null],["lĩnh vực",""],["上",null]], mean:"Về mặt …",
-  ex:[["他[在学习上]很努力。","Tā zài xuéxí shang hěn nǔlì.","Về mặt học tập, anh ấy rất chăm chỉ."],
-      ["[在工作上]，她帮了我很多。","Zài gōngzuò shang, tā bāngle wǒ hěn duō.","Trong công việc, chị ấy giúp tôi rất nhiều."]]},
+  ex:[["他{1|在}{2|学习}{3|上}很努力。","Tā zài xuéxí shang hěn nǔlì.","Về mặt học tập, anh ấy rất chăm chỉ."],
+      ["{1|在}{2|工作}{3|上}，她帮了我很多。","Zài gōngzuò shang, tā bāngle wǒ hěn duō.","Trong công việc, chị ấy giúp tôi rất nhiều."]]},
  {t:"在 + (ai) 的帮助 + 下", sub:"在……下", fx:[["在",null],["điều kiện / sự giúp đỡ",""],["下",null]], mean:"Dưới (sự giúp đỡ, điều kiện) …",
-  ex:[["[在老师的帮助下]，我的中文进步了。","Zài lǎoshī de bāngzhù xià, wǒ de Zhōngwén jìnbù le.","Nhờ sự giúp đỡ của thầy, tiếng Trung của tôi tiến bộ."]]},
+  ex:[["{1|在}{2|老师的帮助}{3|下}，我的中文进步了。","Zài lǎoshī de bāngzhù xià, wǒ de Zhōngwén jìnbù le.","Nhờ sự giúp đỡ của thầy, tiếng Trung của tôi tiến bộ."]]},
  {t:"在 + hoạt động + 中", sub:"在……中", fx:[["在",null],["hoạt động / quá trình",""],["中",null]], mean:"Trong (quá trình) …",
-  ex:[["[在比赛中]，他跑得最快。","Zài bǐsài zhōng, tā pǎo de zuì kuài.","Trong cuộc thi, anh ấy chạy nhanh nhất."]]}],
+  ex:[["{1|在}{2|比赛}{3|中}，他跑得最快。","Zài bǐsài zhōng, tā pǎo de zuì kuài.","Trong cuộc thi, anh ấy chạy nhanh nhất."]]}],
 cmp:[
  {vn:"Nhờ bạn bè giúp, tôi tìm được việc.", zh:"[在朋友的帮助下]，我找到了工作。", py:"Zài péngyou de bāngzhù xià, wǒ zhǎodàole gōngzuò.", ok:true, why:"“nhờ sự giúp đỡ của …” = 在……的帮助下, đặt đầu câu."}],
 ex:[

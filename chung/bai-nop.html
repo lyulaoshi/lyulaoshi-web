@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thu bài 收作业 · 吕老师汉语盒</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="/tro-choi/game.css?v=3">
+<link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
+<link rel="stylesheet" href="/chung/nhiem-vu.css?v=c28ffeda">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<style>
+[hidden]{display:none!important}
+main{padding-bottom:50px}
+h1{font-size:clamp(24px,4vw,34px);margin:26px 0 6px;line-height:1.2}
+.dan{color:var(--muted);margin:0 0 14px}
+#dan{box-sizing:border-box;width:100%;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:14px;font:inherit;font-size:15px;resize:vertical}
+#dan:focus{outline:2px solid var(--nv);outline-offset:1px}
+.bai{background:var(--card);border-radius:20px;box-shadow:var(--shadow);padding:16px 18px;margin-top:18px}
+.bai .dau-bai{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.bai h2{font-size:17px;margin:0 0 2px;line-height:1.35}
+.bai .phu{color:var(--muted);font-size:14px;margin:0 0 10px}
+.loai{display:inline-block;font-size:11.5px;font-weight:800;border-radius:999px;padding:2px 9px;margin-bottom:6px;background:var(--nv-s);color:var(--nv)}
+.bo-bai{flex:none;font:inherit;font-size:12.5px;font-weight:700;border:1.5px solid var(--line);background:none;color:var(--muted);border-radius:999px;padding:6px 11px;cursor:pointer}
+.cuon{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12.5px;color:var(--muted);white-space:nowrap}
+td.so{white-space:nowrap;font-variant-numeric:tabular-nums}
+.tre{color:#C2404A;font-weight:800}
+details summary{cursor:pointer;color:var(--nv);font-weight:700;white-space:nowrap}
+details ul{margin:6px 0 0;padding-left:18px;min-width:240px}
+details li{margin:4px 0}
+.cau{color:var(--muted)}
+.tl{font-family:"LXGW WenKai","STKaiti","KaiTi",serif;font-size:16.5px}
+.nhan{font-size:11.5px;font-weight:800;border-radius:999px;padding:1px 7px;background:var(--nv-s);color:var(--nv);white-space:nowrap}
+.nhan.sai{background:#FBE5E6;color:#B3303B}
+.mo-rieng{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;margin:0 0 14px;font-size:14px;font-weight:700;color:var(--nv)}
+.trong{border:2px dashed var(--line);border-radius:18px;padding:26px 14px;text-align:center;color:var(--muted);margin-top:18px}
+@media (max-width:600px){.bai{padding:12px 12px}
+  table,tbody,tr,td{display:block}tr.dau{display:none}
+  tr{border-bottom:1px solid var(--line);padding:8px 0}td{border:0;padding:2px 0;font-size:14px}
+  td[data-l]::before{content:attr(data-l) ": ";color:var(--muted);font-weight:600}
+  details ul{min-width:0}}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="/" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="/img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="/">Trang chủ</a></nav>
+</div></header>
+<main class="wrap">
+  <h1>Thu bài <span style="font-family:var(--hz);font-weight:400;color:var(--nv)">收作业</span></h1>
+  <p class="dan">Chép cả đoạn chat trong nhóm Zalo (lẫn tin nhắn khác cũng được) rồi dán vào ô dưới. Kết quả được nhớ trên máy này.</p>
+  <label for="dan" hidden>Đoạn chat có mã nộp bài</label>
+  <textarea id="dan" rows="6" placeholder="Dán tin nhắn có mã nộp bài vào đây"></textarea>
+  <div class="nv-nut"><button type="button" class="nv-btn chinh" id="doc">Đọc mã</button><button type="button" class="nv-btn" id="chep">Chép bảng (dán vào Excel)</button><button type="button" class="nv-btn mo" id="xoa">Xoá danh sách</button></div>
+  <p class="dan" id="bao" role="status"></p>
+  <div id="ra"></div>
+  <p class="dan" id="luy" style="font-size:13px;margin-top:14px">Mỗi học viên lấy lượt tốt nhất. Mã không chống được người rành kỹ thuật sửa điểm.</p>
+</main>
+<footer class="wrap"><span id="chan" style="touch-action:manipulation;-webkit-user-select:none;user-select:none">© Lyu Laoshi Chinese Box · 吕老师汉语盒</span></footer>
+<script src="/chung/nhiem-vu.js?v=ec8f1b20"></script>
+<script src="/tro-choi/giao-bai.js?v=3"></script>
+<script>
+(function(){
+// Thu mã nộp bài của trò chơi giao về nhà. window.THUBAI cho phép gắn thêm loại mã khác.
+const $=id=>document.getElementById(id), KHO_TRO='nv-nop-tro';
+const el=(t,c,s)=>{const e=document.createElement(t);if(c)e.className=c;if(s!==undefined)e.textContent=s;return e};   // chữ học viên gõ chỉ đưa vào bằng textContent
+const lay=k=>{try{const v=JSON.parse(localStorage.getItem(k));return Array.isArray(v)?v:[]}catch(e){return[]}};
+let TRO=lay(KHO_TRO);
+const PHAN=[];
+const G=(window.GIAOBAI&&GIAOBAI.GAME)||{};
+const luu=()=>{PHAN.forEach(p=>p.luu());try{localStorage.setItem(KHO_TRO,JSON.stringify(TRO))}catch(e){}};
+const so=v=>Number.isFinite(+v)?Math.max(0,Math.round(+v)):0;
+const khoaTen=t=>String(t).trim().replace(/\s+/g,' ').toLowerCase();
+
+/* ---------- trò chơi ---------- */
+// nhóm theo bài giao, bài vừa đọc mã gần nhất đứng trên
+function nhomTro(){const g=new Map();TRO.forEach(r=>{if(!g.has(r.aid))g.set(r.aid,[]);g.get(r.aid).push(r)});
+  return [...g.values()].sort((a,b)=>Math.max(...b.map(r=>r.luc||0))-Math.max(...a.map(r=>r.luc||0)))}
+// mỗi em lấy lượt tốt nhất theo luật của trò (có trò kết quả càng nhỏ càng tốt)
+function xepHang(rs){const g=G[(rs.find(r=>r.g)||{}).g];
+  const hon=(a,b)=>g&&g.xTruoc&&a.x!==b.x?a.x>b.x:(a.v!==b.v?(g&&g.thap?a.v<b.v:a.v>b.v):(a.giay||1e9)<(b.giay||1e9));
+  const tot=new Map();rs.forEach(x=>{const k=khoaTen(x.ten),c=tot.get(k);if(!c)tot.set(k,{...x,max:x.luot});else{const m=Math.max(c.max,x.luot);tot.set(k,hon(x,c)?{...x,max:m}:{...c,max:m})}});
+  return {g,ten:(rs.find(r=>r.bai)||{}).bai||'Bài trò chơi',hang:[...tot.values()].sort((a,b)=>hon(a,b)?-1:hon(b,a)?1:0),kq:x=>g?g.kq(x.v,x.x):x.v+' / '+x.x}}
+const giayChu=s=>s?GIAOBAI.phut(so(s)):'';
+
+/* ---------- vẽ ---------- */
+function hop(loai,tieuDe,phu,cot,xoaBai){
+  const box=el('section','bai'),dau=el('div','dau-bai'),trai=el('div'),h=el('h2');trai.appendChild(el('span','loai',loai));
+  if(typeof tieuDe==='string')h.textContent=tieuDe;else h.appendChild(tieuDe);trai.appendChild(h);trai.appendChild(el('p','phu',phu));
+  const b=el('button','bo-bai','Xoá bài');b.type='button';b.addEventListener('click',()=>{if(!b.dataset.chac){b.dataset.chac=1;b.textContent='Bấm lần nữa để xoá';setTimeout(()=>{delete b.dataset.chac;b.textContent='Xoá bài'},3000);return}xoaBai();luu();ve();$('bao').textContent='Đã xoá một bài khỏi danh sách.'});
+  dau.appendChild(trai);dau.appendChild(b);box.appendChild(dau);
+  const cuon=el('div','cuon'),tb=el('table'),hd=el('tr','dau');cot.forEach(x=>hd.appendChild(el('th',null,x)));tb.appendChild(hd);cuon.appendChild(tb);box.appendChild(cuon);$('ra').appendChild(box);return tb}
+const o=(tr,nhan,chu,c)=>{const td=el('td',c||'so',chu);if(nhan)td.dataset.l=nhan;tr.appendChild(td);return td};
+function ve(){
+  $('ra').textContent='';
+  let n=0;PHAN.forEach(p=>n+=p.ve());
+  const tr_=nhomTro();
+  if(!n&&!tr_.length){$('ra').appendChild(el('div','trong','Chưa có bài nộp nào.'));return}
+  tr_.forEach(rs=>{const x=xepHang(rs),aid=rs[0].aid;
+    const tb=hop('Trò chơi',x.ten,[x.g?x.g.t+' '+x.g.z:'',x.hang.length+' học viên đã nộp'].filter(Boolean).join(' · '),
+      ['Hạng','Họ tên','Kết quả','Thời gian','Số lượt'],()=>{TRO=TRO.filter(r=>r.aid!==aid)});
+    x.hang.forEach((r,i)=>{const tr=el('tr');o(tr,'Hạng',String(i+1));const ten=el('td');ten.appendChild(el('b',null,String(r.ten)));tr.appendChild(ten);
+      o(tr,'Kết quả',x.kq(r));o(tr,'Thời gian',giayChu(r.giay)||'—');o(tr,'Số lượt',String(so(r.max)));tb.appendChild(tr)})});
+}
+
+$('doc').addEventListener('click',()=>{
+  const t=$('dan').value.replace(/​/g,'');
+  let moi=0,thay=0,hong=0;
+  PHAN.forEach(p=>{const r=p.nhan(t);moi+=r.moi;thay+=r.thay;hong+=r.hong});
+  if(window.GIAOBAI){const r=GIAOBAI.doc(t),n=(t.match(/LL1\./g)||[]).length;thay+=n;hong+=n-r.ds.length;const luc=Date.now();
+    r.ds.forEach(m=>{const cu=TRO.find(x=>x.aid===m.aid&&x.ten===m.ten&&x.v===m.v&&x.x===m.x&&x.giay===m.giay&&x.luot===m.luot);
+      if(cu)cu.luc=luc;else{TRO.push({...m,luc});moi++}})}
+  luu();ve();
+  $('bao').textContent=!thay?'Không thấy mã nộp bài nào trong đoạn vừa dán.':`Đọc được ${moi} bài mới.${hong>0?` Có ${hong} mã hỏng (chép thiếu hoặc bị sửa), nhờ học viên gửi lại.`:''}`;
+  if(moi&&hong<=0)$('dan').value='';
+});
+$('chep').addEventListener('click',e=>{
+  const tr_=nhomTro(),them=PHAN.map(p=>p.dong()).filter(d=>d.length);
+  if(!them.length&&!tr_.length){$('bao').textContent='Chưa có gì để chép.';return}
+  const sach=v=>{v=String(v==null?'':v).replace(/[\t\r\n]+/g,' ');return /^[=+\-@]/.test(v)?"'"+v:v};   // chặn ô bị Excel hiểu là công thức
+  const dong=[];them.forEach(d=>{if(dong.length)dong.push([]);dong.push(...d)});
+  if(tr_.length){if(dong.length)dong.push([]);dong.push(['Trò chơi','Trò','Hạng','Họ tên','Kết quả','Thời gian','Số lượt']);
+    tr_.forEach(rs=>{const x=xepHang(rs);x.hang.forEach((r,i)=>dong.push([x.ten,x.g?x.g.t:'',i+1,r.ten,x.kq(r),giayChu(r.giay),so(r.max)]))})}
+  NV.chep(dong.map(d=>d.map(sach).join('\t')).join('\n'),e.currentTarget);
+});
+$('xoa').addEventListener('click',e=>{const b=e.currentTarget;if(!b.dataset.chac){b.dataset.chac=1;b.textContent='Bấm lần nữa để xoá hết';setTimeout(()=>{delete b.dataset.chac;b.textContent='Xoá danh sách'},3000);return}
+  PHAN.forEach(p=>p.xoa());TRO=[];luu();ve();delete b.dataset.chac;b.textContent='Xoá danh sách';$('bao').textContent='Đã xoá.'});
+window.THUBAI={el,hop,o,so,khoaTen,them(p){PHAN.push(p);ve()}};
+ve();
+NV.loiRieng($('chan'));
+})();
+</script>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
+</body>
+</html>

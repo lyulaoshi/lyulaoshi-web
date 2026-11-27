@@ -7,12 +7,12 @@ goals:[
  "Đặt cả cụm ở <b>đầu câu</b> hoặc trước động từ chính."],
 intro:"Tiếng Việt: “<b>trước khi</b> ăn cơm”. Tiếng Trung: 吃饭<b>以前</b> — từ chỉ thời gian đứng <b>sau</b> sự việc.",
 rules:[
- {t:"(在) + sự việc + 以前 / 前", sub:"以前", fx:[["(在)",""],["sự việc / thời gian",""],["以前 / 前",null],["，vế chính",""]], mean:"trước khi …",
-  ex:[["[在]来中国[以前]，我只学过一点儿中文。","Zài lái Zhōngguó yǐqián, wǒ zhǐ xué guo yìdiǎnr Zhōngwén.","Trước khi đến Trung Quốc, tôi chỉ từng học một chút tiếng Trung.","等级标准"],
-      ["你运动[前]应该活动一下儿身体。","Nǐ yùndòng qián yīnggāi huódòng yíxiàr shēntǐ.","Trước khi tập thể thao bạn nên khởi động một chút.","等级标准"]]},
- {t:"(在) + sự việc + 以后 / 后", sub:"以后", fx:[["(在)",""],["sự việc / thời gian",""],["以后 / 后",null],["，vế chính",""]], mean:"sau khi …",
-  ex:[["吃完午饭[以后]，我常常会睡一会儿。","Chīwán wǔfàn yǐhòu, wǒ chángcháng huì shuì yíhuìr.","Ăn trưa xong, tôi thường ngủ một lát.","等级标准"],
-      ["我明天下了课就去你那儿。","Wǒ míngtiān xià le kè jiù qù nǐ nàr.","Mai tan học xong tôi sẽ qua chỗ bạn ngay.","等级标准"]]}],
+ {t:"(在) + sự việc + 以前 / 前", sub:"以前", fx:[["(在)",""],["sự việc / thời gian",""],["以前 / 前",null],["，",""],["vế chính",""]], mean:"trước khi …",
+  ex:[["{1|在}{2|来中国}{3|以前}，{4|我只学过一点儿中文}。","Zài lái Zhōngguó yǐqián, wǒ zhǐ xué guo yìdiǎnr Zhōngwén.","Trước khi đến Trung Quốc, tôi chỉ từng học một chút tiếng Trung.","等级标准"],
+      ["你{2|运动}{3|前}{4|应该活动一下儿身体}。","Nǐ yùndòng qián yīnggāi huódòng yíxiàr shēntǐ.","Trước khi tập thể thao bạn nên khởi động một chút.","等级标准"]]},
+ {t:"(在) + sự việc + 以后 / 后", sub:"以后", fx:[["(在)",""],["sự việc / thời gian",""],["以后 / 后",null],["，",""],["vế chính",""]], mean:"sau khi …",
+  ex:[["{2|吃完午饭}{3|以后}，{4|我常常会睡一会儿}。","Chīwán wǔfàn yǐhòu, wǒ chángcháng huì shuì yíhuìr.","Ăn trưa xong, tôi thường ngủ một lát.","等级标准"],
+      ["{1|我}明天{2|下了课}{3|就}{4|去你那儿}。","Wǒ míngtiān xià le kè jiù qù nǐ nàr.","Mai tan học xong tôi sẽ qua chỗ bạn ngay.","等级标准"]]}],
 cmp:[
  {vn:"Trước khi ăn cơm phải rửa tay.", zh:"吃饭[以前]要洗手。", py:"Chī fàn yǐqián yào xǐ shǒu.", ok:true, why:"“trước khi” → 以前 đặt sau sự việc."},
  {vn:"Sau khi tan học tôi đi thư viện.", zh:"下课[以后]我去图书馆。", py:"Xià kè yǐhòu wǒ qù túshūguǎn.", ok:true, why:"“sau khi” → 以后 đặt sau sự việc."}],

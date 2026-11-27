@@ -1,0 +1,50 @@
+/* Góc giáo viên — công cụ ngữ pháp: bảng chọn điểm, công thức màu, câu ví dụ cỡ chiếu. */
+.np-chon{margin-top:14px;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.np-dau{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.np-dau input{flex:1 1 240px;max-width:380px;min-width:0;font:600 14.5px var(--vi);padding:10px 15px;border:2px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);-webkit-appearance:none;appearance:none}
+.np-dau input:focus{outline:none;border-color:var(--teal)}
+.np-goi{margin:0}
+.np-ds{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));align-content:start;gap:8px;max-height:min(46vh,420px);overflow:auto;padding:2px}
+.np-ds>p{grid-column:1/-1;margin:0}
+.np-ten{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;font-weight:800}
+.np-d{display:grid;gap:2px;align-content:start;text-align:left;font:inherit;color:var(--ink);padding:9px 13px;border:2px solid var(--line);border-radius:15px;background:var(--card);cursor:pointer;min-width:0}
+.np-d b,.np-d .z{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;overflow-wrap:anywhere}
+.np-d b{font-size:13.5px;line-height:1.4}
+.np-d .z{font-family:var(--kai);font-size:18px;line-height:1.35;color:var(--teal)}
+.np-d:hover{border-color:var(--teal)}
+.np-d[aria-pressed="true"]{border-color:var(--teal);background:var(--teal-s);box-shadow:inset 0 0 0 1px var(--teal)}
+.np-d:focus-visible,.np-the:focus-visible{outline:3px solid var(--teal);outline-offset:1px}
+.np-d small{justify-self:start;font-size:11.5px;font-weight:800;color:var(--teal);background:var(--teal-s);border-radius:99px;padding:2px 9px;margin-top:3px}
+.np-d[aria-pressed="true"] small{background:var(--card)}
+.np-d.thieu{border-style:dashed;cursor:default;background:transparent}
+.np-d.thieu:hover{border-color:var(--line)}
+.np-d.thieu b,.np-d.thieu .z{color:var(--muted)}
+.np-d.thieu small{color:var(--muted);background:var(--ground2)}
+.np-d.thieu a{display:inline-flex;align-items:center;gap:6px;justify-self:start;margin-top:5px;font-size:13px;font-weight:800;color:var(--teal);text-decoration:none}
+.np-d.thieu a .lli{width:15px;height:15px}
+.np-ten a.btn{display:inline-flex;align-items:center;gap:7px;text-decoration:none}
+.np-ten a.btn .lli{width:16px;height:16px}
+.np-da{display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-top:1px solid var(--line);padding-top:12px;font-size:14px}
+.np-da>span{display:contents}
+.np-the{display:inline-flex;align-items:center;gap:6px;max-width:min(100%,17em);font:inherit;color:var(--ink);padding:4px 8px 4px 12px;border:0;border-radius:99px;background:var(--teal-s);cursor:pointer}
+.np-the span{font-family:var(--kai);font-size:17px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.np-the .lli{width:14px;height:14px;color:var(--teal)}
+.np-da>.btn{margin-left:auto}
+/* công thức khối màu (cùng kiểu Hộp Ngữ pháp, cỡ chiếu) */
+.fx{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;justify-content:center}
+.fx span{display:grid;justify-items:center;gap:5px;max-width:100%;min-width:0}
+.fx b{font-family:var(--kai);font-weight:400;font-size:1.5em;line-height:1.25;padding:.2em .6em;border-radius:.6em;border:2px dashed var(--teal);color:var(--ink);background:var(--card);max-width:100%;overflow-wrap:anywhere;text-align:center}
+.fx .k b{background:var(--teal);border:2px solid var(--teal);color:#fff}
+.fx i{font-style:normal;font-size:.6em;color:var(--muted);text-align:center;max-width:12em;line-height:1.3}
+.fx .plus{align-self:center;color:var(--muted);font-weight:800;margin-bottom:.4em}
+.fx.col .s1,.sg.s1{--q:var(--sky);--qs:var(--sky-s)} .fx.col .s2,.sg.s2{--q:var(--coral);--qs:var(--coral-s)}
+.fx.col .s3,.sg.s3{--q:var(--butter);--qs:var(--butter-s)} .fx.col .s4,.sg.s4{--q:var(--mint);--qs:var(--mint-s)}
+.fx.col .s5,.sg.s5{--q:var(--rose);--qs:var(--rose-s)} .fx.col .s6,.sg.s6{--q:var(--teal);--qs:var(--teal-s)}
+.fx.col b{border:2px solid var(--q);background:var(--qs);border-radius:.6em .6em .6em .2em}
+.fx.col .k b{background:var(--q);border-color:var(--q);color:#fff}
+.fx.col i{color:var(--q);font-weight:700}
+.sg{border-bottom:.13em solid var(--q);background:var(--qs);border-radius:.18em .18em 0 0}
+.np-san mark{background:none;color:var(--coral);font-weight:inherit}
+.np-san [hidden]{display:none!important}
+.np-san .san-top{flex-wrap:wrap}
+.np-san .san-top>span:first-child{flex:1 1 200px;min-width:0;overflow-wrap:anywhere}

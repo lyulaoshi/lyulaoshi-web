@@ -8,11 +8,11 @@ goals:[
 intro:"Khi đưa ra hai khả năng để người nghe chọn, dùng <b>还是</b> (“hay là”) ở giữa. Xem liên từ 还是 ở 【一19】.",
 rules:[
  {t:"(S) + A + 还是 + B？", sub:"选择问", fx:[["A",""],["还是",null],["B",""],["？",""]], mean:"A và B cùng loại: danh từ – danh từ, động từ – động từ…",
-  ex:[["她妈妈是老师[还是]医生？","Tā māma shì lǎoshī háishi yīshēng?","Mẹ cô ấy là giáo viên hay bác sĩ?","等级标准"],
-      ["你喝水[还是]喝牛奶？","Nǐ hē shuǐ háishi hē niúnǎi?","Bạn uống nước hay uống sữa?","等级标准"]]},
+  ex:[["{1|她妈妈是老师}{2|还是}{3|医生}{4|？}","Tā māma shì lǎoshī háishi yīshēng?","Mẹ cô ấy là giáo viên hay bác sĩ?","等级标准"],
+      ["{1|你喝水}{2|还是}{3|喝牛奶}{4|？}","Nǐ hē shuǐ háishi hē niúnǎi?","Bạn uống nước hay uống sữa?","等级标准"]]},
  {t:"Lựa chọn giữa hai chủ ngữ / thời gian", sub:"", fx:[["A",""],["还是",null],["B",""],["+ V？",""]], mean:"Đặt 还是 giữa hai phần muốn so.",
-  ex:[["你去[还是]他去？","Nǐ qù háishi tā qù?","Bạn đi hay anh ấy đi?"],
-      ["我们今天去[还是]明天去？","Wǒmen jīntiān qù háishi míngtiān qù?","Chúng ta đi hôm nay hay ngày mai?"]]}],
+  ex:[["{1|你去}{2|还是}{3|他去}{4|？}","Nǐ qù háishi tā qù?","Bạn đi hay anh ấy đi?"],
+      ["我们{1|今天去}{2|还是}{3|明天去}{4|？}","Wǒmen jīntiān qù háishi míngtiān qù?","Chúng ta đi hôm nay hay ngày mai?"]]}],
 cmp:[
  {vn:"Bạn uống trà hay cà phê?", zh:"你喝茶[还是]喝咖啡？", py:"Nǐ hē chá háishi hē kāfēi?", ok:true, why:"“hay” trong câu hỏi = 还是."},
  {vn:"Trả lời: Cà phê.", zh:"喝咖啡。", py:"Hē kāfēi.", ok:true, why:"Chọn một vế, không trả lời 是 / 不是."}],

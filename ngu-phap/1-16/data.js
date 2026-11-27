@@ -8,11 +8,11 @@ goals:[
 intro:"Tiếng Việt đặt nơi chốn <b>cuối câu</b>; tiếng Trung đưa <b>在 + nơi chốn lên trước động từ</b>. Đây là lỗi trật tự phổ biến nhất của người Việt.",
 rules:[
  {t:"在 + nơi chốn + động từ", sub:"介词“在”", fx:[["Chủ ngữ",""],["在",null],["Nơi chốn",""],["Động từ + tân ngữ",""]], mean:"“làm gì ở đâu”: nơi chốn đứng giữa chủ ngữ và động từ.",
-  ex:[["哥哥[在]北京学中文。","Gēge zài Běijīng xué Zhōngwén.","Anh trai học tiếng Trung ở Bắc Kinh.","等级标准"],
-      ["他[在]手机上看电影。","Tā zài shǒujī shang kàn diànyǐng.","Anh ấy xem phim trên điện thoại.","等级标准"]]},
+  ex:[["{1|哥哥}{2|在}{3|北京}{4|学中文}。","Gēge zài Běijīng xué Zhōngwén.","Anh trai học tiếng Trung ở Bắc Kinh.","等级标准"],
+      ["{1|他}{2|在}{3|手机上}{4|看电影}。","Tā zài shǒujī shang kàn diànyǐng.","Anh ấy xem phim trên điện thoại.","等级标准"]]},
  {t:"Ba chữ 在 khác nhau", sub:"动词 · 介词 · 副词", fx:[["在 + nơi chốn","= ở (động từ)"],["·",""],["在 + nơi + V","= ở (giới từ)"],["·",""],["在 + V","= đang (phó từ)"]], mean:"<span class='zh'>我在家。</span> Tôi ở nhà. · <span class='zh'>我在家吃饭。</span> Tôi ăn cơm ở nhà. · <span class='zh'>我在吃饭。</span> Tôi đang ăn cơm 【一42】.",
-  ex:[["我[在]家。","Wǒ zài jiā.","Tôi ở nhà."],
-      ["我[在]家吃饭。","Wǒ zài jiā chī fàn.","Tôi ăn cơm ở nhà."]]}],
+  ex:[["我{1|在家}。","Wǒ zài jiā.","Tôi ở nhà."],
+      ["我{2|在家吃饭}。","Wǒ zài jiā chī fàn.","Tôi ăn cơm ở nhà."]]}],
 notes:[
  {t:"Phủ định", html:"不 / 没 đứng <b>trước</b> 在: <span class='zh'>我不在家吃饭。</span> <span class='zh'>他昨天没在学校。</span>"},
  {t:"Đồ vật làm nơi chốn", html:"thêm phương vị 【一01】: <span class='zh'>在手机上、在桌子上</span>."}],

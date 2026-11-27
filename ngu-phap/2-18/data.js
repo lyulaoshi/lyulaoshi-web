@@ -8,10 +8,10 @@ goals:[
 intro:"故意 nói hành động được làm <b>có chủ đích</b>. Rất hay gặp trong câu xin lỗi: <b>我不是故意的</b>.",
 rules:[
  {t:"故意 + V", sub:"故意", fx:[["Chủ ngữ",""],["故意",null],["Động từ",""]], mean:"Cố ý, cố tình làm.",
-  ex:[["说话的时候，他[故意]提高声音，这样大家都能听见。","Shuō huà de shíhou, tā gùyì tígāo shēngyīn, zhèyàng dàjiā dōu néng tīngjiàn.","Khi nói, anh ấy cố ý nói to lên để mọi người đều nghe thấy.","等级标准"]]},
+  ex:[["说话的时候，{1|他}{2|故意}{3|提高声音}，这样大家都能听见。","Shuō huà de shíhou, tā gùyì tígāo shēngyīn, zhèyàng dàjiā dōu néng tīngjiàn.","Khi nói, anh ấy cố ý nói to lên để mọi người đều nghe thấy.","等级标准"]]},
  {t:"不是故意 + V / 不是故意的", sub:"否定", fx:[["Chủ ngữ",""],["不是故意",null],["V / 的",""]], mean:"Không cố ý (xin lỗi).",
-  ex:[["我[不是故意]弄坏电脑的。","Wǒ bú shì gùyì nònghuài diànnǎo de.","Tôi không cố ý làm hỏng máy tính.","等级标准"],
-      ["对不起，我[不是故意的]。","Duìbuqǐ, wǒ bú shì gùyì de.","Xin lỗi, tôi không cố ý."]]}],
+  ex:[["{1|我}{2|不是故意}{3|弄坏电脑的}。","Wǒ bú shì gùyì nònghuài diànnǎo de.","Tôi không cố ý làm hỏng máy tính.","等级标准"],
+      ["对不起，{1|我}{2|不是故意}{3|的}。","Duìbuqǐ, wǒ bú shì gùyì de.","Xin lỗi, tôi không cố ý."]]}],
 cmp:[
  {vn:"Xin lỗi, tôi không cố ý.", zh:"对不起，我[不是故意的]。", py:"Duìbuqǐ, wǒ bú shì gùyì de.", ok:true, why:"Câu xin lỗi cố định."},
  {vn:"Anh ấy cố tình đến muộn.", zh:"他[故意]来晚了。", py:"Tā gùyì lái wǎn le.", ok:true, why:"故意 trước động từ."}],

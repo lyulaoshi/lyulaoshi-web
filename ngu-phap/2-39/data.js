@@ -8,8 +8,8 @@ goals:[
 intro:"Cụm danh từ hoạt động trong câu <b>như một danh từ</b>: làm chủ ngữ, tân ngữ, định ngữ.",
 rules:[
  {t:"Định ngữ + danh từ; số / chỉ thị + lượng từ (+ N)", sub:"名词性短语", fx:[["Định ngữ / số lượng",""],["Danh từ (trung tâm)",null]], mean:"",
-  ex:[["新书　我的衣服　中文水平","xīn shū　wǒ de yīfu　Zhōngwén shuǐpíng","sách mới　quần áo của tôi　trình độ tiếng Trung","等级标准"],
-      ["一条河　两本　这件","yì tiáo hé　liǎng běn　zhè jiàn","một con sông　hai quyển　chiếc này","等级标准"]]}],
+  ex:[["{1|新}{2|书}　{1|我的}{2|衣服}　{1|中文}{2|水平}","xīn shū　wǒ de yīfu　Zhōngwén shuǐpíng","sách mới　quần áo của tôi　trình độ tiếng Trung","等级标准"],
+      ["{1|一条}{2|河}　{1|两本}　{1|这件}","yì tiáo hé　liǎng běn　zhè jiàn","một con sông　hai quyển　chiếc này","等级标准"]]}],
 cmp:[
  {vn:"trình độ tiếng Trung của tôi", zh:"我的[中文水平]", py:"wǒ de Zhōngwén shuǐpíng", ok:true, why:"Phần bổ nghĩa đứng trước, danh từ trung tâm cuối."}],
 ex:[

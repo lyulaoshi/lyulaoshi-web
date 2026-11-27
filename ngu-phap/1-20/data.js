@@ -8,11 +8,11 @@ goals:[
 intro:"的 và 地 đều đọc <b>de</b> (thanh nhẹ). 的 đứng trước <b>danh từ</b>; 地 đứng trước <b>động từ</b>.",
 rules:[
  {t:"Định ngữ + 的 + danh từ", sub:"的¹", fx:[["Người / tính từ / cụm từ",""],["的",null],["Danh từ",""]], mean:"“của…”, “…mà…”, “(tính chất)”. Phần bổ nghĩa luôn đứng <b>trước</b>.",
-  ex:[["你[的]衣服很好看。","Nǐ de yīfu hěn hǎokàn.","Quần áo của bạn rất đẹp.","等级标准"],
-      ["这是很漂亮[的]衣服。","Zhè shì hěn piàoliang de yīfu.","Đây là bộ quần áo rất đẹp."]]},
+  ex:[["{1|你}{2|的}{3|衣服}很好看。","Nǐ de yīfu hěn hǎokàn.","Quần áo của bạn rất đẹp.","等级标准"],
+      ["这是{1|很漂亮}{2|的}{3|衣服}。","Zhè shì hěn piàoliang de yīfu.","Đây là bộ quần áo rất đẹp."]]},
  {t:"Tính từ + 地 + động từ", sub:"地", fx:[["Tính từ","高兴、认真…"],["地",null],["Động từ",""]], mean:"Nói cách thức làm việc: vui vẻ nói, chăm chỉ học…",
-  ex:[["他高兴[地]说：“我明天回家。”","Tā gāoxìng de shuō: “Wǒ míngtiān huí jiā.”","Anh ấy vui vẻ nói: “Mai tôi về nhà.”","等级标准"],
-      ["同学们认真[地]学习。","Tóngxuémen rènzhēn de xuéxí.","Các bạn chăm chỉ học tập."]]}],
+  ex:[["他{1|高兴}{2|地}{3|说}：“我明天回家。”","Tā gāoxìng de shuō: “Wǒ míngtiān huí jiā.”","Anh ấy vui vẻ nói: “Mai tôi về nhà.”","等级标准"],
+      ["同学们{1|认真}{2|地}{3|学习}。","Tóngxuémen rènzhēn de xuéxí.","Các bạn chăm chỉ học tập."]]}],
 notes:[
  {t:"Khi nào bỏ 的", html:"đại từ + người thân / tập thể: <span class='zh'>我妈妈、我们学校</span>; tính từ một âm tiết + danh từ: <span class='zh'>好朋友、新书</span>; danh từ chỉ loại: <span class='zh'>中文书</span>."}],
 cmp:[

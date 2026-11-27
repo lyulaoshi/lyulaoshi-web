@@ -8,8 +8,8 @@ goals:[
 intro:"按 / 按照 = “theo, dựa theo” (quy định, kế hoạch, thời gian…). Cụm giới từ đứng <b>trước động từ</b>.",
 rules:[
  {t:"按 / 按照 + căn cứ + V", sub:"依据", fx:[["(S)",""],["按 / 按照",null],["căn cứ",""],["Động từ",""]], mean:"",
-  ex:[["房租[按]天或者[按]月计算。","Fángzū àn tiān huòzhě àn yuè jìsuàn.","Tiền thuê nhà tính theo ngày hoặc theo tháng.","等级标准"],
-      ["他们[按照]地图找到了全部东西，顺利完成了任务。","Tāmen ànzhào dìtú zhǎodào le quánbù dōngxi, shùnlì wánchéng le rènwu.","Họ tìm được tất cả đồ theo bản đồ, hoàn thành nhiệm vụ suôn sẻ.","等级标准"]]}],
+  ex:[["{1|房租}{2|按}{3|天}或者{2|按}{3|月}{4|计算}。","Fángzū àn tiān huòzhě àn yuè jìsuàn.","Tiền thuê nhà tính theo ngày hoặc theo tháng.","等级标准"],
+      ["{1|他们}{2|按照}{3|地图}{4|找到了全部东西}，顺利完成了任务。","Tāmen ànzhào dìtú zhǎodào le quánbù dōngxi, shùnlì wánchéng le rènwu.","Họ tìm được tất cả đồ theo bản đồ, hoàn thành nhiệm vụ suôn sẻ.","等级标准"]]}],
 cmp:[
  {vn:"Làm theo kế hoạch.", zh:"[按照]计划做。", py:"Ànzhào jìhuà zuò.", ok:true, why:"“theo kế hoạch” lên trước động từ."}],
 ex:[

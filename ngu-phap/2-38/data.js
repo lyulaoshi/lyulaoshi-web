@@ -8,10 +8,10 @@ goals:[
 intro:"Cụm chữ 的 giúp <b>khỏi lặp danh từ</b>. Cụm liên động nối <b>nhiều động từ</b> theo đúng trình tự sự việc.",
 rules:[
  {t:"Cụm chữ 的: … + 的 (= cái …)", sub:"“的”字短语", fx:[["Đại từ / tính từ / động từ",""],["的",null]], mean:"Thay cho danh từ đã rõ: 我的 (của tôi), 黑色的 (cái màu đen), 吃的 (đồ ăn), 他买的 (cái anh ấy mua).",
-  ex:[["我的　黑色的　新的　吃的　他买的","wǒ de　hēisè de　xīn de　chī de　tā mǎi de","của tôi　cái màu đen　cái mới　đồ ăn　cái anh ấy mua","等级标准"],
-      ["这本书是[我的]。","Zhè běn shū shì wǒ de.","Quyển sách này là của tôi."]]},
+  ex:[["{1|我}{2|的}　{1|黑色}{2|的}　{1|新}{2|的}　{1|吃}{2|的}　{1|他买}{2|的}","wǒ de　hēisè de　xīn de　chī de　tā mǎi de","của tôi　cái màu đen　cái mới　đồ ăn　cái anh ấy mua","等级标准"],
+      ["这本书是{1|我}{2|的}。","Zhè běn shū shì wǒ de.","Quyển sách này là của tôi."]]},
  {t:"Cụm liên động: V1 + V2", sub:"连谓短语", fx:[["V1 (+ O1)","đi đâu / bằng gì / thế nào"],["V2 (+ O2)",null]], mean:"Hai động từ cùng một chủ ngữ, theo trình tự; V1 thường là cách thức hoặc hướng đi, V2 là mục đích 【二57】【三56】.",
-  ex:[["去买东西　哭着说　坐飞机去北京　去图书馆借书","qù mǎi dōngxi　kū zhe shuō　zuò fēijī qù Běijīng　qù túshūguǎn jiè shū","đi mua đồ　vừa khóc vừa nói　đi máy bay đến Bắc Kinh　đến thư viện mượn sách","等级标准"]]}],
+  ex:[["{1|去}{2|买东西}　{1|哭着}{2|说}　{1|坐飞机}{2|去北京}　{1|去图书馆}{2|借书}","qù mǎi dōngxi　kū zhe shuō　zuò fēijī qù Běijīng　qù túshūguǎn jiè shū","đi mua đồ　vừa khóc vừa nói　đi máy bay đến Bắc Kinh　đến thư viện mượn sách","等级标准"]]}],
 cmp:[
  {vn:"Tôi thích cái màu đỏ.", zh:"我喜欢[红色的]。", py:"Wǒ xǐhuan hóngsè de.", ok:true, why:"“cái màu đỏ” = 红色的."},
  {vn:"Tôi đi Bắc Kinh bằng máy bay.", zh:"我[坐飞机去]北京。", py:"Wǒ zuò fēijī qù Běijīng.", ok:true, why:"“bằng máy bay” lên trước 去."}],

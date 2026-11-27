@@ -8,8 +8,8 @@ goals:[
 intro:"Ngoài nghĩa “có” 【一37】, 有 còn dùng để <b>đánh giá, ước lượng</b> kích thước, tuổi tác: <b>他有一米八高</b> = anh ấy cao đến 1m8.",
 rules:[
  {t:"S + 有 + số lượng (+ Adj)", sub:"表示评价、达到", fx:[["Chủ ngữ",""],["有",null],["số lượng",""],["(高 / 长 / 重…)",""]], mean:"Chừng, đạt tới.",
-  ex:[["他[有]一米八高。","Tā yǒu yì mǐ bā gāo.","Anh ấy cao chừng 1m8.","等级标准"],
-      ["他[有]三十多岁。","Tā yǒu sānshí duō suì.","Anh ấy chừng hơn 30 tuổi.","等级标准"]]}],
+  ex:[["{1|他}{2|有}{3|一米八}{4|高}。","Tā yǒu yì mǐ bā gāo.","Anh ấy cao chừng 1m8.","等级标准"],
+      ["{1|他}{2|有}{3|三十多}{4|岁}。","Tā yǒu sānshí duō suì.","Anh ấy chừng hơn 30 tuổi.","等级标准"]]}],
 notes:[
  {t:"Nghĩa so sánh", html:"<span class='zh'>你哥哥有你高吗？</span> = Anh bạn có cao bằng bạn không? — xem 比较句2 【二58】."}],
 cmp:[

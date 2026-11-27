@@ -8,8 +8,8 @@ goals:[
 intro:"看起来 = “trông có vẻ”: đánh giá dựa vào những gì <b>nhìn thấy</b>, chưa chắc chắn.",
 rules:[
  {t:"S + 看起来 + Adj / cụm từ", sub:"看起来", fx:[["Chủ ngữ",""],["看起来",null],["(很 / 有点儿) + tính từ",""]], mean:"",
-  ex:[["这些苹果[看起来]很好吃。","Zhèxiē píngguǒ kàn qǐlai hěn hǎochī.","Những quả táo này trông có vẻ rất ngon.","等级标准"],
-      ["她工作了一天，[看起来]有点儿累。","Tā gōngzuò le yì tiān, kàn qǐlai yǒudiǎnr lèi.","Cô ấy làm cả ngày, trông có vẻ hơi mệt.","等级标准"]]}],
+  ex:[["{1|这些苹果}{2|看起来}{3|很好吃}。","Zhèxiē píngguǒ kàn qǐlai hěn hǎochī.","Những quả táo này trông có vẻ rất ngon.","等级标准"],
+      ["{1|她}工作了一天，{2|看起来}{3|有点儿累}。","Tā gōngzuò le yì tiān, kàn qǐlai yǒudiǎnr lèi.","Cô ấy làm cả ngày, trông có vẻ hơi mệt.","等级标准"]]}],
 cmp:[
  {vn:"Trông anh ấy có vẻ rất vui.", zh:"他[看起来]很高兴。", py:"Tā kàn qǐlai hěn gāoxìng.", ok:true, why:"“trông … có vẻ” = 看起来, đặt sau chủ ngữ."}],
 ex:[

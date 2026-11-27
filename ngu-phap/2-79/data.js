@@ -8,8 +8,8 @@ goals:[
 intro:"吗 hỏi khi <b>chưa biết</b>; 吧 hỏi khi <b>đã đoán được</b>, chỉ muốn người nghe xác nhận.",
 rules:[
  {t:"Câu trần thuật + 吧？", sub:"吧²", fx:[["Câu (điều đoán)",""],["吧",null],["？",""]], mean:"",
-  ex:[["您是经理[吧]？","Nín shì jīnglǐ ba?","Ông là giám đốc phải không ạ?","等级标准"],
-      ["你以前学过中文[吧]？","Nǐ yǐqián xué guo Zhōngwén ba?","Trước đây bạn từng học tiếng Trung rồi phải không?","等级标准"]]}],
+  ex:[["{1|您是经理}{2|吧}{3|？}","Nín shì jīnglǐ ba?","Ông là giám đốc phải không ạ?","等级标准"],
+      ["{1|你以前学过中文}{2|吧}{3|？}","Nǐ yǐqián xué guo Zhōngwén ba?","Trước đây bạn từng học tiếng Trung rồi phải không?","等级标准"]]}],
 cmp:[
  {vn:"Bạn là người Việt Nam à? (chưa biết)", zh:"你是越南人[吗]？", py:"Nǐ shì Yuènán rén ma?", ok:true, why:"Hỏi trung tính → 吗."},
  {vn:"Bạn là người Việt Nam phải không? (đoán)", zh:"你是越南人[吧]？", py:"Nǐ shì Yuènán rén ba?", ok:true, why:"Đã đoán → 吧."}],

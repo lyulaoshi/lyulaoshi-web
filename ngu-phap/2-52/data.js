@@ -8,8 +8,8 @@ goals:[
 intro:"Bổ ngữ động lượng cho biết hành động xảy ra <b>bao nhiêu lần</b>. Lượng từ động tác xem 【二11】.",
 rules:[
  {t:"V + (了 / 过) + số + lượng từ động tác", sub:"动量补语", fx:[["Động từ",""],["(了 / 过)",""],["số + 次 / 遍 / 下…",null]], mean:"",
-  ex:[["我去过[一次]。","Wǒ qù guo yí cì.","Tôi đã đi một lần.","等级标准"],
-      ["我们休息[一下儿]。","Wǒmen xiūxi yíxiàr.","Chúng ta nghỉ một chút.","等级标准"]]}],
+  ex:[["我{1|去}{2|过}{3|一次}。","Wǒ qù guo yí cì.","Tôi đã đi một lần.","等级标准"],
+      ["我们{1|休息}{3|一下儿}。","Wǒmen xiūxi yíxiàr.","Chúng ta nghỉ một chút.","等级标准"]]}],
 notes:[
  {t:"Có tân ngữ", html:"vị trí tân ngữ với số lần học kỹ ở 【三50】: <span class='zh'>我找了他两次。我去过一次中国。</span>"}],
 cmp:[

@@ -8,8 +8,8 @@ goals:[
 intro:"为了 nêu <b>mục đích</b> của hành động: làm A <b>để</b> đạt B.",
 rules:[
  {t:"(S) 为了 + mục đích + V", sub:"为了", fx:[["(S)",""],["为了",null],["mục đích",""],["Động từ",""]], mean:"",
-  ex:[["妈妈[为了]健康坚持每天跑步。","Māma wèile jiànkāng jiānchí měi tiān pǎo bù.","Mẹ vì sức khỏe kiên trì chạy bộ mỗi ngày.","等级标准"],
-      ["他[为了]新工作不断学习新知识。","Tā wèile xīn gōngzuò búduàn xuéxí xīn zhīshi.","Anh ấy không ngừng học kiến thức mới vì công việc mới.","等级标准"]]}],
+  ex:[["{1|妈妈}{2|为了}{3|健康}{4|坚持每天跑步}。","Māma wèile jiànkāng jiānchí měi tiān pǎo bù.","Mẹ vì sức khỏe kiên trì chạy bộ mỗi ngày.","等级标准"],
+      ["{1|他}{2|为了}{3|新工作}{4|不断学习新知识}。","Tā wèile xīn gōngzuò búduàn xuéxí xīn zhīshi.","Anh ấy không ngừng học kiến thức mới vì công việc mới.","等级标准"]]}],
 notes:[{t:"为了 hay 因为?", html:"<span class='zh'>为了学中文，我来中国。</span> (mục đích: để học) · <span class='zh'>因为喜欢中国，我来中国。</span> (nguyên nhân: vì thích)."}],
 cmp:[
  {vn:"Để học tiếng Trung, tôi sang Trung Quốc.", zh:"[为了]学中文，我来中国。", py:"Wèile xué Zhōngwén, wǒ lái Zhōngguó.", ok:true, why:"“để” (mục đích) = 为了."}],

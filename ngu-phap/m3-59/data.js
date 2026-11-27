@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新3.59】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新3.59】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新3.59", title:"存现句3：表示出现、消失", vi:"Câu tồn hiện 3 — ở đâu xuất hiện / mất đi ai, cái gì", tag:"句子的类型 · 特殊句型",
 goals:[

@@ -8,13 +8,19 @@ goals:[
 intro:"Tiếng Việt nói “<b>trên</b> bàn, <b>trong</b> phòng” — phương vị đứng <b>trước</b>. Tiếng Trung đặt phương vị <b>sau</b> danh từ: 桌子<b>上</b>, 房间<b>里</b>.",
 rules:[
  {t:"Phương vị đơn sau danh từ", sub:"上、下、里、外、前、后", fx:[["Danh từ","vật làm mốc"],["上 / 下 / 里 / 外 / 前 / 后",null]], mean:"trên / dưới / trong / ngoài / trước / sau + vật đó",
-  ex:[["桌子[上]　树[下]　房间[里]","zhuōzi shang　shù xià　fángjiān li","trên bàn　dưới cây　trong phòng","等级标准"],
-      ["门[外]　楼[前]　门[后]","mén wài　lóu qián　mén hòu","ngoài cửa　trước toà nhà　sau cửa","等级标准"]]},
+  ex:[["{1|桌子}{2|上}　{1|树}{2|下}　{1|房间}{2|里}","zhuōzi shang　shù xià　fángjiān li","trên bàn　dưới cây　trong phòng","等级标准"],
+      ["{1|门}{2|外}　{1|楼}{2|前}　{1|门}{2|后}","mén wài　lóu qián　mén hòu","ngoài cửa　trước toà nhà　sau cửa","等级标准"]]},
  {t:"Phương vị kép: ……边", sub:"上边、里边、东边…", fx:[["Danh từ","(có thể thêm 的)"],["上边 / 里边 / 前边 / 东边…",null]], mean:"Dạng kép <b>đứng một mình được</b> (前边 = phía trước) và đứng sau danh từ, có thể thêm 的.",
-  ex:[["桌子[上边]　书包[里边]","zhuōzi shàngbian　shūbāo lǐbian","trên mặt bàn　bên trong cặp sách","等级标准"],
-      ["饭店的[前边]　图书馆的[北边]","fàndiàn de qiánbian　túshūguǎn de běibian","phía trước nhà hàng　phía bắc thư viện","等级标准"]]},
+  ex:[["{1|桌子}{2|上边}　{1|书包}{2|里边}","zhuōzi shàngbian　shūbāo lǐbian","trên mặt bàn　bên trong cặp sách","等级标准"],
+      ["{1|饭店}的{2|前边}　{1|图书馆}的{2|北边}","fàndiàn de qiánbian　túshūguǎn de běibian","phía trước nhà hàng　phía bắc thư viện","等级标准"]]},
  {t:"Phương vị kép làm định ngữ", sub:"方位词 + 的 + N", fx:[["东边 / 南边…",null],["的",null],["Danh từ","vật được nói tới"]], mean:"“… ở phía đông / phía nam”: phương vị + 的 đứng <b>trước</b> danh từ.",
-  ex:[["[东边的]车站　[南边的]房子","dōngbian de chēzhàn　nánbian de fángzi","nhà ga phía đông　ngôi nhà phía nam","等级标准"]]}],
+  ex:[["{1|东边}{2|的}{3|车站}　{1|南边}{2|的}{3|房子}","dōngbian de chēzhàn　nánbian de fángzi","nhà ga phía đông　ngôi nhà phía nam","等级标准"]]},
+ {t:"北方、东方、南方、西方、中间", sub:"HSK 3", fx:[["Nơi chốn / phạm vi",""],["北方 / 南方 / 中间",null]], mean:"北方 miền Bắc / phía bắc · 东方 phương Đông · 西方 phương Tây · 中间 ở giữa.",
+  ex:[["{1|中国}{2|北方}的冬天很冷。", "Zhōngguó běifāng de dōngtiān hěn lěng.", "Mùa đông miền Bắc Trung Quốc rất lạnh."],
+      ["{1|我坐在爸爸和妈妈}{2|中间}。", "Wǒ zuò zài bàba hé māma zhōngjiān.", "Tôi ngồi giữa bố và mẹ."],
+      ["太阳从{2|东方}升起来。", "Tàiyáng cóng dōngfāng shēng qilai.", "Mặt trời mọc từ phương Đông."],
+      ["他喜欢研究{2|西方}文化。", "Tā xǐhuan yánjiū xīfāng wénhuà.", "Anh ấy thích nghiên cứu văn hóa phương Tây."],
+      ["我是{2|南方}人。", "Wǒ shì nánfāng rén.", "Tôi là người miền Nam."]]}],
 notes:[
  {t:"Nơi chốn", html:"Đồ vật (桌子, 书包…) chưa phải nơi chốn; phải thêm phương vị mới đi được với <span class='zh'>在 / 有</span>: <span class='zh'>书在桌子上。</span> Tên nước, thành phố thì <b>không</b> thêm 里: <span class='zh'>在中国、在北京</span>."},
  {t:"Đọc", html:"上、里 sau danh từ thường đọc nhẹ (thanh nhẹ): <span class='zh'>桌子上 zhuōzi shang, 房间里 fángjiān li</span>."}],
@@ -52,6 +58,8 @@ practice:[
   {q:"Cặp sách ở dưới gầm bàn.", a:"书包在桌子下（边）。"},
   {q:"Bên ngoài rất lạnh.", a:"外边很冷。"},
   {q:"Nhà tôi ở phía bắc trường học.", a:"我家在学校（的）北边。"},
-  {q:"Cửa hàng ở bên phải là của bạn tôi.", a:"右边的商店是我朋友的。"}]}],
+  {q:"Cửa hàng ở bên phải là của bạn tôi.", a:"右边的商店是我朋友的。"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"银行在学校和书店＿。", vi:"Ngân hàng ở giữa trường và hiệu sách.", o:["中间", "北方", "西方"], a:0, why:"A 和 B 中间."}]}],
 rel:["一16","一37","一36","三32"]
 };

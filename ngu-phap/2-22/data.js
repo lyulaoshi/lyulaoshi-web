@@ -8,8 +8,8 @@ goals:[
 intro:"往 dẫn ra <b>hướng di chuyển</b>. Cụm “往 + hướng” đứng <b>trước động từ</b> — ngược với “đi <b>về phía trước</b>” của tiếng Việt.",
 rules:[
  {t:"往 + hướng + động từ", sub:"往", fx:[["(S)",""],["往",null],["前 / 左 / 右 / 东…",""],["走 / 拐 / 看…",""]], mean:"Đi / rẽ / nhìn về phía nào.",
-  ex:[["你[往]左走，就能看见洗手间。","Nǐ wǎng zuǒ zǒu, jiù néng kànjiàn xǐshǒujiān.","Bạn đi về bên trái là thấy nhà vệ sinh.","等级标准"],
-      ["你[往]前走一百米就到了。","Nǐ wǎng qián zǒu yìbǎi mǐ jiù dào le.","Bạn đi thẳng 100 mét là đến.","等级标准"]]}],
+  ex:[["{1|你}{2|往}{3|左}{4|走}，就能看见洗手间。","Nǐ wǎng zuǒ zǒu, jiù néng kànjiàn xǐshǒujiān.","Bạn đi về bên trái là thấy nhà vệ sinh.","等级标准"],
+      ["{1|你}{2|往}{3|前}{4|走}一百米就到了。","Nǐ wǎng qián zǒu yìbǎi mǐ jiù dào le.","Bạn đi thẳng 100 mét là đến.","等级标准"]]}],
 notes:[
  {t:"往 và 向", html:"chỉ hướng di chuyển thì 往 và 向 【二23】 thường thay nhau được; nhưng hướng về <b>người</b> (học ai, nói với ai) chỉ dùng 向."}],
 cmp:[

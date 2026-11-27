@@ -144,6 +144,7 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <script src="../../tu-vung/bai-data.js"></script>
 <script src="../../tu-vung/chu-de.js"></script>
 <script src="../bo-tu.js?v=5"></script>
+<script src="../giao-bai.js?v=3"></script>
 <script src="../tts.js?v=2"></script>
 <script src="../vui.js?v=20261004"></script>
 <script src="../nhom-chu.js?v=1"></script>
@@ -251,7 +252,7 @@ $('pauseBtn').onclick=()=>setPause(!paused);
 $('spkBtn').onclick=()=>cur&&TTS.say(cur.w);
 $('quitBtn').onclick=()=>{if(alive)end()};
 document.addEventListener('visibilitychange',()=>{if(document.hidden)setPause(true)});
-function end(){window.TCX&&TCX.xong();
+function end(){window.TCX&&TCX.xong();window.GIAOBAI&&GIAOBAI.xong(score,got);
   alive=false;cancelAnimationFrame(raf);setTimeout(()=>{
   $('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
   const k=bestKey(),best=store.get(k)||0,rec=score>best;if(rec)store.set(k,score);store.set('bb-levels',[...picked]);

@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新3.47】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新3.47】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新3.47", title:"多项定语", vi:"Định ngữ nhiều tầng — 我的那本新汉语书", tag:"句子成分 · 定语",
 goals:[

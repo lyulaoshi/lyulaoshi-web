@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bài khoá 课文 · Góc giáo viên – 吕老师汉语盒</title>
+<meta name="description" content="Dán bài khoá hoặc hội thoại tiếng Trung của bất kỳ giáo trình nào: chiếu kèm pinyin, đọc theo, đúng sai, đọc đua giờ, điền chỗ trống, lấy từ mới, in phiếu – Góc giáo viên.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../../tro-choi/game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="../gv.css?v=20">
+<link rel="stylesheet" href="../gv-giay.css?v=7">
+<style>
+.nhap{margin-top:14px}
+.nhap summary{cursor:pointer;font-weight:800;font-size:16px}
+.nhap .lg{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:flex-end;margin:10px 0 0;padding:6px 14px 14px;border:2px solid color-mix(in srgb,var(--teal) 24%,transparent);border-radius:16px;background:var(--teal-s);min-width:0}
+.nhap .lg legend{padding:0 6px;font-size:13.5px;font-weight:800;color:var(--teal)}
+.nhap .lg label{display:grid;gap:4px;flex:1 1 170px;min-width:0;font-size:13px;font-weight:700;color:var(--muted)}
+.nhap .lg label:last-of-type{flex-grow:0}
+.nhap .kho{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:flex-end;margin-top:10px}
+.nhap .kho label{display:grid;gap:4px;flex:1 1 220px;min-width:0;font-size:13px;font-weight:700;color:var(--muted)}
+.nhap textarea{font-family:var(--kai),var(--vi);font-size:19px;margin-top:8px}
+.gd{margin-top:14px}
+.gd h2{font-size:13.5px;font-weight:800;color:var(--muted);margin-bottom:6px}
+.hoat{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.hoat button{position:relative;display:flex;align-items:center;gap:10px;min-width:0;padding:11px 13px;text-align:left;font:800 14px/1.3 var(--vi);color:color-mix(in srgb,var(--c) 60%,var(--ink));border:2px solid color-mix(in srgb,var(--c) 24%,transparent);border-radius:16px;background:var(--s);cursor:pointer}
+.hoat button>span{min-width:0}
+.hoat button small{display:block;font:600 12px/1.3 var(--vi);color:var(--muted)}
+.hoat button small.zh{margin:1px 0;font:400 15px/1.3 var(--hz);color:color-mix(in srgb,var(--c) 70%,var(--ink))}
+.gd h2 span{margin-left:4px;font-family:var(--hz);font-weight:400;font-size:16px}
+.hoat button .lli{flex:none;width:24px;height:24px;color:var(--c)}
+.hoat button[aria-pressed="true"]{border-color:var(--c);box-shadow:0 0 0 2px var(--c)}
+.hoat button .rg{position:absolute;right:6px;top:6px;display:grid;place-items:center}
+.hoat button .rg .lli{width:12px;height:12px;color:var(--muted)}
+.cong{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:center}
+.cong:empty{display:none}
+.cong .seg .lli{width:12px;height:12px;vertical-align:-1px}
+.cong .nh{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.cong input[type=text]{width:auto;max-width:100%}
+.soan{width:100%}.soan summary{cursor:pointer;font-weight:700;font-size:13.5px;color:var(--teal)}
+.soan textarea{margin-top:6px;font-size:18px;font-family:var(--kai),var(--vi)}
+.soan .luoi5{display:grid;gap:8px;margin-top:8px}
+.soan .luoi5 label{display:grid;gap:3px;font-size:13px;font-weight:700;color:var(--muted)}
+.goc{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px}
+.goc label{display:grid;gap:4px;justify-items:center;width:min(420px,100%);font-size:13px;font-weight:700;color:var(--teal)}
+.goc audio{width:100%;height:40px}
+.bai{flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px;width:100%;max-width:900px;margin:0 auto;--co:1}
+.cau{display:flex;gap:12px;align-items:flex-start;width:100%;padding:10px 14px;text-align:left;font:inherit;color:var(--ink);border:2px solid transparent;border-radius:16px;background:var(--ground2);cursor:pointer}
+.cau:hover{border-color:var(--line)}
+.cau.nay{border-color:var(--teal);background:var(--teal-s)}
+.cau .v{flex:none;min-width:2.6em;padding:2px 9px;text-align:center;font-family:var(--kai);font-size:calc(19px*var(--co));border-radius:99px;background:var(--card);color:var(--teal)}
+.cau .nd{display:grid;gap:2px;min-width:0;flex:1}
+.cau .z{font-family:var(--kai);font-size:calc(30px*var(--co));line-height:1.5;overflow-wrap:anywhere}
+.cau .p{font-size:calc(15px*var(--co));font-weight:700;color:var(--teal)}
+.cau .d{font-size:calc(15px*var(--co));color:var(--muted)}
+.cau .an{color:var(--faint)}
+.cau.mo-di{filter:blur(9px);pointer-events:none;user-select:none}
+.tu{cursor:pointer;border-radius:6px}.tu:hover{background:var(--butter-s)}
+.trong{display:inline-block;min-width:2.2em;margin:0 2px;border-bottom:3px solid var(--coral);color:transparent;vertical-align:bottom}
+.trong.hien{color:var(--coral)}
+.khuyet{color:var(--faint)}
+.kho-tu{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;font-family:var(--kai);font-size:26px}
+.kho-tu span{padding:0 14px;border-radius:12px;background:var(--butter-s)}
+.giua{text-align:center}
+.hoi{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center}
+.hoi .h{font-family:var(--kai);font-size:calc(clamp(32px,6vw,60px)*var(--co));line-height:1.5;overflow-wrap:anywhere}
+.hoi .t{font-family:var(--kai);font-size:calc(clamp(26px,4.5vw,44px)*var(--co));color:var(--teal)}
+.ds2{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;width:100%}
+.ds2 div{flex:0 1 220px;padding:12px;border-radius:20px;background:var(--ground2);border:3px solid transparent;font-family:var(--kai);font-size:52px;line-height:1.2}
+.ds2 div small{display:block;font:700 15px var(--vi);color:var(--muted)}
+.ds2 .dung{border-color:var(--mint);background:var(--mint-s)}
+.ds2 .mo2{opacity:.35}
+.dg-so{font:800 clamp(40px,8vw,76px)/1 var(--vi);text-align:center;font-variant-numeric:tabular-nums;color:var(--teal)}
+table.bang{width:100%;border-collapse:collapse;font-size:14.5px}
+table.bang th{text-align:left;font-size:12.5px;color:var(--muted);padding:5px 8px}table.bang td{padding:5px 8px;border-top:1px solid var(--line)}
+table.bang .z{font-family:var(--kai);font-size:24px;white-space:nowrap}table.bang input[type=text]{width:100%;min-width:90px;padding:5px 9px}
+.cuon{overflow:auto;max-height:56vh}
+/* trang in — cỡ chữ (--ic) và giãn dòng (--ig) do thầy cô kéo ở bảng "Tuỳ chỉnh phiếu" */
+.xem{--ic:6.4mm;--ig:2.4mm}
+.xem .in h2{font-size:6mm;text-align:center;margin:0 0 5mm;font-weight:800;overflow-wrap:anywhere}
+.in .ho-ten{display:flex;gap:6mm;margin:-1mm 1mm 4mm;font-size:3.8mm}
+.in .ho-ten span{display:flex;flex:1;gap:2mm;align-items:flex-end}.in .ho-ten span::after{content:"";flex:1;border-bottom:.25mm dotted #555}
+.in .ho-ten span+span{flex:.5}
+.in .dg{display:flex;gap:4mm;padding:var(--ig) 0;border-bottom:.2mm solid #ccc}
+.in .dg>div{flex:1;min-width:0}
+.in .dg .v{flex:none;min-width:20mm;white-space:nowrap;font-family:var(--kai);font-size:calc(var(--ic)*.86)}
+.in .dg .z{font-family:var(--kai);font-size:var(--ic);line-height:1.55;white-space:normal;overflow-wrap:anywhere}
+.in .dg .p{font-size:calc(var(--ic)*.53);color:#0f6f76;overflow-wrap:anywhere}.in .dg .d{font-size:calc(var(--ic)*.53);color:#444;overflow-wrap:anywhere}
+.in .khung-tu{text-align:center;font-family:var(--kai);font-size:var(--ic);margin:0 0 4mm}
+.chinh-in{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:center;width:100%;padding:10px 14px;border-radius:16px;background:var(--ground2)}
+.chinh-in label{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:var(--muted)}
+.chinh-in input[type=range]{width:140px}
+.chinh-in .chk{background:var(--card)}.chinh-in .chk:has(input:checked){background:var(--teal-s);color:var(--ink)}
+.chinh-in output{min-width:3.6em;color:var(--ink);font-variant-numeric:tabular-nums}
+.chinh-in input[type=text]{width:190px;max-width:100%}
+@media (max-width:600px){.cau{padding:8px 10px;gap:8px}.cau .z{font-size:calc(23px*var(--co))}.ds2 div{flex-basis:130px;font-size:40px}}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<link rel="canonical" href="https://lyulaoshi.com/goc-giao-vien/bai-khoa/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="Bài khoá 课文 · Góc giáo viên – 吕老师汉语盒"><meta property="og:description" content="Dán bài khoá hoặc hội thoại tiếng Trung của bất kỳ giáo trình nào: chiếu kèm pinyin, đọc theo, đúng sai, đọc đua giờ, điền chỗ trống, lấy từ mới, in phiếu – Góc giáo viên."><meta property="og:url" content="https://lyulaoshi.com/goc-giao-vien/bai-khoa/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../" class="hide-s">Góc giáo viên</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap">
+<section class="ph">
+  <a class="back" href="../"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#tg-trai"></use></svg>Góc giáo viên</a>
+  <h1>Bài khoá<span lang="zh">课文</span></h1>
+  <p>Lấy bài khoá từ bài giảng, hoặc dán bài của bất kỳ giáo trình nào, rồi chọn cách dạy.</p>
+</section>
+<details class="pn nhap" id="khung" open><summary>Bài đang dạy: <span id="bkTen"></span></summary>
+  <fieldset class="lg" id="lg"><legend>Lấy từ bài giảng</legend>
+    <label>Giáo trình<select id="lgS"></select></label><label>Bài<select id="lgB"></select></label><label>Đoạn<select id="lgD"></select></label>
+    <button class="btn tl" type="button" id="lgLay"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sach"></use></svg>Lấy bài</button>
+  </fieldset>
+  <div class="kho">
+    <label>Bài đã lưu trên máy này<select id="bkChon"></select></label>
+    <label>Tên bài<input type="text" id="bkDat" maxlength="60"></label>
+    <span class="row"><button class="btn gh" type="button" id="bkMoi"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#them-vuong"></use></svg>Bài mới</button><button class="btn gh" type="button" id="bkXoa"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sai"></use></svg>Xoá bài</button></span>
+  </div>
+  <p class="small muted" style="margin:10px 0 0">Dạng hội thoại: mỗi dòng một lượt lời, tên vai trước dấu hai chấm. Dạng đoạn văn: dán nguyên đoạn, máy tự tách câu. Muốn có bản dịch thì thêm <b>| bản dịch</b> cuối dòng.</p>
+  <textarea id="van" rows="8" lang="zh" aria-label="Bài khoá" placeholder="小明：你好！ | Chào bạn!"></textarea>
+  <p class="small muted" id="tt" aria-live="polite"></p>
+</details>
+<nav id="hoat" aria-label="Chọn hoạt động"></nav>
+<section class="san" id="san">
+  <div class="san-top"><span id="ten"></span><span class="row"><button class="btn gh" type="button" id="nho" aria-label="Chữ nhỏ lại">A−</button><button class="btn gh" type="button" id="to" aria-label="Chữ to lên">A+</button><button class="btn gh" type="button" id="toan"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#tv"></use></svg>Toàn màn hình</button></span></div>
+  <div class="cong" id="cong"></div>
+  <div class="goc" id="goc" hidden></div>
+  <div class="bai" id="bai"></div>
+  <div class="san-bt" id="nut"></div>
+</section>
+<div class="xem" id="xem" hidden></div>
+</main>
+<footer class="wrap"><span id="chan" style="touch-action:manipulation;-webkit-user-select:none;user-select:none">© Lyu Laoshi Chinese Box · 吕老师汉语盒</span></footer>
+
+<script src="../../tro-choi/hsk-words.js"></script>
+<script src="../../tu-vung/nghia-hsk1.js"></script>
+<script src="../../tu-vung/nghia-hsk2-3.js"></script>
+<script src="../../tu-vung/nghia-hsk4.js"></script>
+<script src="../../tu-vung/nghia-hsk5.js"></script>
+<script src="../../tu-vung/nghia-hsk6.js"></script>
+<script src="../../tro-choi/tts.js"></script>
+<script src="../gv.js?v=7"></script>
+<script src="../gv-tu.js?v=9"></script>
+<script src="https://cdn.jsdelivr.net/npm/pinyin-pro@3.19.0/dist/index.js"></script>
+<script src="bai-giang.js"></script>
+<script src="bk.js?v=15"></script>
+<script>window.LL_KHOA={"file":"rieng.khoa.json?v=df9cd430","js":"/chung/khoa.js?v=2270e8d0"}</script>
+<script>BK.khoiDong()</script>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-// Bài ngữ pháp 【新2.01】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ do cô / Lyu Laoshi soạn.
+// Bài ngữ pháp 【新2.01】 — điểm chỉ có trong đề cương thi HSK mới 2025. Câu ví dụ biên soạn bổ sung, chờ cô duyệt.
 window.NP_LESSON={
 code:"新2.01", title:"后缀：—面", vi:"Hậu tố -面 — 上面, 里面, 前面…", tag:"语素 · 后缀",
 goals:[
@@ -8,9 +8,9 @@ goals:[
 intro:"HSK 1 đã học —边 (上边, 前边). HSK 2 thêm hậu tố <b>—面</b> (miàn, thường đọc nhẹ mian) — nghĩa giống —边, dùng rất nhiều khi chỉ vị trí.",
 rules:[
  {t:"Phương vị + 面", sub:"—面", fx:[["上 / 下 / 里 / 外 / 前 / 后",""],["面",null]], mean:"上面 trên · 下面 dưới · 里面 trong · 外面 ngoài · 前面 trước · 后面 sau.",
-  ex:[["书在桌子[上面]。","Shū zài zhuōzi shàngmian.","Sách ở trên bàn."],
-      ["[外面]下雨了。","Wàimian xià yǔ le.","Bên ngoài mưa rồi."],
-      ["学校[后面]有一个饭店。","Xuéxiào hòumian yǒu yí gè fàndiàn.","Phía sau trường có một nhà hàng."]]}],
+  ex:[["书在桌子{1|上}{2|面}。","Shū zài zhuōzi shàngmian.","Sách ở trên bàn."],
+      ["{1|外}{2|面}下雨了。","Wàimian xià yǔ le.","Bên ngoài mưa rồi."],
+      ["学校{1|后}{2|面}有一个饭店。","Xuéxiào hòumian yǒu yí gè fàndiàn.","Phía sau trường có một nhà hàng."]]}],
 notes:[{t:"面 và 边", html:"<span class='zh'>里面 = 里边、外面 = 外边、前面 = 前边</span>. Riêng <span class='zh'>旁边</span> (bên cạnh) không nói 旁面."}],
 cmp:[
  {vn:"trong phòng", zh:"房间[里面]", py:"fángjiān lǐmian", ok:false, tag:"(trật tự ngược)", why:"Tiếng Việt “trong” đứng trước; tiếng Trung 里面 đứng SAU danh từ."}],

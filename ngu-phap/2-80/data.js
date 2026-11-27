@@ -7,9 +7,9 @@ goals:[
  "Không bỏ 了 cuối câu."],
 intro:"该……了 là khung khẩu ngữ: dựa vào thời gian hay tình huống, <b>đã đến lúc</b> phải làm việc gì.",
 rules:[
- {t:"(Thời gian / lý do)，(S) 该 + V + 了", sub:"该……了", fx:[["(Thời gian / lý do)，",""],["(S)",""],["该",null],["Động từ",""],["了",null]], mean:"",
-  ex:[["十一点了，[该]睡觉[了]。","Shíyī diǎn le, gāi shuì jiào le.","11 giờ rồi, đến lúc đi ngủ rồi.","等级标准"],
-      ["明天有听写，我[该]复习生词[了]。","Míngtiān yǒu tīngxiě, wǒ gāi fùxí shēngcí le.","Mai có chính tả, tôi phải ôn từ mới rồi.","等级标准"]]}],
+ {t:"(Thời gian / lý do)，(S) 该 + V + 了", sub:"该……了", fx:[["(Thời gian / lý do)",""],["，",""],["(S)",""],["该",null],["Động từ",""],["了",null]], mean:"",
+  ex:[["{1|十一点了}，{3|该}{4|睡觉}{5|了}。","Shíyī diǎn le, gāi shuì jiào le.","11 giờ rồi, đến lúc đi ngủ rồi.","等级标准"],
+      ["{1|明天有听写}，{2|我}{3|该}{4|复习生词}{5|了}。","Míngtiān yǒu tīngxiě, wǒ gāi fùxí shēngcí le.","Mai có chính tả, tôi phải ôn từ mới rồi.","等级标准"]]}],
 cmp:[
  {vn:"Đến giờ vào học rồi.", zh:"[该]上课[了]。", py:"Gāi shàng kè le.", ok:true, why:"“đến lúc … rồi” = 该……了."}],
 ex:[

@@ -8,8 +8,11 @@ goals:[
 intro:"天天 = ngày nào cũng, 家家 = nhà nào cũng. Lặp lượng từ nhấn mạnh <b>không có ngoại lệ</b>.",
 rules:[
  {t:"AA (+ 都)", sub:"量词重叠", fx:[["Lượng từ A",""],["A",null],["都",null],["Động từ / tính từ",""]], mean:"",
-  ex:[["家家　件件　条条　次次","jiājiā　jiànjiàn　tiáotiáo　cìcì","nhà nào cũng　chiếc nào cũng　cái nào cũng　lần nào cũng","等级标准"],
-      ["回回　顿顿　天天　年年","huíhuí　dùndùn　tiāntiān　niánnián","lần nào cũng　bữa nào cũng　ngày nào cũng　năm nào cũng","等级标准"]]}],
+  ex:[["{1|家}{2|家}　{1|件}{2|件}　{1|条}{2|条}　{1|次}{2|次}","jiājiā　jiànjiàn　tiáotiáo　cìcì","nhà nào cũng　chiếc nào cũng　cái nào cũng　lần nào cũng","等级标准"],
+      ["{1|回}{2|回}　{1|顿}{2|顿}　{1|天}{2|天}　{1|年}{2|年}","huíhuí　dùndùn　tiāntiān　niánnián","lần nào cũng　bữa nào cũng　ngày nào cũng　năm nào cũng","等级标准"]]},
+ {t:"个个、张张", sub:"ai cũng, cái nào cũng", fx:[["N",""],["个个 / 张张",null],["都 + Adj",""]], mean:"Lặp lượng từ = mỗi một, tất cả đều.",
+  ex:[["{1|孩子们}{2|个个}{3|都很可爱}。", "Háizimen gègè dōu hěn kě'ài.", "Bọn trẻ đứa nào cũng đáng yêu."],
+      ["{1|他的画儿}{2|张张}{3|都很好看}。", "Tā de huàr zhāngzhāng dōu hěn hǎokàn.", "Tranh của anh ấy bức nào cũng đẹp."]]}],
 cmp:[
  {vn:"Ngày nào tôi cũng tập thể dục.", zh:"我[天天]都运动。", py:"Wǒ tiāntiān dōu yùndòng.", ok:true, why:"“ngày nào cũng” = 天天都."}],
 ex:[
@@ -28,6 +31,8 @@ practice:[
   {w:["这些衣服","件件","都","很漂亮"], a:"这些衣服件件都很漂亮。", vi:"Chỗ quần áo này chiếc nào cũng đẹp."}]},
  {t:"C. Dịch sang tiếng Trung", sub:"tự làm rồi xem đáp án", type:"show", items:[
   {q:"Ngày nào tôi cũng tập thể dục.", a:"我天天都运动。/ 我天天运动。"},
-  {q:"Năm nào cũng như vậy.", a:"年年都这样。"}]}],
+  {q:"Năm nào cũng như vậy.", a:"年年都这样。"}]},
+ {t:"D. Từ bổ sung", sub:"bấm vào đáp án", type:"choice", items:[
+  {q:"这些照片＿都很漂亮。", vi:"Những tấm ảnh này tấm nào cũng đẹp.", o:["张张", "一张", "张的"], a:0, why:"张张 = tấm nào cũng."}]}],
 rel:["三08","一10","三33","二04"]
 };

@@ -8,8 +8,8 @@ goals:[
 intro:"一……就…… nối hai hành động <b>liền nhau</b> (vừa … đã …) hoặc một quy luật (hễ … là …).",
 rules:[
  {t:"S + 一 + V1，(S) + 就 + V2", sub:"一……就……", fx:[["Chủ ngữ",""],["一",null],["V1",""],["就",null],["V2",""]], mean:"",
-  ex:[["他[一]起床[就]去洗脸。","Tā yì qǐ chuáng jiù qù xǐ liǎn.","Anh ấy vừa dậy là đi rửa mặt.","等级标准"],
-      ["我[一]喝酒[就]脸红。","Wǒ yì hē jiǔ jiù liǎn hóng.","Tôi hễ uống rượu là đỏ mặt.","等级标准"]]}],
+  ex:[["{1|他}{2|一}{3|起床}{4|就}{5|去洗脸}。","Tā yì qǐ chuáng jiù qù xǐ liǎn.","Anh ấy vừa dậy là đi rửa mặt.","等级标准"],
+      ["{1|我}{2|一}{3|喝酒}{4|就}{5|脸红}。","Wǒ yì hē jiǔ jiù liǎn hóng.","Tôi hễ uống rượu là đỏ mặt.","等级标准"]]}],
 cmp:[
  {vn:"Tôi hễ uống rượu là đỏ mặt.", zh:"我[一]喝酒[就]脸红。", py:"Wǒ yì hē jiǔ jiù liǎn hóng.", ok:true, why:"“hễ … là …” = 一……就……"},
  {vn:"Vừa tan học anh ấy đã về nhà.", zh:"他[一]下课[就]回家了。", py:"Tā yí xià kè jiù huí jiā le.", ok:true, why:"“vừa … đã …” = 一……就……"}],

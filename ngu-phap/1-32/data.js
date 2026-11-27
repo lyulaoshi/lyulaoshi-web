@@ -8,10 +8,10 @@ goals:[
 intro:"Câu trần thuật dùng để kể một sự việc hay nêu nhận xét. Cuối câu dùng dấu chấm tròn <b>。</b>, ngữ điệu đi xuống.",
 rules:[
  {t:"Khẳng định", sub:"肯定", fx:[["Chủ ngữ",""],["Vị ngữ",null],["。",""]], mean:"Kể việc, nêu nhận xét.",
-  ex:[["妈妈做晚饭。","Māma zuò wǎnfàn.","Mẹ nấu cơm tối.","等级标准"]]},
+  ex:[["{1|妈妈}{2|做晚饭}{3|。}","Māma zuò wǎnfàn.","Mẹ nấu cơm tối.","等级标准"]]},
  {t:"Phủ định", sub:"否定", fx:[["Chủ ngữ",""],["不 / 没",null],["(想 / 喜欢 / 会…) + V",""]], mean:"不 / 没 đứng trước động từ; nếu có động từ năng nguyện, tâm lý (想、喜欢、会…) thì đứng trước chúng.",
-  ex:[["我[不]喜欢看电视。","Wǒ bù xǐhuan kàn diànshì.","Tôi không thích xem ti vi.","等级标准"],
-      ["他[没]来。","Tā méi lái.","Anh ấy không đến."]]}],
+  ex:[["{1|我}{2|不}{3|喜欢看电视}。","Wǒ bù xǐhuan kàn diànshì.","Tôi không thích xem ti vi.","等级标准"],
+      ["{1|他}{2|没}{3|来}。","Tā méi lái.","Anh ấy không đến."]]}],
 cmp:[
  {vn:"Tôi không thích xem ti vi.", zh:"我[不]喜欢看电视。", py:"Wǒ bù xǐhuan kàn diànshì.", ok:true, why:"不 phủ định 喜欢, giống vị trí “không” tiếng Việt."}],
 ex:[

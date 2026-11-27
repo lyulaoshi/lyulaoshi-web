@@ -8,11 +8,11 @@ goals:[
 intro:"这 (gần) / 那 (xa) kết hợp với 么 và 样. <b>这么 / 那么</b> hay đứng trước tính từ (mức độ); <b>这样 / 那样</b> hay đứng trước động từ (cách thức).",
 rules:[
  {t:"这么 / 那么 + tính từ", sub:"程度", fx:[["这么 / 那么",null],["Tính từ",""]], mean:"… đến thế này / … đến thế. Hay dùng trong so sánh: A 有 B 那么 + Adj 【二58】.",
-  ex:[["你女朋友有她[那么]漂亮吗？","Nǐ nǚpéngyou yǒu tā nàme piàoliang ma?","Bạn gái bạn có xinh bằng cô ấy không?","等级标准"],
-      ["他哥哥有你[这么]高。","Tā gēge yǒu nǐ zhème gāo.","Anh trai cậu ấy cao bằng bạn (cao như thế này).","等级标准"]]},
+  ex:[["你女朋友有她{1|那么}{2|漂亮}吗？","Nǐ nǚpéngyou yǒu tā nàme piàoliang ma?","Bạn gái bạn có xinh bằng cô ấy không?","等级标准"],
+      ["他哥哥有你{1|这么}{2|高}。","Tā gēge yǒu nǐ zhème gāo.","Anh trai cậu ấy cao bằng bạn (cao như thế này).","等级标准"]]},
  {t:"这样 / 那样 + động từ", sub:"方式", fx:[["这样 / 那样",null],["Động từ",""]], mean:"Làm như thế này / như thế kia.",
-  ex:[["筷子不能[那样]拿。","Kuàizi bù néng nàyàng ná.","Đũa không được cầm như thế kia.","等级标准"],
-      ["这个汉字要[这样]写。","Zhège Hànzì yào zhèyàng xiě.","Chữ Hán này phải viết như thế này.","等级标准"]]}],
+  ex:[["筷子不能{1|那样}{2|拿}。","Kuàizi bù néng nàyàng ná.","Đũa không được cầm như thế kia.","等级标准"],
+      ["这个汉字要{1|这样}{2|写}。","Zhège Hànzì yào zhèyàng xiě.","Chữ Hán này phải viết như thế này.","等级标准"]]}],
 notes:[
  {t:"这样的 / 那样的 + danh từ", html:"<span class='zh'>我想买这样的衣服。</span> Tôi muốn mua quần áo như thế này."},
  {t:"Đứng một mình", html:"<span class='zh'>这样吧，……</span> (Thế này nhé, …); <span class='zh'>就这样。</span> (Cứ thế đi.)"}],

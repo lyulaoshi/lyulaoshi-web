@@ -8,11 +8,11 @@ goals:[
 intro:"Cụm số lượng = <b>số từ + lượng từ</b>. Nó thường đứng trước danh từ (三本书), nhưng khi người nghe đã biết danh từ thì có thể đứng một mình (我要两个).",
 rules:[
  {t:"Số từ + lượng từ", sub:"数词 + 量词", fx:[["Số từ","一、两、三…、几"],["Lượng từ",null]], mean:"Cụm số lượng hoàn chỉnh.",
-  ex:[["一[个]　两[杯]　三[本]","yí ge　liǎng bēi　sān běn","một cái　hai cốc　ba quyển","等级标准"],
-      ["四[包]　五[块]","sì bāo　wǔ kuài","bốn gói　năm miếng / năm đồng","等级标准"]]},
+  ex:[["{1|一}{2|个}　{1|两}{2|杯}　{1|三}{2|本}","yí ge　liǎng bēi　sān běn","một cái　hai cốc　ba quyển","等级标准"],
+      ["{1|四}{2|包}　{1|五}{2|块}","sì bāo　wǔ kuài","bốn gói　năm miếng / năm đồng","等级标准"]]},
  {t:"Cụm số lượng + danh từ / đứng một mình", sub:"作定语 · 作宾语", fx:[["Số + lượng từ",null],["(Danh từ)",""]], mean:"Trước danh từ làm định ngữ; đứng một mình làm tân ngữ khi ngữ cảnh đã rõ.",
-  ex:[["她买了[两杯]咖啡。","Tā mǎi le liǎng bēi kāfēi.","Cô ấy mua hai cốc cà phê."],
-      ["——你要几个？——我要[三个]。","—— Nǐ yào jǐ ge? —— Wǒ yào sān ge.","— Bạn muốn mấy cái? — Tôi muốn ba cái."]]}],
+  ex:[["她买了{1|两杯}{2|咖啡}。","Tā mǎi le liǎng bēi kāfēi.","Cô ấy mua hai cốc cà phê."],
+      ["——你要{1|几个}？——我要{1|三个}。","—— Nǐ yào jǐ ge? —— Wǒ yào sān ge.","— Bạn muốn mấy cái? — Tôi muốn ba cái."]]}],
 notes:[
  {t:"包 và 块", html:"<span class='zh'>包</span> = gói, túi (一包茶); <span class='zh'>块</span> = miếng (一块面包) hoặc đồng tiền (五块钱) 【一43】."}],
 cmp:[

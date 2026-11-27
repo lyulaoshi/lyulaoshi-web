@@ -8,8 +8,8 @@ goals:[
 intro:"Mỗi lượng từ gợi hình dạng hoặc loại của danh từ. Trật tự vẫn là <b>số / 这 / 那 + lượng từ + danh từ</b> 【一08】.",
 rules:[
  {t:"5 lượng từ mới", sub:"层、封、件、条、位", fx:[["Số",""],["层 / 封 / 件 / 条 / 位",null],["Danh từ",""]], mean:"<b>层</b> tầng (楼) · <b>封</b> bức, lá (信) · <b>件</b> chiếc áo; việc (衣服、事) · <b>条</b> vật dài (河、路、裤子、鱼) · <b>位</b> vị, người (lịch sự: 老师、客人).",
-  ex:[["两[层]楼　一[封]信　一[件]衣服","liǎng céng lóu　yì fēng xìn　yí jiàn yīfu","nhà hai tầng　một bức thư　một chiếc áo","等级标准"],
-      ["一[条]河　一[位]老师","yì tiáo hé　yí wèi lǎoshī","một con sông　một vị giáo viên","等级标准"]]}],
+  ex:[["{1|两}{2|层}{3|楼}　{1|一}{2|封}{3|信}　{1|一}{2|件}{3|衣服}","liǎng céng lóu　yì fēng xìn　yí jiàn yīfu","nhà hai tầng　một bức thư　một chiếc áo","等级标准"],
+      ["{1|一}{2|条}{3|河}　{1|一}{2|位}{3|老师}","yì tiáo hé　yí wèi lǎoshī","một con sông　một vị giáo viên","等级标准"]]}],
 notes:[
  {t:"Học mà chơi", html:"Bài tổng hợp mọi lượng từ HSK 1–3 theo hình dạng, kèm 2 trò chơi Xếp hàng vào hộp và Tiệm tạp hoá: <a href='/ngu-phap/luong-tu/'>Lượng từ 量词 →</a>"},
  {t:"件 cho “việc”", html:"<span class='zh'>一件事</span> = một việc, một chuyện."},

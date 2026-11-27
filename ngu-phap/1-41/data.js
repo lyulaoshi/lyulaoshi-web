@@ -8,11 +8,11 @@ goals:[
 intro:"了¹ đứng <b>ngay sau động từ</b>, cho biết hành động đã hoàn thành với một kết quả cụ thể (mấy cái, bao nhiêu). Xem thêm trợ từ 了 ở 【一21】.",
 rules:[
  {t:"V + 了 + số lượng + tân ngữ", sub:"完成", fx:[["Chủ ngữ",""],["Động từ",""],["了",null],["Số lượng + tân ngữ",""]], mean:"Nói đã làm xong bao nhiêu.",
-  ex:[["他买[了]两个面包。","Tā mǎi le liǎng ge miànbāo.","Anh ấy đã mua hai cái bánh mì.","等级标准"],
-      ["我喝[了]很多水。","Wǒ hē le hěn duō shuǐ.","Tôi đã uống rất nhiều nước.","等级标准"]]},
+  ex:[["{1|他}{2|买}{3|了}{4|两个面包}。","Tā mǎi le liǎng ge miànbāo.","Anh ấy đã mua hai cái bánh mì.","等级标准"],
+      ["{1|我}{2|喝}{3|了}{4|很多水}。","Wǒ hē le hěn duō shuǐ.","Tôi đã uống rất nhiều nước.","等级标准"]]},
  {t:"Phủ định: 没 + V (+ tân ngữ)", sub:"否定", fx:[["Chủ ngữ",""],["没",null],["Động từ + tân ngữ",""]], mean:"Bỏ 了 và bỏ số lượng.",
-  ex:[["他[没]买面包。","Tā méi mǎi miànbāo.","Anh ấy không mua bánh mì.","等级标准"],
-      ["我[没]喝水。","Wǒ méi hē shuǐ.","Tôi không uống nước.","等级标准"]]}],
+  ex:[["{1|他}{2|没}{3|买面包}。","Tā méi mǎi miànbāo.","Anh ấy không mua bánh mì.","等级标准"],
+      ["{1|我}{2|没}{3|喝水}。","Wǒ méi hē shuǐ.","Tôi không uống nước.","等级标准"]]}],
 notes:[
  {t:"了¹ hay 了²?", html:"<span class='zh'>我买了一本书。</span> (了¹ — đã mua <b>một quyển</b>: nhấn vào kết quả) · <span class='zh'>我买书了。</span> (了² — việc mua sách <b>đã xảy ra</b>: nhấn vào tình huống) 【一40】."},
  {t:"Tân ngữ trơn", html:"<span class='zh'>我买了书。</span> nghe chưa trọn — thêm số lượng (<span class='zh'>一本书</span>) hoặc vế sau (<span class='zh'>买了书就回家</span>)."}],

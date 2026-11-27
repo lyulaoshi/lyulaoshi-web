@@ -8,9 +8,9 @@ goals:[
 intro:"不仅 = 不光 (khẩu ngữ hơn) = “không chỉ”. Vế sau có 还 / 而且 / 也 = “mà còn”.",
 rules:[
  {t:"S + 不仅 / 不光 + V1，还 + V2", sub:"cùng chủ ngữ", fx:[["S",""],["不仅 / 不光",null],["V1",""],["·",""],["还 / 而且",null],["V2",""]], mean:"",
-  ex:[["那个地方我[不仅]去过，[还]去过好几次呢。","Nàge dìfang wǒ bùjǐn qù guo, hái qù guo hǎo jǐ cì ne.","Chỗ đó tôi không chỉ từng đi, mà còn đi mấy lần rồi.","等级标准"]]},
+  ex:[["那个地方{1|我}{2|不仅}{3|去过}，{4|还}{5|去过好几次呢}。","Nàge dìfang wǒ bùjǐn qù guo, hái qù guo hǎo jǐ cì ne.","Chỗ đó tôi không chỉ từng đi, mà còn đi mấy lần rồi.","等级标准"]]},
  {t:"不仅 / 不光 + S1 + V，而且 + S2 + 也 + V", sub:"khác chủ ngữ", fx:[["不仅 / 不光",null],["S1 + V",""],["·",""],["而且",null],["S2 也 V",""]], mean:"",
-  ex:[["[不光]我会说中文，[而且]我姐姐也会说中文。","Bùguāng wǒ huì shuō Zhōngwén, érqiě wǒ jiějie yě huì shuō Zhōngwén.","Không chỉ tôi biết nói tiếng Trung, mà chị tôi cũng biết.","等级标准"]]}],
+  ex:[["{1|不光}{2|我会说中文}，{3|而且}{4|我姐姐也会说中文}。","Bùguāng wǒ huì shuō Zhōngwén, érqiě wǒ jiějie yě huì shuō Zhōngwén.","Không chỉ tôi biết nói tiếng Trung, mà chị tôi cũng biết.","等级标准"]]}],
 cmp:[
  {vn:"Cô ấy không chỉ xinh mà còn thông minh.", zh:"她[不仅]漂亮，[而且]很聪明。", py:"Tā bùjǐn piàoliang, érqiě hěn cōngming.", ok:true, why:"Cùng chủ ngữ → 不仅 sau 她."}],
 ex:[

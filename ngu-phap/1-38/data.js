@@ -8,11 +8,11 @@ goals:[
 intro:"Đề cương HSK 1 có hai khung so sánh. Cả hai đều đặt <b>B trước tính từ</b>, ngược với “A cao <b>hơn B</b>”, “A không cao <b>bằng B</b>”.",
 rules:[
  {t:"A 比 B + tính từ", sub:"A比B＋形容词", fx:[["A",""],["比",null],["B",""],["Tính từ",""]], mean:"A … hơn B.",
-  ex:[["我朋友[比]我高。","Wǒ péngyou bǐ wǒ gāo.","Bạn tôi cao hơn tôi.","等级标准"],
-      ["这个手机[比]那个贵。","Zhège shǒujī bǐ nàge guì.","Cái điện thoại này đắt hơn cái kia.","等级标准"]]},
+  ex:[["{1|我朋友}{2|比}{3|我}{4|高}。","Wǒ péngyou bǐ wǒ gāo.","Bạn tôi cao hơn tôi.","等级标准"],
+      ["{1|这个手机}{2|比}{3|那个}{4|贵}。","Zhège shǒujī bǐ nàge guì.","Cái điện thoại này đắt hơn cái kia.","等级标准"]]},
  {t:"A 没有 B + tính từ", sub:"A没有B＋形容词", fx:[["A",""],["没有",null],["B",""],["Tính từ",""]], mean:"A không … bằng B (= B … hơn A).",
-  ex:[["昨天[没有]今天热。","Zuótiān méiyǒu jīntiān rè.","Hôm qua không nóng bằng hôm nay.","等级标准"],
-      ["这个书包[没有]那个好看。","Zhège shūbāo méiyǒu nàge hǎokàn.","Cái cặp này không đẹp bằng cái kia.","等级标准"]]}],
+  ex:[["{1|昨天}{2|没有}{3|今天}{4|热}。","Zuótiān méiyǒu jīntiān rè.","Hôm qua không nóng bằng hôm nay.","等级标准"],
+      ["{1|这个书包}{2|没有}{3|那个}{4|好看}。","Zhège shūbāo méiyǒu nàge hǎokàn.","Cái cặp này không đẹp bằng cái kia.","等级标准"]]}],
 notes:[
  {t:"Không dùng 很", html:"<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=c3b7e0d2#sai'/></svg> <span class='zh'>我朋友比我很高。</span>"},
  {t:"没有 hay 不比?", html:"Phủ định thông thường dùng <b>没有</b>. <span class='zh'>不比</span> mang ý “không hơn” (bằng nhau hoặc kém), dùng ở cấp cao hơn 【三58】."}],

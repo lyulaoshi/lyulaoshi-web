@@ -1,0 +1,45 @@
+/* 5 game Khảo Bài trên web: nút về Góc giáo viên, chân trang, hộp mở phần riêng. */
+.kb-ve{display:inline-flex;align-items:center;gap:8px;align-self:center;padding:5px 14px 5px 6px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--fg);font-weight:800;font-size:13.5px;text-decoration:none}
+.kb-ve img{width:34px;height:34px}
+.kb-chan{max-width:1180px;margin:14px auto 0;color:var(--muted);font-size:12.5px}
+#chan{touch-action:manipulation;-webkit-user-select:none;user-select:none}
+.rbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;max-width:1180px;margin:14px auto 0;padding:8px 10px 8px 14px;border-radius:999px;background:var(--panel);border:1px solid var(--line);font-size:13.5px;font-weight:700}
+.rbar .lli{width:18px;height:18px}
+.rbar button{margin-left:auto}
+dialog.khoaD{width:min(400px,calc(100vw - 24px));border:0;border-radius:22px;padding:20px;background:var(--panel);color:var(--fg);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog.khoaD::backdrop{background:rgba(20,20,35,.5)}
+.khoaD h2{margin:0 0 12px;font-size:19px}
+.khoaD form{display:grid;gap:12px}
+.khoaD label{display:grid;gap:4px;font-size:13px;font-weight:700;color:var(--muted)}
+.khoaD label.nho{display:flex;align-items:center;gap:8px;color:var(--fg)}
+.khoaD input[type=password]{font:inherit;font-size:16px;padding:11px 13px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--fg);min-width:0}
+.khoaD .info{margin:0;min-height:1.3em;color:var(--seal)}
+.khoaD .ft{display:flex;justify-content:space-between;gap:8px}
+.khoaD .btn.tl{background:var(--seal);color:var(--seal-fg);border-color:transparent}
+.toast{position:fixed;z-index:200;left:50%;bottom:22px;transform:translateX(-50%);width:max-content;max-width:calc(100vw - 32px);padding:11px 18px;border-radius:16px;background:var(--fg);color:var(--bg);font-size:14.5px;font-weight:700}
+.toast[hidden]{display:none}
+/* ô tích → công tắc */
+.wrap input[type=checkbox],.khoaD label.nho input{appearance:none;-webkit-appearance:none;position:relative;flex:none;width:38px;height:22px;margin:0 2px 0 0;border:0;border-radius:99px;background:color-mix(in srgb,var(--muted) 40%,transparent);cursor:pointer;transition:background .15s}
+.wrap input[type=checkbox]::after,.khoaD label.nho input::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:left .15s}
+.wrap input[type=checkbox]:checked,.khoaD label.nho input:checked{background:var(--good)}
+.wrap input[type=checkbox]:checked::after,.khoaD label.nho input:checked::after{left:19px}
+.wrap input[type=checkbox]:focus-visible,.khoaD label.nho input:focus-visible{outline:3px solid var(--seal);outline-offset:2px}
+/* ô chọn (GV.hop) */
+.hop{position:relative;display:inline-block;min-width:0;max-width:100%;color:var(--fg)}
+.hop-nut{display:flex;align-items:center;gap:8px;max-width:100%;padding:6px 8px 6px 13px!important;border-radius:999px!important;font-size:14px;text-align:left}
+.hop-nut span{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.hop-nut .lli{width:22px;height:22px;padding:4px;border-radius:50%;background:color-mix(in srgb,var(--seal) 14%,transparent);color:var(--seal);transition:transform .15s}
+.hop.mo .hop-nut .lli{transform:rotate(180deg)}
+.hop-ds{position:absolute;z-index:120;top:calc(100% + 6px);left:0;display:grid;gap:2px;width:max-content;min-width:100%;max-width:min(420px,calc(100vw - 40px));max-height:min(320px,55vh);overflow:auto;padding:6px;border:1px solid var(--line);border-radius:16px;background:var(--panel);box-shadow:0 14px 40px rgba(0,0,0,.28)}
+.hop-ds[hidden]{display:none}
+.bar .hop-ds{top:auto;bottom:calc(100% + 6px)}
+.hop-ds button{display:flex;align-items:center;gap:10px;min-width:0;padding:8px 12px!important;border:0;border-radius:11px;background:transparent;color:var(--fg);font-size:14px!important;text-align:left}
+.hop-ds button span{flex:1;min-width:0}
+.hop-ds button:hover,.hop-ds button:focus-visible,.hop-ds button[aria-selected="true"]{background:color-mix(in srgb,var(--seal) 12%,transparent)}
+.hop-ds button .lli{width:17px;height:17px;color:var(--seal)}
+/* ô số */
+.kb-so{display:inline-flex;align-items:center;gap:2px;padding:2px;border:1px solid var(--line);border-radius:999px;background:var(--panel)}
+.kb-so button{width:30px;height:30px;padding:0!important;border:0;border-radius:50%;background:color-mix(in srgb,var(--seal) 12%,transparent);color:var(--fg);font-size:17px!important;line-height:1}
+.wrap .kb-so input[type=number]{appearance:textfield;-moz-appearance:textfield;width:2.8em;min-width:0;padding:2px 0;border:0;border-radius:0;background:transparent;color:var(--fg);text-align:center;font-weight:700}
+.kb-so input::-webkit-inner-spin-button,.kb-so input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+.wrap input[type=search]{-webkit-appearance:none;appearance:none}

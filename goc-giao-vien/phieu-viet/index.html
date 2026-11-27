@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Phiếu tập viết 田字格 · Góc giáo viên – 吕老师汉语盒</title>
+<meta name="description" content="Tạo và in phiếu tập viết chữ Hán 田字格, 米字格, 回宫格, 九宫格 có thứ tự nét, chữ tô mờ, tuỳ chỉnh cỡ ô, màu kẻ, theo đúng bài giáo trình – Góc giáo viên, Lyu Laoshi Chinese Box.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
+<link rel="stylesheet" href="../../tro-choi/game.css?v=4">
+<script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="../gv.css?v=20">
+<link rel="stylesheet" href="../gv-giay.css?v=7">
+<style>
+/* ---------- Bảng tuỳ chỉnh ---------- */
+.bdk{display:flex;flex-direction:column;gap:10px;margin-top:14px;min-width:0}
+.muc{border-radius:20px;background:var(--card);box-shadow:var(--shadow);flex:none}
+.muc>summary{display:flex;align-items:center;gap:10px;padding:13px 16px;cursor:pointer;list-style:none;font-weight:800;font-size:15.5px}
+.muc>summary::-webkit-details-marker{display:none}
+.muc>summary i{display:grid;place-items:center;flex:none;width:32px;height:32px;border-radius:10px;font-style:normal;font-family:var(--hz);font-size:18px;color:var(--c);background:color-mix(in srgb,var(--c) 16%,var(--card))}
+.muc>summary .lli{margin-left:auto;width:18px;height:18px;color:var(--muted);transition:transform .15s}
+.muc[open]>summary .lli{transform:rotate(90deg)}
+.than{display:flex;flex-direction:column;gap:14px;padding:2px 16px 16px}
+.nhan{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:6px}
+.kieu{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:8px}
+.kieu button{display:grid;justify-items:center;gap:5px;min-width:0;padding:9px 4px 7px;font:inherit;font-size:12.5px;font-weight:700;color:var(--muted);border:2px solid var(--line);border-radius:14px;background:transparent;cursor:pointer}
+.kieu svg{width:44px;height:44px;border-radius:3px;background:#fff}
+.kieu button[aria-pressed="true"]{border-color:var(--teal);background:var(--teal-s);color:var(--ink)}
+.mau{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.mau button,.mau label{position:relative;width:32px;height:32px;padding:0;border:3px solid var(--card);border-radius:50%;background:var(--m);box-shadow:0 0 0 2px var(--line);cursor:pointer}
+.mau [aria-pressed="true"],.mau label.chon{box-shadow:0 0 0 3px var(--teal)}
+.mau label{background:conic-gradient(#e0545f,#e7a23a,#2e9e73,#3b87d6,#7c6bd6,#e0545f)}
+.mau label.chon{background:var(--m)}
+.mau input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.tr-dau{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:13px;font-weight:700;color:var(--muted)}
+.tr-dau output{font-size:14px;font-weight:800;color:var(--ink);text-align:right}
+.tr-than{display:flex;align-items:center;gap:8px;margin-top:6px}
+.tr-than button{flex:none;width:34px;height:34px;padding:0;font:700 19px/1 var(--vi);color:var(--ink);border:0;border-radius:11px;background:var(--ground2);cursor:pointer}
+.tr-than button:hover{background:var(--teal-s)}
+.tr-than button:disabled{opacity:.35;cursor:default}
+.tr-than input{flex:1;min-width:0;margin:0;accent-color:var(--teal);cursor:pointer}
+.gat{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14.5px;font-weight:600;cursor:pointer}
+.gat input{appearance:none;-webkit-appearance:none;position:relative;flex:none;width:44px;height:26px;margin:0;border-radius:99px;background:var(--line);cursor:pointer;transition:background .15s}
+.gat input::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:left .15s}
+.gat input:checked{background:var(--teal)}
+.gat input:checked::after{left:21px}
+.than input[type=text]{width:100%}
+.than .seg{align-self:flex-start}
+.cot-in{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+
+/* ---------- Trang phiếu ---------- */
+.dau{display:flex;justify-content:space-between;align-items:flex-end;gap:4mm;height:14mm;padding-bottom:2mm;border-bottom:.4mm solid #222}
+.dau b{min-width:0;font-size:4.6mm;font-weight:800;line-height:1.2}
+.dau b small{display:block;font-size:3.2mm;font-weight:600;color:#555}
+.dau span{margin-left:auto;font-size:3.4mm;white-space:nowrap}
+.chu{margin-top:4mm}
+.chu .tren{display:flex;align-items:center;gap:2mm;height:8mm}
+.chu .nghia{flex:none;width:58mm;font-size:3.1mm;overflow:hidden}
+.chu .nghia>span{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;line-height:1.3}
+.chu .nghia .phu{font-size:2.8mm;color:#555}
+.chu .nghia .phu i{font-style:normal;font-family:var(--kai);font-size:3.2mm;margin-right:1mm}
+.chu .nghia b{font-family:var(--kai);font-weight:400;font-size:4.4mm;margin-right:1.5mm}
+.chu .net{display:flex;align-items:center;min-width:0}
+.chu .net svg{display:block;flex:none}
+.hang{display:flex;justify-content:center}
+.hang svg{display:block;flex:none}
+.chan{position:absolute;left:5mm;right:5mm;bottom:5mm;text-align:center;font-size:2.8mm;color:#888}
+
+@media screen and (min-width:740px){
+  main.wrap{display:grid;grid-template-columns:clamp(272px,34vw,350px) minmax(0,1fr);grid-template-rows:auto auto auto 1fr;column-gap:16px}
+  main>.ph,main>#nguon{grid-column:1/-1}
+  .bdk{grid-column:1;grid-row:3/span 2;align-self:start;position:sticky;top:68px;max-height:calc(100vh - 80px);overflow:auto;padding:0 4px 12px 0;margin-right:-4px}
+  main>.inbar{grid-column:2;grid-row:3}
+  main>.xem{grid-column:2;grid-row:4;align-self:start}
+}
+@media print{main.wrap{display:block!important}}
+</style>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<link rel="canonical" href="https://lyulaoshi.com/goc-giao-vien/phieu-viet/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="Phiếu tập viết 田字格 · Góc giáo viên – 吕老师汉语盒"><meta property="og:description" content="Tạo và in phiếu tập viết chữ Hán 田字格, 米字格, 回宫格, 九宫格 có thứ tự nét, chữ tô mờ, tuỳ chỉnh cỡ ô, màu kẻ, theo đúng bài giáo trình – Góc giáo viên, Lyu Laoshi Chinese Box."><meta property="og:url" content="https://lyulaoshi.com/goc-giao-vien/phieu-viet/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <nav class="crumb"><a href="../" class="hide-s">Góc giáo viên</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
+</div></header>
+
+<main class="wrap">
+<section class="ph">
+  <a class="back" href="../"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#tg-trai"></use></svg>Góc giáo viên</a>
+  <h1>Phiếu tập viết<span lang="zh">田字格</span></h1>
+  <p>Chọn bài, chỉnh ô theo ý thầy cô, xem ngay trang giấy rồi in. Chữ lặp lại chỉ in một lần.</p>
+</section>
+<div id="nguon"></div>
+
+<aside class="bdk" id="bdk" aria-label="Tuỳ chỉnh phiếu">
+  <details class="muc" open style="--c:var(--sky)"><summary><i lang="zh">版</i>Mẫu giấy<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sau"></use></svg></summary><div class="than"><div id="sGiay" role="group" aria-label="Mẫu giấy"></div></div></details>
+  <details class="muc" open style="--c:var(--coral)"><summary><i lang="zh">格</i>Ô viết<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sau"></use></svg></summary><div class="than">
+    <div><span class="nhan">Kiểu ô</span><div class="kieu" id="sO" role="group" aria-label="Kiểu ô"></div></div>
+    <div><span class="nhan">Màu kẻ</span><div class="mau" id="sMau" role="group" aria-label="Màu kẻ ô"></div></div>
+    <div class="truot" data-k="co" data-min="10" data-max="30"></div>
+    <div class="truot" data-k="d" data-min="1" data-max="15"></div>
+  </div></details>
+  <details class="muc" open style="--c:var(--lav)"><summary><i lang="zh">描</i>Tô chữ<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sau"></use></svg></summary><div class="than">
+    <label class="gat">Chữ mẫu đậm ở ô đầu<input type="checkbox" role="switch" data-k="mau1"></label>
+    <label class="gat">Tập từng nét trước<input type="checkbox" role="switch" data-k="tung"></label>
+    <div class="truot" data-k="mo" data-min="0" data-max="60"></div>
+    <div class="truot" data-k="dam" data-min="8" data-max="60"></div>
+  </div></details>
+  <details class="muc" open style="--c:var(--teal)"><summary><i lang="zh">页</i>Trên trang giấy<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sau"></use></svg></summary><div class="than">
+    <div><span class="nhan">Khổ A4</span><span class="seg" id="sKho" role="group" aria-label="Chiều giấy"></span></div>
+    <div><span class="nhan">Thông tin ghi cho mỗi chữ</span><span class="seg" id="sTt" role="group" aria-label="Thông tin ghi cho mỗi chữ"></span></div>
+    <label class="gat">Thứ tự nét<input type="checkbox" role="switch" data-k="net"></label>
+    <label class="gat">Pinyin<input type="checkbox" role="switch" data-k="py"></label>
+    <label class="gat">Nghĩa tiếng Việt<input type="checkbox" role="switch" data-k="ng"></label>
+    <label class="gat">Dòng trống để viết pinyin<input type="checkbox" role="switch" data-k="dpy"></label>
+    <label class="gat">Chỗ ghi Họ tên, Lớp<input type="checkbox" role="switch" data-k="ten"></label>
+    <label><span class="nhan">Tiêu đề phiếu</span><input type="text" id="tTieu" maxlength="40"></label>
+  </div></details>
+  <details class="muc" style="--c:var(--peach)"><summary><i lang="zh">字</i>Chữ gõ thêm<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#sau"></use></svg></summary><div class="than">
+    <label><span class="nhan">Gõ chữ Hán muốn tập, ngoài bài đã chọn</span><input type="text" id="tThem" lang="zh" placeholder="Ví dụ: 永我爱"></label>
+    <label class="gat">Chỉ in các chữ gõ thêm<input type="checkbox" role="switch" data-k="chiThem"></label>
+  </div></details>
+  <button class="btn gh" type="button" id="bMac"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#lai"></use></svg>Về mặc định</button>
+</aside>
+
+<div class="inbar"><button class="btn tl lon" type="button" id="bIn" disabled><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=c3b7e0d2#cuon-giay"></use></svg>In / Lưu PDF</button><span id="ghi" aria-live="polite"></span></div>
+<div class="xem" id="xem"></div>
+</main>
+<footer class="wrap">© Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
+
+<script src="../../tu-vung/bai-data.js"></script>
+<script src="../../tro-choi/vuot-ai/co-de.js"></script>
+<script src="../gv.js?v=7"></script>
+<script src="../gv-tu.js?v=9"></script>
+<script src="chu-nghia.js?v=1"></script>
+<script src="chu.js?v=1"></script>
+<script>
+(function(){
+const {$,esc,store}=GV,{seg}=GVT;
+const MAC={o:'tian',mk:'#c9807a',co:15,d:1,mau1:true,tung:false,mo:3,dam:20,kho:'doc',tt:'ca',net:true,py:true,ng:true,dpy:false,ten:true,tieu:'Phiếu tập viết 写汉字',them:'',chiThem:false};
+const o=Object.assign({},MAC,store.get('gv-phieu')||{});
+const kep=(v,a,b)=>Math.max(a,Math.min(b,Math.round(+v)||0));
+o.co=kep(o.co,10,30);o.d=kep(o.d,1,15);o.mo=kep(o.mo,0,60);o.dam=kep(o.dam,8,60);if(!/^#[0-9a-f]{6}$/i.test(o.mk))o.mk=MAC.mk;
+const giay=()=>o.kho==='ngang'?{w:277,h:188}:{w:190,h:275};
+const soO=()=>Math.floor(giay().w/o.co);
+
+/* ---------- Kiểu ô: đường kẻ trong hệ toạ độ 1024 ---------- */
+const KIEU={tian:['田字格','M512 6V1018M6 512H1018'],mi:['米字格','M512 6V1018M6 512H1018M6 6L1018 1018M1018 6L6 1018'],
+  hui:['回宫格','M512 6V1018M6 512H1018M240 190H784V834H240Z'],jiu:['九宫格','M343 6V1018M681 6V1018M6 343H1018M6 681H1018'],vuong:['Ô trơn','']};
+const khung=(k,mau,day)=>{const n='stroke="'+mau+'" fill="none"';
+  return '<rect x="6" y="6" width="1012" height="1012" '+n+' stroke-width="'+12*(day||1)+'"/>'+(KIEU[k][1]?'<path d="'+KIEU[k][1]+'" '+n+' stroke-width="'+6*(day||1)+'" stroke-dasharray="'+(day?'70 46':'26 22')+'"/>':'')};
+
+/* ---------- Điều khiển ---------- */
+const NHAN={co:['Cỡ ô',v=>v+' mm · '+soO()+' ô một dòng'],d:['Số dòng mỗi chữ',v=>v+' dòng'],
+  mo:['Số ô chữ mờ',v=>v===0?'Không có':v>=o.d*soO()-(o.mau1?1:0)?'Tất cả ô':v+' ô'],dam:['Độ đậm chữ mờ',v=>v+'%']};
+document.querySelectorAll('.truot').forEach(el=>{const k=el.dataset.k,{min,max}=el.dataset;
+  el.innerHTML='<div class="tr-dau"><label for="r-'+k+'">'+NHAN[k][0]+'</label><output id="o-'+k+'"></output></div><div class="tr-than"><button type="button" data-b="-1" aria-label="Giảm '+NHAN[k][0]+'">−</button><input type="range" id="r-'+k+'" min="'+min+'" max="'+max+'" step="1"><button type="button" data-b="1" aria-label="Tăng '+NHAN[k][0]+'">+</button></div>';
+  const r=el.querySelector('input');r.oninput=()=>dat(k,+r.value);
+  el.querySelectorAll('button').forEach(b=>b.onclick=()=>dat(k,kep(+r.value+ +b.dataset.b,+r.min,+r.max)))});
+function dongBo(){
+  /* "ô chữ mờ" không vượt quá số ô còn lại của một chữ */
+  const toiDa=Math.min(60,o.d*soO()-(o.mau1?1:0));$('r-mo').max=toiDa;
+  document.querySelectorAll('.truot').forEach(el=>{const k=el.dataset.k,r=el.querySelector('input'),v=k==='mo'?Math.min(o.mo,toiDa):o[k];r.value=v;$('o-'+k).textContent=NHAN[k][1](v);
+    const [a,b]=el.querySelectorAll('button');a.disabled=v<=+r.min;b.disabled=v>=+r.max});
+  [...$('sO').children].forEach(b=>{b.setAttribute('aria-pressed',b.dataset.k===o.o);b.querySelector('svg').innerHTML=khung(b.dataset.k,o.mk,2.4)});
+  let co=false;$('sMau').querySelectorAll('button').forEach(b=>{const on=b.dataset.m===o.mk.toLowerCase();co=co||on;b.setAttribute('aria-pressed',on)});
+  const l=$('sMau').querySelector('label');l.classList.toggle('chon',!co);l.style.setProperty('--m',o.mk);$('cMau').value=o.mk}
+let hen=0;
+/* hẹn bằng setTimeout: requestAnimationFrame đứng yên khi trang đang bị che */
+function dat(k,v){o[k]=v;store.set('gv-phieu',o);dongBo();clearTimeout(hen);hen=setTimeout(ve,40)}
+$('sO').innerHTML=Object.entries(KIEU).map(([k,[t]])=>'<button type="button" data-k="'+k+'"><svg viewBox="0 0 1024 1024" aria-hidden="true"></svg><span>'+t+'</span></button>').join('');
+$('sO').onclick=e=>{const b=e.target.closest('button');if(b)dat('o',b.dataset.k)};
+$('sMau').innerHTML=[['#c9807a','Đỏ'],['#6aa97f','Xanh lá'],['#6d9bd1','Xanh dương'],['#a9a9b6','Xám'],['#333333','Đen']].map(([m,t])=>'<button type="button" data-m="'+m+'" style="--m:'+m+'" title="'+t+'" aria-label="Màu '+t+'"></button>').join('')
+  +'<label title="Chọn màu khác"><input type="color" id="cMau" aria-label="Chọn màu kẻ khác"></label>';
+$('sMau').onclick=e=>{const b=e.target.closest('button');if(b)dat('mk',b.dataset.m)};
+$('cMau').oninput=e=>dat('mk',e.target.value);
+function dieuKhien(){
+  seg($('sKho'),[['doc','Dọc'],['ngang','Ngang']],o.kho,v=>dat('kho',v));
+  seg($('sTt'),[['chu','Của chữ'],['tu','Của từ'],['ca','Cả hai']],o.tt,v=>dat('tt',v));
+  document.querySelectorAll('.gat input').forEach(i=>i.checked=o[i.dataset.k]);
+  $('tTieu').value=o.tieu;$('tThem').value=o.them}
+document.querySelectorAll('.gat input').forEach(i=>i.onchange=()=>dat(i.dataset.k,i.checked));
+$('tTieu').oninput=e=>dat('tieu',e.target.value);
+$('tThem').oninput=e=>dat('them',e.target.value);
+$('bMac').onclick=()=>{Object.assign(o,MAC);store.set('gv-phieu',o);dieuKhien();dongBo();ve();GV.toast('Đã về mặc định')};
+if(matchMedia('(max-width:739px)').matches)document.querySelectorAll('.muc').forEach((m,i)=>m.open=!i);
+/* đổi mẫu giấy thì màu kẻ ô đổi theo (vẫn chỉnh riêng được ở mục Ô viết) */
+const coMau=store.get('gv-giay'),mau=GVT.giay($('sGiay'),$('xem'),g=>dat('mk',g.ke));if(!coMau)o.mk=mau.ke;
+
+/* ---------- Dựng trang ---------- */
+const tai=GVT.net,VT=GVT.VT;
+const ma=c=>'h'+c.codePointAt(0);
+const duong=(ds,fill)=>ds.map((p,j)=>'<path d="'+p+'" fill="'+fill(j)+'"/>').join('');
+let tu=[],ten='',lan=0;
+const han=s=>[...s].filter(c=>/\p{Script=Han}/u.test(c));
+function dsChu(){const m=new Map();
+  if(!o.chiThem)tu.forEach(x=>han(x.z).forEach(c=>{if(!m.has(c))m.set(c,x)}));
+  han(o.them).forEach(c=>{if(!m.has(c))m.set(c,tu.find(x=>x.z.includes(c))||{z:c,p:'',vi:''})});
+  return m}
+const svg=(h,cao)=>'<svg viewBox="0 0 1024 '+(cao?460:1024)+'" width="'+o.co+'mm" height="'+(cao?(o.co*460/1024).toFixed(2):o.co)+'mm" aria-hidden="true">'+h+'</svg>';
+/* nội dung lần lượt của các ô một chữ: mẫu → tập từng nét → chữ mờ → ô trống */
+function cacO(c,d){const mo=o.dam/100,ds=[];
+  const chu=(fill,op)=>d?'<use href="#'+ma(c)+'" fill="'+fill+'" fill-opacity="'+op+'"/>':'<text x="512" y="860" text-anchor="middle" font-size="880" style="font-family:var(--kai)" fill="'+fill+'" fill-opacity="'+op+'">'+c+'</text>';
+  if(o.mau1)ds.push(chu('#111',1));
+  if(o.tung&&d)d.strokes.forEach((_,k)=>ds.push('<g transform="'+VT+'">'+d.strokes.slice(0,k+1).map((p,j)=>'<path d="'+p+'" fill="#000" fill-opacity="'+(j===k?Math.min(1,mo*2.6):mo)+'"/>').join('')+'</g>'));
+  for(let k=0;k<o.mo;k++)ds.push(chu('#000',mo));
+  return ds}
+function thuTu(d,rong){const s=Math.min(7,rong/d.strokes.length);
+  return d.strokes.map((_,k)=>'<svg viewBox="0 0 1024 1024" width="'+s+'mm" height="'+s+'mm" aria-hidden="true"><g transform="'+VT+'">'+duong(d.strokes.slice(0,k+1),j=>j===k?'#d11f1f':'#222')+'</g></svg>').join('')}
+/* cột thông tin bên trái dòng thứ tự nét: của chữ, của từ, hoặc cả hai */
+function thongTin(c,x,d){
+  const noi=a=>a.filter(Boolean).map(esc).join(' · ');
+  const dongTu=()=>'<span><b lang="zh">'+esc(x.z)+'</b>'+noi([o.py&&x.p,o.ng&&x.vi])+'</span>';
+  if(o.tt==='tu'&&x.p)return dongTu();
+  const don=x.z===c,k=CHU.cua(c,x),vi=don&&x.vi?x.vi:k.vi;
+  const dongChu='<span><b lang="zh">'+c+'</b>'+noi([o.py&&k.p,d&&d.strokes.length+' nét',o.ng&&vi])+'</span>';
+  if(o.tt!=='ca'||don||!x.p)return dongChu;
+  return dongChu+'<span class="phu"><i lang="zh">'+esc(x.z)+'</i>'+noi([o.py&&x.p,o.ng&&x.vi])+'</span>'}
+async function ve(){const l=++lan,chu=dsChu(),ds=[...chu.keys()];
+  if(!ds.length){$('xem').innerHTML='';$('bIn').disabled=true;$('ghi').textContent=o.chiThem?'Chưa gõ chữ Hán nào ở mục Chữ gõ thêm.':'Chưa chọn từ nào có chữ Hán.';return}
+  if(ds.some(c=>!GVT.coNet(c))){$('bIn').disabled=true;$('ghi').textContent='Đang lấy nét của '+ds.length+' chữ…'}
+  const net=await Promise.all(ds.map(tai));if(l!==lan)return;
+  const G=giay(),so=soO(),coDau=!!(o.tieu.trim()||o.ten),coTren=o.net||o.py||o.ng,coNghia=o.py||o.ng,haiDong=coNghia&&o.tt==='ca';
+  const caoTren=haiDong?10:8,rongNghia=haiDong?72:58;
+  const caoO=o.co*(o.dpy?1+460/1024:1),conLai=G.h-(coDau?14:0)-6;
+  /* xếp lần lượt từng dòng; chữ nhiều dòng được ngắt sang trang sau */
+  const trang=[];let khoi='',y=0;
+  const sang=()=>{trang.push(khoi);khoi='';y=0};
+  ds.forEach((c,i)=>{const d=net[i],x=chu.get(c),o_=cacO(c,d);let mo=false;
+    for(let r=0;r<o.d;r++){
+      const can=caoO+(r===0?4+(coTren?caoTren:0):mo?0:4);
+      if(y+can>conLai&&y>0){if(mo){khoi+='</div>';mo=false}sang()}
+      if(!mo){khoi+='<div class="chu">';mo=true;y+=4;
+        if(r===0&&coTren){y+=caoTren;
+          khoi+='<div class="tren" style="height:'+caoTren+'mm">'+(coNghia?'<div class="nghia" style="width:'+rongNghia+'mm">'+thongTin(c,x,d)+'</div>':'')+(o.net&&d?'<span class="net">'+thuTu(d,G.w-(coNghia?rongNghia+4:2))+'</span>':'')+'</div>'}}
+      if(o.dpy){const k=khung('vuong',o.mk).replace('height="1012"','height="448"')+'<path d="M6 230H1018" stroke="'+o.mk+'" fill="none" stroke-width="6" stroke-dasharray="26 22"/>';
+        khoi+='<div class="hang">'+svg(k,true).repeat(so)+'</div>'}
+      khoi+='<div class="hang">';
+      for(let j=0;j<so;j++)khoi+=svg(khung(o.o,o.mk)+(o_[r*so+j]||''));
+      khoi+='</div>';y+=caoO}
+    if(mo)khoi+='</div>'});
+  if(khoi)sang();
+  let html='<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'+ds.map((c,i)=>net[i]?'<g id="'+ma(c)+'" transform="'+VT+'">'+net[i].strokes.map(p=>'<path d="'+p+'"/>').join('')+'</g>':'').join('')+'</defs></svg>';
+  trang.forEach((t,n)=>{html+='<div class="trang" data-rong="'+(G.w+10)+'" style="width:'+(G.w+10)+'mm;height:'+(G.h+10)+'mm">'
+    +(coDau?'<div class="dau"><b>'+esc(o.tieu)+(o.chiThem||!o.tieu.trim()?'':'<small>'+esc(ten)+'</small>')+'</b>'+(o.ten?'<span>Họ tên: ........................................  Lớp: ..............</span>':'')+'</div>':'')
+    +t+'<div class="chan"><span class="web">© lyulaoshi.com · </span>'+(n+1)+' / '+trang.length+'</div></div>'});
+  $('inKho').textContent='@media print{@page{size:A4 '+(o.kho==='ngang'?'landscape':'portrait')+';margin:5mm}}';
+  $('xem').innerHTML=html;GVT.vuaTrang($('xem'));$('bIn').disabled=false;
+  const thieu=ds.filter((c,i)=>!net[i]);
+  $('ghi').textContent=ds.length+' chữ · '+trang.length+' trang A4 '+(o.kho==='ngang'?'ngang':'dọc')+'.'+(thieu.length?' Chưa lấy được nét của: '+thieu.join('、')+' (kiểm tra mạng).':'')}
+const st=document.createElement('style');st.id='inKho';document.head.append(st);
+$('bIn').onclick=()=>print();
+addEventListener('resize',()=>GVT.vuaTrang($('xem')));
+dieuKhien();dongBo();
+GVT.nguon($('nguon'),(list,t)=>{tu=list;ten=t;ve()});
+})();
+</script>
+<script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
+<!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
+<script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>
+</body>
+</html>

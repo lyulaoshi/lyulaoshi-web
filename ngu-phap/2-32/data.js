@@ -8,11 +8,11 @@ goals:[
 intro:"过 (guo, thanh nhẹ) đứng ngay sau động từ, cho biết người đó <b>đã từng</b> trải qua việc gì trong quá khứ.",
 rules:[
  {t:"V + 过 (+ số lần) + tân ngữ", sub:"过", fx:[["Chủ ngữ",""],["Động từ",""],["过",null],["(一次…) + tân ngữ",""]], mean:"Đã từng làm.",
-  ex:[["我去[过]一次中国。","Wǒ qù guo yí cì Zhōngguó.","Tôi đã từng đi Trung Quốc một lần.","等级标准"],
-      ["他学[过]一点儿中文。","Tā xué guo yìdiǎnr Zhōngwén.","Anh ấy từng học một chút tiếng Trung.","等级标准"]]},
+  ex:[["{1|我}{2|去}{3|过}{4|一次中国}。","Wǒ qù guo yí cì Zhōngguó.","Tôi đã từng đi Trung Quốc một lần.","等级标准"],
+      ["{1|他}{2|学}{3|过}{4|一点儿中文}。","Tā xué guo yìdiǎnr Zhōngwén.","Anh ấy từng học một chút tiếng Trung.","等级标准"]]},
  {t:"Phủ định: 没（有）+ V + 过", sub:"否定", fx:[["Chủ ngữ",""],["没（有）",null],["Động từ",""],["过",null],["tân ngữ",""]], mean:"Chưa từng. <b>Giữ</b> 过 (khác với 了 phải bỏ).",
-  ex:[["我[没]去[过]中国。","Wǒ méi qù guo Zhōngguó.","Tôi chưa từng đi Trung Quốc.","等级标准"],
-      ["他[没]学[过]中文。","Tā méi xué guo Zhōngwén.","Anh ấy chưa từng học tiếng Trung.","等级标准"]]}],
+  ex:[["{1|我}{2|没}{3|去}{4|过}{5|中国}。","Wǒ méi qù guo Zhōngguó.","Tôi chưa từng đi Trung Quốc.","等级标准"],
+      ["{1|他}{2|没}{3|学}{4|过}{5|中文}。","Tā méi xué guo Zhōngwén.","Anh ấy chưa từng học tiếng Trung.","等级标准"]]}],
 notes:[
  {t:"Câu hỏi", html:"<span class='zh'>你吃过烤鸭吗？/ 你吃过烤鸭没有？</span>"},
  {t:"过 và 了", html:"<span class='zh'>我吃了饺子。</span> (đã ăn — xong việc) · <span class='zh'>我吃过饺子。</span> (từng ăn — có kinh nghiệm). Xem 经历态 【二71】."}],

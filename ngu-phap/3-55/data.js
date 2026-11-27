@@ -8,9 +8,9 @@ goals:[
 intro:"Tiếng Việt “bị / được”; tiếng Trung dùng 被 (叫, 让 khẩu ngữ). Động từ sau đó <b>không đứng trơn</b>: cần 了, bổ ngữ…",
 rules:[
  {t:"O + 被 / 叫 / 让 + người + V + thành phần khác", sub:"被动", fx:[["Đối tượng",""],["被 / 叫 / 让",null],["người làm",""],["V + 坏 / 脏 / 了…",""]], mean:"",
-  ex:[["那个手机早[被]我用坏了。","Nàge shǒujī zǎo bèi wǒ yònghuài le.","Chiếc điện thoại đó bị tôi dùng hỏng từ lâu rồi.","等级标准"],
-      ["我的词典[叫]弟弟弄脏了。","Wǒ de cídiǎn jiào dìdi nòngzāng le.","Từ điển của tôi bị em trai làm bẩn rồi.","等级标准"],
-      ["他完全[让]这位姑娘迷住了。","Tā wánquán ràng zhè wèi gūniang mízhù le.","Anh ấy hoàn toàn bị cô gái này hớp hồn rồi.","等级标准"]]}],
+  ex:[["{1|那个手机}早{2|被}{3|我}{4|用坏了}。","Nàge shǒujī zǎo bèi wǒ yònghuài le.","Chiếc điện thoại đó bị tôi dùng hỏng từ lâu rồi.","等级标准"],
+      ["{1|我的词典}{2|叫}{3|弟弟}{4|弄脏了}。","Wǒ de cídiǎn jiào dìdi nòngzāng le.","Từ điển của tôi bị em trai làm bẩn rồi.","等级标准"],
+      ["{1|他}完全{2|让}{3|这位姑娘}{4|迷住了}。","Tā wánquán ràng zhè wèi gūniang mízhù le.","Anh ấy hoàn toàn bị cô gái này hớp hồn rồi.","等级标准"]]}],
 notes:[{t:"Phủ định", html:"没 đặt trước 被: <span class='zh'>我的钱包没被偷。</span>"}],
 cmp:[
  {vn:"Tôi bị thầy phê bình.", zh:"我[被]老师批评了。", py:"Wǒ bèi lǎoshī pīpíng le.", ok:true, why:"Trật tự giống tiếng Việt, có 了 cuối."},

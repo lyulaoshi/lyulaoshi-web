@@ -8,13 +8,13 @@ goals:[
 intro:"Tiếng Việt: “Hôm nay (là) thứ Sáu”, “Anh ấy 40 tuổi”. Tiếng Trung khẩu ngữ cũng lược “là”: danh từ / cụm số lượng <b>trực tiếp làm vị ngữ</b>.",
 rules:[
  {t:"Chủ ngữ + danh từ / số lượng", sub:"名词谓语", fx:[["Chủ ngữ",""],["Danh từ / số lượng / cụm danh từ",null]], mean:"Thời gian, thời tiết, tuổi, giá cả, quê quán, đặc điểm ngoại hình.",
-  ex:[["今天晴天。","Jīntiān qíngtiān.","Hôm nay trời nắng.","等级标准"],
-      ["明天星期五。","Míngtiān xīngqīwǔ.","Mai thứ Sáu.","等级标准"],
-      ["这儿怎么样？","Zhèr zěnmeyàng?","Chỗ này thế nào?","等级标准"],
-      ["他四十，女儿十六。","Tā sìshí, nǚ'ér shíliù.","Anh ấy 40, con gái 16.","等级标准"],
-      ["这本中文书二十五块。","Zhè běn Zhōngwén shū èrshíwǔ kuài.","Quyển sách tiếng Trung này 25 tệ.","等级标准"],
-      ["我北京人，今年二十五岁。","Wǒ Běijīng rén, jīnnián èrshíwǔ suì.","Tôi người Bắc Kinh, năm nay 25 tuổi.","等级标准"],
-      ["她高个子，黄头发，很漂亮。","Tā gāo gèzi, huáng tóufa, hěn piàoliang.","Cô ấy dáng cao, tóc vàng, rất xinh.","等级标准"]]}],
+  ex:[["{1|今天}{2|晴天}。","Jīntiān qíngtiān.","Hôm nay trời nắng.","等级标准"],
+      ["{1|明天}{2|星期五}。","Míngtiān xīngqīwǔ.","Mai thứ Sáu.","等级标准"],
+      ["{1|这儿}{2|怎么样}？","Zhèr zěnmeyàng?","Chỗ này thế nào?","等级标准"],
+      ["{1|他}{2|四十}，{1|女儿}{2|十六}。","Tā sìshí, nǚ'ér shíliù.","Anh ấy 40, con gái 16.","等级标准"],
+      ["{1|这本中文书}{2|二十五块}。","Zhè běn Zhōngwén shū èrshíwǔ kuài.","Quyển sách tiếng Trung này 25 tệ.","等级标准"],
+      ["{1|我}{2|北京人}，今年{2|二十五岁}。","Wǒ Běijīng rén, jīnnián èrshíwǔ suì.","Tôi người Bắc Kinh, năm nay 25 tuổi.","等级标准"],
+      ["{1|她}{2|高个子}，{2|黄头发}，很漂亮。","Tā gāo gèzi, huáng tóufa, hěn piàoliang.","Cô ấy dáng cao, tóc vàng, rất xinh.","等级标准"]]}],
 notes:[
  {t:"Phủ định", html:"<span class='zh'>明天不是星期五。</span> <span class='zh'>他不是四十岁。</span> — phải có 不是."}],
 cmp:[

@@ -142,6 +142,10 @@ h1{font-size:clamp(30px,4.6vw,46px);font-weight:800;line-height:1.1;margin-top:4
 <footer class="wrap">Cấp độ chữ theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · Bảng ghép chữ do Lyu Laoshi Chinese Box biên soạn · © Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../hsk-words.js"></script>
+<script src="../../tu-vung/bai-data.js"></script>
+<script src="../../tu-vung/chu-de.js"></script>
+<script src="../bo-tu.js?v=5"></script>
+<script src="../giao-bai.js?v=3"></script>
 <script src="../tts.js?v=2"></script>
 <script src="../vui.js?v=20261004"></script>
 <script src="../nhom-chu.js?v=1"></script>
@@ -286,7 +290,7 @@ function answer(ok,o,btn){
 $('quitBtn').onclick=()=>{if(alive)end()};
 function end(){window.TCX&&TCX.xong();
   if(!alive)return;alive=false;clearInterval(clockId);$('play').hidden=true;$('over').hidden=false;scrollTo(0,0);
-  const asked=qi-(locked?0:1),k=bestKey(),best=store.get(k)||0,rec=score>best;if(rec)store.set(k,score);
+  const asked=qi-(locked?0:1),k=bestKey(),best=store.get(k)||0,rec=score>best;if(rec)store.set(k,score);window.GIAOBAI&&GIAOBAI.xong(score,right);
   store.set('gb-levels',[...picked]);
   $('overTitle').textContent=mode==='rush'&&performance.now()>=rushEnd?'Hết 60 giây!':'Kết thúc!';
   $('finalScore').textContent=score;
