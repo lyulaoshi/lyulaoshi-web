@@ -1,6 +1,11 @@
 /* Khung bài ngữ pháp 语法盒 — mỗi điểm HSK 3.0 một bài (ngu-phap/<cấp>-<số>/index.html). Theo quy chuẩn giao diện shared/kit:
    pastel, bo tròn lớn, chữ Hán Khải thư (LXGW WenKai), 语言点 = lav, 练习 = peach, 例句 = sky, 偏误 = coral. */
 :root{--c:var(--teal);--cs:var(--teal-s);--kh:"LXGW WenKai","STKaiti","KaiTi","Kaiti SC",serif}
+/* Màu chữ đủ đậm để đọc (27/11/2026: vàng/xanh/cam gốc của game.css chỉ đạt 2–3:1). Mỗi màu đạt ≥ 4,5:1 trên nền thẻ, nền trang và nền
+   pastel cùng màu, ở cả hai nền. --tren = chữ đặt TRÊN khối màu đặc (sáng: trắng; tối: chữ sẫm). Cùng khối này có ở bai.css và index.html. */
+:root{--tren:#fff;--coral:#CA2532;--sky:#266CB5;--mint:#237858;--lav:#6955D0;--peach:#A95215;--butter:#83650D;--teal:#11757C;--rose:#BD306C;--muted:#64677D}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--tren:#15161F;--coral:#E5727B;--sky:#5D9CDD;--mint:#33AE7E;--lav:#9789DE;--peach:#E7823A;--butter:#C99A14;--teal:#19ABB7;--rose:#DB739F;--muted:#A9AAC0}}
+:root[data-theme="dark"]{--tren:#15161F;--coral:#E5727B;--sky:#5D9CDD;--mint:#33AE7E;--lav:#9789DE;--peach:#E7823A;--butter:#C99A14;--teal:#19ABB7;--rose:#DB739F;--muted:#A9AAC0}
 [hidden]{display:none!important}
 .np-bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:space-between;padding:18px 0 4px}
 .np-crumb{font-size:14px;color:var(--muted);display:flex;gap:6px;flex-wrap:wrap;align-items:center}
@@ -10,14 +15,14 @@
 .np-tools{position:fixed;right:max(14px,env(safe-area-inset-right));bottom:max(14px,env(safe-area-inset-bottom));z-index:30;display:flex;gap:2px;padding:3px;white-space:nowrap;
   background:color-mix(in srgb,var(--card) 82%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:999px;box-shadow:0 4px 14px rgba(40,30,80,.12)}
 .np-tools .lb{display:none}
-.np-tools .tg{border:0;background:none;color:var(--faint);font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;display:inline-flex;align-items:center;gap:5px;transition:background .15s,color .15s}
+.np-tools .tg{border:0;background:none;color:var(--muted);font-size:12px;font-weight:700;padding:5px 11px;border-radius:999px;display:inline-flex;align-items:center;gap:5px;transition:background .15s,color .15s}
 .np-tools .tg::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.45}
 .np-tools .tg[aria-pressed="true"]{background:var(--cs);color:var(--c);border:0}
 .np-tools .tg[aria-pressed="true"]::before{opacity:1}
 .np-tools .tg:hover{color:var(--c)}
 body{padding-bottom:64px}
 .tg{border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-weight:700;font-size:13.5px;padding:7px 13px;border-radius:999px;cursor:pointer}
-.tg[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.tg[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:var(--tren)}
 .tg.solid{background:var(--ink);border-color:var(--ink);color:var(--card)}
 
 .sec{background:var(--card);border-radius:26px;box-shadow:var(--shadow);padding:26px 28px;margin-top:22px;border-top:8px solid var(--sc,var(--c));--sc:var(--c);--ss:var(--cs)}
@@ -25,7 +30,7 @@ body{padding-bottom:64px}
 .sec.peach{--sc:var(--peach);--ss:var(--peach-s)} .sec.mint{--sc:var(--mint);--ss:var(--mint-s)} .sec.butter{--sc:var(--butter);--ss:var(--butter-s)}
 .sec>h2{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:21px;font-weight:800;margin-bottom:14px}
 .sec>h2 .zh{font-family:var(--hz);font-weight:400;color:var(--sc);font-size:24px}
-.sec>h2 .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:10px;background:var(--sc);color:#fff;font-size:15px;align-self:center}
+.sec>h2 .n{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:10px;background:var(--sc);color:var(--tren);font-size:15px;align-self:center}
 .sec p{line-height:1.65;margin:8px 0}
 .zh,.hz{font-family:var(--kh)}
 
@@ -37,7 +42,7 @@ body{padding-bottom:64px}
 .cover .d25 a{color:var(--c);text-decoration:none;overflow-wrap:anywhere}
 .cover .d25 .zh{font-size:15px}
 .cover .code{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:14px;font-weight:700;color:var(--muted)}
-.cover .code b{font-family:var(--kh);font-size:17px;color:#fff;background:var(--c);border-radius:10px;padding:3px 10px}
+.cover .code b{font-family:var(--kh);font-size:17px;color:var(--tren);background:var(--c);border-radius:10px;padding:3px 10px}
 .cover h1{font-family:"ZCOOL KuaiLe",var(--hz);font-weight:400;font-size:clamp(42px,8vw,86px);line-height:1.1;margin:10px 0 4px;color:var(--c);overflow-wrap:anywhere}
 .cover h1 .qm{color:var(--coral)}
 .cover .vi{font-size:clamp(18px,2.4vw,23px);font-weight:800}
@@ -52,18 +57,18 @@ body{padding-bottom:64px}
 .fx{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin:12px 0 6px}
 .fx span{display:grid;justify-items:center;gap:3px}
 .fx b{font-family:var(--kh);font-weight:400;font-size:24px;line-height:1.2;padding:6px 14px;border-radius:14px;border:2px dashed var(--sc);color:var(--ink);background:var(--card);white-space:nowrap}
-.fx .k b{background:var(--sc);border:2px solid var(--sc);color:#fff}
+.fx .k b{background:var(--sc);border:2px solid var(--sc);color:var(--tren)}
 /* công thức tô màu: ô thứ n ↔ {n|…} trong câu ví dụ */
 .fx.col .s1{--q:var(--sky);--qs:var(--sky-s)} .fx.col .s2{--q:var(--coral);--qs:var(--coral-s)} .fx.col .s3{--q:var(--butter);--qs:var(--butter-s)}
 .fx.col .s4{--q:var(--mint);--qs:var(--mint-s)} .fx.col .s5{--q:var(--rose);--qs:var(--rose-s)} .fx.col .s6{--q:var(--teal);--qs:var(--teal-s)}
 .fx.col b{border:2px solid var(--q);background:var(--qs);border-radius:14px 14px 14px 4px}
-.fx.col .k b{background:var(--q);border-color:var(--q);color:#fff}
+.fx.col .k b{background:var(--q);border-color:var(--q);color:var(--tren)}
 .fx.col i{color:var(--q);font-weight:700}
 .sg{border-radius:7px;padding:0 3px;margin:0 1px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .sg.s1{--q:var(--sky);--qs:var(--sky-s)} .sg.s2{--q:var(--coral);--qs:var(--coral-s)} .sg.s3{--q:var(--butter);--qs:var(--butter-s)}
 .sg.s4{--q:var(--mint);--qs:var(--mint-s)} .sg.s5{--q:var(--rose);--qs:var(--rose-s)} .sg.s6{--q:var(--teal);--qs:var(--teal-s)}
 .sg{background:var(--qs);color:var(--q);box-shadow:inset 0 -3px 0 color-mix(in srgb,var(--q) 45%,transparent)}
-.fx .plus{align-self:center;color:var(--faint);font-weight:800;padding:0 2px}
+.fx .plus{align-self:center;color:var(--muted);font-weight:800;padding:0 2px}
 .fx i{font-style:normal;font-size:12px;color:var(--muted);text-align:center;max-width:120px;line-height:1.25}
 .rule .mean{color:var(--muted);font-size:15px}
 .rule .ex{margin-top:10px}
@@ -79,7 +84,7 @@ body{padding-bottom:64px}
 .sn .z mark{background:none;color:var(--sc);font-weight:700;border-bottom:3px solid color-mix(in srgb,var(--sc) 40%,transparent)}
 .sn .p{font-size:15px;color:var(--sc);margin-top:1px}
 .sn .v{font-size:15px;color:var(--muted)}
-.sn .src{font-size:11px;font-weight:700;color:var(--faint);border:1px solid var(--line);border-radius:6px;padding:1px 6px;white-space:nowrap}
+.sn .src{font-size:11px;font-weight:700;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:1px 6px;white-space:nowrap}
 body.hide-py .sn .p,body.hide-vi .sn .v{visibility:hidden;height:0;overflow:hidden;display:block}
 .spk{border:0;background:var(--ss,var(--ground2));color:var(--sc,var(--c));width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;flex:none;align-self:center}
 
@@ -123,7 +128,7 @@ body.hide-py .sn .p,body.hide-vi .sn .v{visibility:hidden;height:0;overflow:hidd
 .chip.used{opacity:.25;pointer-events:none}
 .line .chip{background:var(--card)}
 .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-.btn2{border:0;background:var(--sc);color:#fff;font:inherit;font-weight:700;font-size:14px;padding:7px 14px;border-radius:999px;cursor:pointer}
+.btn2{border:0;background:var(--sc);color:var(--tren);font:inherit;font-weight:700;font-size:14px;padding:7px 14px;border-radius:999px;cursor:pointer}
 .btn2.ghost{background:var(--ground2);color:var(--ink)}
 .ans{margin-top:8px;background:var(--mint-s);border-radius:12px;padding:8px 12px}
 .ans .z{font-family:var(--kh);font-size:21px;color:var(--mint)}
