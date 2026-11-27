@@ -1,5 +1,6 @@
-/* Gọi tên khảo bài — khung cảnh "Trung tâm Hoa văn SHZ" (vẽ theo ảnh chụp mặt tiền, logo chính thức của trung tâm).
-   Nạp sau mã game: thêm SG_SCENES.shz; mục chọn nằm trong index.html. Sửa thì tăng ?v=. */
+/* Game Khảo Bài — khung cảnh "Trung tâm Hoa văn SHZ" (vẽ theo ảnh chụp mặt tiền, logo chính thức của trung tâm).
+   Dùng chung cho Gọi tên và Zombie (thêm SG_SCENES.shz).
+   Nạp sau mã game; mục chọn nằm trong index.html của từng game. Sửa thì tăng ?v= ở cả 2 trang. */
 (function(){
 const DO='#e0121d';
 const chu=(t,x,y,fs,col,o={})=>{ctx.save();ctx.fillStyle=col;ctx.font=`${o.w||800} ${fs}px ${o.f||'"Be Vietnam Pro",system-ui,sans-serif'}`;ctx.textAlign=o.a||'center';ctx.textBaseline='middle';
@@ -101,7 +102,8 @@ function trungTam(){
 
 function bgShz(){
   /* khung cảnh này chân nhà thấp hơn → học sinh đi ở phía trước, không che mặt tiền */
-  const xuong=y=>y<438?438+(y-322)*.45:y;
+  /* ai đã ở phía trước thì chỉ chặn tại vạch 438 (game có đuổi bắt, kéo ngược lên cũng không bị giật xuống) */
+  const xuong=y=>y>=438?y:y>424?438:438+(y-322)*.45;
   studs.forEach(st=>{if(st.state==='walk'){st.gy=xuong(st.gy);if(st.ty)st.ty=xuong(st.ty)}});
   drawSkyC();o(0,329,W,NEN-325,C('#d8ecf8','#2a2f58'));
   ctx.save();ctx.translate(500,NEN);ctx.scale(TL,TL);ctx.translate(-901,-1350);hangXom();ctx.restore();

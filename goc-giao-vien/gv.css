@@ -3,6 +3,7 @@
 html{scroll-behavior:smooth}[id]{scroll-margin-top:72px}
 [lang="zh"]{font-family:var(--kai)}
 .lh-art text{font-family:var(--hz)}
+.lh-art text[font-family]{font-family:var(--vi)}   /* pinyin trong hình: phông có đủ dấu thanh, không dùng phông chữ Hán */
 .sec{margin-top:30px}
 .sh{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;margin-bottom:12px}
 .sh h2{font-size:clamp(20px,2.4vw,25px);font-weight:800;line-height:1.2}
@@ -321,3 +322,6 @@ body.hm .t .rg{left:54px;top:8px}
 @media (max-width:1100px){.quick2{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:620px){.quick2{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.quick2 small:not(.zh){display:none}.quick2 a{padding:10px 4px 8px}}
 .hd-lk{display:inline-flex;align-items:center;gap:8px;justify-self:start;align-self:flex-start;width:max-content;margin-top:12px;text-decoration:none}
+/* tên web cạnh logo cũng mang lớp .t — trả về kiểu chữ trơn của thanh đầu trang, không thành thẻ công cụ */
+.top .brand .t{position:static;display:grid;gap:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:inherit;line-height:1.15;transition:none}
+.top .brand .t b{font-size:14px;line-height:1.15}

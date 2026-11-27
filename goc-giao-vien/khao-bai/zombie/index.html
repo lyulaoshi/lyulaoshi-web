@@ -92,7 +92,7 @@ td:not(:first-child),th:not(:first-child){text-align:right}
   <div class="bar" id="bar">
     <button class="big" id="start">Bắt đầu dịch!</button>
     <label>Số zombie cuối cùng <input type="number" id="num" min="3" max="12" value="5"></label>
-    <label>Khung cảnh <select id="bgsel"><option value="ngatu">Ngã tư quận 1</option><option value="benthanh">Chợ Bến Thành</option><option value="metro">Ga Metro</option><option value="nguyenhue">Phố đi bộ Nguyễn Huệ</option><option value="ducba">Nhà thờ Đức Bà</option><option value="beach">Bãi biển</option><option value="street">Phố Sài Gòn</option></select></label>
+    <label>Khung cảnh <select id="bgsel"><option value="ngatu">Ngã tư quận 1</option><option value="benthanh">Chợ Bến Thành</option><option value="metro">Ga Metro</option><option value="nguyenhue">Phố đi bộ Nguyễn Huệ</option><option value="ducba">Nhà thờ Đức Bà</option><option value="beach">Bãi biển</option><option value="street">Phố Sài Gòn</option><option value="shz">Trung tâm Hoa văn SHZ</option></select></label>
     <label>Tốc độ lây <select id="fuse"><option value="slow">Chậm</option><option value="mid">Vừa</option><option value="fast">Nhanh</option></select></label>
     <label><input type="checkbox" id="snd" checked> Âm thanh</label>
     <label>Màu áo <select id="uni"><option value="p-tron">Nhiều màu</option><option value="p-ngoc">Xanh ngọc</option><option value="p-hong">San hô</option><option value="p-tim">Tím</option><option value="p-trang">Trắng</option></select></label>
@@ -1394,6 +1394,7 @@ try{JSON.parse(store.get("gt_absent")||"[]").forEach(n=>absent.add(n))}catch(e){
 syncStudents();refreshPresent();renderScore();renderAbsent();resize();
 requestAnimationFrame(loop);
 </script>
+<script src="../shz.js?v=3"></script>
 <script>window.LL_KHOA={"file":"rieng.khoa.json?v=7d1ffb22","js":"/chung/khoa.js?v=2270e8d0"}</script>
 <script>KB.khoiDong()</script>
 
