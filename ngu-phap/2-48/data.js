@@ -7,7 +7,7 @@ goals:[
  "Phủ định phải thêm <b>不是</b>."],
 intro:"Tiếng Việt: “Hôm nay (là) thứ Sáu”, “Anh ấy 40 tuổi”. Tiếng Trung khẩu ngữ cũng lược “là”: danh từ / cụm số lượng <b>trực tiếp làm vị ngữ</b>.",
 rules:[
- {t:"Chủ ngữ + danh từ / số lượng", sub:"名词谓语", fx:[["Chủ ngữ",""],["Danh từ / số lượng / cụm danh từ",null]], mean:"Thời gian, thời tiết, tuổi, giá cả, quê quán, đặc điểm ngoại hình.",
+ {cap:[1,2], t:"Chủ ngữ + danh từ / số lượng", sub:"名词谓语", fx:[["Chủ ngữ",""],["Danh từ / số lượng / cụm danh từ",null]], mean:"Thời gian, thời tiết, tuổi, giá cả, quê quán, đặc điểm ngoại hình.",
   ex:[["{1|今天}{2|晴天}。","Jīntiān qíngtiān.","Hôm nay trời nắng.","等级标准"],
       ["{1|明天}{2|星期五}。","Míngtiān xīngqīwǔ.","Mai thứ Sáu.","等级标准"],
       ["{1|这儿}{2|怎么样}？","Zhèr zěnmeyàng?","Chỗ này thế nào?","等级标准"],

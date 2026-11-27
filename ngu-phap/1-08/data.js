@@ -7,14 +7,14 @@ goals:[
  "Biết những chỗ tiếng Việt không dùng loại từ nhưng tiếng Trung bắt buộc có."],
 intro:"Giống tiếng Việt (“ba <b>quyển</b> sách”), giữa số và danh từ phải có <b>lượng từ</b>. Mỗi danh từ có lượng từ quen dùng; 个 là lượng từ chung.",
 rules:[
- {t:"Số + lượng từ + danh từ", sub:"数词 + 量词 + 名词", fx:[["Số / 这 / 那 / 几",""],["Lượng từ",null],["Danh từ",""]], mean:"Không bỏ lượng từ: <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=70219054#sai'/></svg> 三书 → 三本书.",
+ {cap:[1,2], t:"Số + lượng từ + danh từ", sub:"数词 + 量词 + 名词", fx:[["Số / 这 / 那 / 几",""],["Lượng từ",null],["Danh từ",""]], mean:"Không bỏ lượng từ: <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=70219054#sai'/></svg> 三书 → 三本书.",
   ex:[["{1|两}{2|杯}{3|牛奶}　{1|三}{2|本}{3|书}　{1|四}{2|个}{3|学生}","liǎng bēi niúnǎi　sān běn shū　sì ge xuésheng","hai cốc sữa　ba quyển sách　bốn học sinh","等级标准"],
       ["{1|五}{2|家}{3|商店}　{1|六}{2|间}{3|房子}","wǔ jiā shāngdiàn　liù jiān fángzi","năm cửa hàng　sáu gian phòng","等级标准"],
       ["{1|三}{2|口}{3|人}　{1|七}{2|块}{3|面包}","sān kǒu rén　qī kuài miànbāo","(nhà) ba người　bảy miếng bánh mì","等级标准"]]},
- {t:"Lượng từ nào đi với danh từ nào?", sub:"搭配", fx:[["杯 · 本 · 个 · 家",null],["·",""],["间 · 口 · 块 · 页",null]], mean:"<b>杯</b> cốc, ly (茶、水、牛奶) · <b>本</b> quyển (书、本子) · <b>个</b> cái, người (chung) · <b>家</b> cửa hàng, công ty, nhà hàng · <b>间</b> gian phòng · <b>口</b> người trong gia đình · <b>块</b> miếng, cục; đồng (tiền) · <b>页</b> trang",
+ {cap:[1,2], t:"Lượng từ nào đi với danh từ nào?", sub:"搭配", fx:[["杯 · 本 · 个 · 家",null],["·",""],["间 · 口 · 块 · 页",null]], mean:"<b>杯</b> cốc, ly (茶、水、牛奶) · <b>本</b> quyển (书、本子) · <b>个</b> cái, người (chung) · <b>家</b> cửa hàng, công ty, nhà hàng · <b>间</b> gian phòng · <b>口</b> người trong gia đình · <b>块</b> miếng, cục; đồng (tiền) · <b>页</b> trang",
   ex:[["我家有四{2|口}人。","Wǒ jiā yǒu sì kǒu rén.","Nhà tôi có bốn người."],
       ["请看第十{2|页}。","Qǐng kàn dì shí yè.","Mời xem trang 10."]]},
- {t:"元：đơn vị tiền", sub:"元 = 块", fx:[["Số",""],["元",null]], mean:"元 dùng trên bảng giá, văn viết; khẩu ngữ nói 块.",
+ {cap:[1], t:"元：đơn vị tiền", sub:"元 = 块", fx:[["Số",""],["元",null]], mean:"元 dùng trên bảng giá, văn viết; khẩu ngữ nói 块.",
   ex:[["这本书{1|二十}{2|元}。", "Zhè běn shū èrshí yuán.", "Quyển sách này 20 tệ."],
       ["一共{1|一百}{2|元}。", "Yígòng yìbǎi yuán.", "Tổng cộng 100 tệ."]]}],
 notes:[

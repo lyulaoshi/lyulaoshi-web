@@ -11,9 +11,10 @@
 <link rel="stylesheet" href="/chung/ic.css?v=0fb5dc3e">
 <link rel="stylesheet" href="/chung/hero.css?v=f1ff4577">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/chung/chu-viet.css?v=69d18d68">
 <style>
 @font-face{font-family:"LyuKai";font-display:swap;src:url(kai.woff?v=17bb6738) format("woff")}
-:root{--c:var(--butter);--cs:var(--butter-s);--kai:"LyuKai","STKaiti","KaiTi","Kaiti SC",serif}
+:root{--c:var(--butter);--cs:var(--butter-s);--kai:"KhViet","LyuKai","STKaiti","KaiTi","Kaiti SC",serif}
 [hidden]{display:none!important}
 .zh{font-family:var(--kai)}
 .steps4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 0}
@@ -26,6 +27,8 @@
 .tab[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
 .bais{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:16px}
 .bai{background:var(--card);border-radius:22px;box-shadow:var(--shadow);padding:18px}
+.bais>.nhom{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:14px 0 0;font-size:22px;font-weight:400}.bais>.nhom:first-child{margin-top:0}
+.nhom .zh{font-family:var(--hz);color:var(--ink)}.nhom small{font-family:var(--vi);font-size:14px;color:var(--muted);font-weight:600}
 .bai-h{display:flex;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted);font-weight:600}
 .hsk{background:var(--cs);color:var(--c);border-radius:999px;padding:0 10px;font-weight:800}
 .bai h3{font-size:24px;margin:4px 0 12px;font-weight:400}.bai h3 small{font-family:var(--vi);font-size:14px;color:var(--muted);font-weight:600}
@@ -227,7 +230,7 @@ div.line{cursor:default}
 </main>
 
 <script src="data.js?v=3"></script>
-<script src="nn.js?v=3"></script>
+<script src="nn.js?v=4"></script>
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');

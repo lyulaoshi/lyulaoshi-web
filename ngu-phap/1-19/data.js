@@ -7,10 +7,10 @@ goals:[
  "Dùng <b>还是</b> trong câu hỏi lựa chọn (A hay B?)."],
 intro:"和、跟 ở đây là <b>liên từ</b>: nối các danh từ ngang hàng. 还是 nối hai khả năng trong <b>câu hỏi</b>.",
 rules:[
- {t:"A 和 / 跟 B (danh từ, đại từ)", sub:"和² · 跟²", fx:[["Danh từ A",""],["和 / 跟",null],["Danh từ B",""]], mean:"Nhiều người / vật cùng làm chủ ngữ hoặc tân ngữ; hay đi với 都.",
+ {cap:[1,2], t:"A 和 / 跟 B (danh từ, đại từ)", sub:"和² · 跟²", fx:[["Danh từ A",""],["和 / 跟",null],["Danh từ B",""]], mean:"Nhiều người / vật cùng làm chủ ngữ hoặc tân ngữ; hay đi với 都.",
   ex:[["{1|爸爸}{2|跟}{3|妈妈}都不在家。","Bàba gēn māma dōu bú zài jiā.","Bố và mẹ đều không ở nhà.","等级标准"],
       ["{1|我}{2|和}{3|弟弟}都学习中文。","Wǒ hé dìdi dōu xuéxí Zhōngwén.","Tôi và em trai đều học tiếng Trung.","等级标准"]]},
- {t:"A 还是 B？", sub:"还是", fx:[["(Chủ ngữ) V + A",""],["还是",null],["(V) + B","？"]], mean:"Hỏi chọn một trong hai. Câu có 还是 <b>không thêm 吗</b> 【一47】.",
+ {cap:[2], t:"A 还是 B？", sub:"还是", fx:[["(Chủ ngữ) V + A",""],["还是",null],["(V) + B","？"]], mean:"Hỏi chọn một trong hai. Câu có 还是 <b>không thêm 吗</b> 【一47】.",
   ex:[["{1|你喝茶}{2|还是}{3|喝水}？","Nǐ hē chá háishi hē shuǐ?","Bạn uống trà hay uống nước?","等级标准"],
       ["{1|你是老师}{2|还是}{3|学生}？","Nǐ shì lǎoshī háishi xuésheng?","Bạn là giáo viên hay học sinh?"]]}],
 notes:[

@@ -7,13 +7,13 @@ goals:[
  "Dùng <b>重新</b> (làm lại từ đầu)."],
 intro:"Các phó từ này đứng <b>trước động từ</b>. Điểm dễ nhầm nhất: <b>又</b> (đã lại) và <b>再</b> (sẽ lại).",
 rules:[
- {t:"经常 · 老 · 老是", sub:"频率", fx:[["Chủ ngữ",""],["经常 / 老 / 老是",null],["Động từ",""]], mean:"经常 thường xuyên (trung tính) · 老 / 老是 cứ, lúc nào cũng (thường mang ý không vừa lòng).",
+ {cap:[2,4,5], t:"经常 · 老 · 老是", sub:"频率", fx:[["Chủ ngữ",""],["经常 / 老 / 老是",null],["Động từ",""]], mean:"经常 thường xuyên (trung tính) · 老 / 老是 cứ, lúc nào cũng (thường mang ý không vừa lòng).",
   ex:[["{1|我}{2|经常}{3|看见他在图书馆学习}。","Wǒ jīngcháng kànjiàn tā zài túshūguǎn xuéxí.","Tôi thường thấy anh ấy học ở thư viện.","等级标准"],
       ["这个汉字有点儿难，{1|我}{2|老}{3|写错}。","Zhège Hànzì yǒudiǎnr nán, wǒ lǎo xiěcuò.","Chữ Hán này hơi khó, tôi cứ viết sai.","等级标准"],
       ["{1|这个月北京}{2|老是}{3|下雨}。","Zhège yuè Běijīng lǎoshì xià yǔ.","Tháng này Bắc Kinh cứ mưa suốt.","等级标准"]]},
- {t:"又: lại (đã lặp lại)", sub:"又", fx:[["Chủ ngữ",""],["又",null],["Động từ","(+了)"]], mean:"Việc lặp lại <b>đã xảy ra</b>.",
+ {cap:[3], t:"又: lại (đã lặp lại)", sub:"又", fx:[["Chủ ngữ",""],["又",null],["Động từ","(+了)"]], mean:"Việc lặp lại <b>đã xảy ra</b>.",
   ex:[["{1|我们队}{2|又}{3|进了一个球}。","Wǒmen duì yòu jìn le yí ge qiú.","Đội chúng ta lại ghi thêm một bàn.","等级标准"]]},
- {t:"重新: (làm) lại từ đầu", sub:"重新", fx:[["Chủ ngữ",""],["重新",null],["Động từ",""]], mean:"Làm lại một lần nữa, thường vì lần trước chưa tốt.",
+ {cap:[4], t:"重新: (làm) lại từ đầu", sub:"重新", fx:[["Chủ ngữ",""],["重新",null],["Động từ",""]], mean:"Làm lại một lần nữa, thường vì lần trước chưa tốt.",
   ex:[["这篇作文{1|我}要{2|重新}{3|写一遍}。","Zhè piān zuòwén wǒ yào chóngxīn xiě yí biàn.","Bài văn này tôi phải viết lại một lượt.","等级标准"]]}],
 notes:[
  {t:"又 hay 再?", html:"<span class='zh'>他昨天来了，今天又来了。</span> (đã) · <span class='zh'>欢迎你明天再来。</span> (sẽ) 【一12】."}],

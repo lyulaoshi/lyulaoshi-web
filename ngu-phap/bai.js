@@ -48,7 +48,9 @@ html+=`<section class="sec cover" id="m0"><div>${GLY?`<div class="gly n${Math.mi
   <p class="d25">${P25.length?`Đề thi HSK mới: ${P25.map(d=>`<a href="../#hsk-${d[0].split(".")[0]}"><b>HSK ${d[0].replace(/^7\./,"7–9 · ")}</b> ${esc(d[3].split(" — ")[0])}</a>`).join(" · ")}`:`Đề thi HSK mới (2025): ${LV25==="?"?"đề cương không ghi điểm này"+(THEM?" — xếp bổ sung ở HSK "+THEM:""):"thuộc HSK "+esc(LV25)}`}</p></div>
   <div class="goal"><h3>Mục tiêu</h3><ul>${(L.goals||[]).map(g=>`<li>${g}</li>`).join('')}</ul></div></section>`;
 
-if(L.rules) html+=sec("lav","语法规则","Công thức & cách dùng",(L.intro?`<p>${L.intro}</p>`:"")+L.rules.map((r,i)=>`<div class="rule"><h3>${L.rules.length>1?`<span style="color:var(--sc)">${i+1}.</span>`:""}${esc(r.t)}${r.sub?`<small>${esc(r.sub)}</small>`:""}</h3>
+// Bài dùng chung nhiều cấp HSK: mỗi phần có cap:[cấp…] (đề cương 2025) → nhãn cấp + bảng "cấp nào học phần nào"
+const TEN_CAP=c=>c===7?"7–9":c, nhanCap=r=>(r.cap||[]).map(c=>`<span class="cap kc${c}" data-c="${c}">HSK ${TEN_CAP(c)}</span>`).join('');
+if(L.rules) html+=sec("lav","语法规则","Công thức & cách dùng",(L.intro?`<p>${L.intro}</p>`:"")+L.rules.map((r,i)=>`<div class="rule" id="p${i+1}"${r.cap&&r.cap.length?` data-cap="${r.cap.join(' ')}"`:""}><h3>${L.rules.length>1?`<span style="color:var(--sc)">${i+1}.</span>`:""}${esc(r.t)}${r.sub?`<small>${esc(r.sub)}</small>`:""}${nhanCap(r)}</h3>
   ${fx(r.fx,true)}${r.mean?`<div class="mean">${r.mean}</div>`:""}<div class="ex">${(r.ex||[]).map(e=>sent(e)).join('')}</div>${r.note?`<div class="note">${r.note}</div>`:""}</div>`).join('')
   +(L.notes||[]).map(n=>`<div class="note"><b class="t">${esc(n.t)}:</b> ${n.html}</div>`).join(''));
 
@@ -158,6 +160,36 @@ function tog(id,cls){const b=document.getElementById(id);let on=true;try{on=loca
   const set=()=>{document.body.classList.toggle(cls,!on);b.setAttribute('aria-pressed',on)};set();
   b.addEventListener('click',()=>{on=!on;set();try{localStorage.setItem('np-'+cls,on?"1":"0")}catch(e){}});}
 tog('pyBtn','hide-py'); tog('viBtn','hide-vi');
+
+// ---------- Cấp HSK của từng phần (bài dùng chung) ----------
+(function(){
+  const co=(L.rules||[]).filter(r=>r.cap&&r.cap.length), muc=P25.slice().sort((a,b)=>parseFloat(a[0])-parseFloat(b[0]));
+  const caps=[...new Set(muc.map(d=>+d[0].split('.')[0]))];
+  if(!co.length||caps.length<2)return;
+  const SAN=window.NP_READY||{};
+  // chữ có trong bài này (bỏ dấu tô màu) → từ nào của đề cương được dạy ở bài khác thì làm mờ và dẫn sang bài đó
+  const chu=JSON.stringify([L.title,L.intro,L.goals,L.rules,L.notes,L.cmp,L.ex,L.errs,L.practice]).replace(/\{\d\|/g,'').replace(/[{}\[\]|]/g,'');
+  function dong(d){const zh=d[2],i=zh.indexOf('：'),khac=d[4].filter(c=>c!==L.code&&SAN[c]);let thieu=false,html=esc(zh);
+    if(i>0&&!/[＋+“”？！]|主语|动词|形容词/.test(zh))html=esc(zh.slice(0,i+1))+zh.slice(i+1).split(/([、；，,：])/).map(m=>{
+      const w=m.replace(/（.*?）|\(.*?\)|[—…\-]/g,'').trim();
+      if(/^[㐀-鿿]{1,4}$/.test(w)&&!chu.includes(w)&&khac.length){thieu=true;return `<i class="vang">${esc(m)}</i>`}return esc(m)}).join('');
+    return {html:`<span class="zh" lang="zh">${html}</span>`,khac:thieu?khac:[]}}
+  const bang=document.createElement('div');bang.className='np-cap';
+  bang.innerHTML=`<h2>Bài chung HSK ${caps.map(TEN_CAP).join(' · ')}<span class="zh" lang="zh">分级学习</span></h2><p>Bấm một cấp để làm nổi phần cần học của cấp đó.</p><div class="ds">${caps.map(c=>{
+    const phan=L.rules.map((r,i)=>(r.cap||[]).includes(c)?i+1:0).filter(Boolean), ds=muc.filter(d=>+d[0].split('.')[0]===c).map(dong),
+      khac=[...new Set(ds.flatMap(x=>x.khac))];
+    return `<div class="hang kc${c}"><button type="button" class="mo" data-c="${c}" aria-pressed="false"><b>HSK ${TEN_CAP(c)}</b><span class="nd">${ds.map(x=>x.html).join('')}</span><em>${phan.length?'Phần '+phan.join(', '):'Xem cả bài'}</em></button>${
+      khac.length?`<p class="them">Chữ mờ học ở bài ${khac.map(k=>`<a href="../${SAN[k]}/">【${esc(k)}】</a>`).join(' ')}</p>`:''}</div>`}).join('')}</div>`;
+  $('#m0').after(bang);
+  let dang=0;
+  function chon(c,cuon){dang=c;
+    bang.querySelectorAll('.mo').forEach(b=>{const on=+b.dataset.c===c;b.setAttribute('aria-pressed',on);b.parentNode.classList.toggle('on',on)});
+    document.querySelectorAll('#np .rule').forEach(r=>{const a=(r.dataset.cap||'').split(' ').map(Number);r.classList.toggle('cap-on',!!c&&a.includes(c))});
+    document.querySelectorAll('#np .rule .cap').forEach(x=>x.classList.toggle('on',+x.dataset.c===c));
+    if(cuon&&c){const r=document.querySelector('#np .rule.cap-on');if(r)r.scrollIntoView({behavior:'smooth',block:'center'})}}
+  bang.addEventListener('click',e=>{const b=e.target.closest('.mo');if(b)chon(+b.dataset.c===dang?0:+b.dataset.c,+b.dataset.c!==dang)});
+  const q=+new URLSearchParams(location.search).get('cap');if(caps.includes(q))chon(q,false);
+})();
 
 // ---------- Giao bài / làm nhiệm vụ (chung/nhiem-vu.js) ----------
 (function(){

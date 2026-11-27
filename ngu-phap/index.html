@@ -4,14 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>语法盒 · Ngữ pháp HSK 3.0 – 吕老师汉语盒</title>
-<meta name="description" content="Ngữ pháp tiếng Trung theo HSK 3.0 (《国际中文教育中文水平等级标准》): mỗi điểm ngữ pháp một bài giảng có công thức, ví dụ, lỗi người Việt và bài luyện – Lyu Laoshi Chinese Box.">
+<meta name="description" content="Ngữ pháp tiếng Trung HSK 1–9 theo đề cương thi HSK mới (《HSK考试大纲》2025): mỗi điểm một bài giảng có công thức, ví dụ, lỗi người Việt và bài luyện – Lyu Laoshi Chinese Box.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css">
 <link rel="stylesheet" href="../tro-choi/game.css?v=3">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="/chung/chu-viet.css?v=69d18d68">
 <style>
-:root{--c:var(--teal);--cs:var(--teal-s);--kh:"LXGW WenKai","STKaiti","KaiTi","Kaiti SC",serif}
+:root{--c:var(--teal);--cs:var(--teal-s);--kh:"KhViet","LXGW WenKai","STKaiti","KaiTi","Kaiti SC",serif}
 /* Màu chữ đủ đậm để đọc (27/11/2026: vàng/xanh/cam gốc của game.css chỉ đạt 2–3:1). Mỗi màu đạt ≥ 4,5:1 trên nền thẻ, nền trang và nền
    pastel cùng màu, ở cả hai nền. --tren = chữ đặt TRÊN khối màu đặc (sáng: trắng; tối: chữ sẫm). Cùng khối này có ở bai.css và index.html. */
 :root{--tren:#fff;--coral:#CA2532;--sky:#266CB5;--mint:#237858;--lav:#6955D0;--peach:#A95215;--butter:#83650D;--teal:#11757C;--rose:#BD306C;--muted:#64677D}
@@ -94,6 +95,7 @@ a.pc:hover,a.pc:focus-visible{transform:translateY(-2px);border-color:var(--c)}
 .pc .nm{font-family:var(--kh);font-size:16.5px;line-height:1.35;color:var(--muted);overflow-wrap:anywhere}
 .pc.soon .vn{color:var(--muted)}
 .pc .it{font-family:var(--kh);font-size:14px;color:var(--muted);line-height:1.45;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.pc .bc{display:inline-block;margin-top:5px;font-size:11.5px;font-weight:800;color:var(--muted);border:1.5px dashed color-mix(in srgb,var(--c) 45%,transparent);border-radius:999px;padding:1px 8px}
 .pc .cls{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
 .pc .cls a,.pc .cls span{font-size:12px;font-weight:700;color:var(--c);background:var(--ground2);border-radius:8px;padding:2px 7px;text-decoration:none;position:relative;z-index:2}
 .pc .cls a:hover{background:var(--cs)}
@@ -144,7 +146,7 @@ if(NP_IN){const s=document.createElement('script');s.src='/chung/nhiem-vu.js?v=e
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <link rel="canonical" href="https://lyulaoshi.com/ngu-phap/">
-<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="语法盒 · Ngữ pháp HSK 3.0 – 吕老师汉语盒"><meta property="og:description" content="Ngữ pháp tiếng Trung theo HSK 3.0 (《国际中文教育中文水平等级标准》): mỗi điểm ngữ pháp một bài giảng có công thức, ví dụ, lỗi người Việt và bài luyện – Lyu Laoshi Chinese Box."><meta property="og:url" content="https://lyulaoshi.com/ngu-phap/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="website"><meta property="og:site_name" content="吕老师汉语盒 · Lyu Laoshi Chinese Box"><meta property="og:locale" content="vi_VN"><meta property="og:title" content="语法盒 · Ngữ pháp HSK 3.0 – 吕老师汉语盒"><meta property="og:description" content="Ngữ pháp tiếng Trung HSK 1–9 theo đề cương thi HSK mới (《HSK考试大纲》2025): mỗi điểm một bài giảng có công thức, ví dụ, lỗi người Việt và bài luyện – Lyu Laoshi Chinese Box."><meta property="og:url" content="https://lyulaoshi.com/ngu-phap/"><meta property="og:image" content="https://lyulaoshi.com/img/og-chia-se.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <header class="top"><div class="wrap">
@@ -232,16 +234,18 @@ function buildRows(){
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===S.view));
 }
 const glyphOf=(codes,zh)=>{for(const c of codes)if(GL[c])return GL[c];const t=zh.split("：").pop();return (t.match(/[㐀-鿿]+/)||[""])[0].slice(0,2)};
+const CAPS={};Object.keys(N).forEach(k=>N[k].ds.forEach(d=>d[4].forEach(c=>(CAPS[c]=CAPS[c]||new Set()).add(+k))));   // bài dùng chung nhiều cấp
+const chung=c=>CAPS[c]&&CAPS[c].size>1, linkBai=(c,lv)=>READY[c]+'/'+(chung(c)&&CAPS[c].has(+lv)?'?cap='+lv:'');
 function card(d,lv){ // d = [mã 2025, nhóm, nội dung, tên Việt, [bài]]
   const [id,grp,zh,vi,codes]=d, rd=codes.filter(c=>READY[c]), main=rd[0];
   const cls=[...new Set(codes.flatMap(c=>byCode[c]||[]))];
   const chips=cls.length?`<div class="cls">${cls.map(p=>`<a href="${url(p)}" title="${esc(p.n)}">${esc(SHORT[p.b]||p.b)} B${p.l}</a>`).join('')}</div>`:"";
-  const more=rd.length>1?`<div class="bl">${rd.map(c=>`<a href="${READY[c]}/" title="${esc((OFF[c]||[])[3]||"")}">【${esc(c)}】${esc(nm21(c))}</a>`).join('')}</div>`:"";
+  const more=rd.length>1?`<div class="bl">${rd.map(c=>`<a href="${linkBai(c,lv)}" title="${esc((OFF[c]||[])[3]||"")}">【${esc(c)}】${esc(nm21(c))}</a>`).join('')}</div>`:"";
   const g=glyphOf(codes,zh), gn=Array.from(g).length, hard=rd.some(c=>HARD.has(c));
   const i=zh.indexOf("："), head=i>0?zh.slice(0,i):zh, items=i>0?zh.slice(i+1):"";
   const inner=`<div class="gl${gn>1?" n"+Math.min(gn,4):""}" aria-hidden="true">${esc(g)}</div><div class="bd"><div class="cd"><b>HSK ${LVN(String(lv))} · ${esc(id.split(".")[1])}</b><span class="st ${main?"ok":"soon"}">${main?"Bài giảng":"Sắp có"}</span></div>${hard?`<span class="hd"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=70219054#sao"/></svg> Luyện thêm</span>`:""}
-    <div class="vn">${hl(vi)}</div><div class="nm">${hl(head)}</div>${items?`<div class="it">${hl(items)}</div>`:""}</div>`;
-  return main?`<div class="pc ready" style="cursor:pointer"><a href="${READY[main]}/" style="position:absolute;inset:0;border-radius:20px" aria-label="Học ${esc(vi)}"></a>${inner}${more}${chips}</div>`
+    <div class="vn">${hl(vi)}</div><div class="nm">${hl(head)}</div>${items?`<div class="it">${hl(items)}</div>`:""}${main&&chung(main)?`<div class="bc">Bài chung HSK ${[...CAPS[main]].sort((a,b)=>a-b).map(k=>LVN(String(k))).join(' · ')}</div>`:""}</div>`;
+  return main?`<div class="pc ready" style="cursor:pointer"><a href="${linkBai(main,lv)}" style="position:absolute;inset:0;border-radius:20px" aria-label="Học ${esc(vi)}"></a>${inner}${more}${chips}</div>`
              :`<div class="pc soon">${inner}${chips}</div>`;
 }
 function renderHSK(){

@@ -1,3 +1,4 @@
+@import url("/chung/chu-viet.css?v=69d18d68");
 /* Hộp Trò chơi 游戏盒 — giao diện chung (cùng bảng màu với trang chủ) */
 :root{
   --ground:#F7F5FB; --ground2:#EFEBF7; --ink:#2B2E45; --muted:#6B6E86; --faint:#A3A5B8; --line:#E3DFEE;
@@ -6,7 +7,7 @@
   --teal:#16949E; --teal-s:#D9F1F2; --rose:#D24E86; --rose-s:#FBE3EE;
   --shadow:0 1px 0 rgba(43,46,69,.04),0 10px 28px rgba(43,46,69,.08);
   --hz:"ZCOOL KuaiLe","STKaiti","KaiTi","Kaiti SC","PingFang SC",sans-serif;
-  --kai:"STKaiti","KaiTi","Kaiti SC","LXGW WenKai","PingFang SC","Noto Sans SC",serif;
+  --kai:"KhViet","STKaiti","KaiTi","Kaiti SC","LXGW WenKai","PingFang SC","Noto Sans SC",serif;
   --vi:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){

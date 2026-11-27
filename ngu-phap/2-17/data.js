@@ -7,7 +7,7 @@ goals:[
  "Kết hợp với 如果……就、……的话，就、只要……就."],
 intro:"就 ở đây là <b>phó từ nối</b>: đứng ở vế sau, nối với điều kiện ở vế trước. Tiếng Việt “thì” đứng trước chủ ngữ, còn 就 đứng <b>sau</b> chủ ngữ.",
 rules:[
- {t:"(如果) A，(S) 就 B", sub:"就¹", fx:[["(如果) điều kiện",""],["，",""],["Chủ ngữ",""],["就",null],["Động từ",""]], mean:"Nếu A thì B.",
+ {cap:[2,3], t:"(如果) A，(S) 就 B", sub:"就¹", fx:[["(如果) điều kiện",""],["，",""],["Chủ ngữ",""],["就",null],["Động từ",""]], mean:"Nếu A thì B.",
   ex:[["{1|如果明天天气好}，{2|我}{3|就}{4|去爬山}。","Rúguǒ míngtiān tiānqì hǎo, wǒ jiù qù pá shān.","Nếu mai trời đẹp thì tôi đi leo núi.","等级标准"],
       ["{1|你有时间的话}，{2|我们}{3|就}一起{4|出去走走}吧。","Nǐ yǒu shíjiān dehuà, wǒmen jiù yìqǐ chūqu zǒuzou ba.","Nếu bạn có thời gian thì chúng mình cùng ra ngoài dạo nhé.","等级标准"]]}],
 notes:[

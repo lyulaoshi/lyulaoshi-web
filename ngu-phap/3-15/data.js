@@ -7,7 +7,7 @@ goals:[
  "Phân biệt 往往 (nói quy luật đã có) với 常常 (có thể dùng cho tương lai)."],
 intro:"Bốn phó từ tần suất HSK 3, đứng <b>trước động từ</b>. 通常 có thể đứng đầu câu.",
 rules:[
- {t:"通常 · 往往 · 总 · 总是 + V", sub:"频率", fx:[["(S)",""],["通常 / 往往 / 总 / 总是",null],["Động từ",""]], mean:"通常 thông thường · 往往 thường hay (khi có điều kiện nào đó) · 总 / 总是 luôn luôn.",
+ {cap:[3,4,5], t:"通常 · 往往 · 总 · 总是 + V", sub:"频率", fx:[["(S)",""],["通常 / 往往 / 总 / 总是",null],["Động từ",""]], mean:"通常 thông thường · 往往 thường hay (khi có điều kiện nào đó) · 总 / 总是 luôn luôn.",
   ex:[["{1|李经理}{2|通常}很早就{3|到公司}。","Lǐ jīnglǐ tōngcháng hěn zǎo jiù dào gōngsī.","Giám đốc Lý thường đến công ty rất sớm.","等级标准"],
       ["为了记住一个汉字，{1|他}{2|往往}{3|要写很多遍}。","Wèile jìzhù yí ge Hànzì, tā wǎngwǎng yào xiě hěn duō biàn.","Để nhớ một chữ Hán, anh ấy thường phải viết rất nhiều lượt.","等级标准"],
       ["{1|我}{2|总}{3|弄不明白}什么时候用“把”字句，{2|常常}一说就错。","Wǒ zǒng nòng bu míngbai shénme shíhou yòng “bǎ” zì jù, chángcháng yì shuō jiù cuò.","Tôi mãi không hiểu khi nào dùng câu chữ “把”, hay nói là sai.","等级标准"],

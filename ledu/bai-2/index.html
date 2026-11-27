@@ -422,6 +422,8 @@
 <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7/dist/hanzi-writer.min.js"></script>
 <!-- Khung tập viết co vừa điện thoại, do tools/build_site.py gắn khi ghép -->
 <style>.tzg canvas{width:100%;height:100%}</style>
+<!-- Nới vùng bấm trên màn cảm ứng, do tools/build_site.py gắn khi ghép -->
+<style>@media (pointer:coarse){input.ap-seek{box-sizing:border-box;height:28px;border-style:solid;border-color:transparent;border-width:8px 0;border-radius:6px/14px;padding:2px 0;background-clip:padding-box;box-shadow:inset 0 0 0 2px var(--ink);margin-top:-8px;margin-bottom:-8px}}</style>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
@@ -520,8 +522,8 @@
   <button class="btn active" id="btnViet" onclick="toggleLayer('viet')">🇻🇳 Tiếng Việt</button>
 </div>
 <div class="audio-player" data-audio-key="muc3">
-  <button type="button" class="ap-play" onclick="apToggle(this)">▶️</button>
-  <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+  <button type="button" class="ap-play" aria-label="Nghe hoặc tạm dừng" onclick="apToggle(this)">▶️</button>
+  <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
   <span class="ap-time">0:00 / 0:00</span>
   <select class="ap-speed" onchange="apSetSpeed(this)">
     <option value="0.75">0.75x</option>
@@ -555,8 +557,8 @@
   <button class="btn active" id="btn4Viet" onclick="toggleLayer4('viet')">🇻🇳 Tiếng Việt</button>
 </div>
 <div class="audio-player" data-audio-key="muc4">
-  <button type="button" class="ap-play" onclick="apToggle(this)">▶️</button>
-  <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+  <button type="button" class="ap-play" aria-label="Nghe hoặc tạm dừng" onclick="apToggle(this)">▶️</button>
+  <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
   <span class="ap-time">0:00 / 0:00</span>
   <select class="ap-speed" onchange="apSetSpeed(this)">
     <option value="0.75">0.75x</option>
@@ -596,8 +598,8 @@
   <button class="btn active" id="btn5Viet" onclick="toggleLayer5('viet')">🇻🇳 Tiếng Việt</button>
 </div>
 <div class="audio-player" data-audio-key="muc5">
-  <button type="button" class="ap-play" onclick="apToggle(this)">▶️</button>
-  <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+  <button type="button" class="ap-play" aria-label="Nghe hoặc tạm dừng" onclick="apToggle(this)">▶️</button>
+  <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
   <span class="ap-time">0:00 / 0:00</span>
   <select class="ap-speed" onchange="apSetSpeed(this)">
     <option value="0.75">0.75x</option>

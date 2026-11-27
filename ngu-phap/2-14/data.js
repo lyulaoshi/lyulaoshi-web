@@ -7,12 +7,12 @@ goals:[
  "Dùng <b>只</b> (chỉ) trước động từ — không đặt cuối câu như “thôi”."],
 intro:"Ba phó từ chỉ phạm vi, đều đứng <b>trước động từ</b> (hoặc trước số lượng với 一共).",
 rules:[
- {t:"全: toàn bộ, hết", sub:"全", fx:[["Chủ ngữ số nhiều",""],["全",null],["V / Adj",""]], mean:"Gần nghĩa 都 nhưng nhấn mạnh “không sót ai”.",
+ {cap:[4], t:"全: toàn bộ, hết", sub:"全", fx:[["Chủ ngữ số nhiều",""],["全",null],["V / Adj",""]], mean:"Gần nghĩa 都 nhưng nhấn mạnh “không sót ai”.",
   ex:[["{1|同学们}{2|全}{3|来了}。","Tóngxuémen quán lái le.","Các bạn đến đủ cả rồi.","等级标准"]]},
- {t:"一共: tổng cộng", sub:"一共", fx:[["Chủ ngữ",""],["一共",null],["(V) + số lượng",""]], mean:"Cộng tất cả lại.",
+ {cap:[3], t:"一共: tổng cộng", sub:"一共", fx:[["Chủ ngữ",""],["一共",null],["(V) + số lượng",""]], mean:"Cộng tất cả lại.",
   ex:[["{1|我们班}{2|一共}{3|有二十人}。","Wǒmen bān yígòng yǒu èrshí rén.","Lớp chúng tôi tổng cộng có 20 người.","等级标准"],
       ["{1|这些}{2|一共}{3|多少钱}？","Zhèxiē yígòng duōshao qián?","Chỗ này tổng cộng bao nhiêu tiền?"]]},
- {t:"只: chỉ", sub:"只", fx:[["Chủ ngữ",""],["只",null],["V + (số lượng) + N",""]], mean:"Giới hạn số lượng, phạm vi. “… thôi” của tiếng Việt → 只 trước động từ.",
+ {cap:[3], t:"只: chỉ", sub:"只", fx:[["Chủ ngữ",""],["只",null],["V + (số lượng) + N",""]], mean:"Giới hạn số lượng, phạm vi. “… thôi” của tiếng Việt → 只 trước động từ.",
   ex:[["{1|卡里}{2|只}{3|有二百块钱}。","Kǎ li zhǐ yǒu èrbǎi kuài qián.","Trong thẻ chỉ có 200 tệ.","等级标准"],
       ["{1|我}{2|只}{3|会说一点儿中文}。","Wǒ zhǐ huì shuō yìdiǎnr Zhōngwén.","Tôi chỉ biết nói một chút tiếng Trung thôi."]]}],
 cmp:[

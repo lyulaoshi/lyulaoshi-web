@@ -7,10 +7,10 @@ goals:[
  "Đọc số phòng, số tuyến xe theo từng chữ số."],
 intro:"Tiếng Việt “thứ” + số; tiếng Trung <b>第</b> + số. Nhưng với tầng, số nhà, phòng, tuyến xe… chỉ cần <b>số + danh từ</b>.",
 rules:[
- {t:"第 + số (+ lượng từ + N)", sub:"第", fx:[["第",null],["Số",""],["(lượng từ + N)",""]], mean:"",
+ {cap:[1], t:"第 + số (+ lượng từ + N)", sub:"第", fx:[["第",null],["Số",""],["(lượng từ + N)",""]], mean:"",
   ex:[["{1|第}{2|一}　{1|第}{2|三}　{1|第}{2|七}","dì-yī　dì-sān　dì-qī","thứ nhất　thứ ba　thứ bảy","等级标准"],
       ["这是我{1|第}{2|一}{3|次来中国}。","Zhè shì wǒ dì-yī cì lái Zhōngguó.","Đây là lần đầu tiên tôi đến Trung Quốc."]]},
- {t:"Số + danh từ (không cần 第)", sub:"", fx:[["Số",""],["楼 / 层 / 号 / 房间 / 路",null]], mean:"Số phòng, số tuyến xe đọc từng chữ số: 205 = èr líng wǔ; 1 thường đọc yāo.",
+ {cap:[2], t:"Số + danh từ (không cần 第)", sub:"", fx:[["Số",""],["楼 / 层 / 号 / 房间 / 路",null]], mean:"Số phòng, số tuyến xe đọc từng chữ số: 205 = èr líng wǔ; 1 thường đọc yāo.",
   ex:[["{1|二}{2|楼}　{1|三}{2|层}","èr lóu　sān céng","tầng hai　tầng ba","等级标准"],
       ["{1|13号}{2|楼}　{1|205}{2|房间}　{1|302}{2|路}公交车","shísān hào lóu　èr líng wǔ fángjiān　sān líng èr lù gōngjiāochē","tòa nhà số 13　phòng 205　xe buýt tuyến 302","等级标准"]]}],
 cmp:[

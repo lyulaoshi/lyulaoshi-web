@@ -7,9 +7,9 @@ goals:[
  "<b>难道……吗？</b> = nhấn mạnh, thường kèm ngạc nhiên / trách."],
 intro:"Tiếng Việt: “Chẳng phải hôm nay là Chủ nhật sao?”, “Lẽ nào bạn chưa đi Trường Thành à?” — tiếng Trung dùng y như vậy.",
 rules:[
- {t:"不是 + … + 吗？", sub:"= khẳng định", fx:[["不是",null],["…",""],["吗？",null]], mean:"Hình thức phủ định → nghĩa khẳng định.",
+ {cap:[3], t:"不是 + … + 吗？", sub:"= khẳng định", fx:[["不是",null],["…",""],["吗？",null]], mean:"Hình thức phủ định → nghĩa khẳng định.",
   ex:[["今天{1|不是}{2|星期天}{3|吗？}","Jīntiān bú shì xīngqītiān ma?","Chẳng phải hôm nay là Chủ nhật sao? (= hôm nay là Chủ nhật)","等级标准"]]},
- {t:"难道 + … + 吗？", sub:"= nhấn mạnh ngược lại", fx:[["难道",null],["(不 / 没) …",""],["吗？",null]], mean:"难道 + phủ định → khẳng định; 难道 + khẳng định → phủ định.",
+ {cap:[4], t:"难道 + … + 吗？", sub:"= nhấn mạnh ngược lại", fx:[["难道",null],["(不 / 没) …",""],["吗？",null]], mean:"难道 + phủ định → khẳng định; 难道 + khẳng định → phủ định.",
   ex:[["{1|难道}{2|你没去过长城}{3|吗？}","Nándào nǐ méi qù guo Chángchéng ma?","Lẽ nào bạn chưa đi Trường Thành sao? (= tưởng bạn đi rồi)","等级标准"]]}],
 cmp:[
  {vn:"Chẳng phải bạn biết rồi sao?", zh:"你[不是]知道了[吗]？", py:"Nǐ bú shì zhīdào le ma?", ok:true, why:"Trật tự giống tiếng Việt; nghĩa = bạn biết rồi mà."}],

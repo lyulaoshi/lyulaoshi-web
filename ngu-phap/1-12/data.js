@@ -7,10 +7,10 @@ goals:[
  "Không dùng 再 cho việc đã lặp lại trong quá khứ (dùng 又 【二16】)."],
 intro:"常、常常、再 đều đứng <b>sau chủ ngữ, trước động từ</b>.",
 rules:[
- {t:"常 / 常常: thường, hay", sub:"频率", fx:[["Chủ ngữ",""],["常 / 常常",null],["Động từ",""]], mean:"Việc xảy ra nhiều lần, thành thói quen. 常常 thường dùng hơn trong khẩu ngữ.",
+ {cap:[2,3], t:"常 / 常常: thường, hay", sub:"频率", fx:[["Chủ ngữ",""],["常 / 常常",null],["Động từ",""]], mean:"Việc xảy ra nhiều lần, thành thói quen. 常常 thường dùng hơn trong khẩu ngữ.",
   ex:[["{1|他}{2|常}{3|去饭店吃饭}。","Tā cháng qù fàndiàn chī fàn.","Anh ấy hay đi nhà hàng ăn cơm.","等级标准"],
       ["{1|她}{2|常常}{3|不吃早饭}。","Tā chángcháng bù chī zǎofàn.","Cô ấy thường không ăn sáng.","等级标准"]]},
- {t:"再: lại, nữa (sẽ lặp lại)", sub:"再¹", fx:[["Chủ ngữ",""],["(thời gian)",""],["再",null],["Động từ",""]], mean:"Lặp lại một việc trong <b>tương lai</b>: lần sau, mai, lát nữa lại…",
+ {cap:[1], t:"再: lại, nữa (sẽ lặp lại)", sub:"再¹", fx:[["Chủ ngữ",""],["(thời gian)",""],["再",null],["Động từ",""]], mean:"Lặp lại một việc trong <b>tương lai</b>: lần sau, mai, lát nữa lại…",
   ex:[["今天的电影太好看了，{1|我们}{2|明天}{3|再}{4|去看}吧。","Jīntiān de diànyǐng tài hǎokàn le, wǒmen míngtiān zài qù kàn ba.","Phim hôm nay hay quá, mai chúng mình lại đi xem nữa nhé.","等级标准"],
       ["请{1|您}{3|再}{4|说}一遍。","Qǐng nín zài shuō yí biàn.","Xin thầy nói lại một lần nữa."]]}],
 notes:[

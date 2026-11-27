@@ -7,12 +7,12 @@ goals:[
  "Dùng <b>太……了</b> và <b>真……</b> trong câu cảm thán."],
 intro:"Phó từ mức độ luôn đứng <b>trước</b> tính từ hoặc động từ chỉ tâm lý (喜欢、想…).",
 rules:[
- {t:"Phó từ mức độ + tính từ / động từ tâm lý", sub:"程度副词", fx:[["Chủ ngữ",""],["非常 / 很 / 真 / 最",null],["Tính từ / 喜欢…",""]], mean:"非常 vô cùng · 很 rất (câu tính từ thường có 很) · 真 thật là · 最 nhất",
+ {cap:[1,2], t:"Phó từ mức độ + tính từ / động từ tâm lý", sub:"程度副词", fx:[["Chủ ngữ",""],["非常 / 很 / 真 / 最",null],["Tính từ / 喜欢…",""]], mean:"非常 vô cùng · 很 rất (câu tính từ thường có 很) · 真 thật là · 最 nhất",
   ex:[["{1|我}{2|非常}{3|喜欢}这本书。","Wǒ fēicháng xǐhuan zhè běn shū.","Tôi vô cùng thích quyển sách này.","等级标准"],
       ["{1|那个本子}{2|很}{3|好看}。","Nàge běnzi hěn hǎokàn.","Quyển vở kia rất đẹp.","等级标准"],
       ["{1|你的房间}{2|真}{3|干净}！","Nǐ de fángjiān zhēn gānjìng!","Phòng bạn thật là sạch!","等级标准"],
       ["{1|我}{2|最}{3|喜欢打球}。","Wǒ zuì xǐhuan dǎ qiú.","Tôi thích chơi bóng nhất.","等级标准"]]},
- {t:"太 + tính từ + 了: quá", sub:"太……了", fx:[["太",null],["Tính từ",""],["了",null]], mean:"Mức độ vượt quá, hoặc cảm thán; thường có 了 ở cuối.",
+ {cap:[1], t:"太 + tính từ + 了: quá", sub:"太……了", fx:[["太",null],["Tính từ",""],["了",null]], mean:"Mức độ vượt quá, hoặc cảm thán; thường có 了 ở cuối.",
   ex:[["这里{1|太}{2|冷}{3|了}。","Zhèli tài lěng le.","Ở đây lạnh quá.","等级标准"],
       ["{1|太}{2|好}{3|了}！","Tài hǎo le!","Tốt quá!"]]}],
 notes:[

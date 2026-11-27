@@ -641,6 +641,8 @@ a.tb-btn{text-decoration:none;}
   @media (max-width:640px){.tb-home{width:44px!important;padding:0!important;}.tb-home .tb-lbl{display:none;}}
   @media (max-width:420px){.card{padding:24px 16px;}table.pinyin-table th,table.pinyin-table td{padding:10px 4px;font-size:20px;}.dialog-input{min-width:0;width:100%;}}
 </style>
+<!-- Nới vùng bấm trên màn cảm ứng, do tools/build_site.py gắn khi ghép -->
+<style>@media (pointer:coarse){input.ap-seek{box-sizing:content-box;height:5px;padding:12px 0;margin-top:-12px;margin-bottom:-12px}button.sbToggle{min-width:34px;min-height:34px;margin-top:-6px;margin-bottom:-6px}}</style>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
@@ -1226,8 +1228,8 @@ a.tb-btn{text-decoration:none;}
             <span class="scene-tag" id="dlg1-scene">Đoạn 1 — Mary hỏi Nakamura về giờ học ở Nhật</span>
             <br>
             <div class="audio-player" data-audio="audioDlg1">
-              <button class="ap-playbtn">&#9654;</button>
-              <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+              <button class="ap-playbtn" aria-label="Nghe hoặc tạm dừng">&#9654;</button>
+              <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
               <span class="ap-time">0:00 / 0:00</span>
             </div>
             <div class="dialogue-toolbar">
@@ -1250,8 +1252,8 @@ a.tb-btn{text-decoration:none;}
             <span class="scene-tag" id="dlg2-scene">Đoạn 2 — Mary hỏi David về giờ tọa đàm</span>
             <br>
             <div class="audio-player" data-audio="audioDlg2">
-              <button class="ap-playbtn">&#9654;</button>
-              <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+              <button class="ap-playbtn" aria-label="Nghe hoặc tạm dừng">&#9654;</button>
+              <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
               <span class="ap-time">0:00 / 0:00</span>
             </div>
             <div class="dialogue-toolbar">
@@ -1337,8 +1339,8 @@ a.tb-btn{text-decoration:none;}
             <span class="practice-tag">一 · 语音练习 · Luyện tập ngữ âm</span>
             <p style="font-weight:800;font-size:16px;">朗读 · Luyện đọc — phân biệt phụ âm z / c / s với vần en / eng / i</p>
             <div class="audio-player" data-audio="audioLangdu">
-              <button class="ap-playbtn">&#9654;</button>
-              <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+              <button class="ap-playbtn" aria-label="Nghe hoặc tạm dừng">&#9654;</button>
+              <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
               <span class="ap-time">0:00 / 0:00</span>
             </div>
             <div class="review-wrap" style="margin-top:10px;">
@@ -1360,8 +1362,8 @@ a.tb-btn{text-decoration:none;}
           <div class="card corner-frame practice-block" id="prac-tingxie-book">
             <span class="practice-tag">听写 · Nghe và viết (từ sách)</span>
             <div class="audio-player" data-audio="audioTingxie">
-              <button class="ap-playbtn">&#9654;</button>
-              <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+              <button class="ap-playbtn" aria-label="Nghe hoặc tạm dừng">&#9654;</button>
+              <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
               <span class="ap-time">0:00 / 0:00</span>
             </div>
             <p class="ex-instruction">Nghe audio rồi điền phụ âm đầu / vần còn thiếu vào chỗ trống:</p>
@@ -1395,8 +1397,8 @@ a.tb-btn{text-decoration:none;}
             <button class="dice-btn" id="diceBtn">Bốc ngẫu nhiên</button>
             <div id="dictRandomArea" style="display:none;margin-top:18px;">
               <div class="audio-player" data-audio="" id="dictRandomPlayer">
-                <button class="ap-playbtn">&#9654;</button>
-                <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+                <button class="ap-playbtn" aria-label="Nghe hoặc tạm dừng">&#9654;</button>
+                <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
                 <span class="ap-time">0:00 / 0:00</span>
               </div>
               <div class="dict-random-input-row">
@@ -2029,8 +2031,8 @@ function hwdLoad(c,ok,err){ if(HWD[c]) ok(HWD[c]); else fetch('https://cdn.jsdel
     currentDictItem = item;
     dictRandomPlayer.dataset.audio = 'audio_'+item.id;
     dictRandomPlayer.innerHTML =
-      '<button class="ap-playbtn">'+ICO_PLAY+'</button>'+
-      '<input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">'+
+      '<button class="ap-playbtn" aria-label="Nghe hoặc tạm dừng">'+ICO_PLAY+'</button>'+
+      '<input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">'+
       '<span class="ap-time">0:00 / 0:00</span>';
     bindAudioPlayer(dictRandomPlayer);
     dictRandomInput.value = '';

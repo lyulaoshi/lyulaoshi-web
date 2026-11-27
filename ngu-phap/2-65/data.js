@@ -7,13 +7,13 @@ goals:[
  "Nhớ: 虽然 thường phải đi với 但是 / 可是 ở vế sau."],
 intro:"Vế sau <b>ngược lại</b> với điều vế trước khiến ta chờ đợi. Tiếng Việt: “tuy … nhưng …”, “…, có điều …”.",
 rules:[
- {t:"Không dùng từ nối", sub:"（1）", fx:[["Vế 1",""],["，",""],["Vế 2 (ngược ý)",""]], mean:"",
+ {cap:[], t:"Không dùng từ nối", sub:"（1）", fx:[["Vế 1",""],["，",""],["Vế 2 (ngược ý)",""]], mean:"",
   ex:[["{1|这件衣服样子不错}，{2|有点儿贵}。","Zhè jiàn yīfu yàngzi búcuò, yǒudiǎnr guì.","Kiểu áo này đẹp, (nhưng) hơi đắt.","等级标准"],
       ["这次去饭店，{1|我们花钱不多}，{2|吃得很不错}。","Zhè cì qù fàndiàn, wǒmen huā qián bù duō, chī de hěn búcuò.","Lần này đi nhà hàng, chúng tôi tiêu không nhiều mà ăn rất ngon.","等级标准"]]},
- {t:"虽然……，但是 / 可是……", sub:"（2）", fx:[["虽然",null],["Vế 1",""],["，",""],["但是 / 可是",null],["Vế 2",""]], mean:"",
+ {cap:[2,3], t:"虽然……，但是 / 可是……", sub:"（2）", fx:[["虽然",null],["Vế 1",""],["，",""],["但是 / 可是",null],["Vế 2",""]], mean:"",
   ex:[["那个公园{1|虽然}{2|不大}，{3|但是}{4|非常漂亮}。","Nàge gōngyuán suīrán bú dà, dànshì fēicháng piàoliang.","Công viên đó tuy không lớn nhưng rất đẹp.","等级标准"],
       ["{1|虽然}{2|明天可能下雨}，{3|可是}{4|我还是想去那儿看看}。","Suīrán míngtiān kěnéng xià yǔ, kěshì wǒ háishi xiǎng qù nàr kànkan.","Tuy mai có thể mưa, nhưng tôi vẫn muốn đến đó xem.","等级标准"]]},
- {t:"……，不过……", sub:"（3）", fx:[["Vế 1",""],["，",""],["不过",null],["Vế 2",""]], mean:"Nhẹ nhàng hơn 但是: “có điều…”.",
+ {cap:[], t:"……，不过……", sub:"（3）", fx:[["Vế 1",""],["，",""],["不过",null],["Vế 2",""]], mean:"Nhẹ nhàng hơn 但是: “có điều…”.",
   ex:[["{1|这个房间不太大}，{2|不过}{3|住着很舒服}。","Zhège fángjiān bú tài dà, búguò zhù zhe hěn shūfu.","Phòng này không rộng lắm, có điều ở rất thoải mái.","等级标准"]]}],
 cmp:[
  {vn:"Tuy mệt nhưng vui.", zh:"[虽然]很累，[但是]很高兴。", py:"Suīrán hěn lèi, dànshì hěn gāoxìng.", ok:true, why:"Giống khung tiếng Việt."}],

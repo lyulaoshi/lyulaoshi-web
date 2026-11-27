@@ -643,6 +643,8 @@ a.tb-btn{text-decoration:none;}
   @media (max-width:640px){.tb-home{width:44px!important;padding:0!important;}.tb-home .tb-lbl{display:none;}}
   @media (max-width:420px){.card{padding:24px 16px;}table.pinyin-table th,table.pinyin-table td{padding:10px 4px;font-size:20px;}.dialog-input{min-width:0;width:100%;}}
 </style>
+<!-- Nới vùng bấm trên màn cảm ứng, do tools/build_site.py gắn khi ghép -->
+<style>@media (pointer:coarse){input.ap-seek{box-sizing:content-box;height:5px;padding:12px 0;margin-top:-12px;margin-bottom:-12px}button.sbToggle{min-width:34px;min-height:34px;margin-top:-6px;margin-bottom:-6px}}</style>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
@@ -1145,8 +1147,8 @@ a.tb-btn{text-decoration:none;}
             <span class="scene-tag" id="dlg1-scene">Hội thoại 1 — 大卫 mua bia tại cửa hàng</span>
             <br>
             <div class="audio-player" data-audio="audioDlg1">
-              <button class="ap-playbtn"><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button>
-              <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+              <button class="ap-playbtn" aria-label="Nghe hoặc tạm dừng"><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button>
+              <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
               <span class="ap-time">0:00 / 0:00</span>
             </div>
             <div class="dialogue-toolbar">
@@ -1172,8 +1174,8 @@ a.tb-btn{text-decoration:none;}
             <span class="scene-tag" id="dlg2-scene" style="scroll-margin-top:90px;">Hội thoại 2 — 玛丽 mua từ điển tại hiệu sách</span>
             <br>
             <div class="audio-player" data-audio="audioDlg2">
-              <button class="ap-playbtn"><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button>
-              <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+              <button class="ap-playbtn" aria-label="Nghe hoặc tạm dừng"><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button>
+              <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
               <span class="ap-time">0:00 / 0:00</span>
             </div>
             <div class="dialogue-toolbar">
@@ -1322,8 +1324,8 @@ a.tb-btn{text-decoration:none;}
             <span class="practice-tag">一 · 语音练习 · Luyện tập ngữ âm</span>
             <p style="font-weight:800;font-size:19px;">朗读 · Luyện đọc — vần ian / iang / uang / ueng</p>
             <div class="audio-player" data-audio="audioLangdu">
-              <button class="ap-playbtn"><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button>
-              <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+              <button class="ap-playbtn" aria-label="Nghe hoặc tạm dừng"><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button>
+              <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
               <span class="ap-time">0:00 / 0:00</span>
             </div>
             <p style="font-size:17px;color:var(--ink-soft);margin:10px 0 6px;">Các vần kết thúc bằng <b>-n/-ng</b> với nguyên âm đôi <b>ia-/ua-</b>:</p>
@@ -1361,8 +1363,8 @@ a.tb-btn{text-decoration:none;}
           <div class="card corner-frame practice-block" id="exDictation">
             <span class="practice-tag">听写 · Nghe và viết</span>
             <div class="audio-player" data-audio="audioTingxie">
-              <button class="ap-playbtn"><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button>
-              <input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">
+              <button class="ap-playbtn" aria-label="Nghe hoặc tạm dừng"><svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" style="vertical-align:-0.14em" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></svg></button>
+              <input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">
               <span class="ap-time">0:00 / 0:00</span>
             </div>
             <p style="font-size:17px;color:var(--ink-soft);margin:10px 0 12px;">Nghe audio, điền vần/âm đầu vào chỗ trống:</p>
@@ -2104,8 +2106,8 @@ function hwdLoad(c,ok,err){ if(HWD[c]) ok(HWD[c]); else fetch('https://cdn.jsdel
     currentDictItem = item;
     dictRandomPlayer.dataset.audio = 'audio_'+item.id;
     dictRandomPlayer.innerHTML =
-      '<button class="ap-playbtn">'+ICO_PLAY+'</button>'+
-      '<input type="range" class="ap-seek" min="0" max="100" value="0" step="0.1">'+
+      '<button class="ap-playbtn" aria-label="Nghe hoặc tạm dừng">'+ICO_PLAY+'</button>'+
+      '<input type="range" class="ap-seek" aria-label="Thanh tua đoạn nghe" min="0" max="100" value="0" step="0.1">'+
       '<span class="ap-time">0:00 / 0:00</span>';
     bindAudioPlayer(dictRandomPlayer);
     dictRandomInput.value = '';

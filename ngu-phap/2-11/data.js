@@ -7,7 +7,7 @@ goals:[
  "Dùng <b>一下(儿)</b> để nói hành động ngắn, nhẹ."],
 intro:"Lượng từ động tác đi <b>sau động từ</b> để đếm số lần: 去<b>一次</b> (đi một lần). Tiếng Việt cũng đặt “một lần” sau động từ.",
 rules:[
- {t:"Động từ + số + lượng từ động tác", sub:"动量词", fx:[["Động từ",""],["Số",""],["遍 / 次 / 场 / 回 / 下",null]], mean:"<b>次 / 回</b> lần (回 khẩu ngữ) · <b>遍</b> lượt trọn vẹn (đọc, xem, nghe hết một lượt) · <b>场</b> trận, cơn, buổi (khóc, mưa, phim, bóng) · <b>下</b> cái, phát (hành động ngắn).",
+ {cap:[2,3,4], t:"Động từ + số + lượng từ động tác", sub:"动量词", fx:[["Động từ",""],["Số",""],["遍 / 次 / 场 / 回 / 下",null]], mean:"<b>次 / 回</b> lần (回 khẩu ngữ) · <b>遍</b> lượt trọn vẹn (đọc, xem, nghe hết một lượt) · <b>场</b> trận, cơn, buổi (khóc, mưa, phim, bóng) · <b>下</b> cái, phát (hành động ngắn).",
   ex:[["{1|看}{2|两}{3|遍}　{1|去}{2|一}{3|次}　{1|哭}{2|一}{3|场}","kàn liǎng biàn　qù yí cì　kū yì cháng","xem hai lượt　đi một lần　khóc một trận","等级标准"],
       ["{1|来}{2|两}{3|回}　{1|打}{2|一}{3|下儿}","lái liǎng huí　dǎ yí xiàr","đến hai lần　đánh một cái","等级标准"]]}],
 notes:[

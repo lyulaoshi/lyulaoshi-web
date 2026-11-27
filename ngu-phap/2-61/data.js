@@ -7,10 +7,10 @@ goals:[
  "Nhớ thứ tự: <b>người trước, vật sau</b>."],
 intro:"Một số động từ (给、送、教、问、借、告诉…) mang được <b>hai tân ngữ</b>: người nhận đứng trước, sự vật đứng sau.",
 rules:[
- {t:"S + V + O1 (người) + O2 (vật)", sub:"（1）", fx:[["Chủ ngữ",""],["给 / 送 / 教 / 问…",null],["Người",""],["Vật / việc",""]], mean:"",
+ {cap:[1], t:"S + V + O1 (người) + O2 (vật)", sub:"（1）", fx:[["Chủ ngữ",""],["给 / 送 / 教 / 问…",null],["Người",""],["Vật / việc",""]], mean:"",
   ex:[["{1|我}{2|给}{3|妹妹}{4|一本书}。","Wǒ gěi mèimei yì běn shū.","Tôi cho em gái một quyển sách.","等级标准"],
       ["{1|爸爸}{2|送}{3|我}{4|一辆汽车}。","Bàba sòng wǒ yí liàng qìchē.","Bố tặng tôi một chiếc ô tô.","等级标准"]]},
- {t:"S + V + 给 + O1 + O2", sub:"（2）", fx:[["Chủ ngữ",""],["借 / 送 / 还…",""],["给",null],["Người",""],["Vật",""]], mean:"Nhấn mạnh sự chuyển giao đến người nhận.",
+ {cap:[2], t:"S + V + 给 + O1 + O2", sub:"（2）", fx:[["Chủ ngữ",""],["借 / 送 / 还…",""],["给",null],["Người",""],["Vật",""]], mean:"Nhấn mạnh sự chuyển giao đến người nhận.",
   ex:[["{1|朋友}{2|借}{3|给}{4|我}{5|一千块钱}。","Péngyou jiè gěi wǒ yìqiān kuài qián.","Bạn cho tôi mượn 1.000 tệ.","等级标准"],
       ["{1|姐姐}{2|送}{3|给}{4|我}{5|一个手机}。","Jiějie sòng gěi wǒ yí ge shǒujī.","Chị tặng tôi một chiếc điện thoại.","等级标准"]]}],
 cmp:[

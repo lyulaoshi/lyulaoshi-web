@@ -7,12 +7,12 @@ goals:[
  "Không thêm 很 phía trước."],
 intro:"Bổ ngữ mức độ đứng <b>sau</b> tính từ — giống “mệt <b>lắm</b>, đẹp <b>cực</b>” của tiếng Việt.",
 rules:[
- {t:"Adj / động từ tâm lý + 得很 / 极了 / 死了", sub:"程度补语", fx:[["Tính từ / 喜欢…",""],["得很 / 极了 / 死了",null]], mean:"",
+ {cap:[3,4], t:"Adj / động từ tâm lý + 得很 / 极了 / 死了", sub:"程度补语", fx:[["Tính từ / 喜欢…",""],["得很 / 极了 / 死了",null]], mean:"",
   ex:[["我{1|累}{2|得很}。","Wǒ lèi de hěn.","Tôi mệt lắm.","等级标准"],
       ["外面{1|冷}{2|极了}。","Wàimiàn lěng jí le.","Bên ngoài lạnh cực kỳ.","等级标准"],
       ["这个游戏孩子们{1|喜欢}{2|极了}。","Zhège yóuxì háizimen xǐhuan jí le.","Trò chơi này bọn trẻ thích lắm.","等级标准"],
       ["他们今天{1|忙}{2|死了}。","Tāmen jīntiān máng sǐ le.","Hôm nay họ bận chết đi được.","等级标准"]]},
- {t:"V / Adj + 坏了", sub:"quá chừng", fx:[["Adj / V",""],["坏了",null]], mean:"坏了 chỉ mức độ rất cao: 累坏了, 高兴坏了, 饿坏了.",
+ {cap:[3], t:"V / Adj + 坏了", sub:"quá chừng", fx:[["Adj / V",""],["坏了",null]], mean:"坏了 chỉ mức độ rất cao: 累坏了, 高兴坏了, 饿坏了.",
   ex:[["今天我{1|累}{2|坏了}。", "Jīntiān wǒ lèi huài le.", "Hôm nay tôi mệt rã rời."],
       ["孩子们{1|高兴}{2|坏了}。", "Háizimen gāoxìng huài le.", "Bọn trẻ vui quá chừng."]]}],
 cmp:[

@@ -7,12 +7,12 @@ goals:[
  "Nhận biết <b>cụm đồng vị</b> (我的朋友小张) — hai tên gọi cùng chỉ một người / vật."],
 intro:"Bốn kiểu cấu trúc cụm từ HSK 3, bổ sung cho 【二37】【二38】.",
 rules:[
- {t:"Cụm giới từ · cụm phương vị", sub:"介宾 · 方位", fx:[["Giới từ + danh từ",null],["·",""],["Danh từ / động từ + phương vị",null]], mean:"",
+ {cap:[1], t:"Cụm giới từ · cụm phương vị", sub:"介宾 · 方位", fx:[["Giới từ + danh từ",null],["·",""],["Danh từ / động từ + phương vị",null]], mean:"",
   ex:[["{1|在房间}　{2|从前边}　{1|往左}　{1|把他}　{1|按照规定}","zài fángjiān　cóng qiánbian　wǎng zuǒ　bǎ tā　ànzhào guīdìng","ở trong phòng　từ phía trước　về bên trái　(đem) anh ấy　theo quy định","等级标准"],
       ["{2|教室里}　{2|桌子上边}　{2|学校的东边}　{2|起床后}　{2|睡觉以前}","jiàoshì li　zhuōzi shàngbian　xuéxiào de dōngbian　qǐ chuáng hòu　shuì jiào yǐqián","trong lớp　trên bàn　phía đông trường　sau khi dậy　trước khi ngủ","等级标准"]]},
- {t:"Cụm kiêm ngữ", sub:"兼语", fx:[["请 / 叫 / 让…",null],["người",""],["Động từ",""]], mean:"Người ở giữa là tân ngữ của động từ trước, đồng thời là chủ ngữ của động từ sau 【三57】.",
+ {cap:[2], t:"Cụm kiêm ngữ", sub:"兼语", fx:[["请 / 叫 / 让…",null],["người",""],["Động từ",""]], mean:"Người ở giữa là tân ngữ của động từ trước, đồng thời là chủ ngữ của động từ sau 【三57】.",
   ex:[["{1|请}{2|他}{3|进来}　{1|叫}{2|他}{3|上车}　{1|通知}{2|他}{3|开会}　{1|建议}{2|大家}{3|休息}","qǐng tā jìnlai　jiào tā shàng chē　tōngzhī tā kāi huì　jiànyì dàjiā xiūxi","mời anh ấy vào　bảo anh ấy lên xe　báo anh ấy họp　đề nghị mọi người nghỉ","等级标准"]]},
- {t:"Cụm đồng vị", sub:"同位", fx:[["Danh từ A",null],["Danh từ B (cùng chỉ một)",null]], mean:"",
+ {cap:[3], t:"Cụm đồng vị", sub:"同位", fx:[["Danh từ A",null],["Danh từ B (cùng chỉ một)",null]], mean:"",
   ex:[["{1|我的朋友}{2|小张}　{1|他妈妈}{2|李老师}　{1|游泳}{2|这种运动}","wǒ de péngyou Xiǎo Zhāng　tā māma Lǐ lǎoshī　yóuyǒng zhè zhǒng yùndòng","bạn tôi Tiểu Trương　mẹ anh ấy, cô Lý　môn thể thao bơi lội này","等级标准"]]}],
 cmp:[
  {vn:"bạn tôi là Tiểu Trương", zh:"我的朋友小张", py:"wǒ de péngyou Xiǎo Zhāng", ok:true, why:"Đồng vị: hai danh từ đứng liền, không cần “là”."}],

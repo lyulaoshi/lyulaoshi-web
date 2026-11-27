@@ -7,13 +7,13 @@ goals:[
  "Đặt đúng vị trí: 多久 sau động từ, 为什么 / 怎样 trước động từ, 怎么样 làm vị ngữ."],
 intro:"Bốn từ để hỏi mới của HSK 2. Vẫn theo quy tắc “hỏi chỗ nào thay chỗ đó”, và <b>không thêm 吗</b>.",
 rules:[
- {t:"多久: bao lâu", sub:"时段", fx:[["V (+了)",""],["多久",null]], mean:"Hỏi khoảng thời gian; đứng <b>sau động từ</b> như bổ ngữ thời lượng.",
+ {cap:[1], t:"多久: bao lâu", sub:"时段", fx:[["V (+了)",""],["多久",null]], mean:"Hỏi khoảng thời gian; đứng <b>sau động từ</b> như bổ ngữ thời lượng.",
   ex:[["昨天的作业，你{1|写了}{2|多久}？","Zuótiān de zuòyè, nǐ xiě le duōjiǔ?","Bài tập hôm qua bạn làm mất bao lâu?","等级标准"]]},
- {t:"为什么: tại sao", sub:"原因", fx:[["Chủ ngữ",""],["为什么",null],["(不) + V",""]], mean:"Hỏi lý do; trả lời bằng 因为…… 【二68】.",
+ {cap:[2], t:"为什么: tại sao", sub:"原因", fx:[["Chủ ngữ",""],["为什么",null],["(不) + V",""]], mean:"Hỏi lý do; trả lời bằng 因为…… 【二68】.",
   ex:[["{1|你}{2|为什么}{3|不去上课}？","Nǐ wèi shénme bú qù shàng kè?","Sao bạn không đi học?","等级标准"]]},
- {t:"怎么样: thế nào (tình hình, ý kiến)", sub:"性状", fx:[["Chủ ngữ",""],["怎么样",null],["？",""]], mean:"Làm vị ngữ, đứng cuối câu; cũng dùng hỏi ý kiến: …，怎么样？",
+ {cap:[1], t:"怎么样: thế nào (tình hình, ý kiến)", sub:"性状", fx:[["Chủ ngữ",""],["怎么样",null],["？",""]], mean:"Làm vị ngữ, đứng cuối câu; cũng dùng hỏi ý kiến: …，怎么样？",
   ex:[["{1|爸爸的身体}{2|怎么样}{3|？}","Bàba de shēntǐ zěnmeyàng?","Sức khỏe của bố thế nào?","等级标准"]]},
- {t:"怎样 + V: làm thế nào", sub:"方式", fx:[["怎样 / 怎么",null],["Động từ",""]], mean:"Hỏi cách thức; 怎样 trang trọng hơn 怎么.",
+ {cap:[1,3], t:"怎样 + V: làm thế nào", sub:"方式", fx:[["怎样 / 怎么",null],["Động từ",""]], mean:"Hỏi cách thức; 怎样 trang trọng hơn 怎么.",
   ex:[["这个字{1|怎样}{2|写}？","Zhège zì zěnyàng xiě?","Chữ này viết thế nào?","等级标准"]]}],
 cmp:[
  {vn:"Bạn học tiếng Trung bao lâu rồi?", zh:"你学中文学了[多久]了？", py:"Nǐ xué Zhōngwén xué le duōjiǔ le?", ok:true, why:"“bao lâu” sau động từ — giống tiếng Việt, nhưng có tân ngữ thì lặp động từ."},

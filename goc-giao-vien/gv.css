@@ -311,16 +311,6 @@ body.hm .t .rg{left:54px;top:8px}
 }
 
 /* hàng công cụ nhanh thứ hai ở trang chính */
-.quick2{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;margin-top:10px}
-.quick2 a{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0;padding:14px 8px 12px;border-radius:20px;background:color-mix(in srgb,var(--c) 14%,var(--card));border:2px solid color-mix(in srgb,var(--c) 28%,transparent);color:var(--ink);text-align:center;text-decoration:none;transition:transform .12s}
-.quick2 a:hover{transform:translateY(-2px)}
-.quick2 .lli{width:42px;height:42px;padding:9px;border-radius:14px;background:var(--c);color:#fff;margin-bottom:4px}
-.quick2 b{font-size:13.5px;line-height:1.3}
-.quick2 small{font-size:12px;line-height:1.4;color:var(--muted);font-weight:600}
-.quick2 small.zh{font-family:var(--hz);font-weight:400;font-size:15px;color:color-mix(in srgb,var(--c) 75%,var(--ink))}
-.q-goi{margin-top:10px;font-size:13.5px;color:var(--muted)}
-@media (max-width:1100px){.quick2{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media (max-width:620px){.quick2{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.quick2 small:not(.zh){display:none}.quick2 a{padding:10px 4px 8px}}
 .hd-lk{display:inline-flex;align-items:center;gap:8px;justify-self:start;align-self:flex-start;width:max-content;margin-top:12px;text-decoration:none}
 /* tên web cạnh logo cũng mang lớp .t — trả về kiểu chữ trơn của thanh đầu trang, không thành thẻ công cụ */
 .top .brand .t{position:static;display:grid;gap:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;color:inherit;line-height:1.15;transition:none}
@@ -342,10 +332,10 @@ dialog.in-d .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(mi
 @media (prefers-reduced-motion:reduce){.in-giay,.in-giay:hover{transition:none;transform:none}}
 /* điện thoại: 2 cột thẻ gọn để thấy đủ các tờ in, đỡ phải cuộn */
 @media (max-width:560px){dialog.in-d{padding:16px 12px}dialog.in-d .tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}body.hm dialog.in-d .t{padding:12px 11px;border-radius:18px}body.hm dialog.in-d .t .ic{width:42px;height:42px;border-radius:14px;margin-bottom:8px}body.hm dialog.in-d .t b{font-size:14px}body.hm dialog.in-d .t small.zh{font-size:15.5px}}
-/* khối "Gọi tên" ở bước 2: mọi cách gọi một chỗ (cô chọn cách B) */
+/* khối gom trong các bước: Gọi tên (cô chọn cách B), Luyện mẫu câu, Trò cả lớp */
 .goi-khoi{margin-top:12px;padding:16px;border-radius:22px;background:var(--card);box-shadow:var(--shadow);scroll-margin:90px}
 .goi-khoi h3{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin:0 0 12px;font-size:18px;font-weight:800}
-.goi-khoi h3 small{font:400 17px var(--hz);color:var(--peach)}
+.goi-khoi h3 small{font:400 17px var(--hz);color:var(--c,var(--teal))}
 .goi-khoi h3 span{font-size:13px;font-weight:600;color:var(--muted)}
 .goi-ds{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,165px),1fr));gap:10px}
 .goi-m{display:flex;align-items:center;gap:10px;min-width:0;padding:10px 12px;border:2px solid transparent;border-radius:16px;background:color-mix(in srgb,var(--k) 11%,var(--card));color:var(--ink);text-decoration:none;transition:transform .18s,border-color .18s}
@@ -358,3 +348,37 @@ dialog.in-d .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(mi
 .goi-m small{font:400 14px var(--hz);color:color-mix(in srgb,var(--k) 75%,var(--ink))}
 @media (max-width:560px){.goi-khoi{padding:12px}.goi-ds{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.goi-m{padding:9px;gap:8px}.goi-m i{width:32px;height:32px;border-radius:11px}.goi-m b{font-size:13px}}
 @media (prefers-reduced-motion:reduce){.goi-m,.goi-m:hover{transition:none;transform:none}}
+.goi-khoi h3 .kh{align-self:center;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--lav-s);color:var(--lav)}
+.goi-khoi h3 .kh .lli{width:13px;height:13px}
+.goi-khoi h3 a.loc{margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:99px;background:var(--teal-s);color:var(--ink);font-size:13px;font-weight:700;text-decoration:none}
+.goi-khoi h3 a.loc:hover{outline:2px solid var(--teal)}
+.goi-khoi h3 a.loc .lli{width:15px;height:15px;color:var(--teal)}
+.hg{display:grid;grid-template-columns:118px minmax(0,1fr);gap:10px 14px;align-items:center;padding:11px 0;border-top:1px solid var(--line)}
+.hg:first-of-type{border-top:0;padding-top:2px}
+.hg:last-of-type{padding-bottom:0}
+.hg h4{margin:0;font-size:14px;font-weight:800;line-height:1.35}
+.hg h4 small{display:block;font-size:12px;font-weight:600;color:var(--muted)}
+.hg .goi-ds{grid-template-columns:repeat(4,minmax(0,1fr))}
+.goi-m em{font-style:normal}
+.goi-m .tgchoi{display:flex;flex-wrap:wrap;column-gap:5px;white-space:nowrap;font-size:11.5px;font-weight:600;line-height:1.4;color:var(--muted)}
+.goi-m u{padding:0 6px;border:1px solid var(--line);border-radius:99px;font-size:10.5px;font-weight:700;text-decoration:none}
+.goi-m .rg2{margin-left:auto;align-self:flex-start;color:var(--lav)}
+.goi-m .rg2 .lli{width:13px;height:13px}
+/* đường dẫn nhỏ cuối bước */
+.lk-nho{margin:12px 0 4px;font-size:14px;color:var(--muted)}
+.lk-nho a{display:inline-flex;align-items:center;gap:6px;margin-left:4px;padding:8px 15px;border-radius:99px;background:var(--card);box-shadow:var(--shadow);color:var(--ink);font-weight:800;text-decoration:none}
+.lk-nho a:hover{outline:2px solid var(--peach)}
+.lk-nho a .lli{width:15px;height:15px;color:var(--peach)}
+/* hai thanh mở bảng: Công cụ nhanh · In ra giấy */
+.hai{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.hai .in-giay{margin-top:0}
+.in-giay b{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:6px}
+.in-giay b small{margin-left:0;white-space:nowrap}
+.in-giay.nh{background:var(--peach-s);border-color:color-mix(in srgb,var(--peach) 40%,transparent)}
+.in-giay.nh:hover{box-shadow:0 14px 30px color-mix(in srgb,var(--peach) 28%,transparent)}
+.in-giay.nh:focus-visible{outline-color:var(--peach)}
+.in-giay.nh .ic{background:var(--peach)}
+.in-giay.nh b small,.in-giay.nh .mui{color:var(--peach)}
+@media (max-width:900px){.hg .goi-ds{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.hai{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.hg{grid-template-columns:minmax(0,1fr);gap:8px}.hg h4 small{display:inline;margin-left:6px}.goi-khoi h3 a.loc{margin-left:0}}

@@ -7,10 +7,10 @@ goals:[
  "Dùng <b>亲自</b> (đích thân, tự mình)."],
 intro:"Phó từ cách thức cho biết hành động được làm <b>như thế nào</b>, đứng trước động từ.",
 rules:[
- {t:"互相 / 相互 + V", sub:"lẫn nhau", fx:[["Chủ ngữ số nhiều",""],["互相 / 相互",null],["Động từ",""]], mean:"",
+ {cap:[4], t:"互相 / 相互 + V", sub:"lẫn nhau", fx:[["Chủ ngữ số nhiều",""],["互相 / 相互",null],["Động từ",""]], mean:"",
   ex:[["{1|大家}要{2|互相}{3|帮助}。","Dàjiā yào hùxiāng bāngzhù.","Mọi người phải giúp đỡ lẫn nhau.","等级标准"],
       ["{1|我们}要{2|相互}{3|关心}，{2|相互}{3|照顾}。","Wǒmen yào xiānghù guānxīn, xiānghù zhàogù.","Chúng ta phải quan tâm, chăm sóc lẫn nhau.","等级标准"]]},
- {t:"尽量 · 亲自 + V", sub:"cách làm", fx:[["尽量 / 亲自",null],["Động từ",""]], mean:"尽量 cố hết mức có thể · 亲自 đích thân.",
+ {cap:[5], t:"尽量 · 亲自 + V", sub:"cách làm", fx:[["尽量 / 亲自",null],["Động từ",""]], mean:"尽量 cố hết mức có thể · 亲自 đích thân.",
   ex:[["志愿者要{1|尽量}{2|自己克服困难}。","Zhìyuànzhě yào jǐnliàng zìjǐ kèfú kùnnan.","Tình nguyện viên phải cố gắng tự khắc phục khó khăn.","等级标准"],
       ["校长{1|亲自}{2|联系学生实习的公司}。","Xiàozhǎng qīnzì liánxì xuésheng shíxí de gōngsī.","Hiệu trưởng đích thân liên hệ công ty cho sinh viên thực tập.","等级标准"]]}],
 cmp:[

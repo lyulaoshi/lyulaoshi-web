@@ -1,0 +1,54 @@
+/* Mục lục giáo trình khung cũ (TTTC, 乐读, 汉语阅读教程, 301): nền tối + nút đổi nền (27/11/2026). Nạp SAU <style> của trang.
+   Chọn sáng/tối dùng chung khoá cb-theme với cả web; chưa chọn thì theo máy. Hai khối tối bên dưới GIỐNG NHAU — sửa thì sửa cả hai. */
+.top nav{margin-left:auto}
+.themebtn{flex:none;border:1.5px solid var(--line);background:#fff;color:var(--ink);width:38px;height:38px;border-radius:999px;cursor:pointer;padding:0}
+.themebtn:hover{color:var(--coral)}
+.feat .ic .lli{width:28px;height:28px}
+.stat b .lli{width:24px;height:24px;vertical-align:-.2em}
+@media (max-width:480px){
+  .top{gap:8px}
+  .logo{min-width:0;gap:8px;font-size:14px;line-height:1.25}
+  .logo .seal{width:36px;height:36px;font-size:21px;border-radius:12px;flex:none}
+  .top nav{flex:none}
+  .top nav a[href="/"]{padding:6px 11px;font-size:13px}
+  .themebtn{width:34px;height:34px}
+}
+/* Nền sáng: màu chữ đủ đậm để đọc (27/11/2026: vàng/cam/xanh gốc chỉ đạt 2,3–3,3:1 ở nhãn thẻ, chữ "Vào học", nhãn MỚI).
+   Con dấu và hình minh hoạ đầu trang (.art) giữ màu gốc tươi. */
+:root{--coral:#CA2532;--sky:#266CB5;--mint:#237858;--lav:#6955D0;--peach:#A95215;--butter:#83650D;--muted:#64677D}
+.logo .seal,.art{--coral:#E0545F;--sky:#3B87D6;--mint:#2E9E73;--lav:#7C6BD6;--peach:#E7823A;--butter:#C99A14}
+.card.soon .zh{color:#7C809C}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){color-scheme:dark;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--shadow:0 10px 30px rgba(0,0,0,.35);--coral:#E5727B;--sky:#5D9CDD;--mint:#33AE7E;--lav:#9789DE;--peach:#E7823A;--butter:#C99A14;--coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A}
+  :root:not([data-theme="light"]) .logo .seal{--coral:#E0545F;--sky:#3B87D6;--mint:#2E9E73;--lav:#7C6BD6;--peach:#E7823A;color:#fff}
+  :root:not([data-theme="light"]) body{background:#1B1C27}
+  :root:not([data-theme="light"]) .art{--coral:#E5727B;--sky:#5D9CDD;--mint:#33AE7E;--lav:#9789DE;--peach:#E7823A;--butter:#C99A14;--muted:#A9AAC0}
+  :root:not([data-theme="light"]) .card.soon .zh{color:var(--faint)}
+  :root:not([data-theme="light"]) .hero{background:radial-gradient(60% 80% at 0% 0%,rgba(224,84,95,.18) 0%,transparent 60%),radial-gradient(50% 70% at 100% 10%,rgba(59,135,214,.2) 0%,transparent 60%),radial-gradient(60% 60% at 70% 100%,rgba(46,158,115,.14) 0%,transparent 60%),#20212E}
+  :root:not([data-theme="light"]) .hero::after{background:#1B1C27}
+  :root:not([data-theme="light"]) .art .blob{opacity:.2}
+  :root:not([data-theme="light"]) .art .big div{text-shadow:none}
+  :root:not([data-theme="light"]) .top nav a:hover,:root:not([data-theme="light"]) .top nav a[href="/"]{background:#262839}
+  :root:not([data-theme="light"]) .themebtn,:root:not([data-theme="light"]) .tag,:root:not([data-theme="light"]) .btn.sec,:root:not([data-theme="light"]) .tile,:root:not([data-theme="light"]) .bub,:root:not([data-theme="light"]) .card,:root:not([data-theme="light"]) .feat,:root:not([data-theme="light"]) .teacher .av{background-color:#262839}
+  :root:not([data-theme="light"]) .tag{border-color:var(--line)}
+  :root:not([data-theme="light"]) .stat{background:rgba(38,40,57,.85);border-color:var(--line)}
+  :root:not([data-theme="light"]) a.card:hover{border-color:var(--c)}
+  :root:not([data-theme="light"]) .card.soon{background:rgba(38,40,57,.55)}
+  :root:not([data-theme="light"]) .tag b,:root:not([data-theme="light"]) .btn.pri,:root:not([data-theme="light"]) .card .num i,:root:not([data-theme="light"]) .go .ar,:root:not([data-theme="light"]) .new{color:#15161F}
+}
+:root[data-theme="dark"]{color-scheme:dark;--ink:#ECEBF5;--muted:#A9AAC0;--faint:#6F7189;--line:#34364A;--shadow:0 10px 30px rgba(0,0,0,.35);--coral:#E5727B;--sky:#5D9CDD;--mint:#33AE7E;--lav:#9789DE;--peach:#E7823A;--butter:#C99A14;--coral-s:#40262D;--sky-s:#1F3147;--mint-s:#1D372F;--lav-s:#2D2946;--peach-s:#40301F;--butter-s:#3A321A}
+:root[data-theme="dark"] .logo .seal{--coral:#E0545F;--sky:#3B87D6;--mint:#2E9E73;--lav:#7C6BD6;--peach:#E7823A;color:#fff}
+:root[data-theme="dark"] body{background:#1B1C27}
+:root[data-theme="dark"] .art{--coral:#E5727B;--sky:#5D9CDD;--mint:#33AE7E;--lav:#9789DE;--peach:#E7823A;--butter:#C99A14;--muted:#A9AAC0}
+:root[data-theme="dark"] .card.soon .zh{color:var(--faint)}
+:root[data-theme="dark"] .hero{background:radial-gradient(60% 80% at 0% 0%,rgba(224,84,95,.18) 0%,transparent 60%),radial-gradient(50% 70% at 100% 10%,rgba(59,135,214,.2) 0%,transparent 60%),radial-gradient(60% 60% at 70% 100%,rgba(46,158,115,.14) 0%,transparent 60%),#20212E}
+:root[data-theme="dark"] .hero::after{background:#1B1C27}
+:root[data-theme="dark"] .art .blob{opacity:.2}
+:root[data-theme="dark"] .art .big div{text-shadow:none}
+:root[data-theme="dark"] .top nav a:hover,:root[data-theme="dark"] .top nav a[href="/"]{background:#262839}
+:root[data-theme="dark"] .themebtn,:root[data-theme="dark"] .tag,:root[data-theme="dark"] .btn.sec,:root[data-theme="dark"] .tile,:root[data-theme="dark"] .bub,:root[data-theme="dark"] .card,:root[data-theme="dark"] .feat,:root[data-theme="dark"] .teacher .av{background-color:#262839}
+:root[data-theme="dark"] .tag{border-color:var(--line)}
+:root[data-theme="dark"] .stat{background:rgba(38,40,57,.85);border-color:var(--line)}
+:root[data-theme="dark"] a.card:hover{border-color:var(--c)}
+:root[data-theme="dark"] .card.soon{background:rgba(38,40,57,.55)}
+:root[data-theme="dark"] .tag b,:root[data-theme="dark"] .btn.pri,:root[data-theme="dark"] .card .num i,:root[data-theme="dark"] .go .ar,:root[data-theme="dark"] .new{color:#15161F}

@@ -7,12 +7,12 @@ goals:[
  "Dùng 大概 trước số lượng nghĩa “khoảng”."],
 intro:"Hai phó từ phỏng đoán. <b>恐怕</b> mang sắc thái lo ngại, thường đi với tin không tốt.",
 rules:[
- {t:"大概 / 恐怕 + V / số lượng", sub:"推测", fx:[["(S)",""],["大概 / 恐怕",null],["Động từ / số lượng",""]], mean:"",
+ {cap:[3,4], t:"大概 / 恐怕 + V / số lượng", sub:"推测", fx:[["(S)",""],["大概 / 恐怕",null],["Động từ / số lượng",""]], mean:"",
   ex:[["{1|他}病了，今天{2|大概}{3|不会来上课}了。","Tā bìng le, jīntiān dàgài bú huì lái shàng kè le.","Anh ấy ốm rồi, hôm nay có lẽ sẽ không đến lớp.","等级标准"],
       ["天这么阴，{2|大概}{3|要下雨}。","Tiān zhème yīn, dàgài yào xià yǔ.","Trời âm u thế này, có lẽ sắp mưa.","等级标准"],
       ["我头有点儿疼，{2|恐怕}{3|是感冒}了。","Wǒ tóu yǒudiǎnr téng, kǒngpà shì gǎnmào le.","Tôi hơi đau đầu, e là bị cảm rồi.","等级标准"],
       ["{1|他}出国{2|恐怕}{3|已经有三年多}了吧。","Tā chū guó kǒngpà yǐjīng yǒu sān nián duō le ba.","Anh ấy ra nước ngoài e rằng đã hơn ba năm rồi.","等级标准"]]},
- {t:"几乎 + động từ", sub:"gần như", fx:[["S",""],["几乎",null],["V / Adj",""]], mean:"几乎 = gần như, suýt.",
+ {cap:[3], t:"几乎 + động từ", sub:"gần như", fx:[["S",""],["几乎",null],["V / Adj",""]], mean:"几乎 = gần như, suýt.",
   ex:[["{1|他}{2|几乎}{3|每天都锻炼}。", "Tā jīhū měi tiān dōu duànliàn.", "Anh ấy gần như ngày nào cũng tập."],
       ["{1|我}{2|几乎}{3|忘了这件事}。", "Wǒ jīhū wàngle zhè jiàn shì.", "Tôi suýt quên việc này."]]}],
 cmp:[

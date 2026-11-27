@@ -7,9 +7,9 @@ goals:[
  "Dùng 一眼、一口 cho hành động nhanh, ít."],
 intro:"Ba lượng từ động tác này mượn danh từ chỉ <b>bộ phận / dụng cụ</b> của hành động: 口 (miệng), 眼 (mắt).",
 rules:[
- {t:"V + số + 顿 / 口 / 眼", sub:"动量词", fx:[["Động từ",""],["Số",""],["顿 / 口 / 眼",null]], mean:"批评一顿 mắng một trận · 喝一口 uống một ngụm · 看一眼 nhìn một cái.",
+ {cap:[3,4,5], t:"V + số + 顿 / 口 / 眼", sub:"动量词", fx:[["Động từ",""],["Số",""],["顿 / 口 / 眼",null]], mean:"批评一顿 mắng một trận · 喝一口 uống một ngụm · 看一眼 nhìn một cái.",
   ex:[["{1|批评}{2|一}{3|顿}　{1|喝}{2|一}{3|口}　{1|看}{2|一}{3|眼}","pīpíng yí dùn　hē yì kǒu　kàn yì yǎn","mắng một trận　uống một ngụm　nhìn một cái","等级标准"]]},
- {t:"声: số lần phát ra tiếng", sub:"声", fx:[["V",""],["(了)",""],["Số",""],["声",null]], mean:"声 đếm số tiếng kêu, tiếng gọi.",
+ {cap:[3], t:"声: số lần phát ra tiếng", sub:"声", fx:[["V",""],["(了)",""],["Số",""],["声",null]], mean:"声 đếm số tiếng kêu, tiếng gọi.",
   ex:[["他大{1|叫}{2|了}{3|一}{4|声}。", "Tā dà jiàole yì shēng.", "Anh ấy kêu to một tiếng."],
       ["门外{1|响}{2|了}{3|两}{4|声}。", "Mén wài xiǎngle liǎng shēng.", "Ngoài cửa vang lên hai tiếng."]]}],
 notes:[{t:"顿 cho bữa ăn", html:"<span class='zh'>一天吃三顿饭</span> (một ngày ăn ba bữa) — ở đây 顿 là lượng từ danh từ."}],

@@ -78,7 +78,14 @@ function veBaiHTML(ds){return ds.map(b=>`<article class="bai">
       return`<a class="doan" href="#${k}"><span class="so">${i+1}</span><span class="t"><b class="zh">${esc(d.ten)}</b><small>${esc(d.tenVi)} · ${d.cau.length} câu</small></span>
       <span class="dots" aria-label="Xong ${n}/4 bước">${BUOC.map(x=>`<i class="${xong(k,x[0])?"on":""}"></i>`).join("")}</span></a>`}).join("")}</div>
   </article>`).join("")}
-function veMucLuc(){$("#dsBai").innerHTML=veBaiHTML(DS);soLieu()}
+// Tab "Theo giáo trình": gom theo nguồn (giáo trình trước, hội thoại tình huống sau), trong nhóm xếp theo số bài — không phụ thuộc thứ tự trong data.js
+const NHOM=[["301","汉语会话301句","Giáo trình 301 câu"],["nn","情景对话","Hội thoại tình huống"]];
+function veMucLuc(){
+  $("#dsBai").innerHTML=[...new Set([...NHOM.map(n=>n[0]),...DS.map(b=>b.sach)])].map(s=>{
+    const ds=DS.filter(b=>b.sach===s).sort((a,b)=>a.bai-b.bai);if(!ds.length)return"";
+    const n=NHOM.find(x=>x[0]===s),so=s==="nn"?`${ds.length} bài`:`Bài ${ds[0].bai}–${ds[ds.length-1].bai}`;
+    return`<h2 class="nhom"><span class="zh">${esc(n?n[1]:ds[0].sachTen)}</span> <small>${n?esc(n[2])+" · ":""}${so}</small></h2>`+veBaiHTML(ds)}).join("");
+  soLieu()}
 function soLieu(){       // số liệu đầu trang tự đếm theo data.js
   const dat=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
   dat("soBai",DS.length);dat("soTh",TH_LIST.filter(t=>DS.some(b=>b.th===t.id)).length);

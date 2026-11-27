@@ -7,13 +7,13 @@ goals:[
  "Nói gần đúng bằng <b>差不多</b> (khoảng, gần như); phân biệt <b>一定不 / 不一定</b>."],
 intro:"Phó từ tình thái cho biết <b>thái độ</b> của người nói (chắc chắn, đoán, bắt buộc). Tất cả đứng <b>trước động từ</b>.",
 rules:[
- {t:"必须 · 一定: phải, nhất định", sub:"必要 · 肯定", fx:[["Chủ ngữ",""],["必须 / 一定 (要)",null],["Động từ",""]], mean:"必须 bắt buộc (phủ định: 不必 / 不用); 一定 chắc chắn, nhất định.",
+ {cap:[3], t:"必须 · 一定: phải, nhất định", sub:"必要 · 肯定", fx:[["Chủ ngữ",""],["必须 / 一定 (要)",null],["Động từ",""]], mean:"必须 bắt buộc (phủ định: 不必 / 不用); 一定 chắc chắn, nhất định.",
   ex:[["要取得好成绩，{1|大家}{2|必须}{3|努力学习}。","Yào qǔdé hǎo chéngjì, dàjiā bìxū nǔlì xuéxí.","Muốn có thành tích tốt, mọi người phải chăm chỉ học.","等级标准"],
       ["你到北京以后，{2|一定要}{3|去看看王老师}。","Nǐ dào Běijīng yǐhòu, yídìng yào qù kànkan Wáng lǎoshī.","Đến Bắc Kinh rồi, bạn nhất định phải đi thăm thầy Vương.","等级标准"]]},
- {t:"好像 · 也许: hình như, có lẽ", sub:"推测", fx:[["Chủ ngữ",""],["好像 / 也许",null],["Động từ",""]], mean:"Đoán, không chắc chắn.",
+ {cap:[3,4], t:"好像 · 也许: hình như, có lẽ", sub:"推测", fx:[["Chủ ngữ",""],["好像 / 也许",null],["Động từ",""]], mean:"Đoán, không chắc chắn.",
   ex:[["{1|今天}{2|好像}{3|要下雨}。","Jīntiān hǎoxiàng yào xià yǔ.","Hôm nay hình như sắp mưa.","等级标准"],
       ["{1|我}今年{2|也许}{3|会去中国学习中文}。","Wǒ jīnnián yěxǔ huì qù Zhōngguó xuéxí Zhōngwén.","Năm nay có lẽ tôi sẽ sang Trung Quốc học tiếng Trung.","等级标准"]]},
- {t:"差不多: khoảng, gần như", sub:"估计", fx:[["差不多",null],["Động từ / số lượng",""]], mean:"Gần bằng, xấp xỉ.",
+ {cap:[3], t:"差不多: khoảng, gần như", sub:"估计", fx:[["差不多",null],["Động từ / số lượng",""]], mean:"Gần bằng, xấp xỉ.",
   ex:[["机票{1|差不多}{2|要两千块钱}。","Jīpiào chàbuduō yào liǎngqiān kuài qián.","Vé máy bay khoảng 2.000 tệ.","等级标准"]]}],
 notes:[
  {t:"一定不 ≠ 不一定", html:"<span class='zh'>我一定不去。</span> = chắc chắn không đi · <span class='zh'>我不一定去。</span> = chưa chắc đi."}],

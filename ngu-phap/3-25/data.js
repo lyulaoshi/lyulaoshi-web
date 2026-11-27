@@ -7,7 +7,7 @@ goals:[
  "Phân biệt với 因为……所以…… nối hai vế câu 【二68】."],
 intro:"Ở đây 由于、因为 là <b>giới từ</b>: đi với một <b>cụm danh từ</b> (vì lý do gì), đặt đầu câu hoặc trước động từ.",
 rules:[
- {t:"由于 / 因为 + cụm danh từ", sub:"原因", fx:[["由于 / 因为",null],["nguyên nhân (cụm danh từ)",""],["，",""],["vế chính",""]], mean:"",
+ {cap:[2,4], t:"由于 / 因为 + cụm danh từ", sub:"原因", fx:[["由于 / 因为",null],["nguyên nhân (cụm danh từ)",""],["，",""],["vế chính",""]], mean:"",
   ex:[["{1|由于}{2|各种原因}，{3|大家没有接受他的意见}。","Yóuyú gè zhǒng yuányīn, dàjiā méiyǒu jiēshòu tā de yìjiàn.","Vì nhiều lý do, mọi người không chấp nhận ý kiến của anh ấy.","等级标准"],
       ["他{1|因为}{2|这件事}{3|一直不跟我说话}。","Tā yīnwèi zhè jiàn shì yìzhí bù gēn wǒ shuō huà.","Vì chuyện này mà anh ấy không nói chuyện với tôi suốt.","等级标准"]]}],
 cmp:[

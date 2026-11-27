@@ -7,7 +7,7 @@ goals:[
  "Câu bị động tiếng Trung thường nói về việc <b>không như ý</b>."],
 intro:"Tiếng Việt “bị / được”; tiếng Trung dùng 被 (叫, 让 khẩu ngữ). Động từ sau đó <b>không đứng trơn</b>: cần 了, bổ ngữ…",
 rules:[
- {t:"O + 被 / 叫 / 让 + người + V + thành phần khác", sub:"被动", fx:[["Đối tượng",""],["被 / 叫 / 让",null],["người làm",""],["V + 坏 / 脏 / 了…",""]], mean:"",
+ {cap:[3,4], t:"O + 被 / 叫 / 让 + người + V + thành phần khác", sub:"被动", fx:[["Đối tượng",""],["被 / 叫 / 让",null],["người làm",""],["V + 坏 / 脏 / 了…",""]], mean:"",
   ex:[["{1|那个手机}早{2|被}{3|我}{4|用坏了}。","Nàge shǒujī zǎo bèi wǒ yònghuài le.","Chiếc điện thoại đó bị tôi dùng hỏng từ lâu rồi.","等级标准"],
       ["{1|我的词典}{2|叫}{3|弟弟}{4|弄脏了}。","Wǒ de cídiǎn jiào dìdi nòngzāng le.","Từ điển của tôi bị em trai làm bẩn rồi.","等级标准"],
       ["{1|他}完全{2|让}{3|这位姑娘}{4|迷住了}。","Tā wánquán ràng zhè wèi gūniang mízhù le.","Anh ấy hoàn toàn bị cô gái này hớp hồn rồi.","等级标准"]]}],
