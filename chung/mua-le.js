@@ -392,7 +392,7 @@
       for(var k=0;k<VE.tuyet;k++){var b=document.createElement("i"),r=function(a,z){return a+((k*7919+a*31)%97)/97*(z-a)};b.style.cssText="--x:"+(k*(98/VE.tuyet)+1).toFixed(1)+"%;--s:"+r(5,11).toFixed(1)+"px;--t:"+r(7,13).toFixed(1)+"s;--dl:"+(-k*1.3).toFixed(1)+"s;--dx:"+r(-18,18).toFixed(0)+"px;--c:"+["#e0464b","#f6c945","#4f8ff0","#3cbf74","#9b6ce0"][k%5];roi.appendChild(b)}
       art.appendChild(roi);
     }
-    document.querySelectorAll("img.logo").forEach(function(im){
+    document.querySelectorAll("img.logo,.brand .lld-logo").forEach(function(im){
       if(im.parentNode.querySelector(".ml-nho"))return;
       var vo=document.createElement("span");vo.className="ml-vo";
       im.parentNode.insertBefore(vo,im);vo.appendChild(im);

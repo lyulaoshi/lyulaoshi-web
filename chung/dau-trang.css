@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@700&text=LYUAOSHICNEBX%20&display=swap");
+/* Khối tên ở đầu trang (logo + 吕老师汉语盒 + LYU LAOSHI CHINESE BOX) — cô chốt 27/11/2026: kiểu 1, chữ Hán ZCOOL KuaiLe
+   吕老师 đỏ san hô, 汉语盒 xanh dương — đúng hai màu của dòng 吕老师汉语盒，拆盒解锁汉语乐 ở đầu trang chủ (--coral, --sky); dòng tiếng Anh Quicksand in hoa, màu xám.
+   Dùng chung trang chủ + các hộp: tools/build_site.py (dau_trang) thay phần trong <a class="brand"> khi ghép. Chỉ sửa ở đây.
+   LLTen = ZCOOL KuaiLe (OFL) cắt riêng 6 chữ 吕老师汉语盒. */
+@font-face{font-family:LLTen;font-display:swap;src:url(data:font/ttf;base64,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) format("truetype")}
+.brand.lld{--lld-do:#E0545F;--lld-xanh:#3B87D6;--lld-xam:#6B6E86;--lld-s:36px;display:flex;align-items:center;gap:9px;flex:none;min-width:0;white-space:nowrap;text-decoration:none}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand.lld{--lld-xam:#A9AAC0}}
+:root[data-theme="dark"] .brand.lld{--lld-xam:#A9AAC0}
+/* logo ghép từ 3 mảnh trong khung vuông: rê chuột thì nắp hộp hé, bong bóng 哈喽 nhấc lên */
+.brand.lld .lld-logo{display:flex;justify-content:center;flex:none;width:var(--lld-s);height:var(--lld-s)}
+.brand.lld .lld-hop{position:relative;display:block;height:100%;aspect-ratio:1135/1248}
+.brand.lld .lld-hop i{position:absolute;display:block;background:center/100% 100% no-repeat}
+.brand.lld .lld-than{left:0;top:52%;width:99.4%;aspect-ratio:755/401;background-image:url("/img/logo-body.png")!important}
+.brand.lld .lld-nap{left:14.3%;top:47.8%;width:85.7%;aspect-ratio:652/157;background-image:url("/img/logo-lid.png")!important;transform-origin:97% 100%;transition:rotate .35s cubic-bezier(.3,1.7,.5,1)}
+.brand.lld .lld-bb{left:12.2%;top:0;width:75.4%;aspect-ratio:573/409;background-image:url("/img/logo-bubble.png")!important;transition:translate .35s cubic-bezier(.3,1.7,.5,1)}
+@media (hover:hover){.brand.lld:hover .lld-nap{rotate:8deg}.brand.lld:hover .lld-bb{translate:0 -3px}}
+.brand.lld:focus-visible .lld-nap{rotate:8deg}
+@media (prefers-reduced-motion:reduce){.brand.lld .lld-nap,.brand.lld .lld-bb{transition:none}}
+.brand.lld .lld-ten{display:grid;gap:2px}
+.brand.lld .lld-zh{display:block;font:400 18px/1.1 LLTen,"ZCOOL KuaiLe","Kaiti SC",sans-serif;letter-spacing:.04em;color:var(--lld-do)}
+.brand.lld .lld-zh span{font:inherit;color:var(--lld-xanh)}
+.brand.lld .lld-en{display:block;font:700 7.6px/1.2 Quicksand,"Be Vietnam Pro",system-ui,sans-serif;letter-spacing:.075em;text-transform:uppercase;color:var(--lld-xam)}
+@media (max-width:560px){.brand.lld{--lld-s:32px;gap:7px}.brand.lld .lld-zh{font-size:15px}.brand.lld .lld-en{display:none}}
+@media (max-width:359px){.brand.lld{--lld-s:26px;gap:5px}.brand.lld .lld-zh{font-size:11.5px;letter-spacing:.02em}}
+/* trang chủ (.lld-to): to hơn, điện thoại vẫn giữ dòng tiếng Anh */
+.brand.lld.lld-to{--lld-s:48px;gap:11px}
+.brand.lld.lld-to .lld-ten{gap:3px}
+.brand.lld.lld-to .lld-zh{font-size:25px}
+.brand.lld.lld-to .lld-en{font-size:10.4px;letter-spacing:.095em}
+@media (max-width:560px){.brand.lld.lld-to{--lld-s:40px;gap:8px}.brand.lld.lld-to .lld-zh{font-size:19px}.brand.lld.lld-to .lld-en{display:block;font-size:8.2px;letter-spacing:.05em}}
+@media (max-width:440px){.brand.lld.lld-to{--lld-s:36px;gap:7px}.brand.lld.lld-to .lld-zh{font-size:17px}.brand.lld.lld-to .lld-en{font-size:7.3px;letter-spacing:.04em}}
+@media (max-width:359px){.brand.lld.lld-to{--lld-s:32px}.brand.lld.lld-to .lld-zh{font-size:14px}.brand.lld.lld-to .lld-en{display:none}}

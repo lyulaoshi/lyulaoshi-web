@@ -31,6 +31,7 @@
 .hd .keys{margin-top:12px}
 @media (max-width:720px){.hd .ba,.hoi{grid-template-columns:minmax(0,1fr)}.buoc>div{grid-template-columns:minmax(0,1fr)}}
 </style>
+<link rel="stylesheet" href="/chung/dau-trang.css?v=844009d7">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
@@ -39,7 +40,7 @@
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><svg viewBox="0 0 200 200" aria-hidden="true"><image href="../../img/logo-hallo-128.png" width="200" height="200"/></svg><span class="t"><b>Lyu Laoshi Chinese Box</b><span>吕老师汉语盒</span></span></a>
+  <a class="brand lld" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><span class="lld-logo logo" aria-hidden="true"><span class="lld-hop"><i class="lld-than"></i><i class="lld-nap"></i><i class="lld-bb"></i></span></span><span class="lld-ten"><span class="lld-zh" lang="zh">吕老师<span>汉语盒</span></span><span class="lld-en">Lyu Laoshi Chinese Box</span></span></a>
   <nav class="crumb"><a href="../" class="hide-s">Góc giáo viên</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
@@ -88,12 +89,12 @@
 <footer class="wrap">© Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
 <script src="../gv.js?v=7"></script>
-<script src="../cong-cu.js?v=454120fc"></script>
+<script src="../cong-cu.js?v=d9a81de2"></script>
 <script>
 (function(){
 const {$,esc,G}=GV;
 const TEN=['Chuẩn bị','Mở đầu, ôn bài cũ','Từ mới','Ngữ pháp','Bài khoá','Luyện nói','Trò chơi','Củng cố','Sau giờ học'];
-/* danh sách lấy thẳng từ cong-cu.js?v=454120fc: chỉ công cụ ai cũng dùng được */
+/* danh sách lấy thẳng từ cong-cu.js?v=d9a81de2: chỉ công cụ ai cũng dùng được */
 const cc=(window.GV_CC||[]).filter(x=>!x.rieng&&!x.soon&&x.url&&x.buoc);
 const duong=u=>/^(\/|https?:)/.test(u)?u:'../'+u;
 $('buoc').innerHTML=TEN.map((t,i)=>{const ds=cc.filter(x=>x.buoc===i+1).map(x=>[x.n,duong(x.url),x.p]);
