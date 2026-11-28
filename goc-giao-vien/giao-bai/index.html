@@ -50,7 +50,7 @@
   <a class="back" href="../"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#tg-trai"></use></svg>Góc giáo viên</a>
   <h1>Giao bài về nhà<span lang="zh">回家玩</span></h1>
   <p>Chọn bộ từ, chọn một game, gửi link. Học viên chơi hết ván thì gửi mã lại, thầy cô dán vào trang Thu bài để xếp hạng.</p>
-  <a class="btn gh" href="/chung/bai-nop.html?v=940c1de8" style="justify-self:start"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#thu"></use></svg>Thu bài, xếp hạng</a>
+  <a class="btn gh" href="/chung/bai-nop.html?v=e8bfbb60" style="justify-self:start"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#thu"></use></svg>Thu bài, xếp hạng</a>
 </section>
 <div id="vTao">
   <section class="khoi pn">
@@ -74,7 +74,7 @@
       <div style="min-width:0">
         <div class="lnk"><input type="text" id="lk" readonly aria-label="Link bài giao"><button class="btn tl" type="button" id="bLk"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#chep"></use></svg>Chép link</button></div>
         <div class="tin" id="tin"></div>
-        <div class="row"><button class="btn tl" type="button" id="bTin"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#chep"></use></svg>Chép tin nhắn</button><button class="btn gh" type="button" id="bGui" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#gui"></use></svg>Gửi qua Zalo…</button><a class="btn gh" id="aThu" target="_blank" rel="noopener"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#phat"></use></svg>Chơi thử như học viên</a></div>
+        <div class="row"><button class="btn tl" type="button" id="bTin"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#chep"></use></svg>Chép tin nhắn</button><button class="btn gh" type="button" id="bGui" hidden><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#gui"></use></svg>Gửi qua Zalo…</button><a class="btn gh" id="aThu"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#phat"></use></svg>Chơi thử như học viên</a></div>
       </div>
       <div class="qr" id="qr">Đang tạo mã QR…</div>
     </div>
@@ -170,7 +170,7 @@ $('tTen').oninput=e=>{o.ten=e.target.value;tenTuDat=!!o.ten.trim();luu();ve()};
 $('tHan').value=o.han;$('tHan').oninput=e=>{o.han=e.target.value;luu();ve()};
 if(o.ten)$('tTen').value=o.ten;
 /* link cũ …/giao-bai/#ket-qua: chuyển sang trang Thu bài */
-if(location.hash==='#ket-qua')location.replace('/chung/bai-nop.html?v=940c1de8');
+if(location.hash==='#ket-qua')location.replace('/chung/bai-nop.html?v=e8bfbb60');
 GVT.nguon($('nguon'),(list,t)=>{tuBai=list;tenBai=t;capNhat()});
 capNhat();
 })();

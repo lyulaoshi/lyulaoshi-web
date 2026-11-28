@@ -148,6 +148,9 @@ h3.sec .n{box-shadow:0 3px 0 color-mix(in srgb,var(--lc,var(--c)) 55%,#000 0%);}
 .tk-stub::before{top:-9px}.tk-stub::after{bottom:-9px}
 .tk-body{padding:14px 14px 14px 16px;display:grid;gap:8px;align-content:center}
 .tk-body>b{font-size:16px}
+.tk-body .dodang{font-size:13px;font-weight:700;color:var(--muted);line-height:1.45}
+.tk-nut{display:flex;flex-wrap:wrap;gap:8px}
+.de.tk button.lai{box-shadow:none;background:var(--ground2);color:var(--ink);padding:8px 14px;font-size:14px}
 .de .meta{gap:8px}
 .de .meta span{display:inline-flex;gap:5px;align-items:center;background:var(--ground2);border-radius:999px;padding:3px 10px}
 .de .meta .lli{width:14px;height:14px}
@@ -523,11 +526,12 @@ function home(keep){
   // 1 · đề mô phỏng của cấp đang chọn
   const ds=DS.filter(d=>String(d.cap)===LV);
   $("deList").innerHTML=ds.length?ds.map(d=>{
-    const r=sc[d.id],m=r&&String(r).match(/(\d+)\/(\d+)/),pc=m?Math.round(m[1]/m[2]*100):null,no=d.id.split("-").pop();
+    const r=sc[d.id],m=r&&String(r).match(/(\d+)\/(\d+)/),pc=m?Math.round(m[1]/m[2]*100):null,no=d.id.split("-").pop(),do_=dangDo(d);
     return `<div class="de tk${m?" done":""}"><div class="tk-stub"><small>Đề số</small><b>${no}</b></div>`+
       `<div class="tk-body"><b>HSK ${LV} · ${d.ten.replace(/.*số\s*/,"Số ")}</b>`+
       `<div class="meta"><span><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#dong-ho"/></svg>${d.phut} phút</span><span><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#de"/></svg>${d.q.length} câu</span></div>`+
-      `<button class="btn pri" data-de="${d.id}">${m?"Làm lại":"Làm đề"} →</button></div>`+
+      (do_?`<div class="dodang">Đang làm dở: ${do_.a.filter(filled).length}/${d.q.length} câu · <span style="white-space:nowrap">còn ${phutGiay(d.phut*60-do_.el)}</span></div><div class="tk-nut"><button class="btn pri" data-tiep="${d.id}">Làm tiếp →</button><button class="btn lai" data-de="${d.id}">Làm lại từ đầu</button></div></div>`
+        :`<button class="btn pri" data-de="${d.id}">${m?"Làm lại":"Làm đề"} →</button></div>`)+
       `<div class="tk-ring${m?"":" none"}" style="--p:${pc||0}" title="${m?"Lần trước: "+r:"Chưa làm"}"><span>${m?`<b>${pc}%</b><small>${r}</small>`:`<small>Chưa <br>làm</small>`}</span></div></div>`}).join(""):
     `<div class="de soon"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#cuon-giay"/></svg><div><b>Đề HSK ${LV} đang soạn</b><span class="muted">Cấp này chưa có đề. Em xem cấu trúc đề ở mục 3 bên dưới nhé.</span></div></div>`;
   // 2 · luyện thêm
@@ -555,17 +559,41 @@ function start(mode,qs,de){
   if(!qs||!qs.length)return;
   S={mode,qs,de,cur:0,a:qs.map(()=>null),flag:qs.map(()=>false),checked:qs.map(()=>false),t0:Date.now(),py:true,plays:{}};
   S.limit=mode==="exam"?de.phut*60:0;
-  $("pyBtn").setAttribute("aria-pressed","true");
-  $("submitBtn").textContent=mode==="exam"?"Nộp bài":"Xem kết quả";
-  stop();tick=setInterval(clock,1000);clock();
-  show("vQuiz");render();
+  vaoBai();
 }
+function vaoBai(){
+  $("pyBtn").setAttribute("aria-pressed",S.py);
+  $("submitBtn").textContent=S.mode==="exam"?"Nộp bài":"Xem kết quả";
+  stop();tick=setInterval(clock,1000);
+  show("vQuiz");render();clock();
+}
+// ---------- Bài làm dở (chỉ đề mô phỏng) ----------
+// Thoát hay tải lại giữa chừng không mất bài (27/11/2026 rà soát thấy mất sạch): nhớ ở localStorage kt-dang = {mã đề: trạng thái}.
+// Rời bài thì đồng hồ tạm dừng (nhớ số giây đã làm); số lần đã nghe cũng được nhớ nên không nghe thêm được bằng cách tải lại.
+const DANG="kt-dang";
+const phutGiay=s=>String(Math.floor(s/60)).padStart(2,"0")+":"+String(Math.floor(s%60)).padStart(2,"0");
+function luu(){
+  if(!S||S.mode!=="exam"||S.xong||$("vQuiz").hidden)return;
+  const m=store.get(DANG,{});
+  m[S.de.id]={n:S.qs.length,cur:S.cur,a:S.a,flag:S.flag,checked:S.checked,py:S.py,plays:S.plays,el:Math.floor((Date.now()-S.t0)/1000)};
+  store.set(DANG,m);
+}
+function boBai(id){const m=store.get(DANG,{});delete m[id];store.set(DANG,m)}
+function dangDo(d){const x=store.get(DANG,{})[d.id];return x&&x.n===d.q.length&&Array.isArray(x.a)&&x.el<d.phut*60?x:null}
+function lamTiep(d){
+  const x=dangDo(d);if(!x)return start("exam",d.q,d);
+  S={mode:"exam",qs:d.q,de:d,cur:Math.min(x.cur||0,d.q.length-1),a:x.a,flag:x.flag,checked:x.checked,t0:Date.now()-x.el*1000,py:x.py!==false,plays:x.plays||{},limit:d.phut*60};
+  vaoBai();
+}
+addEventListener("pagehide",()=>luu());
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")luu()});
 function stop(){if(tick)clearInterval(tick);tick=null}
 function clock(){
   const el=(Date.now()-S.t0)/1000,s=S.limit?Math.max(0,S.limit-el):el;
   $("timer").textContent=String(Math.floor(s/60)).padStart(2,"0")+":"+String(Math.floor(s%60)).padStart(2,"0");
   $("timer").classList.toggle("low",!!S.limit&&s<120);
-  if(S.limit&&s<=0)finish(true);
+  if(S.limit&&s<=0){finish(true);return}
+  if(Math.floor(el)%5===0)luu();
 }
 // 书写: so chữ gõ với đáp án (nhiều cách ghi "A / B"), bỏ khoảng trắng và dấu câu
 const norm=s=>String(s||"").replace(/[\s，。！？、,.!?（）()]/g,"");
@@ -628,6 +656,7 @@ function render(){
   $("prevBtn").disabled=i===0;
   $("nextBtn").textContent=i===S.qs.length-1?(exam()?"Nộp bài":"Xem kết quả"):"Câu sau →";
   nums();
+  luu();
 }
 function nums(){
   let h="",last=null;
@@ -677,7 +706,8 @@ document.addEventListener("click",e=>{
     if(m==="wrong"){const w=store.get("kt-sai",[]);start("wrong",ALL.filter(q=>w.includes(q.id)))}
     else if(m==="quick"){const pool=ALL.filter(q=>String(q.de.cap)===LV);start("quick",[...pool].sort(()=>Math.random()-.5).slice(0,10).sort((a,b)=>a.de.id.localeCompare(b.de.id)||a.n-b.n))}
     return}
-  if(t.dataset.de){const d=DS.find(x=>x.id===t.dataset.de);start("exam",d.q,d);return}
+  if(t.dataset.tiep){lamTiep(DS.find(x=>x.id===t.dataset.tiep));return}
+  if(t.dataset.de){const d=DS.find(x=>x.id===t.dataset.de);if(dangDo(d)&&!confirm("Bỏ bài đang làm dở và làm lại từ đầu?"))return;boBai(d.id);start("exam",d.q,d);return}
   if(t.dataset.lv){LV=t.dataset.lv;store.set("kt-lv",LV);home(true);const b=document.querySelector('.lvb[aria-selected="true"]');if(b)b.focus({preventScroll:true});return}
   if(t.dataset.part!=null){start("part",ALL.filter(q=>q.pk===t.dataset.part));return}
   if(t.dataset.opt!=null){if(t.classList.contains("exo"))return;answer(+t.dataset.opt);return}
@@ -695,9 +725,17 @@ document.addEventListener("click",e=>{
     case "backBtn":home();break;
   }
 });
-document.addEventListener("input",e=>{if(e.target.id!=="wrIn"||!S)return;S.a[S.cur]=e.target.value.trim()||null;const hz=$("hzN");if(hz)hz.textContent=hanzi(e.target.value);nums()});
+document.addEventListener("input",e=>{if(e.target.id!=="wrIn"||!S)return;S.a[S.cur]=e.target.value.trim()||null;const hz=$("hzN");if(hz)hz.textContent=hanzi(e.target.value);nums();luu()});
 document.addEventListener("keydown",e=>{if(e.target.id==="wrIn"&&e.target.tagName!=="TEXTAREA"&&e.key==="Enter"&&!e.isComposing){const b=$("wrChk");if(b)b.click();else $("nextBtn").click()}});
-$("homeLink").addEventListener("click",e=>{if(!$("vHome").hidden)return;e.preventDefault();home()});
+// Link ở đầu trang: đang làm đề mô phỏng thì hỏi trước khi rời; riêng "考试盒 Luyện thi" quay về mục lục hộp ngay trên trang này
+document.querySelector("header.top").addEventListener("click",e=>{
+  const a=e.target.closest("a");if(!a||!$("vHome").hidden)return;
+  if(S&&exam()&&!$("vQuiz").hidden){
+    if(!confirm("Thoát khỏi đề đang làm?\nBài được lưu lại, em bấm “Làm tiếp” để làm tiếp (đồng hồ tạm dừng).")){e.preventDefault();return}
+    luu();
+  }
+  if(a.id==="homeLink"){e.preventDefault();home()}
+});
 
 // ---------- Nộp bài & chẩn đoán ----------
 function finish(timeUp){
@@ -705,6 +743,7 @@ function finish(timeUp){
     const left=S.a.filter(a=>!filled(a)).length,fl=S.flag.filter(Boolean).length;
     if(left&&!confirm(`Còn ${left} câu chưa làm. Vẫn nộp bài?`))return;
     if(exam()&&fl&&!left&&!confirm(`Còn ${fl} câu em đánh dấu xem lại. Vẫn nộp bài?`))return}
+  S.xong=true;if(exam())boBai(S.de.id);
   stop();speechSynthesis&&speechSynthesis.cancel();
   const secs=Math.round((Date.now()-S.t0)/1000),res=S.qs.map((q,k)=>right(q,S.a[k]));
   if(exam())S.qs.forEach((q,k)=>log(q,res[k]));
