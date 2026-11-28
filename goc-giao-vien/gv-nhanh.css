@@ -153,3 +153,5 @@ body:has(>.gvn)>footer{padding-bottom:80px}
   :root:not([data-theme="light"]) .gvn .n-btn.chinh,:root:not([data-theme="light"]) .n-trang .n-btn.chinh{color:#0c2427}
   :root:not([data-theme="light"]) .gvn .n-seg button[aria-pressed="true"],:root:not([data-theme="light"]) .n-trang .n-seg button[aria-pressed="true"]{color:#0c2427}
 }
+/* bấm vào là thấy ngay */
+.gvn button:active:not(:disabled),.n-trang button:active:not(:disabled){transform:scale(.94);filter:brightness(.88)}

@@ -146,6 +146,8 @@ nav.menu a{white-space:nowrap}
 /* Nút "Góc giáo viên" trên menu: viền xanh + con dấu 师 cho nổi bật, khác nút đỏ "Về cô Lã" */
 nav.menu a.mn-gv{display:inline-flex;align-items:center;gap:7px;padding:5px 12px 5px 6px;border:2px solid var(--teal);color:var(--teal);background:color-mix(in srgb,var(--teal) 8%,transparent)}
 nav.menu a.mn-gv:hover{background:var(--teal);color:#fff}
+nav.menu a.mn-gv:active{transform:scale(.93);filter:brightness(.85)}
+.gvthe:active{transform:scale(.985)}.gvthe:active .go{transform:scale(.95);filter:brightness(.82)}
 nav.menu a.mn-gv .an{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--teal);color:#fff;font-family:var(--hz);font-size:14px;line-height:1;transform:rotate(-5deg)}
 nav.menu a.mn-gv:hover .an{background:#fff;color:var(--teal)}
 
@@ -470,6 +472,7 @@ document.querySelectorAll('.bento .o').forEach(b=>{
 <script src="/chung/lich-hom-nay.js?v=72bd5707"></script>
 <script src="/chung/ke-hop.js?v=fc1a96ce"></script>
 <script src="/chung/cai-app.js?v=7d8b479f"></script>
+<script>document.addEventListener('touchstart',function(){},{passive:true})</script>
 <script>if('serviceWorker' in navigator)addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){})})</script>
 <!-- Thống kê lượt xem GoatCounter, do tools/build_site.py gắn khi ghép -->
 <script>window.goatcounter={path:function(){return location.pathname}}</script><script data-goatcounter="https://lyulaoshi.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script><script>addEventListener('load',function(){try{if(!(matchMedia('(display-mode: standalone)').matches||navigator.standalone)||sessionStorage.getItem('gcApp'))return;sessionStorage.setItem('gcApp','1');var n=0,t=setInterval(function(){if(window.goatcounter&&goatcounter.count){clearInterval(t);goatcounter.count({path:'mo-bang-app',title:'Mở bằng app',event:true})}else if(++n>20)clearInterval(t)},500)}catch(e){}})</script>

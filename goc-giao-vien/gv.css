@@ -394,3 +394,7 @@ body.hm .route a[aria-current="step"] .num{background:#fff;color:color-mix(in sr
 .gvn.an .n-nut:not(.gio):not([aria-expanded="true"]){display:none}
 @media (max-width:900px){.nk-cot{grid-template-columns:minmax(0,1fr)}.nk-nhom.mot .goi-m{flex-direction:row;justify-content:flex-start;text-align:left}.nk-nhom.mot .goi-m span{justify-items:start}}
 @media (max-width:560px){.nk{padding:12px}}
+/* bấm vào là thấy ngay: lún xuống và sẫm lại (28/11). Dùng scale riêng để không đè transform định vị. */
+button:not(:disabled):active,a.btn:active,a.t:active,a.goi-m:active,.route a:active,summary:active,label.chk:active,.lk-nho a:active,.goi-khoi h3 a.loc:active,.back:active,.crumb a:active{scale:.95;filter:brightness(.86)}
+.btn.xong,.btn.xong:hover{background:var(--mint);color:#fff}
+@media (prefers-reduced-motion:reduce){button:not(:disabled):active,a.btn:active,a.t:active,a.goi-m:active,.route a:active,summary:active{scale:1}}

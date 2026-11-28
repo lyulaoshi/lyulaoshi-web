@@ -147,6 +147,7 @@ body.hide-py .sn .p,body.hide-vi .sn .v{visibility:hidden;height:0;overflow:hidd
 .pn a b{display:block;font-family:var(--kh);font-weight:400;font-size:18px;color:var(--c)}
 .pn a.nx{text-align:right}
 .copy{text-align:center;color:var(--muted);font-size:13px;margin:26px 0 10px}
+@media (max-width:700px){.copy{padding-bottom:calc(52px + env(safe-area-inset-bottom))}}   /* chừa chỗ cho thanh nổi Pinyin / Nghĩa, không đè chân bài */
 
 /* Trình chiếu: mỗi mục một màn */
 body.present .np-bar,body.present header.top,body.present .pn,body.present footer{display:none}

@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
 <link rel="stylesheet" href="../../tro-choi/game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="../gv.css?v=29">
+<link rel="stylesheet" href="../gv.css?v=30">
 <style>
 .khoi{margin-top:14px}.khoi h2{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:18px;font-weight:800}
 .khoi h2 i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;font-style:normal;font-size:15px}
@@ -98,7 +98,7 @@
 <script src="../../tro-choi/hsk-words.js"></script>
 <script src="../../tu-vung/nghia-hsk1.js"></script>
 <script src="../../tro-choi/giao-bai.js?v=3"></script>
-<script src="../gv.js?v=11"></script>
+<script src="../gv.js?v=12"></script>
 <script src="../gv-tu.js?v=9"></script>
 <script>
 (function(){
@@ -167,6 +167,12 @@ function veQR(lk){const el=$('qr');if(lk.length>1800){el.textContent='Bộ từ 
   qrTai=qrTai||new Promise((ok,loi)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js';s.onload=ok;s.onerror=()=>{qrTai=null;loi()};document.head.append(s)});
   qrTai.then(()=>{if(!hien||hien.link!==lk)return;const q=qrcode(0,'L');q.addData(lk);q.make();const n=q.getModuleCount();let d='';for(let r=0;r<n;r++)for(let c=0;c<n;c++)if(q.isDark(r,c))d+='M'+c+' '+r+'h1v1h-1z';
     el.innerHTML='<svg viewBox="-1 -1 '+(n+2)+' '+(n+2)+'" role="img" aria-label="Mã QR mở bài giao" shape-rendering="crispEdges"><path d="'+d+'" fill="#111"/></svg>'}).catch(()=>el.textContent='Không tạo được mã QR. Thầy cô gửi link.')}
+/* chép link / tin nhắn / gửi: nút đổi thành "Đã chép" một lúc cho thấy là đã bấm (28/11: trước đó ba nút này chưa có mã xử lý) */
+async function chep(t){try{await navigator.clipboard.writeText(t);return true}catch(e){const a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;opacity:0';document.body.append(a);a.select();let ok=false;try{ok=document.execCommand('copy')}catch(x){}a.remove();return ok}}
+[['bLk',()=>hien.link],['bTin',()=>$('tin').textContent]].forEach(([id,lay])=>{const b=$(id),goc=b.innerHTML;let h=0;
+  b.onclick=async()=>{if(!hien)return;const ok=await chep(lay());clearTimeout(h);if(ok){b.innerHTML=GV.IC('tick')+'Đã chép';b.classList.add('xong')}
+    toast(ok?'Đã chép. Dán vào nhóm lớp.':'Chưa chép được. Thầy cô bôi đen rồi chép.');h=setTimeout(()=>{b.innerHTML=goc;b.classList.remove('xong')},2200)}});
+if(navigator.share){$('bGui').hidden=false;$('bGui').onclick=()=>{if(hien)navigator.share({text:$('tin').textContent}).catch(()=>{})}}
 $('tTen').oninput=e=>{o.ten=e.target.value;tenTuDat=!!o.ten.trim();luu();ve()};
 $('tHan').value=o.han;$('tHan').oninput=e=>{o.han=e.target.value;luu();ve()};
 if(o.ten)$('tTen').value=o.ten;

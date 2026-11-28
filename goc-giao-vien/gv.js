@@ -100,9 +100,10 @@ function loiRieng(cfg,khiMo,truoc){if(!cfg)return;
     let lan=0,luc=0;$('chan').onclick=()=>{const t=Date.now();lan=t-luc<1500?lan+1:1;luc=t;if(lan>=5&&!daMo){lan=0;hoi()}}};
   document.head.append(s)}
 
+document.addEventListener('touchstart',()=>{},{passive:true});   /* iPhone: có dòng này thì hiệu ứng bấm :active mới hiện */
 return {$,IC,esc,store,toast,G,PHU,enc,dung,nhan,href,paintDung,hop,loiRieng};
 })();
 /* Nút "Công cụ" (đếm giờ, gọi tên, bảng điểm…) trên mọi trang; trang nhanh/ tự nạp nên bỏ qua. Sửa gv-nhanh thì tăng ?v= ở đây. */
 (function(){const s=document.currentScript;if(!s||!document.body||document.body.dataset.nhanh)return;const goc=new URL('.',s.src).href;
-  const l=document.createElement('link');l.rel='stylesheet';l.href=goc+'gv-nhanh.css?v=2';document.head.append(l);
+  const l=document.createElement('link');l.rel='stylesheet';l.href=goc+'gv-nhanh.css?v=3';document.head.append(l);
   l.onload=l.onerror=()=>{const j=document.createElement('script');j.src=goc+'gv-nhanh.js?v=4';document.body.append(j)}})();
