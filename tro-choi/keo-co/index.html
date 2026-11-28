@@ -195,7 +195,7 @@ main.big{max-width:none}
         <button class="chip" type="button" data-r="5" aria-pressed="false">Thắng 3 trong 5</button>
       </div>
       <ul class="how" id="how"></ul>
-      <div class="acts"><button class="btn gold" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=39804db7#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
+      <div class="acts"><button class="btn gold" id="startBtn" type="button">Bắt đầu <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=9dad2f0a#phat></use></svg></button><span class="muted" id="poolInfo"></span></div>
     </div>
   </section>
 
@@ -204,7 +204,7 @@ main.big{max-width:none}
       <span class="tm r"><span class="zh" lang="zh">红队</span> Đội Đỏ <span id="winsR"></span></span>
       <span class="tm b"><span class="zh" lang="zh">蓝队</span> Đội Xanh <span id="winsB"></span></span>
       <span class="mid"><span id="roundInfo"></span>
-        <span class="tools"><button type="button" id="soundBtn" aria-label="Bật / tắt âm thanh"></button><button type="button" id="quitBtn" aria-label="Thoát"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=39804db7#sai></use></svg></button></span>
+        <span class="tools"><button type="button" id="soundBtn" aria-label="Bật / tắt âm thanh"></button><button type="button" id="quitBtn" aria-label="Thoát"><svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=9dad2f0a#sai></use></svg></button></span>
       </span>
     </div>
     <div class="arena" id="arena" aria-hidden="true"></div>
@@ -221,21 +221,21 @@ main.big{max-width:none}
   </section>
 
   <section class="fair stagebox" id="over" hidden style="margin-top:20px">
-    <div class="over-top"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#cup"></use></svg><div>
+    <div class="over-top"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=9dad2f0a#cup"></use></svg><div>
       <div class="logo" id="overZh" lang="zh"></div>
       <h1 id="overTitle"></h1>
       <p class="lead" id="overLine" style="margin:4px 0 0"></p>
     </div></div>
     <div class="panel">
       <div class="cuoc" id="cuoc"></div>
-      <div><h2>Các từ vừa gặp, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=39804db7#loa></use></svg> để nghe lại</h2><ul class="review" id="review" style="margin-top:8px"></ul></div>
-      <div class="acts"><button class="btn gold" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=39804db7#lai></use></svg></button><a class="btn sec" id="cardsBtn" href="#">Ôn bằng flashcard</a><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cách chơi</button></div>
+      <div><h2>Các từ vừa gặp, bấm <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=9dad2f0a#loa></use></svg> để nghe lại</h2><ul class="review" id="review" style="margin-top:8px"></ul></div>
+      <div class="acts"><button class="btn gold" id="againBtn" type="button">Chơi lại <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=9dad2f0a#lai></use></svg></button><a class="btn sec" id="cardsBtn" href="#">Ôn bằng flashcard</a><button class="btn sec" id="setupBtn" type="button">Đổi cấp / cách chơi</button></div>
     </div>
   </section>
 </main>
 
 <div class="cdn" id="cdn" hidden aria-live="assertive"><b id="cdnT"></b></div>
-<div class="rd fair" id="rd" hidden><div class="rays"></div><div class="box"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#cup"></use></svg><div class="zh" id="rdZh" lang="zh"></div><h2 id="rdT"></h2><p class="muted" id="rdL" style="margin:0"></p><button class="btn gold" id="rdBtn" type="button">Ván tiếp theo <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=39804db7#phat></use></svg></button></div></div>
+<div class="rd fair" id="rd" hidden><div class="rays"></div><div class="box"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=9dad2f0a#cup"></use></svg><div class="zh" id="rdZh" lang="zh"></div><h2 id="rdT"></h2><p class="muted" id="rdL" style="margin:0"></p><button class="btn gold" id="rdBtn" type="button">Ván tiếp theo <svg class=lli aria-hidden=true><use href=/chung/ic.svg?v=9dad2f0a#phat></use></svg></button></div></div>
 
 <footer class="wrap">Từ vựng và pinyin theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · © 吕老师汉语盒 · Lyu Laoshi Chinese Box</footer>
 
@@ -250,11 +250,11 @@ main.big{max-width:none}
 <script>
 (function(){const r=document.documentElement,b=document.getElementById('themeBtn');
  const cur=()=>r.dataset.theme||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
- const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
+ const paint=()=>{b.innerHTML='<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=9dad2f0a#'+(cur()==='dark'?'mattroi':'trang')+'"></use></svg>'};paint();
  b.addEventListener('click',()=>{r.dataset.theme=cur()==='dark'?'light':'dark';try{localStorage.setItem('cb-theme',r.dataset.theme)}catch(e){};paint()});})();
 
 (function(){
-const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'],IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#'+n+'"></use></svg>';
+const $=id=>document.getElementById(id),LEVELS=['1','2','3','4','5','6'],IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=9dad2f0a#'+n+'"></use></svg>';
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
 const FX=!matchMedia('(prefers-reduced-motion:reduce)').matches,MIN=8;

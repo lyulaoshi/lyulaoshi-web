@@ -2,7 +2,7 @@
 // Mỗi công cụ vẽ vào một khung riêng và giữ nguyên trạng thái khi đóng; dùng ở hai nơi: nút nổi (mọi trang) và nhanh/.
 window.GVN=(function(){
 const GOC=new URL('.',document.currentScript.src).href;
-const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#'+n+'"></use></svg>';
+const IC=n=>'<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=9dad2f0a#'+n+'"></use></svg>';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const doc=k=>{try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},ghi=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 const so=n=>Math.floor(Math.random()*n);

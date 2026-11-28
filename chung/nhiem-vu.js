@@ -8,7 +8,7 @@ const b64=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g
 const un64=s=>JSON.parse(decodeURIComponent(escape(atob(s.replace(/-/g,'+').replace(/_/g,'/')))));
 const bam=s=>{let h=2166136261;for(const c of 'lyulaoshi-nv|'+s){h^=c.codePointAt(0);h=Math.imul(h,16777619)}return (h>>>0).toString(36).padStart(7,'0')};
 const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const ic=n=>`<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#${n}"/></svg>`;
+const ic=n=>`<svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=9dad2f0a#${n}"/></svg>`;
 const ngay=s=>{const m=/^(\d{4})-(\d\d)-(\d\d)$/.exec(s||'');return m?`${m[3]}/${m[2]}/${m[1]}`:''};
 const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 // phần mở thêm: bản mã ở GOI, chỉ chạy trên máy đã nhớ khoá (xem tools/khoa_trang.py)

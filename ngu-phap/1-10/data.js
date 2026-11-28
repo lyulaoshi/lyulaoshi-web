@@ -15,7 +15,7 @@ rules:[
       ["明天{1|他们}{3|一起}{4|去图书馆}。","Míngtiān tāmen yìqǐ qù túshūguǎn.","Ngày mai họ cùng đi thư viện.","等级标准"],
       ["{1|我}{2|跟妈妈}{3|一起}{4|去商店}。","Wǒ gēn māma yìqǐ qù shāngdiàn.","Tôi cùng mẹ đi cửa hàng."]]}],
 notes:[
- {t:"也 + 都", html:"也 đứng trước 都: <span class='zh'>他们也都是学生。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=39804db7#sai'/></svg> 都也)"},
+ {t:"也 + 都", html:"也 đứng trước 都: <span class='zh'>他们也都是学生。</span> (<svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=9dad2f0a#sai'/></svg> 都也)"},
  {t:"都不 ≠ 不都", html:"<span class='zh'>我们都不去。</span> = tất cả đều không đi. <span class='zh'>我们不都去。</span> = không phải tất cả đều đi."}],
 cmp:[
  {vn:"Chúng tôi đều là sinh viên.", zh:"我们[都]是学生。", py:"Wǒmen dōu shì xuésheng.", ok:true, why:"“đều” đứng trước động từ — giống tiếng Việt."},

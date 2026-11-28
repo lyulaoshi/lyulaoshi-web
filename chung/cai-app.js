@@ -29,11 +29,11 @@
   addEventListener('beforeinstallprompt',e=>{e.preventDefault();hoan=e});
   addEventListener('appinstalled',()=>{hoan=null;hien(false);dong();bao('Cài xong rồi! App 吕老师汉语盒 đã nằm trên màn hình chính.')});
 
-  const I=(n,t)=>'<span class="k"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#'+n+'"></use></svg>'+(t||'')+'</span>';
+  const I=(n,t)=>'<span class="k"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=9dad2f0a#'+n+'"></use></svg>'+(t||'')+'</span>';
   const K=t=>'<span class="k">'+t+'</span>';
   // ---- hình minh hoạ màn hình iPhone cho từng bước (vẽ sơ đồ, không phải ảnh chụp) ----
   const A='/img/apple-touch-icon.png';
-  const ic=(n,x,y,z,c)=>'<use href="/chung/ic.svg?v=39804db7#'+n+'" x="'+x+'" y="'+y+'" width="'+z+'" height="'+z+'" class="hv-ic'+(c?' '+c:'')+'"/>';
+  const ic=(n,x,y,z,c)=>'<use href="/chung/ic.svg?v=9dad2f0a#'+n+'" x="'+x+'" y="'+y+'" width="'+z+'" height="'+z+'" class="hv-ic'+(c?' '+c:'')+'"/>';
   const sang=(cx,cy,r)=>'<circle class="hv-song" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/><circle class="hv-sang" cx="'+cx+'" cy="'+cy+'" r="'+r+'"/>';
   const sangR=(x,y,w,h)=>'<rect class="hv-song" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="9"/><rect class="hv-sang" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="9"/>';
   const T=(x,y,t,c,a)=>'<text x="'+x+'" y="'+y+'" class="hv-chu'+(c?' '+c:'')+'" text-anchor="'+(a||'middle')+'">'+t+'</text>';

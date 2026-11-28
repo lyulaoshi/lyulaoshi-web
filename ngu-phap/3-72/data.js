@@ -10,7 +10,7 @@ rules:[
   ex:[["{1|为了}{2|保持健康}，{3|他每天坚持运动}。","Wèile bǎochí jiànkāng, tā měi tiān jiānchí yùndòng.","Để giữ sức khỏe, anh ấy kiên trì tập thể dục mỗi ngày.","等级标准"],
       ["{1|为了}{2|学好中文}，{3|我每天都要看中国电视剧}。","Wèile xuéhǎo Zhōngwén, wǒ měi tiān dōu yào kàn Zhōngguó diànshìjù.","Để học giỏi tiếng Trung, ngày nào tôi cũng xem phim truyền hình Trung Quốc.","等级标准"]]}],
 cmp:[
- {vn:"Tôi dậy sớm để kịp tàu.", zh:"[为了]赶上火车，我早早起床了。", py:"Wèile gǎnshang huǒchē, wǒ zǎozǎo qǐ chuáng le.", ok:true, why:"Đưa mục đích lên trước; không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=39804db7#sai'/></svg> 我起床早为了赶火车."}],
+ {vn:"Tôi dậy sớm để kịp tàu.", zh:"[为了]赶上火车，我早早起床了。", py:"Wèile gǎnshang huǒchē, wǒ zǎozǎo qǐ chuáng le.", ok:true, why:"Đưa mục đích lên trước; không nói <svg class='lli no' aria-hidden='true'><use href='/chung/ic.svg?v=9dad2f0a#sai'/></svg> 我起床早为了赶火车."}],
 ex:[
  ["[为了]找工作，他去了上海。","Wèile zhǎo gōngzuò, tā qù le Shànghǎi.","Để tìm việc, anh ấy đã đến Thượng Hải."]],
 errs:[

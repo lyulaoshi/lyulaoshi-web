@@ -82,7 +82,7 @@
   {cn:"你想吃什么？",py:"Nǐ xiǎng chī shénme?",vi:"Bạn muốn ăn gì?",ans:2,np:["一03"],w:[["面条儿","miàntiáor"]]},
   {cn:"你每天做什么运动？",py:"Nǐ měi tiān zuò shénme yùndòng?",vi:"Mỗi ngày bạn tập môn thể thao nào?",ans:3,np:["二12"],w:[["运动","yùndòng"],["跑步","pǎobù"]]}]},
 
- {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=39804db7#sao'/></svg>.",q:[
+ {sk:"doc",no:4,type:"text3",vi:"Đọc câu, trả lời câu hỏi <svg class='lli' aria-hidden='true'><use href='/chung/ic.svg?v=9dad2f0a#sao'/></svg>.",q:[
   {cn:"我每天早上六点起床，七点吃早饭，八点去上班。",py:"Wǒ měi tiān zǎoshang liù diǎn qǐchuáng, qī diǎn chī zǎofàn, bā diǎn qù shàngbān.",vi:"Mỗi sáng 6 giờ tôi dậy, 7 giờ ăn sáng, 8 giờ đi làm.",
    star:"我几点吃早饭？",spy:"Wǒ jǐ diǎn chī zǎofàn?",svi:"Mấy giờ tôi ăn sáng?",opts:[{t:"六点",py:"liù diǎn"},{t:"七点",py:"qī diǎn"},{t:"八点",py:"bā diǎn"}],ans:1,np:["一44","一46"],w:[["早饭","zǎofàn"],["起床","qǐchuáng"]],why:"Câu có ba mốc giờ: 六点 dậy, 七点 ăn sáng, 八点 đi làm. Đọc kỹ câu hỏi."},
   {cn:"我妈妈做的面条儿很好吃，我很喜欢吃，但是我不会做。",py:"Wǒ māma zuò de miàntiáor hěn hǎochī, wǒ hěn xǐhuan chī, dànshì wǒ bú huì zuò.",vi:"Mì mẹ tôi nấu rất ngon, tôi rất thích ăn, nhưng tôi không biết nấu.",
