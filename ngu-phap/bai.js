@@ -26,7 +26,7 @@ const $=s=>document.querySelector(s);
 // Ghi nguồn ngắn gọn (cô yêu cầu 27/11/2026): chỉ bài có duyet:true trong data.js mới ghi tên cô
 const DUYET=!!L.duyet;
 const CO_CHUAN=[].concat(L.ex||[],...(L.rules||[]).map(r=>r.ex||[])).some(e=>e[3]==="等级标准");
-const BAN_QUYEN=DUYET?"© ThS. Lã Thị Thuỳ Phương":"© 吕老师汉语盒";
+const BAN_QUYEN=DUYET?"© ThS. Lã Thị Thuỳ Phương":"© 吕老师汉语盒 · Lyu Laoshi Chinese Box";
 
 function sent(e,i){ // e = [chữ Hán, pinyin, nghĩa, nguồn?]
   return `<div class="sn"><span class="no">${i!=null?"("+(i+1)+")":""}</span><div><div class="l1"><span class="z">${mk(e[0])}</span>${say(e[0])}${e[3]?`<span class="src">${esc(e[3])}</span>`:""}</div>

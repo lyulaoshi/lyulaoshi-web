@@ -135,20 +135,20 @@ main .lh-art{width:min(250px,100%)}
   <div class="ft"><button class="btn gh" type="button" id="chonBo">Không chọn bài, chơi theo cấp HSK</button><button class="btn gh" type="button" id="chonX">Đóng</button></div>
 </dialog>
 
-<footer class="wrap">Từ vựng theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · <span id="chan" style="touch-action:manipulation;-webkit-user-select:none;user-select:none">© Lyu Laoshi Chinese Box · 吕老师汉语盒</span></footer>
+<footer class="wrap">Từ vựng theo đề cương thi HSK mới 《HSK考试大纲》(汉考国际, 2025) · <span id="chan" style="touch-action:manipulation;-webkit-user-select:none;user-select:none">© 吕老师汉语盒 · Lyu Laoshi Chinese Box</span></footer>
 
 <script src="../tu-vung/bai-data.js"></script>
 <script src="../tro-choi/vuot-ai/co-de.js"></script>
 <script src="../tro-choi/hsk-words.js"></script>
 <script src="../tu-vung/nghia-hsk1.js"></script>
 <script src="gv.js?v=11"></script>
-<script src="cong-cu.js?v=64ed656c"></script>
+<script src="cong-cu.js?v=eb0ba2e5"></script>
 <script>
 (function(){
 const {$,IC,esc,store,toast,G,PHU,enc,dung,nhan,href}=GV;
 const BAI=window.BAI||[],CO=window.VA_CO||{};
 
-/* ---------- Công cụ lấy từ cong-cu.js?v=64ed656c (thêm công cụ mới ở đó); 10 trò cả lớp lấy từ mảng G trong gv.js ---------- */
+/* ---------- Công cụ lấy từ cong-cu.js?v=eb0ba2e5 (thêm công cụ mới ở đó); 10 trò cả lớp lấy từ mảng G trong gv.js ---------- */
 const TIETT=[
  {h:'Chuẩn bị',z:'课前',c:'var(--teal)',p:'Làm trước ở nhà hoặc đầu khoá'},
  {h:'Mở đầu, ôn bài cũ',s:'Mở đầu',z:'复习',c:'var(--peach)',p:'Vài phút ổn định lớp, gợi lại bài cũ'},
@@ -169,7 +169,7 @@ function bang(){const cc=(window.GV_CC||[]).concat(RIENG),co=new Set(cc.map(x=>x
   KHO={};DS.forEach(x=>KHO[x.k]=x);
   $('stTool').textContent=DS.filter(x=>!x.soon&&!x.lienket).length;$('stGame').textContent=n}
 bang();
-/* Công cụ nhanh: dùng ở bước nào cũng được, mỗi công cụ chỉ một nơi (trường nk, nt trong cong-cu.js?v=64ed656c); bấm là mở bảng của nút nổi */
+/* Công cụ nhanh: dùng ở bước nào cũng được, mỗi công cụ chỉ một nơi (trường nk, nt trong cong-cu.js?v=eb0ba2e5); bấm là mở bảng của nút nổi */
 const NK=[['chon','Chọn người','点名分组','--sky'],['nhip','Giữ nhịp lớp','课堂节奏','--peach'],['chieu','Chiếu lên bảng','投屏','--mint']];
 $('nk').innerHTML='<h2 id="nkH">Công cụ nhanh <small lang="zh">随手用</small><span>Mở nhanh khi đang dạy</span></h2><div class="nk-cot">'+NK.map(([k,t,z,m])=>{const ds=DS.filter(x=>x.nk===k).sort((a,b)=>a.nt-b.nt);
   return '<div class="nk-nhom'+(ds.length===1?' mot':'')+'" style="--m:var('+m+')"><h3>'+t+' <small lang="zh">'+z+'</small></h3><div class="nk-ds">'+ds.map(x=>'<a class="goi-m" href="'+x.url+'" data-cc="'+x.k.replace(/^n-/,'')+'" title="'+esc(x.p)+'"><i>'+IC(x.ic)+'</i><span><b>'+esc(x.n)+'</b><small lang="zh">'+x.z+'</small></span></a>').join('')+'</div></div>'}).join('')+'</div>';
@@ -207,7 +207,7 @@ function paint(){const d=dung();
   if(d){const a=document.createElement('a');a.href='/tro-choi/?bo='+encodeURIComponent(d.bo);a.textContent='Mọi trò chơi với bộ này';$('dung').querySelector('.r').prepend(a)}
   /* trong mỗi bước: công cụ chung trước, công cụ riêng sau */
   $('buoc').innerHTML=TIETT.map((t,i)=>'<section class="stage" id="buoc'+(i+1)+'" data-z="'+t.z+'" style="--c:'+t.c+';--m:'+t.c+'"><header><span class="num">'+(i+1)+'</span><h2>'+t.h+'<small lang="zh">'+t.z+'</small></h2><p>'+t.p+'</p></header>'+theRoi(i+1,d)+khoiGoi(i+1)+khoiMau(i+1,d)+khoiTro(i+1,d)+duoiBuoc(i+1)+'</section>').join('');}
-/* Nhiều cách làm cùng một việc thì gom một khối, không rải thẻ rời. Thẻ vào khối nhờ trường trong cong-cu.js?v=64ed656c / gv.js:
+/* Nhiều cách làm cùng một việc thì gom một khối, không rải thẻ rời. Thẻ vào khối nhờ trường trong cong-cu.js?v=eb0ba2e5 / gv.js:
    goi (cách gọi tên) · mau (số thứ tự; một thẻ ghi thêm tên khối) · hang (trò cả lớp theo kiểu lớp) · dau (đường dẫn ở đầu khối trò) · duoi (đường dẫn nhỏ cuối bước) */
 function theRoi(b,d){const ds=DS.filter(x=>x.buoc===b&&!x.goi&&!x.mau&&!x.hang&&!x.dau&&!x.duoi).sort((a,b)=>!!a.rieng-!!b.rieng);
   return ds.length?'<div class="tiles">'+ds.map(x=>tile(x,d)).join('')+'</div>':''}
@@ -235,7 +235,7 @@ function khoiTro(b,d){
     +HANG.map(([k,t,s])=>{const m=ds.filter(x=>x.hang===k);return m.length?'<div class="hg"><h4>'+t+'<small>'+s+'</small></h4><div class="goi-ds">'+m.map(x=>muc(x,i++,d,true)).join('')+'</div></div>':''}).join('')+'</div>'}
 function duoiBuoc(b){return DS.filter(x=>x.buoc===b&&x.duoi).map(x=>'<p class="lk-nho">'+x.duoi.hoi+' <a href="'+x.url+'">'+IC(x.ic)+x.duoi.nut+'</a></p>').join('')}
 
-/* nút "In ra giấy": gom mọi công cụ có tờ in (trường ingiay trong cong-cu.js?v=64ed656c; thẻ riêng chỉ có khi đã mở khoá) */
+/* nút "In ra giấy": gom mọi công cụ có tờ in (trường ingiay trong cong-cu.js?v=eb0ba2e5; thẻ riêng chỉ có khi đã mở khoá) */
 $('bInGiay').onclick=()=>{
   const tt=x=>x.ingiay.tt||x.ingiay;   /* số thứ tự; dạng {tt,n,url…} = ghi đè tên và đường dẫn cho thẻ in */
   const ds=DS.filter(x=>x.ingiay).sort((a,b)=>tt(a)-tt(b)).map(x=>typeof x.ingiay==='object'?{...x,...x.ingiay}:x);
