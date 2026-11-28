@@ -104,5 +104,5 @@ return {$,IC,esc,store,toast,G,PHU,enc,dung,nhan,href,paintDung,hop,loiRieng};
 })();
 /* Nút "Công cụ" (đếm giờ, gọi tên, bảng điểm…) trên mọi trang; trang nhanh/ tự nạp nên bỏ qua. Sửa gv-nhanh thì tăng ?v= ở đây. */
 (function(){const s=document.currentScript;if(!s||!document.body||document.body.dataset.nhanh)return;const goc=new URL('.',s.src).href;
-  const l=document.createElement('link');l.rel='stylesheet';l.href=goc+'gv-nhanh.css?v=1';document.head.append(l);
-  l.onload=l.onerror=()=>{const j=document.createElement('script');j.src=goc+'gv-nhanh.js?v=3';document.body.append(j)}})();
+  const l=document.createElement('link');l.rel='stylesheet';l.href=goc+'gv-nhanh.css?v=2';document.head.append(l);
+  l.onload=l.onerror=()=>{const j=document.createElement('script');j.src=goc+'gv-nhanh.js?v=4';document.body.append(j)}})();

@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
 <link rel="stylesheet" href="../../tro-choi/game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="../gv.css?v=28">
-<link rel="stylesheet" href="../gv-nhanh.css?v=1">
+<link rel="stylesheet" href="../gv.css?v=29">
+<link rel="stylesheet" href="../gv-nhanh.css?v=2">
 <style>
 #chon{grid-template-columns:repeat(9,minmax(0,1fr));margin-top:14px}
 @media (max-width:1100px){#chon{grid-template-columns:repeat(5,minmax(0,1fr))}}
@@ -45,14 +45,14 @@
 </main>
 <footer class="wrap">© Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
-<script src="../gv.js?v=10"></script>
-<script src="../gv-nhanh.js?v=3"></script>
+<script src="../gv.js?v=11"></script>
+<script src="../gv-nhanh.js?v=4"></script>
 <script>
 (function(){
 const $=GV.$;
 $('chon').innerHTML=GVN.luoi();
 function chon(k,cuon){const c=GVN.mo(k,$('vao'))||GVN.mo(GVN.CC[0].k,$('vao'));$('ten').textContent=c.n+' '+c.z;
-  [...$('chon').children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===c.k));
+  $('chon').querySelectorAll('[data-k]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===c.k));
   if(location.hash!=='#'+c.k)history.replaceState(null,'','#'+c.k);if(cuon)$('san').scrollIntoView()}
 $('chon').onclick=e=>{const b=e.target.closest('[data-k]');if(b)chon(b.dataset.k,true)};
 addEventListener('hashchange',()=>chon(location.hash.slice(1)));

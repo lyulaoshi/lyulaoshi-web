@@ -27,7 +27,7 @@ const napBai=()=>napJs(GOC+'../tu-vung/bai-data.js',()=>window.BAI);
 function tuDung(d){if(d&&d.k==='cot'){try{const o=JSON.parse(decodeURIComponent(escape(atob(d.bo.slice(4).replace(/-/g,'+').replace(/_/g,'/')))));return{ten:o.n,w:o.w.map(([z,p,vi])=>({z,p,vi:vi||''}))}}catch(e){return null}}
   const b=(window.BAI||[]).find(x=>d&&x.id===d.sach),l=b&&b.bai.find(x=>x.id===d.bai);return l?{ten:b.vi+' · Bài '+l.n,w:l.w.map(([z,p,vi])=>({z,p,vi:vi||''}))}:null}
 
-let nhanNut=()=>{};
+let nhanNut=()=>{},moNut=null;
 
 /* ================= các công cụ ================= */
 const CC=[
@@ -49,7 +49,7 @@ const CC=[
   q('.n-lai').onclick=()=>{chay=false;clearInterval(h);con=tong*1000;ve()};
   ve();return{}}},
 
-{k:'goi-ten',n:'Gọi tên',z:'点名',m:'Ngẫu nhiên, không gọi lặp',ic:'gio-tay',tao(el){
+{k:'goi-ten',n:'Gọi nhanh',z:'随机点名',m:'Ngẫu nhiên, không gọi lặp',ic:'gio-tay',tao(el){
   let con=[],h=0,sua=false;
   el.innerHTML='<div class="n-choi"><div class="n-to n-ten" aria-live="polite">?</div><div class="n-phu"></div><div class="n-hang">'+btn(IC('xuc-xac')+'Gọi','chinh n-goi')+btn(IC('lai')+'Gọi lại từ đầu','n-lai')+btn(IC('but')+'Sửa danh sách','n-sua')+'</div></div>'
     +'<div class="n-soan" hidden><label>Danh sách lớp, mỗi dòng một tên<textarea rows="8"></textarea></label><div class="n-hang">'+btn(IC('tick')+'Lưu danh sách','chinh n-luu')+'</div></div>';
@@ -61,6 +61,21 @@ const CC=[
   q('.n-lai').onclick=()=>{con=[];q('.n-ten').textContent='?';q('.n-ten').classList.remove('trung');ve()};
   q('.n-sua').onclick=()=>{sua=true;q('textarea').value=lop().join('\n');ve()};
   q('.n-luu').onclick=()=>{const t=q('textarea').value.split('\n').map(x=>x.trim()).filter(Boolean).join('\n');ghi('dcd-ds',t);sua=false;con=[];q('.n-ten').textContent='?';ve()};
+  return{hien:ve}}},
+
+{k:'chia-doi',n:'Chia đội',z:'分组',m:'Chia ngẫu nhiên 2–6 đội',ic:'nhom-nguoi',tao(el){
+  const MAU=[['Đỏ','#DC2626'],['Xanh','#2563EB'],['Vàng','#CA8A04'],['Lá','#16A34A'],['Tím','#7C3AED'],['Cam','#EA580C']];
+  let so_=doc('gv-chia')||2,sua=false,doi=null;
+  el.innerHTML='<div class="n-choi"><div class="n-hang"><span>Số đội</span><span class="n-so-doi"></span>'+btn(IC('nhom-nguoi')+'Chia đội','chinh n-goi')+btn(IC('but')+'Sửa danh sách','n-sua')+'</div><div class="n-phu"></div><div class="n-chia" aria-live="polite"></div></div>'
+    +'<div class="n-soan" hidden><label>Danh sách lớp, mỗi dòng một tên<textarea rows="8"></textarea></label><div class="n-hang">'+btn(IC('tick')+'Lưu danh sách','chinh n-luu')+'</div></div>';
+  const q=s=>el.querySelector(s);
+  function ve(){const ds=lop(),s=sua||ds.length<2;q('.n-choi').hidden=s;q('.n-soan').hidden=!s;if(s){if(!sua)q('textarea').value=ds.join('\n');return}
+    q('.n-phu').textContent='Lớp có '+ds.length+' bạn';
+    q('.n-chia').innerHTML=doi?doi.map((m,i)=>'<div style="--c:'+MAU[i][1]+'"><b>Đội '+MAU[i][0]+' · '+m.length+'</b><ol>'+m.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ol></div>').join(''):''}
+  chon(q('.n-so-doi'),[2,3,4,5,6].map(v=>[v,String(v)]),so_,v=>{so_=v;ghi('gv-chia',v)});
+  q('.n-goi').onclick=()=>{const a=tron(lop()),k=Math.min(so_,a.length);doi=Array.from({length:k},()=>[]);a.forEach((x,i)=>doi[i%k].push(x));ve()};
+  q('.n-sua').onclick=()=>{sua=true;q('textarea').value=lop().join('\n');ve()};
+  q('.n-luu').onclick=()=>{const t=q('textarea').value.split('\n').map(x=>x.trim()).filter(Boolean).join('\n');ghi('dcd-ds',t);sua=false;doi=null;ve()};
   return{hien:ve}}},
 
 {k:'diem',n:'Bảng điểm đội',z:'记分牌',m:'Cộng trừ điểm cho 2–6 đội',ic:'vuong-mien',tao(el){
@@ -135,7 +150,8 @@ const CC=[
   q('.n-tu').onclick=()=>napBai().then(()=>{const t=tuDung(doc('gv-dung'));if(!t){q('.n-phu').textContent='Chọn bài ở trang chính Góc giáo viên trước.';return}o.value=t.w.map(x=>x.z).join('\n');doi()}).catch(()=>{q('.n-phu').textContent='Chưa tải được từ, kiểm tra mạng.'});
   ve();return{}}},
 
-{k:'rut',n:'Rút từ đặt câu',z:'抽词造句',m:'Rút một từ trong bài để đặt câu',ic:'rut-the',tao(el){
+{k:'rut',an:true,   /* hoạt động nói theo bài: thẻ ở bước 6, không bày trong bảng */
+n:'Rút từ đặt câu',z:'抽词造句',m:'Rút một từ trong bài để đặt câu',ic:'rut-the',tao(el){
   let tu=[],con=[],cur=null,hienNghia=false,d=null;
   el.innerHTML='<div class="n-hang n-nguon"><label>Giáo trình<select class="n-s"></select></label><label class="n-bl">Bài<select class="n-b"></select></label></div><div class="n-the" aria-live="polite"><div class="n-han" lang="zh">?</div><div class="n-py"></div><div class="n-vi"></div></div>'
     +'<div class="n-phu"></div><div class="n-hang">'+btn(IC('the-bai')+'Rút từ','chinh n-r')+btn(IC('mat')+'Pinyin, nghĩa','n-m','aria-pressed="false"')+btn(IC('loa')+'Nghe','n-nghe')+btn(IC('lai')+'Làm lại','n-lai')+'</div>';
@@ -218,7 +234,11 @@ function mo(k,vao){const c=CC.find(x=>x.k===k);if(!c)return null;
   if(!SONG[k]){const d=document.createElement('div');d.className='n-cc n-c-'+k;vao.append(d);SONG[k]={d,api:c.tao(d)||{}}}
   vao.append(SONG[k].d);dang=k;if(SONG[k].api.hien)SONG[k].api.hien();return c}
 const tat=()=>{if(dang&&SONG[dang]&&SONG[dang].api.an)SONG[dang].api.an()};
-const luoi=()=>CC.map(c=>'<button type="button" class="n-o" data-k="'+c.k+'">'+IC(c.ic)+'<span><b>'+c.n+'</b><small lang="zh">'+c.z+'</small></span></button>').join('');
+/* bảng chia nhóm giống khối Công cụ nhanh ở trang chính */
+const NHOM=[['Chọn người',['goi-ten','chia-doi','quay','xuc']],['Giữ nhịp lớp',['dem-gio','hieu','on','diem']],['Chiếu lên bảng',['go']]];
+const o_=c=>'<button type="button" class="n-o" data-k="'+c.k+'">'+IC(c.ic)+'<span><b>'+c.n+'</b><small lang="zh">'+c.z+'</small></span></button>';
+const luoi=()=>{const xep=new Set(NHOM.flatMap(x=>x[1])),khac=CC.filter(c=>!c.an&&!xep.has(c.k));
+  return NHOM.map(([t,ds])=>'<h5>'+t+'</h5>'+ds.map(k=>CC.find(c=>c.k===k)).filter(Boolean).map(o_).join('')).join('')+(khac.length?'<h5>Khác</h5>'+khac.map(o_).join(''):'')};
 
 /* ================= nút nổi trên mọi trang ================= */
 function noi(){const w=document.createElement('div');w.className='gvn';
@@ -231,6 +251,7 @@ function noi(){const w=document.createElement('div');w.className='gvn';
   function chonCC(k){q('.n-luoi').hidden=true;q('.n-vao').hidden=false;q('.n-ve').hidden=false;const c=mo(k,q('.n-vao'));q('.n-dau b').textContent=c.n+' '+c.z;cuoi=k}
   function bat(){B.hidden=false;N.setAttribute('aria-expanded','true');w.classList.add('mo');if(cuoi)chonCC(cuoi);else veDs()}
   function dong(){tat();B.hidden=true;N.setAttribute('aria-expanded','false');w.classList.remove('mo')}
+  moNut=k=>{bat();if(k)chonCC(k)};
   N.onclick=()=>B.hidden?bat():dong();q('.n-dong').onclick=()=>{dong();N.focus({preventScroll:true})};q('.n-ve').onclick=veDs;
   q('.n-rong').onclick=e=>{const r=B.classList.toggle('rong');e.target.setAttribute('aria-pressed',r);e.target.textContent=r?'Thu nhỏ':'Phóng to'};
   q('.n-luoi').onclick=e=>{const b=e.target.closest('[data-k]');if(b)chonCC(b.dataset.k)};
@@ -243,5 +264,5 @@ function noi(){const w=document.createElement('div');w.className='gvn';
   document.addEventListener('fullscreenchange',dat);new MutationObserver(dat).observe(document.body,{subtree:true,attributes:true,attributeFilter:['open']});
 }
 if(!document.body.dataset.nhanh)noi();
-return{CC,mo,tat,luoi,IC}
+return{CC,mo,tat,luoi,IC,moBang:k=>moNut&&moNut(k)}
 })();

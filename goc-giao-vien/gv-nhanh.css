@@ -23,7 +23,14 @@
 .gvn .n-dau button{display:grid;place-items:center;height:34px;min-width:34px;padding:0 10px;border:0;border-radius:11px;background:var(--n-nen2);color:var(--n-chu);font-size:13px}
 .gvn .n-than{flex:1;min-height:0;overflow:auto;padding:12px;container-type:inline-size}
 /* lưới chọn công cụ */
-.n-luoi{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.n-luoi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.n-luoi h5{grid-column:1/-1;margin:6px 0 0;text-align:left;font:800 12.5px/1.4 var(--n-font);color:var(--n-mo)}
+.n-luoi h5:first-child{margin-top:0}
+@media (max-width:480px){.n-luoi{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.n-chia{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;width:100%}
+.n-chia>div{min-width:0;padding:10px 12px;border:2px solid var(--c);border-radius:14px;background:color-mix(in srgb,var(--c) 13%,var(--n-nen));color:var(--n-chu);text-align:left}
+.n-chia b{display:block;font-size:14px;color:color-mix(in srgb,var(--c) 62%,var(--n-chu))}
+.n-chia ol{margin:6px 0 0;padding-left:20px;font-size:16px;line-height:1.6;overflow-wrap:anywhere}
 .gvn .n-o,.n-trang .n-o{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:6px;padding:12px 6px 10px;border:2px solid transparent;border-radius:16px;background:var(--n-nen2);color:var(--n-chu);text-align:center}
 .gvn .n-o:hover,.n-trang .n-o:hover{border-color:var(--n-xanh)}
 .n-o .lli{width:34px!important;height:34px!important;padding:7px;border-radius:12px;background:var(--n-xanhs);color:var(--n-xanh)}

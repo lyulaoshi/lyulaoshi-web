@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap">
 <link rel="stylesheet" href="../../tro-choi/game.css?v=4">
 <script>try{const t=localStorage.getItem('cb-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
-<link rel="stylesheet" href="../gv.css?v=28">
+<link rel="stylesheet" href="../gv.css?v=29">
 <style>
 .hd{margin-top:14px;display:grid;gap:14px}
 .hd h2{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:20px;font-weight:800;margin-bottom:12px}
@@ -68,7 +68,7 @@
 
 <section class="pn">
   <h2>Cần ngay giữa giờ<small lang="zh">随手用</small></h2>
-  <p>Bấm nút <b>Công cụ</b> ở góc dưới bên phải: đếm giờ, gọi tên, bảng điểm, gõ chữ chiếu to, vòng quay, rút từ, xúc xắc, tín hiệu lớp, đo độ ồn. Bảng mở đè lên bài đang chiếu; đóng lại thì đồng hồ vẫn chạy.</p>
+  <p>Khối <b>Công cụ nhanh</b> ở trang chính, hoặc nút <b>Công cụ</b> ở góc dưới bên phải: gọi nhanh, chia đội, vòng quay, xúc xắc, đếm giờ, tín hiệu lớp, đo độ ồn, bảng điểm, gõ chữ chiếu to. Bảng mở đè lên bài đang chiếu; đóng lại thì đồng hồ vẫn chạy.</p>
   <div class="keys"><span>Phím hay dùng:</span><span><kbd>Space</kbd> xem đáp án, tiếp</span><span><kbd>←</kbd><kbd>→</kbd> lùi, tiến</span><span><kbd>Esc</kbd> thoát toàn màn hình</span></div>
   <p style="margin-top:6px">Công cụ chiếu bảng có nút <b>Toàn màn hình</b> hoặc <b>Chiếu to</b>. Phím có thể khác đôi chút: xem dòng chú thích dưới từng công cụ.</p>
 </section>
@@ -88,13 +88,13 @@
 </main>
 <footer class="wrap">© Lyu Laoshi Chinese Box · 吕老师汉语盒</footer>
 
-<script src="../gv.js?v=10"></script>
-<script src="../cong-cu.js?v=8e00864f"></script>
+<script src="../gv.js?v=11"></script>
+<script src="../cong-cu.js?v=235329dc"></script>
 <script>
 (function(){
 const {$,esc,G}=GV;
 const TEN=['Chuẩn bị','Mở đầu, ôn bài cũ','Từ mới','Ngữ pháp','Bài khoá','Luyện nói','Trò chơi','Củng cố','Sau giờ học'];
-/* danh sách lấy thẳng từ cong-cu.js?v=8e00864f: chỉ công cụ ai cũng dùng được */
+/* danh sách lấy thẳng từ cong-cu.js?v=235329dc: chỉ công cụ ai cũng dùng được */
 const cc=(window.GV_CC||[]).filter(x=>!x.rieng&&!x.soon&&x.url&&x.buoc);
 const duong=u=>/^(\/|https?:)/.test(u)?u:'../'+u;
 $('buoc').innerHTML=TEN.map((t,i)=>{const ds=cc.filter(x=>x.buoc===i+1).map(x=>[x.n,duong(x.url),x.p]);
