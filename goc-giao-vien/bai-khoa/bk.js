@@ -132,9 +132,12 @@ function ve(){const h=HD.find(x=>x.k===hd);if(!h)return;
   $('ten').textContent=h.t;$('xem').hidden=!h.tuIn;if(!h.tuIn)$('xem').innerHTML='';B.style.setProperty('--co',o.co);$('san').style.minHeight=h.tuIn?'0':'';
   if(!dong.length)trongBai();else h.ve()}
 function mo(k){if(!HD.some(h=>h.k===k))return;ngung();hd=k;o.nay=-1;ve()}
+/* mở từ trang chính: cuộn ngay tới hoạt động (cuộn mượt gọi lúc đang tải bị trình duyệt bỏ), tải xong thì chỉnh lại nếu người dùng chưa tự cuộn */
+function toiSan(){let tu=false;const cham=()=>tu=true,di=()=>setTimeout(()=>{if(!tu)$('san').scrollIntoView({behavior:'instant'})},60);
+  ['wheel','touchstart','keydown','pointerdown'].forEach(e=>addEventListener(e,cham,{once:true,passive:true}));di();if(document.readyState!=='complete')addEventListener('load',di,{once:true})}
 /* đăng ký hoạt động; địa chỉ có #khoá thì mở đúng hoạt động đó khi nó vừa xuất hiện */
 let daKhoi=false;
-function them(ds){HD.push(...ds);if(!daKhoi)return;veNut();if(cho&&ds.some(h=>h.k===cho)){const k=cho;cho='';mo(k);$('san').scrollIntoView()}}
+function them(ds){HD.push(...ds);if(!daKhoi)return;veNut();if(cho&&ds.some(h=>h.k===cho)){const k=cho;cho='';mo(k);toiSan()}}
 
 function doc(){const t=$('van').value;dong=phanTich(t,du().vai);tinhPy();ngung();
   const A=amBai();dong.forEach(x=>{x.a=A.dong.get(x.v+'|'+x.z);if(x.a)nap(x.a[0]).catch(()=>{})});veCa(A.ca);vai=[...new Set(dong.map(x=>x.v).filter(Boolean))];
@@ -282,7 +285,7 @@ function khoiDong(){
     if(e.key===' '&&e.target.closest('button,a')&&!e.target.closest('#san'))return;const f=phim[e.key];if(f){e.preventDefault();f()}});
   addEventListener('resize',()=>{if(!$('xem').hidden)GVT.vuaTrang($('xem'))});
   daKhoi=true;veNut();napBai();layTuBai();
-  if(cho&&HD.some(x=>x.k===cho)){const k=cho;cho='';mo(k);$('san').scrollIntoView()}
+  if(cho&&HD.some(x=>x.k===cho)){const k=cho;cho='';mo(k);toiSan()}
   GV.loiRieng(window.LL_KHOA,code=>{const s=document.createElement('script');s.textContent=code;document.body.append(s)},$('khung'))}
 
 HD.push(...CONG);
