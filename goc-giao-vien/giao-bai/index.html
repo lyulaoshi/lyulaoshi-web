@@ -32,7 +32,8 @@
 .qr svg{width:100%;height:100%}
 @media (max-width:700px){.gui{grid-template-columns:minmax(0,1fr)}.qr{justify-self:center}}
 </style>
-<link rel="stylesheet" href="/chung/dau-trang.css?v=844009d7">
+<link rel="stylesheet" href="/chung/dau-trang.css?v=8f80d16d">
+<script src="/chung/ban-day-du.js?v=ad69273e"></script>
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192"><link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="apple-mobile-web-app-title" content="吕老师汉语盒"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
@@ -41,7 +42,7 @@
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand lld" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><span class="lld-logo logo" aria-hidden="true"><span class="lld-hop"><i class="lld-than"></i><i class="lld-nap"></i><i class="lld-bb"></i></span></span><span class="lld-ten"><span class="lld-zh" lang="zh">吕老师<span>汉语盒</span></span><span class="lld-en">Lyu Laoshi Chinese Box</span></span></a>
+  <a class="brand lld" href="../../" aria-label="Về trang chủ Lyu Laoshi Chinese Box"><span class="lld-logo logo" aria-hidden="true"><span class="lld-hop"><i class="lld-than"></i><i class="lld-nap"></i><i class="lld-bb"></i></span></span><span class="lld-ten"><span class="lld-zh" lang="zh">吕老师<span>汉语盒</span></span><span class="lld-en"><em>Lyu Laoshi</em> Chinese Box</span></span></a>
   <nav class="crumb"><a href="../" class="hide-s">Góc giáo viên</a><button class="themebtn" id="themeBtn" type="button" aria-label="Chuyển giao diện sáng / tối"></button></nav>
 </div></header>
 
@@ -50,7 +51,7 @@
   <a class="back" href="../"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#tg-trai"></use></svg>Góc giáo viên</a>
   <h1>Giao bài về nhà<span lang="zh">回家玩</span></h1>
   <p>Chọn bộ từ, chọn một game, gửi link. Học viên chơi hết ván thì gửi mã lại, thầy cô dán vào trang Thu bài để xếp hạng.</p>
-  <a class="btn gh" href="/chung/bai-nop.html?v=e8bfbb60" style="justify-self:start"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#thu"></use></svg>Thu bài, xếp hạng</a>
+  <a class="btn gh" href="/chung/bai-nop.html?v=803a75a8" style="justify-self:start"><svg class="lli" aria-hidden="true"><use href="/chung/ic.svg?v=39804db7#thu"></use></svg>Thu bài, xếp hạng</a>
 </section>
 <div id="vTao">
   <section class="khoi pn">
@@ -170,7 +171,7 @@ $('tTen').oninput=e=>{o.ten=e.target.value;tenTuDat=!!o.ten.trim();luu();ve()};
 $('tHan').value=o.han;$('tHan').oninput=e=>{o.han=e.target.value;luu();ve()};
 if(o.ten)$('tTen').value=o.ten;
 /* link cũ …/giao-bai/#ket-qua: chuyển sang trang Thu bài */
-if(location.hash==='#ket-qua')location.replace('/chung/bai-nop.html?v=e8bfbb60');
+if(location.hash==='#ket-qua')location.replace('/chung/bai-nop.html?v=803a75a8');
 GVT.nguon($('nguon'),(list,t)=>{tuBai=list;tenBai=t;capNhat()});
 capNhat();
 })();

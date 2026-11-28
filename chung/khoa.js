@@ -16,6 +16,6 @@ function quen(){['sessionStorage','localStorage'].forEach(n=>{try{window[n].remo
 async function thuNho(goi){for(const v of kho())if(v.s===goi.s){try{return await giai(goi,v.k)}catch(e){}}return null}
 /* mật khẩu sai thì ném lỗi */
 async function thuMatKhau(mk,goi,lau){const k=await sinh(mk,goi),t=await giai(goi,k);quen();
-  try{(lau?localStorage:sessionStorage).setItem(TEN,JSON.stringify({s:goi.s,k}))}catch(e){}return t}
+  try{(lau?localStorage:sessionStorage).setItem(TEN,JSON.stringify({s:goi.s,k}));dispatchEvent(new Event('ll-khoa'))}catch(e){}return t}
 window.LLKhoa={thuNho,thuMatKhau,quen,duoc:!!(window.crypto&&crypto.subtle)};
 })();
