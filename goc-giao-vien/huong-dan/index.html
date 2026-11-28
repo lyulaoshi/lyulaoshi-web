@@ -90,12 +90,12 @@
 <footer class="wrap">© 吕老师汉语盒 · Lyu Laoshi Chinese Box</footer>
 
 <script src="../gv.js?v=12"></script>
-<script src="../cong-cu.js?v=6441f4b4"></script>
+<script src="../cong-cu.js?v=41021874"></script>
 <script>
 (function(){
 const {$,esc,G}=GV;
 const TEN=['Chuẩn bị','Mở đầu, ôn bài cũ','Từ mới','Ngữ pháp','Bài khoá','Luyện nói','Trò chơi','Củng cố','Sau giờ học'];
-/* danh sách lấy thẳng từ cong-cu.js?v=6441f4b4: chỉ công cụ ai cũng dùng được */
+/* danh sách lấy thẳng từ cong-cu.js?v=41021874: chỉ công cụ ai cũng dùng được */
 const cc=(window.GV_CC||[]).filter(x=>!x.rieng&&!x.soon&&!x.chang&&x.url&&x.buoc);
 const duong=u=>/^(\/|https?:)/.test(u)?u:'../'+u;
 $('buoc').innerHTML=TEN.map((t,i)=>{const ds=cc.filter(x=>x.buoc===i+1).map(x=>[x.n,duong(x.url),x.p]);

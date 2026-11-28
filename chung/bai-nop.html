@@ -69,6 +69,8 @@ details li{margin:4px 0}
 </main>
 <footer class="wrap"><span id="chan" style="touch-action:manipulation;-webkit-user-select:none;user-select:none">© 吕老师汉语盒 · Lyu Laoshi Chinese Box</span></footer>
 <script src="/chung/nhiem-vu.js?v=ec8f1b20"></script>
+<script src="/chung/ic-ve.js?v=71346663"></script>
+<script src="/chung/xep-hang.js?v=b6926f56"></script>
 <script src="/tro-choi/giao-bai.js?v=3"></script>
 <script>
 (function(){
@@ -111,7 +113,9 @@ function ve(){
     const tb=hop('Trò chơi',x.ten,[x.g?x.g.t+' '+x.g.z:'',x.hang.length+' học viên đã nộp'].filter(Boolean).join(' · '),
       ['Hạng','Họ tên','Kết quả','Thời gian','Số lượt'],()=>{TRO=TRO.filter(r=>r.aid!==aid)});
     x.hang.forEach((r,i)=>{const tr=el('tr');o(tr,'Hạng',String(i+1));const ten=el('td');ten.appendChild(el('b',null,String(r.ten)));tr.appendChild(ten);
-      o(tr,'Kết quả',x.kq(r));o(tr,'Thời gian',giayChu(r.giay)||'—');o(tr,'Số lượt',String(so(r.max)));tb.appendChild(tr)})});
+      o(tr,'Kết quả',x.kq(r));o(tr,'Thời gian',giayChu(r.giay)||'—');o(tr,'Số lượt',String(so(r.max)));tb.appendChild(tr)});
+    if(window.XH)XH.nut(tb,()=>({bai:x.ten,phu:[x.g?x.g.t+' '+x.g.z:'Trò chơi',x.hang.length+' bạn đã nộp'].join(' · '),
+      hang:x.hang.map(r=>({ten:String(r.ten),kq:x.kq(r),tg:giayChu(r.giay)}))}))});
 }
 
 $('doc').addEventListener('click',()=>{
